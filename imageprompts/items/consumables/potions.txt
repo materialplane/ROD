@@ -1,0 +1,37 @@
+# ROD — Town Potions Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: docs/06-gear-and-runestones.md -> Section 6 (14 Potions + 2 Tab Crests)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 POTIONS PROMPT START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated glass fantasy RPG potion bottle fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, metal, bone, paper, and stone surfaces, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta liquids/gems/glows, and ZERO letters, numbers, or book-cover typography anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 potion flasks stand straight upright centered in crisp clean glass silhouettes on pure #FF00FF (strictly ZERO magenta/pink glass tints or glowing pink haze). Size each item cleanly to fill ~75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 16 distinct icons cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Minor Healing Potion): Small round stout corked glass apothecary bottle filled with warm bright ruby-red healing elixir and leather neck tie.
+Row 1, Col 2 (Stout Healing Potion): Sturdy broad bellied dark-greenish glass flask brimming with rich bright crimson-red stout healing liquid, brass neck ring.
+Row 1, Col 3 (Greater Healing Potion): Ornate tall faceted crystal teardrop bottle gleaming cleanly with luminous deep scarlet glowing potion and wax-sealed cork.
+Row 1, Col 4 (Supreme Healing Potion): Regal heavy gold-banded diamond glass decanter holding radiant pure crimson-gold supreme healing potion with golden stopper.
+
+Row 2, Col 1 (Minor Mana Potion): Compact square blue-tinted glass vial glowing calmly with crisp azure-blue mana liquid bound by simple twine cord.
+Row 2, Col 2 (Greater Mana Potion): Elegant curved pear-shaped crystal bottle brimming with vivid bright sapphire-blue mana draught, brushed silver collar.
+Row 2, Col 3 (Supreme Mana Potion): Grand highborn silver-caged tall crystal spire flask filled with shimmering radiant sky-blue mana potion and winged stopper.
+Row 2, Col 4 (Reviving Potion): Crisp emerald-and-gold round heart-flask containing swirling golden honey-amber reviving tonic capped with bright bronze seal.
+
+Row 3, Col 1 (Phoenix Potion): Magnificent sculpted winged-brass crystal vessel glowing brilliantly inside with fiery warm amber-orange & gold phoenix liquid.
+Row 3, Col 2 (Antidote Potion): Slender sharp green glass square vial holding vivid chartreuse-emerald herbal antidote potion and wooden leaf-shaped cork.
+Row 3, Col 3 (Cooling Potion): Frosted pale sky-blue curved bottle filled cleanly with refreshing icy cyan cooling potion, white linen wrap neck.
+Row 3, Col 4 (Warming Potion): Squat round warm dark-amber bottle brimming with cozy spiced golden-orange warming potion bound cleanly in red cloth collar.
+
+Row 4, Col 1 (Clarity Potion): Crisp faceted pale mint-aqua flask glowing cleanly inside with serene turquoise-mint clarity potion and silver wax cork.
+Row 4, Col 2 (Panacea Potion): Masterwork ornate rainbow-free pure luminous emerald-and-silver multi-collared chalice bottle holding crystal clear bright emerald-gold panacea potion.
+Row 4, Col 3 (Healing & Mana Potions Category Crest): Minimalist matte dark tarnished-bronze single-color-family iconic round corked potion bottle silhouette crest—NO outer pink glow, NO borders on pure #FF00FF.
+Row 4, Col 4 (Status Cure Potions Category Crest): Minimalist matte dark tarnished-bronze single-color-family iconic twin-vial curative apothecary crest emblem—NO glow, NO borders on pure #FF00FF.
+--- 4x4 POTIONS PROMPT END ---

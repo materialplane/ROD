@@ -1,0 +1,29 @@
+# ROD — 8 Dimensional Portal Catalysts ONLY (4x2 16:9 Sheet Prompt on #FF00FF)
+# Category Source: docs/04-world-and-realms.md -> Portals #1-#8 Catalysts (Zero Dungeon Keys!)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (16:9 aspect ratio, 4K)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x2 (~1376x1536 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x2 CATALYSTS PROMPT START (Copy from next line down — ALL 8 Cells) ---
+16:9 wide icon sprite sheet showing a STRICT 4x2 grid (EXACTLY 4 equal columns across by 2 equal rows down — 8 evenly spaced isolated fantasy Portal Catalyst artifact RPG icons total, NEVER 4x4, NEVER 3x3, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted stone, metal, crystal, amber, and engraved bronze/silver textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO Earth letters, numbers, or readable words anywhere.
+
+UNIFORM FRAMING & FORM FACTOR LOCK (7 ALIEN-RUNED CIRCULAR MEDALLIONS + 1 VALEN PENDANT EXCEPTION):
+- Cells 1 through 7 (Row 1 Cols 1–4 and Row 2 Cols 1–3) MUST ALL be clean, medium-sized, solid round circular beveled artifact medallions (discoid stones/metals) with completely smooth unbroken circular outer rims — STRICTLY ZERO necklace chains, ZERO hanging pendant loops or bail rings at the top, ZERO key shapes, ZERO keyholes, and ZERO human tools/symbols. Instead, decorate the face of each of the 7 circular medallions richly with unfamiliar, intricate alien cosmic geometric rune markings etched and softly glowing inside the carved circular stone/metal surface.
+- Cell 8 ONLY (Row 2, Col 4) is Valen's standalone royal silver Interlocking Wolf Pendant medallion (tiny forged silver pendant bail loop at top rim only — strictly ZERO necklace chains, ZERO chain links, ZERO cords).
+Size each item cleanly to fill ~68–72% of its invisible cell with generous pure flat #FF00FF magenta margin around all 4 edges.
+
+Render these exact 8 Portal Catalysts cleanly from Row 1 to Row 2, left to right:
+
+Row 1, Col 1 (Ashen Forge Catalyst): Medium circular dark charred volcanic basalt disk medallion beveled in hammered dark iron with unbroken round edge (zero top loop, zero chain) etched deeply across its round face with glowing molten amber-orange unfamiliar alien geometric rune markings.
+Row 1, Col 2 (Abyssal Brine-Pearl): Medium circular deep abyssal sea-teal glazed nacre and aged ocean-bronze medallion with unbroken round edge (zero top loop, zero chain) inlaid centrally with a pale brine-pearl orb ringed cleanly by luminous pale-aqua alien spiral rune markings.
+Row 1, Col 3 (Blood-Iron Catalyst): Medium circular scarred dark blood-iron and crimson-bronzed steel medallion with unbroken round edge (zero top loop, zero chain) carved deeply across its circular center with glowing crimson-orange alien interlocking angular rune markings.
+Row 1, Col 4 (Spore-Heart Amber): Medium circular polished golden-emerald fossilized amber crystal medallion set cleanly inside dark bronze edge rim with unbroken round contour (zero top loop, zero chain) etched internally with glowing bright lime-gold alien fractal rune markings.
+
+Row 2, Col 1 (Brass Cinder-Seal): Medium circular gleaming antique solar-brass and heat-blackened obsidian disk medallion with unbroken round edge (zero top loop, zero chain) intricately inlaid across its surface with bright fiery orange alien celestial rune markings.
+Row 2, Col 2 (Storm-Crown Lodestone): Medium circular swirling dark storm-slate lodestone and brushed star-steel medallion with unbroken round edge (zero top loop, zero chain) carved cleanly across its circular face with crackling bright lightning-gold alien tempest rune markings contained neatly inside the rim.
+Row 2, Col 3 (Pale-Abyss Ice-Seal): Medium circular faceted frozen glacier-blue crystal and dark winter-iron medallion with unbroken round edge (zero top loop, zero chain) engraved deeply across its round front with luminous icy-cyan alien geometric rune markings.
+Row 2, Col 4 (Interlocking Wolf Pendant): Valen's royal heirloom twin-wolf circular pendant medallion floating completely standalone with small plain silver top bail ring ONLY (strictly ZERO necklace chain links, ZERO cord, ZERO string), sculpted from two snarling royal silver wolf heads interlocking seamlessly nose-to-tail along a jagged center seam with subtle tarnished gold inner trim.
+--- 4x2 CATALYSTS PROMPT END ---

@@ -1,0 +1,51 @@
+# ROD — 1H Mace Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Bulwark & Herbalist -> Mace (1H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 1H medieval war-mace fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 items follow ONE identical 45-degree diagonal UI icon angle inside their cell: hilt/pommel toward the bottom-left corner and blade tip pointing cleanly toward the upper-right corner. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Oak Studded Mace): Humble scarred seasoned oak club mace banded around its bulbous wooden striking head with two crude hammered iron straps and heavy iron studs, rough cord grip.
+Row 1, Col 2 (Iron Flanged Mace): Classic heavy wrought-iron six-flanged knightly 1H mace mounted on a riveted dark iron shaft neck over scarred brown leather handle wrap and heavy ring pommel.
+Row 1, Col 3 (Bridgewarden War-Mace): Bridgewarden War-Mace — solid polished steel six-flange head crowned with top spike finial, brushed brass collar bands along seasoned ash shaft, tan leather grip.
+Row 1, Col 4 (Belaying Iron Mace): Belaying Iron Mace — heavy Saltwind sailor's bludgeon crafted from solid forged cast-iron belaying pin shape reinforced with thick bronze striking rings and knotted rope pommel.
+Row 1, Col 5 (Anchorhead Mace): Anchorhead Mace — dark coastal sea-iron heavy mace featuring thick four-flanged anchor-fluke head silhouette, salt-patina bronze shaft sleeve, dark leather grip, heavy cap.
+
+Row 2, Col 1 (Tidewater Flanged Mace): Tidewater Flanged Mace — refined coastal fortress 1H steel mace with gracefully scalloped marine-bronze edged flanges, brass finial spike, dark teal leather grip.
+Row 2, Col 2 (Siegebreaker Mace): Siegebreaker heavy iron trench mace fitted with chunky bolted iron smashing cylinder studded with thick square pyramidal spikes over steel-splinted ash shaft.
+Row 2, Col 3 (Redmarch Spiked Mace): Redmarch Spiked Mace — fierce garrison crimson-accented steel 1H morningstar-mace featuring dense radial iron spikes over deep matte red painted ball head, steel grip.
+Row 2, Col 4 (Bastion War-Mace): Bastion War-Mace — imposing steel eight-flanged warlord mace gleaming cold polished gray, heavy riveted brass shaft collar, ribbed crimson leather handle, heavy steel pommel.
+Row 2, Col 5 (Ironwood Knobbed Mace): Ironwood Knobbed Mace — dense heavy dark woodland ironwood-and-bronze war-club mace sculpted with natural heavy burl striking nodules reinforced by patinated bronze rings.
+
+Row 3, Col 1 (Root-Knotted Mace): Root-Knotted woodland mace combining gnarled dark elderwood shaft and heavy tangled sculpted bronze-and-iron root-cluster striking head with warm amber bead collar.
+Row 3, Col 2 (Oakheart Morning-Mace): Oakheart Morning-Mace — druid-warded heavy bronze star-spiked spherical mace head crowning dark polished oakwood handle wrapped in moss-green stitched leather.
+Row 3, Col 3 (Sun-Disk Bronze Mace): Sun-Disk Bronze Mace — gleaming heavy southern gilded-bronze flanged mace shaped cleanly with stepped radial sun-fin flanges over oiled desert hardwood grip.
+Row 3, Col 4 (Obsidian-Studded Mace): Obsidian-Studded Veridian mace featuring dark volcanic stone-and-iron striking sphere inset cleanly with sharp triangular obsidian teeth framed in brass bezels, tan grip.
+Row 3, Col 5 (Sandwall Heavy Mace): Sandwall Heavy Mace — desert garrison heavy bronze-and-dark-steel multi-flanged war-mace featuring pointed armor-punching crest top spike and braided camel-leather grip.
+
+Row 4, Col 1 (Quarry Iron Mace): Quarry Iron cold gray mountain mace carved in thick chiseled angular stone-breaker steel facets over heavy iron-banded ash haft and dark slate grip.
+Row 4, Col 2 (Crag-Breaker Mace): Crag-Breaker steel-and-bronze highland heavy flanged mace with broad toothed flanges shaped like jagged crag teeth, heavy steel knuckle strap, and forged iron pommel.
+Row 4, Col 3 (Anvilhall Forged Mace): Anvilhall Forged Mace — masterwork blackened star-iron heavy octagonal smashing mace inlaid cleanly with glowing warm forge-amber geometric seams along bright steel flanges.
+Row 4, Col 4 (Frost-Bound Mace): Frost-Bound Mace — grim northern forged-iron multi-flanged mace wrapped beneath the collar in crisp pale wolf-pelt strip, frost-etched cold steel edges, iron pommel.
+Row 4, Col 5 (Glacial Crusher Mace): Glacial Crusher heavy winter-iron mace carrying massive pale frosted-blue steel jagged flanges gleaming cold light, heavy riveted dark iron shaft, frost-blue wrap.
+
+Row 5, Col 1 (Permafrost War-Mace): Permafrost War-Mace — deadly endgame icy relic mace uniting dark abyssal iron shaft with massive faceted pale ice-cyan steel head flanges and spiked silver finial.
+Row 5, Col 2 (Siege-Breaker Mace): Siege-Breaker Dreadwaste dark-forged charcoal iron heavy war-mace trailing sharp molten-ember orange heat-veins cleanly between heavy spiked obsidian-iron flanges.
+Row 5, Col 3 (Dread-Iron War-Mace): Dread-Iron War-Mace — imposing spiked blackened star-steel gothic flange mace lacquered subtly with deep crimson crown collars, chained black leather grip, spiked pommel.
+Row 5, Col 4 (Citadel Shatterer): Citadel Shatterer — supreme Highcrown royal endgame mace boasting towering sculpted burnished gold-and-star-steel crown-flanged crushing head, blazing gold top finial, royal crimson grip.
+Row 5, Col 5 (Maces Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic flanged war-mace silhouette emblem at exact 45-degree angle—balanced six-flange head, slim shaft, round pommel with NO gems, NO glow, NO circle frame, and NO box border on pure #FF00FF.
+--- 5x5 PROMPT END ---

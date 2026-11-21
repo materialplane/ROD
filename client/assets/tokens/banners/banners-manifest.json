@@ -1,0 +1,149 @@
+{
+  "count": 16,
+  "banners": [
+    {
+      "slug": "banner_crown_loyalists",
+      "label": "Highcrown Loyalists",
+      "row": 0,
+      "col": 0,
+      "width": 181,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_crown_loyalists.webp"
+    },
+    {
+      "slug": "banner_free_towns",
+      "label": "Free Towns & Guilds",
+      "row": 0,
+      "col": 1,
+      "width": 185,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_free_towns.webp"
+    },
+    {
+      "slug": "banner_northern_clans",
+      "label": "Northern Clans",
+      "row": 0,
+      "col": 2,
+      "width": 180,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_northern_clans.webp"
+    },
+    {
+      "slug": "banner_house_hollowstone",
+      "label": "House Hollowstone",
+      "row": 0,
+      "col": 3,
+      "width": 184,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_house_hollowstone.webp"
+    },
+    {
+      "slug": "banner_slaver_syndicate",
+      "label": "Slaver Syndicate",
+      "row": 1,
+      "col": 0,
+      "width": 182,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_slaver_syndicate.webp"
+    },
+    {
+      "slug": "banner_bleakwatch_warlord",
+      "label": "Bleakwatch Warlord",
+      "row": 1,
+      "col": 1,
+      "width": 209,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_bleakwatch_warlord.webp"
+    },
+    {
+      "slug": "banner_king_garrick",
+      "label": "King Garrick",
+      "row": 1,
+      "col": 2,
+      "width": 194,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_king_garrick.webp"
+    },
+    {
+      "slug": "banner_reserve_silver_dawn",
+      "label": "Reserve: Silver Dawn Order",
+      "row": 1,
+      "col": 3,
+      "width": 182,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_silver_dawn.webp"
+    },
+    {
+      "slug": "banner_reserve_verdant_wardens",
+      "label": "Reserve: Verdant Wardens",
+      "row": 2,
+      "col": 0,
+      "width": 250,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_verdant_wardens.webp"
+    },
+    {
+      "slug": "banner_reserve_suncoast_maritime",
+      "label": "Reserve: Sun-Coast Maritime League",
+      "row": 2,
+      "col": 1,
+      "width": 229,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_suncoast_maritime.webp"
+    },
+    {
+      "slug": "banner_reserve_ironcrest_smiths",
+      "label": "Reserve: Ironcrest Smiths & Quarry Guild",
+      "row": 2,
+      "col": 2,
+      "width": 187,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_ironcrest_smiths.webp"
+    },
+    {
+      "slug": "banner_reserve_sunscorch_clans",
+      "label": "Reserve: Sunscorch Caravan Clans",
+      "row": 2,
+      "col": 3,
+      "width": 232,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_sunscorch_clans.webp"
+    },
+    {
+      "slug": "banner_reserve_redmarch_vanguard",
+      "label": "Reserve: Redmarch Vanguard",
+      "row": 3,
+      "col": 0,
+      "width": 177,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_redmarch_vanguard.webp"
+    },
+    {
+      "slug": "banner_reserve_saltwind_corsairs",
+      "label": "Reserve: Saltwind Corsairs",
+      "row": 3,
+      "col": 1,
+      "width": 185,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_saltwind_corsairs.webp"
+    },
+    {
+      "slug": "banner_reserve_archivist_circle",
+      "label": "Reserve: Highcrown Archivist Circle",
+      "row": 3,
+      "col": 2,
+      "width": 180,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_archivist_circle.webp"
+    },
+    {
+      "slug": "banner_reserve_coliseum_champions",
+      "label": "Reserve: Coliseum Pit Champions",
+      "row": 3,
+      "col": 3,
+      "width": 236,
+      "height": 256,
+      "assetPath": "assets/tokens/banners/banner_reserve_coliseum_champions.webp"
+    }
+  ]
+}

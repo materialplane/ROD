@@ -1,0 +1,359 @@
+# ROD — Circular VTT Overworld QUEST Marker Prompts (4x4 on #FF00FF)
+# Scope: Quest-Triggered Field Sites (Caves, Ruins, Shrines, Animal Dens, Dragon Lairs, Shipwrecks, Camps, Blockades & Standby Sites).
+# Note: All Permanent Towns, Villages, Outposts, Forts, Castles, Portals & Travel tokens live separately in imageprompts/location-markers.txt.
+# Target Model: models/gemini-3-pro-image (1:1, 4K) via Gemini Batch API (50% off)
+# Export Pipeline: Key #FF00FF, slice 4x4, export compressed 256x256 .webp for Game Client & Admin Suite.
+#
+# Frame Rule:
+#   - Quest Field Sites, Caves, Ruins, Shrines, Camps, Dens, Wrecks & Blockades: Scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+#   - Select fortified coastal/outpost pickets (Drydock Pier, Watch-Picket, Timber Palisade, Quays, Northern Timber Picket, Sea-Wall Gatehouse): Warm weathered bronze VTT ring.
+
+SHARED SHEET HEADER (Use at top of every 4x4 generation batch):
+1:1 square sheet showing a cleanly aligned 4x4 grid of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+
+================================================================================
+SECTION A: ALREADY GENERATED & ACTIVE QUEST MARKERS (Batches 1–3, SUCCEEDED)
+================================================================================
+
+--- MAP 1 QUEST SITES (Regions 1–2) ---
+- [Sheet 1 (1,3)] BRAMBLEWATCH CAVE [Iron Ring]: Dark jagged cliffside rocky cavern mouth framed by tangled thorny brambles, rough timber bandit barricade stakes outside the dark cave opening, and scattered wooden crates.
+- [Sheet 7 (1,1)] SMUGGLER'S CAVE [Iron Ring] (Dryland Replacement): Hidden rocky mountain cliffside cave mouth tucked under steep stone ledges with stacked contraband wooden barrels, ironbound supply chests, glowing brass lantern, and rough timber stakes on dry rocky dirt (STRICTLY NO ocean, NO beach, NO water).
+- [Sheet 1 (2,4)] DROWNED BELLTOWER [Iron Ring]: Half-submerged weathered gothic stone church belltower rising tilt-wise out of murky coastal shallows, mossy broken stone archway, leaning bronze bell visible at top, and reeds circling the flooded flagstones.
+- [Sheet 1 (3,3)] OVERTURNED GRAIN WAGONS [Iron Ring]: Ambush scene on a dirt country lane — two wooden supply wagons tipped sideways with splintered spoked wheels, torn burlap grain sacks spilled across grass, and broken fence rails.
+- [Sheet 1 (3,4)] BANDIT BOUNTY CAMP [Iron Ring]: Rough lawless roadside outlaw encampment in muddy woods — tattered patched canvas lean-to tents, crackling stone-ring campfire, sharpened wooden palisade stakes, and iron supply chests.
+- [Sheet 1 (4,1)] ALPHA WOLF HOLLOW [Iron Ring]: Dark rocky hillside clearing and jagged stone overhang cave den scattered with weathered bones beside dark pine trees and misty shadows.
+- [Sheet 1 (4,2)] SHATTERED MILL-TOWER [Iron Ring]: Ruined hilltop stone windmill spire with cracked stone masonry, broken timber sail-beams jutting from the roof, and fallen stone gargoyle rubble around its grassy base.
+- [Sheet 1 (4,3)] CRACKED COASTAL LIGHTHOUSE [Iron Ring]: Tall weathered seaside stone lighthouse standing on jagged coastal rocks above dark-teal surf, unlit lantern glass dome at the peak and stone stairs winding up its flank.
+- [Sheet 1 (4,4)] TIDE-CARGO SANDBARS [Iron Ring]: Exposed coastal low-tide sandbars and shallow surf flats dotted with half-buried waterproof merchant cargo crates, ironbound supply chests, and a splintered wooden rowboat hull.
+- [Sheet 5 (1,2)] RIFT CONSTRUCT ROAD AMBUSH [Iron Ring]: Heartland dirt crossroad ambush site scattered with overturned repair rivet crates, broken iron wagon axle, and shattered glowing stone construct fragments beside wild grass.
+- [Sheet 5 (1,3)] SALTWIND DRYDOCK PIER [Bronze Ring]: Busy weathered coastal stone-and-timber drydock slipway framing a half-repaired oak ship hull on wooden keel blocks beside rope coils and carpenter tool chests.
+- [Sheet 5 (1,4) RETIRED — REPLACED IN QUEST SHEET C] MARSH SIGNAL LANTERNS (water boardwalk retired; replaced by dry marsh trail poles).
+- [Sheet 6 (3,1) RETIRED — REPLACED IN QUEST SHEET C] MARSH CAUSEWAY AMBUSH (stone water-bridge art retired; replaced by dry dirt-and-cobble track).
+- [Sheet 7 (1,3)] MILLBROOK WEST PALISADE [Iron Ring] (Dryland Replacement): Fortified dry dirt-road timber blockade — sharpened oak defense stakes flanking a sturdy wooden frontier watch-gatehouse, stacked ironbound supply barrels, and crimson-trimmed guard shields on dry grassy dirt (STRICTLY NO river, NO stream, NO bridge, NO water).
+
+--- MAP 2 QUEST SITES (Regions 3–4) ---
+- [Sheet 2 (1,2)] WIDOW'S WATCHTOWER [Iron Ring]: Lone weathered frontier stone watchtower perched atop a windswept highland crag with timber roof balcony, smoking iron beacon basket, and stacked stone lookout wall.
+- [Sheet 2 (1,4)] CINDERPIT MINES [Iron Ring]: Deep timber-braced iron mine shaft opening cut into rocky hillside, narrow iron ore-cart rail tracks emerging onto a gravel loading deck with overturned rusted minecart and pickaxes.
+- [Sheet 2 (2,3)] OAKHOLLOW RUINS [Iron Ring]: Silent overgrown abandoned forest hamlet of charred sunken timber frames, collapsed stone cottage chimneys, dead mossy oak roots, and misty gray twilight hush.
+- [Sheet 2 (2,4)] THORNROOT CAVERN [Iron Ring]: Twisted subterranean cave entrance choked by massive gnarled roots and creeping pale fungal spores oozing faint chartreuse mist out over damp forest rocks.
+- [Sheet 2 (3,1)] ELDERWOOD SHRINE [Iron Ring]: Ancient moss-crusted standing stone obelisk and circular stone altar nestled in a quiet sunlit emerald glade ringed by towering old forest boughs.
+- [Sheet 2 (3,3)] DESERTERS' CANYON DEPOT [Iron Ring]: Hidden rocky gorge camp stockpiled with stolen iron weapon racks, canvas supply tarps, stacked wooden shields, and a smoking iron brazier.
+- [Sheet 2 (3,4)] TORCHED BORDER FARMSTEAD [Iron Ring]: Burned highland stone barn and blackened wooden cottage timbers still trailing thin charcoal wisps beside trampled wheat and split fences.
+- [Sheet 2 (4,1)] CLIFFSIDE SIGNAL BATTERY [Iron Ring]: Elevated stone artillery terrace overlooking a highland pass with heavy bronze siege catapult, iron fire-pots, and timber sandbag wall.
+- [Sheet 2 (4,2)] BLIGHTED LOGGING CAMP [Iron Ring]: Quarantined woodland lumber clearing with stacked moss-stained felled pine logs, abandoned sawyers' timber huts, and dark fungal growths creeping across stumps.
+- [Sheet 2 (4,3)] WEBBED SPIDER GROVE [Iron Ring]: Eerie shadowed pine thicket draped head-to-foot in thick silver-gray silk cobwebs cocooning fallen timber crates beneath twisted dark branches.
+- [Sheet 2 (4,4)] INFECTED ROAD SHRINE [Iron Ring]: Small weathered stone roadside chapel beside an ancient dirt path, stained with dark creeping purple fungal tendrils bursting from a cracked stone well beside it.
+- [Sheet 5 (2,1)] FORWARD BORDER WATCH-PICKET [Bronze Ring]: Elevated frontier log-and-stone ridge dispatch picket with sloped shingle shelter, crimson-trimmed border watch-pennant, and tethered courier saddlebags.
+- [Sheet 5 (2,3)] BRIARWOOD TIMBER PALISADE [Bronze Ring]: Forest-edge sharpened timber stockade gatehouse beside stacked split oak firewood, hunter drying racks, and warm lantern sconces among tall pines.
+- [Sheet 6 (3,2)] SHRINE ROAD OOZE CLEARING [Iron Ring]: Leaf-strewn cobblestone forest shrine lane where a weathered brass abbey bell sits glinting beside glistening translucent chartreuse slime pools on damp rocks.
+
+--- MAP 3 QUEST SITES (Regions 5–6) ---
+- [Sheet 3 (1,2)] GLASSWIND CAVERN [Iron Ring]: Desert sandstone cliff opening glittering with jagged heat-fused amber and translucent ruby-glass crystal formations jutting from wind-carved rock.
+- [Sheet 3 (3,3)] VOLCANIC SPICE WAREHOUSE [Iron Ring]: Sun-baked stone harbor depot courtyard split by glowing magma floor cracks emitting orange heat-smoke beside spilled spice barrels.
+- [Sheet 3 (3,4)] DRY DESERT WELLHEADS [Iron Ring]: Sun-cracked desert mud flat with collapsed stone well curb, splintered wooden bucket pulley, and seismic sinkhole cracks spiraling across golden dunes.
+- [Sheet 3 (4,1)] PETRIFIED SEA-CLIFF SHELTER [Iron Ring]: Jagged desert sea-cliffs overlooking foaming waves where a tattered fisherman shelter stands beside polished bronze mirror-shields and weathered pale stone statues.
+- [Sheet 3 (4,2)] WATER-CARAVAN CROSSING [Iron Ring]: Desert sand trail halted beside wooden water-cask wagons ringed by defensive spear stakes and desert rock cover.
+
+--- MAP 4 QUEST SITES (Regions 7–8) ---
+- [Sheet 4 (1,2)] WHISPERING FJORD [Iron Ring]: Half-frozen dark-navy fjord bay holding the shattered frost-encrusted hull and broken mast of a sunken royal warship wedged among drifting ice floes.
+- [Sheet 4 (1,3)] GLACIER VAULT [Iron Ring]: Gleaming jagged cobalt-blue glacier cavern mouth carved beneath towering crystalline ice cliffs with frozen pale frost-smoke spilling out.
+- [Sheet 4 (2,3)] SHATTERED COLISEUM OUTSKIRTS [Iron Ring]: Broken curved sandstone-and-basalt amphitheater arches half-buried in gray ash beside scarred arena stone pillars and shattered iron spears.
+- [Sheet 4 (2,4)] THE BONE RELIQUARY [Iron Ring]: Bleak obsidian crypt stairway descending between jagged basalt skull-free tomb pillars and flickering cold blue torches into pitch-black underground catacombs.
+- [Sheet 5 (3,2)] RIMEPORT HEADLAND BEACON [Iron Ring]: Frost-encrusted circular coastal stone headland tower topped with an unlit great forged-iron coal brazier basket overlooking icy dark harbor surf.
+- [Sheet 5 (3,3)] NORTHERN TIMBER PICKET [Bronze Ring]: Snow-capped pine clearing lumber camp with two steep-roofed timber log cabins, stacked snow-dusted pine trunks, and warm glowing hearth chimneys.
+- [Sheet 5 (3,4)] RIMEPORT SEA-WALL GATEHOUSE [Bronze Ring]: Ice-rimmed gray granite harbor fortification gatehouse featuring a raised iron portcullis archway, lantern sconces, and snow-packed harbor cobbles.
+- [Sheet 5 (4,1)] FROZEN LABOR STOCKADE [Iron Ring]: Bleak snow-swept northern prison compound ringed by spiked dark timber palisade walls, iron-barred cage wagon, and frozen timber watch-platform.
+- [Sheet 5 (4,2)] ASH-WALL FORWARD TRENCH [Iron Ring]: Volcanic gray ash battlefield forward trench fortified with angled blackened steel pike stakes, woven earth sandbags, and discarded soldier shields.
+- [Sheet 5 (4,3)] VOID-FOG WATCH BRAZIER [Iron Ring]: Tall forged-iron sentry brazier stand half-swallowed by creeping cold pale-violet fog beside cracked dark obsidian perimeter stones on scorched ash soil.
+- [Sheet 5 (4,4)] FORWARD SIEGE BATTERY [Iron Ring]: Armored wooden siege powder-wagons parked behind iron-banded oak mantelet shields beside heavy catapult timbers on dark volcanic flatlands.
+
+--- STANDBY WILDLAND, BARN & QUEST-SITE TOKENS (Sheets 6 & 7) ---
+- [Sheet 6 (4,1)] RIVAL HOUSE PATROL BARRICADE [Iron Ring]: Country dirt road choked by painted wooden tower-shield barricades, dark canvas soldier camp tent, and stacked iron halberds beside grass.
+- [Sheet 6 (4,2)] PORTAL RIFT MONSTER NEST [Iron Ring]: Scarred rocky wilderness hollow scattered with shed chitinous shell fragments, bleached wildlife bones, and dimly glowing crystalline egg clusters.
+- [Sheet 6 (4,3)] WILD BEAST HUNTING TERRITORY [Iron Ring]: Shadowed pine woodland clearing marked by a deeply clawed dead oak trunk, mossy boulder overhang, and muddy beast trail curving into dark brush.
+- [Sheet 6 (4,4)] RAIDED BORDER SHEPHERD BARN [Iron Ring]: Small weathered timber shepherd sheepfold barn beside split-rail pasture fencing, spilled hay bales, and broken wooden gate planks on green grass.
+- [Sheet 7 (2,1)] WOODLAND BEAST DEN [Iron Ring]: Dark mossy forest overhang cave burrow beneath twisted ancient roots with scattered weathered animal bones, claw marks on damp stone, and muddy paw trail.
+- [Sheet 7 (2,2)] ALPINE CRAG BEAR DEN [Iron Ring]: High jagged mountain stone fissure shelter dusted with cold slate scree and pine needles beside scratched boulders and gnawed bones.
+- [Sheet 7 (2,3)] SCORCHED DRAGON LAIR [Iron Ring]: Blistered volcanic basalt cavern mouth stained with dark soot, glowing charcoal embers, scorched knight shields, and scattered glinting silver treasure scraps.
+- [Sheet 7 (2,4)] STORM-CRAG DRAGON ROOST [Iron Ring]: High windswept granite cliff ledge nest woven from charred pine timbers, huge shed sapphire-blue scales, and cracked giant eggshell shards amidst rocky peaks.
+- [Sheet 7 (3,1)] COASTAL SAND-BAR SHIPWRECK [Iron Ring]: Split sun-bleached wooden merchant galleon hull listing sideways in shallow turquoise surf and golden sand beside half-buried sea chests and torn sails.
+- [Sheet 7 (3,2)] REEF-SHATTERED CORSAIR WRECK [Iron Ring]: Broken dark timber warship bow impaled upon jagged black coastal sea-rocks amidst foaming shallow tide pools and barnacle-crusted cannons.
+- [Sheet 7 (3,3)] FROST-BOUND ICEBERG WRECK [Iron Ring]: Crushed northern timber longship wedged sideways into pale blue glacial ice floes and snowdrifts with frost-caked rigging.
+- [Sheet 7 (3,4)] SUNKEN HARBOR WATCHTOWER [Iron Ring]: Collapsed coastal sandstone watchtower half-leaning on wet shoreline boulders with broken iron fire brazier and mossy tide-washed steps.
+- [Sheet 7 (4,1)] FOREST OUTLAW STOCKADE [Iron Ring]: Hidden deep-woods human bandit and poacher camp behind crooked log palisades with dark patched leather tents, stolen supply crates, and smoking stone-ring campfire.
+- [Sheet 7 (4,2)] HIGHLAND MARAUDER CAMP [Iron Ring]: Rocky highland canyon deserter camp with spiked wooden shields, iron weapon racks, scarred stone firepit, and ragged war-banners.
+- [Sheet 7 (4,3)] DESERT NOMAD RAIDER CAMP [Iron Ring]: Sun-baked desert canyon slaver-raider outpost with draped tattered canvas awnings, stacked clay spice jars, wooden crates, and barred iron cages on golden sand.
+- [Sheet 7 (4,4)] ABANDONED MINE WATCH-SHACK [Iron Ring]: Dilapidated weathered hillside miner timber shack and rusted overturned iron ore-cart outside a boarded rocky mine tunnel with overgrown weeds.
+
+--- RETIRED WRONG-BIOME QUEST TOKENS (Replaced in Section B) ---
+- [Sheet 1 (2,3) RETIRED] SMUGGLER'S COVE (water inlet art — replaced by Sheet 7 (1,1) dry mountain cave).
+- [Sheet 6 (3,3) RETIRED] MILLBROOK WEST TIMBER SPAN (river bridge — replaced by Sheet 7 (1,3) dryland palisade).
+- [Sheet 3 (2,4) RETIRED] FROSTFANG TUNNEL (icy cave — replaced below by Ironvein Cavern).
+- [Sheet 3 (3,1) RETIRED] SKYBRIDGE RUINS (abyssal gorge bridge — replaced below by Lakeside Temple Ruins).
+- [Sheet 3 (4,3) RETIRED] EAGLE LEDGE WAYSTATION (snowy ledge — replaced below by snow-free Crag-Ledge Waystation).
+- [Sheet 3 (4,4) RETIRED] GORGE AQUEDUCT SLUICE (gorge channel — replaced below by Cragwater Storm-Stone).
+- [Sheet 5 (2,2) RETIRED] RED GORGE SIEGE-WAGON BLOCKADE (red canyon — replaced below by Slate-Crag Pass Blockade).
+- [Sheet 5 (2,4) RETIRED] SOUTHERN CORSAIR QUAY (gray stone — replaced below by desert Corsair Trading Quay).
+- [Sheet 5 (3,1) RETIRED] AVALANCHE SWITCHBACK PASS (snowslide — replaced below by Granite Scree Pass).
+- [Sheet 6 (3,4) RETIRED] ANVILHALL GATE SWITCHBACK AMBUSH (snowy road — replaced below by snow-free Anvilhall Forge Approach).
+
+
+================================================================================
+SECTION B: QUEST MARKER SHEETS A–H (128 Tokens Across 8 x 4x4 Sheets — Sheet A SUCCEEDED, Sheets B–H Staged for Batch)
+================================================================================
+
+================================================================================
+QUEST SHEET A (4x4, 16 Tokens): MAP 2–3 FIXES (8) + 4 SINGLE SHIPWRECKS (4) + 4 QUEST SITES (4)
+================================================================================
+1:1 square sheet showing a cleanly aligned 4x4 grid of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give the desert trading pier at (1,2) a warm weathered bronze VTT ring; give all other Ruins, Caverns, Passes, Blockades, Camps, and Single Shipwrecks a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1 (Map 2 & Map 3 Biome Fixes — Warm Highlight, Zero Red Canyon, Desert Quay, Zero Snow):
+- (1,1) SLATE-CRAG PASS BLOCKADE [Iron Ring]: Narrow highland mountain trail flanked by pale gray-slate rock outcrops and golden-ochre grass where a heavy ironbound siege wagon sits halted behind rough timber roadblock stakes (STRICTLY NO red desert rock).
+- (1,2) CORSAIR TRADING QUAY [Bronze Ring]: Sun-baked golden sandstone southern desert port trading pier beside turquoise water, shaded striped canvas awnings, terracotta spice amphorae, stacked timber crates, and moored corsair skiffs (NO gray northern stone).
+- (1,3) IRONVEIN CAVERN [Iron Ring]: Dry gray-granite mountain cavern tunnel entrance framed by green alpine pine boughs, wooden mine support beams, glinting blue star-iron ore veins in rock, and spilled lantern crate (STRICTLY NO snow, NO ice).
+- (1,4) LAKESIDE TEMPLE RUINS [Iron Ring]: Ancient weathered broken gray-granite temple pillars and mossy carved stone sanctuary courtyard standing cleanly on dry green alpine meadow grass and pine needles (STRICTLY ON DRY GRASSY LAND — ZERO lake, ZERO river, ZERO water, ZERO bridge, ZERO snow).
+
+ROW 2 (Map 3 Region 6 Snow-Free Green Granite Quest Fixes):
+- (2,1) GRANITE SCREE PASS [Iron Ring]: Winding green-and-gray alpine dirt trail blocked by tumbled gray granite rockslide boulders, splintered warning signpost, and green pine trees (STRICTLY NO snow).
+- (2,2) CRAG-LEDGE WAYSTATION [Iron Ring]: Weathered timber-and-granite mountain refuge cabin perched on a gray rock overlook beside green alpine grass and pine trees with sturdy rope guardrails (STRICTLY NO snow).
+- (2,3) CRAGWATER STORM-STONE [Iron Ring]: Ancient moss-and-granite standing ring of carved monolith stones on sunny dry green highland meadow grass, crackled with glowing sapphire lightning arcs around the center altar stone (STRICTLY ON DRY GRASSY LAND — ZERO dam, ZERO weir, ZERO lake, ZERO river, ZERO water, ZERO snow).
+- (2,4) ANVILHALL FORGE APPROACH [Iron Ring]: Dusty gray-granite and green grassy mountain road outside stone keep approaches strewn with an overturned ironbound ore wagon, spilled black star-iron ore rocks, and splintered crates (STRICTLY NO snow).
+
+ROW 3 (4 Distinct Single Shipwreck Tokens — Strictly 1 Single Wrecked Vessel Inside Each Circle):
+- (3,1) SUNK WARSHIP WRECK [Iron Ring]: One single shattered royal naval armored warship hull washed high and dry onto a pale golden sandy beach and dry coastal grass — full wooden hull resting completely on dry beach ground, splintered cannon gunports, snapped mainmast, and tattered crimson war-pennant (STRICTLY 1 ship resting on dry beach land, NO ship floating in deep ocean).
+- (3,2) WRECKED MERCHANT GALLEON [Iron Ring]: One single cracked broad-bellied wooden merchant trading galleon listing sideways on a dry golden sand beach — torn cream canvas sails, spilled ironbound spice casks, and broken cargo crane (STRICTLY 1 ship resting on dry sand beach).
+- (3,3) SMUGGLER BRIGANTINE WRECK [Iron Ring]: One single sleek dark-timber corsair smuggler brigantine washed high and dry ashore onto dry tan sand and rugged coastal rocks — full hull resting on dry land with tangled rope rigging, washed-up iron lockbox chest, and cracked rudder (STRICTLY 1 ship resting on dry beach land, NO ship floating in deep ocean).
+- (3,4) NORTHERN LONGSHIP WRECK [Iron Ring]: One single carved dragon-prow northern clinker-built timber longship washed high ashore onto snowy rocky beach ground beside snowdrifts — battered round wooden shields along the gunwale and snapped oar shafts (STRICTLY 1 ship resting on snowy rocky beach land, NO ship floating in deep ocean).
+
+ROW 4 (4 New Quest-Triggered Field Sites From 178 Quests):
+- (4,1) GOBLIN BORDER ENCAMPMENT [Iron Ring]: Crude wild goblin raiding camp tucked beside gray rocks and grass — crooked lashed bone-and-timber spike palisade, patched green hide tents, iron stewpot over coals, and notched shields.
+- (4,2) ECLIPSE CULTIST CLIFF ALTAR [Iron Ring]: Dark volcanic obsidian ritual platform atop scarred black basalt stone with cracked violet-etched altar slab, cold wrought-iron candelabra, and tattered black eclipse banners.
+- (4,3) SCORCHED SCALE-BEAST NEST [Iron Ring]: Charred stone-and-mud monster nesting hollow littered with giant shed iridescent scales, scorched driftwood logs, and broken eggshell shards beside glowing warm rocks.
+- (4,4) RUINED BARRICADE WATCHPOST [Iron Ring]: Shattered frontier stone roadblock wall and overturned supply cart along a dusty dirt track with dropped steel halberds, splintered barrels, and tattered cloak.
+
+
+================================================================================
+QUEST SHEET B (4x4, 16 Tokens): UNIQUE QUEST SITES (R1–R2)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1:
+- (1,1) DRY AQUEDUCT DRAINAGE GATE [Iron Ring]: Dry mossy limestone drainage archway protruding from a grassy green Crownlands hillside just outside stone capital ruins, heavy iron bar-grate pried half-open over dry cobblestone runoff, dropped wooden torch crates, and wolf tracks in dirt (STRICTLY DRY — NO river, NO water).
+- (1,2) BRUSHWOOD SALVAGE HOLLOW [Iron Ring]: Sun-dappled green meadow clearing tangled with wild briar bushes beside a spilled wooden blacksmith repair handcart, scattered iron tongs, anvil block, whetstone crate, and mossy stone fragments.
+- (1,3) RUINED WALL CAMPFIRE [Iron Ring]: Crumbling ivy-wrapped green limestone garden wall corner overlooking sunny green meadow grass, makeshift oak spear stakes, smoldering watchfire, and discarded crossbow bolts on cobblestones.
+- (1,4) OLD ORCHARD POACHER CAMP [Iron Ring]: Sunlit green Crownlands apple orchard with gnarled flowering fruit trees, overturned wooden cider barrels, canvas bandit lean-to tent, crackling campfire, and stolen apple crates on emerald grass.
+
+ROW 2:
+- (2,1) WEBBED PLOUGH-HILL BURROW [Iron Ring]: Grassy Crownlands earthen burrow mouth wedged beneath mossy gray boulders outside farmland, tangled with thick white spider webs wrapping a rusted iron ploughshare and wooden cart wheels (NO snow).
+- (2,2) ASH-SACK STASH CLEARING [Iron Ring]: Sunny green meadow clearing with a half-burned wooden farm wagon, spilled black charcoal dust, stolen iron-banded strongbox resting beside green tree stumps, and makeshift bandit bedrolls.
+- (2,3) SOUTHERN SEED-WAGON TURN [Iron Ring]: Dry packed-dirt country road curving past golden-green wheatfields and stacked hay bales, showing a stopped wooden seed-sack wagon flanked by glittering hovering steel longswords and dropped guard shields.
+- (2,4) CHOKING CHALK-PIT VENT [Iron Ring]: Abandoned gray-limestone chalk quarry cut into a green grassy Crownlands hillside with tilted timber shoring, swirling clouds of glowing ochre ash dust pouring from a dry cave adit, and abandoned wheelbarrows.
+
+ROW 3:
+- (3,1) ANKHEG RIDGE BURROWS [Iron Ring]: Sunlit green-and-slate ridge trail collapsed into giant clawed earthen sinkhole tunnels with overturned royal saddlebags, scattered dispatch scrolls, and glistening acid-scarred limestone rocks.
+- (3,2) SCORCHED SENTINEL KNOLL [Iron Ring]: Grassy green highland knoll near dark stone ruins bearing a toppled glowing forge-rune obelisk, half-assembled iron construct plates scattered on turf, and scorched sentry shields.
+- (3,3) EASTERN RIDGE BEACON [Iron Ring]: Exposed green hillside rock terrace holding a low circular stone watch-beacon filled with stacked dry pinewood, flickering torch braziers, and weathered slate boulders overlooking dark woods.
+- (3,4) SALTWIND SHORELINE CHAPEL RUINS [Iron Ring]: Tilted weathered limestone church belltower ruins resting firmly on solid wet green coastal marshland earth and muddy turf beside tall cattail reeds (STRICTLY ON SOLID MARSH BANK — NO tower standing in open deep water), cracked bronze bell visible and locked slaver sea-chest.
+
+ROW 4:
+- (4,1) BRINECLIFF STONE BREAKWATER [Iron Ring]: Massive pale-gray coastal limestone headland terrace and stepped seawall rampart above white sea spray, scattered iron harpoons, smashed signal barrels, and wet coastal flagstones.
+- (4,2) BONE-CHIME SEA HOLLOW [Iron Ring]: Wind-carved pale limestone sea-cliff arch above grassy headland with dangling driftwood bone chimes, bubbling iron cauldron beside damp stone cleft, and scattered kelp ropes (dry walkable ledge).
+- (4,3) MARSH SIGNAL LANTERN PATH [Iron Ring]: Muddy walkable emerald-green saltmarsh earth trail winding through tall reeds and mossy peat hummocks, marked by crooked wrought-iron oil lantern poles casting warm amber light on dry turf (STRICTLY NO boardwalk over water, NO open sea).
+- (4,4) REED-BANK POACHER MOUND [Iron Ring]: Dry grassy wetland island clearing in the emerald marsh with upside-down wooden skiffs propped as lean-tos, drying fish-net racks, smoldering turf firepit, and stolen salt-fish barrels.
+
+
+================================================================================
+QUEST SHEET C (4x4, 16 Tokens): UNIQUE QUEST SITES (R2–R3)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1:
+- (1,1) TIDAL MUD-TRACK CAMP [Iron Ring]: Muddy coastal saltmarsh dirt cart-path bordered by tall rushes and slick wet boulders where heavy salt-pork crates lie spilled beside overturned hand-barrows and huge curling tentacle tracks.
+- (1,2) SALTMARSH COBBLE ROAD AMBUSH [Iron Ring]: Raised dry dirt-and-cobblestone marsh causeway track cutting across solid emerald turf and tall cattails with a tipped apothecary wooden handcart and shattered glowing green glass cure vials (STRICTLY DRY LAND PATH — ZERO water, ZERO river, ZERO stone bridge).
+- (1,3) MIREWATCH WELLHEAD CISTERN [Iron Ring]: Mossy circular gray-stone drinking cistern wellhead surrounded by wet peat earth, wooden water buckets, iron hoist frame, and glowing translucent teal elemental ripples inside the stone ring.
+- (1,4) CHUUL CLAW-MOUND HOLLOW [Iron Ring]: Foul marsh mud clearing piled with giant cracked lobster-like chitin shells, snapped iron spears, bog roots, and gnawed armor plates on muddy green turf.
+
+ROW 2:
+- (2,1) MUD-BANK FERRY POST [Iron Ring]: Sandy coastal ferry landing bank on solid shore with coiled thick mooring ropes, lantern post, overturned wooden passenger chest, and weird glowing eye-studded ooze splotches on muddy grass.
+- (2,2) SUNKEN-BANK VAULT STONES [Iron Ring]: Toppled mossy stone tax-office walls on dry coastal earth beside green marsh grass, revealing an overturned heavy riveted iron admiralty strongbox locked behind rusted chains.
+- (2,3) TIDEWATER CAUSEWAY APPROACH [Iron Ring]: Fortified wet coastal cobble road approach lined with stone dragon-teeth barriers, heavy timber chevaux-de-frise spikes, glowing iron defense braziers, and green headland turf.
+- (2,4) OUTER VAULT DRAIN-CELLAR [Iron Ring]: Open mossy stone staircase descending into a dry cut-limestone cellar doorway flickering with pale violet interior glow (strictly dry stones, zero water).
+
+ROW 3:
+- (3,1) SHELLBACK SHORE BLUFF [Iron Ring]: Craggy dark tidal basalt rocks along a wet coastal shore beach scattered with shattered ship cannon, massive clawed reptile tracks in wet sand, and glowing abyssal sea-salt crystals.
+- (3,2) OCHRE MOOR WOLF-RUN [Iron Ring]: Dry golden-ochre highland moorland trail dotted with weathered gray-slate boulders, scattered mule harness bones, torn crimson garrison pennants, and wolf-dug hollows (NO snow, NO red rock).
+- (3,3) STONE-FLOCK GRAZING DOWNS [Iron Ring]: Golden-ochre highland grass grazing pasture fenced by split oak rails containing two pale lifelike stone sheep statues, scattered black-and-bronze feathers, and a wooden water trough (NO snow).
+- (3,4) OCHRE HILLS CAPTIVE PEN [Iron Ring]: Golden-ochre highland hillside beside gray-slate rock outcrops holding a rough log prisoner cage pen, dark gray mercenary tents, tied wool bundles, and iron spear stands (NO red sandstone).
+
+ROW 4:
+- (4,1) OUTER GOLDEN THRESHING YARD [Iron Ring]: Golden-ochre wheatfield harvest yard outside cottages with stacked tall gold haystacks, wooden winnowing forks, overturned harvest cart, and arrow-pierced flour sacks (NO water mill, NO river).
+- (4,2) SLATE HOLLOW SMELT-CAVE [Iron Ring]: Gray-slate highland rocky cave cleft on golden-ochre hillside containing stacked shiny iron bar ingots, oversized bone club leaning against stone, and glowing blue raw iron ore crystals.
+- (4,3) UPPER SLATE BEAR DEN [Iron Ring]: Steep gray-slate highland boulder overhang over golden-ochre dry grass strewn with splintered wooden pickaxe crates, deep bear claw marks on slate rock, and honey-comb jars (NO snow).
+- (4,4) THORNWALL EYRIE SPIRE [Iron Ring]: Jagged gray-slate highland cliff pinnacle above golden-ochre grass holding a woven giant twig-and-horse-bone aerial eyrie nest scattered with golden feathers and chewed leather saddles.
+
+
+================================================================================
+QUEST SHEET D (4x4, 16 Tokens): UNIQUE QUEST SITES (R3–R4)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1:
+- (1,1) MOORLAND BOLT-WAGON AMBUSH [Iron Ring]: Open golden-ochre highland moor trail beside gray-slate rocks showing a heavily armored timber ballista-bolt wagon with iron wheel rims, spilled oversized steel siege bolts, and fire-pot flasks.
+- (1,2) HOLLOWSTONE INNER WAR-HALL [Iron Ring]: Fortified noble stone castle inner courtyard hall doorway flying torn slate-blue Hollowstone heraldic standards, crossed steel claymores, and heavy chained iron brazier pit on golden-lit flagstones.
+- (1,3) HOLLOWSTONE BAILEY CELLS [Iron Ring]: Heavy gray-stone castle bailey prison stair descending under an iron-barred dungeon gatehouse on golden highland grass, with discarded rusted shackles and jailer keyring lantern.
+- (1,4) STEWARD'S VAULT TOWER [Iron Ring]: Tall gray-slate square archive watch-turret perched on golden highland stone with broken iron shutters, spilled wax-sealed black treaty scrolls, and glowing blue demon-masked lantern.
+
+ROW 2:
+- (2,1) TROLLS' HIGHLAND CAMP [Iron Ring]: Jagged gray-slate rocky gully over golden-ochre highland grass packed with charred horse bones, huge stolen iron stew-cauldron over green wood-coals, and jagged troll spike-clubs (NO red sandstone).
+- (2,2) IRON-RIFT GIANT REDOUBT [Iron Ring]: Monumental circle of stacked gray-granite throwing boulders and colossal rough-hewn stone monoliths guarding a scorched camp on golden-ochre highland turf.
+- (2,3) BRIAR-GATE HERB TRAIL [Iron Ring]: Sun-dappled emerald pine and oak forest dirt trail scattered with bright dried herb bundles, overturned herbalist wooden cart, hanging brass apothecary lamps, and shimmering pale blue fey tracks.
+- (2,4) UNSPOILED BRIAR-ROOT GROVE [Iron Ring]: Lush sunlit vibrant emerald forest clearing around mossy ancient root hollows bursting with glowing golden-white medicinal roots, wicker apothecary baskets, and thorny awakened bramble tangles.
+
+ROW 3:
+- (3,1) ORCHARD WOODLAND APIARY [Iron Ring]: Warm sunlit green oak clearing holding rows of traditional woven straw dome beehives on wooden benches, spilled golden honey jars, wildflower patches, and clawed tree trunks.
+- (3,2) FEY-RING MOSSY GLADE [Iron Ring]: Sunlit mossy woodland clearing ringed by pale glowing toadstools, carved wooden pan-pipes resting on a mossy tree stump, shattered wine amphora, and swirling golden fey fireflies.
+- (3,3) UPPER MOSS SPRING ROAD [Iron Ring]: Quiet cobblestone forest road beside mossy green limestone rock cistern overflowing with crisp clear spring water jars packed in wicker courier hampers amidst dark creeping slate oozes.
+- (3,4) PAPER-HIVE PINE COPSE [Iron Ring]: Dense mossy dark-emerald pine copse cradling enormous gray paper-wasp nests hanging from fallen oak branches above dropped ranger green cloaks and quivers of feathered arrows.
+
+ROW 4:
+- (4,1) WAILING MUSHROOM THICKET [Iron Ring]: Shadowed dark-emerald woodland floor carpeted in oversized pulsing violet-purple toadstools and hollow glowing pale shrieker caps spewing purple spore mist between mossy dead tree trunks.
+- (4,2) OUTER PALISADE BREACH-LINE [Iron Ring]: Rough squared oak-log frontier trench and spike barricade running through green pine woods beside stacks of fresh pitch torches, quiver crates, and torn creeping vine mounds.
+- (4,3) MOSSY SINKHOLE SALVAGE [Iron Ring]: Dry mossy limestone sinkhole pit surrounded by green fern leaves, revealing partially sunken wood-and-brass medicine crates mired in thick glistening amber-ochre ooze puddles (NO water).
+- (4,4) TWISTED ROOT-WITCH HOLLOW [Iron Ring]: Dark shadowed eastern plague woods clearing inside twisted hollow dead tree trunks strung with glowing green glass charm-bottles, crooked cauldron bench, and pale purple toadstools.
+
+
+================================================================================
+QUEST SHEET E (4x4, 16 Tokens): UNIQUE QUEST SITES (R4–R6)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1:
+- (1,1) LIME-WASHED SPORE FISSURES [Iron Ring]: Dark shadowed twilight woodland soil scarred with shallow chalk-lime washed containment pits bubbling softly with violet-green glowing slime puddles beside dropped iron lime barrels and pitch torches.
+- (1,2) ROTSPIRE APPROACH GATE [Iron Ring]: Grim heavy iron-spiked stone quarantine archway blocking a shadowy pine trail choked with creeping thorny purple vines, burning iron pitch braziers, and shattered stone shields.
+- (1,3) OUTER SPICE-SACK YARD [Iron Ring]: Sun-drenched pale sandstone port warehouse courtyard stacked with burst burlap cinnamon sacks, broken clay amphorae, sun-baked sand floor fissures, and giant bronze-black scorpion pincer burrows.
+- (1,4) SCORCHED SANDSTONE DRY-WASH [Iron Ring]: Dry cracked desert sandstone gully floor scorched glass-black around glowing orange ember holes beneath tan sandbanks, showing coiled molten fire-snake sheds and charred camel gear.
+
+ROW 2:
+- (2,1) BURIED DUNE TRADE-CARTS [Iron Ring]: Wind-sculpted golden sand dune crest showing two half-buried merchant camel wagons, spilled saffron spice chests, brass merchant scales, and scorching smoke from magma mephits.
+- (2,2) PALM-SPRING OASIS FEEDER [Iron Ring]: Lush palm trees framing a clear turquoise desert oasis stone spring basin rimmed with sandstone blocks, scorched palm fronds, and glowing roaring fire-elemental scorch marks on golden sand.
+- (2,3) SAND-SWEPT SUN TOMB [Iron Ring]: Monumental sunken tan sandstone desert burial tomb doorway emerging half-buried from swirling golden sand dunes with twin carved jackal obelisks, open stone staircase, and cold flickering funerary torches.
+- (2,4) SUN-ARCH CANYON SHELTER [Iron Ring]: Towering weathered red-gold sandstone natural desert arch shading panicked pilgrims crouched behind camel packs, tattered shade cloth, dropped brass compasses, and clawed three-headed beast tracks.
+
+ROW 3:
+- (3,1) SUN-MIRROR DESERT BEACON [Iron Ring]: Tall sun-baked sandstone desert cliff signal turret topped with a polished round brass sun-mirror reflector, coal-ash pit, and glowing magma-scarred salamander spears atop orange rock.
+- (3,2) SULFUR-ASH KENNEL ROCKS [Iron Ring]: Sun-scorched sandstone rock hollow outside desert walls strewn with charred camel ribs, smoking sulfur rock fissures, snapped leather leashes, and fiery paw scorch marks.
+- (3,3) GILDED-ROAD REBEL RENDEZVOUS [Iron Ring]: Golden desert sandstone canyon bottleneck camouflaged with woven tan sand-nets shielding iron siege-bolt crates, rebel crimson-scarved supply barrels, and scorched dune brush.
+- (3,4) GILDED MANOR VAULT HALL [Iron Ring]: Opulent sandstone-and-gilded-bronze domed slaver auction courtyard dais surrounded by iron padlock pillars, shattered velvet auction podium, torn gold ledger velvet, and broken heavy chains.
+
+ROW 4:
+- (4,1) SANDSTONE CLERK RECORD WING [Iron Ring]: Outer desert sandstone manor colonnade arcade filled with ornate locked walnut ledger desks, wax-stamped slave collar manifests, brass inkwells, and crossed gilded scimitars.
+- (4,2) SANDSTONE HOLDING YARD [Iron Ring]: Sun-baked sandstone prison courtyard packed with empty heavy riveted wrought-iron cage bars, broken brass padlock keys, glowing fiery anvil branding pit, and desert dust swirls.
+- (4,3) GRANITE PINE RAPTOR SPIRE [Iron Ring]: Sunlit green alpine pine hill crowning a rugged gray-granite cliff outcrop topped with twig raptor nests, scattered crimson-red feathers, and chewed leather mountain-goat bells (STRICTLY NO snow).
+- (4,4) PINNED HIGHLAND FOOTHILL CART [Iron Ring]: Green grassy alpine highland valley trail bordered by towering gray-granite boulder clusters cradling a tilted timber wool merchant wagon trapped against pine trunks by fallen stones (STRICTLY NO snow).
+
+
+================================================================================
+QUEST SHEET F (4x4, 16 Tokens): UNIQUE QUEST SITES (R6–R7)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1:
+- (1,1) OUTER GRANITE PROVISION SHEDS [Iron Ring]: Low steep slate-roofed gray granite mountain provision storehouses surrounded by green highland grass, ironbound dried-meat barrels, stacked stone blocks, and wooden defense barricades (STRICTLY NO snow).
+- (1,2) CLEARWATER FISHING JETTY [Iron Ring]: Sunlit green pine lakeshore beside clear sapphire lake water with a short wooden fishing boat landing pier attached firmly to dry mossy grass bank, tipped trout barrels, and scorpion-tailed wyvern talon gashes (STRICTLY NO snow).
+- (1,3) PINE-COVE CLIFF TRAIL [Iron Ring]: Walkable grassy green lakeside headland cove footpath ringed by lush green pines and gray granite ledges where woven berry baskets and cloaks lie abandoned beside scorched lightning-struck rocks (STRICTLY NO snow).
+- (1,4) FALLEN STAR-IRON CRATER [Iron Ring]: Jagged high green highland granite crater clearing cradling a glowing molten-blue fallen meteoric iron boulder slab surrounded by heavy mining chisels and crackling sapphire sparks (STRICTLY NO snow).
+
+ROW 2:
+- (2,1) ANVILHALL OUTER FURNACE STAIRS [Iron Ring]: Monumental carved gray granite mountain smithy steps and heavy iron ingot carts outside blazing furnace bellows on green mountain grass, ringed by swirling sapphire tempest winds (NO snow).
+- (2,2) GRANITE ORE-TRACK AMBUSH [Iron Ring]: Steep sunny green pine-and-granite mountain iron haul road with wooden ore-cart skid rails, scattered pickaxes, shredded leather yoke traces, and deep saber-fang claw prints on rock (NO snow).
+- (2,3) MOUNTAIN PEAK FORGE-CHIMNEYS [Iron Ring]: Exposed grassy gray-granite highland ridge terrace housing twin carved dwarf-style stone forge chimney flues belching orange hearth sparks beside swirling howling blue gale eddies (NO snow).
+- (2,4) COPPER-ROD PASS RIDGE [Iron Ring]: High green pine highland granite ridge road holding an armored wooden wagon bristling with thick grounded copper lightning-rod spears crackling softly under dark tempest clouds (NO snow).
+
+ROW 3:
+- (3,1) OUTER WALL GRANITE SINK-BREACH [Iron Ring]: Cracked gray-granite citadel outer curtain wall footing on green hillside grass split open into a jagged storm-lit subterranean tunnel mouth lined with blasted iron supports and crackling blue arcs (NO snow).
+- (3,2) COPPER-ROD STORM RAMPART [Iron Ring]: Stout gray-granite castle outer gate bastion lined with spiked iron catapult mounts, glowing lightning-ward copper banners, and storm-scorched rampart paving stones over green grass (NO snow).
+- (3,3) STORM-SPIRE GIANT TERRACE [Iron Ring]: Monumental flat carved gray-granite highland plateau circle lined with towering lightning-scarred stone war-pillars, colossal dropped bronze greataxe, and windblown green grass (NO snow).
+- (3,4) SNOWDRIFT COURIER SLED-RUN [Iron Ring]: Deep snow-covered northern pine trail showing a wooden dog-sled courier rig tipped into white snowdrifts beside spilled leather fur-mail pouches and frost-crusted giant wolf pawprints.
+
+ROW 4:
+- (4,1) SNOW-BOUND HARBOR TIMBER-SLIP [Iron Ring]: Snow-dusted northern coastal granite slipway drydock on solid stone wharf holding timber keel scaffolding, scorched pitch barrels, snapped shipwright saws, and tiny fiery devil claw marks.
+- (4,2) FROZEN LAKE-EDGE TRAPPER CAMP [Iron Ring]: Snow-blanketed northern pine shore beside white solid lake ice margin showing abandoned wooden fur-trapper tent, bloodstained sled harness, camp lantern, and towering polar bear tracks in snow.
+- (4,3) SNOW-BANK FUR CURING SHEDS [Iron Ring]: Snow-laden northern log tanning shed with outdoor stretched wolf-pelt drying racks tainted by foul sickly green demonic mist, overturned salt-brine vats, and jagged barbed iron footprints in snow.
+- (4,4) FROSTED CLIFF WATCH-RUIN [Iron Ring]: Snow-packed ruined northern stone lookout tower sitting on cobalt-tinged icy cliffs with broken wooden door, abandoned cold signal torch, and shadowy dark frost scorch marks across snow.
+
+
+================================================================================
+QUEST SHEET G (4x4, 16 Tokens): UNIQUE QUEST SITES (R7–R8)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1:
+- (1,1) SHIVERING VULTURE-ICE CRAG [Iron Ring]: Steep jagged cobalt glacier ridge ledge sprinkled with deep snow, scattered shed black vulture-feathers, gnawed soldier shields, and pale frosted bone-devil talismans.
+- (1,2) GLACIERWATCH OUTER APPROACH [Iron Ring]: Fortified ice-rimmed gray stone trench and iron pike roadblock on crisp deep white snowdrifts lit by two blazing oil cauldrons and shattered demon-clawed oak mantelets.
+- (1,3) WHITE-FANG SNOW GORGE [Iron Ring]: Frosted northern pine canyon packed deep with wind-swept white snow around jagged black boulders strewn with shattered hunter spears, splintered timber sled boards, and massive feline snow tracks.
+- (1,4) PALE-ABYSS SLAVE SLED-TRACK [Iron Ring]: Bleak snow-covered northern highland track holding an iron-barred steel prison cage sleigh wrapped in spiked blackened chains, abandoned lantern, and crimson abyssal ice fractures.
+
+ROW 2:
+- (2,1) DESECRATED HEARTH-BRAZIER CIRCLE [Iron Ring]: Snow-dusted circle of tall carved northern stone clan standing slabs surrounding an unlit stolen bronze ancestor hearth brazier wrapped in smoking infernal barbed iron wire.
+- (2,2) BLEAKWATCH BASTION COURTYARD [Iron Ring]: Frost-crusted iron and black basalt northern castle inner parade dais showing a broken jagged crown-banner platform, crossed ice-rimed halberds, and dark blood-stained stone steps in snow.
+- (2,3) DRAWBRIDGE UNDER-CELL GATE [Iron Ring]: Snow-caked dark basalt castle gatehouse under-archway sealed by thick iron jail bars, hanging chains, frozen timber prisoner bench, and discarded knight shields.
+- (2,4) SCORCHED-SNOW NIGHTMARE STABLES [Iron Ring]: Northern iron-banded dark timber stable compound surrounded by melted steamy snow revealing fiery glowing coal-hoof prints, scorched hitching troughs, and hung blackened war-saddles.
+
+ROW 3:
+- (3,1) OUTER WALL PACT BRAZIERS [Iron Ring]: Bleak snowy basalt ringwall terrace holding three tall spiked wrought-iron ritual braziers burning eerie pale crimson hellfire over snow-dusted dark stone runes.
+- (3,2) PALE-ABYSS VANGUARD REDOUBT [Iron Ring]: Jagged black basalt and gleaming blue-ice forward redoubt wall planted with serrated devil iron pikes and glowing cold crimson warning lanterns across deep snowdrifts.
+- (3,3) ASHEN-CLIFF CULTIST CART [Iron Ring]: Dark volcanic gray ash pass flanked by charred black basalt cliffs showing a black-draped cultist wagon tipped on ash soil spilling bone-white ritual dust casks and dropped iron lanterns.
+- (3,4) SCORCHED MASS-GRAVE RIDGE [Iron Ring]: Desolate dark volcanic basalt and gray ash battlefield ridge studded with snapped ancient royal standards, rusted steel broadswords, and churning skeletal graves glowing faintly violet.
+
+ROW 4:
+- (4,1) OBSIDIAN RIDGE CHECKPOINT [Iron Ring]: Narrow dark volcanic basalt saddle ridge blocked by spiked charred iron chevaux-de-frise, flapping torn black raven banners, and smoldering brazier coals on dark gray ash.
+- (4,2) BLACK BASALT ASH-QUARRY [Iron Ring]: Stepped dark volcanic obsidian open-pit stone quarry scarred by glowing warm magma-orange cracks, toppled iron ore tubs, splintered mining ladders, and crawling ghoul hollows in soot.
+- (4,3) BASALT RIDGE SIGNAL TURRET [Iron Ring]: Stubby black volcanic basalt cliffside signal turret crowned with an iron orange coal-fire basket swirling with ghostly dark purple-blue wisps over scorched volcanic ground.
+- (4,4) OBSIDIAN BLOOD-PIT ARENA [Iron Ring]: Ash-dusted broken black marble arena gatehouse archway in volcanic soil displaying a tattered crimson royal guard standard speared beside cracked stone bleachers and blood-red lantern glow.
+
+
+================================================================================
+QUEST SHEET H (4x4, 16 Tokens): UNIQUE QUEST SITES (R8)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1:
+- (1,1) BASALT-WALL REFUGEE CARAVAN [Iron Ring]: Gray volcanic ash road sheltering behind a rugged stacked black basalt field wall with huddled covered handcarts, stacked cloth bundles, flickering camp lantern, and skeletal warhorse tracks.
+- (1,2) WEEPING ASH-CHAPEL RUINS [Iron Ring]: Hollow roof-less blackened volcanic stone village chapel walls standing in gray ash soil around glowing pale spectral blue-violet spirit mist and cracked stone memorial bells.
+- (1,3) ASH-BURIED KNIGHT CAIRNS [Iron Ring]: Grim volcanic ash moor studded with weathered stacked stone burial cairns topped by rusted silver knight helmets, tarnished crest medallions, and creeping black shadow tendrils.
+- (1,4) UPPER CATACOMB IRON STAIRS [Iron Ring]: Stepped black obsidian crypt entrance pavilion perched on scarred ash slopes holding chained iron dungeon grate doors, glowing pale blue cold torches, and dropped scout cloaks.
+
+ROW 2:
+- (2,1) SHADOW-FLEET OBSIDIAN SHORE WRECK [Iron Ring]: One single splintered black-timbered northern warship hull washed completely high and dry ashore onto jagged black volcanic basalt rocks and dark gray ash beach beside cold violet fog wisps and crimson ragged sails (NO living fleet in ocean).
+- (2,2) OBSIDIAN COASTAL PARAPET [Iron Ring]: Dark jagged obsidian-and-iron coastal sea-cliff battlement wall bristling with heavy iron ward spikes, burning consecrated silver braziers, and dark churning violet mist creeping over coastal basalt.
+- (2,3) BLACK KEEP OUTER SHIELD-GATE [Iron Ring]: Colossal volcanic black basalt outer fortress gatehouse archway spiked with jagged blackened steel barriers, shattered heavy drawbridge chains, and roaring ember glow on cracked paving stone.
+- (2,4) SHADOWFELL WARD-OBELISK YARD [Iron Ring]: Three towering jagged black obsidian rune obelisks arranged around a scorched basalt plaza crackling wildly with pitch-violet Shadowfell energy arcs and shattered royal armor pieces.
+
+ROW 3:
+- (3,1) GARRISON OF THE BLACK-ARMORED [Iron Ring]: Grim soot-blackened inner fortress parade courtyard framed by spiked obsidian weapon racks, three tall horned black steel plate suits, smoldering iron braziers, and cracked royal mosaic paving.
+- (3,2) TROPHY GALLERY BATTLEMENT [Iron Ring]: High volcanic basalt keep rampart walk hung with tattered stained silver-and-blue Crownlands house banners pierced by black iron bolts beneath circling dark shadow-wings and cold twilight torches.
+- (3,3) ECLIPSE THRONE SEAL THRESHOLD [Iron Ring]: Colossal blackened-silver double sanctum archway engraved with a blazing cracked circular solar-eclipse seal above obsidian stairs littered with shattered knight weapons and glowing violet embers.
+- (3,4) FERRY CROSSING [Iron Ring]: Shoreline weathered wooden ferry landing pier built firmly on green grassy coastal land beside calm sapphire strait water, featuring an actual flat wooden timber tow-ferry barge with sturdy wood railings and rope-pulley moored right along the pier, stout bollard, and glowing iron lantern (STRICTLY includes the moored ferry barge on walkable bank).
+
+ROW 4:
+- (4,1) STANDBY ROADSIDE WATCH-PICKET [Iron Ring]: Sturdy compact wooden frontier guard watch-platform standing on grassy roadside turf beside stacked ironbound supply barrels, timber toll barrier bar, and burning warm iron camp torch.
+- (4,2) STANDBY TRAVELER'S WAYSHRINE [Iron Ring]: Ancient moss-touched carved gray granite roadside trail shrine pedestal bearing a glowing brass eternal flame bowl beside dry wildflowers and stacked traveler cairn stones.
+- (4,3) STANDBY OASIS WELL-RUIN [Iron Ring]: Crumbling tan sandstone desert colonnade well curb half-drifted with golden windblown sand, dry desert agave scrub, carved sun disk fragments, and toppled alabaster jar.
+- (4,4) STANDBY FROST-RIDGE CAIRN [Iron Ring]: Tall conical stacked northern slate stone wayfinder cairn standing firm in deep clean snowdrifts beside snow-laden frosted pines and hanging bronze lantern.

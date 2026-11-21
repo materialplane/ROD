@@ -1,0 +1,51 @@
+# ROD — 1H Sickle Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Druid -> Sickle (1H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 1H curved combat sickle fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 items follow ONE identical 45-degree diagonal UI icon angle inside their cell: hilt/pommel toward the bottom-left corner and blade tip pointing cleanly toward the upper-right corner. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Iron Herb-Sickle): Humble dull weathered iron herbalist harvest sickle with narrow curved grey iron hook blade tucked into plain cracked ashwood handle wrapped in twine.
+Row 1, Col 2 (Curved Field Sickle): Curved Field forged-iron sickle featuring sturdier thicker crescent blade hooked sharply inward, simple hammered iron collar ring, dark brown wood grip.
+Row 1, Col 3 (Harvest Steel Sickle): Harvest Steel Sickle — crisp bright polished steel agricultural war-sickle sporting brushed antique bronze ferrule collar and smooth ergonomic oak handle.
+Row 1, Col 4 (Marsh-Reed Sickle): Marsh-Reed coastal harvesting sickle with long slender dark corrosion-blued crescent steel hook, tarnished brass ring bolster, hemp-wrapped handle.
+Row 1, Col 5 (Brine-Steel Sickle): Brine-Steel heavy Saltwind sickle crafted of tough sea-tempered steel bearing a reinforced thicker hooking spine, riveted bronze bolster, teal grip.
+
+Row 2, Col 1 (Mire-Root Sickle): Mire-Root dark marsh-iron jagged-hooked combat sickle with subtle serrated inner cutting curve, blackened brass guard collar, dark grip.
+Row 2, Col 2 (Trench-Iron Sickle): Trench-Iron brutal Redmarch close-combat war-sickle sporting thick angular dark steel beak-hook and spiked iron knuckle collar over crimson leather grip.
+Row 2, Col 3 (Borderland Hook-Sickle): Borderland Hook-Sickle — garrison sharpened crescent steel war-sickle featuring reinforced armor-piercing spine bevel, crimson-lacquered iron ferrule, spiked pommel.
+Row 2, Col 4 (Bastion War-Sickle): Bastion War-Sickle — gleaming cold steel knightly double-bevel hooked war-sickle framed by crisp gilded-steel hand guard bar and riveted crimson hilt.
+Row 2, Col 5 (Grove Oak Sickle): Grove Oak woodland druid sickle uniting smooth living gnarled dark oak handle bound in bronze bands with an olive-patinated honed steel crescent hook.
+
+Row 3, Col 1 (Amber-Edge Sickle): Amber-Edge Weald sickle displaying dark spring-steel curved inner blade, sculpted bronze acorn bolster inset neatly with glowing warm amber bead, moss grip.
+Row 3, Col 2 (Elderwood Moon-Sickle): Elderwood Moon-Sickle — sacred ancient druidic gleaming crescent silver-steel moon-blade cradled cleanly in bronze coiled root collar over dark elderwood handle.
+Row 3, Col 3 (Sun-Brass Sickle): Sun-Brass southern Veridian crescent sickle combining warm burnished brass outer spine with razor-bright honed silver-steel inner hook edge, tan grip.
+Row 3, Col 4 (Glasswind Crescent Sickle): Glasswind Crescent desert sickle forged of delicate rippled dark desert steel flashing thin sharp gleaming golden bevel edge and fluted brass pommel.
+Row 3, Col 5 (Oasis Solar Sickle): Oasis Solar Sickle — ornate gilded-brass sunburst-collared gleaming mirror-steel desert crescent blade paired with deep cobalt silk-wrapped grip.
+
+Row 4, Col 1 (Flint Ridge Sickle): Flint Ridge highland sickle sculpted of cold gray mountain-steel with chiseled angular rock-faceted outer blade spine and dark slate leather wrap.
+Row 4, Col 2 (Storm-Forged Sickle): Storm-Forged Sickle — sleek Ironcrest highland silver-steel deep hook inlaid crisply along curve with glowing golden storm chevron trim, navy leather grip.
+Row 4, Col 3 (Anvilhall Star-Sickle): Anvilhall Star-Sickle — master-forged blackened star-iron crescent blade pulsing with faint warm forge-amber geometric inlay lines and bright silver inner edge.
+Row 4, Col 4 (Ice-Carved Sickle): Ice-Carved northern frost-iron sickle displaying pale frosty gray steel hook blade trimmed nicely at collar with white wolf-pelt cuff and iron finial.
+Row 4, Col 5 (Frostfang Hook-Sickle): Frostfang Hook-Sickle — savage sweeping razor-hooked dark winter-steel northern sickle flashing bright frosted silver fangs at tip, navy leather hilt.
+
+Row 5, Col 1 (Pale-Winter Sickle): Pale-Winter Sickle — endgame Frostbound druid sickle fusing dark slate-iron tang seamlessly into pale ice-blue crystal-steel crescent hook blade and silver crown.
+Row 5, Col 2 (Ash-Steel Sickle): Ash-Steel volcanic-forged Dreadwaste war-sickle showing dark pitted charcoal blade edge gleaming with crisp warm molten-ember heat-vein up inner arc.
+Row 5, Col 3 (Lifeblood Briar Sickle): Lifeblood Briar dark star-steel druid combat sickle braided with wicked crimson-enamel thorn coils curling seamlessly from hilt bolster onto back spine.
+Row 5, Col 4 (Moonblade Crescent Sickle): Moonblade Crescent Sickle — supreme endgame Druid relic sickle sweeping gracefully with radiant silvered star-steel moon-crescent blade set cleanly in sculpted gold crescent collar.
+Row 5, Col 5 (Sickles Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic hooked crescent sickle silhouette emblem at 45-degree angle—clean curved inner blade & sturdy short grip with NO gems, NO glow, NO circle frame, and NO box border on pure #FF00FF.
+--- 5x5 PROMPT END ---

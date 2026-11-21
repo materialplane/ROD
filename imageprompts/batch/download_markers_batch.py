@@ -1,0 +1,106 @@
+"""Inspect status and download completed 4x4 Map Marker sheets from Google Gemini Batch API."""
+
+from __future__ import annotations
+
+import base64
+import json
+import os
+import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+from google import genai
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+OUT_DIR = REPO_ROOT / "assets" / "tokens" / "markers" / "batch_sheets"
+
+EXT_BY_MIME = {
+    "image/png": ".png",
+    "image/jpeg": ".jpg",
+    "image/webp": ".webp",
+}
+
+
+def save_image_bytes(raw_bytes: bytes, mime_type: str, stem: str) -> Path:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    ext = EXT_BY_MIME.get(mime_type, ".png")
+    out_path = OUT_DIR / f"{stem}{ext}"
+    out_path.write_bytes(raw_bytes)
+    return out_path
+
+
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("Usage: python imageprompts/batch/download_markers_batch.py <batches/...>", file=sys.stderr)
+        return 1
+
+    job_name = sys.argv[1].strip()
+    load_dotenv(REPO_ROOT / ".env")
+    if not os.getenv("GEMINI_API_KEY"):
+        print("ERROR: GEMINI_API_KEY missing from .env", file=sys.stderr)
+        return 1
+
+    client = genai.Client()
+    job = client.batches.get(name=job_name)
+    state = getattr(job.state, "name", str(job.state))
+    print(f"Batch Job : {job.name}")
+    print(f"State     : {state}")
+
+    if state != "JOB_STATE_SUCCEEDED":
+        if getattr(job, "error", None):
+            print(f"Error     : {job.error}")
+        print("Job is not finished yet. Check back once it reaches JOB_STATE_SUCCEEDED.")
+        return 0
+
+    saved_paths: list[Path] = []
+
+    dest_file = getattr(getattr(job, "dest", None), "file_name", None)
+    if dest_file:
+        print(f"Downloading output file {dest_file} ...")
+        raw_jsonl = client.files.download(file=dest_file).decode("utf-8")
+        for idx, line in enumerate(raw_jsonl.splitlines(), start=1):
+            if not line.strip():
+                continue
+            item = json.loads(line)
+            stem = item.get("customId") or item.get("key") or f"rod_map_markers_sheet_{idx}"
+            if "error" in item and item["error"]:
+                print(f"  [ERROR] {stem}: {item['error']}")
+                continue
+            candidates = item.get("response", {}).get("candidates", [])
+            if not candidates:
+                print(f"  [WARN] {stem}: No candidates in response.")
+                continue
+            parts = candidates[0].get("content", {}).get("parts", [])
+            for part in parts:
+                inline = part.get("inlineData") or part.get("inline_data")
+                if inline and inline.get("data"):
+                    mime = inline.get("mimeType") or inline.get("mime_type") or "image/png"
+                    raw_img = base64.b64decode(inline["data"])
+                    saved = save_image_bytes(raw_img, mime, stem)
+                    saved_paths.append(saved)
+                    print(f"  Saved {saved} ({len(raw_img):,} bytes)")
+                    break
+
+    inlined = getattr(getattr(job, "dest", None), "inlined_responses", None)
+    if not saved_paths and inlined:
+        print(f"Extracting {len(inlined)} inlined responses...")
+        for idx, resp in enumerate(inlined, start=1):
+            meta = getattr(resp, "metadata", None) or {}
+            stem = meta.get("customId") or meta.get("filename") or f"rod_map_markers_sheet_{idx}"
+            parts = resp.response.candidates[0].content.parts
+            for part in parts:
+                inline = getattr(part, "inline_data", None)
+                if inline and getattr(inline, "data", None):
+                    mime = getattr(inline, "mime_type", None) or "image/png"
+                    data = inline.data if isinstance(inline.data, (bytes, bytearray)) else base64.b64decode(inline.data)
+                    saved = save_image_bytes(bytes(data), mime, stem)
+                    saved_paths.append(saved)
+                    print(f"  Saved {saved} ({len(data):,} bytes)")
+                    break
+
+    print(f"\nDone: {len(saved_paths)} sheet(s) saved to {OUT_DIR}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

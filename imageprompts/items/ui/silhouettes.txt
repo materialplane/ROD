@@ -1,0 +1,44 @@
+# ROD — Unified UI Slot & Category Silhouette Icons (5x5 Sheet Prompt on #FF00FF)
+# Category Source: docs/06-gear-and-runestones.md & docs/09-ui-and-steam.md -> Equipment Slots, Inventory Tabs & Menu Categories
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted minimalist dark metal & bronze UI glyph silhouettes — zero pixel art, zero sketchiness, zero 3D plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 128x128 & 256x256 .webp UI icons.
+
+--- 5x5 UI SILHOUETTES START (Copy from next line down — ALL 25 Cells) ---
+1:1 square UI glyph sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated minimalist fantasy RPG UI icon glyphs total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO circular medallions, NO shield plaques behind icons, NO item slot squares or borders, NO pedestals, NO outer glow or halo blooming into the pink, NO drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY GLYPH).
+
+UNIFIED UI SILHOUETTE STYLE LOCK (100% MATCHING FAMILY ACROSS ALL 25 ICONS):
+Every single one of the 25 icons MUST share the EXACT SAME minimalist stylized League of Legends / Runeterra dark fantasy interface icon craft: semi-flat carved gunmetal-slate charcoal steel shapes edged cleanly with muted antique tarnished bronze bevel rims and a consistent crisp 2px dark charcoal outer silhouette outline. Strictly matte, understated, low-contrast neutral dark metal & slate UI glyphs ONLY — ZERO bright colored paint, ZERO gemstones, ZERO glowing fire or magic light, ZERO pink/magenta tints, ZERO busy surface grime, and ZERO circular coin frames or square background tiles behind any icon. Size every icon uniformly (~62–68% of its invisible cell) centered cleanly with wide generous pure #FF00FF magenta gutters on all 4 sides.
+
+Render these exact 25 uniform dark-slate & tarnished-bronze UI silhouette glyphs cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Weapon Slot Glyph): Clean straight medieval arming longsword tilted at exact 45 degrees pointing upper-right — tapered triangular blade, horizontal straight crossguard, faceted pommel.
+Row 1, Col 2 (Shield Slot Glyph): Upright symmetrical pointed medieval heater shield — smooth dark gunmetal face with clean muted tarnished-bronze bevel border and subtle vertical center ridge.
+Row 1, Col 3 (Helmet Slot Glyph): Clean 3/4 right-facing knight barbute war-helmet silhouette — smooth rounded iron-slate crown dome, crisp dark empty T-shaped open face visor slit, bronze rim edge.
+Row 1, Col 4 (Body Armor Slot Glyph): Upright front-facing sleeveless plate breastplate cuirass torso silhouette — broad steel-slate chest plates, clean armored neck opening, tapered waist flange with bare shoulders.
+Row 1, Col 5 (Accessory Slot Glyph): Angled 3/4 heavy engraved noble signet ring silhouette — solid dark slate-bronze hoop band crowned with flat hexagonal front seal bezel.
+
+Row 2, Col 1 (Quest Scroll Glyph): Upright partly unrolled parchment quest scroll silhouette capped neatly by simple wooden scroll rods and a small round bronze wax seal stamp without text or lines.
+Row 2, Col 2 (Ranged Bow Glyph): Upright curved hunter longbow with taut slim bowstring — clean symmetrical dark-bronze limbs with slight recurve tips and wrapped center handle without arrow.
+Row 2, Col 3 (Magic Staff Glyph): Diagonal caster quarterstaff tilted at exact 45 degrees pointing upper-right — straight slender shaft topped simply with clean crescent bronze ferrule cradle without gem or glow.
+Row 2, Col 4 (Spells & Magic Glyph): Symmetrical four-point crisp carved arcane starburst filigree emblem flanked neatly by two small orbiting diamond sparks in flat matte bronze-slate without bright glow.
+Row 2, Col 5 (Light Tunic & Robes Glyph): Upright tailored front-facing cloth-and-leather travel tunic silhouette — folded notched collar lapels, simple buckled waist belt, clean short shoulder trim.
+
+Row 3, Col 1 (Cloak Accessory Glyph): Upright high-collared draped travel cloak silhouette — standing folded collar pinned at throat by small round bronze clasp, smooth heavy cape folds hanging below.
+Row 3, Col 2 (War-Horn Accessory Glyph): Sweeping curved medieval war-horn silhouette — narrow brass-tipped mouthpiece bottom-left arching cleanly into wide flared bell opening upper-right.
+Row 3, Col 3 (Orb Accessory Glyph): Smooth matte sphere orb cradled inside two clean crossed thin bronze meridian rings — pure minimal metal armillary sphere without inner glow.
+Row 3, Col 4 (Quiver Accessory Glyph): Tilted cylindrical leather arrow quiver at 45 degrees — clean strapped tube holding three uniform metal arrow fletchings neatly protruding from top rim.
+Row 3, Col 5 (Crystal Accessory Glyph): Upright pointed hexagonal faceted crystal shard rising from minimal three-prong tarnished-bronze collar base rendered in matte dark gunmetal slate tones.
+
+Row 4, Col 1 (Tome & Lore Glyph): Upright 3/4 closed hardcover leather tome silhouette — curved ribbed spine, subtle beveled metal corner plates, single simple right-edge clasp.
+Row 4, Col 2 (Runestone Glyph): Upright rectangular beveled stone rune tablet with lightly chiseled edges — single crisp recessed vertical forked Y-mark line carved cleanly into matte dark slate stone face.
+Row 4, Col 3 (Potion Flask Glyph): Upright rounded alchemy potion flask silhouette — smooth spherical flask body, narrow collared neck, simple flat cork stopper.
+Row 4, Col 4 (Key & Relic Glyph): Diagonal ornate medieval skeleton key tilted at 45 degrees pointing upper-right — trefoil arched bow handle, slim straight shaft, clean notched three-tooth ward bit.
+Row 4, Col 5 (Trade Goods Glyph): Upright plump tied merchant trade sack silhouette — gathered bunched cloth neck tied neatly with twisted cord beside sturdy flat leather coin pouch.
+
+Row 5, Col 1 (Party Hero Glyph): Clean stylized armored hero shoulder-and-head bust glyph — smooth geometric featureless head silhouette resting neatly above broad beveled knight collar plates.
+Row 5, Col 2 (All Pack Bag Glyph): Upright traveler explorer leather satchel backpack silhouette — rounded stitched top flap, twin vertical buckle straps, rolled top bedroll cylinder.
+Row 5, Col 3 (Combat Arena Glyph): Symmetrical crossed twin medieval broadswords forming clean centered X — crossed blades pointing upper-left and upper-right above balanced hilts below.
+Row 5, Col 4 (Bestiary Skull Glyph): Upright horned beast skull emblem silhouette — sculpted symmetric animal cranium, dark hollow eye sockets, twin clean upward-curving ram horns.
+Row 5, Col 5 (World Atlas Glyph): Crisp symmetrical four-point nautical compass rose glyph — four sharp pointed long cardinal spears alternating cleanly with four shorter diagonal points around small center ring.
+--- 5x5 UI SILHOUETTES END ---

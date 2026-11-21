@@ -1,0 +1,76 @@
+# ROD — 2H Spear Weapon Icons (Sheet 1 of 2 — 4x4 Full-Weapon Framing on #FF00FF)
+# Category Source: classes.txt -> Bulwark -> Spear (2H) — Steps 1–16
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 SPEARS SHEET 1 START (Copy from next line down — Steps 1–16) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated FULL-LENGTH 2H medieval war-spear fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+ZOOMED-OUT FULL-LENGTH WEAPON FRAMING & 4x4 GUTTER LOCK (CRITICAL):
+Shrink every long spear cleanly to show 100% OF THE ENTIRE WEAPON FROM END TO END inside its square cell — tilted diagonally at exact 45 degrees with the complete lower metal butt-spike ferrule floating well clear of the bottom-left cell corner and the sharp spearhead tip floating well clear of the upper-right cell corner. Size the full spear compactly (~65% diagonal span across its invisible cell) with wide empty flat #FF00FF magenta margin (~15% clearance around ALL 4 edges and corners of every cell) so ZERO butt-spikes, ZERO shafts, and ZERO spear points are ever cut off or clipped at any cell boundary.
+
+Render these exact 16 distinct FULL-LENGTH whole spears cleanly from Row 1 to Row 4, left to right (Steps 1–16):
+
+Row 1, Col 1 (Ashwood Spear): Full-length humble weathered ashwood 2H spear showing entire complete shaft, simple hammered dull dark-iron leaf blade tied with rawhide cord, and bare iron butt ferrule at lower end.
+Row 1, Col 2 (Iron War-Spear): Full-length dark seasoned-ash infantry war-spear showing complete shaft from iron butt cap up to forged iron leaf blade, steel socket collar, and leather grip wrap.
+Row 1, Col 3 (Millbrook Long-Spear): Full-length Millbrook polished steel diamond-ribbed pike spearhead with sturdy antique bronze socket ring, stitched tan leather center grip, dark hardwood shaft, bronze butt ferrule.
+Row 1, Col 4 (Harpoon Spear): Full-length Saltwind coastal dark sea-oak spear tipped with wicked single-barbed heavy steel harpoon point, heavy bronze cord lashings, rope-wound grip, bronze butt cap.
+
+Row 2, Col 1 (Reef-Guard Spear): Full-length coastal spear featuring bright corrosion-blued leaf spearhead flanked by stubby bronze cross-lugs over entire salt-darkened ash shaft and brass butt-spike.
+Row 2, Col 2 (Bog-Stalker Pike): Full-length dark marsh-wood pole-spear showing complete shaft from wrapped iron butt cap to broad notched olive-steel pike head and subtle brass socket ferrule.
+Row 2, Col 3 (Phalanx Spear): Full-length heavy Redmarch infantry war-spear displaying reinforced steel leaf-head, crimson neck ring, full steel-banded shaft, and pointed counterweight butt-cap.
+Row 2, Col 4 (Borderland Partisan): Full-length wide winged steel partisan war-spear showing swept side-flukes flanking a central thrusting spine above full crimson-trimmed iron shaft and iron butt-spike.
+
+Row 3, Col 1 (Redmarch War-Spear): Full-length prestigious crimson-and-steel knightly long-spear boasting broad diamond blade, gilded brass wing-lugs, crimson-wrapped haft, and gleaming bronze counterweight butt.
+Row 3, Col 2 (Thorn-Tipped Spear): Full-length Weald spear featuring dark hardened wood haft rising cleanly from carved bronze butt to sleek olive-black barbed thorn-leaf spearhead bound in twisted bronze coils.
+Row 3, Col 3 (Stag-Horn Spear): Full-length woodland hunting war-spear fitted with twin curved carved bone-and-bronze cross-tines cradling an amber-inlaid steel point, moss-leather wrap, horn-capped butt.
+Row 3, Col 4 (Elderwood Long-Spear): Full-length ancient woodland relic pole-spear forged on complete gnarled dark hardwood shaft tipped with sweeping leaf-ribbed silver steel blade and bronze end ferrule.
+
+Row 4, Col 1 (Sand-Strider Spear): Full-length light oiled desert ash spear tipped with golden-bronze ribbed leaf point, upturned brass crescent lugs, tan center wrap, and brass desert butt-spike.
+Row 4, Col 2 (Gilded Sun-Spear): Full-length gleaming brass-collared mirror-steel desert lance-spear displaying fluted golden socket sunburst, deep cobalt corded grip, entire shaft, pointed brass butt-spike.
+Row 4, Col 3 (Oasis War-Spear): Full-length southern royal caravan spear with gilded serpentine-wing steel partisan blade, crimson silk neck wrap, polished brass-shod full shaft and finial cap.
+Row 4, Col 4 (Cliff-Guard Spear): Full-length highland granite-steel spear featuring thick angular chisel-ribbed point riveted into iron langets along full slate-wrapped pine haft to steel butt-spike.
+--- 4x4 SPEARS SHEET 1 END ---
+
+
+# ROD — 2H Spear Weapon Icons (Sheet 2 of 2 — 4x4 Full-Weapon Framing on #FF00FF)
+# Category Source: classes.txt -> Bulwark -> Spear (2H) — Steps 17–24 (Rows 1–2) + 8 Bonus Variations (Rows 3–4)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta, slice 4x4 (1024x1024 per cell at 4K), export Steps 17–24 (Rows 1–2) to compressed 256x256 .webp icons.
+
+--- 4x4 SPEARS SHEET 2 START (Copy from next line down — Steps 17–24 + 8 Extra Variations) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated FULL-LENGTH 2H medieval war-spear fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+ZOOMED-OUT FULL-LENGTH WEAPON FRAMING & 4x4 GUTTER LOCK (CRITICAL):
+Shrink every long spear cleanly to show 100% OF THE ENTIRE WEAPON FROM END TO END inside its square cell — tilted diagonally at exact 45 degrees with the complete lower metal butt-spike ferrule floating well clear of the bottom-left cell corner and the sharp spearhead tip floating well clear of the upper-right cell corner. Size the full spear compactly (~65% diagonal span across its invisible cell) with wide empty flat #FF00FF magenta margin (~15% clearance around ALL 4 edges and corners of every cell) so ZERO butt-spikes, ZERO shafts, and ZERO spear points are ever cut off or clipped at any cell boundary.
+
+Render these exact 16 distinct FULL-LENGTH whole spears cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Skybridge War-Spear): Full-length sweeping Storm-peak steel wing-spear showing complete shaft from steel butt-spike to lightning-gold collar engravings, sturdy steel cross-wings, dark charcoal grip.
+Row 1, Col 2 (Storm-Peak Spear): Full-length Anvilhall star-iron war-spear showing warm forge-amber geometric neck inlay beneath blazing bright silver lance blade, full haft, forged iron butt-spike.
+Row 1, Col 3 (Glacier Spear): Full-length northern pale frosted iron heavy leaf spear bordered at neck with crisp white wolf-pelt strip, full dark timber haft, sharp ice-iron butt-spike.
+Row 1, Col 4 (Boreal Long-Spear): Full-length Frostguard polearm spear crafted of dark cold steel bearing narrow diamond spire flanked by frosted-silver wing hooks, navy wrap, cold steel butt cap.
+
+Row 2, Col 1 (Frostguard War-Spear): Full-length endgame Frostbound spear fusing blackened winter-iron complete shaft with faceted pale glacier-blue steel broad spearhead and frost-silver butt spike.
+Row 2, Col 2 (War-Camp War-Spear): Full-length Dreadwaste heavy volcanic-iron spear displaying pitted charcoal ashen steel spearhead with molten ember-orange seam, full banded shaft, iron butt cap.
+Row 2, Col 3 (Black-Keep Partisan): Full-length blackened star-steel wide winged partisan featuring hooked crimson-enamel side-flanges, complete dark steel haft with hanging short chain collar, spiked butt.
+Row 2, Col 4 (Dragonspine Spear): Full-length supreme Highcrown dragon-slaying relic spear with serrated silvered star-steel draconic spine-blade exploding from sculpted golden dragon-wing socket over crimson velvet haft and gold butt-spike.
+
+Row 3, Col 1 (Frontier Iron Javelin): Compact sturdy frontier skirmisher short throwing-spear sporting broad iron arrowhead, leather throwing loop cord, ashwood shaft, blunt bronze cap.
+Row 3, Col 2 (Mariner Boarding Pike): Sturdy salt-worn naval boarding pike combining barbed diamond piercing spike, iron shaft guards, thick tarred hemp center grip, heavy iron deck ferrule.
+Row 3, Col 3 (Highland Obsidian Pike): Rugged Highpass mountain pike mounting jagged dark obsidian-flint spearhead clamped into riveted iron collar over dark mountain-pine full shaft and iron butt.
+Row 3, Col 4 (Veridian Cobra Spear): Elegant desert Veridian bronze spear shaped with flared twin cobra-hood side lugs beneath gleaming gilded leaf blade and braided desert leather shaft wrap.
+
+Row 4, Col 1 (Weald Boar-Spear): Heavy woodland boar-hunting spear displaying wide leaf blade anchored above thick horizontal iron cross-toggle crossbar along sturdy oak full shaft with iron butt.
+Row 4, Col 2 (Stormguard Winged Lance): Ornate high-altitude storm-steel winged knightly spear forged with sweeping swept steel wing-guards, brass bands, dark blue wrapped haft, steel counterweight.
+Row 4, Col 3 (Bleakwatch Spiked Glaive-Spear): Grim northern garrison iron heavy spear sporting notched black-iron serrated edge, jagged cross-guard teeth, complete blackened ash shaft, steel butt-spike.
+Row 4, Col 4 (Highcrown Royal Halberd-Spear): Ceremonial Highcrown citadel gilded steel guard spear crowning crisp central leaf point flanked by sleek crescent brass side-flukes on crimson velvet full shaft.
+--- 4x4 SPEARS SHEET 2 END ---

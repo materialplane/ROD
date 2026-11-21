@@ -1,0 +1,47 @@
+# ROD — Bulwark Accessory — Horns Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Bulwark -> Horns (24 + Crest)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 HORNS PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated curved fantasy war-horn fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, horn, leather, gold, bronze, iron, and stone surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 horns follow ONE identical 45-degree diagonal orientation: mouthpiece toward bottom-left and flared wide bell horn mouth toward upper-right. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Wooden Watch-Horn): Simple carved hollow pale wood watch-horn bound sparingly with thin dull iron ring & faded leather sling.
+Row 1, Col 2 (Brass Garrison Horn): Polished curved solid brass garrison bugle-horn with stout dark iron mouthpiece and sturdy chain loop.
+Row 1, Col 3 (Crownland Bugle-Horn): Crownland slender brass-rimmed ivory-toned war-bugle bearing simple engraved royal brass center collar band.
+Row 1, Col 4 (Conch Fog-Horn): Conch weathered spiral pink-free tan/cream sea-shell foghorn capped at tip in tarnished green bronze mouthpiece.
+Row 1, Col 5 (Harbor Brass Horn): Harbor gleaming tarnished brass curved coastal bull-horn bound tightly in tarred maritime rope trim.
+
+Row 2, Col 1 (Mirewarden Iron Horn): Mirewarden dark oxidized blackened-iron marsh-beast curved horn studded along bell rim with bronze rivets.
+Row 2, Col 2 (Iron Signal-Horn): Iron matte forged blackened-iron trench signal horn reinforced cleanly with welded iron sound ribs.
+Row 2, Col 3 (Redmarch War-Horn): Redmarch deep crimson-lacquered curved war-horn clasped boldly with shining iron bands and scarlet cord.
+Row 2, Col 4 (Bastion Great-Horn): Bastion heavy great-horn carved from giant dark buffalo horn banded with thick riveted war-steel collars.
+Row 2, Col 5 (Carved Stag-Horn): Carved polished forest stag-antler signal horn inlaid smoothly with patinated mossy bronze mouthpiece.
+
+Row 3, Col 1 (Timberfall Oak Horn): Timberfall dark polished oakwood curved mountain-horn ringed at wide flared bell in hammered antique copper.
+Row 3, Col 2 (Elderwood Ivory Horn): Elderwood gleaming cream-ivory relic horn coiled richly in sculpted bronze branching woodland filigree.
+Row 3, Col 3 (Sand-Bronze Hunting Horn): Sand-Bronze hammered gleaming warm desert brass curved hunting horn with braided tan leather strap.
+Row 3, Col 4 (Sun-Gilded Battle Horn): Sun-Gilded large curved golden-brass desert battle horn engraved cleanly with flared sunburst bell petals.
+Row 3, Col 5 (Dunespire Ram-Horn): Dunespire heavy curled mountain ram's horn capped cleanly at bell mouth with gleaming ornate gold rim.
+
+Row 4, Col 1 (Ram-Horn Signal Trumpet): Highpass pale curved highland ram-horn signal trumpet strapped securely in dark gray steel reinforcement rings.
+Row 4, Col 2 (Highland Steel Horn): Highland dark brushed mountain-steel heavy war-horn sporting sharp angular stone-faceted bell lip.
+Row 4, Col 3 (Anvilhall Thunder-Horn): Anvilhall dark star-iron masterwork thunder-horn flashing warm amber inlaid geometric metal grooves.
+Row 4, Col 4 (Carved Mammoth-Horn): Carved massive pale ivory mammoth-tusk war-horn bound thickly in dark frost-etched iron straps and wolf fur.
+Row 4, Col 5 (Frostguard War-Horn): Frostguard heavy dark iron-and-frost-brass curved war-horn capped in jagged icy silver crown bell collar.
+
+Row 5, Col 1 (Pale-Ice Great-Horn): Pale-Ice translucent-blue crystalline-trimmed great winter horn braced inside blackened northern steel ribs.
+Row 5, Col 2 (Dread-Iron War-Horn): Dread-Iron rugged volcanic-forged black iron war-horn glowing subtly warm ember-orange along bell rim.
+Row 5, Col 3 (Crimson-Steel War-Horn): Crimson-Steel heavy dark-iron bugle etched deeply with bright matte crimson enamel war-fang stripes.
+Row 5, Col 4 (War-Horn of the Crown): War-Horn of the Crown — apex Bulwark endgame relic horn forged in polished silvered star-steel & sculpted brushed-gold royal lion bell crown.
+Row 5, Col 5 (Horns Category Emblem & Empty-Slot Icon): Horns Category Emblem & Empty-Slot Icon: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic curved war-horn silhouette emblem swept cleanly bottom-left mouthpiece to upper-right bell—NO glow, NO borders on pure #FF00FF.
+--- 5x5 HORNS PROMPT END ---

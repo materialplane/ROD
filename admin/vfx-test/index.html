@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ROD — Avatar Token VFX &amp; Color-Shift Test Bench</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 35%, #232732 0%, #12141a 70%, #0b0c10 100%);
+    color: #ece6d8;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  h1 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: #e6c67c;
+    text-transform: uppercase;
+  }
+  .subtitle {
+    margin: 0 0 18px;
+    font-size: 13px;
+    color: #9da4b3;
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 540px 300px;
+    gap: 20px;
+    align-items: start;
+    max-width: 1160px;
+    width: 100%;
+  }
+  @media (max-width: 1120px) {
+    .layout { grid-template-columns: 1fr; justify-items: center; }
+  }
+  .panel {
+    background: rgba(24, 27, 35, 0.92);
+    border: 1px solid #3a3f4d;
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+  }
+  .panel h2 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #c8b07a;
+    border-bottom: 1px solid #2e3340;
+    padding-bottom: 8px;
+  }
+  .btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  button {
+    cursor: pointer;
+    border: 1px solid #454b5c;
+    background: #1e222d;
+    color: #e5dfd3;
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.14s ease;
+  }
+  button:hover { background: #2a3040; border-color: #7c6d4a; }
+  button.active {
+    background: #3a311f;
+    border-color: #e6c67c;
+    color: #ffe39e;
+    box-shadow: 0 0 12px rgba(230, 198, 124, 0.25);
+  }
+  .vfx-btn {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    margin-bottom: 9px;
+    font-size: 14px;
+  }
+  .swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.45);
+    flex-shrink: 0;
+  }
+  .stage-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #252b38 0%, #14171f 75%);
+    border: 1px solid #3c4252;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+  }
+  canvas {
+    width: 500px;
+    height: 500px;
+    max-width: 100%;
+    border-radius: 10px;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%);
+  }
+  .status-bar {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #a9b1c2;
+    min-height: 18px;
+  }
+  .control-row {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #c2c8d4;
+  }
+  .control-row label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  input[type="range"] { width: 100%; accent-color: #e6c67c; }
+  .toggle-row {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #d6d0c4;
+    cursor: pointer;
+  }
+  .admin-bar {
+    width: 100%;
+    max-width: 1160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 8px 12px;
+    background: rgba(24, 27, 35, 0.92);
+    border: 1px solid #3a3f4d;
+    border-radius: 10px;
+  }
+  .admin-bar a {
+    color: #c8cfd9;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid #363d4d;
+    background: #1c212c;
+  }
+  .admin-bar a:hover { border-color: #e6c67c; color: #fff; }
+  .admin-bar a.active { border-color: #e6c67c; color: #f2cf81; background: rgba(230, 198, 124, 0.14); }
+  .admin-bar a.client { background: linear-gradient(180deg, #e0b159, #b8842c); color: #161209; border-color: #e6ba64; }
+</style>
+</head>
+<body>
+  <div class="admin-bar">
+    <div style="display:flex;gap:8px;align-items:center;">
+      <a href="/">&larr; Hub</a>
+      <strong style="font-size:12px;letter-spacing:0.08em;color:#e6c67c;">INTERNAL ADMIN SUITE</strong>
+    </div>
+    <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+      <a href="/admin/">World Builder</a>
+      <a href="/admin/catalog.html">Markers &amp; Assets</a>
+      <a class="active" href="/admin/vfx-test/">VFX Tester</a>
+      <a href="/admin/shops/">Shops Mockup</a>
+      <a class="client" href="/client/">Play Client &rarr;</a>
+    </div>
+  </div>
+  <h1>ROD — Token VFX &amp; Color-Shift Test Bench</h1>
+  <p class="subtitle">Tests 6-frame Sheet 2 animations + alpha-clipped avatar color scale simultaneously</p>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>1. Hero Token</h2>
+      <div class="btn-grid" id="heroButtons">
+        <button data-hero="valen" class="active">Valen</button>
+        <button data-hero="ellowyn">Ellowyn</button>
+        <button data-hero="orin">Orin</button>
+        <button data-hero="rowan">Rowan</button>
+        <button data-hero="mera">Mera</button>
+        <button data-hero="harlan">Harlan</button>
+      </div>
+
+      <h2>2. HP State</h2>
+      <div class="btn-grid" id="hpButtons">
+        <button data-hp="1" class="active">100% HP</button>
+        <button data-hp="2">&lt;75% HP</button>
+        <button data-hp="3">&lt;50% HP</button>
+        <button data-hp="4">&lt;25% HP</button>
+      </div>
+
+      <h2>Preview Options</h2>
+      <label class="toggle-row"><input type="checkbox" id="loopToggle" /> Loop Animation</label>
+      <label class="toggle-row"><input type="checkbox" id="shakeToggle" checked /> Impact Micro-Shake</label>
+      <label class="toggle-row"><input type="checkbox" id="additiveToggle" checked /> Screen/Additive Glow</label>
+    </div>
+
+    <div class="stage-wrap">
+      <canvas id="stage" width="512" height="512"></canvas>
+      <div class="status-bar" id="statusBar">Ready — click an effect button on the right.</div>
+    </div>
+
+    <div class="panel">
+      <h2>3. Play Sheet 2 Animations</h2>
+      <button class="vfx-btn" data-vfx="1">
+        <span>Row 1: Cross Slash</span>
+        <span class="swatch" style="background:#f5b041"></span>
+      </button>
+      <button class="vfx-btn" data-vfx="2">
+        <span>Row 2: Ember Spark</span>
+        <span class="swatch" style="background:#ff5722"></span>
+      </button>
+      <button class="vfx-btn" data-vfx="3">
+        <span>Row 3: Frost Shard</span>
+        <span class="swatch" style="background:#4dd0e1"></span>
+      </button>
+      <button class="vfx-btn" data-vfx="4">
+        <span>Row 4: Stinging Salve</span>
+        <span class="swatch" style="background:#2ecc71"></span>
+      </button>
+
+      <h2 style="margin-top:14px;">Color-Shift &amp; Timing</h2>
+      <div class="control-row">
+        <label>Effect Tint Color <input type="color" id="tintColor" value="#ff5722" /></label>
+      </div>
+      <div class="control-row">
+        <label>Color Shift Strength <span id="tintStrengthVal">55%</span></label>
+        <input type="range" id="tintStrength" min="0" max="100" value="55" />
+      </div>
+      <div class="control-row">
+        <label>Duration <span id="durationVal">1.2s</span></label>
+        <input type="range" id="durationSlider" min="500" max="2200" step="100" value="1200" />
+      </div>
+      <div class="control-row">
+        <label>Overlay Scale <span id="scaleVal">1.05x</span></label>
+        <input type="range" id="scaleSlider" min="65" max="145" step="5" value="105" />
+      </div>
+      <button id="replayBtn" style="width:100%; margin-top:14px; background:#2f3a29; border-color:#74a85c;">Replay Current</button>
+    </div>
+  </div>
+
+<script>
+const EFFECTS = {
+  1: { name: "Cross Slash", color: "#f5b041", shake: 7, defaultDuration: 900 },
+  2: { name: "Ember Spark", color: "#ff5722", shake: 6, defaultDuration: 1200 },
+  3: { name: "Frost Shard", color: "#4dd0e1", shake: 5, defaultDuration: 1200 },
+  4: { name: "Stinging Salve / Heal", color: "#2ecc71", shake: 0, defaultDuration: 1400 },
+};
+
+const canvas = document.getElementById("stage");
+const ctx = canvas.getContext("2d");
+const offscreen = document.createElement("canvas");
+offscreen.width = 512;
+offscreen.height = 512;
+const octx = offscreen.getContext("2d");
+
+let selectedHero = "valen";
+let selectedHp = 1;
+let activeVfxRow = 1;
+let animStart = null;
+let lastFrameIdx = 0;
+
+const imgCache = new Map();
+function loadImg(src) {
+  if (imgCache.has(src)) return imgCache.get(src);
+  const p = new Promise((resolve, reject) => {
+    const im = new Image();
+    im.onload = () => resolve(im);
+    im.onerror = reject;
+    im.src = src;
+  });
+  imgCache.set(src, p);
+  return p;
+}
+
+// Preload all hero HP1 and VFX frames smoothly
+async function preloadCurrent() {
+  await loadImg(`heroes/${selectedHero}_hp${selectedHp}.png`);
+  const jobs = [];
+  for (let r = 1; r <= 4; r++) {
+    for (let f = 1; f <= 6; f++) {
+      jobs.push(loadImg(`vfx/row${r}_f${f}.png`));
+    }
+  }
+  await Promise.all(jobs);
+}
+
+function playEffect(row) {
+  activeVfxRow = row;
+  const eff = EFFECTS[row];
+  document.getElementById("tintColor").value = eff.color;
+  document.getElementById("durationSlider").value = eff.defaultDuration;
+  document.getElementById("durationVal").textContent = (eff.defaultDuration / 1000).toFixed(1) + "s";
+  animStart = performance.now();
+  document.getElementById("statusBar").textContent =
+    `Playing ${eff.name} over ${selectedHero.toUpperCase()} (HP Tier ${selectedHp})`;
+}
+
+async function renderLoop(now) {
+  const heroSrc = `heroes/${selectedHero}_hp${selectedHp}.png`;
+  let heroImg = null;
+  try {
+    heroImg = await loadImg(heroSrc);
+  } catch (e) {}
+
+  ctx.clearRect(0, 0, 512, 512);
+
+  if (heroImg) {
+    const duration = Number(document.getElementById("durationSlider").value);
+    const tintHex = document.getElementById("tintColor").value;
+    const tintStrength = Number(document.getElementById("tintStrength").value) / 100;
+    const scale = Number(document.getElementById("scaleSlider").value) / 100;
+    const loop = document.getElementById("loopToggle").checked;
+    const useShake = document.getElementById("shakeToggle").checked;
+    const useAdditive = document.getElementById("additiveToggle").checked;
+
+    let elapsed = animStart !== null ? now - animStart : -1;
+    if (elapsed > duration) {
+      if (loop) {
+        animStart = now;
+        elapsed = 0;
+      } else {
+        animStart = null;
+        elapsed = -1;
+        document.getElementById("statusBar").textContent =
+          `Idle — ${selectedHero.toUpperCase()} (HP Tier ${selectedHp})`;
+      }
+    }
+
+    let shakeX = 0, shakeY = 0;
+    let colorPulse = 0;
+    let frameImg = null;
+
+    if (elapsed >= 0) {
+      const t = Math.min(1, elapsed / duration);
+      // Fast rise, smooth hold, clean ease-out
+      colorPulse = Math.sin(Math.PI * Math.pow(t, 0.75)) * tintStrength;
+
+      const fIdx = Math.min(6, Math.max(1, Math.floor(t * 6) + 1));
+      try {
+        frameImg = await loadImg(`vfx/row${activeVfxRow}_f${fIdx}.png`);
+      } catch (e) {}
+
+      const effShake = EFFECTS[activeVfxRow].shake;
+      if (useShake && effShake > 0 && t > 0.15 && t < 0.65) {
+        const decay = 1 - (t - 0.15) / 0.5;
+        shakeX = (Math.random() - 0.5) * 2 * effShake * decay;
+        shakeY = (Math.random() - 0.5) * 2 * effShake * decay;
+      }
+    }
+
+    // 1. Draw avatar + alpha-clipped color shift onto offscreen buffer
+    octx.clearRect(0, 0, 512, 512);
+    octx.globalCompositeOperation = "source-over";
+    octx.drawImage(heroImg, 0, 0, 512, 512);
+
+    if (colorPulse > 0.01) {
+      // Hue/saturation color-scale shift + warm/cool tint inside exact token silhouette
+      octx.globalCompositeOperation = "color";
+      octx.globalAlpha = Math.min(1, colorPulse * 1.15);
+      octx.fillStyle = tintHex;
+      octx.fillRect(0, 0, 512, 512);
+
+      octx.globalCompositeOperation = "source-atop";
+      octx.globalAlpha = colorPulse * 0.42;
+      octx.fillStyle = tintHex;
+      octx.fillRect(0, 0, 512, 512);
+
+      // Clip strictly to the hero token's exact alpha channel (hugs irregular frames)
+      octx.globalCompositeOperation = "destination-in";
+      octx.globalAlpha = 1;
+      octx.drawImage(heroImg, 0, 0, 512, 512);
+      octx.globalCompositeOperation = "source-over";
+    }
+
+    ctx.drawImage(offscreen, shakeX, shakeY);
+
+    // 2. Play sliced animated VFX frame directly on top
+    if (frameImg) {
+      ctx.save();
+      ctx.translate(256 + shakeX, 256 + shakeY);
+      ctx.scale(scale, scale);
+      if (useAdditive) {
+        // Draw base opaque shapes first then subtle additive pop
+        ctx.globalCompositeOperation = "source-over";
+        ctx.drawImage(frameImg, -256, -256, 512, 512);
+        ctx.globalCompositeOperation = "screen";
+        ctx.globalAlpha = 0.45;
+        ctx.drawImage(frameImg, -256, -256, 512, 512);
+      } else {
+        ctx.drawImage(frameImg, -256, -256, 512, 512);
+      }
+      ctx.restore();
+    }
+  }
+
+  requestAnimationFrame(renderLoop);
+}
+
+// UI wiring
+document.querySelectorAll("#heroButtons button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#heroButtons button").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedHero = btn.dataset.hero;
+    preloadCurrent();
+  });
+});
+
+document.querySelectorAll("#hpButtons button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll("#hpButtons button").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedHp = Number(btn.dataset.hp);
+    preloadCurrent();
+  });
+});
+
+document.querySelectorAll(".vfx-btn").forEach((btn) => {
+  btn.addEventListener("click", () => playEffect(Number(btn.dataset.vfx)));
+});
+
+document.getElementById("replayBtn").addEventListener("click", () => playEffect(activeVfxRow));
+document.getElementById("tintStrength").addEventListener("input", (e) => {
+  document.getElementById("tintStrengthVal").textContent = e.target.value + "%";
+});
+document.getElementById("durationSlider").addEventListener("input", (e) => {
+  document.getElementById("durationVal").textContent = (Number(e.target.value) / 1000).toFixed(1) + "s";
+});
+document.getElementById("scaleSlider").addEventListener("input", (e) => {
+  document.getElementById("scaleVal").textContent = (Number(e.target.value) / 100).toFixed(2) + "x";
+});
+
+preloadCurrent().then(() => requestAnimationFrame(renderLoop));
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "id": "map_01",
+  "name": "The Crownlands & Saltmarsh",
+  "regionLabel": "Region 1 \u00b7 The Crownlands",
+  "width": 8192,
+  "height": 8192,
+  "tileSize": 512,
+  "cols": 16,
+  "rows": 16,
+  "spawn": {
+    "x": 5391,
+    "y": 5768
+  }
+}

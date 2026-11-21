@@ -1,0 +1,230 @@
+Map 1 - Zone 1 (Lv 1-5)
+  Crownland Meadows:
+    Bandit (CR 1/8)
+    Acolyte (CR 1/4)
+  Oakleaf Groves:
+    Cultist (CR 1/8)
+    Wolf (CR 1/4)
+  Coastal Shore (Crown Sea):
+    Giant Crab (CR 1/8)
+  Upland Foothills:
+    Skeleton (CR 1/4)
+
+Map 1 - Zone 2 (Lv 6-10)
+  Oakleaf Groves:
+    Zombie (CR 1/4)
+  Sunlit Downs:
+    Scout (CR 1/2)
+  Crownland Meadows:
+    Thug (CR 1/2)
+    Spy (CR 1)
+  Graystone Foothills:
+    Shadow (CR 1/2)
+  Upland Foothills:
+    Worg (CR 1/2)
+
+Map 1 - Zone 3 (Lv 11-15)
+  Coastal Shore (Crown Sea):
+    Pirate (CR 1)
+  Oakleaf Groves:
+    Ghoul (CR 1)
+    Dire Wolf (CR 1)
+    Giant Spider (CR 1)
+  Upland Foothills:
+    Brown Bear (CR 1)
+    Harpy (CR 1)
+
+Map 1 - Zone 4 (Lv 16-20)
+  Crownland Meadows:
+    Bandit Captain (CR 2)
+  Sandstone Ridges:
+    Cultist Fanatic (CR 2)
+    Gargoyle (CR 2)
+  Upland Foothills:
+    Berserker (CR 2)
+  Saltmarsh Wetlands:
+    Ghast (CR 2)
+  Saltmarsh Waterways (Shore):
+    Giant Constrictor Snake (CR 2)
+
+Map 1 - Zone 5 (Lv 21-25)
+  Sandstone Ridges:
+    Ogre (CR 2)
+  Saltmarsh Wetlands:
+    Merrow (CR 2)
+    Werewolf (CR 3)
+  Saltmarsh Waterways (Shore):
+    Black Dragon Wyrmling (CR 2)
+  Crownland Meadows:
+    Warrior Veteran (CR 3)
+  Sunlit Downs:
+    Knight (CR 3)
+
+Map 2 - Zone 6 (Lv 26-30)
+  Thornwall Slate Crags:
+    Minotaur (CR 3)
+    Manticore (CR 3)
+    Winter Wolf (CR 3)
+  Ochre Grasslands:
+    Wight (CR 3)
+    Vampire Familiar (CR 3)
+    Hell Hound (CR 3)
+
+Map 2 - Zone 7 (Lv 31-35)
+  Thornwall Slate Crags:
+    Basilisk (CR 3)
+    Mummy (CR 3)
+    Red Dragon Wyrmling (CR 4)
+    Ettin (CR 4)
+  Ochre Grasslands:
+    Bearded Devil (CR 3)
+    Guard Captain (CR 4)
+
+Map 2 - Zone 8 (Lv 36-40)
+  Verdant Canopy Woods:
+    Green Hag (CR 3)
+    Owlbear (CR 3)
+    Wereboar (CR 4)
+  Weald Clearings:
+    Lamia (CR 4)
+    Ghost (CR 4)
+    Succubus (CR 4)
+
+Map 2 - Zone 9 (Lv 41-45)
+  Borderland Channel (Shore):
+    Chuul (CR 4)
+    Giant Crocodile (CR 5)
+  Blighted Mire-Glade:
+    Shadow Demon (CR 4)
+    Troll (CR 5)
+    Night Hag (CR 5)
+  Weald Clearings:
+    Gladiator (CR 5)
+
+Map 2 - Zone 10 (Lv 46-50)
+  Blighted Mire-Glade:
+    Flesh Golem (CR 5)
+    Wraith (CR 5)
+  Verdant Canopy Woods:
+    Vampire Spawn (CR 5)
+  Highland Foothills:
+    Hill Giant (CR 5)
+    Bulette (CR 5)
+  Sandy Cove Beaches:
+    Pirate Captain (CR 6)
+
+Map 3 - Zone 11 (Lv 51-55)
+  Sun-Scorched Dunes:
+    Salamander (CR 5)
+    Fire Elemental (CR 5)
+  Sandstone Mesas:
+    Barbed Devil (CR 5)
+    Mage (CR 6)
+    Chimera (CR 6)
+    Wyvern (CR 6)
+
+Map 3 - Zone 12 (Lv 56-60)
+  Oasis & Alpine Lakes (Shore):
+    Water Elemental (CR 5)
+    Young Black Dragon (CR 7)
+  Palm Oasis Verge:
+    Oni (CR 7)
+  Sun-Scorched Dunes:
+    Vrock (CR 6)
+    Invisible Stalker (CR 6)
+  Sandstone Mesas:
+    Stone Giant (CR 7)
+
+Map 3 - Zone 13 (Lv 61-65)
+  Granite Highland Ridge:
+    Young White Dragon (CR 6)
+    Young Copper Dragon (CR 7)
+  Ironcrest Foothills:
+    Shield Guardian (CR 7)
+  Highland Oak Woods:
+    Assassin (CR 8)
+  Oasis & Alpine Lakes (Shore):
+    Hydra (CR 8)
+  Evergreen Pine Forest:
+    Young Green Dragon (CR 8)
+
+Map 3 - Zone 14 (Lv 66-70)
+  Granite Highland Ridge:
+    Frost Giant (CR 8)
+    Chain Devil (CR 8)
+  Ironcrest Foothills:
+    Cloaker (CR 8)
+    Clay Golem (CR 9)
+  Oasis & Alpine Lakes (Shore):
+    Hezrou (CR 8)
+  Ironcrest Alpine Meadow:
+    Cloud Giant (CR 9)
+
+Map 3 - Zone 15 (Lv 71-75)
+  Granite Highland Ridge:
+    Fire Giant (CR 9)
+    Young Blue Dragon (CR 9)
+  Ironcrest Foothills:
+    Bone Devil (CR 9)
+  Highland Oak Woods:
+    Glabrezu (CR 9)
+  Ironcrest Alpine Meadow:
+    Warrior Commander (CR 10)
+  Evergreen Pine Forest:
+    Cultist Hierophant (CR 10)
+
+Map 4 - Zone 16 (Lv 76-80)
+  Frostbound Foothills:
+    Stone Golem (CR 10)
+    Bandit Crime Lord (CR 11)
+  Frozen Glacial Lakes (Shore):
+    Aboleth (CR 10)
+  Frostpine Taiga:
+    Guardian Naga (CR 10)
+  Glacial Snowfields:
+    Remorhaz (CR 11)
+    Djinni (CR 11)
+
+Map 4 - Zone 17 (Lv 81-85)
+  Frostbound Foothills:
+    Young Red Dragon (CR 10)
+    Behir (CR 11)
+    Horned Devil (CR 11)
+  Ashen Border Scree:
+    Efreeti (CR 11)
+  Glacial Snowfields:
+    Archmage (CR 12)
+    Erinyes (CR 12)
+
+Map 4 - Zone 18 (Lv 86-90)
+  Frost-Shore Beaches:
+    Pirate Admiral (CR 12)
+  Frostpine Taiga:
+    Rakshasa (CR 13)
+    Vampire (CR 13)
+  Frozen Glacial Lakes (Ice / Shore):
+    Storm Giant (CR 13)
+    Adult Black Dragon (CR 14)
+  Glacial Snowfields:
+    Ice Devil (CR 14)
+
+Map 4 - Zone 19 (Lv 91-95)
+  Charred Ash Plains:
+    Nalfeshnee (CR 13)
+    Purple Worm (CR 15)
+    Marilith (CR 16)
+  Ashen Border Scree:
+    Mummy Lord (CR 15)
+    Adult Green Dragon (CR 15)
+    Iron Golem (CR 16)
+
+Map 4 - Zone 20 (Lv 96-99)
+  Ashen Border Scree:
+    Adult Blue Dragon (CR 16)
+  Charred Ash Plains:
+    Adult Red Dragon (CR 17)
+    Balor (CR 19)
+    Pit Fiend (CR 20)
+    Lich (CR 21)
+  Coastal Shore (Frostbound Ocean):
+    Dragon Turtle (CR 17)

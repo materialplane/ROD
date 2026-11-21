@@ -1,0 +1,37 @@
+# ROD — Region 2: The Saltmarsh & Coast Trade Goods Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: docs/07-bestiary-and-bosses.md & data/items-catalog.json (Region 2 Monster & Trade Loot (15 + Category Crest))
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 REGION 2 TRADE GOODS START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated fantasy RPG monster trophy and trade-good loot icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY LOOT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG merchant/bag icon readability, smooth sculpted chitin, horn, pelt, bone, metal, glass vial, scale, and stone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/liquids/glows, and ZERO letters or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 loot icons float centered cleanly in 3/4 RPG object view filling ~75% of each invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically.
+
+Render these exact 16 distinct trade goods cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Serrated Reef Fin): Translucent-edged teal-and-slate spiky jagged coastal reef monster dorsal fin.
+Row 1, Col 2 (Corrosive Trench Scale): Large thick dark blue-green metallic fish-scale scarred softly along edge by acid patina.
+Row 1, Col 3 (Barbed Trench Tentacle): Curled damp deep purple-slate abyssal sea-tentacle segment lined along underside with hooked barbs.
+Row 1, Col 4 (Severed Hydra Neck-Crest): Wide fanned scalloped iridescent emerald-and-bronze severed sea-hydra frill crest.
+
+Row 2, Col 1 (Scalding Vapor Phial): Stout thick-walled clear glass bottle swirling inside with pale misting white-cyan scalding steam.
+Row 2, Col 2 (Barbed Coral Harpoon): Rusted sea-encrusted barbed iron whale-harpoon spearhead lashed tightly to carved bone shaft.
+Row 2, Col 3 (Brine-Salt Talisman): Crisp encrusted pale sea-salt ring talisman tied cleanly inside dark weathered hemp cord loops.
+Row 2, Col 4 (Pure Abyssal Vial): Slender dark sapphire crystal phial brimming with pure deep luminous ocean-blue abyssal brine.
+
+Row 3, Col 1 (Coiled Sucker Tendril): Thick rubbery slate-blue coiled octopus tentacle tip displaying neat rows of pale ivory suction cups.
+Row 3, Col 2 (Ivory Trench Tooth): Razor-sharp gleaming pale white conical sea-trench Leviathan fang tooth.
+Row 3, Col 3 (Pale Abyssal Jawbone): Bleached curved pale ivory jagged abyssal sea-beast lower jawbone lined with sharp teeth.
+Row 3, Col 4 (Writhing Eye-Cluster): Cluster of three eerie glassy pale golden-amber deep-sea eye spheres bound inside dark membrane.
+
+Row 4, Col 1 (Translucent Pincer): Semi-translucent icy aqua-blue spiked crab-horror pincer claw resting neatly angled.
+Row 4, Col 2 (Living Tide-Core): Pulsing smooth cobalt-blue spherical elemental water-core ringed gently inside dark bronze cradle.
+Row 4, Col 3 (Steam-Scarred Scute): Thick domed turtle-like bronze-brown abyssal carapace scute blistered lightly by steam vents.
+Row 4, Col 4 (Region 2 Trade Goods Crest): Saltmarsh Coastal Loot Crest: Minimalist matte tarnished-bronze tied sailor cargo crate & anchor emblem with NO text or borders on pure #FF00FF.
+--- 4x4 REGION 2 TRADE GOODS END ---

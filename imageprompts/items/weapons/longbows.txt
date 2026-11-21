@@ -1,0 +1,51 @@
+# ROD — 2H Longbow Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Archer -> Longbow (2H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 2H tall curved longbow fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 bows follow ONE identical 45-degree diagonal UI icon angle inside their cell: bow grip centered, lower limb tip toward bottom-left and upper limb tip toward top-right with taut bowstring angled along the inner bottom-left-to-top-right chord (standalone bow only, NO loose arrows). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Yew Hunting Longbow): Simple plain weathered yew wood self-longbow with mild pale grain, rough dark leather hand wrap at center grip, basic notched string tips, taut hemp bowstring.
+Row 1, Col 2 (Ashwood Longbow): Smooth clean ashwood hunting longbow of polished warm honey-ash timber, stitched dark brown calfskin center handle, horn-tipped string nocks, tight bowstring.
+Row 1, Col 3 (Crownland Longbow): Crownland Longbow — tall dark-stained royal yew longbow featuring brass-banded grip riser, dark carved cow-horn limb tips, and crisp pale linen bowstring.
+Row 1, Col 4 (Driftwood Longbow): Driftwood coastal longbow shaped from salt-silvered pale coastal driftwood grain, wrapped at handle with tarred green-gray nautical twine and bronze nock rings.
+Row 1, Col 5 (Horn-Tipped Longbow): Horn-Tipped wide-limbed coastal longbow laminating dark ocean-soaked wood with dramatic sweeping pale ivory cow-horn nock tips and dark indigo leather grip.
+
+Row 2, Col 1 (Saltwind Composite Longbow): Saltwind Composite Longbow — sleek maritime horn-and-yew composite bow reinforced cleanly with brass belly-bands, sea-teal waxed leather wrap, and taut braided string.
+Row 2, Col 2 (Border Longbow): Border Redmarch longbow crafted from dark fire-hardened ash reinforced with riveted slate iron handle collar, red-corded grip wrap, and iron string nocks.
+Row 2, Col 3 (Ironwood War-Longbow): Ironwood War-Longbow — heavy thick-limbed dark ironwood siege bow built for massive draw weight, braced with blackened steel center riser sleeve and spiked horn tips.
+Row 2, Col 4 (Watchtower Longbow): Watchtower Longbow — proud Redmarch archer-captain's bow displaying crimson-painted horn tips, engraved brass riser plates, crimson leather grip, and crisp white string.
+Row 2, Col 5 (Briarwood Longbow): Briarwood woodland longbow carved smoothly from rich dark briar timber wrapped in mossy green oiled leather with small thorny brass collar rings flanking the grip.
+
+Row 3, Col 1 (Heartwood Recurve Longbow): Heartwood Recurve Longbow — powerful golden-amber laminated heartwood bow curving into subtle forward-hooked recurve limbs inset cleanly with brass leaf riser plates.
+Row 3, Col 2 (Elderwood Greatbow): Elderwood Greatbow — ancient tall woodland relic bow forged from living dark twisted elderwood grain trailing subtle mossy-green bronze limb sleeves and ivory string nocks.
+Row 3, Col 3 (Palm-Horn Longbow): Palm-Horn desert longbow crafted of warm sun-cured desert palmwood laminated tightly with dark curved ibex horn backings, desert-tan handle wrap, brass nocks.
+Row 3, Col 4 (Dune-Wind Longbow): Dune-Wind Veridian laminated desert longbow featuring sweeping graceful sand-gold horn tips, crimson leather stitched riser grip, and gleaming brass riser filigree.
+Row 3, Col 5 (Sun-Crest Longbow): Sun-Crest Longbow — magnificent ornate desert prince longbow trimmed in sculpted golden-brass sunburst handle plates, blazing white horn tips, deep cobalt silk-wrapped grip.
+
+Row 4, Col 1 (Ridge-Horn Longbow): Ridge-Horn highland longbow pairing crisp cold gray alpine-yew wood and curved mountain-ram horn tips bound tightly with dark charcoal mountain leather.
+Row 4, Col 2 (Eagle-Eye Longbow): Eagle-Eye Ironcrest precision longbow built of sleek charcoal-gray slate-stained pine reinforced with silvered-steel sight notch plate near grip and carved hawk-beak horn nocks.
+Row 4, Col 3 (Storm-String Longbow): Storm-String Longbow — legendary Anvilhall master-crafted star-iron and mountain-yew bow inlaid subtly with warm forge-amber limb chevrons and forged steel riser.
+Row 4, Col 4 (White-Pine Longbow): White-Pine northern longbow carved from frost-pale white northern pine timber bound tightly in snow-white wolf leather strips with dark iron nock sleeves.
+Row 4, Col 5 (Glacial Horn-Longbow): Glacial Horn-Longbow — towering Frostbound composite bow combining deep midnight-gray bone-backed limbs with translucent-look frost-brass carved tip horns and navy grip.
+
+Row 5, Col 1 (Boreal Wind Longbow): Boreal Wind Longbow — endgame Arctic relic longbow formed of dark winter-iron wood edged with glistening pale ice-blue crystal-steel limb ribs and silvered wind-vane tips.
+Row 5, Col 2 (Ashen-Yew Longbow): Ashen-Yew Dreadwaste longbow built from charred smoky volcanic-blackened yew wood revealing subtle warm ember-orange vein inlays near steel-strapped riser grip.
+Row 5, Col 3 (Shadow-Piercer Longbow): Shadow-Piercer obsidian-tinted blackened steel-and-ebony war-longbow bearing sleek crimson-lacquered serrated limb tips, crimson leather grip, razor-taut black string.
+Row 5, Col 4 (Horizon Starbow): Horizon Starbow — supreme royal archer endgame relic longbow sweeping gracefully in gleaming brushed-gold and silvered star-iron limbs cradling an inlaid blazing gold horizon crest at center riser.
+Row 5, Col 5 (Longbows Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic tall sweeping longbow silhouette emblem at 45-degree angle—clean curved bow wood & taut single string line with NO arrows, NO gems, NO glow, NO circle border, and NO box frame on pure #FF00FF.
+--- 5x5 PROMPT END ---

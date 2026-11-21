@@ -1,0 +1,3 @@
+# ROD — Dungeon & Survey Charts Reference
+# Note: Rift Area Chart and supporting exploration survey maps are packed cleanly into Row 4 of the 16-slot 4x4 Key Items sheet inside:
+#   -> imageprompts/items/keys/catalysts.txt (Row 4 Col 1 = Rift Area Chart; Row 4 Cols 2–4 = Survey, Sea-Port & Recon Charts).

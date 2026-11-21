@@ -1,0 +1,47 @@
+# ROD — Archer Accessory — Quivers Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Archer -> Quivers (24 + Crest)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 QUIVERS PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated fantasy archer arrow quiver filled with arrows fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, horn, leather, gold, bronze, iron, and stone surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 quivers angle diagonally ~30–45 degrees upright with base bottom-left and crisp visible arrow fletchings cresting toward upper-right. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Torn Leather Quiver): Worn cracked pale tan leather tube quiver stitched roughly with hemp twine holding 5 basic wooden-shaft goose-feather arrows.
+Row 1, Col 2 (Fletched Scout Quiver): Sturdy stitched brown scout leather quiver boasting riveted brass belt buckle and 5 crisp white-fletched hunting arrows.
+Row 1, Col 3 (Hardened Yew Quiver): Hardened dark mahogany shaped yew-stiffened leather quiver carrying 5 brown-and-crimson fletched broadhead arrows.
+Row 1, Col 4 (Waterproof Seal Quiver): Waterproof waxed dark seal-skin coastal quiver sealed cleanly with fold-over rain flap showing 5 teal-fletched arrows.
+Row 1, Col 5 (Gull-Feather Quiver): Gull-Feather Saltwind light driftwood-and-canvas quiver filled cleanly with crisp white-and-blue sea-gull fletched arrows.
+
+Row 2, Col 1 (Mire-Hunter Quiver): Mire-Hunter dark olive oiled leather swamp quiver accented with dull bronze frogs holding 5 dark marsh-green fletched arrows.
+Row 2, Col 2 (Garrison Arrow Quiver): Garrison heavy Redmarch stiff iron-strapped arrow quiver stocked with 5 scarlet-fletched armored war-arrows.
+Row 2, Col 3 (Steel-Capped Quiver): Steel-Capped dark crimson leather border quiver framed at top mouth and base cap with polished forged steel, red-black arrows.
+Row 2, Col 4 (Border-Captain's Quiver): Border-Captain's proud crimson-and-brass heraldic leather quiver bearing embossed brass trim and gleaming steel-tipped arrows.
+Row 2, Col 5 (Bark-Wrapped Quiver): Bark-Wrapped Weald forest quiver clad in textured dark oak bark and leather cord carrying 5 emerald-feathered arrows.
+
+Row 3, Col 1 (Willow-Woven Quiver): Willow-Woven lightweight woodland woven willow-reed tube quiver strapped in moss leather with golden-yellow fletched arrows.
+Row 3, Col 2 (Phantom-Leaf Quiver): Phantom-Leaf dark charcoal-and-emerald sculpted leaf-pattern leather arrow case holding 5 razor black-feathered arrows.
+Row 3, Col 3 (Camel-Hide Quiver): Camel-Hide light sand-tan desert nomad quiver featuring brass buckle tassels and 5 golden ochre-fletched arrows.
+Row 3, Col 4 (Gilded Brass Quiver): Gilded embossed golden-brass tubular Veridian war-quiver cradling 5 crimson-and-gold feathered desert arrows.
+Row 3, Col 5 (Sirocco Winged Quiver): Sirocco slender flared desert-wing gilded leather quiver decked with sleek crimson wing-flaps and white-gold arrows.
+
+Row 4, Col 1 (Mountain-Horn Quiver): Mountain-Horn Highpass slate leather quiver braced vertically with curved pale ram-horn ribs and gray-feathered arrows.
+Row 4, Col 2 (Eagle-Plume Quiver): Eagle-Plume dark highland navy leather arrow case crowned around mouth collar with crisp brown-white eagle plumage and steel-tipped arrows.
+Row 4, Col 3 (Gale-Wing Quiver): Gale-Wing silver-trimmed star-steel braced Anvilhall quiver flashing warm amber forge chevrons beside bright silver arrows.
+Row 4, Col 4 (Fur-Lined Quiver): Fur-Lined pale frosty-gray northern leather quiver bundled warmly around top rim in crisp white winter wolf fur holding 5 crisp frost-white and pale steel-gray fletched hunting arrows.
+Row 4, Col 5 (Glacial Horn Quiver): Glacial carved pale bone-and-navy winter hunter arrow case reinforced with dark frost-iron straps and ice-blue fletched arrows.
+
+Row 5, Col 1 (Boreal Wind Quiver): Boreal pale frosted-steel-trimmed midnight-navy wind quiver holding shimmering icy-white feathered precision arrows.
+Row 5, Col 2 (Ashen-Hide Quiver): Ashen-Hide Dreadwaste scorched charcoal leather war-quiver fitted with blackened iron spikes and ember-red fletched arrows.
+Row 5, Col 3 (Shadow-Feather Quiver): Shadow-Feather sleek obsidian-black riveted leather sniper case stocked with razor dark matte raven-black fletched arrows.
+Row 5, Col 4 (Horizon Star-Quiver): Horizon Star-Quiver — apex Archer endgame relic quiver gleaming in sculpted brushed gold & star-silver leather plates holding radiant gold-tipped arrows.
+Row 5, Col 5 (Quivers Category Emblem & Empty-Slot Icon): Quivers Category Emblem & Empty-Slot Icon: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic angled tube quiver silhouette emblem showing 3 clean uniform metal arrow tips/fletchings—NO glow, NO borders on pure #FF00FF.
+--- 5x5 QUIVERS PROMPT END ---

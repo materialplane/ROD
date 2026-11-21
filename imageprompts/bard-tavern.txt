@@ -1,0 +1,267 @@
+# ROD — 16:9 Settlement Bard Tavern Background Prompts (18 Taverns Across Ethoria)
+# Scope: All 18 Settlements (Cities, Towns, Port Towns, Villages & Hamlets — zero Forts, Keeps, Outposts, or Sea-Travel Port Docks).
+# Target Model: imageprompts/premium/generate_image_16x9_4k_pro.py (models/gemini-3-pro-image, Pro 4K, 16:9) or Gemini Web UI (16:9).
+# Art Style Anchor: Proven Pro 4K League of Legends / Runeterra / Summoner's Rift / Ruined King hand-painted splash style.
+# Browser / API Reference Tip: Attach assets/ui/menu_background_16x9_4k_v2.png (color & brushwork match) when generating for style consistency.
+#
+# Tavern Camera & Layout Mandate (Pro 3.1 Safe):
+#   - VIEWER CAMERA: Always framed from near the tavern entrance looking ACROSS the dining floor toward the far-right stage (NEVER standing on the stage). Occupied patron tables sit in the midground between the shadowed entrance floor and the stage.
+#   - FREESTANDING STAGE vs WALL HEARTH: Every Bard performs atop a separate, freestanding raised wooden stage with 2–3 timber steps up from the dining floor, set several paces clear OUT IN THE OPEN ROOM in front of the recessed rear wall fireplace (NEVER inside or on top of the fireplace mantel).
+#   - FIVE ESSENTIAL TAVERN ELEMENTS: (1) Long served oak bar counter w/ tapped kegs, bottle shelves & barkeep; (2) Candlelit oak tables & benches w/ mugs/plates; (3) Seated human patrons listening; (4) Freestanding stepped wooden stage w/ footlight lanterns; (5) Distinct individual Human Bard Singer performing center-right.
+
+SHARED STYLE HEADER (Pure positive high-contrast League of Legends / Runeterra splash key art):
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+
+================================================================================
+MAP 1 — THE CROWNLANDS & SALTMARSH COAST (Regions 1–2 | 6 Taverns)
+================================================================================
+
+--------------------------------------------------------------------------------
+[01] ID: loc_01_overgrown_garden_sanctuary | Highcrown — The Crown & Ivy Grand Tavern (Bard: Corinne Bellamy)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — GRAND CAPITAL TAVERN HALL & BALCONY MEZZANINE: Wide eye-level splash painting viewed from near the shaded tavern entrance looking deep across Highcrown's bustling two-story royal-capital tavern, The Crown & Ivy, at twilight dusk. Dimly shadowed worn oak entrance floorboards stretch briefly along the very bottom entrance edge before meeting rows of foreground-to-midground dining tables; high above, soaring limestone arches and heavy oak rafters support an upper wooden tavern balcony overlooking the packed common room lit by huge iron candle wheel chandeliers.
+
+SERVED LONG BAR & SEATED PATRONS (LEFT & MIDGROUND TABLES): Anchoring the left midground stretches a long, gleaming carved-oak tavern bar counter fitted with brass foot-rails, giant iron-hooped ale kegs tapped with wooden spigots, glowing tiers of amber bottle-lined oak shelves, and an aproned human barkeep pouring foaming tankards. Filling the shadowed-to-amber midground hall stand several heavy round and trestle oak tavern tables cluttered with pewter tankards, dripping tallow candles, and wooden platters, where clusters of cozy human tavern patrons—merchants in wool cloaks, weary off-duty city watchmen, and hooded travelers—sit comfortably on wooden chairs and booths turning their attention warmly toward the stage.
+
+FREESTANDING WOODEN STAGE & HUMAN BARD SINGER (MIDGROUND CENTER-RIGHT): Standing out cleanly across the open dining room—well past the central tables, raised two timber steps above the oak common floor, and positioned several paces clear in front of the far rear limestone wall fireplace (guarded cleanly by a black iron fire-screen along the distant back wall hung with tattered burgundy Highcrown pennants)—rises a separate, freestanding carved-oak wooden performance stage edged with warm brass stage lanterns, where performs a slender, medium-height charismatic woman in her mid-20s with warm olive skin, heart-shaped cheeks, upturned nose, playful bright hazel eyes, and rich auburn curls tied half-back with a burgundy silk cord, wearing an emerald velvet fitted doublet over puffed cream linen sleeves and leather shoulder strap, open-voiced mid-ballad with her fingers sweeping a finely inlaid maple medieval lute blazing in warm golden stage-and-hearth rim lighting.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[02] ID: loc_02_oakhaven | Oakhaven — The Heart-Oak Inn & Taproom
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — BUSTLING TOWN TAVERN HALL: Wide eye-level splash painting framed from near the tavern entrance looking across Oakhaven's lively Heart-Oak Tavern common room at golden evening. Shaded dark oak entrance boards along the lower entrance edge give way directly to candlelit patron tables across the hall beneath massive crooked dark-oak ceiling beams hung with drying sage bundles, hops vines, and iron chandeliers.
+
+WOODEN TAPROOM BAR & PATRON TABLES (LEFT & MIDGROUND): Along the left-midground wall glows a bustling carved chestnut bar counter backed by stacked cider casks, copper kettle mugs, glowing glass bottles, and a busy aproned tavernkeeper hoisting stoneware pitchers. Across the center-left floor cluster sturdy round oak tavern tables ringed by bentwood chairs and settles set with frothy mugs and candle stubs, where seated human townsfolk, local smiths, and road-weary merchants relax and listen cheerfully to the evening song.
+
+FREESTANDING TIMBER STAGE & HUMAN BARD SINGER (MIDGROUND CENTER-RIGHT): Set well clear across the dining floor several paces out in front of Oakhaven's recessed fieldstone fireplace in the far rear wall stands a separate freestanding stepped wooden tavern stage two plank steps above the floor, edged with iron foot-lanterns, where sits a short, stocky, barrel-chested man in his late 40s with weathered ruddy-tan skin, round jovial cheeks etched with deep laugh crinkles, scarred broad nose, wide gap-toothed grin, and a balding salt-and-pepper crown paired with a thick bushy gray-streaked walrus mustache (clean-shaven chin), dressed in an open weathered tan sheepskin vest over dark slate rolled linen sleeves, strumming a broad chestnut bandura-lute bathed in fierce amber firelight, beside leaded glass doors glowing golden dusk on the far right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[03] ID: hub_meadowbrook_hamlet | Meadowbrook Hamlet — The Golden Sheaf Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — COZY FARMSTEAD VILLAGE TAVERN: Eye-level splash painting viewed from just inside the tavern door looking across Meadowbrook Hamlet's snug Golden Sheaf Tavern dining room at sunset. Dim shadowed entrance flagstones at the bottom margin open cleanly onto warm wooden patron tables beneath timber ceiling joists hung with bundled wheat sheaves.
+
+VILLAGE CIDER BAR & FARMFOLK TABLES (LEFT & MIDGROUND): Tucked cleanly along the left sits a short sturdy oak tavern bar lined with tapped cider barrels, clay ale jugs, warm bread loaves, and a smiling aproned innkeep pouring cider mugs. Scattered through the central taproom stand three worn oak trestle tables lit by tallow lanterns where seated human farmers, shepherds, and a traveling peddler lean on their elbows nursing mugs and listening happily toward the fireplace.
+
+FREESTANDING TIMBER PLATFORM & HUMAN BARD SINGER (MIDGROUND CENTER-RIGHT): Across the dining tables on a separate low raised wooden minstrel platform with two short plank steps—set cleanly out in front of the distant stone hearth and hanging copper kettles built into the far wall—stands and sings a lanky, tall, narrow-shouldered young man around 20 years old with fair rosy skin scattered with sun freckles across a long thin nose, eager wide sky-blue eyes, prominent ears, and an unruly curly sandy-blond mop falling over his brow, wearing a patched moss-green wool vest and linen shirt, bowing cleanly across a varnished wooden folk fiddle caught in golden sunset rays from diamond casements on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[04] ID: loc_04_millbrook_crossing | Millbrook Crossing — The Turning Millstone Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — CROSSROADS VILLAGE TAVERN: Wide eye-level splash painting framed from near the tavern doorway looking across Millbrook Crossing's rugged limestone-and-timber Turning Millstone Tavern at golden dusk. Dark shadowed entrance oak floorboards along the bottom border open directly onto busy dining tables beneath a massive retired oak windmill cogwheel mounted high in the rafters.
+
+FRONTIER TAP BAR & TRAVELER TABLES (LEFT & MIDGROUND): Along the left runs a scarred limestone-and-oak tavern bar counter packed with dusty bottles, brass lanterns, big wooden ale kegs, and a sturdy bartender serving leather tankards. Around central round oak tables scattered with dice cups, road maps, and candle stubs sit cloaked human couriers, frontier millers, and scarred travelers leaning in warmly toward the stage as evening ballads play.
+
+FREESTANDING WOOD STAGE & HUMAN BARD SINGER (MIDGROUND CENTER-RIGHT): Across the floor past the traveler tables, atop a freestanding heavy-oak wooden stage raised two timber steps above the floorboards and set several paces clear in front of the distant recessed limestone hearth oven in the back wall, performs a sharp-boned woman in her early 40s with weathered pale beige skin, pronounced aquiline nose, keen steel-gray eyes under dark arched brows, and silver-streaked ash-brown hair pulled into one thick single braid over her left shoulder, wearing a lowered umber wool traveler's hood, dark slate quilted vest, and brass buckle belt, raising one expressive hand mid-story while plucking a carved oak traveler's lyre blazing warmly beside slatted dusk shutters on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[05] ID: loc_06_saltwind_harbor | Saltwind Harbor — The Barnacle & Lantern Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — ROARING SEAPORT HARBOR TAVERN: Sweeping eye-level splash painting viewed from inside the harbor tavern doorway looking deep across Saltwind Harbor's roaring salt-oak Barnacle & Lantern Tavern at twilight. Dim sea-worn entrance planks along the bottom margin open directly into packed sailor tables beneath massive salvaged ship-rib ceiling arches hung with brass ship-bells and swinging gimbal oil lanterns.
+
+SHIP-TIMBER BAR & SAILOR TABLES (LEFT & MIDGROUND): Spanning the left wall stretches a sturdy driftwood-and-oak sea-tavern bar backed by rows of green rum bottles, brass compasses, stacked ship casks, and a tattooed human barkeep sliding filled pewter tankards across the counter. Filling the warm candlelit midground sit scarred heavy-timber tavern tables and booth benches jammed with relaxed human sailors, dockhands, and sea-captains gripping frothy mugs and facing happily toward the stage.
+
+FREESTANDING QUARTERDECK STAGE & HUMAN MARINER BARD (MIDGROUND CENTER-RIGHT): Across the crowded sailor tables to the right of center rises a separate freestanding wooden quarterdeck performance stage with two timber steps up from the common floor and rope stanchions along its front edge—standing well clear in front of the far rear brick fireplace—where stands a broad-shouldered, sinewy, medium-tall man in his late 30s with deep sun-leathered copper-brown skin, square heavily stubbled jaw, pale notch scar slicing his left eyebrow, sharp amber-brown eyes, and coarse wavy jet-black hair swept back beneath a dark indigo knit watch-cap, dressed in an open faded sea-teal sailcloth vest over loose cream linen and crimson waist sash, bracing one boot on a small deck-keg while strumming a scarred mahogany sailor's cittern under arched sapphire port windows on the far right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[06] ID: hub_reedfen_village | Reedfen Village — The Willow-Lantern Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — MARSHLAND FISHING VILLAGE TAVERN: Eye-level splash painting framed from near the tavern entrance looking across Reedfen Village's cedar-and-thatch Willow-Lantern Tavern at amber twilight. Dark shadowed entrance decking at the bottom margin opens onto cozy driftwood tables beneath steeply pitched thatch rafters and hanging iron fire-cages.
+
+CEDAR BAR COUNTER & FISHERMAN TABLES (LEFT & MIDGROUND): Anchoring the left midground sits a rustic lashed-cedar bar counter hung with green glass floats, amber liqueur jars, tapped ale barrels, and an aproned marsh-tavern keeper serving stew bowls. Seated around cozy driftwood-plank tavern tables lit by tallow bowls sit quiet human marsh-fishers, reed-gatherers, and hooded boatmen resting beside clay mugs as they listen toward the hearth stage.
+
+FREESTANDING CEDAR STAGE & HUMAN MARSH SONGSTRESS (MIDGROUND CENTER-RIGHT): Across the room past the fisherfolk tables stands a freestanding stepped cedar performance platform raised two feet above the main deck and placed clearly out in front of the distant moss-patched stone hearth on the rear wall, where sits and plays a petite, slight-framed woman in her early 30s with rich deep umber-brown dark skin, smooth high forehead, serene wide dark-espresso eyes, full mouth parted gently mid-song, and shoulder-length coiled black braids threaded with small hammered bronze rings, dressed in a draped mossy sage-green linen shawl and dark charcoal tunic, leaning into a carved walnut folk lap-harp beside open shuttered gallery slats showing dark twilight reeds outside on the right.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 2 — THORNWALL & THE VERDANT WEALD (Regions 3–4 | 5 Taverns)
+================================================================================
+
+--------------------------------------------------------------------------------
+[07] ID: loc_11_redmarch_bastion | Redmarch Bastion — The Scarlet Watchman Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — FRONTIER GARRISON TOWN TAVERN: Wide eye-level splash painting viewed from the tavern archway entrance looking across Redmarch Bastion's cavernous red-sandstone Scarlet Watchman Tavern at fiery dusk. Shadowed slate entrance flagstones along the bottom margin lead immediately to crowded soldier dining tables beneath massive iron wheel chandeliers and draped crimson banners.
+
+IRON-BANDED BAR & SOLDIER TABLES (LEFT & MIDGROUND): Along the left stands an iron-riveted dark oak garrison tavern bar stocked with hefty casks, rows of earthenware flagons, glowing amber glass flasks, and a stout barkeep drawing tankards of dark ale. Across the warm midground stand heavy scarred pine tavern tables and wooden benches packed with off-duty human border soldiers in gambesons, traveling scouts, and supply-carters raising pewter cups in camaraderie while turning toward the minstrel stage.
+
+FREESTANDING WOODEN STAGE & HUMAN MINSTREL (MIDGROUND CENTER-RIGHT): Well past the dining tables toward center-right stands a separate freestanding heavy-oak wooden stage raised two timber steps above the slate floor with warm footlight lanterns—positioned several paces forward of the distant soot-darkened red-sandstone fireplace in the back wall—where stands an imposing, tall, thick-necked burly man in his early 50s with weathered sallow-tan skin marked by a pale slash scar from temple to jaw, crooked broken nose, deep-set stern gray eyes, close-cropped iron-gray hair bristles, and a heavy silver-streaked square chin beard, clad in a faded tattered crimson border coat with dulled iron shoulder studs over battered dark leather bracers, singing fiercely while strumming a dark walnut war-lute beneath narrow sunlit dusk embrasures on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[08] ID: hub_goldmoor_village | Goldmoor Village — The Drover's Flute Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — HIGHLAND VILLAGE ALEHOUSE: Eye-level splash painting framed from inside the doorway looking across Goldmoor Village's ochre-stone and oak Drover's Flute Tavern at golden hour. Shaded entrance flagstones along the bottom edge lead directly past warm candlelit oak tables beneath crooked highland oak beams hung with brass horse-bells.
+
+OCHRE-WOOD BAR & DROVER TABLES (LEFT & MIDGROUND): Built cleanly along the left sits a honey-stained oak bar counter framed by stacked wooden kegs, copper tankard racks, tall amber decanters, and a genial red-aproned bartender wiping wooden mugs. Scattered through the central taproom sit warm candlelit oak tables filled with booted human cattle drovers, grain traders, and village elders chatting softly and raising mugs toward the hearth stage.
+
+FREESTANDING WOODEN STAGE & HUMAN BALLAD SINGER (MIDGROUND CENTER-RIGHT): Across the dining floor toward center-right stands a separate freestanding raised timber plank stage two wooden steps high, set well out in the open room several paces clear in front of the recessed golden fieldstone wall fireplace, where sings a medium-stature, sturdy, warm-faced woman in her mid-50s with sun-browned rosy cheeks full of deep smiling laugh lines, laughing hazel-green eyes, and thick pure silver-white hair coiled cleanly into twin braided side-buns behind her ears, wearing a stitched golden-ochre wool apron over a cinnamon rustic blouse and brass waist clasp, strumming a six-string rosewood mandola in diagonal sunset rays from tall wooden mullions on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[09] ID: loc_16_briarstead | Briarstead — The Briar & Amber Alehouse
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — WOODLAND TOWN TAVERN: Wide eye-level splash painting viewed from near the front doorway looking across Briarstead's half-timbered Briar & Amber Alehouse at golden evening. Shaded oak entrance boards along the bottom margin open directly onto busy rustic oak tables beneath gnarled oak-root arches hung with dried herbs and glowing amber lanterns.
+
+HERBAL APOTHECARY BAR & FOREST TABLES (LEFT & MIDGROUND): Anchoring the left midground stands a carved briarwood bar counter glittering with green glass herb-brandy bottles, copper still-flasks, dark cider kegs, and a friendly barkeep pouring amber spirits. Clustered across the cozy floor stand rustic carved oak tables lit by beeswax tapers where seated human forest rangers, apothecaries, and travelers listen warmly with steaming spiced cups in hand.
+
+FREESTANDING OAK STAGE & HUMAN MAN BARD (MIDGROUND CENTER-RIGHT): Past the forest-ranger tables toward center-right rises a freestanding carved mossy-oak wooden stage two steps above the floor and set cleanly clear in front of the distant stone fireplace set deep in the far rear wall, atop which performs a tall, willowy, narrow-waisted human man in his late 20s with cool porcelain-pale woodland skin, dark emerald-green heavy-lidded eyes, long slender straight nose, clean-shaven gaunt jawline, and sleek straight raven-black hair parted sharply down the middle past his shoulders, clad in a belted deep forest-velvet surcoat over charcoal wool sleeves, bowing gracefully across a carved ashwood vielle fiddle beside green leaded diamond glass on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[10] ID: hub_timberfall_village | Timberfall Village — The Pine-Log Sawyer Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, carved heavy oak beams, wrought-iron chandeliers, warm amber candle and hearth firelight, glowing glass bottles, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — ROBUST LOGGING VILLAGE TAVERN: Sweeping eye-level splash painting viewed from the lodge doorway looking across Timberfall Village's sprawling pine-log Sawyer Tavern at golden dusk. Shaded woodchip-dusted entrance planks at the bottom edge lead immediately past crowded long trestle tables beneath colossal hand-adzed pine columns and swinging iron chandeliers.
+
+PINE-SLAB BAR & LOGGER TABLES (LEFT & MIDGROUND): Stretching proudly along the left stands a thick live-edge pine tavern bar counter lined with iron-bound ale barrels, stoneware steins, amber whisky jugs, and a hearty bearded barkeep serving plates and pints. Filling the firelit hall stand long heavy slab-wood trestle tables crowded happily with flannel-clad human loggers, sawyers, and woodland traders leaning over wooden mugs toward the blazing stage.
+
+FREESTANDING LOG STAGE & HUMAN WOODSMAN BARD (MIDGROUND CENTER-RIGHT): Beyond the logger tables to the right of center stands a separate freestanding thick timber plank stage raised two log steps above the floor—set clearly out in front of the towering river-boulder chimney recessed into the far rear wall—atop which sits a tall, broad-shouldered sturdy human man in his mid-40s with sun-ruddy skin, strong square jaw under a thick chest-length fiery chestnut-copper beard, broad nose, twinkling warm brown eyes, and shaggy dark ginger hair tied back with a leather cord, dressed in plaid pine-brown wool with rolled forearms over a leather timberman vest, singing deeply while strumming a traditional single-neck pear-shaped carved dark-spruce medieval lute with one slender wooden pegbox and six strings lit by warm orange embers beside tall twilight pine windows on the far right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[11] ID: hub_mosswood_hamlet | Mosswood Hamlet — The Moss-Hearth Tavern (Bard: Greta Redmayne)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked oak rafters, warm amber oil lanterns, flickering hearth firelight, and velvety dark espresso-and-indigo crevice shadows in crystal-clear air.
+
+ENTRANCE PERSPECTIVE — INTIMATE GROVE VILLAGE TAVERN: Cozy eye-level splash painting viewed from near the cottage tavern door looking across Mosswood Hamlet's stone-and-timber Moss-Hearth Tavern at late afternoon. Shaded stone entrance pavers along the bottom border open onto three candlelit wooden patron tables beneath crooked mossy oak rafters.
+
+SNUG WOODLAND BAR & LISTENER TABLES (LEFT & MIDGROUND): Tucked against the left mossy timber wall sits a small curved oak tavern bar with two tapped heather-mead casks, glowing glass wine decanters, hanging horn cups, and a quiet tavernkeep pouring tea and mead. Across the cozy central room sit three intimate rough-oak tavern tables lit by flickering oil lamps where cloaked human woodland pilgrims, herbalists, and village folk sit close together captivated by the song.
+
+FREESTANDING TIMBER STAGE & TRAVELING BARD (MIDGROUND CENTER-RIGHT): Beyond the oak dining tables on a separate low freestanding timber performance stage two short steps above the floor—placed clearly out in front of the distant mossy fieldstone fireplace built into the back wall—performs a lithe, medium-height woman in her late 20s with warm honey-tan complexion, strong square jaw with a faint cleft chin, calm observant dark obsidian eyes, and ash-sandy brown rich natural curls gathered half-up with a dark woven ribbon, wearing a sturdy layered slate wool tunic over warm cream linen shirt fastened with a carved wood cloak pin and autumn mantle, singing heartfelt verse while plucking a slender silver-strung ash wandering harp beside open shuttered arches looking into tall emerald oaks on the right.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 3 — SUN-SCORCHED ISLES & IRONCREST HIGHLANDS (Regions 5–6 | 4 Taverns)
+================================================================================
+
+--------------------------------------------------------------------------------
+[12] ID: loc_21_port_veridia | Port Veridia — The Saffron Sail Grand Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—sun-bleached coastal limestone arches, carved driftwood-cedar ship pillars, hanging brass harbor glass lanterns, nautical hemp rigging drapes, painted sea-guild pennants, glowing sunset bounce light, and velvety dark espresso-and-indigo crevice shadows.
+
+ENTRANCE PERSPECTIVE — BUSTLING COASTAL HARBOR GRAND TAVERN: Sweeping eye-level splash painting framed from near the wide timber harbor doorway looking deep across Port Veridia's grand two-story port tavern, The Saffron Sail, at golden sunset. Dim cool-shadowed limestone entrance flagstones at the bottom edge open cleanly onto busy octagonal oak tables beneath soaring sun-warmed coastal stone arcades, crimson-and-saffron harbor banners, and swinging brass ship chandeliers.
+
+CARVED CEDAR BAR & SAILOR TABLES (LEFT & MIDGROUND): Anchoring the left stone colonnade curves an ornate inlaid cedar-and-brass port tavern bar counter stacked with oak rum casks, tall painted wine bottles, brass tankards, and a bare-headed, sun-tanned Ethorian human barkeep in an open-collar white linen shirt and sea-teal waistcoat pouring amber spiced grog. Across the busy candlelit floor stand carved octagonal tavern tables and sturdy wood benches filled with bare-headed or wide-hatted Ethorian human spice merchants, seasoned harbor sailors, shipwrights, and coastal traders in open-collar linen shirts, sea-teal vests, and worn leather jerkins raising brass goblets toward the stage.
+
+FREESTANDING HARBORWOOD STAGE & HUMAN COASTAL BARD (MIDGROUND CENTER-RIGHT): Well across the tavern floor past the sailor tables rises a freestanding stepped teak-plank performance stage two feet above the stone floor, bounded by brass lantern corners and set several paces clear in front of distant wall sconces along the far rear limestone wall, where performs a tall, graceful woman in her early 30s with luminous sun-tanned bronze skin, expressive sharp espresso-brown eyes, high cheekbones, smiling lips mid-lyric, and voluminous dark curly hair worn uncovered and pinned cleanly at the side with a brass compass clip, wearing an embroidered deep sea-teal and saffron sleeveless leather-trimmed vest over rolled crisp cream linen sleeves and hammered bronze cuffs, strumming a classic single-neck pear-shaped coastal cedar medieval lute caught in molten sunset light pouring through tall round-arched limestone harbor windows overlooking turquoise bay sails on the far right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[13] ID: loc_23_dunespire_oasis | Dunespire Oasis — The Oasis Lantern Caravan Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—sun-baked frontier sandstone walls, sturdy sun-bleached oak beams, iron-and-amber travel lanterns, crimson-and-gold frontier guild banners, glowing sunset dusk light, and velvety dark espresso-and-indigo crevice shadows.
+
+ENTRANCE PERSPECTIVE — FRONTIER OASIS TRADING POST TAVERN: Wide eye-level splash painting framed from near the arched timber doorway looking across Dunespire Oasis's lively stone-and-timber Oasis Lantern Tavern at sunset. Shaded cool sandstone entrance flags along the bottom edge open across warm timber flagstones and heavy carved oak tables under colorful canvas trade awnings and iron chandeliers.
+
+FRONTIER BAR COUNTER & TRAVELER TABLES (LEFT & MIDGROUND): Tucked neatly along the left sandstone archway stretches a carved oak-and-iron oasis tavern bar displaying rows of strapped water skins, spiced ale barrels, copper flagons, amber bottles, and a welcoming bare-headed human barkeep in a rolled-sleeve leather vest serving plates and mugs. Across the warm room stand solid timber tables and benches crowded comfortably with seated Ethorian frontier traders, desert outriders, sun-weathered guides, and caravan guards—wearing rugged wide-brimmed leather trail hats or bare uncovered hair in open-collar cream linen shirts, crimson guild scarves around their shoulders, and dusty brown leather jerkins—raising pewter cups toward the stage.
+
+FREESTANDING TIMBER STAGE & HUMAN FRONTIER MINSTREL (MIDGROUND CENTER-RIGHT): Across the dining floor beyond the traveler tables rises a low freestanding stepped oak performance stage framed cleanly in front of distant sandstone arches and warm wall iron sconces along the rear backdrop, atop which stands a lean, sinewy older man in his late 50s with deeply weathered sun-baked bronze skin creased with fine sun-lines around sharp keen amber eyes, arched salt-and-pepper brows, sculpted nose, neatly trimmed silver goatee, and wind-swept shoulder-length silver-gray hair worn loose and bare-headed, dressed in an open-collar dusty sand-tan linen explorer tunic under a weathered crimson-stitched leather vest with brass shoulder clasp and worn leather trousers, playing a carved wooden traveler's fiddle beside open sunlit limestone trade-post arches framing green oasis palm trees outside at sunset on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[14] ID: loc_26_highpass_refuge | Highpass Refuge — The Granite Peak Lodge Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped gray highland granite, heavy alpine pine trusses, brass lantern hoops, crackling fireplace glow, and velvety dark espresso-and-indigo crevice shadows.
+
+ENTRANCE PERSPECTIVE — ALPINE RIDGE TOWN TAVERN HALL: Wide eye-level splash painting viewed from near the front doorway looking across Highpass Refuge's spacious stone-and-pine Granite Peak Lodge Tavern at golden hour. Shaded granite entrance slabs along the bottom margin lead directly past busy rough-hewn oak tables beneath heavy alpine cedar ceiling trusses.
+
+GRANITE-TOPPED BAR & MOUNTAINEER TABLES (LEFT & MIDGROUND): Anchoring the left stone wall extends a massive slab-pine and granite tavern bar lined with iron-bound stout kegs, rows of frosted highland ale mugs, dark cordial bottles, and a broad barkeep filling tankards. Dotted cleanly across the warm midground sit stout rough-hewn oak tables and benches busy with seated human mountaineers, forge-carters, and hooded ridge scouts lifting tankards toward the firelit stage.
+
+FREESTANDING PINE STAGE & HUMAN HIGHLAND BARD (MIDGROUND CENTER-RIGHT): Across the room beyond the mountaineer tables stands a separate freestanding stepped pine wooden stage raised two feet above the granite floor—set several paces clear forward of the distant cracked-granite hearth set deep into the back wall—where performs a short, stout, solid-shouldered woman in her late 30s with crisp cold-air rosy pale mountain cheeks flushed by alpine wind, broad sturdy nose, fierce clear cerulean-blue eyes, and thick fiery copper-amber wavy hair braided tightly into two hefty braids hanging past her collar, wearing a heavy charcoal slate-wool mountain mantle trimmed in brown badger fur over a laced dark bodice, singing proudly while playing a carved hammered cedar alpine zither mounted on an oak stand beside tall pine casements framing granite peaks on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[15] ID: hub_clearwater_lake_village | Clearwater Lake Village — The Sapphire Skiff Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—warm rough-hewn mountain pine beams, mossy lakeside granite masonry, glowing brass oil lamps, flickering hearth firelight, and velvety dark espresso-and-indigo crevice shadows.
+
+ENTRANCE PERSPECTIVE — LAKESIDE VILLAGE TAVERN: Eye-level splash painting framed from inside the doorway looking across Clearwater Lake Village's warm pine-and-granite Sapphire Skiff Tavern at sunset. Dim lakeside granite entrance slabs along the bottom edge lead directly past round candlelit oak tables toward the far side of the taproom.
+
+TIMBER LAKESIDE BAR & VILLAGER TABLES (LEFT & MIDGROUND): Built warmly along the left sits a polished knotty-pine tavern bar stacked neatly with brown stoneware ale crocks, glowing amber bottle shelves, copper kettles, and an aproned barkeep serving bowls of fish stew. Across the calm candlelit floor stand round oak tables with wooden benches where small groups of relaxed human lake-fishers, woodcutters, and travelers rest quietly over ale tankards facing the hearth stage.
+
+FREESTANDING TIMBER STAGE & HUMAN FISHER-BARD (MIDGROUND CENTER-RIGHT): Across the dining room beyond the villagers' tables rises a separate freestanding low stepped pine performance stage sitting two feet above the floor cleanly out in front of the distant granite fireplace on the far wall, where sits a tall, stoop-shouldered, gentle-faced elderly man in his early 60s with pale weathered parchment skin speckled softly with age spots across a high rounded forehead, warm watery pale-blue eyes under bushy white eyebrows, soft sunken cheeks, and thin wispy pure-white hair sweeping smoothly off his crown beside a neatly trimmed white short beard, clad in a knit slate-teal fisherman's sweater beneath a patched brown leather vest, cradling and plucking an arched pale-ash Celtic folk harp beside sapphire twilight lake windows on the right.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 4 — FROSTBOUND REACH & THE DREADWASTE (Regions 7–8 | 3 Taverns)
+================================================================================
+
+--------------------------------------------------------------------------------
+[16] ID: loc_31_rimeport | Rimeport — The Frost-Glass Harbor Tavern (Bard: Torvald Frost-Voice)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—blackened sea-cedar timbers, frost-rimmed dark granite walls, roaring iron fire-braziers, heavy iron whale-oil chandeliers, ice-etched glass windows, and velvety dark espresso-and-indigo crevice shadows.
+
+ENTRANCE PERSPECTIVE — ROARING NORTHERN PORT TAVERN: Wide eye-level splash painting viewed from the sea-harbor tavern doorway looking deep across Rimeport's roaring Frost-Glass Harbor Tavern at icy twilight. Dim damp slate entrance stones at the bottom margin open directly into packed plank seafarer tables beneath heavy blackened cedar beams and iron whale-oil chandeliers.
+
+HEAVY OAK HARBOR BAR & SEAFARER TABLES (LEFT & MIDGROUND): Stretching along the left granite wall stands a massive tarred sea-oak bar counter flanked by huge frost-rimed mead barrels, bright rows of spiced spirit bottles catching firelight, whalebone wall mounts, and a thick-bearded barkeep sliding foaming horn-tankards. Packed neatly across the warm midground hall sit scarred long plank tavern tables and fur-draped benches filled with bundled human ice-sailors, trappers, and rugged harpooneers clapping and listening eagerly toward the stage.
+
+FREESTANDING SKALD STAGE & HUMAN NORTHERN SKALD (MIDGROUND CENTER-RIGHT): Well past the packed seafarer tables toward center-right stands a sturdy freestanding heavy-oak wooden stage raised two plank steps above the tavern floor with iron lantern posts—positioned several paces forward and clear of the distant blazing stone-and-iron hearth recessed in the far wall—where stands a broad, imposing, heavy-framed elder man in his late 50s with cold wind-ruddy pale skin, rugged broad brow, warm twinkling icy-blue eyes beneath heavy snow-white eyebrows, thick weathered nose, and long braided pale-silver hair paired with a matching twin-braided white beard threaded with small carved ivory bone beads, clad in a thick dark slate wool tunic trimmed richly in pale wolf fur with an iron cloak brooch, projecting bold verse as his fingers sweep a carved dragon-head ash-and-brass skaldic harp-lyre between orange hearthfire and frozen cobalt diamond windows on the far right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[17] ID: hub_frostmere_village | Frostmere Village — The Wolf-Pelt Hearth Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—massive rough-barked northern pine logs, soot-darkened hearthstones, dry golden firelit floorboards, draped winter furs, roaring warm orange hearthfire, and velvety dark espresso-and-indigo crevice shadows.
+
+ENTRANCE PERSPECTIVE — WARM LOG TRAPPERS' HEARTH TAVERN: Eye-level splash painting framed from near the closed tavern doorway looking across Frostmere Village's cozy, toasty warm pine-log Wolf-Pelt Hearth Tavern lit by blazing firelight. Swept, bone-dry, warm-grained amber oak floorboards fill the entire indoor floor and entrance steps smoothly in warm golden hearthlight beneath hung wolf pelts and wrought-iron chandeliers.
+
+NORTHERN MEAD BAR & TRAPPER TABLES (LEFT & MIDGROUND): Anchoring the left pine-log wall sits a sturdy carved timber mead bar lined with iron-strapped honey-mead casks, steaming copper cider pots, warm horn-tankards, and a fur-vested innkeeper ladling steaming stew bowls. Clustered cleanly on dry warm indoor wooden planks around glowing amber candlelit tables sit wool-cloaked human trappers, northern scouts, and village elders warming bare hands around steaming hot mugs while watching the hearth stage intently.
+
+FREESTANDING TIMBER STAGE & HUMAN CLAN SONGSTRESS (MIDGROUND CENTER-RIGHT): Across the warm dry timber hall past the trapper tables stands a separate freestanding stepped oak performance stage raised two dry wooden steps above the swept bare oak floorboards—set cleanly forward of the sunken blazing stone hearth pit and far wall behind an iron hearth rail—atop which sings a tall, sturdy, strong-jawed young woman in her mid-20s with luminous pale ivory northern skin flushed softly pink across sharp cheekbones, calm wide slate-gray eyes, prominent cleft chin, and pale ash-blonde hair woven into a thick multi-strand crown braid trailing down past her ribs, wearing a thick cream boiled-wool winter tunic bordered in dark wolf fur with a carved antler brooch and dry laced fur-trimmed boots, singing cleanly mid-ballad with a single-neck horn-inlaid northern wooden lute bathed in blazing golden hearthlight—while snowy blue twilight evergreens and outside winter snowdrifts appear outside beyond the closed paned timber windows along the far right wall.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[18] ID: hub_ashvale_village | Ashvale Village — The Ember-Hearth Survivor Tavern
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—dark cracked volcanic basalt stone walls, heavy charred oak shoring props, glowing tallow lanterns, roaring ember hearthlight, and velvety dark espresso-and-indigo crevice shadows.
+
+ENTRANCE PERSPECTIVE — FRONTIER VOLCANIC SURVIVOR TAVERN: Wide eye-level splash painting viewed from near the tavern doorway looking across Ashvale Village's black-basalt Ember-Hearth Tavern at volcanic dusk. Dim dark-basalt entrance slabs along the bottom margin open onto clustered wooden survivor tables under heavy shored oak rafters and glowing tallow sconces.
+
+BASALT BAR COUNTER & SURVIVOR TABLES (LEFT & MIDGROUND): Tucked solidly along the left stone arch stands a reinforced salvaged-oak bar counter stacked with scarred iron-banded water and ale casks, salvaged glass bottles gleaming orange, pewter cups, and an earnest scarred human barkeep pouring tin mugs. Across the warm dim-lit midground floor cluster solid mismatched timber tavern tables and benches occupied by quiet human refugees, ash-scouts, and tired villagers gathered close together in amber warmth listening intently to the song.
+
+FREESTANDING TIMBER STAGE & HUMAN SURVIVOR BARD (MIDGROUND CENTER-RIGHT): Beyond the villager dining tables toward center-right rises a freestanding salvaged-timber stage built two plank steps above the basalt floor, positioned several paces forward and separate from the glowing black-basalt fireplace recessed in the far wall, where sits a lean, hunched-wiry scarred man in his early 30s with warm medium-dark olive skin smudged lightly across a scarred hollow cheekbone with pale volcanic ash, intense deep-set dark chocolate eyes, thin grim lips parted softly in hopeful song, and buzz-cropped dark charcoal curls shaved tightly up both temples with a pale scar cutting through his left brow, wearing a patched ash-gray hoodless wool cloak over scarred brown gambeson sleeves and frayed amber scarf, singing passionately over a worn dark-oak travel lute brightly rim-lit by golden firelight beneath sturdy iron-shuttered casements glowing warm dusk orange on the far right.
+--- COPY-PASTE PROMPT END ---

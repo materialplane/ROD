@@ -1,0 +1,289 @@
+# ROD — Illustrated Spell Card Sheets (5 x 4x4 Sheets = 72 Spells + 8 Core Battle Action Cards)
+# Source: spells.txt & data/spells-catalog.json (Queen Ellowyn 24 + Mera 24 + Harlan 24 + 8 Battle Reserve Cards)
+# Target Model: gemini-3-pro-image (Pro 4K, 1:1)
+# Art Style Anchor: Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy spell & ability card art — bold focal silhouette, dynamic directional lighting, clean sculpted magic/nature/alchemy textures fading cleanly into moody dark vignette edges, zero pixel art, zero sketchiness, zero 3D plastic CGI, zero #FF00FF, zero card frames, and zero text or labels.
+# Export Pipeline: Slice strict 4x4 into 16 equal 1024x1024 lossless PNGs (assets/spells/slices/) -> export 512x512 .webp in client/assets/icons/spells/
+
+================================================================================
+SHEET 01 OF 05 — Spells #01–#16 (Queen Ellowyn — Mystic Tiers 1–6 Opening) [GENERATED & APPROVED]
+================================================================================
+# SLOT MANIFEST (Row,Col -> spellId | Name | Type):
+#   R1C1 -> spell_1_ellowyn_1   | Ember Spark      | Fire
+#   R1C2 -> spell_1_ellowyn_2   | Frost Shard      | Frost
+#   R1C3 -> spell_1_ellowyn_3   | Crown Ward       | Radiant
+#   R1C4 -> spell_2_ellowyn_4   | Arcane Fireball  | Fire
+#   R2C1 -> spell_2_ellowyn_5   | Chain Spark      | Lightning
+#   R2C2 -> spell_2_ellowyn_6   | Dawn Gleam       | Radiant
+#   R2C3 -> spell_3_ellowyn_7   | Rime Curtain     | Frost
+#   R2C4 -> spell_3_ellowyn_8   | Static Cage      | Lightning
+#   R3C1 -> spell_3_ellowyn_9   | Sovereign Aegis  | Radiant
+#   R3C2 -> spell_4_ellowyn_10  | Flame Wall       | Fire
+#   R3C3 -> spell_4_ellowyn_11  | Umbral Lance     | Shadow
+#   R3C4 -> spell_4_ellowyn_12  | Arcane Conduit   | Arcane
+#   R4C1 -> spell_5_ellowyn_13  | Tempest Arc      | Lightning
+#   R4C2 -> spell_5_ellowyn_14  | Glacial Prison   | Frost
+#   R4C3 -> spell_5_ellowyn_15  | Purifying Halo   | Radiant
+#   R4C4 -> spell_6_ellowyn_16  | Solar Flare      | Fire + Radiant
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG spell card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SPELL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy spell card illustration — crisp sculpted magic effects, bold central readable silhouette per cell, dramatic high-contrast elemental luminescence, sharp faceted ice, coiled painted flame ribbons, crackling geometric lightning arcs, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside the spells, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, twilight slate, or storm indigo stone gloom) so glowing fire, frost, lightning, shadow, and light pop cleanly without spilling across into adjacent cells.
+- FRAMING: Keep every spell's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal magic.
+
+Render these exact 16 distinct spell illustrations from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Crisp whip-snap coil of bright blazing orange and incandescent gold fire spiraling diagonally from lower-left toward upper-right over dark charred obsidian gloom, trailing sharp glowing amber diamond ember sparks.
+- Row 1 Col 2: Cluster of three sharp razor-faceted translucent ice-cyan and pale frost-white crystal spikes plunging diagonally downward-right through freezing midnight-blue vapor and glinting frost dust.
+- Row 1 Col 3: Translucent luminous teal-cyan and burnished gold domed arcane ward shield etched faintly with clean geometric non-letter facets hovering upright over dark twilight stone shadow.
+- Row 1 Col 4: Condensed blazing sphere of superheated molten gold and fierce crimson fire suspended dead center, blooming outward with sculpted orange flame petals and splashing bright heat embers against pitch soot.
+
+- Row 2 Col 1: Crackling orb of bright storm-cyan energy snapping a sharp forked jagged electric blue-and-white lightning bolt across toward two twin glowing secondary spark arcs in dark thundercloud slate.
+- Row 2 Col 2: Narrow blinding lance-beam of pure sunlit ivory-gold radiance plunging cleanly downward through dark purple-slate shadow mist, shattering darkness along its path into bright golden dust motes.
+- Row 2 Col 3: Sweeping surging tidal wave of jagged icy pale-blue frost crests, swirling snow eddies, and razor crystalline ice ridges billowing strongly left-to-right over dark frozen slate.
+- Row 2 Col 4: Interlocking octagonal cage of taut crackling azure-cyan and electric gold lightning bars anchored by four bright diamond corner conductors, trapping dark shadow inside the glowing electric lattice.
+
+- Row 3 Col 1: Twin overlapping translucent spectral knight-shield barriers wrought of warm golden radiance and luminous pale amber runes standing side by side across deep indigo gloom.
+- Row 3 Col 2: Unbroken towering wall of fierce sculpted crimson, vermilion-orange, and bright yellow-gold fire pillars rising cleanly across a dark obsidian threshold against heavy swirling ember smoke.
+- Row 3 Col 3: Wicked razor-sharp spear of solid pitch-black obsidian void energy piercing diagonally forward, rimmed cleanly with cold indigo-amethyst highlights and trailing dark wispy smoke ribbons.
+- Row 3 Col 4: Twin luminous sapphire-blue and radiant warm-gold raw mana ribbons spiraling smoothly in double helix around a suspended glowing faceted blue arcane crystal core against deep dusk.
+
+- Row 4 Col 1: Dramatic storm break overhead where heavy slate thunderclouds tear open to unleash three towering pale electric-cyan and blinding white lightning pillars crashing downward through swirling gale mist.
+- Row 4 Col 2: Massive towering hexagonal monolith of semi-translucent deep glacial sapphire and bright frost-cyan crystal jutting vertically upward with sharp internal fracture planes against frozen fog.
+- Row 4 Col 3: Spinning tilted horizontal halo ring of pure warm liquid sunlight-gold radiance sweeping cleanly outward across dark murky twilight haze, dissolving shadowed ash flakes on contact.
+- Row 4 Col 4: Blinding miniature golden sun core erupting outward in crisp sculpted coronal flame loops, incandescent white-gold flare rays, and fierce warm solar embers against deep midnight dark.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square spell card illustrations), ZERO divider lines, ZERO borders/frames, ZERO faces/characters, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 02 OF 05 — Spells #17–#32 (Ellowyn Finale #17–#24 + Mera Druid #25–#32)
+================================================================================
+# SLOT MANIFEST (Row,Col -> spellId | Name | Type):
+#   R1C1 -> spell_6_ellowyn_17  | Void Pull           | Shadow
+#   R1C2 -> spell_6_ellowyn_18  | Mirror Veil         | Arcane
+#   R1C3 -> spell_7_ellowyn_19  | Blizzard Vortex     | Frost
+#   R1C4 -> spell_7_ellowyn_20  | Thunderhead Verdict | Lightning
+#   R2C1 -> spell_7_ellowyn_21  | Queen's Decree      | Radiant
+#   R2C2 -> spell_8_ellowyn_22  | Meteor              | Fire
+#   R2C3 -> spell_8_ellowyn_23  | Astral Judgment     | Radiant + Lightning
+#   R2C4 -> spell_8_ellowyn_24  | Eclipse Singularity | Shadow
+#   R3C1 -> spell_1_mera_25     | Thorn Lash          | Piercing
+#   R3C2 -> spell_1_mera_26     | Bramble Snare       | Nature
+#   R3C3 -> spell_1_mera_27     | Mossy Mend          | Nature
+#   R3C4 -> spell_2_mera_28     | Gale Gust           | Lightning
+#   R4C1 -> spell_2_mera_29     | Spore Cloud         | Poison
+#   R4C2 -> spell_2_mera_30     | Barkskin Call       | Nature
+#   R4C3 -> spell_3_mera_31     | Stone Lance         | Bludgeoning
+#   R4C4 -> spell_3_mera_32     | Briar Wall          | Piercing
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG spell card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SPELL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy spell card illustration — crisp sculpted magic and wild nature shapes, bold central readable silhouette per cell, dramatic high-contrast luminescence, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside the spells, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, ZERO etched rune-letters on shields/armor, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, twilight slate, or dark emerald forest gloom) so effects pop cleanly without spilling across into adjacent cells.
+- FRAMING: Keep every spell's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal magic.
+
+Render these exact 16 distinct spell illustrations from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Swirling inward-collapsing gravity whirlpool of pitch-black obsidian void ribbons rimmed with cold midnight-indigo and deep amethyst starlight pulling floating shattered slate rock shards toward a dark vortex center.
+- Row 1 Col 2: Hovering hexagonal cluster of floating angled translucent azure mirror panes reflecting deflected sharp cyan magic bolts outward against deep cobalt dusk (no frames, no faces).
+- Row 1 Col 3: Fierce overhead funnel cyclone of razor-sharp pale-cyan ice crystals, howling snow spirals, and freezing blizzard hail spinning furiously down into dark slate-blue mist.
+- Row 1 Col 4: Massive towering pillar of blinding electric-gold and storm-cyan lightning erupting cleanly straight down through split dark thunderclouds onto shattered glowing electrified bedrock.
+
+- Row 2 Col 1: Floating ethereal crown aura forged of luminous golden light beams radiating crisp geometric rays and warm golden dust particles over deep royal twilight slate (pure energy crown silhouette, no letters).
+- Row 2 Col 2: Jagged blazing volcanic rock meteor engulfed in molten vermilion, bright gold, and roaring orange-red flame plummeting diagonally downward through burning ash trails and crimson embers.
+- Row 2 Col 3: Colossal descending orbital beam combining blinding sunlit ivory-gold light intersected cleanly by jagged storm-blue lightning arcs plunging onto blackened stone.
+- Row 2 Col 4: Blinding pitch-black circular eclipse void ringed tightly by a razor-thin burning twilight-amber and violet-indigo corona, radiating dark shadowy gravitational shockwaves against cosmic dark.
+
+- Row 3 Col 1: Whipping coil of gnarled emerald-brown forest vines bristling with razor-sharp curved thorns snapping viciously upward, shedding bright crimson-tipped thorn sparks against dark woods gloom.
+- Row 3 Col 2: Coiling cage of thick knotted dark oak roots and twisted bramble tentacles bursting out of dark forest earth to clamp inward in a tight strangling knot.
+- Row 3 Col 3: Gentle radiant bloom of luminous emerald-green living moss petals and soft rising golden forest light motes wrapping cleanly upward inside dark woodland twilight.
+- Row 3 Col 4: Sweeping curling spiral of translucent silver-teal tempest wind ribbons crackling cleanly with tiny sharp turquoise lightning sparks racing across dark storm clouds.
+
+- Row 4 Col 1: Billowing toxic billowing cloud of chartreuse-green glowing mushroom spores and swirling acidic olive vapor bursting softly outward from dark shadowed moss clusters.
+- Row 4 Col 2: Heavy armored chest-plate silhouette formed naturally out of glowing emerald-threaded ironwood oak bark plates interlocking cleanly over dark shadowed woodland trunks.
+- Row 4 Col 3: Massive jagged spire of raw rough-hewn gray granite stone erupting sharply upward at a steep angle out of fractured dark earth, glowing warmly bronze along rock seams.
+- Row 4 Col 4: Dense impenetrable thicket hedge wall of interlocked razor-spiked dark green briar vines rimmed sharply in vibrant emerald-lime magic glow across dark forest soil.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square spell card illustrations), ZERO divider lines, ZERO borders/frames, ZERO faces/characters, ZERO #FF00FF pink, ZERO text, ZERO rune letters or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 03 OF 05 — Spells #33–#48 (Mera — Druid Tiers 3–8 Completion)
+================================================================================
+# SLOT MANIFEST (Row,Col -> spellId | Name | Type):
+#   R1C1 -> spell_3_mera_33     | Wildfire Burst    | Fire
+#   R1C2 -> spell_4_mera_34     | Tremor Slam       | Bludgeoning
+#   R1C3 -> spell_4_mera_35     | Verdant Bloom     | Nature
+#   R1C4 -> spell_4_mera_36     | Hawk Strike       | Piercing
+#   R2C1 -> spell_5_mera_37     | Razor Vines       | Piercing
+#   R2C2 -> spell_5_mera_38     | Tempest Wing      | Lightning
+#   R2C3 -> spell_5_mera_39     | Grove Sanctuary   | Nature
+#   R2C4 -> spell_6_mera_40     | Sunbeam Canopy    | Radiant
+#   R3C1 -> spell_6_mera_41     | Earthshatter      | Bludgeoning
+#   R3C2 -> spell_6_mera_42     | Stag's Vigor      | Nature
+#   R3C3 -> spell_7_mera_43     | Elder Wrath       | Lightning + Nature
+#   R3C4 -> spell_7_mera_44     | Moonlit Renewal   | Radiant
+#   R4C1 -> spell_7_mera_45     | Dire Fang Spirit  | Piercing
+#   R4C2 -> spell_8_mera_46     | Cataclysm Quake   | Bludgeoning + Fire
+#   R4C3 -> spell_8_mera_47     | Heart of the Wild | Nature
+#   R4C4 -> spell_8_mera_48     | Primal Eclipse    | Lightning + Radiant
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG spell card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SPELL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy spell card illustration — crisp sculpted natural fury and wild elemental craft, bold central readable silhouette per cell, dramatic high-contrast luminescence, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside the spells, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (dark charcoal earth, midnight forest indigo, or stormy slate stone gloom) so vivid magic shapes pop cleanly inside their own square edges.
+- FRAMING: Keep every spell's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal magic.
+
+Render these exact 16 distinct spell illustrations from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Bursting fan of wild roaring orange-and-gold forest fire flames erupting cleanly outward through burning dry autumn leaves and dark charred twigs over dark soot.
+- Row 1 Col 2: Heavy seismic shockwave burst exploding outward across split dark granite bedrock slabs, flinging jagged basalt splinters and amber dust plumes upward.
+- Row 1 Col 3: Twin spiraling streams of vivid emerald forest blossoms, curling fern fronds, and warm glowing golden nectar droplets blooming cleanly upward against deep moss-shadow twilight.
+- Row 1 Col 4: Sleek spectral emerald-and-silver wind silhouette of diving hawk wings trailing razor-sharp translucent wind crescent blades slashing diagonally downward through dark sky mist.
+
+- Row 2 Col 1: Triple sweeping scythe-like ribbons of gleaming steel-thorned emerald vines cutting diagonally across frame with razor metallic thorns glinting brightly in dim forest gloom.
+- Row 2 Col 2: Massive roaring wing-shaped cyclone vortex of azure wind currents interwoven with forked crackling bright electric-gold lightning bolts tearing across dark storm clouds.
+- Row 2 Col 3: Peaceful sheltered sanctuary ring of luminous pale-emerald living roots forming a protective upright archway filled cleanly with tranquil golden leaf-filtered light against forest night.
+- Row 2 Col 4: Focused piercing column of blinding warm sunlit golden radiance stabbing straight down through shadowy forest canopy boughs, shattering dark shadow wisps on impact.
+
+- Row 3 Col 1: Colossal jagged boulder cluster tearing upward out of fissured dark slate stone beneath fiery orange subterranean cracks bursting across a dark cavern backdrop.
+- Row 3 Col 2: Majestic glowing spectral translucent emerald-and-gold stag antler crest surging upward in radiant vitality wisps above mossy forest shadow (pure spirit aura silhouette).
+- Row 3 Col 3: Ancient gnarled dark oak roots bursting upward interlaced directly with blinding storm-cyan jagged lightning strikes shattering stone beneath a storm-wracked twilight sky.
+- Row 3 Col 4: Cascading curtain of cool silvery-white moonlight and soft iridescent pale-aqua forest glow pouring gently downward through dark pine shadows in shimmering healing droplets.
+
+- Row 4 Col 1: Spectral glowing frost-white and ghostly cyan jaws of a phantom white wolf spirit snapping fiercely forward in crisp energetic fang trails against dark midnight forest fog.
+- Row 4 Col 2: Apocalyptic widening volcanic fault-line canyon erupting upward with massive jagged basalt boulders and blinding molten lava magma geysers against dark ash clouds.
+- Row 4 Col 3: Blooming glowing golden-emerald primal heart seed suspended inside orbiting spirals of leaves, sparkling fireflies, and surging radiant wild-magic ribbons over deep twilight roots.
+- Row 4 Col 4: Apex wild storm convergence where golden radiant sunlight and surging blue storm lightning spiral around a blazing forest-sky eclipse core over dark mountain crags.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square spell card illustrations), ZERO divider lines, ZERO borders/frames, ZERO faces/characters, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 04 OF 05 — Spells #49–#64 (Harlan — Herbalist Tiers 1–6 Opening)
+================================================================================
+# SLOT MANIFEST (Row,Col -> spellId | Name | Type):
+#   R1C1 -> spell_1_harlan_49   | Stinging Salve    | Restorative
+#   R1C2 -> spell_1_harlan_50   | Bitterroot Vial   | Poison
+#   R1C3 -> spell_1_harlan_51   | Smelling Salts    | Restorative
+#   R1C4 -> spell_2_harlan_52   | Soothing Poultice | Restorative
+#   R2C1 -> spell_2_harlan_53   | Weakening Draught | Poison
+#   R2C2 -> spell_2_harlan_54   | Barkskin Tonic    | Restorative
+#   R2C3 -> spell_3_harlan_55   | Venom Mist        | Poison
+#   R2C4 -> spell_3_harlan_56   | Reviving Tincture | Restorative
+#   R3C1 -> spell_3_harlan_57   | Adrenaline Brew   | Restorative
+#   R3C2 -> spell_4_harlan_58   | Blightbane Remedy | Radiant
+#   R3C3 -> spell_4_harlan_59   | Acidic Flask      | Poison + Bludgeon
+#   R3C4 -> spell_4_harlan_60   | Vitality Infusion | Restorative
+#   R4C1 -> spell_5_harlan_61   | Mending Rain      | Restorative
+#   R4C2 -> spell_5_harlan_62   | Plague-Spore Burst| Poison
+#   R4C3 -> spell_5_harlan_63   | Iron-Lung Elixir  | Restorative
+#   R4C4 -> spell_6_harlan_64   | Miracle Balm      | Restorative
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG alchemy & healing spell card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO paper labels on bottles, ZERO numbers, and ZERO readable letters anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SPELL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy spell card illustration — crisp sculpted glowing alchemy vials, emerald restorative mist, bubbling toxic green poison splashes, radiant golden herbal light, bold central readable silhouette per cell, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters, ZERO flat hot-pink #FF00FF backgrounds, ZERO paper bottle labels, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (dark charcoal apothecary gloom, deep forest slate, or shadowed twilight stone) so glowing emerald salves, bright yellow-green venoms, and golden tonics pop cleanly inside each square.
+- FRAMING: Keep every spell's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges; keep every glass bottle/flask completely UNLABELED without tags or text.
+
+Render these exact 16 distinct spell illustrations from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Small open carved wooden apothecary salve jar overflowing softly with vibrant glowing emerald-green herbal balm wisps and twinkling fresh sage leaf sparks in warm golden light.
+- Row 1 Col 2: Tilted corked slender green glass vial shattering mid-air and splashing sharp virulent bright chartreuse-lime liquid poison tendrils and glowing droplets across dark stone shadow.
+- Row 1 Col 3: Uncorked crystal faceted apothecary smelling bottle releasing sharp rising spirals of pure crisp mint-white and pale-gold purifying crystal vapor over dark twilight haze.
+- Row 1 Col 4: Twin tied fresh green linen herb pouches glowing softly with warm pale-gold and calm aqua soothing light ribbons swirling smoothly outward across dim wood shadow.
+
+- Row 2 Col 1: Frosted heavy dark-amber flask spilling a curling shadowy-olive venom puddle releasing curling green-gray sapping mist tendrils that coil downward into darkness.
+- Row 2 Col 2: Sturdy bronze-collared brown stoneware tonic bottle ringed softly by floating interlocking translucent amber-green oak bark protection aura plates.
+- Row 2 Col 3: Dense billowing swirling wave cloud of glowing sickly yellow-green and moss-emerald toxic poison mist studded with sharp floating venom bubbles across dark shadow.
+- Row 2 Col 4: Luminous golden-crimson glass phoenix-neck alchemy bottle radiating a surging upward swirl of bright warm life-gold mist sparks rising into dark blue shadow.
+
+- Row 3 Col 1: Glowing fiery-amber spherical glass flask erupting upward with blazing sharp tangerine energy streaks and lightning-fast wind motion trails against deep slate.
+- Row 3 Col 2: Crisp radiant halo burst of pure sunlit warm-gold and fresh mint cleansing light sweeping cleanly outward, vaporizing drifting dark purple blight wisps into clean golden motes.
+- Row 3 Col 3: Heavy round thick-glass flask bursting cleanly on impact into bright sizzling neon-lime acid splashes and melting dark iron stone fragments across charcoal stone.
+- Row 3 Col 4: Graceful swirling spiral fountain of bright pure emerald-green liquid vitality beads and warm golden leaf motes circling steadily skyward inside deep night shadow.
+
+- Row 4 Col 1: Gentle shimmering rainfall of luminous translucent emerald-green and soft sunlit gold healing raindrops pouring steadily downward across calm deep twilight slate.
+- Row 4 Col 2: Detonating dark swollen fungal puffball spore sac bursting outward in vivid glowing lime-green toxic shockwaves and floating venomous spore embers against pitch black.
+- Row 4 Col 3: Clear faceted sapphire-mint breath crystal flask emitting twin protective swirling pale-cyan pure-air wind shield currents repelling dark smoky spores.
+- Row 4 Col 4: Ornate faceted gold-trimmed amber-emerald sanctuary chalice overflowing smoothly in blinding golden restorative sun-mist and dense glittering emerald healing sparks.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square alchemy & healing spell card illustrations), ZERO bottle labels, ZERO divider lines, ZERO borders/frames, ZERO faces/characters, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 05 OF 05 — Spells #65–#72 (Harlan Mastery Ending) + 8 Core Battle Action Cards
+================================================================================
+# SLOT MANIFEST (Row,Col -> spellId | Name | Type):
+#   R1C1 -> spell_6_harlan_65           | Neurotoxin Dart    | Poison
+#   R1C2 -> spell_6_harlan_66           | Mana Distillate    | Arcane
+#   R1C3 -> spell_7_harlan_67           | Phoenix Draught    | Restorative
+#   R1C4 -> spell_7_harlan_68           | Rot-Cloud Catalyst | Poison + Shadow
+#   R2C1 -> spell_7_harlan_69           | Hero's Panacea     | Restorative
+#   R2C2 -> spell_8_harlan_70           | Grand Elixir       | Restorative
+#   R2C3 -> spell_8_harlan_71           | Oakhollow Requiem  | Poison + Radiant
+#   R2C4 -> spell_8_harlan_72           | Undying Vow        | Radiant
+#   R3C1 -> ability_res_guard_stance    | Guard Stance       | Defense
+#   R3C2 -> ability_res_momentum_surge  | Momentum Surge     | Kinetic
+#   R3C3 -> ability_res_blade_strike    | Blade Strike       | Slashing
+#   R3C4 -> ability_res_guard_shatter   | Guard Shatter      | Bludgeoning
+#   R4C1 -> ability_res_deadeye_arrow   | Deadeye Arrow      | Piercing
+#   R4C2 -> ability_res_duelist_riposte | Duelist Riposte    | Counter
+#   R4C3 -> ability_res_ally_intercept  | Bulwark Intercept  | Protect
+#   R4C4 -> ability_res_tactical_retreat| Tactical Retreat   | Escape
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG spell and battle action card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO bottle labels, ZERO numbers, and ZERO readable alphabet letters anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SPELL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability card illustration — crisp sculpted magic effects, gleaming forged steel blade trails, glowing alchemy vials, bold central readable silhouette per cell, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep charcoal slate, twilight indigo, or shadowed woodland black) so each magic flask or combat strike pops cleanly inside its square edges.
+- FRAMING: Keep every focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four edges; keep all vials and shields completely unlabeled without letters.
+
+Render these exact 16 distinct card illustrations from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Sleek hollow dark-iron blowgun dart dripping glowing paralyzing lime-emerald venom from its needle tip, streaking forward with crackling yellow-green stun sparks against dark shadow.
+- Row 1 Col 2: Luminous pure cobalt-sapphire distilled glass alembic decanter glowing brightly from within, releasing ascending azure crystal mana droplets and warm arcane mist over twilight stone.
+- Row 1 Col 3: Rising luminous fiery-gold and vibrant ember-rose feather vortex bursting around a radiant clear glass restorative vial, scattering bright golden healing sparks upward against dark night.
+- Row 1 Col 4: Cracked dark basalt catalyst vessel boiling over with sinister dual swirls of vivid toxic chartreuse venom smoke intertwined with deep dark violet-indigo shadow mist.
+
+- Row 2 Col 1: Broad radiant silver-rimmed glass master flask radiating a sweeping protective emerald-and-gold dome canopy filled with thriving luminous herb motes over deep slate.
+- Row 2 Col 2: Supreme faceted crystal-and-gold royal master elixir vessel overflowing in blinding warm rainbow-tinted emerald, turquoise, and molten gold restorative radiance against dark shadow.
+- Row 2 Col 3: Swirl of vibrant radiant sunlit gold cleansing waves shattering dark twisting toxic purple-green poison thorns cleanly into glowing purified dust particles in dark woodland dusk.
+- Row 2 Col 4: Floating warm gold-and-ivory unbroken luminous shield heart halo anchored behind twin glowing golden wings softly pulsing with protective life-grace over deep twilight shadow.
+
+- Row 3 Col 1: Solid heavy forged steel-and-bronze kite shield silhouette framed crisply behind an upright glowing golden defensive chevron energy barrier deflecting sparks over dark slate.
+- Row 3 Col 2: Concentric surging kinetic chevrons of blazing gold and bright amber-orange wind momentum rushing cleanly forward like a sonic dash cone over dark charcoal battle dust.
+- Row 3 Col 3: Single sharp gleaming medieval steel sword blade slicing fiercely in a bold bright metallic silver-and-amber crescent slash arc leaving glowing motion sparks across darkness.
+- Row 3 Col 4: Massive heavy iron war-maul smashing violently straight down onto a glowing cracked translucent stone shield crest, shattering bronze armor shards outward with fiery orange sparks.
+
+- Row 4 Col 1: Gleaming precision steel-headed fletched arrow blazing forward diagonally surrounded by tight swirling supersonic wind rings and glowing pinpoint amber target glare against night sky.
+- Row 4 Col 2: Twin crossed gleaming steel rapier blade sparks colliding cleanly mid-parry and snapping outward into a sharp retaliatory golden crimson counter-flash strike across dark slate.
+- Row 4 Col 3: Broad heavy steel tower-shield aura arching forward in a protective golden steel shockwave wall blocking incoming dark red spear impact sparks safely in front.
+- Row 4 Col 4: Swift sweeping horizontal dash-trail of swirling slate-silver wind ribbons and fading pale smoke afterimage footprints darting rapidly off into dark misty shadow.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square spell and combat ability cards), ZERO divider lines, ZERO borders/frames, ZERO faces/characters, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---

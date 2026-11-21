@@ -1,0 +1,47 @@
+# ROD — Mystic Accessory — Orbs Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Mystic -> Orbs (24 + Crest)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 ORBS PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated ornate fantasy spellcaster focus orb fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, horn, leather, gold, bronze, iron, and stone surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 orbs sit upright centered neatly in their cells with crisp hard metal/glass borders cleanly isolating them from #FF00FF (zero outer glow bleeding onto pink). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Cracked Glass Orb): Rough chipped pale greenish-clear glass sphere cradled inside simple twisted dull iron wire prongs.
+Row 1, Col 2 (Amber Focus Orb): Smooth honey-gold translucent-look amber resin focus sphere wrapped neatly by tarnished bronze equator band.
+Row 1, Col 3 (Crownland Star-Orb): Clear starry deep-blue Crownland glass orb encircled inside delicate antique brass astrolabe armillary rings.
+Row 1, Col 4 (Brine-Pearl Sphere): Saltwind sea-foam pearl-toned cloudy sphere nested tightly inside weathered tarnished bronze wave claws.
+Row 1, Col 5 (Sea-Glass Orb): Sea-Glass coastal faceted blue-green orb gleaming smoothly inside braided dull copper wire basket mount.
+
+Row 2, Col 1 (Tidestone Crystal Orb): Tidestone dark sapphire-teal deep ocean mineral orb ringed horizontally with engraved antique bronze band.
+Row 2, Col 2 (Smoke-Quartz Sphere): Smoke-Quartz dark charcoal-smoky translucent stone sphere held firmly within heavy riveted slate iron prongs.
+Row 2, Col 3 (War-Chanter Orb): War-Chanter crimson-cored glass battle-orb caged cleanly in dark steel diamond ribs (no red glow spilling out).
+Row 2, Col 4 (Redmarch Focus Orb): Redmarch crisp crimson-and-brass ringed focus globe resting lightly atop miniature tripod brass claw stand.
+Row 2, Col 5 (Amber-Sap Sphere): Amber-Sap glowing golden-orange tree-resin orb tangled naturally inside sculpted twisting mossy bronze roots.
+
+Row 3, Col 1 (Dewdrop Crystal Orb): Dewdrop crystal-clear pale aqua-green spring orb nestled calmly within sculpted delicate silver leaf chalice.
+Row 3, Col 2 (Elderwood Star-Orb): Elderwood dark emerald star-flecked crystal orb cradled symmetrically by gleaming antique bronze antlers.
+Row 3, Col 3 (Sun-Glass Sphere): Sun-Glass warm amber-gold desert-glass sphere ringed around center with delicate sun-ray brass fins.
+Row 3, Col 4 (Topaz Mirage Orb): Topaz sunlit golden-honey faceted gemstone orb encased cleanly in bright geometric golden-brass filigree.
+Row 3, Col 5 (Solar Prism Orb): Solar Prism shimmering white-gold multi-faceted crystal globe spinning cleanly within gleaming gold sunburst ring.
+
+Row 4, Col 1 (Thunder-Quartz Orb): Thunder-Quartz crisp sharp pale electric-gold streaked quartz sphere strapped smoothly in dark highland steel.
+Row 4, Col 2 (Silver-Core Orb): Silver-Core mirror-sheen pure liquid-silver metallic orb framed delicately inside brushed star-silver runes.
+Row 4, Col 3 (Anvilhall Prism Orb): Anvilhall deep smoky star-iron caged crystal prism globe pulsing softly with warm forge-amber interior core.
+Row 4, Col 4 (Frosted Glass Orb): Frosted pale sky-blue winter glass sphere etched neatly on glass surface with crisp angular snowflake facets.
+Row 4, Col 5 (Boreal Ice-Orb): Boreal ice-cobalt frosted crystal orb collared with sharp jagged silver icicle prong mounts.
+
+Row 5, Col 1 (Pale-Star Crystal Orb): Pale-Star luminous icy white-cyan clear quartz crystal globe framed inside dark winter-steel star rings.
+Row 5, Col 2 (Void-Glass Orb): Void-Glass glossy jet-black obsidian glass orb flashing thin deep charcoal-silver crescent interior light.
+Row 5, Col 3 (Eclipse Rift Orb): Eclipse dark midnight obsidian-and-gold ringed globe framing subtle fiery ember eclipse halo cleanly inside glass.
+Row 5, Col 4 (Heart of the First Dawn): Heart of the First Dawn — apex Mystic endgame radiant astral-gold crystal sphere cradled within sculpted gleaming brushed-gold dawn wings.
+Row 5, Col 5 (Orbs Category Emblem & Empty-Slot Icon): Orbs Category Emblem & Empty-Slot Icon: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic smooth sphere orb mounted neatly inside simple metal rings—NO gems, NO outer glow onto pink, NO borders on pure #FF00FF.
+--- 5x5 ORBS PROMPT END ---

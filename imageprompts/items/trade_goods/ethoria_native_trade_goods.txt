@@ -1,0 +1,37 @@
+# ROD — Ethoria Native Trade Goods Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: docs/07-bestiary-and-bosses.md & data/items-catalog.json (16 Native Wildlife & Human Faction Trade Goods)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 ETHORIA TRADE GOODS START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated fantasy RPG monster trophy and trade-good loot icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY LOOT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG merchant/bag icon readability, smooth sculpted chitin, horn, pelt, bone, metal, glass vial, scale, and stone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/liquids/glows, and ZERO letters or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 loot icons float centered cleanly in 3/4 RPG object view filling ~75% of each invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically.
+
+Render these exact 16 distinct trade goods cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Rusty Coin Purse): Worn split dark leather coin pouch bursting open slightly showing dull tarnished silver coins.
+Row 1, Col 2 (Fletched Bolt Case): Tough scarred boiled-leather crossbow bolt belt-case stocked neatly with 4 iron-tipped steel bolts.
+Row 1, Col 3 (Contraband Seal): Broken stamped dark red wax & tarnished brass smuggler cargo seal tied to frayed hemp string.
+Row 1, Col 4 (Torn Wolf Tabard): Torn ragged dark gray-and-crimson enemy wolf-banner cloth scrap stained lightly by mud.
+
+Row 2, Col 1 (Usurper Pennant): Tattered crimson-and-blackened-iron torn warlord standard pennant remnant on broken lance splinter.
+Row 2, Col 2 (Steel Crest Badge): Scarred stamped steel officer collar badge crest engraved with sharp crossed swords emblem.
+Row 2, Col 3 (Brass Collar Key): Heavy dull tarnished brass slave-collar padlock key with notched ring handle.
+Row 2, Col 4 (Obsidian Talisman): Carved dark matte black obsidian talisman pendant dangling from braided rawhide thong.
+
+Row 3, Col 1 (Gray Wolf Pelt): Thick soft plush winter-gray wild timber-wolf pelt rolled neatly and strapped with leather cord.
+Row 3, Col 2 (Curved Ivory Tusk): Heavy curved pale creamy ivory wild boar tusk capped loosely at root in dark hide.
+Row 3, Col 3 (Intact Venom Gland): Stoppered clear greenish-glass alchemical sample vial full of virulent chartreuse-green serpent venom.
+Row 3, Col 4 (Thick Bear Hide): Sprawled thick coarse dark brown grizzly-bear fur pelt bundle bound tightly by sturdy twine.
+
+Row 4, Col 1 (Amber Chitin Stinger): Sharp curved glowing translucent amber-orange giant arachnid chitin tail stinger.
+Row 4, Col 2 (Snow-White Pelt): Pristine plush pure snow-white arctic beast pelt folded cleanly beside silvered leather tie.
+Row 4, Col 3 (Frosted Alpha Pelt): Heavy frost-silvered pale alpha dire-wolf pelt sporting thick shaggy winter silver ruff.
+Row 4, Col 4 (Massive Ivory Fang): Colossal ancient pale yellowed-ivory curved mammoth-beast fang tusk notched near tip.
+--- 4x4 ETHORIA TRADE GOODS END ---

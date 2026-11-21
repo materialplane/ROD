@@ -1,0 +1,51 @@
+# ROD — 1H Battleaxe Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Bulwark -> Battleaxe (1H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step Battleaxe progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Battleaxes Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Battleaxes + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 1H battleaxe fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 icons follow ONE identical 45-degree diagonal UI icon angle inside their cell: haft pommel toward the bottom-left corner, heavy axe blade head toward the upper-right corner, primary cutting edge facing outward toward the lower-right. Size each axe cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble camp iron to royal endgame steel, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Worn Camp Axe): Humble battered light wooden-hafted single-bit camp battleaxe with a small nicked dull dark-iron blade, rough faded cord wraps under the head, and plain splinter-scarred ash handle.
+Row 1, Col 2 (Iron Bearded Battleaxe): Sturdy dark-ash one-handed bearded battleaxe with a broadened wrought-iron downward-hooked beard blade, solid iron socket rivets, worn brown leather grip wrap, and simple iron butt-cap.
+Row 1, Col 3 (Crownland Cleaver Axe): Clean militia heavy cleaver battleaxe featuring a thick polished angular steel chopping blade, brushed antique-bronze collar ferrule, and stitched tan leather handle grip.
+Row 1, Col 4 (Boarding Battleaxe): Seafarer's naval boarding battleaxe on dark salt-seasoned ship-oak timber with a sharp hooked back-fluke opposite a wide tarnished-brass-trimmed steel crescent blade and rope-knotted brass pommel.
+Row 1, Col 5 (Barnacle Cleaver Axe): Heavy dark sea-iron naval cleaver battleaxe crusted lightly along the dull spine and socket collar with pale coastal barnacles, dark green-blackened steel edge, tarred hemp grip, and bronze finial.
+
+Row 2, Col 1 (Mire-Splitter Battleaxe): Dark bog-oak hafted wide swamp battleaxe forged from mottled dull olive-darkened marsh-steel with two clean semicircular weight-cutouts inside the blade, blackened iron bolsters, and studded dark leather grip.
+Row 2, Col 2 (Trench Battleaxe): Brutal frontier siege war-axe on an iron-splinted dark ash shaft featuring an angular armor-piercing rear spike opposite a thick chisel-beveled slate-iron bit and heavy flanged iron pommel.
+Row 2, Col 3 (Redmarch War-Axe): Crisp garrison warfront battleaxe bearing a clean heavy double-bevel dark steel crescent blade accented with matte deep-crimson lacquer grooves near the spine, riveted brass socket bands, and crimson leather grip.
+Row 2, Col 4 (Gatebreaker Battleaxe): Massive thick-spined fortress siege battleaxe uniting a heavy notched iron hammer-poll back with a thick bevelled steel splitting crescent head, reinforced along the upper neck with riveted steel plates.
+Row 2, Col 5 (Timberfall Battleaxe): Heavy frontier forester war-axe on a tough knot-grained hickory shaft capped in dark bronze, bearing a wide gleaming high-carbon steel curved blade etched near the heel with crisp carved geometric leaf chevrons.
+
+Row 3, Col 1 (Sap-Tempered Battleaxe): Forest-tempered battleaxe with a warm golden-amber polished hardwood shaft, patinated emerald-bronze socket collar set cleanly with a smooth warm amber cabochon stone, and sleek leaf-curved dark steel blade.
+Row 3, Col 2 (Weald-Reaper Axe): Ancient woodland relic battleaxe built on a sculpted gnarled dark-elderwood shaft with a broad jagged thorn-styled dark olive-iron blade gleaming silver along its wicked cutting curve and bronze horn-quillions.
+Row 3, Col 3 (Crescent Dune Battleaxe): Sun-forged southern desert bronze-and-steel battleaxe featuring a wide sweeping horned crescent blade banded in warm burnished gold over oiled desert palmwood and brass rivets.
+Row 3, Col 4 (Brass-Edged War-Axe): Ornate Veridian war-axe built with sculpted fluted golden-brass cheek-plates clamping a dark blackened high-steel crescent edge, braided dark-sand leather wrap, and weighted brass sun-disc pommel.
+Row 3, Col 5 (Veridian Sun-Axe): Prestigious gilded desert sun-axe with a radiant sculpted brass sunburst collar framing twin sharp curving steel cutting hooks, deep cobalt leather handle wrap, and carved brass teardrop pommel.
+
+Row 4, Col 1 (Peak-Cleaver Battleaxe): Rugged highland crag battleaxe crafted with thick chiseled cold slate-steel facets like hewn granite cliffs, heavy riveted iron shaft splints, and dark charcoal leather grip.
+Row 4, Col 2 (Granite-Biter War-Axe): Massive Ironcrest highland siege war-axe with a jagged angular dark-granite-toned forged steel double-bevel head, thick bronze ridge spine, brutal piercing back-beak, and studded slate leather grip.
+Row 4, Col 3 (Anvilhall Runed Battleaxe): Legendary mountain-forge masterwork steel battleaxe featuring crisp warm glowing forge-amber geometric etchings inlaid inside blackened star-iron cheeks, beveled mirror-steel edge, and heavy anvil-crest pommel.
+Row 4, Col 4 (Ice-Carver Battleaxe): Crisp northern pale-iron battleaxe with a swept crescent frosted steel bit edged in cold glacial-blue steel sheen, frost-white wrapped wolf-pelt bolster trim, and dark iron pommel claw.
+Row 4, Col 5 (Northern Wolf-Axe): Fierce Northern Clan steel bearded battleaxe whose bronze-and-iron socket is sculpted cleanly into a snarling stylized wolf head gripping the wide silver-steel curved blade in its jaws, over dark fur-trimmed grip.
+
+Row 5, Col 1 (Rimefang Battleaxe): Endgame Frostbound double-edged battleaxe forged of dark abyssal slate-iron fused cleanly with razor-sharp faceted pale ice-cyan glacier-steel cutting edges along both swept crescent fangs and crisp frost-silver finial.
+Row 5, Col 2 (Ash-Forged Battleaxe): Grim Dreadwaste volcanic-steel war-axe hammered from pitted charcoal-black ashen iron with a crisp bright molten-ember orange fuller line gleaming cleanly along its dark steel edge and iron chain-wrapped pommel.
+Row 5, Col 3 (Skull-Splitter Battleaxe): Brutal towering dark steel executioner's war-axe featuring jagged dark crimson-lacquered cheek flanges flanking an oversized mirror-sharp twin-hooked heavy steel splitting blade, ribbed bone-white and black leather grip.
+Row 5, Col 4 (Executioner's Judgment): Supreme Royal Dreadwaste relic battleaxe — monumental sculpted blackened star-iron and dark crimson-gold bearded great-crescent blade bearing balanced gilded-crown cheek inlays, needle-sharp top pike finial, crimson leather grip, and heavy royal war-pommel.
+Row 5, Col 5 (Battleaxes Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic double-edged battleaxe silhouette emblem matching the exact same 45-degree diagonal angle—sleek, understated, unornamented clean beveled shape with NO ornate gems, NO glowing effects, NO circular border, and NO square box frame, styled cleanly as an understated UI category tab and empty weapon slot placeholder floating directly on pure #FF00FF.
+--- 5x5 PROMPT END ---

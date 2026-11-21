@@ -1,0 +1,37 @@
+# ROD — Heavy Body Armor Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Heavy Armor -> Body
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 HEAVY SHEET START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated standalone floating torso armor fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All heavy body armors are displayed upright front-facing in a slight 3/4 hero-chest silhouette floating completely standalone as empty hollow torso armor ONLY (strictly bare back shoulder silhouette with ZERO capes, ZERO cloaks, ZERO shawls, NO human heads, NO mannequins, NO hands inside sleeves—just dark empty neck & cuff openings). Size each armor cleanly to fill ~75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 16 distinct icons cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Thornwall Ring Mail): Thornwall Ring Mail — heavy coarse brown leather tunic sewn completely edge-to-edge with dense rows of thick hammered iron rings.
+Row 1, Col 2 (Iron-Ringed Mail): Iron-Ringed sturdy dark gray iron-ring mail hauberk fortified across shoulders with double-ringed riveted leather straps.
+Row 1, Col 3 (Amber-Linked Ring Mail): Amber-Linked bright antique-bronze-and-steel interlocking ring armor cinched cleanly by heavy forest-brown leather belt.
+Row 1, Col 4 (Elderwood Ring Mail): Elderwood heavy master ring armor stitching thick bronzed steel rings neatly over deep olive hardened under-leather.
+
+Row 2, Col 1 (Veridian Chain Mail): Veridian bright steel tightly knitted desert chain mail hauberk gleaming cleanly beneath golden-brass shoulder surcoat trims.
+Row 2, Col 2 (Sun-Forged Chain Mail): Sun-Forged gleaming warm brass-and-steel banded chain hauberk wearing riveted brass shoulder plates and a neat crimson waist sash belted cleanly around the hips with bare chain shoulders.
+Row 2, Col 3 (Sandwall Siege Chain Mail): Sandwall Siege rugged dense double-riveted charcoal steel chain mail hauberk built with heavy high steel gorget collar.
+Row 2, Col 4 (Ironcrest Heavy Chain Mail): Ironcrest Heavy silvered-steel full chain mail hauberk layered thickly over dark charcoal wool gambeson and iron girdle.
+
+Row 3, Col 1 (Crag-Iron Splint): Crag-Iron heavy matte gray vertical riveted steel splint stripes strapped over tough dark slate leather coat and skirt.
+Row 3, Col 2 (Anvilhall Star-Splint): Anvilhall Star-Splint — master-forged blackened star-iron splint strips glowing subtly with warm amber forge lines over heavy leather.
+Row 3, Col 3 (Rime-Bound Splint): Rime-Bound frost-touched blue-gray articulated steel splint armor trimmed along wide collar with thick pale wolf pelt.
+Row 3, Col 4 (Glacierwall Splint): Glacierwall northern siege splint cuirass pairing bright icy steel vertical ribs with deep navy iron-buckled armor straps.
+
+Row 4, Col 1 (Bleakwatch War-Plate): Bleakwatch War-Plate — imposing grim dark iron full knightly chest plate with spiked pauldrons and heavy chain skirt.
+Row 4, Col 2 (Ashen-Iron Full Plate): Ashen-Iron Full Plate — hammered Dreadwaste volcanic-charcoal full knight armor showing clean ember-orange trim lines inside steel plates.
+Row 4, Col 3 (Black-Keep Siege Plate): Black-Keep Siege heavy blackened gothic full plate displaying fluted sharp armor ridges and bold deep crimson heraldic straps.
+Row 4, Col 4 (Bastion of the First King): Bastion of the First King — apex Bulwark endgame relic full plate gleaming in sculpted star-steel chest plates, articulated gold-rimmed steel pauldrons, crowned with a sculpted brushed-gold royal lion chest relief, crimson heraldic waist-belt tabard apron, and heavy articulated steel hip tassets against open flat magenta behind both shoulders.
+--- 4x4 HEAVY SHEET END ---

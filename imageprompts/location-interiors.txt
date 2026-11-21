@@ -1,0 +1,562 @@
+# ROD — 16:9 Hub Interior & Sanctuary Scene Prompts (40 Hubs + #69 Highcrown Keep = 41 Scenes)
+# Target Script: imageprompts/premium/generate_image_16x9_4k_pro.py (models/gemini-3-pro-image, Pro 4K, 16:9)
+# Style Rule: Pure positive painterly splash description — crisp dense brushwork, deep espresso-indigo shadow crevices, golden-amber rim lighting, strictly inside views (no RPG prop checklists, no outer marker landmarks, no negative prompt shopping lists).
+# Browser / API Reference Tip: Attach assets/ui/menu_background_16x9_4k_v2.png (color & brushwork match) when generating.
+# Art Style Anchor: Proven Pro 4K Runeterra / Summoner's Rift / Ruined King hand-painted splash style (approved via test_loc_01_highcrown_splash_pro_4k.png matching assets/ui/menu_background_16x9_4k_v2.png).
+# UI Layout Mandate: Keep the lower foreground (~25% height) calm darkly shadowed flagstones, worn stone slabs, timber floor planks, or mossy terraces so the interactive Resident NPC Avatar row & RPG Dialogue Plate sit cleanly.
+
+SHARED STYLE HEADER (Pure positive high-contrast League of Legends / Runeterra splash key art):
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+
+================================================================================
+MAP 1 — THE CROWNLANDS & SALTMARSH COAST (Regions 1–2 | 11 Scenes)
+================================================================================
+
+--------------------------------------------------------------------------------
+[01] ID: loc_01_overgrown_garden_sanctuary | Highcrown (Overgrown Garden Sanctuary · Inner Guild Cloister)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & SANCTUARY LIGHTING: Still, uninhabited eye-level scenic splash illustration standing deep inside Highcrown's enclosed Overgrown Garden Sanctuary at dramatic late golden sunset. Deep shadow across the broken, moss-seamed limestone terrace slabs and scattered autumn leaves in the lower foreground anchors crisp sunlit garden ruins rising into rich dark vaulted colonnade recesses and burning warm wall sconces.
+
+ANCIENT COLONNADES & OVERGROWN FLORA (LEFT & RIGHT FOREGROUND): Wrapping closely around the sanctuary left and right stand massive weathered limestone arches and rugged aged oak beams deeply cracked by time and gripped tightly by thick, gnarled twisting vine trunks climbing past rough chipped stonework and warm glowing gothic sanctuary windows. Tufts of crisp wild grass blades, lush serrated ferns, mossy flagstones, small wildflowers, and cascading emerald ivy clusters bursting with tiny white garden blossoms catch sharp golden sunset rim highlights against velvety dark shadow pockets inside deeply recessed vaulted stone walkways glowing faintly with warm interior candlelight and ancient book-lined library alcoves.
+
+SUNKEN GARDEN FOUNTAIN & ENCLOSED SKY GALLERY (CENTER FOCAL POINT): Filling the sheltered center terrace stands a weathered mossy octagonal limestone basin topped by a finely sculpted weathered stone lion fountain splashing crystal-clear sunset-lit water into dark shadowed pools. Enclosing the entire rear courtyard stand tall ancient dark green cypress trees beside arched, leaded-glass palace sanctuary gallery walls and upper stone balustrades catching fierce golden sunset fire against deep, swirling indigo-cobalt twilight storm clouds overhead.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[02] ID: loc_69_highcrown_keep | Highcrown Keep (Royal Keep Interior · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & COUNCIL LIGHTING: Still, uninhabited eye-level scenic splash illustration deep inside Highcrown Keep's monumental vaulted Royal Council Hall at evening twilight. Broad, darkly shadowed chiseled slate floor slabs across the lower foreground lead straight up toward grand stone columns and richly lit heraldic masonry.
+
+GOTHIC WINDOWS & ROYAL HEARTH (LEFT & REAR): Along the tall left wall rise towering pointed gothic lancet windows of diamond-leaded amber glass pouring crisp golden sunset beams diagonally through dustless air across soaring limestone ribs and massive cracked stone pillars. Dominating the rear wall blazes a monumental sculpted stone royal hearth fireplace flanked by tattered crimson-and-gold woven heraldic tapestries hung in deep shadow folds beside iron torch sconces glowing against dark masonry.
+
+OCTAGONAL OAK TABLE & VAULTED RECESSES (CENTER & RIGHT): Standing at center-right rests a massive octagonal carved dark-oak council table draped with blank unrolled parchment scrolls, bronze map weights, and flickering iron candlesticks catching warm rim light against deep espresso-toned vaulted side arches housing shadowed stone stairwells climbing away into dark keep galleries.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[03] ID: loc_02_oakhaven | Oakhaven (Town · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & SHELTERED OAK COURT: Still, uninhabited eye-level scenic splash illustration tucked intimately beneath the sprawling emerald canopy of Oakhaven's ancient heart-tree inside its sheltered town square at golden late afternoon. Broad moss-rimmed worn cobblestones scattered with fallen golden leaves anchor the deeply shadowed lower foreground.
+
+COLOSSAL HEART-OAK & HEARTH PORCH (CENTER & LEFT): Rising majestically right off-center stands an immense crooked ancient oak whose tangled, mossy roots grip cracked stone well-curbing beneath dense layered sun-dappled foliage completely roofing the upper frame. Framing the left under thick crooked timber beams glows an arched fieldstone tavern porch warm with lantern firelight, trailing ivy boughs, and hanging sage bundles tucked into shadowed stone doorways.
+
+BLACKSMITH HEARTH ALCOVE & COTTAGES (RIGHT FOREGROUND): Under a deep weathered stone-and-timber smithy shelter on the right glows an ember-red brick forge illuminating rough-hewn stone arches, rugged forge masonry beside burning red coals, and sun-warmed slate-and-thatch cottage gables tightly ringing the cozy courtyard in twilight warmth.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[04] ID: hub_meadowbrook_hamlet | Meadowbrook Hamlet (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & HEARTH MILL-INN INTERIOR: Still, uninhabited eye-level scenic splash illustration standing inside Meadowbrook Hamlet's warm timber-and-fieldstone Village Hearth Commons at crisp golden late afternoon. Wide uneven worn flagstones swept with stray golden straw stalks fill the calm shaded lower foreground.
+
+HEARTH FIREPLACE & TIMBER BEAMS (LEFT & OVERHEAD): Spanning overhead run massive crooked dark-oak ceiling beams hung with dried autumn meadow herbs and iron tallow lanterns, framing a roaring rough-chiseled fieldstone hearth chimney on the left glowing fierce amber across heavy scarred oak trestle tables and mossy stone wainscoting.
+
+MILLHOUSE WINDOWS & STONE WELL-ALCOVE (CENTER & RIGHT): Across the center-right warm sunlit diamond glass panes and thrown-open timber casements pour bright sunset shafts over carved woodwork, bundled wheat sheaves, and a shadowed stone archways opening onto a moss-grown shaded inner garden porch bathed in warm meadow sunlight.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[05] ID: loc_04_millbrook_crossing | Millbrook Crossing (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & DRYLAND GRANARY MILL CHAMBER: Still, uninhabited eye-level scenic splash illustration standing inside Millbrook Crossing's rugged interior limestone-and-timber Grain Millhouse at dramatic golden dusk. Deeply shadowed flour-dusted hardwood planking and worn stone threshold blocks stretch steadily across the lower foreground.
+
+CARVED OAK MILL GEARS & MILLSTONES (LEFT & CENTER): Rising powerfully across the left and center interior turn colossal hand-pegged seasoned oak cogwheels, heavy overhead timber shafts, and massive round chiseled limestone grindstones resting within dusty timber housings illuminated by fierce diagonal shafts of sunset orange pouring through high open timber loft shutters.
+
+HEARTH ARCH & SMITHY ALCOVE (RIGHT): Carved into the thick limestone side-wall on the right glows a deeply recessed stone hearth oven radiating bright ember warmth across rough stone masonry corners, stone mason chisel benches, and golden sunbeams streaming across tall stacks of dry wheat sheaves.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[06] ID: hub_crownlands_hill_fort | Crownlands Hill-Fort (Fort · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & GARRISON WATCH-HALL INTERIOR: Still, uninhabited eye-level scenic splash illustration inside Crownlands Hill-Fort's rugged fieldstone and heavy-timber Garrison Watch-Hall at dramatic golden sunset. Deeply shadowed scarred granite flagging stretches across the dark shaded lower foreground.
+
+ROUGH ASH-STONE ARCHES & WAR HEARTH (LEFT & CENTER): Massive cracked fieldstone ribs and crooked forest-hewn pine tie-beams brace a cavernous fort mess-hall lit sharply along the left by an enormous roaring stone watch-hearth burning bright orange embers beneath tattered crimson Crownlands wool banners draped between shadowed columns.
+
+SLANTED EMBRASURES & ARMORY ARCHWAY (RIGHT): Through deep splayed stone window embrasures along the right wall break dramatic warm dusk rays across heavily weathered oak pillars, iron torch brackets, carved garrison bays, and shadowed arched masonry stairways descending cleanly into dark vaulted stone barracks corners.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[07] ID: loc_06_saltwind_harbor | Saltwind Harbor (Port Town · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & COVERED QUAYSIDE BOATHOUSE GALLERY: Still, uninhabited eye-level scenic splash illustration deep inside Saltwind Harbor's cavernous weathered sandstone-and-timber Waterfront Exchange Boathouse at late golden afternoon. Dark salt-stained mossy sandstone flagstones across the lower foreground catch crisp warm rim light.
+
+SALT-WORN TIMBERS & LANTERN RECESSES (LEFT & OVERHEAD): Towering overhead rise massive salt-silvered cedar ship trusses and heavy mortised oak arches weathered by coastal tide, lined on the left with glowing arched stone maritime guild doorways, hanging brass oil lanterns, and barnacle-scarred stone pilings descending into deep indigo water shadows.
+
+VAULTED SEA ARCH & TIDE REFLECTIONS (CENTER & RIGHT): Framing the center-right open vaulted stone sea-arches spill bright golden sunlight across gentle sapphire tidal water inside a sheltered covered boat-slip where dark weathered timber skiff prows bob calmly beside thick knotted mooring pilings and glowing twilight harbor reflections.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[08] ID: hub_brinecliff_watch_fort | Brinecliff Watch-Fort (Fort · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & CLIFF-CARVED SEA-WATCH CHAMBER: Still, uninhabited eye-level scenic splash illustration inside Brinecliff Watch-Fort's coastal pale-limestone Watch-Hall carved straight into dramatic western cliff rock at dusk. Broad salt-chipped dark wet limestone flagstones stretch calmly across the lower foreground.
+
+SEA-WORN ARCHES & HEARTH LIGHT (LEFT & CENTER): Heavy broad arched pale limestone piers veined with damp moss and dark sea-salt cracks support burning wrought-iron wall braziers along the left masonry, casting warm amber glare over coiled hemp rigging, dark oak timber trusses, and deep shadowy barracks archways.
+
+CLIFF-WALL SEA GALLERY (RIGHT): Deep arched coastal stone embrasures opening through thick cliffside masonry on the right look tightly downward toward churning deep cobalt ocean swells catching fiery molten sunset streaks along rugged wet cliffside boulders immediately below the sill.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[09] ID: hub_reedfen_village | Reedfen Village (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & WILLOW-SHADED MARSH LODGE PORCH: Still, uninhabited eye-level scenic splash illustration tucked beneath the deep overhanging reed-thatched eaves of Reedfen's sheltered Marshland Lodge Landing at golden dusk. Dark damp mossy cedar decking and worn timber pilings anchor the calm shaded lower foreground.
+
+THATCHED TIMBER EAVES & WILLOW CURTAINS (LEFT & OVERHEAD): Thick lashed cedar posts and deep dark reed-thatch rafters shelter a cozy open hearth lantern porch on the left draped with trailing green willow curtains, drying woven fishing twine, moss-patched masonry chimney stones, and bright amber hearthfire reflections.
+
+BLACK MIRROR REED POOL & MOORED SKIFF (CENTER & RIGHT): Beneath drooping ancient weeping willows completely screening the marsh in twilight shade rests a dark weathered flat-bottom oak marsh skiff moored closely beside tall swaying emerald reeds and still midnight-blue swamp mirror pools catching golden sunset ripples.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[10] ID: loc_09_mirewatch_post | Mirewatch Post (Outpost · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & CYPRESS-ROOT STILT WATCH PAVILION: Still, uninhabited eye-level scenic splash illustration inside Mirewatch Post's elevated lashed-timber Watch Pavilion perched amid ancient twisted swamp cypress roots at dusk. Dark wet oak deck planks weathered by swamp moss anchor the lower foreground calmly.
+
+LASHED TIMBERS & PITCH LANTERNS (LEFT & OVERHEAD): Heavy rough-hewn dark cypress logs and sagging storm-dyed canvas canopy beams overhead support blazing copper pitch-lantern poles burning fierce orange light across gnarled mossy root-buttresses, weathered herbalist shelving inside deep shadowed alcoves, and damp masonry hearthstone bases.
+
+SWAMP ROOT SANCTUM (CENTER & RIGHT): All around the sheltered timber gallery rise colossal twisted swamp cypress trunks draped in emerald moss curtains and shadowed fern fronds emerging directly from glassy dark obsidian swamp pools glistening faintly with warm amber lantern reflections.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[11] ID: hub_tidewater_keep | Tidewater Keep (Keep / Castle · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & GRANITE SEA-CLOISTER HALL: Still, uninhabited eye-level scenic splash illustration deep inside Tidewater Keep's salt-scarred Vaulted Granite Sea-Cloister at twilight dusk. Broad rain-darkened gray granite floor slabs across the lower foreground frame soaring arched masonry above.
+
+GRANITE VAULT ARCADES & HEARTH FIRE (LEFT & CENTER): Massive cracked sea-granite columns and heavy iron-banded groin vaults rise steeply along the left beside blazing iron wall-torches pouring dramatic amber highlights across weathered stone reliefs, deeply shadowed garrison archways, and tattered crimson-and-gold standards hanging still against cold dark stone.
+
+OPEN CLOISTER SEA-ARCHES (RIGHT): Slender carved granite gothic cloister arches along the right frame rolling deep midnight-indigo ocean waves breaking crisply against mossy outer foundation boulders directly beneath the gallery eaves under vibrant gold-rimmed dusk clouds overhead.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 2 — THORNWALL WARFRONTS & VERDANT WEALD (Regions 3–4 | 10 Scenes)
+================================================================================
+
+--------------------------------------------------------------------------------
+[12] ID: loc_11_redmarch_bastion | Redmarch Bastion (Town · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & WARFRONT BASTION GREAT HALL: Still, uninhabited eye-level scenic splash illustration inside Redmarch Bastion's heavy Red-Sandstone Garrison War-Hall at fiery dusk. Smooth worn red-gray sandstone flagstones in deep shadow span cleanly across the lower foreground.
+
+SCARRED BASTION PILLARS & HEARTH GLOW (LEFT & RIGHT): Massive weathered red-and-gray ashlar sandstone ribs climb overhead around iron wheel chandeliers burning fierce orange-amber firelight against dark soot-darkened masonry, crimson war banners draped neatly between carved columns, and glowing stone forge recesses gleaming warmly deep inside shadowed side vaults.
+
+HIGH ARCHED MASONRY WINDOWS (CENTER BACKGROUND): At the rear of the vaulted stone chamber soar tall iron-barred gothic masonry arches pouring golden sunset beams diagonally through clear air across chiseled granite steps and rugged battle-worn architectural reliefs.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[13] ID: hub_goldmoor_village | Goldmoor Village (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & HIGHLAND FIELDSTONE INN HEARTHROOM: Still, uninhabited eye-level scenic splash illustration deep inside Goldmoor Village's warm Golden-Stone Hearth Inn & Livery Hall at crisp late afternoon. Dark worn flat hearth-stones strewn with stray golden wheat wisps ground the lower foreground calmly.
+
+FIELDSTONE HEARTH & TIMBER LOFT (LEFT & CENTER): A sprawling rough-chiseled golden-ochre fieldstone fireplace radiates warm amber hearthglow beneath thick crooked highland oak beams hung with wrought-iron tallow lamps, illuminating carved rustic oak settles, drying meadow grasses, and deep shadowy stone alcoves.
+
+MULLIONED SUNLIT CASEMENTS (RIGHT): Along the right heavy stone wall glow tall wooden-mullioned windows throwing long slanted golden afternoon sunbeams across rugged sandstone sills looking tightly out onto waving golden highland grass tufts right outside the stonework.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[14] ID: hub_slatepeak_mining_fort | Slatepeak Mining Fort (Fort · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & SUBTERRANEAN SLATE SMELTER CHAMBER: Still, uninhabited eye-level scenic splash illustration deep inside Slatepeak's carved Rock-Hewn Slate Smelter Cavern & Mine Depot. Dark rugged chipped gray-slate floor stone scored by rusted iron cart grooves anchors the lower foreground cleanly.
+
+HEWN SLATE ARCHES & SMELTER FURNACE (CENTER & LEFT): Towering jagged layers of chiseled gray slate rock braced by massive crooked timber pit-props rise straight into cavern ceiling shadows around a colossal domed stone iron-smelter furnace pouring intense molten orange-gold firelight across rough bellows leather, stacked dark iron blooms, and deep obsidian tunnel mouths.
+
+TIMBER SCAFFOLD RECESS (RIGHT): Along the damp rock-cut right wall climb steep rough-hewn timber ladder galleries lit dramatically by swinging amber miner lamps against glistening wet mineral veins and dark shadowed stone support piers.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[15] ID: hub_thornwall_border_castle | Thornwall Border Castle (Keep / Castle · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & HIGHLAND BORDER WAR-HALL: Still, uninhabited eye-level scenic splash illustration inside Thornwall Holdfast's stark Chiseled Granite Inner War-Hall at golden twilight. Broad dark cold granite flagstones across the lower foreground lead inward beneath imposing highland stonework.
+
+TOWERING GRANITE HEARTH & BANNERS (LEFT & CENTER): Massive rough-dressed gray granite walls climb toward shadowed dark oak ceiling rafters beside a towering stone chimney hearth blazing orange flames across tattered Highcrown crimson-and-gold standards and deeply chiseled stone arches receding into espresso-dark guardroom vaults.
+
+SUNSET LANCET EMBRASURES (RIGHT): Tall narrow recessed granite window slits along the right masonry frame crisp golden dusk light spilling warmly across weathered ashlar edges and deeply shadowed stone stairs.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[16] ID: loc_13_hollowstone_keep | Hollowstone Keep (Keep / Castle · House Hollowstone)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & GOTHIC SLATE GREAT HALL: Still, uninhabited eye-level scenic splash illustration inside House Hollowstone's imposing Gothic Dark-Slate Great Hall at moody twilight. Dark cold-shadowed black-slate paving slabs stretch smoothly across the shadowed lower foreground.
+
+POINTED SLATE VAULTS & ROSE-COPPER HEARTH (LEFT & CENTER): Soaring pointed dark-slate gothic arches spring steeply upward beside long scalloped wine-purple silk war banners edged with tarnished rose-copper filigree hung inside deep shadow recesses lit by flickering bronze wall torches and glowing iron braziers.
+
+LANCET STAINED WINDOWS & CRYPT STAIRS (RIGHT): Towering pointed gothic windows inlaid with deep violet-and-amber stained glass cast dramatic colored dusk beams across richly carved limestone piers and dark iron-barred dungeon archway stairs descending steeply on the right.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[17] ID: loc_16_briarstead | Briarstead (Town · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & MOSSY WOODLAND APOTHECARY COURT: Still, uninhabited eye-level scenic splash illustration tucked intimately inside Briarstead's sheltered Forest Apothecary Courtyard completely ringed by colossal ancient woodland trees at golden hour. Mossy cracked cobblestones speckled with emerald leaves anchor the darkly shadowed lower foreground.
+
+HERBALIST TIMBER GABLES & ROOT ARCHES (LEFT & RIGHT): Tightly enclosing left and right stand deeply weathered half-timbered apothecary gables draped in cascading green ivy, bundles of drying rosemary and sage beneath steep eaves, gnarled giant oak roots twining over mossy stone archways, and warm glowing amber cottage doorway lanterns.
+
+SHADED FOREST CANOPY WELL (CENTER): Rising behind a mossy circular stone courtyard well completely screen out distant vistas under towering ancient crooked woodland trunks and thick emerald-gold pine boughs filtering crisp golden sunbeams directly down onto wild woodland ferns.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[18] ID: hub_timberfall_village | Timberfall Village (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & ALPINE LOGGING SAWYER HALL: Still, uninhabited eye-level scenic splash illustration inside Timberfall's grand Pine-Timber Sawyer Lodge & Tavern Porch at golden dusk. Dark cedar woodchip-dusted stone slabs span calmly across the shaded lower foreground.
+
+MASSIVE TIMBER PILLARS & HEARTH (LEFT & CENTER): Colossal hand-adzed emerald-pine log columns and crooked barked roof beams support an expansive rugged timber logging hall warmed by a blazing rough-boulder chimney fireplace glowing ember-orange across heavy timber rafters, hanging iron lamps, and deeply shadowed sawdust corners.
+
+OPEN WOODLAND EAVES (RIGHT): Wide open timber gallery bays on the right reveal towering golden-lit ancient alpine pine trunks rising just outside beneath mossy cedar eaves, throwing razor-sharp warm twilight beams across scarred pine floorboards.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[19] ID: hub_mosswood_hamlet | Mosswood Hamlet (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & ANCIENT MONOLITH FOREST GLADE: Still, uninhabited eye-level scenic splash illustration standing quietly within Mosswood's tightly walled cathedral grove of colossal forest trees at sun-dappled late afternoon. Broad moss-rimmed cool stone slabs stretch calmly across the shaded lower foreground.
+
+MOSSY STANDING MONOLITHS & CLEAR SPRING (CENTER & RIGHT): Framing the center-right clearing rise two towering ancient weathered rough-stone monoliths draped heavily in emerald moss curtains and wild white blossoms beside a crystal-clear forest pool catching bright golden light beneath overarching giant crooked oak boughs.
+
+COZY TIMBER PORCH ALCOVE (LEFT): Nestled closely amid thick root-buttresses on the left sits a low moss-shingled stone cottage porch glowing warmly with iron oil lamps beneath lush hanging fern fronds and deep velvet woodland shadows.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[20] ID: hub_greenwarden_fort | Greenwarden Fort (Fort · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & RANGER LODGE HEARTH HALL: Still, uninhabited eye-level scenic splash illustration inside Greenwarden Fort's rugged Oak-Timber & Stone Ranger Hall at dusk. Darkly shadowed damp granite floor flags stretch cleanly across the shaded lower foreground.
+
+HEAVY TIMBER RAFTERS & FOREST-GREEN BANNERS (LEFT & CENTER): Towering sharpened oak beams, rough mossy foundation stonework, and woven deep forest-green standards frame a stone lodge hall glowing brightly from warm amber iron sconces, crackling hearth flames inside recessed masonry, and dark arched passageways retreating into deep woodland shadows.
+
+OPEN TIMBER ARCH GALLERY (RIGHT): Between thick upright carved timber columns along the right stand colossal dark ancient evergreen trunks crowded tightly beyond the eaves under golden twilight rays cutting cleanly through crisp woodland shade.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[21] ID: hub_blightwatch_keep | Blightwatch Keep (Keep / Castle · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & QUARANTINE STONE WATCH-CLOISTER: Still, uninhabited eye-level scenic splash illustration inside Blightwatch Keep's heavy gray-limestone Vaulted Quarantine Hall at tense twilight dusk. Dark cold granite floor flags span smoothly across the lower foreground.
+
+IRON-GRATED VAULTS & OIL BRAZIERS (LEFT & CENTER): Massive iron-shod gray stone arches and thick cracked pillars glow fiercely under roaring iron wall-braziers casting bright amber flame across dark oiled stone stairways climbing into shadowed upper galleries.
+
+VIOLET TWILIGHT ARCHED WINDOWS (RIGHT): Tall narrow iron-barred gothic windows along the right granite wall let eerie pale indigo-violet forest dusk spill faintly against cold damp stonework, contrasting sharply with fierce warm golden torchlight inside.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 3 — SUN-SCORCHED ISLES & IRONCREST HIGHLANDS (Regions 5–6 | 10 Scenes)
+================================================================================
+
+--------------------------------------------------------------------------------
+[22] ID: loc_21_port_veridia | Port Veridia (Port Town · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & SHADED SANDSTONE SPICE COLONNADE: Still, uninhabited eye-level scenic splash illustration inside Port Veridia's vaulted Honey-Sandstone Bazaar Colonnade & Seafront Arcade at radiant golden hour. Deep cool-shadowed smooth carved sandstone floor pavers fill the calm lower foreground.
+
+SANDSTONE ARCHES & SILK CANOPIES (LEFT & CENTER): Sweeping sculpted sandstone pillars and intricately carved archways along the left frame sunlit ochre stone courtyard walls shaded overhead by billowing crimson, saffron, and sea-teal silk canopies pouring rich warm bounced light across deeply recessed cool shadow vaults glowing with brass oil lamps.
+
+TURQUOISE WATERFRONT COLONNADE (RIGHT): Between heavy foreground sandstone arches on the right sparkles intense sun-bright turquoise bay water beside massive leaning palm trunks framing the sheltered waterfront gallery calmly.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[23] ID: hub_sunstone_caravan_post | Sunstone Caravan Post (Outpost · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & VAULTED DESERT WAYSTATION COURT: Still, uninhabited eye-level scenic splash illustration deep inside Sunstone Caravan Post's cool sun-baked Sandstone Cellar Vaults & Shaded Spring Court at sunset. Deep indigo-shadowed cracked sandstone slabs stretch cleanly across the calm lower foreground.
+
+HONEY SANDSTONE ARCHES & COPPER LANTERNS (LEFT & CENTER): Colossal carved honey-sandstone ribbed arches and heavy crooked cedar tie-beams support shaded burnt-sienna canvas desert canopies glowing warmly from swinging copper oil lanterns casting dramatic amber highlights against deep vaulted shadow chambers.
+
+SUNKEN DESERT CISTERN & PALMS (RIGHT): On the right lies a sunken carved sandstone cistern shimmering with cool blue sky reflections beneath crooked leaning palm trunks framing glowing sun-warmed desert masonry walls.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[24] ID: loc_23_dunespire_oasis | Dunespire Oasis (Outpost · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & PALM-CANOPY SPRING PAVILION: Still, uninhabited eye-level scenic splash illustration nestled tightly beneath Dunespire Oasis's lush emerald Date-Palm Canopy & Silk Caravan Pavilions at vibrant sunset. Shaded cool sandstone flags and dark damp edge stones anchor the calm lower foreground.
+
+STRIPED SILK CANOPIES & LANTERN GLOW (LEFT & RIGHT): Overhead weave colorful crimson-and-gold striped nomad pavilion drapes tied neatly to rugged palm trunks around warm glowing wooden lantern standards throwing rich amber reflections across rocky weathered cistern ledges and shaded velvet alcoves.
+
+EMERALD OASIS POOL (CENTER): At the sheltered center shimmers a crystal-clear emerald-turquoise desert spring tucked closely against towering feathered palm fronds and golden-lit jagged desert sandstone walls enclosing the tranquil sanctuary.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[25] ID: hub_sandwall_citadel | Sandwall Citadel (Keep / Castle · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & SUN-CARVED SANDSTONE CITADEL COURT: Still, uninhabited eye-level scenic splash illustration deep inside Sandwall Citadel's monumental Vaulted Orange-Sandstone Garrison Hall at late dusk. Deeply shadowed carved sandstone plaza tiles span cleanly across the lower foreground.
+
+FLUTED SANDSTONE PIERS & GUILD BANNERS (LEFT & CENTER): Soaring sun-cracked orange sandstone columns and deeply carved geometric arches support tattered sea-teal and tarnished bronze guild banners beside blazing bronze wall braziers casting dramatic amber firelight deep into shadowed arched corridors.
+
+HIGH GALLERY ARCHWAYS (RIGHT): High sunlit arched openings piercing thick sandstone masonry on the right pour crisp angled beams of rich golden desert sunset across rough stone steps and deep espresso-dark recessed archways.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[26] ID: loc_24_gilded_auction_manor | The Gilded Auction Manor (Keep / Castle · Slaver Syndicate)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & OPULENT BRONZE-COLUMNED MANOR VAULT HALL: Still, uninhabited eye-level scenic splash illustration deep inside The Gilded Auction Manor's sinister Bronze-and-Sandstone Vault Hall at dark twilight. Smooth darkly shadowed inlaid dark-marble and sandstone slabs stretch cleanly across the lower foreground.
+
+HAMMERED BRONZE CAPITALS & CARTEL SILKS (LEFT & CENTER): Massive sandstone columns crowned with gleaming hammered bronze reliefs and hung with heavy tattered charcoal-and-tarnished-amber cartel silk drapes flank colossal hanging bronze oil chandeliers pouring harsh golden glare over shadowy wrought-iron vault bars.
+
+SHADOWED VAULT CHAMBERS (RIGHT): Across the right wall yawn deeply shadowed arched stone recesses enclosed by heavy forged iron lock-bars beside flickering bronze brazier bowls glowing sullen amber against oppressive dark masonry.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[27] ID: loc_26_highpass_refuge | Highpass Refuge (Town · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & ALPINE GRANITE LODGE HEARTH & TERRACE: Still, uninhabited eye-level scenic splash illustration deep inside Highpass Refuge's rugged Sunlit Granite Lodge Hall & Timber Cliff Gallery at golden late afternoon. Broad darkly shadowed gray granite terrace slabs anchor the calm lower foreground.
+
+GRANITE MASONRY & ROUGH PINE TIMBERS (LEFT & CENTER): Massive cracked gray-granite arches and sturdy sunlit alpine cedar beams shelter a warm crackling stone hearth alcove glowing amber across carved wood brackets, swinging brass lanterns, and shadowed arched lodge corridors.
+
+GILDED CLIFFSIDE BALCONY (RIGHT): Wide open timber gallery doors on the right frame jagged warm sunlit gray-granite cliff ledges and lush emerald mountain pines hugging tightly against the rocky cliffside in bright afternoon air.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[28] ID: hub_clearwater_lake_village | Clearwater Lake Village (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & COVERED CEDAR BOATHOUSE HEARTH PORCH: Still, uninhabited eye-level scenic splash illustration inside Clearwater's warm Sun-Dappled Timber-and-Granite Boathouse Lodge Porch overlooking clear lake shallows closely beneath overhanging eaves at sunset. Dark wet-toned lakeside granite flagstones line the lower foreground steadily.
+
+WARM LODGE BEAMS & LANTERN GLOW (LEFT): Framing the left sit warm rough-hewn pine lodge walls glowing richly through amber-lit diamond glass panes beside sturdy granite hearth masonry, hanging woven nets, and crooked cedar trusses rising across the shadowed upper ceiling.
+
+SAPPHIRE SHORE SHALLOWS (CENTER & RIGHT): Under dark timber eaves on the right laps crystal-clear sapphire mountain water against mossy shoreline boulders and the dark prow of a weathered wooden skiff moored tightly beside sunlit emerald alpine pines.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[29] ID: loc_27_anvilhall_forge | Anvilhall Forge (Keep / Castle · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & SUBTERRANEAN CARVED GRANITE SMITHY HALL: Still, uninhabited eye-level scenic splash illustration deep inside Anvilhall Forge's colossal Mountain Granite Smithy Hall hollowed directly within raw mountain bedrock. Dark smooth ash-dusted granite floor slabs sweep calmly across the lower foreground.
+
+BEDROCK PILLARS & ROARING BRONZE HEARTH (CENTER & LEFT): Monstrous chiseled granite columns carved straight from living rock spring overhead into vast shadowed stone vaults surrounding a blazing stepped bronze forge hearth pouring intense fiery orange-amber glow across suspended wrought-iron bellows chains and scarred basalt chimney hoods.
+
+VAULTED STONE SIDE-GALLERY (RIGHT): Along the sheer chiseled stone right wall burn hanging brass oil chains throwing sharp sunset-orange highlights across jagged natural rock fissures beside tall arched granite embrasures streaming bright alpine blue sky glare deep into cavern shadows.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[30] ID: hub_cragwatch_fort | Cragwatch Fort (Fort · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & CLIFF-CARVED GRANITE GARRISON HALL: Still, uninhabited eye-level scenic splash illustration inside Cragwatch Fort's dry Cliff-Hewn Granite Watch-Hall gripping rugged emerald highland rock at crisp late afternoon. Broad darkly shadowed cold gray-granite flagstones span calmly across the shaded lower foreground.
+
+BATTERED GRANITE VAULTS & HEARTH FIRE (LEFT & CENTER): Thick rugged chiseled gray granite ribs and massive rough-adzed highland pine tie-beams brace a dark austere watch chamber lit sharply by roaring iron fire-baskets beside recessed stone barracks archways steeped in velvet indigo shadow.
+
+WINDSWEPT EMBRASURE CRAGS (RIGHT): Tall splayed granite arrow-slit bays on the right wall frame soaring sunlit gray-granite crag peaks and dark green pine crowns rising right outside the stone sill against crystal-clear bright blue highland skies.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[31] ID: hub_stormhold_citadel | Stormhold Citadel (Keep / Castle · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & VAULTED TEMPEST STONE GREAT HALL: Still, uninhabited eye-level scenic splash illustration deep inside Stormhold Citadel's soaring Vaulted Storm-Granite Great Hall under brooding lightning-rimmed dusk skies outside tall windows. Dark rain-gleaming polished granite paving spans quietly across the calm lower foreground.
+
+MONUMENTAL GRANITE PIERS & SEA-TEAL BANNERS (LEFT & CENTER): Towering wet-toned storm-gray granite pillars rise sharply into high vaulted stone ceilings, hung with tattered sea-teal battle standards stirred gently under blazing iron torch chandeliers casting fierce golden firelight into deep shadowed cloister recesses.
+
+TEMPEST STAINED-GLASS LANCETS (RIGHT): Colossal tall pointed gothic windows along the right granite wall flare with stormy cobalt-blue twilight and crisp electric gold cloud rims outside, spilling cool luminous reflections onto damp foreground stones.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 4 — FROSTBOUND REACH & THE DREADWASTE (Regions 7–8 | 10 Scenes)
+================================================================================
+
+--------------------------------------------------------------------------------
+[32] ID: loc_31_rimeport | Rimeport (Port Town · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—frost-fractured dark granite strata, ice-rimmed masonry fissures, storm-aged crooked pine timber grain, hanging hoarfrost crystals, deeply carved Nordic relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear freezing twilight air.
+
+COMPOSITION & FROSTED HARBOR BOATHOUSE HALL: Still, uninhabited eye-level scenic splash illustration deep inside Rimeport's snow-dusted Timber-and-Granite Waterfront Lodge & Covered Boathouse Slip at icy twilight. Dark damp slate floor stones fringed with crisp frost span calmly across the lower foreground.
+
+FROSTED WINDOWS & BRAZIER HEAT (LEFT & CENTER): Massive blackened pine roof trusses encrusted with pale hoarfrost shelter glowing amber frosted diamond windows beside roaring iron coal braziers melting crisp golden pools across dark stone hearth arches and weathered iron mooring bollards.
+
+ICY COVERED BOAT-SLIP (RIGHT): Beneath thick snow-laden overhanging timber eaves on the right rock dark freezing fjord swells flecked with pale ice shards beside frosted cedar pilings wrapped closely in shadowy deep twilight blue.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[33] ID: hub_frostmere_village | Frostmere Village (Village · Northern Clans)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—frost-fractured dark granite strata, ice-rimmed masonry fissures, storm-aged crooked pine timber grain, hanging hoarfrost crystals, deeply carved Nordic relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear freezing twilight air.
+
+COMPOSITION & SNOWBOUND TRAPPERS GREAT HEARTH LODGE: Still, uninhabited eye-level scenic splash illustration deep inside Frostmere Village's heavy Pine-Log Trappers' Hearth Hall at freezing snowy twilight. Darkly shadowed cold slate-and-timber hearthstones span quietly across the bottom foreground.
+
+TIMBER LOG WALLS & HEARTH FIREPIT (LEFT & CENTER): Massive crooked rough-barked northern pine log walls and high soot-darkened rafters blaze with intense golden-orange warmth from a deep sunken circular stone hearth pit at center-left, illuminating hung heavy wolf-and-bear pelts and frost-veined iron lanterns.
+
+FROST-ETCHED CASEMENT GLASS (RIGHT): Thick snow-piled pine window frames along the right wall glow pale cold cobalt dusk blue speckled with crisp ice frost crystals contrasting intensely against golden hearthfire inside.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[34] ID: hub_glacierwatch_fort | Glacierwatch Fort (Fort · Northern Clans)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—frost-fractured dark granite strata, ice-rimmed masonry fissures, storm-aged crooked pine timber grain, hanging hoarfrost crystals, deeply carved Nordic relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear freezing twilight air.
+
+COMPOSITION & GLACIAL ICE-HEWN GARRISON HALL: Still, uninhabited eye-level scenic splash illustration inside Glacierwatch Fort's frost-draped Dark Granite & Glacial-Ice Hall wedged directly inside sparkling turquoise cliff ice at dusk. Dark frost-dusted slate flagstones lie calm and smooth along the lower foreground.
+
+FROSTED GRANITE RIBS & CLAN STANDARDS (LEFT & CENTER): Towering dark fractured granite ribs encrusted with crystalline frost frame crackling iron war-braziers roaring fierce orange flames beneath ice-blue Northern Clan standards hanging down deeply shadowed stonework.
+
+CRYSTALLINE GLACIER VAULTS (RIGHT): Along the right stone arches protrude towering translucent veins of jagged crystalline turquoise glacial ice catching fading rose-gold twilight highlights against velvety midnight shadows inside the vault.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[35] ID: hub_icecrest_holdfast | Icecrest Holdfast (Keep / Castle · Northern Clans)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—frost-fractured dark granite strata, ice-rimmed masonry fissures, storm-aged crooked pine timber grain, hanging hoarfrost crystals, deeply carved Nordic relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear freezing twilight air.
+
+COMPOSITION & GRAND NORDIC MEAD LONGHALL INTERIOR: Still, uninhabited eye-level scenic splash illustration standing proudly down the center nave of Icecrest Holdfast's soaring Timber-and-Stone Mead Longhall at deep winter dusk. Broad darkly shaded cold stone-and-timber planks span cleanly across the lower foreground.
+
+SCULPTED KNOTWORK RAFTERS & LONG HEARTH (CENTER & LEFT): Cathedral-tall crooked dark pine pillars carved with crisp sculpted Nordic knotwork reliefs climb steeply into dark hearth-darkened rafters above a roaring elongated stone firepit blazing amber-orange light across heavy scarred oak tables and stacked fur-rimmed benches.
+
+AURORA-LIT ARCHED LANCETS (RIGHT): Ice-blue Northern Clan spear standards hang proudly beside deeply recessed stone wall arches along the right, where tall frosted lancet panes let cool emerald-violet aurora twilight shimmer crisply across carved wood piers.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[36] ID: loc_34_bleakwatch_citadel | Bleakwatch Citadel (Keep / Castle · Bleakwatch Warlord)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—frost-fractured dark granite strata, ice-rimmed masonry fissures, storm-aged crooked pine timber grain, hanging hoarfrost crystals, deeply carved Nordic relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear freezing twilight air.
+
+COMPOSITION & WARLORD BASALT HALL & IRON GALLERY: Still, uninhabited eye-level scenic splash illustration deep inside Bleakwatch Citadel's oppressive Vaulted Black-Basalt Warlord Hall at freezing winter twilight. Dark frost-glazed basalt flagstones span across the deeply shadowed lower foreground.
+
+CHAINED BASALT ARCHES & PITCH FIRE (LEFT & CENTER): Brutal jagged black basalt stone arches hung with massive forged iron chains and cold storm-violet and iron warlord banners flare violently under harsh orange pitch-fire braziers blazing across rough dark stone steps and shadowed steel alcoves.
+
+FROST-GRIPPED SEA EMBRASURES (RIGHT): Narrow deeply recessed gothic stone slits piercing thick cold basalt masonry on the right catch icy violet moonlight glancing across frost-crusted stone mullions.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[37] ID: loc_36_ashenford_war_camp | Ashenford War-Camp (Town · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & CRIMSON COMMAND PAVILION INTERIOR: Still, uninhabited eye-level scenic splash illustration inside Ashenford's colossal Iron-Ribbed Crimson Canvas Command Pavilion pitched upon dark volcanic earth at glowing ember dusk. Darkly shadowed packed black ash earth and worn oak duckboard planks span cleanly across the shaded lower foreground.
+
+DRAPED CRIMSON CANVAS & OIL LANTERNS (LEFT & OVERHEAD): Soaring iron-banded timber tent masts and thick taut ropes brace heavy weathered dark crimson-and-slate canvas drapes glowing brightly from suspended iron oil lanterns casting fierce golden warmth over scarred wooden war benches and fluttering crimson Highcrown standards.
+
+EMBER-LIT PAVILION OPENING (RIGHT): Through parted heavy tent flaps on the right drifts dramatic volcanic twilight ember-glow lighting up blazing iron campfire braziers just beyond the dark shadowed wooden threshold.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[38] ID: hub_cinderwatch_bastion | Cinderwatch Bastion (Keep / Castle · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & VOLCANIC BASALT GARRISON CHAMBER: Still, uninhabited eye-level scenic splash illustration inside Cinderwatch Bastion's heavy Iron-Bound Dark Basalt Watch-Chamber built straight into fractured Dreadwaste crags at glowing twilight. Smooth darkly shadowed black-basalt flagstones anchor the lower foreground calmly.
+
+OBSIDIAN ARCHES & FIRE BRAZIERS (LEFT & CENTER): Thick stepped volcanic obsidian-gray stone vaults bound with heavy iron straps and draped in crimson Loyalist banners blaze under roaring iron fire-braziers throwing fierce orange sparks against deep black fractured stone alcoves and armored stone piers.
+
+SMOLDERING VOLCANIC EMBRASURE (RIGHT): Through deeply splayed basalt arrow-slit windows along the right rises ominous fiery amber rift glow from deep volcanic fissures outside, painting razor-sharp crimson rim light along dark stone window edges.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[39] ID: hub_ashvale_village | Ashvale Village (Village · Free Towns & Guilds)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & SURVIVOR BASALT HEARTH SHELTER: Still, uninhabited eye-level scenic splash illustration inside Ashvale Village's warm Fortified Dark-Basalt Survivor Hearth Hall at ember dusk. Rugged dark cracked basalt floor flagstones span cleanly across the deeply shadowed lower foreground right down to the floor corners.
+
+BASALT HEARTH & TIMBER SHORING (LEFT & CENTER): Thick squat black basalt stone walls reinforced by heavy crooked timber shelter props enclose a comforting communal boulder hearth roaring steady golden warmth across crowded timber rafters, glowing tallow candles on rough stone ledges, and dark cozy sleeping alcoves.
+
+EMBER-TINTED CASEMENT (RIGHT): Through sturdy iron-shuttered casement openings along the dark stone right wall streams rich amber-orange volcanic sunset glow painting bright warm rim highlights across ash-dusted indoor masonry.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[40] ID: hub_scorchwall_fort | Scorchwall Fort (Fort · Highcrown Loyalists)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & OBSIDIAN CRYPT-VIGIL HALL: Still, uninhabited eye-level scenic splash illustration deep inside Scorchwall Fort's grim Cliff-Carved Obsidian Vigil Hall at haunted twilight dusk. Deeply shadowed fractured black volcanic flagstones span quietly across the calm lower foreground.
+
+JAGGED OBSIDIAN VAULTS & FIRE CAGES (LEFT & CENTER): Towering jagged black volcanic stone piers and deeply arched crypt alcoves roar brightly beneath suspended iron signal-fire cages lighting crimson Highcrown watch standards hung sharply against obsidian walls steeped in velvet darkness.
+
+MOONLIT HAUNTED SEA-SLITS (RIGHT): Narrow soaring gothic stone sea-slits cut through black cliff wall on the right pour pale silver-blue twilight reflections off steel-dark distant swells onto wet volcanic stonework inside.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[41] ID: loc_40_garricks_black_keep | Garrick's Black Keep (Citadel · King Garrick)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & BREACHED OBSIDIAN CATHEDRAL ANTECHAMBER: Still, uninhabited eye-level scenic splash illustration standing deep inside the monumental breached Obsidian Cathedral Vestibule of Garrick's Black Keep under dramatic eclipse twilight. Calm deeply shadowed fractured dark-basalt courtyard stairs and fallen masonry flags anchor the lower foreground cleanly.
+
+SHATTERED OBSIDIAN GOTHIC VAULTS (LEFT & OVERHEAD): Colossal jagged black-basalt ribbed cathedral arches soar dramatically overhead into oppressive abyssal ceiling shadows, split by fallen carved stonework, blazing iron floor braziers burning fierce amber flames, and deep fractured crypt recesses.
+
+ECLIPSE STAINED-GLASS SHAFTS (CENTER & RIGHT): Towering cracked crimson-and-violet stained-glass cathedral lancets spanning the towering rear obsidian wall pour blinding dramatic violet-and-crimson twilight shafts diagonally down across shattered dark marble throne stairs in crystal-clear ominous air.
+--- COPY-PASTE PROMPT END ---

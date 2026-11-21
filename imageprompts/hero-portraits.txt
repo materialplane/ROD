@@ -1,0 +1,128 @@
+# ROD — 6 Playable Hero Full-Body Paperdoll Portraits (9:16 Vertical, 1 Hero Per Sheet)
+# Aspect Ratio & Model: 9:16 Pro 4K via models/gemini-3-pro-image (using each hero's locked Step 1A portrait as --reference)
+# Target Outputs: assets/tokens/heroes/<hero>_fullbody_raw.png -> chroma-keyed .webp in client/assets/portraits/heroes/<hero>_fullbody.webp
+# Style Anchor: Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy character splash art matching each attached Step 1A portrait seamlessly from head to boots.
+# Usage (Test Hero #1 First in Browser or CLI):
+#   1. Always attach the matching reference portrait shown for that hero (assets/tokens/heroes/*_portrait_1a.png).
+#   2. Example CLI test command for Valen:
+#      python imageprompts/premium/generate_image_1x1_4k_pro.py --aspect_ratio 9:16 --image_size 4K -r assets/tokens/heroes/valen_duelist_portrait_1a.png -o assets/tokens/heroes/valen_duelist_fullbody_raw.png "..."
+#   3. In Browser Gemini UI: Upload ONLY that hero's matching *_portrait_1a.png image, set Aspect Ratio = 9:16 (4K), and paste the block between START/END.
+
+================================================================================
+HERO 1 OF 6: PRINCE VALEN — DUELIST
+Reference Image to Attach: assets/tokens/heroes/valen_duelist_portrait_1a.png
+================================================================================
+--- HERO 1 PROMPT START ---
+Tall 9:16 vertical full-body fantasy character illustration standing cleanly head-to-toe in centered isolation for an RPG equipment Paperdoll, keeping the attached Step 1A square portrait as the EXACT visual face, hairstyle, facial scar, and upper-body outfit reference. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled angular planes, crisp clean dark outer contour edge, rich worn leather, rough-spun slate linen, and brushed iron hardware (zero pixel art, zero photorealistic skin pores, zero 3D CGI plastic gloss, zero sketchiness, zero text).
+
+STRICT CHROMA-KEY BACKGROUND RULE:
+Pure, flat, completely unshaded solid neon magenta (#FF00FF) chroma-key background filling the entire 9:16 vertical frame around the single character — strictly ZERO floor shadows, ZERO ground cast ovals, ZERO background smoke, ZERO pedestals, ZERO pink/magenta rim-light reflections on skin, metal, leather, or boots, and a clean solid dark outer contour separating every boot sole, cloak fold, and hair curl cleanly from #FF00FF.
+
+POSE & FULL-BODY PAPERDOLL FRAMING (HEAD TO TOE):
+- Full-body figure completely visible from the top of his wavy hair down to the soles of both planted leather boots (~8–10% empty #FF00FF headroom above hair and ~6% empty #FF00FF margin below boots, zero cropped toes or hair).
+- Calm grounded three-quarter standing RPG Paperdoll stance angled slightly toward the viewer's left (~8 o'clock, matching the head angle in the attached reference portrait), feet planted comfortably shoulder-width apart, arms relaxed naturally slightly clear of hips, COMPLETELY EMPTY-HANDED (zero sword, zero dagger, zero shield, zero weapon scabbard blocking torso so equipment slots can overlay cleanly).
+
+CHARACTER LOCK (EXTEND ATTACHED REFERENCE PORTRAIT SEAMLESSLY TO BOOTS):
+- HEAD & UPPER BODY (100% LOCKED TO REFERENCE): Battle-worn young man in his early 20s with thick wavy dark brown hair curling cleanly over brow, sharp steel-gray eyes, two faint diagonal pale cheek scars on his left cheek, rugged dark brown riveted leather shoulder pauldrons with crossed brown chest leather straps over an open V-neck worn slate-blue cloth tunic (no royal gold).
+- LOWER BODY CONTINUATION: Matching muted slate-blue rough-spun tunic reaching mid-hip fastened tightly by a wide worn dark-brown leather duelist belt with simple dull iron buckle; practical worn dark-brown leather forearm bracers matching his shoulder guards; slim fitted dark charcoal-slate travel trousers tucked neatly into tall cuffed weathered dark-brown leather combat boots with scarred iron ankle buckles. Calm, resolute, grounded demeanor.
+--- HERO 1 PROMPT END ---
+
+
+================================================================================
+HERO 2 OF 6: QUEEN ELLOWYN — MYSTIC
+Reference Image to Attach: assets/tokens/heroes/ellowyn_mystic_portrait_1a.png
+================================================================================
+--- HERO 2 PROMPT START ---
+Tall 9:16 vertical full-body fantasy character illustration standing cleanly head-to-toe in centered isolation for an RPG equipment Paperdoll, keeping the attached Step 1A square portrait as the EXACT visual face, raven-black hair, bareheaded brow, and upper-body outfit reference. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled refined planes, crisp clean dark outer contour edge, rich dark woven indigo cloth, dull tarnished bronze trim, and worn leather (zero pixel art, zero photorealistic skin pores, zero 3D CGI plastic gloss, zero sketchiness, zero text).
+
+STRICT CHROMA-KEY BACKGROUND RULE:
+Pure, flat, completely unshaded solid neon magenta (#FF00FF) chroma-key background filling the entire 9:16 vertical frame around the single character — strictly ZERO floor shadows, ZERO ground cast ovals, ZERO swirling mist, ZERO magic sparks, ZERO pink/magenta glow or reflections bleeding onto fabric or boots, and a clean dark ink contour edge separating her cloak hems, hair, and boots sharply from #FF00FF.
+
+POSE & FULL-BODY PAPERDOLL FRAMING (HEAD TO TOE):
+- Full-body figure completely visible head-to-toe from the top of her wavy black hair to both planted leather boots (~8–10% empty #FF00FF headroom above hair and ~6% empty #FF00FF margin below boots, zero cropped cloak hems or boots).
+- Calm poised upright three-quarter standing Paperdoll stance facing gently toward viewer's left (~8 o'clock, matching the attached reference portrait), weight balanced smoothly, bare hands resting calmly slightly away from robes, COMPLETELY EMPTY-HANDED (NO quarterstaff, NO glowing magic orb, NO crown, NO purple/pink magic haze).
+
+CHARACTER LOCK (EXTEND ATTACHED REFERENCE PORTRAIT SEAMLESSLY TO BOOTS):
+- HEAD & UPPER BODY (100% LOCKED TO REFERENCE): Regal bareheaded woman in her mid-30s with fair skin, obsidian-black eyes, sculpted chin-length wavy raven-black hair, high upturned dark charcoal-indigo mantle collar trimmed in muted antique bronze and clasped cleanly at the throat with her horizontal tarnished-iron buckle over a fitted dark charcoal-indigo bodice.
+- LOWER BODY CONTINUATION: Matching bronze-edged dark indigo and smoky charcoal travel mantle draping gracefully down behind her hips over a long layered split front tunic-skirt of dark indigo wool and muted bronze seam trim, narrow dark leather waist belt with small tarnished-iron clasp, dark charcoal travel hose, and sturdy ankle-laced dark-brown leather travel boots firmly planted side by side. Calm, steady, quiet dignity.
+--- HERO 2 PROMPT END ---
+
+
+================================================================================
+HERO 3 OF 6: COMMANDER ORIN — BULWARK
+Reference Image to Attach: assets/tokens/heroes/orin_bulwark_portrait_1a.png
+================================================================================
+--- HERO 3 PROMPT START ---
+Tall 9:16 vertical full-body fantasy character illustration standing cleanly head-to-toe in centered isolation for an RPG equipment Paperdoll, keeping the attached Step 1A square portrait as the EXACT visual face, salt-and-pepper hair, beard, neck cowl, and scarred steel armor reference. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — broad heavy military proportions, crisp clean dark outer contour edge, brushed scarred forged steel, dark riveted iron, and coarse charcoal gambeson cloth (zero pixel art, zero photorealistic pores, zero 3D CGI plastic shine, zero text).
+
+STRICT CHROMA-KEY BACKGROUND RULE:
+Pure, flat, completely unshaded solid neon magenta (#FF00FF) chroma-key background filling the entire 9:16 vertical frame around the single character — strictly ZERO floor shadows, ZERO ground cast ovals, ZERO background fog, ZERO magenta/pink reflections tinting the brushed steel plates, and a sharp clean dark outer contour separating steel pauldrons, cape edge, and iron sabatons from #FF00FF.
+
+POSE & FULL-BODY PAPERDOLL FRAMING (HEAD TO TOE):
+- Full-body broad-shouldered figure completely visible head-to-toe from hair crown to heavy iron-plated boot soles (~8–10% empty #FF00FF headroom above hair and ~6% empty #FF00FF margin below boots).
+- Solid immovable three-quarter standing Paperdoll stance facing gently toward viewer's left (~8 o'clock, matching the attached reference portrait), boots planted wide and steady, heavy gauntleted hands held relaxed naturally clear of waist, COMPLETELY EMPTY-HANDED (zero shield, zero axe, zero mace, zero spear, zero helmet blocking face).
+
+CHARACTER LOCK (EXTEND ATTACHED REFERENCE PORTRAIT SEAMLESSLY TO BOOTS):
+- HEAD & UPPER BODY (100% LOCKED TO REFERENCE): Hardened broad-shouldered military veteran in his mid-50s with short sculpted salt-and-pepper hair, neatly trimmed full graying beard and mustache, watchful hazel eyes, thick rolled dark-charcoal cloth neck cowl tucked cleanly into weathered battle-scarred dark-steel layered shoulder pauldrons and heavy riveted dark-steel chest armor.
+- LOWER BODY CONTINUATION: Full articulated battle-worn dark-steel cuirass over a padded charcoal gambeson skirt, wide heavy iron-buckled black leather soldier belt, segmented riveted dark-steel tassets protecting thighs, heavy scarred dark-steel vambraces and gauntlets, articulated dark-steel knee cops and shin greaves over dark leather trousers, ending in stout squared steel-capped dark leather war-boots. Unyielding, stoic veteran bearing.
+--- HERO 3 PROMPT END ---
+
+
+================================================================================
+HERO 4 OF 6: ROWAN — ARCHER
+Reference Image to Attach: assets/tokens/heroes/rowan_archer_portrait_1a.png
+================================================================================
+--- HERO 4 PROMPT START ---
+Tall 9:16 vertical full-body fantasy character illustration standing cleanly head-to-toe in centered isolation for an RPG equipment Paperdoll, keeping the attached Step 1A square portrait as the EXACT visual face, parted chestnut hair, thick fur shoulder mantle, and scout jerkin reference. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — agile lean borderland proportions, crisp clean dark outer contour edge, rich shaggy fur tufts, weathered stitched oak-brown leather, and pine-green cloth (zero pixel art, zero photorealistic pores, zero 3D CGI plastic gloss, zero text).
+
+STRICT CHROMA-KEY BACKGROUND RULE:
+Pure, flat, completely unshaded solid neon magenta (#FF00FF) chroma-key background filling the entire 9:16 vertical frame around the single character — strictly ZERO floor shadows, ZERO ground cast ovals, ZERO woodland mist, ZERO pink/magenta reflections on green cloth or brown fur, and a sharp clean dark outer contour separating every fur tuft, tunic hem, and laced boot cleanly from #FF00FF.
+
+POSE & FULL-BODY PAPERDOLL FRAMING (HEAD TO TOE):
+- Full-body figure completely visible head-to-toe from parted hair crown down to planted frontier boot soles (~8–10% empty #FF00FF headroom above hair and ~6% empty #FF00FF margin below boots).
+- Alert agile three-quarter standing Paperdoll stance facing slightly toward viewer's left (~8 o'clock, matching the attached reference portrait), boots positioned cleanly shoulder-width apart, bare/gloved scout hands relaxed naturally slightly away from hips, COMPLETELY EMPTY-HANDED (zero bow, zero dagger, zero arrows in hand, zero quiver jutting outside frame).
+
+CHARACTER LOCK (EXTEND ATTACHED REFERENCE PORTRAIT SEAMLESSLY TO BOOTS):
+- HEAD & UPPER BODY (100% LOCKED TO REFERENCE): Clean-shaven hardened borderland young man in his early 20s with parted medium-length dark chestnut-brown hair, keen amber eyes, thick shaggy mossy-gray-green wolf/wildland fur mantle across his shoulders over a rugged high-collared brown leather sleeveless scout jerkin with diagonal chest leather strap and muted forest-green linen shirt sleeves.
+- LOWER BODY CONTINUATION: Matching stitched oak-brown leather ranger tunic coat ending at upper thigh cinched cleanly by a utility brown leather waist belt with brass buckle and small flat trail pouches; fitted forest-green sleeves paired with laced worn brown leather archer forearm guards; tough dark charcoal-pine hunter trousers tucked neatly into tall worn dark-brown laced leather borderland boots. Calm, sharp, frontier-ready focus.
+--- HERO 4 PROMPT END ---
+
+
+================================================================================
+HERO 5 OF 6: MERA — DRUID
+Reference Image to Attach: assets/tokens/heroes/mera_druid_portrait_1a.jpg
+================================================================================
+--- HERO 5 PROMPT START ---
+Tall 9:16 vertical full-body fantasy character illustration standing cleanly head-to-toe in centered isolation for an RPG equipment Paperdoll, keeping the attached Step 1A square portrait as the EXACT visual face, forest-pine druid hood with bark-brown leather trim, dark braid, mossy-sage neck scarf, emerald briar brooch, and bark-brown wild leather shoulder armor reference. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — nimble lithe proportions, crisp clean dark outer contour edge, rich textured wool, stitched bark-brown leather, and dried forest leaves (zero pixel art, zero photorealistic pores, zero 3D CGI plastic gloss, zero text).
+
+STRICT CHROMA-KEY BACKGROUND RULE:
+Pure, flat, completely unshaded solid neon magenta (#FF00FF) chroma-key background filling the entire 9:16 vertical frame around the single character — strictly ZERO floor shadows, ZERO ground cast ovals, ZERO background smoke, ZERO pink/magenta magic mist or rim-light spill, and a clean crisp dark outer contour separating hood, cloak hems, and boots sharply from #FF00FF.
+
+POSE & FULL-BODY PAPERDOLL FRAMING (HEAD TO TOE):
+- Full-body figure completely visible head-to-toe from the top of her forest-green hood down to both planted leather boots (~8–10% empty #FF00FF headroom above hood and ~6% empty #FF00FF margin below boots).
+- Light balanced nimble three-quarter standing Paperdoll stance facing slightly toward viewer's left (~8 o'clock, matching the attached reference portrait), face completely clear beneath hood (no lower-face mask), arms poised naturally clear of torso, COMPLETELY EMPTY-HANDED (zero sickle, zero quarterstaff, zero magic glow).
+
+CHARACTER LOCK (EXTEND ATTACHED REFERENCE PORTRAIT SEAMLESSLY TO BOOTS):
+- HEAD & UPPER BODY (100% LOCKED TO REFERENCE): Sharp-eyed young woman druid in her mid-20s with warm olive-fair skin, focused hazel-green eyes, swept dark raven bangs and one thick leather-bound braid resting over her left shoulder beneath a relaxed deep forest-pine green wool hood trimmed with stitched bark-brown leather and small dried oak leaves; coarse coiled mossy-sage woven linen neck scarf pinned cleanly at her right collarbone by a blackened-silver twisted-briar brooch cradling a cut emerald-green druid crystal; crossed brown leather chest straps over layered bark-brown stitched wild leather shoulder pauldrons tucked with dried olive-and-russet oak leaves and a deep forest-green druid tunic.
+- LOWER BODY CONTINUATION: Matching fitted deep forest-green druid tunic breaking neatly below a weathered bark-brown leather waist belt (with a small stitched leather herb pouch and brass clasp) into split mid-calf forest-pine wool and stitched bark-brown leather wildland coat panels; fitted dark mossy-charcoal travel trousers tucked cleanly into supple cuffed dark bark-brown leather wildland boots. Quiet, untamed, watchful poise.
+--- HERO 5 PROMPT END ---
+
+
+================================================================================
+HERO 6 OF 6: HARLAN — HERBALIST
+Reference Image to Attach: assets/tokens/heroes/harlan_herbalist_portrait_1a.png
+================================================================================
+--- HERO 6 PROMPT START ---
+Tall 9:16 vertical full-body fantasy character illustration standing cleanly head-to-toe in centered isolation for an RPG equipment Paperdoll, keeping the attached Step 1A square portrait as the EXACT visual face, swept-back silver-white hair, forehead brass spectacles, stained scarf, herb sprigs, and moss-olive robes reference. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — lean gaunt elderly scholar proportions, crisp clean dark outer contour edge, rich weathered linen, soft moss-olive wool cloth, and aged brown leather (zero pixel art, zero photorealistic pores, zero 3D CGI plastic gloss, zero text).
+
+STRICT CHROMA-KEY BACKGROUND RULE:
+Pure, flat, completely unshaded solid neon magenta (#FF00FF) chroma-key background filling the entire 9:16 vertical frame around the single character — strictly ZERO floor shadows, ZERO ground cast ovals, ZERO herbal mist, ZERO pink/magenta rim-light reflections on white hair or cloth, and a sharp clean dark outer contour separating robe hems and worn boots cleanly from #FF00FF.
+
+POSE & FULL-BODY PAPERDOLL FRAMING (HEAD TO TOE):
+- Full-body lean elderly figure completely visible head-to-toe from his swept-back silver hair and spectacles down to worn boot soles (~8–10% empty #FF00FF headroom above head and ~6% empty #FF00FF margin below boots).
+- Calm gentle slightly narrow-shouldered three-quarter standing Paperdoll stance facing softly toward viewer's left (~8 o'clock, matching the attached reference portrait), bare hands hanging calmly naturally by sides, COMPLETELY EMPTY-HANDED (zero quarterstaff, zero glowing vial in hand).
+
+CHARACTER LOCK (EXTEND ATTACHED REFERENCE PORTRAIT SEAMLESSLY TO BOOTS):
+- HEAD & UPPER BODY (100% LOCKED TO REFERENCE): Lean clean-shaven elderly man in his late 60s with warm weathered olive skin, gentle amber eyes, long swept-back silver-white hair, small round tarnished-brass spectacles resting cleanly up on his forehead above brow, weathered off-white herb-stained linen neck scarf tucked into a worn brown sleeveless open leather vest over muted moss-olive herbalist robes, with a few dried herb sprigs tucked neatly under his diagonal brown leather shoulder satchel strap.
+- LOWER BODY CONTINUATION: Matching layered muted moss-olive long herbalist robe tunic and weathered brown open field coat reaching below knee level, tied loosely at the waist by a worn off-white linen sash beside a sturdy small dark-brown leather herb-satchel pouch resting calmly against his hip, worn dark olive-brown travel trousers, and dusty scuffed dark-brown buckled travel boots standing squarely. Gentle, weathered wisdom.
+--- HERO 6 PROMPT END ---

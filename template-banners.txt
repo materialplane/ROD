@@ -1,0 +1,56 @@
+# ROD — Faction Banner Art Prompt Template (League of Legends / Runeterra Style)
+# Target Model: models/gemini-3-pro-image (1:1, 4K)
+# Keying: Pure solid #FF00FF magenta outside every vertical cloth banner (NO poles, NO drop shadows onto pink)
+
+================================================================================
+PART 1: REUSABLE SINGLE-OR-GRID BANNER PROMPT TEMPLATE
+================================================================================
+
+A 1:1 4K quality [4x4 grid of 16 / single centered] stylized high-fantasy RPG faction heraldic cloth banner icon[s] floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere in the image.
+
+ART STYLE (LEAGUE OF LEGENDS / RUNETERRA BENCHMARK — NO INK OUTLINES):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration — bold sculpted cloth silhouettes, clean smooth volumetric shading on woven fabric and silk folds, chiseled bullion-gold, brushed steel, dark bronze, and forged iron trim, rich handcrafted color clarity, painted dark-edge value separation without outline strokes, and crisp moody directional rim lighting.
+STRICT NEGATIVES (NO LINEWORK / NO INK / NO PAPER):
+Strictly ZERO black ink outlines, ZERO comic-book pen linework, ZERO scratchy ink hatching or cross-hatching, ZERO colored-pencil or crayon sketchiness, ZERO watercolor bleed, ZERO paper or canvas grain, ZERO pixel art, ZERO glossy plastic 3D CGI toy finish, and ZERO letters, runes-as-text, numbers, or watermarks.
+
+BANNER STRUCTURE & CRITICAL ISOLATION RULES:
+1. VERTICAL HANGING STANDARD ONLY — STRICTLY NO POLES: Each banner is an isolated vertical hanging heraldic cloth standard / gonfalon hanging straight downward with a swallowtail, pointed, scalloped, or fringed bottom edge and matching top hanging fabric tabs, braided cord loops, or chiseled metal eyelets along the top hem. Absolutely NO flagpoles, NO wooden spears, NO lance shafts, NO horizontal hanging rods extending past the cloth, NO stands, and NO walls behind them.
+2. SOLID #FF00FF MAGENTA KEYING: Keep generous clean flat #FF00FF magenta margins between every banner and around all outer edges. Strictly NO magenta color tinting or light spill onto cloth, threads, metal clasps, or fringes, and NO soft drop shadows cast onto the magenta background.
+3. CHISELED PAINTED HERALDRY: Each central emblem should look cleanly embroidered or forged in bold painterly shapes with clear value contrast against the cloth field so it stays razor-sharp when scaled down as a UI map banner badge.
+
+
+================================================================================
+PART 2: READY-TO-RUN 4x4 PROMPT FOR ALL 7 ETHORIAN FACTIONS (2 DESIGNS EACH + 2 EXTRAS)
+================================================================================
+
+A 1:1 4K quality 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 isolated vertical cloth banners total) of stylized high-fantasy RPG faction heraldic banner icons floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any banner.
+
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration — bold sculpted cloth planes, smooth painted fabric folds and bevel-lit metallic trim, rich handcrafted color clarity, and crisp moody directional lighting (strictly zero black ink outlines, zero comic pen linework, zero cross-hatching, zero scratchy pencil sketchiness, zero watercolor bleed, zero paper or canvas grain, zero pixel art, zero plastic 3D CGI gloss, and ZERO letters or printed titles anywhere).
+
+CRITICAL RULE — STRICTLY NO POLES OR RODS: Each icon is a standalone vertical hanging cloth gonfalon with top fabric mounting tabs or chiseled metal eyelets along the upper edge and swallowtail, pointed, or scalloped bottom hems. Absolutely NO flagpoles, NO wooden spears, NO lance shafts, NO protruding crossbar poles, NO stands, and NO background scenery. Strictly pure solid flat #FF00FF magenta outside every banner with zero magenta spill onto the banners.
+
+The 16 faction banners are arranged cleanly across 4 rows (Rows 1–2 give Variant A for all 7 factions + Highcrown Royal Variant; Rows 3–4 give Variant B for all 7 factions + Merchant Guild Variant):
+
+ROW 1 (Friendly Realm Factions — Design Set A):
+- Row 1 Col 1 (Highcrown Loyalists — Royal Crest): Deep royal crimson heavy velvet vertical swallowtail banner bordered in smooth hand-painted bullion-gold embroidery, centered on a radiant sculpted three-point royal golden crown above a golden sun disc, hung from crimson-and-gold folded cloth tabs at the top.
+- Row 1 Col 2 (Free Towns & Guilds — Civic Standard): Rich deep sea-teal woven linen vertical pointed banner trimmed with warm antique bronze woven borders, displaying an eight-point bronze compass-star encircled by delicate sculpted oak leaves, with clean teal cloth hanging loops at the top.
+- Row 1 Col 3 (Northern Clans — Frostmarch Standard): Frost-slate and pale ice-blue heavy wool vertical swallowtail banner trimmed with pale tarnished silver, bearing a bold chiseled icy-silver spearhead crest flanked by curved frost-wolf horns, with slate-blue reinforced cloth tabs at the top.
+- Row 1 Col 4 (Highcrown Loyalists — Knightly Pennant Alt): Royal crimson and warm ivory halved vertical heraldic gonfalon with twin pointed tails and bullion-gold border trim, featuring a clean upright golden knight's longsword piercing a three-point royal crown.
+
+ROW 2 (Rival & Enemy Factions — Design Set A):
+- Row 2 Col 1 (House Hollowstone — Rival Noble Standard): Deep wine-purple silk vertical pointed banner with smooth brushed rose-copper trim and scalloped bottom hem, centered on a split noble fortress tower emblem in sculpted rose-copper and pale ivory.
+- Row 2 Col 2 (Slaver Syndicate — Cartel Banner): Charcoal-black and tarnished amber heavy weathered canvas banner with notched split tail and dark bronze eyelets, displaying two heavy interlocking forged-amber iron chain shackles crossed behind a dark amber coin medallion.
+- Row 2 Col 3 (Bleakwatch Warlord — Warlord Standard): Deep storm-violet and dark slate-iron vertical banner with sharp triple-pointed hem and dark forged-steel trim, emblazoned with a clean sculpted crescent war-axe head over a spiked iron shield silhouette.
+- Row 2 Col 4 (King Garrick — Tyrant Royal Banner): Pitch-obsidian blackened cloth vertical banner bordered in deep blood-crimson velvet with jagged dark-steel corner plates, centered on a menacing shattered blood-crimson and blackened-iron tyrant crown encircling a dark eclipse disc.
+
+ROW 3 (Friendly Realm Factions — Design Set B):
+- Row 3 Col 1 (Highcrown Loyalists — Imperial Lion): Deep crimson and molten bullion-gold royal wool banner with triple-pointed ceremonial hem, emblazoned with a stylized sculpted golden heraldic lion emblem beneath a small golden crown.
+- Row 3 Col 2 (Free Towns & Guilds — Trade League): Emerald sea-teal and dark bronze cloth banner with double-notched swallowtail edge, featuring clean balanced bronze merchant scales resting above an open bronze city gate arch.
+- Row 3 Col 3 (Northern Clans — Glacier Shield): Deep glacial-blue and frost-grey thick wool vertical banner with stepped northern hem and pale steel rivet tabs, displaying a stylized snow-capped twin mountain peak emblem inside a crisp northern frost-knot shield.
+- Row 3 Col 4 (Free Towns & Guilds — Harbor League Alt): Deep coastal navy-teal and warm burnished-brass swallowtail standard trimmed in sculpted brass wave filigree, centered on a stylized brass harbor anchor and four-point navigator star.
+
+ROW 4 (Rival & Enemy Factions — Design Set B):
+- Row 4 Col 1 (House Hollowstone — Thorn Bastion): Rich plum-crimson and rose-gold silk gonfalon with slender tapered swallowtail points, displaying a stylized horned stag skull resting before a tall split noble keep silhouette in sculpted rose-copper.
+- Row 4 Col 2 (Slaver Syndicate — Sand Cartel): Burnt ochre-amber and soot-black rough-woven vertical standard with torn-edge silhouette (cleanly sculpted, no line art), bearing a sculpted iron-and-amber spiked cage-key crossed with a heavy chain link.
+- Row 4 Col 3 (Bleakwatch Warlord — Iron Bastion): Dark violet-charcoal and blackened-steel vertical war banner with tapered diamond point and riveted steel top plates, displaying twin crossed dark steel halberd blades framing an obsidian fortress gate.
+- Row 4 Col 4 (King Garrick — Ash Citadel): Scorched obsidian-black and glowing ember-crimson royal war banner with sharp spiked lower edge and dark forged-iron trim, emblazoned with a towering jagged black keep spire framed inside a blazing crimson eclipse halo.

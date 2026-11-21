@@ -1,0 +1,47 @@
+# ROD — Ethorian Faction & Reserve Banner Prompts (4x4 on #FF00FF)
+# Scope: 7 Active Ethorian Political Factions + 9 Unique Reserve Guild / Order / House Banners (16 Distinct Banners Total).
+# Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — inspired by the clean vertical silhouettes and zero-pole framing of our earlier realms-of-dust banners, rebuilt strictly without black ink outlines or comic cross-hatching.
+# Target Model: models/gemini-3-pro-image (1:1, 4K) via Gemini Batch API
+# Export Pipeline: Key #FF00FF, slice 4x4, export compressed .webp for Overworld Bannerlord-style location nameplates & future UI use.
+
+SHARED SHEET HEADER (Use as the prompt top section):
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 evenly spaced isolated vertical hanging cloth heraldic banner icons total, NEVER 5x5, NEVER duplicate any banner) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any banner (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY BANNER).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — ZERO INK LINEWORK):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration — bold sculpted cloth planes, smooth volumetric silk/linen/wool/leather shading, chiseled bullion-gold, brushed steel, dark bronze, and forged iron trim, rich handcrafted color clarity, clean painted value separation without outline strokes, and crisp moody directional rim lighting. Strictly ZERO black ink outlines, ZERO comic-book pen linework, ZERO scratchy hatching or cross-hatching, ZERO colored-pencil or crayon sketchiness, ZERO watercolor bleed, ZERO paper or canvas grain, ZERO pixel art, ZERO glossy plastic 3D CGI finish, and ZERO letters, numbers, or titles anywhere in the image.
+
+CRITICAL ISOLATION & NO-POLES RULES:
+1. STRICTLY NO POLES OR RODS: Every banner hangs straight downward as a pure standalone cloth standard / gonfalon with folded fabric hanging loops, braided ties, or chiseled metal mounting eyelets along the top hem only. Absolutely NO flagpoles, NO wooden spears, NO lance shafts, NO overhanging crossbars, NO stands, and NO walls behind them.
+2. DISTINCT SILHOUETTES & BOLD CENTERED EMBLEMS: Vary bottom cuts cleanly across swallowtails, sharp points, double-notches, stepped hems, and scalloped edges. Every emblem sits bold and centered in high-contrast sculpted metallic/painted form so it stays razor-sharp when scaled small on the overworld map.
+3. CLEAN #FF00FF KEYING: Maintain generous empty flat #FF00FF magenta space around every banner; zero magenta tinting, bloom, or drop shadow spilling onto the background.
+
+
+================================================================================
+SECTION A: 4x4 ETHORIAN FACTIONS & RESERVE HERALDRY SHEET (16 UNIQUE BANNERS)
+================================================================================
+
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 evenly spaced isolated vertical hanging cloth heraldic banner icons total) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any banner (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY BANNER). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration — bold sculpted cloth silhouettes, smooth painterly drapery folds, chiseled metal and embroidered trim, rich handcrafted color clarity, and moody directional lighting (strictly zero black ink outlines, zero comic pen linework, zero cross-hatching, zero colored-pencil sketchiness, zero watercolor bleed, zero paper grain, zero pixel art, zero plastic 3D CGI gloss, and ZERO text). Pure vertical hanging fabric banners with top cloth tabs or metal eyelets ONLY — strictly NO flagpoles, NO spears, NO wooden rods, and NO background walls.
+
+ROW 1 (Active Crown & Realm Factions 1–4):
+- Row 1 Col 1 (Highcrown Loyalists): Deep royal crimson velvet vertical swallowtail banner bordered in smooth hand-painted bullion-gold trim, centered on a radiant sculpted three-point royal golden crown poised above a golden sun disc, hung from folded crimson-and-gold cloth loops at the top.
+- Row 1 Col 2 (Free Towns & Guilds): Deep sea-teal woven linen vertical pointed banner trimmed with warm antique bronze woven borders, displaying a crisp eight-point bronze navigator compass-star wreathed in sculpted oak leaves, with clean teal cloth hanging tabs at the top.
+- Row 1 Col 3 (Northern Clans): Frost-slate and pale glacial ice-blue heavy wool vertical swallowtail banner trimmed with tarnished cold silver, bearing a bold chiseled silver northern spearhead flanked by twin curved frost horns, hung from reinforced slate cloth loops at the top.
+- Row 1 Col 4 (House Hollowstone — Rival Noble House): Deep wine-purple fine silk scalloped banner edged with brushed rose-copper filigree, centered on a tall split noble stone keep tower crest in sculpted rose-copper and pale ivory.
+
+ROW 2 (Active Hostile Factions 5–7 + Extra Order 8):
+- Row 2 Col 1 (Slaver Syndicate — Hostile Cartel): Charcoal-black and tarnished amber heavy weathered canvas notched-tail banner with dark bronze top eyelets, displaying two heavy interlocking forged-amber iron chain shackles crossed over a dark stamped coin medallion.
+- Row 2 Col 2 (Bleakwatch Warlord — Hostile Warlord): Deep storm-violet and blackened slate-iron triple-pointed war banner with forged-steel top trim, emblazoned with a sculpted crescent war-axe blade overlaid across an angular spiked iron shield silhouette.
+- Row 2 Col 3 (King Garrick — Usurper Tyrant): Pitch-obsidian heavy cloth vertical banner bordered in deep blood-crimson velvet with jagged dark-steel corner mounts, centered on a shattered blackened-iron and blood-crimson tyrant crown encircling a dark eclipse disc.
+- Row 2 Col 4 (Silver Dawn Order — Extra Knightly Banner): Warm ivory-white and sky-silver triple-pointed liturgical cloth standard trimmed in polished gold filigree, bearing a stylized winged silver longsword pointing upward inside a clean golden halo ring.
+
+ROW 3 (Extra Regional Guilds, Rangers & Merchant Leagues 9–12):
+- Row 3 Col 1 (Verdant Wardens — Frontier Ranger League): Deep pine-emerald and moss-olive double-swallowtail linen-and-leather banner with carved bronze mounting tabs, centered on a proud sculpted golden stag antlers crest flanking two crossed fletched arrows.
+- Row 3 Col 2 (Sun-Coast Maritime League — Sea Trade Houses): Rich sapphire-cobalt and warm sun-gold stepped-swallowtail silk gonfalon with polished brass eyelets, displaying a bold sculpted golden galleon prow crest flanked by stylized curling brass wave motifs.
+- Row 3 Col 3 (Ironcrest Smiths & Quarry Guild — Mountain Crafters): Soot-charcoal and molten forge-copper stepped-hem heavy wool standard with riveted copper header tabs, centered on a sculpted bronze blacksmith anvil crowned with twin crossed hammer heads.
+- Row 3 Col 4 (Sunscorch Caravan Clans — Desert Nomads): Burnt terracotta and warm desert-ochre scalloped linen banner hung from braided bronze-leather top ties, featuring a sleek swooping golden desert falcon crest above a warm amber crescent sun.
+
+ROW 4 (Extra Vanguard Companies, Corsairs, Scholars & Arena 13–16):
+- Row 4 Col 1 (Redmarch Vanguard — Frontier Mercenary Company): Weathered slate-grey and burnt-scarlet twin-tailed heavy wool banner with dark iron top eyelets, emblazoned with a sculpted steel armored gauntlet gripping an upright blazing golden torch emblem.
+- Row 4 Col 2 (Saltwind Corsairs — Sea Raiders & Smugglers): Stormy midnight-indigo and tarnished copper weathered swallowtail sea-canvas banner (cleanly sculpted notched hems with zero ink hatching), centered on an upturned tarnished copper sea anchor entangled with a coiled bronze sea-serpent.
+- Row 4 Col 3 (Highcrown Archivist Circle — Mage & Scholar Guild): Deep midnight-navy and pale parchment-gold tapered silk banner trimmed in delicate silver filigree, displaying an open sculpted golden spell-tome floating above a fine brass astrolabe ring.
+- Row 4 Col 4 (Coliseum Pit Champions — Arena Guild): Rich oxblood-crimson and gleaming arena-bronze sharp diamond-pointed banner with sculpted bronze rivet top tabs, bearing twin crossed broadswords framed inside a horned bronze tournament laurel wreath.

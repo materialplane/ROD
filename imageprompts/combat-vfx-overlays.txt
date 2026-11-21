@@ -1,0 +1,103 @@
+# ROD — Combat VFX Overlays (4x4 Sprite Sheet #1: Region 1 Starter Skills)
+# Usage: Paste the prompt between the START/END lines into Gemini (1:1 aspect ratio, 4K if available).
+# After generation, save to assets/ui/vfx_sheet_01_starter_skills.png and slice 4x4 with chroma-key removal.
+# Color-Shift Pairing: Played simultaneously for 1.0–2.0s over the struck hero token (Canvas source-atop color wash) or enemy art.
+# Camera Plane Rule: Every VFX frame MUST be drawn flat facing the camera plane (vertical/radial/diagonal overlays)—NEVER horizontal 3D ground rings/floor pedestals so every frame aligns cleanly over flat circular VTT tokens.
+
+--- SHEET 1 PROMPT START (Copy from next line down) ---
+1:1 square illustration showing an evenly spaced 4x4 grid (4 rows by 4 columns) of 16 COMPLETELY SEPARATE standalone high-fantasy combat spell and weapon VFX overlay icons/effects floating in empty space. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy game VFX art style — bold crisp energy ribbons, sharp stylized sparks, faceted ice/stone shards, clean dark accent definition, rich vibrant highlights, zero pixel art, zero blurry soft airbrush fog, NO characters, NO faces, NO circular portrait frames, NO dividing grid lines, NO boxes around cells, NO drop shadows on the background, and NO text or numbers anywhere.
+
+BACKGROUND RULE: Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background across the entire canvas behind all 16 effects, with generous empty magenta margin separating every cell cleanly from its neighbors and NO semi-transparent smoke or pink glow bleeding into the magenta.
+
+Render these 16 exact isolated VFX overlays centered cleanly in each cell (strictly top-to-bottom, left-to-right):
+
+Row 1, Col 1 (Cross Slash): Twin intersecting diagonal blazing steel and warm amber sword-slash X-arcs with sharp crisp metallic spark bursts.
+Row 1, Col 2 (Pommel Bash): Heavy circular iron concussion shockwave ring bursting outward with crisp angular kinetic impact wedges and gold-white sparks.
+Row 1, Col 3 (Sandsweep): Wide horizontal sweeping crescent steel blade-trail intertwined with stylized coiled tan desert-sand ribbons.
+Row 1, Col 4 (Shield Slam): Bold stylized forged-steel chevron shield impact wave ringed by bright bronze-orange concussion fractures.
+
+Row 2, Col 1 (Hold the Line / Guard): Upright translucent golden-steel fortress shield crest aura bordered by interlocking glowing amber defensive barrier chevrons.
+Row 2, Col 2 (Veteran's Call): Twin upward-surging burnished-gold and warm crimson rallying war-banner energy ribbons spiraling cleanly skyward.
+Row 2, Col 3 (Piercing Shot): Razor-sharp diagonal silver-white arrow slipstream spear-cone slicing through two crisp supersonic wind shock-rings.
+Row 2, Col 4 (Hunter's Mark): Floating stylized crimson-and-burnished-gold tactical crosshair reticle crest with four sharp inward-pointing arrow-barb arrowheads.
+
+Row 3, Col 1 (Ember Spark): Spiraling whip-coil of crisp bright orange-and-gold stylized League of Legends flame ribbons with sharp floating ember diamonds.
+Row 3, Col 2 (Frost Shard): Burst cluster of three jagged razor-faceted pale icy-cyan crystal spears radiating cleanly out of a sharp frosted starflake.
+Row 3, Col 3 (Crown Ward): Ornate floating circular geometric glowing teal-cyan and gold arcane rune-barrier ring pulsing cleanly with sharp faceted ward shields.
+Row 3, Col 4 (Ankle Nick / Bleed): Wicked twin curving blackened-steel and bright crimson dagger-swipe crescent arcs flinging three sharp crimson droplets.
+
+Row 4, Col 1 (Smokescreen): Stylized curling dark charcoal-and-slate ninja smoke-plume ribbons with crisp painted edges and twin bright glint-sparks.
+Row 4, Col 2 (Stinging Salve / Heal): Rising spiral ribbon of vibrant emerald-green and warm gold restorative healing light motes paired with crisp glowing herb-leaf silhouettes.
+Row 4, Col 3 (Bitterroot Vial / Poison): Splashing burst of toxic bright green and dark moss venom liquid tendrils with sharp bubbling droplets.
+Row 4, Col 4 (Smelling Salts / Cleanse): Pure radiant pale-gold and fresh mint-white purifying swirl burst shattering away small dark purple shadow shards.
+--- SHEET 1 PROMPT END ---
+
+
+# ==============================================================================
+# ENGINE METADATA REFERENCE (260-Color Shift + 1-2s Overlay Mapping for Sheet 1)
+# ==============================================================================
+# Cell     | Effect Name          | Token Color Shift Hex | Suggested Canvas Motion (1.0–2.0s)
+# R1 C1    | Cross Slash          | #D9E2EC (Steel Flash) | Quick diagonal snap + double X-scale pop
+# R1 C2    | Pommel Bash          | #C9A25B (Amber Concuss)| Sharp punch-zoom + 6px horizontal micro-shake
+# R1 C3    | Sandsweep            | #B89B6A (Dust Tan)    | Fast left-to-right sweep across target
+# R1 C4    | Shield Slam          | #D48A3B (Bronze Shock)| Heavy thud-expand + brief hold
+# R2 C1    | Hold the Line/Guard  | #E3B341 (Bastion Gold)| Steady fade-in armor-crest pulse (1.5s)
+# R2 C2    | Veteran's Call       | #E05A3A (Rally Crimson)| Upward rise + golden pulse
+# R2 C3    | Piercing Shot        | #E8F1F8 (Silver Streak)| Fast diagonal lunge-through across token
+# R2 C4    | Hunter's Mark        | #C92A2A (Mark Scarlet)| Lock-on shrink-snap over target center
+# R3 C1    | Ember Spark          | #FF6B1A (Pyre Orange) | Snappy flare-burst + ember flicker
+# R3 C2    | Frost Shard          | #5CE1E6 (Glacial Cyan)| Piercing diagonal stab + brief ice freeze-tint
+# R3 C3    | Crown Ward           | #38D9C0 (Arcane Teal) | Slow rotating ward-ring glow (1.8s)
+# R3 C4    | Ankle Nick / Bleed   | #B01729 (Crimson Cut) | Twin rapid cross-swipe + red flash
+# R4 C1    | Smokescreen          | #6C757D (Shadow Slate)| Expanding swirl puff + soft fade
+# R4 C2    | Stinging Salve/Heal  | #2ECC71 (Salve Emerald)| Gentle upward float + emerald shimmer (1.6s)
+# R4 C3    | Bitterroot / Poison  | #7AC74F (Venom Green) | Splash-pop + brief sickly green pulse
+# R4 C4    | Smelling Salts/Cure  | #F6E58D (Cleanse Gold)| Crisp radial burst + cleansing wash
+
+
+
+================================================================================
+PROMPT 2 (EXPERIMENT): 4x6 ANIMATED VFX SPRITE SHEET (4 Effects x 6 Stages Each)
+================================================================================
+# Usage: Paste the prompt between the START/END lines into Gemini (3:2 landscape aspect ratio so each of the 24 slots is a clean 1:1 square).
+# Tests 1 effect per horizontal row across 6 progressive compact animation cutouts (left-to-right) on ONE continuous solid #FF00FF backdrop.
+
+--- SHEET 2 PROMPT START (Copy from next line down) ---
+3:2 landscape high-definition fantasy VFX sticker sheet showing 24 compact, self-contained hand-painted combat effect cutouts arranged cleanly in 4 evenly spaced invisible horizontal rows by 6 columns — 1 effect per row progressing smoothly across 6 sequential animation stages from left to right (Stage 1 through Stage 6). Every effect is drawn strictly flat front-facing directly on the vertical camera plane (designed to overlay flat 2D circular tokens cleanly). Stylized League of Legends (Legends of Runeterra / Arcane) crisp opaque hand-painted VFX cutout style — bold opaque painted energy ribbons, sharp crisp flame tongues, faceted ice spears, bright metallic slash crescents, and clean crisp painted outlines separating every shape cleanly from the background. Strictly solid opaque digital fantasy painting with zero pixel art and zero text or numbers.
+
+CHROMA BACKGROUND & CONTAINMENT RULE: The ENTIRE canvas must be ONE seamless continuous, flat, unshaded, blindingly bright solid neon magenta (#FF00FF, exact RGB 255,0,255) studio backdrop from corner to corner — every single one of the 24 effects floats cleanly in open bright #FF00FF space. Keep EVERY individual stage compact (`at most 65%` of its slot width and height) and centered cleanly inside its own space with generous empty #FF00FF pink margin (`at least 25%` clear pink padding on top, bottom, left, and right) so every blade tip, ribbon tail, leaf, and spark finishes cleanly in empty pink space and NEVER touches or gets clipped by a neighbor or border.
+
+Render these 4 exact 6-stage compact cutouts row-by-row (Stage 1 = startup, Stage 2 = onset, Stage 3 = peak, Stage 4 = compact expansion, Stage 5 = breaking pieces, Stage 6 = final compact sparks):
+
+ROW 1 — CROSS SLASH (Opaque Blazing Steel & Amber Sword X-Slash):
+- Col 1: Small sharp opaque white-amber spark diamond and tiny silver blade-tip dart centered nicely in empty pink space.
+- Col 2: Compact curved diagonal silver-and-amber sword-slash crescent arc tapering cleanly to sharp points at both ends inside its center slot.
+- Col 3: Peak impact — two crisp intersecting diagonal silver-and-gold slash blades forming a tight centered X-cross with a sharp opaque starburst core and short metallic spark spikes.
+- Col 4: Wide but well-contained glowing X-slash of bold blazing orange-silver double blade arcs with crisp flying metallic spark splinters inside safe pink padding.
+- Col 5: Breaking slash arc shards — clean crisp steel-and-amber crescent slivers separating apart near center.
+- Col 6: Four tiny crisp opaque gold-orange spark flecks and two short silver streak slivers fading cleanly near center.
+
+ROW 2 — EMBER SPARK (Crisp Opaque Swirling Fire Vortex):
+- Col 1: Tight small compact spiral swirl of bright crisp yellow-orange opaque flame curls centered in pink space.
+- Col 2: Crisp bold stylized orange-and-gold flame C-crescent curving tightly with three sharp opaque diamond embers.
+- Col 3: Peak eruption — compact circular League of Legends stylized fire ring of sharp jagged opaque yellow-orange flame tongues and four crisp diamond sparks centered cleanly.
+- Col 4: Slightly expanded dynamic fiery burst ring breaking into bold swirling red-orange flame arcs and sharp flying ember triangles well inside its pink margin.
+- Col 5: Fragmented compact S-curls of stylized dark-amber smoke ribbons and scattered crisp orange flame flecks inside safe margin.
+- Col 6: Four small separated crisp orange-gold teardrop embers fading cleanly near center.
+
+ROW 3 — FROST SHARD (Crisp Faceted Icy-Cyan Crystal Burst):
+- Col 1: Compact crisp gleaming icy-white eight-point frost starflake with thin pale-blue needles centered in pink space.
+- Col 2: Compact diagonal icy-cyan crystal shard spear pointing upward-right with a crisp dark-blue rim and three tiny ice splinters.
+- Col 3: Peak impact — tight compact fan of three razor-faceted pale cyan-blue jagged ice spears bursting from a sharp geometric frost star inside clear pink margins.
+- Col 4: Compact shattering frost ring throwing crisp icy-white faceted crystal wedges and sharp pale-blue crescent wind slashes cleanly contained inside pink padding.
+- Col 5: Separated cluster of sharp triangular icy-blue crystal splinters drifting slightly apart near center.
+- Col 6: Five tiny crisp pale-cyan diamond ice flecks centered cleanly in empty pink space.
+
+ROW 4 — STINGING SALVE / HEAL (Compact Emerald & Gold Herbal Blossom):
+- Col 1: Three small crisp opaque emerald-green and warm gold four-point sparkles centered gently in empty pink space.
+- Col 2: Compact vertical S-curve of twin bright emerald-and-gold herbal ribbons with two crisp green sage leaves tucked tightly inside the center (`wide pink padding top and bottom`).
+- Col 3: Peak bloom — compact symmetrical spiraling blossom of crisp opaque emerald-green ribbons circling three vibrant painted herbal leaves and sharp golden four-point star sparkles cleanly inside safe pink margins.
+- Col 4: Compact bursting herbal crown — twin curved emerald-and-gold ribbons flaring gently outward in a tidy centered V-bloom with four floating green leaves and crisp golden stars (`completely floating inside wide pink padding on all 4 sides, tapering cleanly at every tip`).
+- Col 5: Separating compact spiral of two thinning golden-emerald ribbon curls floating gently upward with three crisp four-point stars centered neatly inside wide pink margin.
+- Col 6: Four tiny crisp emerald and pale-gold diamond sparkles and one small drifting leaf mote centered cleanly in empty pink space.
+--- SHEET 2 PROMPT END ---

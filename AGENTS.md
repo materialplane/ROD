@@ -1,0 +1,157 @@
+# AGENTS.md — ROD Project Rules & Technical Architecture
+
+> Read this file first before modifying documentation, tools, assets, or source code in this repository.  
+> For full gameplay specs, refer to the numbered documents in `docs/` (`01` through `09`)—do **not** duplicate feature explanations here.
+
+---
+
+## 1. Project Identity
+* **Title:** **ROD (Realms of Dust)**
+* **What It Is:** An original, single-player, turn-based illustrated RPG built for downloadable **Windows PC (Steam `.exe`)** and **Steam Deck**, set in the human world of **Ethoria** (continuing directly from `backstory.txt` Chapter 11) and 8 connected dimensional portals.
+* **Project State:** Pre-code design specs (`docs/01`–`docs/09`) are complete; implementation covers the Electron/TypeScript Game Client, an Internal Admin Suite, and Gemini-generated visual assets.
+
+---
+
+## 2. Working With the User
+* **Roles:** The user is the **Creative Director / Player Voice**; the AI acts as **Lead Developer & Systems Architect**.
+* **Plain Language:** Explain architectural decisions, trade-offs, and progress in clear, non-technical English—avoid heavy math dumps or unexplained developer jargon.
+* **Source of Truth:**
+  * Never edit `backstory.txt` unless explicitly instructed.
+  * Check the relevant `docs/01`–`docs/09` file before implementing any system, and keep matching docs updated if an approved change alters any rule, formula, or schema.
+
+---
+
+## 3. Tech Stack & Repository Architecture
+
+### Core Stack & Local Preview Server Rule
+* **Language & UI:** TypeScript + React + Tailwind CSS + HTML5/Web Canvas UI.
+* **Desktop Packaging:** **Electron** producing a standalone Windows `.exe` for Steam.
+* **Platform Targets:** Steamworks integration (**Steam Cloud Saves**, **Steam Achievements**, **Steam Rich Presence**) and full controller / **Steam Deck (`1280×800`)** support with mouse/keyboard/gamepad auto-glyph switching.
+* **New-Session Preview Server Mandate:** Whenever starting a new session/conversation in this repository, always verify/start the local Game Client preview server (`node tools/client-dev-server.mjs` at **`http://127.0.0.1:8766/`**) if it is not already running, and provide the URL so the Creative Director can test the live client directly in the browser.
+
+### Strict Two-App Split
+The repository separates player runtime code from private authoring tools while sharing a single central data/asset schema:
+1. **Game Client *(Ships to Steam)*:** Playable RPG runtime, Electron shell, Steamworks bridge, save handler, and read-only game data/assets.
+2. **Internal Admin Suite *(Private Local Tool Only)*:** Handles `4K` $\to$ `8192×8192` map doubling/chunking, `2×2` sprite/token slicing (`#FF00FF` chroma-key removal), painting blocked collision & danger sub-zones, placing town triggers / Ship Ports / dynamic dungeon doors, and authoring JSON content.
+   * **Hard Build Rule:** The **Internal Admin Suite must NEVER be bundled into or shipped inside the public Steam Game Client build.**
+
+### Data, Saves & External Assets
+* **Master Asset Archive (`assets/`) vs. Client Runtime Web Images (`.webp` Mandatory):** Raw/original generated `4K` maps, `#FF00FF` sheets, enemies, UI backgrounds, and cutscenes always remain untouched inside organized category folders under `assets/` (`assets/maps/overworld/`, `assets/maps/towns/`, `assets/maps/interiors/`, `assets/maps/portals/`, `assets/tokens/heroes/`, `assets/tokens/markers/`, `assets/enemies/`, `assets/cutscenes/`, `assets/ui/`). Doubled (`8192×8192`), chunked, sliced, or chroma-keyed runtime images exported into the Game Client build **MUST always be converted to compressed WebP (`.webp`)** (with full alpha preserved for transparent tokens/enemies/VFX strips) to minimize disk and VRAM footprint—**never ship bloated raw `4K` `.png` files in the Game Client, and never overwrite or delete originals in `assets/`**.
+* **Data-Driven Content:** Store items, skills, enemies, encounters, quests, map triggers, and Ship Port routes in structured JSON files—never hardcode world coordinates or balance tables directly into UI components.
+* **Save Files:** Support **Save Anywhere** (outside combat) + **Auto-Saves** serialized to JSON in user AppData / Steam Cloud *(never write saves inside the read-only app install directory)*.
+* **Audio Integration:** Music tracks and SFX are supplied separately by the Creative Director. Implement clean playback hooks and user volume sliders (`Master / Music / SFX`) without generating placeholder audio or modifying user audio files without permission.
+
+---
+
+## 4. Non-Negotiable Visual, Art & Pipeline Rules
+* **Mandatory Batch Queue, Prompt Approval & Image Viewing Rules:**
+  * **Always Approve Prompts First:** Never submit any image generation request until the Creative Director has reviewed and explicitly approved the prompt(s).
+  * **Batch Queue Only (`50%` Off):** All image generation MUST go through the Google Gemini **Batch API** (`50%` batch tier) by default—**never** call the instant/live `generate_content` image endpoint unless the Creative Director explicitly requests a single one-off live image.
+  * **Do Not Open/View Generated Images:** Never call `read_file` to visually inspect any generated, downloaded, or exported image (`.png`, `.jpg`, `.webp`) unless the Creative Director specifically asks you to—and if asked to check an image, **only open the exact specific image(s) requested** (never bulk-open or inspect other images). Otherwise, simply save/export the files and provide clickable links so the Creative Director can inspect them directly.
+* **Art Style (`League of Legends` Visual Benchmark):**
+  * **Unified Visual Fidelity:** Modern, crisp stylized high-fantasy digital art inspired by the clean crafted aesthetic of **League of Legends** (*Summoner's Rift / Runeterra* — bold readable shapes, chiseled stone planes, rich color clarity, zero retro pixel art, zero colored-pencil sketchiness).
+  * **Maps & Overworld Terrain:** **Crisp Stylized High-Definition 90° Overhead Cartography** with **2.5D topological elevation relief** & directional chiaroscuro lighting—strictly **zero** scratchy ink outlines, **zero** watercolor bleed, **zero** paper/canvas grain, **zero** glossy plastic 3D shine, and **zero** frozen white crashing waves so terrain stays razor-sharp under close-up zoom.
+  * **Characters, Portraits, Enemies & Cutscenes:** Grounded, high-definition stylized fantasy illustration matching the verified `2×2` VTT token sheets (`Gemini 3 Pro` / `3.1 Flash`).
+* **Banned Visuals:**
+  * **Zero** 16-bit or pixel art
+  * **Zero** 3D / plastic CGI renders
+  * **Zero** tiny walking sprites (characters traverse maps as circular VTT portrait tokens)
+  * **Zero** baked-in square grids, hex lines, text, numbers, or UI labels inside generated map/scene art
+* **Map Perspective & Movement:**
+  * Overworld (`4` connected `4K` maps doubled to `8192×8192` each, chunked), Towns, Keeps, Interiors (`16:9`), and Procedural Dungeon / Portal rooms (`1:1`) all use **gridless 90° straight-down top-down D&D-style tactical maps**.
+  * Movement is **smooth and free** (never hex-locked or tile-snapped).
+  * **Option B Locked (Clean Terrain + Placed Map Markers):** Each of the `4` Overworld maps (`generated at 4K, doubled to 8192×8192 runtime scale`, `2` Regions / `10` locations / `2` Portals per map) is **pure unblemished terrain** *(zero baked-in castles, towns, roads, ships, or text)*. All `40` overworld locations, trails/markers, border passes, and **Ship Port routes** are placed dynamically via the **Internal Admin Suite**.
+  * Procedural Dungeon & Portal room illustrations (`1:1`, covering both outdoor and indoor themes from `~10`-tile pools) must stay **doorless** in base artwork; N/S/E/W doors, locks, dead-end seals, and boss gates are overlaid dynamically by code along sparse paths carved within `2×2` up to `10×10+` bounding grids.
+* **Token Sheet Pipeline (Static Frame + `2×2` Frameless Portraits):**
+  * Each class's decorative circular VTT border is generated **separately (`1:1`, empty `#FF00FF` center hole & `#FF00FF` exterior)** as **1 static transparent Frame asset** (`.webp` in runtime) so the border never shifts shape or color across HP states.
+  * Hero portrait states follow the frameless 2-step chain (`Step 1A 1:1 Single Frameless Portrait Anchor` $\to$ `Step 1B 1:1 2×2 Master Health Portrait Sheet`, edge-to-edge with zero baked frames), sliced, ECC-aligned, masked cleanly behind the single locked Frame, and exported as runtime **`.webp`**.
+  * Combat hit/cast VFX come from dedicated per-weapon/per-spell `4×6` / `4×4` overlay strips paired with real-time silhouette color tinting—**never** generate generic damage-type token sheets or `4×4` character portrait sheets. Keep facial expression and outfit locked across HP states.
+
+---
+
+## 5. Hard Canon, System & Scope Guardrails
+* **Original IP:** Inspired by classic turn-based RPGs, never copied 1:1 (never clone Final Fantasy names, formulas, or equipment slots).
+* **Human Kingdom Canon (`Ethoria`) vs. Portal Realms:** Native Ethorians (townsfolk, playable heroes, and human factions) are strictly **human**, alongside natural wildlife—never invent demi-human native nations *(no Elven cities or Dwarven holds)*. However, **open D&D SRD 5.2 monsters (`excluding comedic/corny goblinoids, kobolds, giant amphibians, or animated household novelties` — favoring imposing Ogres, Giants, Hags, Aberrations, Constructs, Dragons, Fiends, and Undead)** can spill out through the 8 Dimensional Portals into Ethoria's wilds and establish camps or lairs.
+* **Open Bestiary Licensing:** Portal realm enemies must use **exact open D&D SRD 5.2 monster names** (`CC-BY-4.0`)—never add non-SRD, product-identity, or copyright-restricted monsters.
+* **Economy & Terminologies:**
+  * Currency is **Silver (`s`)** only—never Gold, Gil, or generic Coins.
+  * **Town Inns are always Free (`0s`)**; field recovery uses **Potions** and **Ailment Cures**.
+  * Socketable quest rewards are **Carved Runestones**—never "Gems" or "Jewelers", and **never** include Runestone Reforging/Rerolling. Socketing a Runestone is **permanent** with **no Runesmiths or extraction**: inserting a new Runestone into an occupied socket **overwrites and destroys** the previous Runestone.
+* **100% Pure-Combat Mechanics:** Stats (`Force, Finesse, Grit, Arcana, Presence`), classes, skills, and Runestone affixes are **strictly combat-focused**. Never add non-combat perks (no shop discounts, speech persuasion, or gold/silver/loot-find passives).
+* **True Open-World Sandbox:** Never gate Regions or Portals behind artificial story locks—danger sub-zones and Silver/gear progression pace exploration naturally.
+* **4-Member Party UI:** Player HUD, battle screens, and Party/Equipment/Save menus strictly track and manage the active **4 party members** without reserve-roster clutter.
+* **Grounded Medieval Fantasy & Plain-Gamer Terminology:** All player-facing names, UI labels, menus, locations, dialogue, abilities, items, and descriptions must fit a **grounded medieval fantasy RPG** and use **natural, everyday language any average gamer immediately understands**—never use modern military, shooter, sci-fi, or corporate jargon *(e.g., no "War Room", "Standby", "Loadout", "Readout", "Tactical Scale", or "Ops")* and never place cryptic poetic labels or developer jargon inside the UI.
+
+---
+
+## 6. Design Document Index (`Source of Truth`)
+* `backstory.txt` — Canon narrative ending leading directly into the game
+* `docs/01-game-vision.md` — Core pillars, world layers, and architecture overview
+* `docs/02-art-direction-and-token-pipeline.md` — Art style guide and verified 3-step `2×2` token prompts
+* `docs/03-combat-and-stats.md` — Damage types, level `1–99` XP/stat curves, Silver math, and combat formulas
+* `docs/04-world-and-realms.md` — `4` connected `4K` $\to$ `8192×8192` maps (`8` Regions, `40` Hubs + `20` Unique Zone Outposts + `8` Portals = `68` overworld markers + `#69` Highcrown Keep inside Highcrown), size tiers, services, and `1:1` Zelda-style dungeon & Portal grid rules
+* `docs/05-cast-and-skills.md` — Selectable cast, Resolve passives, weapon attack styles & 8-tier caster spell/remedy pools, and gear affinities
+* `docs/06-gear-and-runestones.md` — Weapons, attire, off-hands, Runestones, Class Accessories, and town consumables
+* `docs/07-bestiary-and-bosses.md` — Shared enemy engine rules, 8 D&D Plane bosses, 120 SRD 5.2 mobs, Ethoria natives
+* `docs/08-quests-and-story.md` — 4-layer sandbox quest framework and Home-Front triggers
+* `docs/09-ui-and-steam.md` — HUD, tabbed menus, audio playback hooks, JSON saves, and Steamworks requirements
+
+---
+
+## 7. Active Batch Job Record
+* **Map Marker `4×4` Sheets (`7` completed sheets, `1:1` `4K`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/location-markers.txt` (Permanent Hubs, Portals, Travel & Doors) and `imageprompts/quest-markers.txt` (Quest-Triggered Field Sites & Standby Tokens)
+  * **Batch 1 (`Sheets 1–5`, SUCCEEDED):** `batches/3w7eev5y1xe512qsu0pt150h0uff7tyn7q3t` *(downloaded to `assets/tokens/markers/batch_sheets/`)*
+  * **Batch 2 (`Sheet 3 text-free re-roll` + `Sheet 6 Closed Portals & Remaining Quest/Bounty Sites`, SUCCEEDED):** `batches/8l0yzsadf20q54hocjjercj1gpqn62dt0boj` *(downloaded to `assets/tokens/markers/batch_sheets/`)*
+  * **Batch 3 (`Sheet 7 Dryland Replacements, Ferry Crossing & 12 Standby Wildland Tokens`, SUCCEEDED):** `batches/0wbcxvipnoh9pr60tdbx0tvs7ajnvjqxka9z` *(downloaded `rod_map_markers_sheet_7.jpg` to `assets/tokens/markers/batch_sheets/`)*
+  * **Batch 4 (`Location Sheet C` [12 Zone Outposts + 4 Port Towns] + `Quest Sheet A` [8 Fixes + 4 Shipwrecks + 4 Quest Sites], SUCCEEDED):** `batches/ptxz077bixcn4rdro38rez1h0jsqfpy28wc7` *(downloaded `rod_location_markers_sheet_c.jpg` & `rod_quest_markers_sheet_a.jpg` to `assets/tokens/markers/batch_sheets/`)*
+  * **Batch 5 (`Quest Sheet A` title-stripped re-roll, SUCCEEDED):** `batches/vnf5bvdppo67bm29gcqqttnhznzx5g4ajj3s` *(downloaded `rod_quest_markers_sheet_a.jpg` to `assets/tokens/markers/batch_sheets/`)*
+  * **Batch 6 (`Location Sheets A & B` + dry-land `Quest Sheet A` [48 tokens], SUCCEEDED):** `batches/d10wgecole50kc1qwv4n3c85te25hk54n6lo` *(downloaded `rod_location_markers_sheet_a.jpg`, `rod_location_markers_sheet_b.jpg`, `rod_quest_markers_sheet_a.jpg` to `assets/tokens/markers/batch_sheets/` — `Location Sheet B` & `Quest Sheet A` passed as clean `4×4`; `Location Sheet A` rendered `5×5` and was archived as `_rejected_5x5_rod_location_markers_sheet_a.jpg`)*
+  * **Batch 7 (`Location Sheet A` strict `4×4` re-roll [16 tokens], SUCCEEDED):** `batches/nhu0gbr6x1lslp50b2926g46dxtx02hpmw2j` *(downloaded clean `4×4` `rod_location_markers_sheet_a.jpg` — ALL `68` Permanent Overworld Locations complete)*
+  * **Batch 8 (`Quest Sheets B–H` [112 tokens across 7 `4×4` sheets: remaining `107` unique 1-to-1 quest markers + repaired moored-barge `Ferry Crossing` + `4` standby cairn/wayshrine pins], SUCCEEDED):** `batches/dkj5ef4tqfy2nb9t71j0199oc5agqgs79zgn` *(downloaded clean `4×4` `rod_quest_markers_sheet_b.jpg` through `h.jpg` — ALL `178` unique Quest markers & `68` Permanent Location markers complete)*
+  * **Batch 9 (`Location Sheet D` v1 — thin outlines & ringed dungeon props, REJECTED/ARCHIVED):** `batches/85ene06xg3ykg727b0jmre87v1uz4vqi219o` *(archived as `_rejected_thin_frames_and_props_rod_location_markers_sheet_d.jpg`)*
+  * **Batch 10 (`Location Sheet D` v2 — style drift: cartoon rivet dots + zoomed-out isometric cities, REJECTED/ARCHIVED):** `batches/t1kqpsps6hsth3apk7jpch4ptnx1mdqiotvr` *(archived as `_rejected_style_drift_rod_location_markers_sheet_d.jpg`)*
+  * **Batch 11 (`Location Sheet D` v3 — Highcrown Royal Capital `16×` replication, Class-Avatar splash craft & Steel ring, SUCCEEDED):** `batches/5omknywt6ouk8h8gwze6norc312i2doiqa4h` *(downloaded clean `4×4` `4096×4096` `rod_location_markers_sheet_d.jpg` to `assets/tokens/markers/batch_sheets/`; approved & exported slot `(2,2)` via `--sheet loc_d` preserving forged Steel bezel + 4 bronze corner lugs onto `loc_01_overgrown_garden_sanctuary.webp`)*
+* **Faction Banner `4×4` Sheet (`1` completed sheet, `1:1` `4K`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/faction.banners.txt` (`7` Ethorian Factions + `9` Unique Reserve Guild/Order Banners = `16` banners)
+  * **Banner Batch 1 (`rod_faction_banners_sheet_a`, SUCCEEDED):** `batches/sut0ko9vacrgft33nzew1s4qhuls3fdg3d49` *(downloaded clean `4×4` `rod_faction_banners_sheet_a.jpg` [8.5 MB] to `assets/tokens/banners/batch_sheets/` — all 7 Ethorian factions + 9 reserve banners rendered cleanly in Runeterra style on `#FF00FF` with zero text; ready to key & slice to `.webp`)*
+* **NPC Portrait `4×4` Sheets (`22` sheets = `352` unique `1:1` portraits, `1:1` `4K`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/npc-sheets.txt` (`338` unique named human NPCs + `14` Story/Reserve portraits = `352` portraits across `22 × 4×4` sheets; Runeterra splash portrait style matching Hero Step 1A on dark smoky vignette)
+  * **NPC Batch 1 (`rod_npc_sheet_01`–`22`, SUCCEEDED):** `batches/5tywmipwtddhplmd3gjffx7dsv366adm9q57` *(all `22` clean `4×4` `4096×4096` sheets [352 unique portraits] downloaded to `assets/tokens/npcs/batch_sheets/` and visually verified text-free & frame-free; ready to slice & convert to `512×512` `.webp`)*
+* **Hub Interior & Sanctuary Scenes (`41` total scenes: `3` verified keepers + `38` queued in Batch, `16:9` `4K`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/location-interiors.txt` (`40` Overworld Hubs + `#69` Highcrown Keep = `41` inside-only high-contrast Runeterra splash scenes anchored to `assets/ui/menu_background_16x9_4k_v2.png`)
+  * **Pre-Archived Verified Keepers (`3` scenes copied to `assets/maps/interiors/`):** `[01] loc_01_overgrown_garden_sanctuary.jpg`, `[18] hub_timberfall_village.jpg`, `[31] hub_stormhold_citadel.jpg`
+  * **Interiors Batch 1 (`38` remaining scenes including fixed `[39] hub_ashvale_village`, `JOB_STATE_SUCCEEDED`):** `batches/yaqkqf1ycuz89gqyfobubmi0wpctcz3bw7lf` *(all `38/38` `5504×3072` `Pro 4K` `.jpg` scenes downloaded via `python imageprompts/batch/download_interiors_batch.py batches/yaqkqf1ycuz89gqyfobubmi0wpctcz3bw7lf` into `assets/maps/interiors/` — all `41/41` Hub Interior masters complete)*
+* **Settlement Bard Tavern Scenes (`18` scenes, `16:9` `4K`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/bard-tavern.txt` (`18` Cities, Towns, Port Towns, Villages & Hamlets anchored to `assets/ui/menu_background_16x9_4k_v2.png`)
+  * **Taverns Batch 1 (`18` scenes, `JOB_STATE_SUCCEEDED`):** `batches/pdijj6iihxbfeti3lpxkbaox9ognorq7rtnq` *(all `18/18` `5504×3072` `Pro 4K` `.jpg` scenes downloaded into `assets/maps/taverns/`; `3` scenes [`09` Briarstead, `10` Timberfall, `12` Port Veridia] archived as `_rejected_v1_*.jpg` for re-roll)*
+  * **Taverns Batch 2 (`3` re-roll scenes: `09` Briarstead, `10` Timberfall Village, `12` Port Veridia, `JOB_STATE_SUCCEEDED`):** `batches/9redkkku86e9yi4mwu2qjigo0tybs3doqww7` *(downloaded all `3/3` updated `5504×3072` `.jpg` files into `assets/maps/taverns/`)*
+  * **Taverns Batch 3 (`4` cultural & indoor-snow/instrument fixes: `10` Timberfall Village [single-neck lute], `12` Port Veridia [coastal Ethorian harbor], `13` Dunespire Oasis [frontier oasis traders], `17` Frostmere Village [dry timber floors, snow outside windows only], `JOB_STATE_SUCCEEDED`):** `batches/75bffrh0wkeg75xr35b5ihxfcn11wt6z2udk` *(downloaded & visually verified all `4/4` updated `5504×3072` `.jpg` files into `assets/maps/taverns/`; previous `#10/#12` archived as `_rejected_v2_*` and `#13/#17` as `_rejected_v1_*`)*
+* **RPG Item & Loot Sprite Sheets (`46` active sheets on `#FF00FF`: `24 × 5×5` + `20 × 4×4` + `2 × 4×2 16:9` = `936` total `4K` slots, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/items/` (`weapons/`, `shields/`, `armor/`, `helms/`, `accessories/` [strictly the `6` `classes.txt` accessories; obsolete `sigils` purged to `_archive_v1/`], `consumables/`, `runestones/`, `catalysts/`, `keys/`, `trade_goods/`, `ui/`) + manifest `imageprompts/batch/items_manifest.json`
+  * **Items Batch 1 (`43` sheets originally generated — `13` weapon `5×5`, `1` shield `5×5`, `4` armor `5×5` + `6` `4×4`, `6` accessory `5×5` + `1` obsolete `sigil` `4×4` [later purged to `_archive_v1/`], `1` potion `4×4`, `1` runestone `5×5`, `1` key/catalyst `4×4`, `9` trade-goods `4×4`, `JOB_STATE_SUCCEEDED`):** `batches/ibt1rckcxr6f4i4xiyz10itgv9z0jv6132mi` *(all `43/43` `4096×4096` `.jpg` sheets downloaded via `python imageprompts/batch/download_items_batch.py batches/ibt1rckcxr6f4i4xiyz10itgv9z0jv6132mi` into `assets/items/batch_sheets/`)*
+  * **Items Batch 2 (`5` sheets — cloak-free body armor re-rolls [`items_armor_heavy`, `items_armor_medium_sheet2`, `items_armor_light_sheet1`, `items_armor_light_sheet2`] + `25`-icon unified UI sheet [`items_ui_silhouettes`], `JOB_STATE_SUCCEEDED`):** `batches/qm301nf1v1i00nxnwpn7wind80q57xnsqqy9` *(all `5/5` `4096×4096` `.jpg` sheets downloaded via `python imageprompts/batch/download_items_batch.py batches/qm301nf1v1i00nxnwpn7wind80q57xnsqqy9` into `assets/items/batch_sheets/` and visually verified cape-free & cohesive; previous 4 v1 armor sheets moved cleanly to `assets/items/_archive_v1/` with original filenames)*
+  * **Items Batch 3 (`1` sheet — cropped-margin fix on `items_armor_medium_sheet2` [`~62–68%` cell fill, uncut waist-length armor], `JOB_STATE_SUCCEEDED`):** `batches/1yd7o5wl9c0dsy1chsw21fc1u2e9cp93dct3` *(downloaded & visually verified uncut `4096×4096` sheet into `assets/items/batch_sheets/`; previous clipped v2 moved to `assets/items/_archive_v2/`; surgically patched `items_accessories_quivers.jpg` Row 4 Col 4 `Fur-Lined Quiver` cleanly via `gemini-3-pro-image`)*
+  * **Items Batch 4 (`1` sheet — full AI re-roll on `items_helms_heavy` [Row 3 Col 3 fur/detached-neck fix + solid-backed Row 1 Col 3 bronze mail], `JOB_STATE_SUCCEEDED`):** `batches/xs7xhafakwg6sxkmtycuw2r0kdxs43n17fe5` *(downloaded & visually verified crisp `4096×4096` sheet in `assets/items/batch_sheets/`; v1 kept in `_archive_v1/`, patched test in `_archive_v2/`)*
+  * **Items Batch 5 (`1` sheet — `items_helms_light_sheet2` fix [no hijab/scarf wraps, no black void holes inside hoods, opaque dark cloth instead of sheer veil on Row 3 Col 3], `JOB_STATE_SUCCEEDED`):** `batches/dwh9gzu1hahkq57pb6un8z20vlpmfdoub841` *(downloaded & visually verified `4096×4096` sheet in `assets/items/batch_sheets/`; v1 backed up in `_archive_v1/`)*
+  * **Items Batch 6 (`1` sheet — `items_helms_light_sheet2` strict hood lock [all 12 robe headpieces in Rows 1–3 generated as proper pointed cloth Mage Hoods/Cowls with brow bands/crests instead of loose ribbon headbands or cap berets], `JOB_STATE_SUCCEEDED`):** `batches/nhw8z60fk18xrkrcfixhbc3p5qjzwiuo8elz` *(downloaded & visually verified `4096×4096` sheet in `assets/items/batch_sheets/`; v2 backed up in `_archive_v2/`)*
+  * **Items Batch 7 (`1` sheet — `items_helms_light_sheet1` robe-hood rule [Simple & Fine Robes slots `4,2`–`5,4` locked to loose pointed cloth Mage Hoods with textured inner lining folds—no wide-brimmed hat, no bare ribbon headband, no floating wire ring], `JOB_STATE_SUCCEEDED`):** `batches/hktozzpekjx42b43y4kgw3qfc17w9nl618cq` *(downloaded & visually verified `4096×4096` sheet in `assets/items/batch_sheets/`; v1 backed up in `_archive_v1/`)*
+  * **Items Batch 8 (`2` sheets — `items_helms_medium_sheet1` & `items_helms_medium_sheet2` [black-hole interior lining fix across all hoods/helms + Row 3 Col 3 `Storm-Scale Circlet` rebuilt as full storm-cobalt scale war-helm wearing brow circlet instead of bare headband], `JOB_STATE_SUCCEEDED`):** `batches/w2v25osb523y80tlz5w9pe5vy8tqenrclelu` *(downloaded & visually verified `4096×4096` sheets in `assets/items/batch_sheets/`; v1 backups in `_archive_v1/`)*
+  * **Items Batch 9 (`2` sheets — split `items_keys_catalysts` cleanly into `items_catalysts` [`4×2` `16:9`: 7 alien-rune circular medallions w/ zero chains + Valen's Interlocking Wolf Pendant on silver chain] + `items_keys` [`4×2` `16:9`: 4 Dungeon Keys/Lockpick + 4 Survey Area Charts], `JOB_STATE_SUCCEEDED`):** `batches/enlakuoo75a85y3u9fd9p5evn271dr11m8y9` *(downloaded & visually verified `5504×3072` sheets in `assets/items/batch_sheets/`; old combined sheet & prompt archived in `_archive_v1/`)*
+  * **Items Batch 10 (`1` test sheet — unchanged `items_weapons_light_crossbows` re-roll saved as `items_weapons_light_crossbows_v2_test.jpg` to avoid overwriting original & splice clean Row 5 Col 3, `JOB_STATE_SUCCEEDED`):** `batches/sftv375op0cg1e3bp7sameebtgwnorhsdnr4` *(downloaded to `assets/items/batch_sheets/items_weapons_light_crossbows_v2_test.jpg`)*
+  * **Items Batch 11 (`1` sheet — unchanged `items_weapons_shortbows` re-roll as is, `JOB_STATE_SUCCEEDED`):** `batches/vjvmbwig2wpu483fauaeikrfll7lbel3z5va` *(downloaded & visually verified `4096×4096` sheet in `assets/items/batch_sheets/`; v1 backed up in `_archive_v1/`)*
+  * **Items Batch 12 (`4` sheets — zoomed-out `4×4` splits for `items_weapons_spears_sheet1/2` & `items_weapons_quarterstaves_sheet1/2` [Steps `1–16` + Steps `17–24` & 8 fillers at `~65%` cell span so butt-caps & heads never clip], `JOB_STATE_SUCCEEDED`):** `batches/gkibuvrqsoj14w5s1k3fzsr133lago9h02l0` *(downloaded all `4/4` `4096×4096` sheets into `assets/items/batch_sheets/`; old 5×5 sheets backed up in `_archive_v1/`)*
+  * **Items Batch 13 (`1` sheet — `items_catalysts` chain-free pendant fix [removes necklace chain from Valen's Interlocking Wolf Pendant while keeping all 7 alien-runed circular medallions chainless], `JOB_STATE_SUCCEEDED`):** `batches/49h33x2x5u38tloq9g6val6u2f1mdk9ph98k` *(downloaded & visually verified `5504×3072` sheet in `assets/items/batch_sheets/`; v1 backed up in `_archive_v1/`)*
+  * **Items Batch 14 (`1` sheet — `items_weapons_quarterstaves_sheet2` `#FF00FF` magenta background fix [previous run rendered pure `#FFFFFF` white background], `JOB_STATE_SUCCEEDED`):** `batches/4l8vchi60727zdgvdds2tyaeib471an1lllw` *(downloaded & visually verified crisp `4096×4096` sheet on pure `#FF00FF` in `assets/items/batch_sheets/`; white-bg v2 backed up in `_archive_v2/`)*
+  * **Items Batch 15 (`1` test sheet — `25×` replication of unloaded blackened-and-crimson `Eclipse Quick-Crossbow` [`items_weapons_light_crossbows_red_fix_test.jpg`] to splice a guaranteed bolt-free cell into `items_weapons_light_crossbows.jpg` Row 5 Col 3, `JOB_STATE_SUCCEEDED`):** `batches/f0ebpju25q5em9vfslfey09q4e42354d01u4` *(downloaded `4096×4096` sheet to `assets/items/batch_sheets/items_weapons_light_crossbows_red_fix_test.jpg`; spliced clean unloaded cell `R5C1` into `items_weapons_light_crossbows.jpg` Row 5 Col 3, with original v1 backed up to `assets/items/_archive_v1/items_weapons_light_crossbows.jpg`)*
+* **Spell & Ability Card `4×4` Sheets (`5` total sheets = `72` Spells + `8` Core Battle Action Cards, `1:1` `4K`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/spell-cards.txt` (`5` full-bleed `4×4` sheets matching League of Legends / Runeterra painterly ability art)
+  * **Sheet 01 (`Spells #01–#16`, COMPLETED DIRECTLY):** `assets/spells/batch_sheets/rod_spell_cards_sheet_01.png` *(4096×4096 approved, sliced via `python tools/export_spell_cards.py` -> `16` `512×512` `.webp` cards in `client/assets/icons/spells/`, `16/72` wired cleanly into `spells-catalog.json`)*
+  * **Spells Batch 1 (`Sheets 02–05`: Spells `#17–#72` + `8` Core Battle Action Cards [`64` cards], `JOB_STATE_SUCCEEDED`):** `batches/1m5viyihuwc4gihysuk941c9wht6vzwe1hai` *(downloaded all `4/4` `4096×4096` `.jpg` sheets [`rod_spell_cards_sheet_02.jpg`..`05.jpg`] into `assets/spells/batch_sheets/` and visually verified all `64/64` cards cleanly text-free & `4×4`; sliced & exported all `5` sheets [`80/80` cards -> `72/72` spells wired] via `python tools/export_spell_cards.py`)*
+* **Playable Hero Full-Body Paperdoll Portraits (`6` Heroes, `9:16` `4K` on `#FF00FF`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/hero-portraits.txt` (`6` standing empty-handed figures locked individually to their `Step 1A` reference portraits)
+  * **Heroes Full-Body Batch 1 (`6` Heroes: `Valen`, `Ellowyn`, `Orin`, `Rowan`, `Mera`, `Harlan`, `JOB_STATE_SUCCEEDED`):** `batches/856lp0hp9udbabhkb5y0360f2vhz4t9qjezq` *(downloaded all `6/6` `3072×5504` `*_fullbody_raw.jpg` portraits into `assets/tokens/heroes/`; `Valen`, `Ellowyn`, `Orin`, `Rowan`, `Harlan` verified, `Mera` replacing via Druid chain)*
+* **Mera Druid Token & Portrait Transition (`1:1` / `9:16` `4K`, `models/gemini-3-pro-image`):**
+  * **Prompts Source:** `imageprompts/class-avatar-tokens.txt` (`Hero 5: Mera — Druid`) & `imageprompts/hero-portraits.txt`
+  * **Mera Druid Batch 1 (`Step 1: mera_druid_frame` + `mera_druid_portrait_1a`, `JOB_STATE_SUCCEEDED`):** `batches/hkwpj5cr5tb6i2i1m7rthjxzs3b2mfl24phi` *(downloaded clean `4096×4096` `mera_druid_frame.jpg` & `mera_druid_portrait_1a.jpg` into `assets/tokens/heroes/`, with prior `mera_druid_frame.png` archived in `_archive_v1/`)*
+  * **Mera Druid Batch 2 (`Step 1B: mera_druid_portrait_1b_2x2` [1:1 4K] + `mera_fullbody_raw` [9:16 4K], both locked to `mera_druid_portrait_1a.jpg`, `JOB_STATE_SUCCEEDED`):** `batches/o317cymb02l3904svq6ifw2xi83bh8zn1bov` *(downloaded clean `4096×4096` `mera_druid_portrait_1b_2x2.jpg` & `3072×5504` `mera_fullbody_raw.jpg` into `assets/tokens/heroes/`, with prior `mera_fullbody_raw.jpg` archived in `_archive_v1/`)*

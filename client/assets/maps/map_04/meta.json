@@ -1,0 +1,14 @@
+{
+  "id": "map_04",
+  "name": "Frostbound Reach & The Dreadwaste",
+  "regionLabel": "Regions 7\u20138 \u00b7 Frostbound Reach & Dreadwaste",
+  "width": 8192,
+  "height": 8192,
+  "tileSize": 512,
+  "cols": 16,
+  "rows": 16,
+  "spawn": {
+    "x": 4096,
+    "y": 4096
+  }
+}

@@ -1,0 +1,51 @@
+# ROD — 1H Rapier Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Duelist -> Rapier (1H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 1H slender dueling rapier fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 items follow ONE identical 45-degree diagonal UI icon angle inside their cell: hilt/pommel toward the bottom-left corner and blade tip pointing cleanly toward the upper-right corner. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Training Rapier): Simple dulled gray steel practice rapier with thin rigid blade, plain dark iron ring-loop guard, scuffed leather grip, and plain small round iron pommel.
+Row 1, Col 2 (Steel Rapier): Clean solid high-steel rapier featuring sleek diamond-section thrusting blade, classic iron swept-bars basket-loop guard, dark brown grip, and olive steel pommel.
+Row 1, Col 3 (Millbrook Estoc): Millbrook nobleman's steel estoc with stiff square armor-piercing blade, crisp polished brass cup-and-knucklebow guard, tan stitched grip, and faceted steel pommel.
+Row 1, Col 4 (Corsair Rapier): Corsair Saltwind rapier boasting slim silvery curved ricasso blade, tarnished bronze cut-steel shell guard, braided sea-hemp grip, and heavy brass counter-pommel.
+Row 1, Col 5 (Sea-Glass Rapier): Sea-Glass coastal rapier crafted with cool seafoam-tinted forged steel blade catching turquoise sheen, sculpted bronze swirl-bars hilt, dark teal leather grip, faceted bronze pommel.
+
+Row 2, Col 1 (Tidecaller Estoc): Tidecaller Estoc — sleek dark marine-steel thrusting blade framed by ornate antique-bronze pierced wave-pattern cup guard, ivory-corded grip, and heavy pear-shaped bronze pommel.
+Row 2, Col 2 (Redmarch Duelist Rapier): Redmarch Duelist Rapier with narrow blackened war-steel blade, matte crimson enamel cup-guard shell edged in bright forged steel, crimson wire-wrapped grip, and heavy steel pommel.
+Row 2, Col 3 (Officer's Estoc): Officer's Estoc — grim battle-scarred military estoc featuring thick needle-sharp gray steel spike blade, battered steel swept-bar cage guard, cord-wrapped iron grip, angular pommel.
+Row 2, Col 4 (Thornwall Captain's Rapier): Thornwall Captain's Rapier — proud noble frontier dueling blade combining mirror-polished steel edge, gilded brass swept knucklebow and lion-rib guard bars, burgundy grip, brass pommel.
+Row 2, Col 5 (Briar-Thorn Rapier): Briar-Thorn Weald rapier showcasing sleek dark olive-steel needle blade, intricately sculpted bronze thorned-vine basket hilt wrapping grip cleanly, and bronze bud pommel.
+
+Row 3, Col 1 (Hornet-Sting Rapier): Hornet-Sting swift rapier featuring slim bronze-washed golden-edge blade, compact sharp-winged bronze guard cradling smooth amber bead inlay cleanly inside ricasso, dark leather grip.
+Row 3, Col 2 (Verdant Estoc): Verdant Estoc — woodland knightly piercing blade forged from dark spring-steel inset cleanly inside a dark bronze braided leaf-and-branch swept guard and hardwood pommel.
+Row 3, Col 3 (Golden-Sand Rapier): Golden-Sand desert rapier displaying warm sun-gilded fuller rib along razor steel needle, wide flared filigree brass bell-guard, tan sand-leather handle, and brass teardrop pommel.
+Row 3, Col 4 (Viper-Fang Rapier): Viper-Fang curved-guard rapier with twin sleek dark-iron and gilded fang quillions flanking a venomous green-tinted dark mirror-steel piercing edge, dark grip, brass fang pommel.
+Row 3, Col 5 (Mirage Estoc): Mirage Estoc — opulent sunlit Veridian estoc featuring golden damascene needle blade, intricate pierced geometric brass lantern-cup guard, cobalt silk-wire grip, and brass sphere pommel.
+
+Row 4, Col 1 (Wind-Edge Rapier): Wind-Edge highland rapier crafted from ultra-light slate silver-steel with slim grooved thrusting edge, swept silver-steel wind-vane knuckle guard, charcoal grip, fluted pommel.
+Row 4, Col 2 (Silver-Peak Estoc): Silver-Peak Estoc — prized Ironcrest mountain steel estoc combining cold star-silver narrow spire blade, crisp chiseled silver-and-iron cup guard, navy leather grip, diamond pommel.
+Row 4, Col 3 (Storm-Spire Rapier): Storm-Spire Rapier — master-forged Anvilhall rapier flashing warm forge-gold geometric accents along dark star-iron swept cage guard surrounding a razor-sharp pale silver needle blade.
+Row 4, Col 4 (Rime-Needle Rapier): Rime-Needle cold northern rapier with slender frost-pale steel blade, notched iron swept guard bound cleanly with white wolf-leather trim, dark hilt, faceted iron pommel.
+Row 4, Col 5 (Cold-Steel Estoc): Cold-Steel Estoc — thick glacial armor-piercing square blade forged of crisp silvered winter-iron, sculpted dark steel frost-star knucklebow hilt, frost-blue leather grip.
+
+Row 5, Col 1 (Frostbite Rapier): Frostbite Rapier — deadly boreal duelist relic merging abyssal slate cup-guard framing pale glacier-blue razor steel blade and frosted silver crown pommel.
+Row 5, Col 2 (Obsidian Estoc): Obsidian Estoc — Dreadwaste dark-forged needle estoc featuring glossy chipped-obsidian-black forged steel blade edge, spiked blackened-iron cage guard, dark ash leather grip.
+Row 5, Col 3 (Crimson-Dusk Rapier): Crimson-Dusk Rapier — elite vanguard blade combining blackened star-steel needle, sleek sharp swept iron knuckle-guard laced with bright deep-crimson enamel inlay and spiked crimson pommel.
+Row 5, Col 4 (Eclipse Heartseeker): Eclipse Heartseeker — apex royal duelist masterpiece boasting radiant silvered star-steel blade, sculpted brushed-gold and blackened-steel filigree swept crown cage, crimson velvet-wire grip, and crisp gold-set eclipse pommel.
+Row 5, Col 5 (Rapiers Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic slender rapier silhouette emblem at 45-degree angle—slim needle blade and curved simple swept loop-guard with NO gems, NO glow, NO circle border, and NO box frame on pure #FF00FF.
+--- 5x5 PROMPT END ---

@@ -1,0 +1,4206 @@
+[
+  {
+    "id": "items_accessories_cloaks",
+    "source": "accessories/cloaks.txt",
+    "category": "accessories",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Tattered Travel Cloak"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Oakhaven Wool Cloak"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Duelist Cape"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Waxed Mariner Cloak"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Saltwind Storm-Cape"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mirewatch Oilskin Cloak"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Ash-Dyed Border Cloak"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Redmarch Crimson Cape"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Thornwall Vanguard Mantle"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Fern-Dyed Weald Cloak"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Briar-Thorn Mantle"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Canopy Cloak"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sun-Bleached Sand Cloak"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Gilded Veridia Cape"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Mirage Silk Cloak"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Wolf-Fur Travel Cloak"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Storm-Weave Cape"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Silver-Trim Cloak"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Rime-Lined Wolf Cloak"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Tundra Snow-Mantle"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Boreal Starlight Cape"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ashen-Hide Cloak"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Crimson-Oath Cape"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Sovereign Duelist Cloak"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Cloaks Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_accessories_crystals",
+    "source": "accessories/crystals.txt",
+    "category": "accessories",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Chipped Quartz Crystal"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Moss-Lit Shard"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Verdant Crystal"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Sea-Salt Prism Crystal"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Brine-Moss Crystal"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Fen-Amber Crystal"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Slate-Bound Crystal"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Amber-Vein Crystal"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Redmarch Storm-Crystal"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Heartwood Sap Crystal"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Emerald Weald Crystal"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Ancient Grove Crystal"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sunstone Shard Crystal"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Topaz Desert Crystal"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Solar Hearth Crystal"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Storm-Quartz Crystal"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Silver-Peak Crystal"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Sky-Heart Gem Crystal"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Glacial Ice Crystal"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Boreal Frost Crystal"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Winter-Moon Crystal"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Volcanic Obsidian Crystal"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Wild-Eclipse Crystal"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Seed-Heart Crystal"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Crystals Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_accessories_horns",
+    "source": "accessories/horns.txt",
+    "category": "accessories",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Wooden Watch-Horn"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Brass Garrison Horn"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Bugle-Horn"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Conch Fog-Horn"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Harbor Brass Horn"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mirewarden Iron Horn"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Iron Signal-Horn"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Redmarch War-Horn"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Bastion Great-Horn"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Carved Stag-Horn"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Timberfall Oak Horn"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Ivory Horn"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sand-Bronze Hunting Horn"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Sun-Gilded Battle Horn"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Dunespire Ram-Horn"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Ram-Horn Signal Trumpet"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Highland Steel Horn"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Thunder-Horn"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Carved Mammoth-Horn"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Frostguard War-Horn"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Pale-Ice Great-Horn"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Dread-Iron War-Horn"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Crimson-Steel War-Horn"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "War-Horn of the Crown"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Horns Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_accessories_orbs",
+    "source": "accessories/orbs.txt",
+    "category": "accessories",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Cracked Glass Orb"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Amber Focus Orb"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Star-Orb"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Brine-Pearl Sphere"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Sea-Glass Orb"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Tidestone Crystal Orb"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Smoke-Quartz Sphere"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "War-Chanter Orb"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Redmarch Focus Orb"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Amber-Sap Sphere"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Dewdrop Crystal Orb"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Star-Orb"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sun-Glass Sphere"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Topaz Mirage Orb"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Solar Prism Orb"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Thunder-Quartz Orb"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Silver-Core Orb"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Prism Orb"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Frosted Glass Orb"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Boreal Ice-Orb"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Pale-Star Crystal Orb"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Void-Glass Orb"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Eclipse Rift Orb"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Heart of the First Dawn"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Orbs Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_accessories_quivers",
+    "source": "accessories/quivers.txt",
+    "category": "accessories",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Torn Leather Quiver"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Fletched Scout Quiver"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Hardened Yew Quiver"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Waterproof Seal Quiver"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Gull-Feather Quiver"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Hunter Quiver"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Garrison Arrow Quiver"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Steel-Capped Quiver"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Border-Captain's Quiver"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Bark-Wrapped Quiver"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Willow-Woven Quiver"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Phantom-Leaf Quiver"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Camel-Hide Quiver"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Gilded Brass Quiver"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Sirocco Winged Quiver"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Mountain-Horn Quiver"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Eagle-Plume Quiver"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Gale-Wing Quiver"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Fur-Lined Quiver"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Glacial Horn Quiver"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Boreal Wind Quiver"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ashen-Hide Quiver"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Shadow-Feather Quiver"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Horizon Star-Quiver"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Quivers Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_accessories_tomes",
+    "source": "accessories/tomes.txt",
+    "category": "accessories",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Linen Herbal Tome"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Stitched Field Primer"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Herbal Ledger"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Mariner's Tide-Tome"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Sea-Kelp Herbarium"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Leaf Ledger"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Battlefield Triage Tome"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Cinder-Ink Compendium"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Bastion Field Codex"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Herbalist's Lore Tome"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Amber-Leaf Codex"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Verdant Tome"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sun-Dial Field Tome"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Oasis Apothecary Codex"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Solar-Bloom Tome"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Alpine-Herb Folio"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Crag-Herb Compendium"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Runic Tome"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Frost-Script Folio"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Ice-Bound Herbarium"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Glacial Botany Tome"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ash-Ward Triage Tome"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Lifebinder's Folio"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Codex of the First Dawn"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Tomes Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_armor_heavy",
+    "source": "armor/heavy.txt",
+    "category": "armor",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Thornwall Ring Mail"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron-Ringed Mail"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Amber-Linked Ring Mail"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Elderwood Ring Mail"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Veridian Chain Mail"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Sun-Forged Chain Mail"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Sandwall Siege Chain Mail"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Ironcrest Heavy Chain Mail"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Crag-Iron Splint"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Anvilhall Star-Splint"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Rime-Bound Splint"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Glacierwall Splint"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Bleakwatch War-Plate"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Ashen-Iron Full Plate"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Black-Keep Siege Plate"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Bastion of the First King"
+      }
+    ]
+  },
+  {
+    "id": "items_armor_light_sheet1",
+    "source": "armor/light.txt",
+    "category": "armor",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Worn Leather Jerkin"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Frontier Leather Coat"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Leather Vest"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Saltwind Leather Cuirass"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Quilted Leather Jacket"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Saltwind Padded Leather"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Redmarch Padded Jerkin"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Thornwall Padded Hauberk"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Iron-Studded Leather"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Briar Studded Leather"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Steel-Riveted Leather"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Studded Armor"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Desert Spiked Leather"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Sun-Thorn Spiked Armor"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Veridian Spiked Coat"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Highpass Spiked Leather"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Linen Travel Robes"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Simple Apprentice Robes"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Crownland Cloth Robes"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Harbor Wool Robes"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Trimmed Fine Robes"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Dyed Velvet Robes"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Redmarch Fine Mantle"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Noble Thread Robes"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Light Body Armor Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_armor_light_sheet2",
+    "source": "armor/light.txt",
+    "category": "armor",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Quilted Hemp Robes"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Marsh-Padded Robes"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Garrison Padded Robes"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Briar-Lined Padded Robes"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Weald Silk Robes"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Golden-Thread Silk Robes"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Oasis Star-Silk Robes"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Storm-Woven Silk Robes"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Dune-Web Widowsilk Robes"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Black-Spun Widowsilk"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Velvet Widowsilk Mantle"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Frost-Spun Widowsilk"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Arcane Robes Category Emblem"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Light Leather Category Emblem"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Cloth Attire Filter Tab Crest"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Empty Body UI Slot Silhouette"
+      }
+    ]
+  },
+  {
+    "id": "items_armor_medium_sheet1",
+    "source": "armor/medium.txt",
+    "category": "armor",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Rough Boar-Hide Tunic"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Thick Elk-Hide Vest"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Bull-Hide Armor"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Harbor Sea-Hide Coat"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Saltwind Scale Mail"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Iron Scale Mail"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Redmarch Bronze Scale Mail"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Bastion Steel Scale Mail"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Crag-Steel Breastplate"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Anvilhall Star-Steel Breastplate"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Rime-Steel Breastplate"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Frostguard Breastplate"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Glacial Half Plate"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Ashen-Steel Half Plate"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Crimson-Oath Half Plate"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Sovereign Royal Half Plate"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Charred-Copper Jerkin"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Ember-Burnished Leather"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Scorched-Copper Leather Coat"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Tarnished-Copper Cuirass"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Charred-Silver Leather Plate"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ash-Silver Leather Coat"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Eclipse-Burnt Leather Plate"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Sovereign Shadow-Leather"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Medium Body Armor Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_armor_medium_sheet2",
+    "source": "armor/medium.txt",
+    "category": "armor",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Carved Rib-Bone Coat"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Highland Padded Bone"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Tundra-Hide Bone Armor"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Frost-Stitched Bone Vest"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Giant-Skull Bone Plate"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Ashen-Carved Bone Armor"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Dreadwaste Ossuary Bone"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Sovereign Bone Vestments"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Wyvern-Scale Plate"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Drake-Crest Scale Plate"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Storm-Scale Plate"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Boreal Scale Plate"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Blue-Wyrm Dragonscale"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Crimson Dragonscale Coat"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Shadow-Wyrm Dragonscale"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Sovereign Dawn Dragonscale"
+      }
+    ]
+  },
+  {
+    "id": "items_catalysts",
+    "source": "catalysts/catalysts.txt",
+    "category": "catalysts",
+    "grid": "4x2",
+    "aspectRatio": "16:9",
+    "slotCount": 8,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Ashen Forge Catalyst"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Abyssal Brine-Pearl"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Blood-Iron Catalyst"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Spore-Heart Amber"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Brass Cinder-Seal"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Storm-Crown Lodestone"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Pale-Abyss Ice-Seal"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Interlocking Wolf Pendant"
+      }
+    ]
+  },
+  {
+    "id": "items_consumables_potions",
+    "source": "consumables/potions.txt",
+    "category": "consumables",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Minor Healing Potion"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Stout Healing Potion"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Greater Healing Potion"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Supreme Healing Potion"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Minor Mana Potion"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Greater Mana Potion"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Supreme Mana Potion"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Reviving Potion"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Phoenix Potion"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Antidote Potion"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Cooling Potion"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Warming Potion"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Clarity Potion"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Panacea Potion"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Healing & Mana Potions Category Crest"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Status Cure Potions Category Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_helms_heavy",
+    "source": "helms/heavy.txt",
+    "category": "helms",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Thornwall Ring Coif"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron-Ringed Sallet"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Briar Ring Barbute"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Elderwood Ring Helm"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Veridian Chain Coif"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Sun-Forged Chain Helm"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Sandwall Chain Greathelm"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Highpass Chain Visor"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Crag-Iron Kettle Helm"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Anvilhall Splint Greathelm"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Rime-Bound Splint Visor"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Glacierwall Armet"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Bleakwatch Warhelm"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Ashen-Iron Greathelm"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Black-Keep Full Visor"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Crown of the First King"
+      }
+    ]
+  },
+  {
+    "id": "items_helms_light_sheet1",
+    "source": "helms/light.txt",
+    "category": "helms",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Worn Leather Cap"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Scout's Leather Hood"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Hardened Leather Coif"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Saltwind Leather Cowl"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Padded Leather Cap"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Stitched Leather Hood"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Redmarch Padded Coif"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Thornwall Padded Helm"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Studded Leather Cap"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Riveted Leather Coif"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Briar Studded Hood"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Studded Cowl"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Spiked Leather Cap"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Sun-Horned Leather Coif"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Veridian Spiked Mask"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Highpass Spiked Hood"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Simple Linen Hood"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Plain Cloth Cowl"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Wanderer's Hood"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Saltwind Wool Hood"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Fine Silk Fillet"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Copper Circlet"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Redmarch Noble Hood"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Noble Velour Cowl"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Light Helmets & Headgear Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_helms_light_sheet2",
+    "source": "helms/light.txt",
+    "category": "helms",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Quilted Linen Cap"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Soft Padded Hood"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Garrison Padded Cowl"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Briar Padded Circlet"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Weald Silk Veil"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Silver Silk Headband"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Oasis Silk Crownlet"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Highpass Silk Diadem"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Web-Spun Widowsilk Hood"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Black-Silk Widowsilk Cowl"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Spider-Thread Veil"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Crystal Widowsilk Crown"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Arcane Robes Category Emblem"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Light Leather Category Emblem"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Cloth Attire Filter Tab Crest"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Empty Helmet UI Slot Silhouette"
+      }
+    ]
+  },
+  {
+    "id": "items_helms_medium_sheet1",
+    "source": "helms/medium.txt",
+    "category": "helms",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Boar-Hide Cap"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Elk-Hide Coif"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Horned Hide Hood"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Saltwind Hide Helm"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Scale-Cheeked Nasal Helm"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Brine Scale Bascinet"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Garrison Scale Barbute"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Bastion Scale Helm"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Highland Open Barbute"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Anvilhall Crest Helm"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Rime-Steel Sallet"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Frostguard Visor"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Glacial Close Helm"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Ashen-Steel Armet"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Crimson-Oath Greathelm"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Crown Duelist Helm"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Copper-Charred Hood"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Ember-Burnished Mask"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Burnt-Copper Coif"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Tarnished-Copper Visor"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Charred-Silver Mask"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ash-Silver Hood"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Eclipse-Burnt Helm"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Horizon Scout Cowl"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Medium Helmets & Headgear Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_helms_medium_sheet2",
+    "source": "helms/medium.txt",
+    "category": "helms",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Carved Bone Mask"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Highland Bone Hood"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Ivory Bone Coif"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Frost-Bone Circlet"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Skull-Crested Bone Mask"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Ashen Bone Crown"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Ossuary War-Hood"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Lifebinder's Bone Diadem"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Wyvern-Scale Diadem"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Drake-Crest Scale Crown"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Storm-Scale Circlet"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Boreal Scale Tiara"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Blue-Wyrm Coronet"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Crimson Wyrm Crown"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Shadow-Wyrm Tiara"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Circlet of the First Dawn"
+      }
+    ]
+  },
+  {
+    "id": "items_keys",
+    "source": "keys/keys.txt",
+    "category": "keys",
+    "grid": "4x2",
+    "aspectRatio": "16:9",
+    "slotCount": 8,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Iron Dungeon Key"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Skeleton Lockpick"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Bronze Gate Key"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Boss Sanctum Seal Key"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Rift Area Chart"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Crownlands Survey Scroll"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Coast Sea-Port Chart"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Dreadwaste Recon Map"
+      }
+    ]
+  },
+  {
+    "id": "items_runestones",
+    "source": "runestones/runestones.txt",
+    "category": "runestones",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Lesser Blazing Slate"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Lesser Glacial Slate"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Lesser Arcing Slate"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Lesser Venom Slate"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Lesser Hallowed Slate"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Lesser Vampiric Slate"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Refined Detonating Basalt"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Refined Siphoning Basalt"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Refined Crushing Basalt"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Refined Rending Basalt"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Refined Bastion Basalt"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Refined Retaliating Basalt"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Greater Executioner Stone"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Greater Echoing Stone"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Greater Resolve Bone-Stone"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Greater Sanctified Stone"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Greater Vanguard Stone"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Greater Unbreakable Stone"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Mythic Overflowing Obsidian"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Mythic Phantom Obsidian"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Mythic Adaptive Obsidian"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Mythic Martyr Obsidian"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Mythic Alacrity-Brutality Relic"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Mythic Sovereign Runestone"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Runestones Category & Empty-Socket Emblem"
+      }
+    ]
+  },
+  {
+    "id": "items_shields",
+    "source": "shields/shields.txt",
+    "category": "shields",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Cracked Wood Buckler"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron-Rimmed Buckler"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Steel Buckler"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Saltwind Brass Buckler"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Oak-Plank Round Shield"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Iron Round Shield"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Redmarch Bronze Round Shield"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Veteran's Steel Round Shield"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Thornwall Crest Heater Shield"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Briarwood Steel Heater Shield"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Amber-Bound Heater Shield"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Greenwarden Heater Shield"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Veridian Bronze Kite Shield"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Sun-Crest Caravan Kite Shield"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Highpass Steel Kite Shield"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Storm-Rim Kite Shield"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Crag-Tooth Spiked Shield"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Star-Spiked Shield"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Rime-Iron Barbed Shield"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Glacierwall Spiked Bulwark"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Bleakwatch Wall Tower Shield"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ashen-Steel Tower Shield"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Black-Keep Pavise Tower Shield"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Aegis of the Crown"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Shields Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_ethoria_native_trade_goods",
+    "source": "trade_goods/ethoria_native_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Rusty Coin Purse"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Fletched Bolt Case"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Contraband Seal"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Torn Wolf Tabard"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Usurper Pennant"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Steel Crest Badge"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Brass Collar Key"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Obsidian Talisman"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Gray Wolf Pelt"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Curved Ivory Tusk"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Intact Venom Gland"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Thick Bear Hide"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Amber Chitin Stinger"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Snow-White Pelt"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Frosted Alpha Pelt"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Massive Ivory Fang"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_1_trade_goods",
+    "source": "trade_goods/region_1_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Chipped Rune-Blade Shard"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Hollow Greave Plate"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Iron-Sutured Hide"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Carved Earthen Seal"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Jar of Cinder-Ash"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Cracked Stone Horn"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Oxidized Antenna"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Chitinous Mandible"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Shadow-Cowl Membrane"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Stone-Worm Beak"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Petrous Tendril Core"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Gem-Flecked Claw"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Landshark Armor Plate"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Dense Geode Heart"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Runed Guardian Amulet"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 1 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_2_trade_goods",
+    "source": "trade_goods/region_2_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Serrated Reef Fin"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Corrosive Trench Scale"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Barbed Trench Tentacle"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Severed Hydra Neck-Crest"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Scalding Vapor Phial"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Barbed Coral Harpoon"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Brine-Salt Talisman"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Pure Abyssal Vial"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Coiled Sucker Tendril"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Ivory Trench Tooth"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Pale Abyssal Jawbone"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Writhing Eye-Cluster"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Translucent Pincer"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Living Tide-Core"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Steam-Scarred Scute"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 2 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_3_trade_goods",
+    "source": "trade_goods/region_3_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Iron-Gray Wolf Pelt"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Massive Alpha Fang"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Calcified Feather"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Bronze Wing-Pinion"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Brass Nose-Ring"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Razor Lion-Talon"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Venomous Tail-Spike"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Notched Iron Club-Band"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Iron-Scaled Horn"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Scarred War-Belt Plate"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Split-Skull Totem"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Charred Troll Sinew"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Giant's Brass Buckle"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Curved Horn Mask"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Carved Granite Heart"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 3 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_4_trade_goods",
+    "source": "trade_goods/region_4_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Gnarled Dreadwood Heart"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Spectral Silk Fang"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Shimmering Fur Tuft"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Torn Alpha Pelt"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Caustic Obsidian Gel"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Glowing Spore-Bulb"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Acidic Slime Residue"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Spun Silk-Sac"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Nightmare Hearthstone"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Amber Sap Pendant"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Golden Gel Shard"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Knotted Swamp-Wand"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Suspended Bone-Key"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Feathered Bear-Claw"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Pulsing Vine-Heart"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 4 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_5_trade_goods",
+    "source": "trade_goods/region_5_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Silk-Wrapped Claw Charm"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Cooled Obsidian Shard"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Molten Shed Scale"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Charred Ash-Core"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Brass-Forged Beard-Ring"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Heated Iron Spear-Tip"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Petrified Eye-Stone"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Tarnished Brass Anklet"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Desiccated Linen Wrap"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Singed Brimstone Fang"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Three-Horned Crest"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Eternal Cinder Essence"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Scarlet Hatchling Scale"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Massive Bore-Tooth"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Ember-Hot Horn Fragment"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 5 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_6_trade_goods",
+    "source": "trade_goods/region_6_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Crimson Talon"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Carved Sphinx Feather"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Unmelting Ice-Splinter"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Jagged Wing-Quill"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Storm-Tipped Feather"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Bottled Tempest Wind"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Whispering Air-Core"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Barbed Poison Stinger"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Cobalt Hatchling Scale"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Braided Cloud-Silk"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Crackling Lightning Fang"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Twelve-Legged Storm-Hide"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Plume of the Sky-Titan"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Charged Sapphire Horn"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Crown-Forged Storm Pearl"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 6 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_7_trade_goods",
+    "source": "trade_goods/region_7_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Blackened Wing-Pinion"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Abyssal Chitin Fang"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Sixfold Iron Bracelet"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Condensed Void-Shroud"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Scorched Tail-Spine"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Venomous Beard-Tendril"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Blazing Horseshoe"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Whispering Silver Clasp"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Ash-Gray Buzzard Plume"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Jagged Iron Hide-Plate"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Living Spiked Link"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Pale Scorpion Stinger"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Massive Pincer-Claw"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Branded Hell-Horn"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Eternal Permafrost Shard"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 7 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_trade_goods_region_8_trade_goods",
+    "source": "trade_goods/region_8_trade_goods.txt",
+    "category": "trade_goods",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Crimson Signet Thimble"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Bleached Marrow Bone"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Tattered Burial Band"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Cold Twilight Ash"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Rotting Claw-Tip"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Ethereal Wisp-Thread"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Flickering Soul-Lantern"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Fetid Crypt Fang"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Tarnished Tomb-Blade"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Wailing Silver Shroud"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Shadow-Hide Cloak"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Black-Frost Shackle"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Crimson Blood-Vial"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Royal Velvet Signet"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Shattered Phylactery Seal"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Region 8 Trade Goods Crest"
+      }
+    ]
+  },
+  {
+    "id": "items_ui_silhouettes",
+    "source": "ui/silhouettes.txt",
+    "category": "ui",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Weapon Slot Glyph"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Shield Slot Glyph"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Helmet Slot Glyph"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Body Armor Slot Glyph"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Accessory Slot Glyph"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Quest Scroll Glyph"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Ranged Bow Glyph"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Magic Staff Glyph"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Spells & Magic Glyph"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Light Tunic & Robes Glyph"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Cloak Accessory Glyph"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "War-Horn Accessory Glyph"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Orb Accessory Glyph"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Quiver Accessory Glyph"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Crystal Accessory Glyph"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Tome & Lore Glyph"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Runestone Glyph"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Potion Flask Glyph"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Key & Relic Glyph"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Trade Goods Glyph"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Party Hero Glyph"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "All Pack Bag Glyph"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Combat Arena Glyph"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Bestiary Skull Glyph"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "World Atlas Glyph"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_battleaxes",
+    "source": "weapons/battleaxes.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Worn Camp Axe"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron Bearded Battleaxe"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Cleaver Axe"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Boarding Battleaxe"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Barnacle Cleaver Axe"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Splitter Battleaxe"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Trench Battleaxe"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Redmarch War-Axe"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Gatebreaker Battleaxe"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Timberfall Battleaxe"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Sap-Tempered Battleaxe"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Weald-Reaper Axe"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Crescent Dune Battleaxe"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Brass-Edged War-Axe"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Veridian Sun-Axe"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Peak-Cleaver Battleaxe"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Granite-Biter War-Axe"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Runed Battleaxe"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Ice-Carver Battleaxe"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Northern Wolf-Axe"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Rimefang Battleaxe"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ash-Forged Battleaxe"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Skull-Splitter Battleaxe"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Executioner's Judgment"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Battleaxes Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_daggers",
+    "source": "weapons/daggers.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Chipped Iron Dagger"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Balanced Steel Dagger"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Dirk"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Gutting Dagger"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Bilge-Rat Dirk"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Salt-Stained Stiletto"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Trench Dagger"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Redmarch Poniard"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Hollowstone Steel Dagger"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Fang-Tipped Dagger"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Nightshade Dirk"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Briar-Thorn Stiletto"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Curved Oasis Dagger"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Obsidian Desert Dirk"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Mirage Gilded Stiletto"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Flint-Edge Dagger"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Sky-Talon Dirk"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Star-Steel Stiletto"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Ice-Shard Dagger"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Frost-Fang Dirk"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Silent-Snow Stiletto"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Shadow-Steel Dagger"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Night-Viper Dirk"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Eclipse Shadow Dagger"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Daggers Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_greatswords",
+    "source": "weapons/greatswords.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Pitted Claymore"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron Greatsword"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Zweihander"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Saltwind Greatsword"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Harbor-Breaker Claymore"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Tide-Forged Greatsword"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Siege Greatsword"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Slatepeak Zweihander"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Hollowstone Greatsword"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Thorn-Etched Greatsword"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Moss-Iron Claymore"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Greatblade"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sand-Bronze Greatsword"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Dunespire Claymore"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Sunfire Greatsword"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Crag-Splitter Greatsword"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Storm-Forged Claymore"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Titan-Blade"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Icebreaker Greatsword"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Bleakwatch Zweihander"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Pale-Abyss Greatblade"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ashen-Iron Greatsword"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Wolf-Bane Zweihander"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Koren's Reckoning"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Greatswords Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_light_crossbows",
+    "source": "weapons/light_crossbows.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Light Ash Crossbow"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron-Latch Crossbow"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Scout Crossbow"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Deck Light Crossbow"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Mariner Steel Crossbow"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Piercer Crossbow"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Rampart Light Crossbow"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Steel-Limb Crossbow"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Garrison Rapid Crossbow"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Yew-Stock Crossbow"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Thorn-Bolt Crossbow"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Canopy Sniper Crossbow"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Brass-Gear Crossbow"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Desert Scorpion Crossbow"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Sun-Forged Crossbow"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Crag-Winch Crossbow"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Silver-Spring Crossbow"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Thunder-Latch Crossbow"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Ice-Lock Light Crossbow"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Bleakwatch Crossbow"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Boreal Bolt-Thrower"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Dread-Latch Crossbow"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Eclipse Quick-Crossbow"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Starlight Bolt-Thrower"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Light Crossbows Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_longbows",
+    "source": "weapons/longbows.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Yew Hunting Longbow"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Ashwood Longbow"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Longbow"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Driftwood Longbow"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Horn-Tipped Longbow"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Saltwind Composite Longbow"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Border Longbow"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Ironwood War-Longbow"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Watchtower Longbow"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Briarwood Longbow"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Heartwood Recurve Longbow"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Greatbow"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Palm-Horn Longbow"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Dune-Wind Longbow"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Sun-Crest Longbow"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Ridge-Horn Longbow"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Eagle-Eye Longbow"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Storm-String Longbow"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "White-Pine Longbow"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Glacial Horn-Longbow"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Boreal Wind Longbow"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ashen-Yew Longbow"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Shadow-Piercer Longbow"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Horizon Starbow"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Longbows Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_longswords",
+    "source": "weapons/longswords.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Rusted Longsword"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron Longsword"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Longsword"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Salt-Tempered Longsword"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Brinecliff Longsword"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Tidewater Longsword"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Redmarch Longsword"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Garrison War-Longsword"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Thornwall Knight's Longsword"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Briarwood Longsword"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Greenwarden Longsword"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Longsword"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sun-Bronze Longsword"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Mirage Steel Longsword"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Veridian Sunblade"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Highland Steel Longsword"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Star-Iron Longsword"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Master Longsword"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Rime-Iron Longsword"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Glacier-Edge Longsword"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Frostguard Longsword"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ashen-Steel Longsword"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Crimson-Oath Longsword"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Sovereign's Edge"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Longswords Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_maces",
+    "source": "weapons/maces.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Oak Studded Mace"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron Flanged Mace"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Bridgewarden War-Mace"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Belaying Iron Mace"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Anchorhead Mace"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Tidewater Flanged Mace"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Siegebreaker Mace"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Redmarch Spiked Mace"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Bastion War-Mace"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Ironwood Knobbed Mace"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Root-Knotted Mace"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Oakheart Morning-Mace"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sun-Disk Bronze Mace"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Obsidian-Studded Mace"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Sandwall Heavy Mace"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Quarry Iron Mace"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Crag-Breaker Mace"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Forged Mace"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Frost-Bound Mace"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Glacial Crusher Mace"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Permafrost War-Mace"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Siege-Breaker Mace"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Dread-Iron War-Mace"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Citadel Shatterer"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Maces Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_quarterstaves_sheet1",
+    "source": "weapons/quarterstaves.txt",
+    "category": "weapons",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Oakwood Quarterstaff"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron-Shod Quarterstaff"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Quarterstaff"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Driftwood Quarterstaff"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Saltwind Brass-Bound Staff"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Mirewarden Ironwood Staff"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Garrison Quarterstaff"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Redmarch Steel-Cap Staff"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Bastion War-Staff"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Briarwood Quarterstaff"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Heartwood Quarterstaff"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Verdant Ironwood Staff"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Sun-Hardened Quarterstaff"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Gilded Oasis Staff"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Desert Palm Quarterstaff"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Highland Pine Quarterstaff"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_quarterstaves_sheet2",
+    "source": "weapons/quarterstaves.txt",
+    "category": "weapons",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Star-Iron Quarterstaff"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Storm-Iron Battle Staff"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Frostpine Quarterstaff"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Rime-Bound Quarterstaff"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Boreal Warden Staff"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Ashenwood Quarterstaff"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Lifebinder's Ironwood Staff"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Sovereign Dawn Quarterstaff"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Novice Willow Staff"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Marsh-Reed Conclave Staff"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Redmarch Banner-Staff"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Canopy Moon-Crescent Staff"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Mirage Bronze Sun-Rod"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Glacierspire Ice-Rod"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Ember-Vein Forge Staff"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Highcrown Archivist Staff"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_rapiers",
+    "source": "weapons/rapiers.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Training Rapier"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Steel Rapier"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Estoc"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Corsair Rapier"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Sea-Glass Rapier"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Tidecaller Estoc"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Redmarch Duelist Rapier"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Officer's Estoc"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Thornwall Captain's Rapier"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Briar-Thorn Rapier"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Hornet-Sting Rapier"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Verdant Estoc"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Golden-Sand Rapier"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Viper-Fang Rapier"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Mirage Estoc"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Wind-Edge Rapier"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Silver-Peak Estoc"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Storm-Spire Rapier"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Rime-Needle Rapier"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Cold-Steel Estoc"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Frostbite Rapier"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Obsidian Estoc"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Crimson-Dusk Rapier"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Eclipse Heartseeker"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Rapiers Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_scimitars",
+    "source": "weapons/scimitars.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Bronze Leaf Scimitar"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Curved Forester Scimitar"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Crownland Briar Scimitar"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Mariner Crescent Scimitar"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Brine-Edge Scimitar"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Fen-Fang Scimitar"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Border Cavalry Scimitar"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Redmarch Curved Scimitar"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Thornwall Trench Scimitar"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Thorn-Curved Scimitar"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Moss-Steel Scimitar"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Leaf Scimitar"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Bronze Dune Scimitar"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Mirage Shamshir"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Oasis Golden Scimitar"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Ridge-Steel Scimitar"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Thunder-Curved Scimitar"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Silver Scimitar"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Frost-Iron Scimitar"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Tundra Moon Scimitar"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Boreal Glacier Scimitar"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Obsidian Ash Scimitar"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Wild-Eclipse Scimitar"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Primal Dawn Scimitar"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Scimitars Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_shortbows",
+    "source": "weapons/shortbows.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Scout's Shortbow"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Sinew Shortbow"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Ranger's Shortbow"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Sea-Gull Shortbow"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Reed-Bound Shortbow"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Hunter Shortbow"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Outrider Shortbow"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Skirmisher Shortbow"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Thornwall Captain's Shortbow"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Leaf-Wrapped Shortbow"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Willow Shortbow"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Shadowbranch Shortbow"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Nomad's Shortbow"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Sand-Viper Shortbow"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Sirocco Shortbow"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Crag-Jumper Shortbow"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Gale-Wing Shortbow"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Falcon-Strike Shortbow"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Snow-Stalker Shortbow"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Tundra Shortbow"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Winter-Fang Shortbow"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Nightwatch Shortbow"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Gale-Heart Shortbow"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Phantom Shortbow"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Shortbows Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_sickles",
+    "source": "weapons/sickles.txt",
+    "category": "weapons",
+    "grid": "5x5",
+    "aspectRatio": "1:1",
+    "slotCount": 25,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Iron Herb-Sickle"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Curved Field Sickle"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Harvest Steel Sickle"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Marsh-Reed Sickle"
+      },
+      {
+        "coord": "Row 1, Col 5",
+        "name": "Brine-Steel Sickle"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Mire-Root Sickle"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Trench-Iron Sickle"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Borderland Hook-Sickle"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Bastion War-Sickle"
+      },
+      {
+        "coord": "Row 2, Col 5",
+        "name": "Grove Oak Sickle"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Amber-Edge Sickle"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Elderwood Moon-Sickle"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Sun-Brass Sickle"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Glasswind Crescent Sickle"
+      },
+      {
+        "coord": "Row 3, Col 5",
+        "name": "Oasis Solar Sickle"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Flint Ridge Sickle"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Storm-Forged Sickle"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Anvilhall Star-Sickle"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Ice-Carved Sickle"
+      },
+      {
+        "coord": "Row 4, Col 5",
+        "name": "Frostfang Hook-Sickle"
+      },
+      {
+        "coord": "Row 5, Col 1",
+        "name": "Pale-Winter Sickle"
+      },
+      {
+        "coord": "Row 5, Col 2",
+        "name": "Ash-Steel Sickle"
+      },
+      {
+        "coord": "Row 5, Col 3",
+        "name": "Lifeblood Briar Sickle"
+      },
+      {
+        "coord": "Row 5, Col 4",
+        "name": "Moonblade Crescent Sickle"
+      },
+      {
+        "coord": "Row 5, Col 5",
+        "name": "Sickles Category Emblem & Empty-Slot Icon"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_spears_sheet1",
+    "source": "weapons/spears.txt",
+    "category": "weapons",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Ashwood Spear"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Iron War-Spear"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Millbrook Long-Spear"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Harpoon Spear"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Reef-Guard Spear"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "Bog-Stalker Pike"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Phalanx Spear"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Borderland Partisan"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Redmarch War-Spear"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Thorn-Tipped Spear"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Stag-Horn Spear"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Elderwood Long-Spear"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Sand-Strider Spear"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Gilded Sun-Spear"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Oasis War-Spear"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Cliff-Guard Spear"
+      }
+    ]
+  },
+  {
+    "id": "items_weapons_spears_sheet2",
+    "source": "weapons/spears.txt",
+    "category": "weapons",
+    "grid": "4x4",
+    "aspectRatio": "1:1",
+    "slotCount": 16,
+    "slots": [
+      {
+        "coord": "Row 1, Col 1",
+        "name": "Skybridge War-Spear"
+      },
+      {
+        "coord": "Row 1, Col 2",
+        "name": "Storm-Peak Spear"
+      },
+      {
+        "coord": "Row 1, Col 3",
+        "name": "Glacier Spear"
+      },
+      {
+        "coord": "Row 1, Col 4",
+        "name": "Boreal Long-Spear"
+      },
+      {
+        "coord": "Row 2, Col 1",
+        "name": "Frostguard War-Spear"
+      },
+      {
+        "coord": "Row 2, Col 2",
+        "name": "War-Camp War-Spear"
+      },
+      {
+        "coord": "Row 2, Col 3",
+        "name": "Black-Keep Partisan"
+      },
+      {
+        "coord": "Row 2, Col 4",
+        "name": "Dragonspine Spear"
+      },
+      {
+        "coord": "Row 3, Col 1",
+        "name": "Frontier Iron Javelin"
+      },
+      {
+        "coord": "Row 3, Col 2",
+        "name": "Mariner Boarding Pike"
+      },
+      {
+        "coord": "Row 3, Col 3",
+        "name": "Highland Obsidian Pike"
+      },
+      {
+        "coord": "Row 3, Col 4",
+        "name": "Veridian Cobra Spear"
+      },
+      {
+        "coord": "Row 4, Col 1",
+        "name": "Weald Boar-Spear"
+      },
+      {
+        "coord": "Row 4, Col 2",
+        "name": "Stormguard Winged Lance"
+      },
+      {
+        "coord": "Row 4, Col 3",
+        "name": "Bleakwatch Spiked Glaive-Spear"
+      },
+      {
+        "coord": "Row 4, Col 4",
+        "name": "Highcrown Royal Halberd-Spear"
+      }
+    ]
+  }
+]

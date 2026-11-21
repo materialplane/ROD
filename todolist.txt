@@ -1,0 +1,64 @@
+# ROD — Project To-Do List
+
+- [ ] Sort through NPC sheets and determine which ones need to be mirror flipped so they are all facing right
+
+## Tavern System Overhaul (Empty Stages, Dynamic Bards & Vocal-Matched Lore Blurbs)
+- [ ] **Confirm final Bard count (`32` = `16` male + `16` female across `2` `4×4` sheets vs `36` = `18` male + `18` female, `1` male + `1` female per settlement tavern)** before generating prompts/batches
+- [ ] **Map all `11` Season 1 songs (`chapter_01`–`chapter_11`) by Gender & Vocal Tone (`Persona`):**
+  - Male — Deep Resonant Bass (`Ch 05, Ch 11`): hefty, heavy-set, broad-chested male bard appearance
+  - Male — Raspy Measured Baritone (`Ch 07`): weathered, older sharp-eyed male bard appearance
+  - Male — Gritty / Dramatic Tenor (`Ch 01, Ch 03, Ch 09`) & Clear Emotional Tenor (`Ch 08, Ch 10`): lean/athletic seasoned male bards
+  - Male — Youthful Bright Tenor (`Ch 06`): younger, lighter-framed male bard appearance
+  - Female — Classical / Dramatic Alto (`Ch 02, Ch 04`): composed, poised alto female bards
+- [ ] **Generate Bard Roster & Portraits (`16` Male + `16` Female / or `36` total) on `#FF00FF`:**
+  - Design distinct named bards whose build, age, and look match each vocal tone (`e.g., hefty builds for deep bass tracks, slender/young builds for bright tenor, etc.`), keeping full-body or stage-ready transparent `#FF00FF` slices (`.webp`) + `1:1` dialogue portraits as needed
+  - Assign matching Male & Female named bards across all `18` settlement taverns (based on which Continent / Chapter pool songs can play in each tavern)
+- [ ] **Regenerate all `18` Settlement Tavern `16:9` Backgrounds WITHOUT Baked-In Stage Singers:**
+  - Archive current `18` baked-singer masters in `assets/maps/taverns/`
+  - Update `imageprompts/bard-tavern.txt` so every `16:9` room keeps the bar, innkeeper, tables, seated patrons, and **an empty, lit, freestanding raised tavern stage** ready for dynamic bard overlays (zero baked-in bard on stage)
+  - Batch generate (`50%` discount via `models/gemini-3-pro-image`, `16:9`, `4K`) and export `2560×1440` `.webp` backgrounds to `client/assets/maps/taverns/`
+- [ ] **Update Tavern UI, Stage Overlay & Song Chronicle Blurb (`client/src/ui/`):**
+  - Composite/render the active named Bard sprite cleanly onto each tavern's empty stage in UI matching whichever song (`Male` / `Female` / `Vocal Tone`) is currently playing
+  - Add each named Bard cleanly into the tavern's `People Here` panel & dialogue
+  - Remove `"Sung in Koren's / Ellowyn's / Garrick's Voice"` character-singing tags from `tavernLore.ts` & the center blurb — instead show **the named Bard performing the song** cleanly alongside the song overview and world history
+  - Sync updated tavern/bard roster specs to `docs/09-ui-and-steam.md` and catalogs as needed
+
+## Item Icon Slicing & Polish
+- [x] Clean up floating detached arm bracers on `items_armor_light_sheet1.jpg` (`Row 3 Col 1`, `Row 3 Col 3`, and `Row 4 Col 1`) after slicing via Admin Suite icon eraser (or main-component auto-strip before `.webp` export) *(completed cleanly in `tools/export_items.py`)*
+
+## Story & Cutscenes (`14` Complete Illustrated Cutscenes — Full Story, Zero Optional Cuts)
+- [ ] **Track Sequential Main Story Counter (`storySceneIndex`) in Save State:** Save `storySceneIndex` in JSON saves so Main Story Flashback Scenes `1–8` always play strictly in chronological order (`1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8`) as milestones/Portals `1–7` & Black Keep approach trigger, regardless of sandbox exploration order
+- [ ] **Build All `14` Main & Companion `16:9` Story Cutscenes:**
+  1. **Opening Departure:** Highcrown Keep departure with the `4` chosen heroes & `2` Keep defenders
+  2. **Story Scene 1 (`backstory.txt` Ch. 1–2):** *The Coliseum Gaze & Bandage Note* — Koren fighting in the dust, locking eyes with Ellowyn, Mera slipping the chisel key & note into his bandages in Harlan's undercroft infirmary while Garrick rides to war
+  3. **Story Scene 2 (`Ch. 3`):** *The Aqueducts & Garden Sanctuary* — Koren prying the cell grate, creeping through dry aqueducts to meet Ellowyn in the overgrown gardens, sharing both halves of the silver wolf pendant until Mera warns of Garrick's returning army
+  4. **Story Scene 3 (`Ch. 4`):** *The Dawn Confession & Queen's Deception* — Ellowyn revealing she carries Koren's child, scrubbing garden soil in her chamber, and steeling herself to pass the child off as Garrick's heir
+  5. **Story Scene 4 (`Ch. 5–6`):** *The King's Bargain & The Arrogant Pupil* — 12 years later: Garrick offering Koren freedom to train young Valen, and 12-year-old Valen clutching his mother's hidden half-pendant in the shadows
+  6. **Story Scene 5 (`Ch. 7`):** *Orin's Discovery & The Scar* — 5 years later: Orin spotting Valen's matching pendant from the wall, and Koren carving the horizontal scar across Valen's cheek
+  7. **Story Scene 6 (`Ch. 8`):** *The Ripped Freedom Scroll* — Years later in the packed arena: Garrick ordering Koren freed, Orin catching Ellowyn's slip of relief, and Valen tearing the scroll to force a duel to the death
+  8. **Story Scene 7 (`Ch. 9–10`):** *The Dropped Shield & Joined Pendant* — Koren refusing to strike his own son, lowering his guard to die, and Valen pressing the two silver halves together in the sand as Ellowyn breaks down weeping
+  9. **Story Scene 8 (`Ch. 11`):** *The Wrath of the Crown* — Garrick realizing the treason, tearing Ellowyn's crown off, stripping Valen's armor and royal name, prying the fused pendant from his fingers, and locking Valen in Koren's dark cell
+  10. **Companion Cutscene A (`Harlan`):** Losing his wife and daughter to the plague (`Chain B` — keep tight `1–2` focused beats)
+  11. **Companion Cutscene B (`Mera`):** How Ellowyn bought Mera's freedom + rescuing Mera's enslaved mother (`Chain A` — keep tight `1–2` focused beats)
+  12. **Companion Cutscene C (`Orin & Rowan`):** Set `~20+` years ago (predating Valen's youth/training) and hit the exact order cleanly in dialogue so players never wonder how he has a son—Orin refusing the marriage-forbidden Lead Commander post Garrick offered before his marriage $\to$ marrying for love and having Rowan (wife dies in childbirth) $\to$ accepting the post afterward and swearing never to love again while pouring everything into raising Rowan (also explaining why Orin understood forbidden love and kept Ellowyn & Koren's secret in Ch. 7–8; include a small quiet beat noting Rowan never got to know his mother's voice/face and grew up on the borderlands while Orin kept his vow—pure devotion in *ROD 1*)
+  13. **Portal #8 (`Q178`) Climax & Valen Breakdown (`after Abyssal Eclipse Guard`):** Keep full `backstory.txt` Ch. 10 continuity—Valen already knew Koren was his father, so seeing Garrick chain his murdered parents' joined **Interlocking Wolf Pendant** into Shadowfell sorcery to power The Eclipse Gate shatters his composure; Valen breaks down reliving killing Koren, and the converging companions (all 6 present outside Black Keep even if Valen stayed at Highcrown Keep) pull him back to his feet to make King Garrick pay
+  14. **Campaign Ending (`King Garrick Defeated`):** **Orin's sacrifice** taking Garrick's lethal desperate strike to save Rowan, Garrick falling, and Ethoria's peace
+  15. **Post-Credits Epilogue Stinger (*ROD 2* Hook — After *ROD 1* Victory Closes Cleanly):** Short final scene showing Rowan alone by Orin's grave/monument as the dormant Portal #2 Aboleth corruption finally awakens inside his grief (`keeps ROD 1 ending satisfying & standalone`)
+- [ ] Sync [docs/08-quests-and-story.md](file:///C:/Users/drew0/Documents/ROD/docs/08-quests-and-story.md) Layer 1 cutscene schedule with this complete `14`-scene narrative + post-credits stinger arc when ready
+
+## Sequel Setup (`Realms of Dust 2` — Portal #2 Infection Seed & Rowan Arc)
+- [ ] **Portal #2 (`The Sunken Maw` — The Abyssal Aboleth) Hidden Infection Beat:**
+  - When Portal #2 falls (guaranteeing Rowan is present right at the rift seal/aftermath even if stationed at Highcrown Keep under `Pick 4 of 6`), Rowan quietly absorbs a **dormant Aboleth psychic seed** (non-physical mental/neural corruption so Harlan & Panacea Potions never flag an ordinary illness; Rowan hides mild private headaches out of pride)
+  - Keep Rowan's love for Orin 100% genuine throughout *ROD 1*—only `1` subtle optional camp/aftermath hint after Portal #2 so players don't spoil it before the post-credits stinger
+- [ ] **Future *Realms of Dust 2* Villain Notes (Rowan Corrupted Through Grief):**
+  - Orin's death saving him breaks Rowan's emotional anchor, letting the Aboleth parasite twist **phantoms of both Commander Orin and the dead mother Rowan never knew** across *ROD 2*'s cutscenes
+  - Keep whispers grounded & half-true rather than cartoon-evil—specifically turning **Orin's celibacy vow** into poison, with the twisted dead mother making Rowan furious that Orin never took another wife and forced him to grow up motherless in the borderlands before leaving him completely alone at the end
+
+## Unified FF-Style Character & Party Menu (`Build Once Remaining Core Systems Are Ready`)
+- [ ] **Consolidate `PartyModals.tsx` (`Party`), `PartyGearPanel.tsx`, and Campaign System Modals into One Unified FF-Style Menu (`P` / Top-Left Party Bar / `Menu`):**
+  - Keep all **4 Hero Cards (`Slots 1–4`, HP/MP bars, Level, Silver purse)** anchored on one clean ledger sized for desktop & Steam Deck (`1280×800`) with click & gamepad (`LB / RB`) navigation
+  - **1. Order & Status (`Party & Stats`):** Reorder Slots `1–4` anytime outside combat (`#1` sets the visible Overworld VTT leader), inspect the `2` companions holding **Highcrown Keep**, display full live total combat stats (`Attack`, `Phys Def`, `Magic Def`, `Spell Power Mod`, `Heal Power Mod`, `Speed`, `Crit %`), view **Wounded Resolve (`<50% / <25%`)**, and spend Level-Up Stat Points across `Force, Finesse, Grit, Arcana, Presence` with **`20 / 40 / 60 / 80 / 100` Mastery Perk** milestones
+  - **2. Equip (`5-Slot Hero Paperdoll + Runestone Socket`):** Interactive **Right Hand**, **Left Hand (`Global Shield`)**, **Helmet**, **Body Armor**, **Class Accessory**, and **Runestone Socket** layout around the selected hero; selecting a slot filters Shared Party Bag gear usable by that hero in that slot and reuses our **`Currently Wearing → Shop/Bag Item`** green/red compare card (`2H`/`1H Shield` checks + permanent Runestone overwrite confirmation)
+  - **3. Abilities (`Weapon Attacks & Spells`):** Show the hero's equipped weapon's **2 unique `0 MP` Attack Modes** plus all learned **MP Spells** (`Ellowyn, Mera, Harlan`) grouped cleanly by Tier
+  - **4. Party Bag (`Shared Inventory`):** Full-width Shared Bag with category filters (`All`, `Potions & Cures`, `Gear`, `Runestones`, `Trade Goods` w/ Silver value preview, `Keys & Catalysts`) and direct equip/use actions
+  - **5. Quests, Bestiary & System:** Fold active **Quests**, **Bestiary**, **Save / Load**, **Audio / Settings**, and **Return to Title** cleanly into the same menu (finalizing whether `Esc` opens the same ledger directly or keeps a slim quick-menu)

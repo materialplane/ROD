@@ -1,0 +1,14 @@
+{
+  "id": "map_03",
+  "name": "Sun-Scorched Isles & Ironcrest Peaks",
+  "regionLabel": "Regions 5\u20136 \u00b7 Sun-Scorched Isles & Ironcrest",
+  "width": 8192,
+  "height": 8192,
+  "tileSize": 512,
+  "cols": 16,
+  "rows": 16,
+  "spawn": {
+    "x": 4096,
+    "y": 4096
+  }
+}

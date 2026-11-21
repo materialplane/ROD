@@ -1,0 +1,37 @@
+# ROD — Region 6: The Ironcrest Highlands Trade Goods Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: docs/07-bestiary-and-bosses.md & data/items-catalog.json (Region 6 Monster & Trade Loot (15 + Category Crest))
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 REGION 6 TRADE GOODS START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated fantasy RPG monster trophy and trade-good loot icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY LOOT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG merchant/bag icon readability, smooth sculpted chitin, horn, pelt, bone, metal, glass vial, scale, and stone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/liquids/glows, and ZERO letters or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 loot icons float centered cleanly in 3/4 RPG object view filling ~75% of each invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically.
+
+Render these exact 16 distinct trade goods cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Crimson Talon): Cruel curved gleaming bright blood-crimson giant bird-of-prey talon.
+Row 1, Col 2 (Carved Sphinx Feather): Intricately sculpted solid antique gold & ivory sphinx wing-feather talisman.
+Row 1, Col 3 (Unmelting Ice-Splinter): Razor-sharp pure clear icy pale-cyan crystal splinter gleaming crisply without melting.
+Row 1, Col 4 (Jagged Wing-Quill): Long sleek black-and-white jagged storm-bird wing quill feather tipped in sharp bronze sheen.
+
+Row 2, Col 1 (Storm-Tipped Feather): Crisp cobalt-blue hawk feather tipped strikingly at point with bright electric golden lightning arc.
+Row 2, Col 2 (Bottled Tempest Wind): Round clear crystal decanter sealed tightly over swirling pale white-blue miniature gale vortex.
+Row 2, Col 3 (Whispering Air-Core): Translucent cloudy sky-cyan spherical wind elemental core ringed faintly by silver wind bands.
+Row 2, Col 4 (Barbed Poison Stinger): Wicked black-and-amber barbed manticore-wasp giant stinger dripping amber toxin drop.
+
+Row 3, Col 1 (Cobalt Hatchling Scale): Gleaming deep cobalt-blue metallic triangular storm-drake hatchling scale.
+Row 3, Col 2 (Braided Cloud-Silk): Soft billowy pale sky-white cloud-silk ribbon braided cleanly with fine silver thread.
+Row 3, Col 3 (Crackling Lightning Fang): Sharp pearly ivory wyvern fang streaked cleanly down center with crackling electric gold veins.
+Row 3, Col 4 (Twelve-Legged Storm-Hide): Thick mottled storm-gray & indigo twelve-legged behir reptile leather hide section.
+
+Row 4, Col 1 (Plume of the Sky-Titan): Towering vibrant emerald-gold & sky-blue iridescent tail plume feather of a roc sky-titan.
+Row 4, Col 2 (Charged Sapphire Horn): Curved deep translucent sapphire-blue glowing storm-beast horn tipped in bright silver.
+Row 4, Col 3 (Crown-Forged Storm Pearl): Luminous pearlescent white-blue giant storm pearl mounted cleanly inside delicate silver crown setting.
+Row 4, Col 4 (Region 6 Trade Goods Crest): Ironcrest Trophy Crest: Minimalist matte tarnished-bronze mountain peak & feather crest emblem with NO text or borders on pure #FF00FF.
+--- 4x4 REGION 6 TRADE GOODS END ---

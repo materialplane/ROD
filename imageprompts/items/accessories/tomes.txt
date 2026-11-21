@@ -1,0 +1,47 @@
+# ROD — Herbalist Accessory — Tomes Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Herbalist -> Tomes (24 + Crest)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 TOMES PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated closed medieval fantasy book codex without text fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, horn, leather, gold, bronze, iron, and stone surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 tomes stand angled identically 3/4 upright facing subtly forward-left so front decorative cover relief and thick gold/parchment page edge read crisply (ZERO text, zero printed words). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Linen Herbal Tome): Worn frayed oatmeal linen-covered pocket field journal bound loosely with simple twine knot and stained parchment pages.
+Row 1, Col 2 (Stitched Field Primer): Rough dark stitched saddle-leather primer fastened cleanly with thick leather lace and wooden toggle clasp.
+Row 1, Col 3 (Crownland Herbal Ledger): Crownland tidy deep-green leather-bound apothecary ledger with plain brass corner plates and gold leaf edges.
+Row 1, Col 4 (Mariner's Tide-Tome): Mariner's dark navy waterproof oiled-leather tide-book fastened by tarnished brass sea-clasp and rope marker.
+Row 1, Col 5 (Sea-Kelp Herbarium): Sea-Kelp mottled teal dried leather-and-hemp herbarium pressed neatly with dry olive plant stem relief embossing.
+
+Row 2, Col 1 (Mire-Leaf Ledger): Mire-Leaf dark bog-brown scarred thick herbalist book featuring dull bronze corner guards and strapped buckle.
+Row 2, Col 2 (Battlefield Triage Tome): Battlefield battered iron-bound crimson-leather field triage book showing crisp steel cross-strap rivet reinforcement.
+Row 2, Col 3 (Cinder-Ink Compendium): Cinder-Ink blackened matte slate-leather grim medical compendium embossed sparingly with warm bronze spine ridges.
+Row 2, Col 4 (Bastion Field Codex): Bastion heavy steel-plated dark crimson fortress field codex locked solidly with thick hinged forged iron clasp.
+Row 2, Col 5 (Herbalist's Lore Tome): Herbalist's rich forest-green tooled leather lore book inlaid on front board with pressed antique-brass oak leaf silhouette.
+
+Row 3, Col 1 (Amber-Leaf Codex): Amber-Leaf warm chestnut leather Weald codex showcasing carved bronze vine corners cradling small amber cabochon center.
+Row 3, Col 2 (Elderwood Verdant Tome): Elderwood thick gnarled bark-and-moss-green leather ancient druid tome bound with sculpted brass branching roots.
+Row 3, Col 3 (Sun-Dial Field Tome): Sun-Dial gilded desert-tan leather field journal inset proudly on cover with round engraved brass sundial medallion.
+Row 3, Col 4 (Oasis Apothecary Codex): Oasis deep cobalt-and-gold embossed Veridian apothecary codex clasped neatly with curved brass crescent hinge.
+Row 3, Col 5 (Solar-Bloom Tome): Solar-Bloom radiant saffron silk-and-gold hardcover tome displaying clean sculpted brass sunburst ornament.
+
+Row 4, Col 1 (Alpine-Herb Folio): Alpine-Herb pale mountain-gray wool-over-wood folio clasped tightly with sturdy slate-iron highland straps.
+Row 4, Col 2 (Crag-Herb Compendium): Crag-Herb dark granite-toned ironbound heavy mountain compendium adorned cleanly with silvered corner mounts.
+Row 4, Col 3 (Anvilhall Runic Tome): Anvilhall Master dark blackened star-iron metal-bound codex inlaid seamlessly with glowing warm amber geometric lines.
+Row 4, Col 4 (Frost-Script Folio): Frost-Script pale frozen slate-blue winter leather folio bordered smoothly in white northern fox fur trim.
+Row 4, Col 5 (Ice-Bound Herbarium): Ice-Bound heavy midnight-navy steel-strapped herbarium encrusted lightly at corner rivets with clean silver frost.
+
+Row 5, Col 1 (Glacial Botany Tome): Glacial frosty pale glacier-cyan & silver cold tome featuring sharp carved silver crystal cover clasp.
+Row 5, Col 2 (Ash-Ward Triage Tome): Ash-Ward Dreadwaste charred charcoal volcanic-leather triage book scarred subtly by warm ember-orange spine trim.
+Row 5, Col 3 (Lifebinder's Folio): Lifebinder's thick ivory-and-deep-emerald heirloom apothecary folio clasped proudly in sculpted gold leaf hinges.
+Row 5, Col 4 (Codex of the First Dawn): Codex of the First Dawn — apex Herbalist endgame royal gleaming brushed-gold & crimson velvet hardcover relic tome crowning an astral sun emblem.
+Row 5, Col 5 (Tomes Category Emblem & Empty-Slot Icon): Tomes Category Emblem & Empty-Slot Icon: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic closed hardcover tome silhouette angled 3/4 upright—clean spine ribs and simple side clasp with NO letters, NO glow, NO borders on pure #FF00FF.
+--- 5x5 TOMES PROMPT END ---

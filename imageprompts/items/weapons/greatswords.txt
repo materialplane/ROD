@@ -1,0 +1,51 @@
+# ROD — 2H Greatsword Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Duelist -> Greatsword (2H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 2H massive greatsword fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 items follow ONE identical 45-degree diagonal UI icon angle inside their cell: hilt/pommel toward the bottom-left corner and blade tip pointing cleanly toward the upper-right corner. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Pitted Claymore): Heavy scarred dark iron 2H claymore with nicked broad blade, crude forward-tilted iron crossguard, long rough brown cloth-wrapped handle, and thick iron ball pommel.
+Row 1, Col 2 (Iron Greatsword): Plain solid forged dark-iron 2H greatsword featuring broad flat blade, sturdy straight iron crossguard, dark saddle-leather long two-handed grip, and heavy wheel pommel.
+Row 1, Col 3 (Crownland Zweihander): Clean Crownland zweihander with wide polished steel blade, bold sweeping iron parrying lugs below forward-curved crossguard, tan stitched two-hand grip, and heavy cone pommel.
+Row 1, Col 4 (Saltwind Greatsword): Saltwind naval 2H greatsword sporting thick corrosion-darkened steel blade, heavy bronze anchor-flanged crossguard, tarred hemp rope long hilt, and heavy brass finial.
+Row 1, Col 5 (Harbor-Breaker Claymore): Harbor-Breaker claymore crafted from heavy dark sea-steel with broad chopping bevels, chunky riveted brass crossguard lugs, dark teal oiled-leather long grip, and bolted bronze pommel.
+
+Row 2, Col 1 (Tide-Forged Greatsword): Tide-Forged marsh-knight greatsword displaying wavy rippled bluish-gray steel blade, patinated sea-bronze swept guard arms, leather-strapped long handle, and carved shell-fluted pommel.
+Row 2, Col 2 (Siege Greatsword): Heavy Redmarch siege greatsword bearing massive armor-cleaving dark slate blade, heavy squared iron bolster plates & crossguard, long iron-corded hilt, and studded war pommel.
+Row 2, Col 3 (Slatepeak Zweihander): Slatepeak highland mining-steel zweihander featuring thick diamond-section gray blade, jagged chisel-cut steel parry-hooks, dark grey leather long grip, and faceted granite-steel pommel.
+Row 2, Col 4 (Hollowstone Greatsword): Hollowstone noble stronghold greatsword with long blackened-steel blade, aristocratic dark rose-copper wing crossguard, wine-crimson bound two-handed grip, and heavy spiked brass pommel.
+Row 2, Col 5 (Thorn-Etched Greatsword): Thorn-Etched woodland greatsword sporting broad olive-patina steel blade etched cleanly near ricasso with angular thorn lines, dark bronze thorned crossguard, and dark oak long hilt.
+
+Row 3, Col 1 (Moss-Iron Claymore): Moss-Iron forest claymore featuring mottled dark steel broad blade, rugged bronze bark-textured angled crossguard, mossy dark-green wrapped grip, and chunky amber-set bronze pommel.
+Row 3, Col 2 (Elderwood Greatblade): Elderwood Greatblade — imposing ancient sylvan steel greatsword with leaf-broadened sweeping tip profile, sweeping antlered dark-bronze guard wings, hardwood grip, and carved bronze crown pommel.
+Row 3, Col 3 (Sand-Bronze Greatsword): Sand-Bronze southern greatsword combining gleaming warm bronze central rib and sharpened mirror-steel outer edges, gilded flared desert guard, desert-tan wrapped handle, and brass sun pommel.
+Row 3, Col 4 (Dunespire Claymore): Dunespire Veridian claymore with broad golden-edged dark steel blade, intricate fluted brass forward-swept guard horns, deep cobalt stitched two-hand grip, and teardrop brass pommel.
+Row 3, Col 5 (Sunfire Greatsword): Sunfire Greatsword — regal gilded brass sunburst guard flaring cleanly around a blazing polished high-steel double-edged greatblade etched cleanly along center, crimson grip, sculpted brass pommel.
+
+Row 4, Col 1 (Crag-Splitter Greatsword): Crag-Splitter granite-gray 2H mountain greatsword with colossal chiseled angular bevel planes, thick riveted iron crossguard arms & side lugs, and coarse charcoal leather two-hand grip.
+Row 4, Col 2 (Storm-Forged Claymore): Storm-Forged Claymore — gleaming silver-steel highcrest blade accented with crisp lightning-gold crossguard inlays, steel parry-hooks, navy leather long grip, and chiseled steel pommel.
+Row 4, Col 3 (Anvilhall Titan-Blade): Anvilhall Titan-Blade — monumental master-smith greatsword uniting thick blackened star-iron core gleaming warmly with amber forge-lines and mirror-honed edges, anvil crossguard, heavy steel pommel.
+Row 4, Col 4 (Icebreaker Greatsword): Icebreaker cold northern greatsword forged of frosty pale gray steel with broad ice-splitting diamond point, thick riveted iron guard, white fur-wrapped collar, and heavy iron claw pommel.
+Row 4, Col 5 (Bleakwatch Zweihander): Bleakwatch Zweihander — grim warlord two-handed blade with blackened jagged iron parry lugs, dark frosted slate steel edge, steel-riveted dark wolfskin handle, and spiked iron pommel.
+
+Row 5, Col 1 (Pale-Abyss Greatblade): Pale-Abyss Greatblade — towering Frostbound masterpiece combining obsidian-dark core steel fused cleanly into pale glacier-cyan razor outer edges, frosted silvered crown guard.
+Row 5, Col 2 (Ashen-Iron Greatsword): Ashen-Iron Dreadwaste greatsword with scarred volcanic charcoal steel blade, crisp bright orange-ember heat groove running up center, heavy chained black-iron guard & two-hand hilt.
+Row 5, Col 3 (Wolf-Bane Zweihander): Wolf-Bane Zweihander — ruthless execution greatblade displaying dark steel swept blade with crimson enamel blood-fuller, fierce jagged dark-steel wolf-jaw crossguard, crimson grip, spiked pommel.
+Row 5, Col 4 (Koren's Reckoning): Koren's Reckoning — legendary Highcrown Coliseum champion greatsword featuring massive razor-sharp star-steel blade scarred subtly near ricasso, heavy burnished bronze-and-steel winged lion crossguard, aged crimson arena-leather two-hand grip, and heavy crowned bronze pommel.
+Row 5, Col 5 (Greatswords Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic heavy two-handed greatsword silhouette emblem at 45-degree angle—broad long blade, flared parry lugs, long straight hilt with NO gems, NO glow, NO circle border, and NO box frame on pure #FF00FF.
+--- 5x5 PROMPT END ---

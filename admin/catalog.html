@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Markers, Tokens &amp; Assets Catalog</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { overflow-y: auto; height: auto; }
+    .catalog-wrap {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .catalog-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .cat-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .cat-btn {
+      background: var(--panel-alt);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .cat-btn.active {
+      color: var(--gold-bright);
+      border-color: var(--gold);
+      background: rgba(217, 167, 74, 0.14);
+    }
+    .search-box {
+      background: var(--panel-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 10px;
+      width: 240px;
+      font-size: 12.5px;
+    }
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 14px;
+    }
+    .tok-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .tok-card img {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+    }
+    .tok-name { font-weight: 700; font-size: 13px; }
+    .tok-meta { font-size: 11px; color: var(--muted); line-height: 1.35; }
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .sheet-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .sheet-card img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      margin-top: 8px;
+    }
+    h2.sec-title {
+      margin: 26px 0 12px;
+      font-size: 16px;
+      color: var(--gold-bright);
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a href="/" class="nav-link" title="Back to Dev Portal">&larr; Hub</a>
+      <span class="brand-badge">INTERNAL ADMIN SUITE</span>
+      <strong class="brand-title">Markers &amp; Asset Catalog</strong>
+    </div>
+
+    <nav class="admin-nav">
+      <a class="nav-pill" href="/admin/">World Builder</a>
+      <a class="nav-pill active" href="/admin/catalog.html">Markers &amp; Assets</a>
+      <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+      <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+      <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+    </nav>
+  </header>
+
+  <main class="catalog-wrap">
+    <div class="catalog-controls">
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-btn active" data-cat="all">All 101 Markers</button>
+        <button class="cat-btn" data-cat="permanent">40 Locations</button>
+        <button class="cat-btn" data-cat="quest_field">Quest Sites (37)</button>
+        <button class="cat-btn" data-cat="travel">Travel (4)</button>
+        <button class="cat-btn" data-cat="standby">Standby (12)</button>
+        <button class="cat-btn" data-cat="dungeon_door">Dungeon Doors (4)</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span id="summaryPill" class="progress-pill">Loading...</span>
+        <input id="searchBox" class="search-box" type="text" placeholder="Search markers..." />
+      </div>
+    </div>
+
+    <div class="token-grid" id="tokenGrid"></div>
+
+    <h2 class="sec-title">Archived Raw 4K Batch Sheets (assets/tokens/markers/batch_sheets/)</h2>
+    <div class="sheet-grid" id="sheetGrid"></div>
+  </main>
+
+  <script>
+    (async () => {
+      const tokenGrid = document.getElementById("tokenGrid");
+      const sheetGrid = document.getElementById("sheetGrid");
+      const summaryPill = document.getElementById("summaryPill");
+      const catTabs = document.getElementById("catTabs");
+      const searchBox = document.getElementById("searchBox");
+
+      let markers = [];
+      let vfxCount = 0;
+      let activeCat = "all";
+
+      const mRes = await fetch("/data/markers-manifest.json");
+      if (mRes.ok) {
+        const data = await mRes.json();
+        markers = data.markers || [];
+      }
+      const vRes = await fetch("/data/vfx-effects.json");
+      if (vRes.ok) {
+        const vData = await vRes.json();
+        vfxCount = vData.totalEffects || (Array.isArray(vData.effects) ? vData.effects.length : 0);
+      }
+
+      function renderTokens() {
+        const q = searchBox.value.trim().toLowerCase();
+        const filtered = markers.filter((m) => {
+          if (activeCat !== "all" && m.cat !== activeCat) return false;
+          if (q && !(`${m.name} ${m.kind} ${m.id}`).toLowerCase().includes(q)) return false;
+          return true;
+        });
+
+        summaryPill.textContent = `Showing ${filtered.length} / ${markers.length} Markers · ${vfxCount} Cataloged VFX`;
+        tokenGrid.innerHTML = "";
+
+        for (const m of filtered) {
+          const card = document.createElement("div");
+          card.className = "tok-card";
+          const img = document.createElement("img");
+          img.src = "/" + m.assetPath;
+          img.loading = "lazy";
+          img.alt = m.name;
+
+          const name = document.createElement("div");
+          name.className = "tok-name";
+          name.textContent = m.locNum ? `#${m.locNum} ${m.name}` : m.name;
+
+          const meta = document.createElement("div");
+          meta.className = "tok-meta";
+          meta.textContent = `${m.region ? "Region " + m.region + " · " : ""}${m.kind}`;
+
+          card.append(img, name, meta);
+          tokenGrid.appendChild(card);
+        }
+      }
+
+      catTabs.addEventListener("click", (e) => {
+        const btn = e.target.closest(".cat-btn");
+        if (!btn) return;
+        activeCat = btn.dataset.cat;
+        for (const b of catTabs.querySelectorAll(".cat-btn")) b.classList.toggle("active", b === btn);
+        renderTokens();
+      });
+      searchBox.addEventListener("input", renderTokens);
+      renderTokens();
+
+      for (let i = 1; i <= 7; i++) {
+        const card = document.createElement("div");
+        card.className = "sheet-card";
+        card.innerHTML = `<strong>Batch Sheet ${i} (4K Raw)</strong><img src="/repo-assets/tokens/markers/batch_sheets/rod_map_markers_sheet_${i}.jpg" loading="lazy" alt="Sheet ${i}" />`;
+        sheetGrid.appendChild(card);
+      }
+    })();
+  </script>
+</body>
+</html>

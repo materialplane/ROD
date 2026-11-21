@@ -1,0 +1,33 @@
+# Secrets & local environment
+.env
+.env.*
+*.pem
+*.key
+
+# Raw multi-gigabyte master asset archive (keep backed up outside Git; runtime client/assets/ IS tracked)
+/assets/
+
+# Temporary Gemini Batch API base64 JSONL payloads
+imageprompts/batch/*.jsonl
+
+# Node / Electron / Vite dependencies & build outputs
+node_modules/
+client/dist/
+dist/
+*.tsbuildinfo
+
+# Python caches & virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# Scratch & OS/editor clutter
+scratch/
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,76 @@
+# ROD — 2H Quarterstaff Weapon Icons (Sheet 1 of 2 — 4x4 Full-Weapon Framing on #FF00FF)
+# Category Source: classes.txt -> Mystic, Druid & Herbalist -> Quarterstaff (2H) — Steps 1–16
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 QUARTERSTAVES SHEET 1 START (Copy from next line down — Steps 1–16) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated FULL-LENGTH tall carved 2H medieval quarterstaff fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, crystal, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+ZOOMED-OUT FULL-LENGTH STAFF FRAMING & 4x4 GUTTER LOCK (CRITICAL):
+Shrink every long quarterstaff cleanly to show 100% OF THE ENTIRE STAFF FROM END TO END inside its square cell — tilted diagonally at exact 45 degrees with the complete lower metal ferrule cap floating well clear of the bottom-left cell corner and the carved top crown/finial tip floating well clear of the upper-right cell corner. Size the full slender staff compactly (~65% diagonal span across its invisible cell) with wide empty flat #FF00FF magenta margin (~15% clearance around ALL 4 edges and corners of every cell) so ZERO bottom caps, ZERO shafts, and ZERO finials are ever clipped or cut off at cell boundaries.
+
+Render these exact 16 distinct FULL-LENGTH whole quarterstaves cleanly from Row 1 to Row 4, left to right (Steps 1–16):
+
+Row 1, Col 1 (Oakwood Quarterstaff): Full-length humble weathered straight knotty oakwood quarterstaff shod softly at top and bottom caps with dulled iron ferrules and faded brown hemp center wrap.
+Row 1, Col 2 (Iron-Shod Quarterstaff): Full-length sturdy straight dark-ash fighting quarterstaff banded neatly at top head and lower butt with riveted wrought-iron ferrules and leather grip.
+Row 1, Col 3 (Millbrook Quarterstaff): Full-length Millbrook polished hardwood quarterstaff crowned with octagonal antique bronze striking cap, brass midsection grip rings, tan stitched grip, bronze butt ferrule.
+Row 1, Col 4 (Driftwood Quarterstaff): Full-length sea-smoothed pale coastal oak quarterstaff lashed around upper neck with tarred maritime hemp cord, salt-green bronze top cap and matching lower butt cap.
+
+Row 2, Col 1 (Saltwind Brass-Bound Staff): Full-length dark naval oak staff ringed cleanly at both top and bottom ends with heavy brass compression bands and rounded brass top finial bulb.
+Row 2, Col 2 (Mirewarden Ironwood Staff): Full-length dark swamp-oak twisted staff showing whole length from bronze butt cap to tarnished bronze cage finial holding a cool sea-green tide stone orb.
+Row 2, Col 3 (Garrison Quarterstaff): Full-length Redmarch heavy martial quarterstaff built from iron-banded straight ash topped with flanged dark steel sleeve, crimson center wrap, steel bottom ferrule.
+Row 2, Col 4 (Redmarch Steel-Cap Staff): Full-length officer's war-quarterstaff sporting matte red lacquer neck collar, polished cold steel top finial cap, studded center grip, matching steel bottom cap.
+
+Row 3, Col 1 (Bastion War-Staff): Full-length iron-and-brass ringed fortress staff sporting sculpted bronze twin-crescent top crown cradling a thick blunt steel smashing knob and brass lower ferrule.
+Row 3, Col 2 (Briarwood Quarterstaff): Full-length living-grain woodland quarterstaff whose upper tip curls naturally into a knotted briar finial clasped by mossy bronze vines above full leather-gripped shaft.
+Row 3, Col 3 (Heartwood Quarterstaff): Full-length warm golden-brown polished oak staff topped smoothly with carved bronze leaf prongs clutching a warm smooth amber resin sphere cleanly at top end.
+Row 3, Col 4 (Verdant Ironwood Staff): Full-length ancient dark elderwood druid staff crowning into gnarled copper-and-bronze interlocking branches wrapping clean emerald stone above full knotted shaft.
+
+Row 4, Col 1 (Sun-Hardened Quarterstaff): Full-length desert palmwood fighting quarterstaff fitted with bright fluted brass sun-ring collar, tapered sand-tan stitched center handle, and brass bottom ferrule.
+Row 4, Col 2 (Gilded Oasis Staff): Full-length ornate royal caravan hardwood staff topped with golden scalloped brass lantern finial, lapis-blue braided cord center grip, and matching gold-brass butt cap.
+Row 4, Col 3 (Desert Palm Quarterstaff): Full-length Veridian Sun-quarterstaff crowning cleanly into a golden-brass sunburst crest enclosing an inlaid glowing topaz gem atop full banded palmwood shaft.
+Row 4, Col 4 (Highland Pine Quarterstaff): Full-length sturdy Ironcrest climbing-and-combat quarterstaff capped symmetrically at top and bottom with angular gray granite-steel ferrules and dark wool center grip.
+--- 4x4 QUARTERSTAVES SHEET 1 END ---
+
+
+# ROD — 2H Quarterstaff Weapon Icons (Sheet 2 of 2 — 4x4 Full-Weapon Framing on #FF00FF)
+# Category Source: classes.txt -> Mystic, Druid & Herbalist -> Quarterstaff (2H) — Steps 17–24 (Rows 1–2) + 8 Bonus Variations (Rows 3–4)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta, slice 4x4 (1024x1024 per cell at 4K), export Steps 17–24 (Rows 1–2) to compressed 256x256 .webp icons.
+
+--- 4x4 QUARTERSTAVES SHEET 2 START (Copy from next line down — Steps 17–24 + 8 Extra Variations) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated FULL-LENGTH tall carved 2H medieval quarterstaff fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid BRIGHT NEON HOT-PINK MAGENTA (#FF00FF) chroma-key background (NEVER white background, NEVER gray background, ALWAYS vibrant #FF00FF magenta everywhere outside the items) with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, crystal, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+ZOOMED-OUT FULL-LENGTH STAFF FRAMING & 4x4 GUTTER LOCK (CRITICAL):
+Shrink every long quarterstaff cleanly to show 100% OF THE ENTIRE STAFF FROM END TO END inside its square cell — tilted diagonally at exact 45 degrees with the complete lower metal ferrule cap floating well clear of the bottom-left cell corner and the carved top crown/finial tip floating well clear of the upper-right cell corner. Size the full slender staff compactly (~65% diagonal span across its invisible cell) with wide empty flat #FF00FF magenta margin (~15% clearance around ALL 4 edges and corners of every cell) so ZERO bottom caps, ZERO shafts, and ZERO finials are ever clipped or cut off at cell boundaries. Strictly straight cylindrical quarterstaves only — ZERO warhammer cross-heads and ZERO spear blades.
+
+Render these exact 16 distinct FULL-LENGTH whole quarterstaves cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Star-Iron Quarterstaff): Full-length slender rare meteoric dark star-iron metal-shod staff tipped at top with crisp silvered star-crest crown rings, navy leather center handle, and silver butt cap.
+Row 1, Col 2 (Storm-Iron Battle Staff): Full-length Anvilhall straight blackened star-iron battle quarterstaff inlaid along top cylindrical bronze-capped head with warm forge-amber geometric lines and rounded iron butt ferrule.
+Row 1, Col 3 (Frostpine Quarterstaff): Full-length cold northern white-pine straight quarterstaff fitted with notched dark iron top ring-collar, pale wolf-pelt wrap below collar, and blunt rounded iron lower ferrule.
+Row 1, Col 4 (Rime-Bound Quarterstaff): Full-length frost-touched winter-iron quarterstaff crowned symmetrically by silvered ice-crystal prongs holding an icy sky-blue stone neatly at upper tip above full shaft.
+
+Row 2, Col 1 (Boreal Warden Staff): Full-length endgame Arctic relic staff merging blackened northern iron full shaft with faceted pale glacier-cyan crystal-steel crown finial and silver lower ferrule.
+Row 2, Col 2 (Ashenwood Quarterstaff): Full-length volcanic-charred dark Dreadwaste staff bound with riveted charcoal-iron rings glowing faintly molten-orange along top carved iron head cage above full shaft.
+Row 2, Col 3 (Lifebinder's Ironwood Staff): Full-length revered dark ironwood healer-mage staff blossoming cleanly at upper crown into sculpted antique-gold and emerald living leaves over full bound shaft.
+Row 2, Col 4 (Sovereign Dawn Quarterstaff): Full-length supreme Highcrown endgame royal staff sculpted in glowing brushed gold and silvered star-steel crown prongs framing an astral pale-gold sun orb atop full royal shaft.
+
+Row 3, Col 1 (Novice Willow Staff): Full-length humble pale willow apprentice casting staff topped neatly with simple knotted bronze twig ring, twine center wrap, and blunt iron tip cap.
+Row 3, Col 2 (Marsh-Reed Conclave Staff): Full-length slim dark bog-oak scholar staff inlaid symmetrically with smooth sea-jade oval collar jewel and tarnished bronze ferrules at both ends.
+Row 3, Col 3 (Redmarch Banner-Staff): Full-length heavy military iron-banded war-quarterstaff bearing brass falcon pommel finial, crimson braided wrap, and heavy pointed counterweight ferrule.
+Row 3, Col 4 (Canopy Moon-Crescent Staff): Full-length dark mossy elderwood druid staff cradling a silver crescent moon arc holding subtle green forest bead at upper tip over full leather-wrapped shaft.
+
+Row 4, Col 1 (Mirage Bronze Sun-Rod): Full-length slender brushed desert-brass noble quarterstaff crowning in carved twin solar rings around warm amber jewel above desert suede grip and bronze ferrule.
+Row 4, Col 2 (Glacierspire Ice-Rod): Full-length dark winter-steel northern mystic staff capped symmetrically in octagonal pale blue crystal-rimmed steel crown and frosty steel butt ferrule.
+Row 4, Col 3 (Ember-Vein Forge Staff): Full-length Dreadwaste heavy blackened ironwork fighting staff laced vertically with subtle ember-orange forge trim and ringed steel end caps.
+Row 4, Col 4 (Highcrown Archivist Staff): Full-length ceremonial Highcrown dark walnut scholar quarterstaff banded in gleaming silver rings crowning a balanced sculpted gold astrolabe finial.
+--- 4x4 QUARTERSTAVES SHEET 2 END ---

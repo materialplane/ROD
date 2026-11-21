@@ -1,0 +1,149 @@
+================================================================================
+ROD (Realms of Dust) — Session Handoff
+Updated: 2026-11-20 16:14 CST
+================================================================================
+
+1. WORKING RULES & CREATIVE DIRECTOR PREFERENCES
+--------------------------------------------------------------------------------
+- Read AGENTS.md first before modifying specs, tools, art, or source code.
+- Never edit backstory.txt unless explicitly asked.
+- Never delete master/test sheets inside assets/; move replaced or retired files
+  to assets/items/_archive_v1/ or assets/items/_archive_v2/ instead.
+- Communicate in clear, plain English with clickable file:// links (forward slashes).
+- If the Creative Director asks you to check a Gemini batch job code, reply
+  strictly with whether it is finished (e.g. JOB_STATE_SUCCEEDED) + clickable
+  filepath(s) to the downloaded image(s) — no extra commentary.
+- Always check whether the local preview/dev server is listening on
+  http://127.0.0.1:8766/ (run `node tools/client-dev-server.mjs` if not running).
+  At handoff time, port 8766 is already listening.
+
+
+2. COMPLETED IN THIS SESSION (VERIFIED ON DISK)
+--------------------------------------------------------------------------------
+A. Universal Sigils Purged (Locked Strictly to classes.txt)
+- classes.txt defines 1 class-locked Accessory slot per hero:
+  Cloaks (Duelist/Valen), Orbs (Mystic/Ellowyn), Horns (Bulwark/Orin),
+  Quivers (Archer/Rowan), Crystals (Druid/Mera), Tomes (Herbalist/Harlan).
+- Purged all 16 Universal Sigils from:
+  * Design docs: docs/01-game-vision.md, docs/05-cast-and-skills.md,
+    docs/06-gear-and-runestones.md (removed Section 5E), docs/08-quests-and-story.md,
+    docs/09-ui-and-steam.md, and AGENTS.md.
+  * Quest builders & data: Replaced the 14 old Sigil quest rewards in
+    tools/quest_data_maps12.py and tools/quest_data_maps34.py with regional
+    Runestone Drafts (Lesser / Refined / Greater / Mythic Draft), then re-ran
+    tools/sync_all_178_quests.py and tools/enrich_world_data.py to update
+    data/quests-catalog.json, data/world-locations.json, data/generated-quest-markers.json,
+    client/assets/data/ mirrors, and docs/08-quests-and-story.md (178 quests).
+  * Item catalog: Updated tools/build_items_catalog.py and rebuilt
+    data/items-catalog.json + client/assets/data/items-catalog.json
+    (825 fixed items total: 312 weapons, 92 armor, 92 helms, 24 shields,
+    144 class accessories, 14 consumables, 136 trade goods, 11 key_items;
+    0 sigils, 0 name overlaps).
+  * Portal #8 Exception Preserved: Interlocking Wolf Pendant (Q178) remains
+    strictly a non-equippable key_item / Portal Catalyst
+    (id: key_portal_8_interlocking_wolf_pendant) pointing to
+    assets/icons/items/key_portal_8_interlocking_wolf_pendant.webp.
+  * Prompt & sheet archive: Moved imageprompts/items/accessories/sigils.txt and
+    assets/items/batch_sheets/items_accessories_sigils.jpg into
+    assets/items/_archive_v1/, and ran `submit_items_batch.py --dry-run`
+    to rebuild imageprompts/batch/items_manifest.json (46 active sheets, 936 slots).
+  * Verified repo-wide search found 0 stale equippable sigil references and
+    `npm --prefix client run build` passed (0 errors; note docs/02 line 75 uses
+    "radiant sigil" only as promo banner visual flavor for Ellowyn's spellcasting).
+
+B. Eclipse Quick-Crossbow (Light Crossbows Row 5 Col 3) Fixed & Spliced
+- Checked completed Batch 15 job `batches/f0ebpju25q5em9vfslfey09q4e42354d01u4`,
+  which downloaded `assets/items/batch_sheets/items_weapons_light_crossbows_red_fix_test.jpg`
+  (25/25 unloaded blackened-and-crimson crossbows with zero bolts/arrows).
+- Backed up the unpatched sheet to
+  `assets/items/_archive_v1/items_weapons_light_crossbows.jpg`.
+- Spliced clean unloaded cell R5C1 (698x702) seamlessly into Row 5 Col 3 of
+  `assets/items/batch_sheets/items_weapons_light_crossbows.jpg` and updated AGENTS.md.
+
+C. Full Item, Runestone & UI Icon Export Pipeline (935 Icons -> WebP)
+- Created and ran `tools/export_items.py`, slicing all 46 active sheets into:
+  * client/assets/icons/items/       -> 825 icons (825/825 matching items-catalog.json)
+  * client/assets/icons/runestones/  -> 25 icons (24 tiered stones + rn_empty_socket)
+  * client/assets/icons/ui/          -> 25 unified dark-slate/bronze UI glyphs
+  * client/assets/icons/emblems/     -> 32 category filter/empty-slot emblems
+  * client/assets/icons/extras/      -> 28 reserve spears/staves, extra keys/charts & emblems
+  * client/assets/icons/icons-manifest.json (index of all 935 exported 256x256 WebPs, 10.51 MB)
+  * assets/items/slices/             -> full-res lossless transparent PNG archival crops
+- Technical cleanups already built into `tools/export_items.py`:
+  * Auto-detects both drawn grid divider lines (e.g. Region 2 Trade Goods, Spears Sheet 1)
+    and un-gridded #FF00FF valleys so cell boundaries do not clip neighboring items.
+  * Chroma-keys outer #FF00FF plus enclosed neon-pink loops (crossbow D-ring stirrup,
+    shortbow strings, crystal root cages, horn straps, key/pendant rings) with soft de-spill,
+    while keeping intentional multi-part icons (coin piles, Orbiting Orb/Moon rings, broken
+    shackles, Spells Starburst sparks) intact.
+  * Stripped the 6 detached floating arm bracers from `items_armor_light_sheet1.jpg`
+    (Row 3 Col 1, Row 3 Col 3, Row 4 Col 1) during slicing and checked off that item in
+    `todolist.txt`.
+  * Audited all 935 exported .webp icons programmatically (0 tiny/empty, 0 edge clips,
+    0 neon-pink bleed >=8px) and visually verified a 25-tile edge-case checkerboard composite.
+
+D. Earlier Story & Client Lore Updates (Also Already Saved on Disk)
+- Orin's Lead Commander celibacy-doctrine & vow lore synced in
+  docs/05-cast-and-skills.md and client/src/ui/heroes.ts.
+- todolist.txt documents the full upcoming 14-scene cutscene arc, `storySceneIndex`,
+  Portal #8 Valen/Koren continuity, post-credits stinger, and Realms of Dust 2
+  Portal #2 Aboleth psychic seed / Rowan villain notes.
+
+
+E. Modular Admin Shops & Item Display Mockup Studio (admin/shops/)
+- Built a strictly modular, zero-mega-file ES-module mockup bench at `admin/shops/`
+  (served live at http://127.0.0.1:8766/admin/shops/ and linked from Dev Portal,
+  World Builder, Markers & Assets, and VFX Tester).
+- Uses the real `LocationInteriorModal` visual frame (16:9 interior backdrop art,
+  faction banner, vendor NPC portrait & greeting, Party comparison strip, and bottom
+  Options bar) wired directly to all 41 interior hubs, 825 items & 935 exported WebPs.
+- Controls: Layout (Split Ledger / Classic FF / Icon Vault / Showcase Cards),
+  Squad preset selector, Icon Frame (Bronze Slot / Frameless / Parchment / Tier Edge),
+  Icon Size (48/64/80/96px), Screen Target (Full Fit / 1280x800 Steam Deck / 1600x900),
+  plus classic FF "Who is this for?" Buy Prompt (Equip Now / Equip & Sell Old / Shared Bag)
+  and "All 41 Town Shops" audit table covering Steps 1–24 and Armory vs Apothecary/Caster vendors.
+
+3. CURRENT ASSETS & DATA INVENTORY
+--------------------------------------------------------------------------------
+- Item Sheets (`assets/items/batch_sheets/`): 50 files total:
+  * 46 / 46 active sheets matching `imageprompts/batch/items_manifest.json`
+  * 4 non-manifest leftovers sitting in `batch_sheets/` (safe to move to
+    `_archive_v1/` / `_archive_v2/` if the Creative Director asks to tidy):
+      1. items_weapons_light_crossbows_red_fix_test.jpg
+      2. items_weapons_light_crossbows_v2_test.jpg
+      3. items_weapons_quarterstaves.jpg (old 5x5 pre-split)
+      4. items_weapons_spears.jpg (old 5x5 pre-split)
+- Exported Icons (`client/assets/icons/`): 935 x 256x256 RGBA WebPs (10.51 MB)
+- Key Catalog JSONs (all synced cleanly to `client/assets/data/`):
+  * items-catalog.json (825 fixed items)
+  * runestone-affixes.json (12 weapon prefixes, 10 armor prefixes, 12 universal suffixes)
+  * quests-catalog.json (178 quests)
+  * world-locations.json (255 entries)
+  * npcs-catalog.json (already wired to portraits via `tools/export_npc_portraits.py`)
+
+
+4. NEXT PRIORITIES TO DISCUSS / PICK UP WITH THE USER
+--------------------------------------------------------------------------------
+1. Quick item housekeeping / confirmation (optional):
+   - Ask if the user wants the 4 non-manifest `_test` / old-5x5 sheets in
+     `assets/items/batch_sheets/` moved into `_archive_v1/` / `_archive_v2/`.
+   - Note that in `client/assets/icons/ui/ui_05_accessory_slot_glyph.webp`
+     (`items_ui_silhouettes.jpg` Row 1 Col 5), the generic empty Accessory Slot UI glyph
+     shows an engraved signet ring (while each of the 6 specific Class Accessory glyphs
+     also exists cleanly in `ui_11`–`ui_16` and `emblems/emblem_{cloak,orb,horn,quiver,crystal,tome}.webp`).
+2. Active `todolist.txt` items (in order of user preference):
+   - **NPC Facing Audit:** Sort through NPC portraits (`assets/tokens/npcs/batch_sheets/` /
+     `client/assets/portraits/npcs/`) and identify any that need horizontal mirror-flipping
+     so NPC portraits consistently face right.
+   - **Tavern System Overhaul:** Confirm final Bard count (`32` = 16M+16F vs `36` = 18M+18F),
+     generate Bard sprites matching Season 1 song vocal tones on `#FF00FF`, regenerate the
+     18 settlement 16:9 taverns with empty illuminated stages (`imageprompts/bard-tavern.txt`),
+     and wire dynamic bard stage overlays + lore cleanup in `client/src/ui/` (`tavernLore.ts`,
+     `TavernView.tsx`).
+   - **Story & 14 Cutscenes:** Sync `docs/08-quests-and-story.md` Layer 1 with the full
+     14-cutscene arc + post-credits stinger in `todolist.txt`, add `storySceneIndex` to
+     save state, and generate/wire the 16:9 cutscene art.
+   - **Client Equipment, Inventory, Armory & Combat Integration:** Wire the newly exported
+     `client/assets/icons/` (825 items, 25 Runestones, 25 UI glyphs) and `items-catalog.json` /
+     `runestone-affixes.json` into the playable React/Electron Game Client UI (`client/src/ui/`).
+================================================================================

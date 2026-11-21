@@ -1,0 +1,1065 @@
+REALMS OF DUST (ROD) — COMPLETE LOCATION & NPC ROSTER
+=====================================================
+Total Mapped Locations: 78 (40 Hubs + #69 Highcrown Keep + 20 Zone Outposts + 4 Port Towns + 5 Crossings + 8 Portals)
+Total Named NPCs / Encounters: 352
+Notes:
+  - All Ethorians are strictly human. All Inns and Field Rest tenders are always Free (0s).
+  - Carved Runestones are socketed directly in the Equipment menu (zero Runesmith or extraction NPCs).
+
+==============================================================================
+MAP 1 — THE CROWNLANDS & SALTMARSH COAST (Regions 1–2 | Lv 1–25)
+==============================================================================
+
+--- #1 Highcrown (Capital City | Highcrown Loyalists) ---
+  * Adeline Ashworth — Royal Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Aldric Blackwood — Master Armorer & Provisions (Step 1)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 1), Potions, Buy Trade Goods
+  * Beatrice Carter — Sanctuary Apothecary & Caster Outfitter (Tier 1)
+      Services: Sanctuary Apothecary & Caster Outfitter (Tier 1), Potions & Caster Accessories, Buy Trade Goods
+  * Bramwell Dunstan — Coliseum Pit-Master
+      Services: Local Arena & Coliseum Matches
+  * Commander Orin (or Capital Watch Sgt. Marcus Locke) — Orin / Capital Guard
+      Services: Local Hub Quest
+      Quests: Seal the Aqueduct Grate
+  * Cedric Elliot — Coliseum Armorer
+      Services: Coliseum Arena Repairs & Gear
+      Quests: Salvage Koren's Forge-Kit
+  * Duncan Fairfax — Capital Loyalist Guard
+      Services: Local Hub Quest
+      Quests: Highcrown Perimeter Watch
+  * Edmund Goodwin — Highcrown Watch Captain
+      Services: Local Hub Quest
+      Quests: Word to Oakhaven
+
+--- #69 Highcrown Keep (Home-Front Interior) (Royal Keep | Highcrown Loyalists | Zone 1) ---
+  * The 2 Remaining Party Heroes — Home-Front Keep Defenders (Swappable via Party Split / Story Milestones)
+      Services: Home-Front Council Updates (at 2 / 4 / 6 / 7 Closed Portals)
+  * Eirik Dale — Highcrown Keep Chamberlain
+      Services: Free Royal Keep Rest (0s), Archive Access & Dispatch Ledger
+  * Freya Eaton — Keep Palace Quartermaster
+      Services: Starter Gear Replacements (Step 1), Potions
+
+--- #2 Oakhaven (Town | Free Towns & Guilds) ---
+  * Clara Hawthorne — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Fletcher Ironwood — Oakhaven Blacksmith & Gear Merchant (Steps 1–2)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Steps 1–2), Potions, Buy Trade Goods
+      Quests: Forged Rivets for the Palisade
+  * Delilah Jennings — Apothecary & Caster Outfitter (Tier-1)
+      Services: Apothecary & Caster Outfitter (Tier-1), Potions & Caster Accessories, Buy Trade Goods
+  * Gideon Kemp — Town Arena Master
+      Services: Local Arena & Coliseum Matches
+  * Eleanor Lancaster — Oakhaven Granary Keeper
+      Services: Local Hub Quest
+      Quests: Missing Grain Carts
+  * Fiona Mercer — Heartland Shepherd
+      Services: Local Hub Quest
+      Quests: Boy in the Fold
+  * Hadrian Northwood — Town Constable
+      Services: Local Hub Quest
+      Quests: Bandits at the Old Orchard
+  * Ivor Oakley — Heartland Trapper
+      Services: Local Hub Quest
+      Quests: Poachers on the Meadow Trail
+
+--- #4 Millbrook Crossing (Village | Free Towns & Guilds) ---
+  * Gwendolyn Pendleton — Innkeeper
+      Services: Free Full Party Rest (0s)
+      Quests: Chain D1: The Scarred Name
+  * Jasper Quickwater — Master Armorer & Provisions (Step 3)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 3), Potions, Buy Trade Goods
+  * Helena Redmayne — Apothecary & Caster Outfitter (Remaining Tier-1)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-1), Potions & Caster Accessories, Buy Trade Goods
+  * Isolde Stonebridge — Millbrook Warden
+      Services: Local Hub Quest
+      Quests: Hold the West Palisade
+  * Kendrick Thatcher — Town Mason
+      Services: Local Hub Quest
+      Quests: Shattered Mill-Tower
+  * Leopold Underhill — Crossroads Miner
+      Services: Local Hub Quest
+      Quests: Dust Mephits in the Old Mine Shack
+  * Malcolm Vane — Crossroads Postmaster
+      Services: Local Hub Quest
+      Quests: Lost Courier on the North Ridge
+
+--- #6 Saltwind Harbor (Port Town | Free Towns & Guilds) ---
+  * Josephine Whitaker — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Nolan York — Master Armorer & Provisions (Step 4)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 4), Potions, Buy Trade Goods
+  * Katrina Alder — Apothecary & Caster Outfitter (Tier-2)
+      Services: Apothecary & Caster Outfitter (Tier-2), Potions & Caster Accessories, Buy Trade Goods
+  * Oswald Barrow — Dockside Arena Promoter
+      Services: Local Arena & Coliseum Matches
+  * Capt. Percival Chandler — Harbor Master & Ship Captain
+      Services: Harbor Sea Travel (Map 2 / Map 3 / Map 4 Ports)
+      Quests: Chain A1: Ledgers in the Brine
+  * Quentin Draper — Master Shipwright
+      Services: Local Hub Quest
+      Quests: Pier Three Blockade
+  * Lavinia Everett — Lighthouse Keeper
+      Services: Local Hub Quest
+      Quests: The Cracked Lighthouse
+  * Miriam Fowler — Coastal Merchant
+      Services: Local Hub Quest
+      Quests: Sunken Tide-Cargo
+  * Roderick Granger — Fleet Navigator
+      Services: Local Hub Quest
+      Quests: Harbor-Master's Beach Salvage
+
+--- #9 Mirewatch Post (Outpost | Free Towns & Guilds) ---
+  * Nadia Hollis — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Sebastian Ironside — Master Armorer & Provisions (Step 6)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 6), Potions, Buy Trade Goods
+  * Ophelia Joss — Apothecary & Caster Outfitter (Remaining Tier-2)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-2), Potions & Caster Accessories, Buy Trade Goods
+  * Phillipa Kestrel — Mirewatch Medic
+      Services: Local Hub Quest
+      Quests: Swamp-Fever Antitoxin
+  * Tobias Larkin — Post Engineer
+      Services: Local Hub Quest
+      Quests: Water Weirds in the Cistern
+  * Ulric Marrow — Fen Tracker
+      Services: Local Hub Quest
+      Quests: Chuul Nest in the Fen
+  * Victor Neville — Ferry Pier Master
+      Services: Local Hub Quest
+      Quests: Ambush at the Ferry Landing
+  * Willem Osborne — Saltmarsh Quartermaster
+      Services: Local Hub Quest
+      Quests: Lost Admiralty Chest
+
+--- Brinecliff Watch-Fort (Fort | Highcrown Loyalists) ---
+  * Rosalind Parr — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Xander Quarry — Master Armorer & Provisions (Step 5)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 5), Potions, Buy Trade Goods
+  * Sabina Rowley — Apothecary & Caster Outfitter (Tier-2)
+      Services: Apothecary & Caster Outfitter (Tier-2), Potions & Caster Accessories, Buy Trade Goods
+  * Yorick Sawyer — Fort Quartermaster
+      Services: Local Hub Quest
+      Quests: Tide-Watcher's Cache
+  * Zachary Tanner — Wall Captain
+      Services: Local Hub Quest
+      Quests: Merrow Raiders on the Breakwater
+  * Alistair Upton — Smuggler Informant
+      Services: Local Hub Quest
+      Quests: Reef-Shattered Corsair Wreck
+  * Tabitha Voss — Fort Chaplain
+      Services: Local Hub Quest
+      Quests: Sea-Hag Hollow on the Cliffs
+
+--- Crownlands Hill-Fort (Fort | Highcrown Loyalists) ---
+  * Ursula Wainwright — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Barnaby Yeoman — Fort Armorer & Gear Merchant (Step 3)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 3), Potions, Buy Trade Goods
+      Quests: Rust Monsters at the Munitions Dump
+  * Caspar Baxter — Garrison Captain
+      Services: Local Hub Quest
+      Quests: The Stolen Ribbon
+  * Dorian Cooper — Fort Quartermaster
+      Services: Local Hub Quest
+      Quests: Animated Sentinels of the Knoll
+  * Evander Dyer — Hill-Fort Lookout
+      Services: Local Hub Quest
+      Quests: Signal Fires on the Ridge
+
+--- Meadowbrook Hamlet (Village | Free Towns & Guilds) ---
+  * Vivienne Fenwick — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Godwin Glover — Master Armorer & Provisions (Step 2)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 2), Potions, Buy Trade Goods
+  * Winifred Hayward — Apothecary & Caster Outfitter (Tier-1)
+      Services: Apothecary & Caster Outfitter (Tier-1), Potions & Caster Accessories, Buy Trade Goods
+  * Henrik Inman — Meadowbrook Herder
+      Services: Local Hub Quest
+      Quests: Wolves in the Sheepfold
+  * Ignatius Judd — Hamlet Farmer
+      Services: Local Hub Quest
+      Quests: Stolen Plough-Iron
+  * Jonas Kidd — Hamlet Bailiff
+      Services: Local Hub Quest
+      Quests: Burned Granary Ledger
+  * Yvette Locke — Grain Merchant
+      Services: Local Hub Quest
+      Quests: Seed Caravan to Oakhaven
+
+--- Reedfen Village (Village | Free Towns & Guilds) ---
+  * Zelda Miller — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Kieran Naylor — Master Armorer & Provisions (Step 5)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 5), Potions, Buy Trade Goods
+  * Lucian Oakhurst — Fen Scout
+      Services: Local Hub Quest
+      Quests: Lanterns in the Bog
+  * Matthias Porter — Reedfen Elder
+      Services: Local Hub Quest
+      Quests: Watchtower Braziers
+  * Nigel Read — Village Fisher
+      Services: Local Hub Quest
+      Quests: Poachers of the Reed-Beds
+  * Agatha Shepherd — Village Grocer
+      Services: Local Hub Quest
+      Quests: Salt-Cured Rations to Mirewatch
+
+--- Tidewater Keep (Keep / Castle | Highcrown Loyalists) ---
+  * Bridget Turner — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Octavian Unwin — Master Armorer & Provisions (Step 6)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 6), Potions, Buy Trade Goods
+  * Piers Ward — Sparring Courtyard Master
+      Services: Local Arena & Coliseum Matches
+  * Randall Webster — Keep Commander
+      Services: Local Hub Quest
+      Quests: Hold the Sea-Wall Gate
+  * Cecily Baker — Keep Steward
+      Services: Local Hub Quest
+      Quests: Gibbering Horror in the Cellar
+  * Silas Brewer — Fleet Inspector
+      Services: Local Hub Quest
+      Quests: Sabotage the Black-Market Dock
+  * Dorothea Chapman — Keep Archivist
+      Services: Local Hub Quest
+      Quests: Outer Abyssal Watch
+
+--- Meadowgate Watch-Post (Zone Outpost | Highcrown Loyalists | Zone 1) ---
+  * Thaddeus Decker — Zone 1 Hunt Quartermaster
+      Services: Repeatable Zone 1 Monster Hunts (XP, Silver & Consumables)
+  * Vance Farrier — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Oakwood Ranger Camp (Zone Outpost | Highcrown Loyalists | Zone 2) ---
+  * Walter Gale — Zone 2 Hunt Quartermaster
+      Services: Repeatable Zone 2 Monster Hunts (XP, Silver & Consumables)
+  * Estelle Hall — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Slate-Ridge Scout Outpost (Zone Outpost | Highcrown Loyalists | Zone 3) ---
+  * Freya Irwin — Zone 3 Hunt Quartermaster
+      Services: Repeatable Zone 3 Monster Hunts (XP, Silver & Consumables)
+  * Ambrose Jarvis — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Brinefen Hunter Landing (Zone Outpost | Highcrown Loyalists | Zone 4) ---
+  * Bertram Keene — Zone 4 Hunt Quartermaster
+      Services: Repeatable Zone 4 Monster Hunts (XP, Silver & Consumables)
+  * Genevieve Lowe — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Bogwarden Stilt-Post (Zone Outpost | Highcrown Loyalists | Zone 5) ---
+  * Conrad Mason — Zone 5 Hunt Quartermaster
+      Services: Repeatable Zone 5 Monster Hunts (XP, Silver & Consumables)
+  * Desmond Needham — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Royal Trade Port Town (Port Town | Highcrown Loyalists) ---
+  * Capt. Eamon Orr — Sea-Vessel Captain
+      Services: Inter-Continent Sea Travel (Highland Cove, Desert Harbor, Arctic Sea-Port)
+  * Harriet Page — Harbor Rest Warden
+      Services: Free Harbor Rest (0s), Field Supplies & Buy Trade Goods
+
+--- Ferry Crossing (Ferry Crossing | None (Unaligned)) ---
+  * Fabian Reeves — Strait Ferryman
+      Services: Free Strait Ferry Crossing
+
+--- Ferry Crossing (Ferry Crossing | None (Unaligned)) ---
+  * Gerard Slater — Strait Ferryman
+      Services: Free Strait Ferry Crossing
+
+--- Ferry Crossing (Ferry Crossing | None (Unaligned)) ---
+  * Hugh Trask — Strait Ferryman
+      Services: Free Strait Ferry Crossing
+
+--- Ferry Crossing (Ferry Crossing | None (Unaligned)) ---
+  * Isidore Usher — Strait Ferryman
+      Services: Free Strait Ferry Crossing
+
+--- #5 The Ashen Gate (Portal | None (Unaligned)) ---
+  * The Ashen Iron Golem — Portal Boss #1 (Construct · Zone 3 · Lv 11–15)
+      Services: Dimensional Portal Boss Encounter
+
+--- #10 The Sunken Maw (Portal | None (Unaligned)) ---
+  * The Abyssal Aboleth — Portal Boss #2 (Aberration · Zone 5 · Lv 21–25)
+      Services: Dimensional Portal Boss Encounter
+
+==============================================================================
+MAP 2 — THORNWALL WARFRONTS & VERDANT WEALD (Regions 3–4 | Lv 25–50)
+==============================================================================
+
+--- #11 Redmarch Bastion (Town | Highcrown Loyalists) ---
+  * Ingrid Vickers — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Jorah Wells — Master Armorer & Provisions (Steps 7–9)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Steps 7–9), Potions, Buy Trade Goods
+  * Johanna Bram — Apothecary & Caster Outfitter (Tier-3)
+      Services: Apothecary & Caster Outfitter (Tier-3), Potions & Caster Accessories, Buy Trade Goods
+  * Keegan Croft — Garrison Arena Master
+      Services: Local Arena & Coliseum Matches
+  * Lambert Dale — Bastion Quartermaster
+      Services: Local Hub Quest
+      Quests: Deserters' Armory
+  * Martin Eaton — Garrison Courier
+      Services: Local Hub Quest
+      Quests: Sealed Border Dispatches
+  * Norbert Ford — Border Scout
+      Services: Local Hub Quest
+      Quests: Worg Packs on the Supply Trail
+  * Otis Giles — Harbor Liaison
+      Services: Local Hub Quest
+      Quests: Cove Supply Convoy
+  * Patrick Holt — Bastion Marshal
+      Services: Local Hub Quest
+      Quests: Salvage the Lost War-Wagons
+
+--- #13 Hollowstone Keep (Keep / Castle | House Hollowstone) ---
+  * Katherine Kerr — Liberated Garrison Steward (Unlocked Post-Liberation)
+      Services: Free Full Party Rest (0s Post-Liberation)
+  * Redmond Lane — Master Armorer & Provisions (Step 9 (Unlocked Post-Liberation))
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 9 (Unlocked Post-Liberation)), Potions, Buy Trade Goods
+  * Simeon Marsh — Tourney Yard Herald
+      Services: Local Arena & Coliseum Matches
+  * Lord Cedric Hollowstone — Rival Noble Commander (Chain C2 Boss + Tamed Ettin)
+      Services: Liberation Boss Encounter (Unlocks Step 9 Garrison & Free Rest When Beaten)
+  * Tristan Nash — Rebel Envoy
+      Services: Local Hub Quest
+      Quests: Chain C2: Fall of House Hollowstone
+  * Lydia Pike — Turncoat Gate Warden
+      Services: Local Hub Quest
+      Quests: Prisoners in the Bailey Dungeon
+  * Marjorie Quinn — Keep Steward
+      Services: Local Hub Quest
+      Quests: Secret War-Pact Ledgers
+  * Vernon Rhodes — Liberation Captain
+      Services: Local Hub Quest
+      Quests: Rogue Troll Patrol
+  * Warren Shaw — Rebel Marshal
+      Services: Local Hub Quest
+      Quests: Shatter the Stone-Giant Picket
+
+--- #16 Briarstead (Town | Free Towns & Guilds) ---
+  * Nora Todd — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Alaric Vaughan — Master Armorer & Provisions (Steps 10–12)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Steps 10–12), Potions, Buy Trade Goods
+  * Ottilie Wade — Briarstead Apothecary & Apothecary & Caster Outfitter (Tier-4)
+      Services: Apothecary & Caster Outfitter (Tier-4), Potions & Caster Accessories, Buy Trade Goods
+      Quests: Chain B1: The Spreading Blight
+  * Benedict Briggs — Woodland Ring Promoter
+      Services: Local Arena & Coliseum Matches
+  * Prudence Cobb — Town Herbalist
+      Services: Local Hub Quest
+      Quests: Poultices for the Sawyers
+  * Clement Dunn — Town Gate Guard
+      Services: Local Hub Quest
+      Quests: Blink-Dog Ambush on the Herb Trail
+  * Rhiannon Finch — Village Alchemist
+      Services: Local Hub Quest
+      Quests: Briar-Root Harvest
+  * Sylvia Gunn — Town Beekeeper
+      Services: Local Hub Quest
+      Quests: Wolves in the Apiary Woods
+
+--- Blightwatch Keep (Keep / Castle | Highcrown Loyalists) ---
+  * Tamsin Hale — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Darius Kaye — Master Armorer & Provisions (Step 12)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 12), Potions, Buy Trade Goods
+  * Una Moss — Keep Warden
+      Services: Local Hub Quest
+      Quests: Chain B3: Heart of the Mire
+  * Elias Noyes — Keep Scout
+      Services: Local Hub Quest
+      Quests: Voices in the Roots
+  * Fergus Poole — Garrison Pyromancer
+      Services: Local Hub Quest
+      Quests: Burn the Spore Pits
+  * Gilbert Rye — Quarantine Marshal
+      Services: Local Hub Quest
+      Quests: Hold the Quarantine Gate
+
+--- Goldmoor Village (Village | Free Towns & Guilds) ---
+  * Veronica Stroud — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Hector Webb — Master Armorer & Provisions (Step 8)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 8), Potions, Buy Trade Goods
+  * Inigo Ashworth — Borderland Farmer
+      Services: Local Hub Quest
+      Quests: Burned Banners
+  * Julian Blackwood — Goldmoor Rancher
+      Services: Local Hub Quest
+      Quests: Cockatrices in the Pasture
+  * Killian Carter — Goldmoor Village Elder
+      Services: Local Hub Quest
+      Quests: Herders at Highland Camp
+  * Lazarus Dunstan — Goldmoor Miller
+      Services: Local Hub Quest
+      Quests: Grain Harvest Guard
+
+--- Greenwarden Fort (Fort | Highcrown Loyalists) ---
+  * Willa Elliot — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Marcus Fairfax — Master Armorer & Provisions (Step 12)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 12), Potions, Buy Trade Goods
+  * Astrid Goodwin — Apothecary & Caster Outfitter (Remaining Tier-4)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-4), Potions & Caster Accessories, Buy Trade Goods
+  * Nathaniel Hawthorne — Ranger Ring Master
+      Services: Local Arena & Coliseum Matches
+  * Brenda Ironwood — Fort Chronicler
+      Services: Local Hub Quest
+      Quests: Chain B2: Ghosts of Oakhollow
+  * Orson Jennings — Ranger Captain
+      Services: Local Hub Quest
+      Quests: Trapped Rangers in the Copse
+  * Phineas Kemp — Fort Scout
+      Services: Local Hub Quest
+      Quests: Purge the Blighted Thicket
+  * Quincy Lancaster — Fort Quartermaster
+      Services: Local Hub Quest
+      Quests: Fortify the Outer Palisade
+  * Cordelia Mercer — Fort Medic
+      Services: Local Hub Quest
+      Quests: Stolen Antitoxin Crates
+
+--- Mosswood Hamlet (Village | Free Towns & Guilds) ---
+  * Edith Northwood — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Roland Oakley — Master Armorer & Provisions (Step 11)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 11), Potions, Buy Trade Goods
+  * Stephen Pendleton — Druid Hermit
+      Services: Local Hub Quest
+      Quests: The Forgotten Pillar
+  * Flora Quickwater — Forest Archivist
+      Services: Local Hub Quest
+      Quests: The Wandering Relic
+  * Greta Redmayne — Traveling Bard
+      Services: Local Hub Quest
+      Quests: Nightmare Howls in the Glade
+  * Hilda Stonebridge — Mosswood Healer
+      Services: Local Hub Quest
+      Quests: Pure Spring-Vials to Greenwarden
+
+--- Slatepeak Mining Fort (Fort | Free Towns & Guilds) ---
+  * Irma Thatcher — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Theobald Underhill — Master Smith & Gear Merchant (Step 8)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 8), Potions, Buy Trade Goods
+      Quests: Stolen Iron Ingots
+  * Uriah Vane — Mine Foreman
+      Services: Local Hub Quest
+      Quests: Collapsed Shaft Four
+  * Viggo Whitaker — Caravan Master
+      Services: Local Hub Quest
+      Quests: Toll at Slate-Crag Pass
+  * Winston York — Fort Inspector
+      Services: Local Hub Quest
+      Quests: Abandoned Mine Watch-Shack
+  * Anders Alder — Quarry Watchman
+      Services: Local Hub Quest
+      Quests: Brown Bears in the Upper Adit
+
+--- Thornwall Border Castle (Keep / Castle | Highcrown Loyalists) ---
+  * Judith Barrow — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Bjorn Chandler — Castle Armorer & Gear Merchant (Step 9)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 9), Potions, Buy Trade Goods
+      Quests: Siege-Arrows to the Bailey
+  * Karin Draper — Apothecary & Caster Outfitter (Remaining Tier-3)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-3), Potions & Caster Accessories, Buy Trade Goods
+  * Caleb Everett — Castle Captain
+      Services: Local Hub Quest
+      Quests: Chain C1: Blood on the Watchtower
+  * Derrick Fowler — Battery Chief
+      Services: Local Hub Quest
+      Quests: Cliffside Artillery
+  * Eirik Granger — Castle Stablemaster
+      Services: Local Hub Quest
+      Quests: Hippogriff Eyrie Raid
+
+--- Timberfall Village (Village | Free Towns & Guilds) ---
+  * Linnea Hollis — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Favian Ironside — Master Armorer & Provisions (Step 11)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 11), Potions, Buy Trade Goods
+  * Gunnar Joss — Head Forester
+      Services: Local Hub Quest
+      Quests: Shelter the Timber Yard
+  * Halvor Kestrel — Sawyer Chief
+      Services: Local Hub Quest
+      Quests: Caught in the Canopy
+  * Ivan Larkin — Timberfall Hunter
+      Services: Local Hub Quest
+      Quests: Clear the Woodland Beast Den
+  * Joren Marrow — Timberfall Bailiff
+      Services: Local Hub Quest
+      Quests: Poachers at Outlaw Stockade
+
+--- Ochre-Downs Tracker Camp (Zone Outpost | Highcrown Loyalists | Zone 6) ---
+  * Maeve Neville — Zone 6 Hunt Quartermaster
+      Services: Repeatable Zone 6 Monster Hunts (XP, Silver & Consumables)
+  * Naomi Osborne — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Cragspire Quarry Post (Zone Outpost | Highcrown Loyalists | Zone 7) ---
+  * Knut Parr — Zone 7 Hunt Quartermaster
+      Services: Repeatable Zone 7 Monster Hunts (XP, Silver & Consumables)
+  * Leif Quarry — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Fernbrook Ranger Station (Zone Outpost | Highcrown Loyalists | Zone 8) ---
+  * Magnus Rowley — Zone 8 Hunt Quartermaster
+      Services: Repeatable Zone 8 Monster Hunts (XP, Silver & Consumables)
+  * Olga Sawyer — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Canopy-Watch Tree-Post (Zone Outpost | Highcrown Loyalists | Zone 9) ---
+  * Petra Tanner — Zone 9 Hunt Quartermaster
+      Services: Repeatable Zone 9 Monster Hunts (XP, Silver & Consumables)
+  * Nikolai Upton — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Mire-Edge Quarantine Camp (Zone Outpost | Highcrown Loyalists | Zone 10) ---
+  * Olaf Voss — Zone 10 Hunt Quartermaster
+      Services: Repeatable Zone 10 Monster Hunts (XP, Silver & Consumables)
+  * Ragna Wainwright — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Highland Cove Port Town (Port Town | Free Towns & Guilds) ---
+  * Capt. Peder Yeoman — Sea-Vessel Captain
+      Services: Inter-Continent Sea Travel (Royal Trade Port, Desert Harbor, Arctic Sea-Port)
+  * Signe Baxter — Harbor Rest Warden
+      Services: Free Harbor Rest (0s), Field Supplies & Buy Trade Goods
+
+--- #15 The Iron Rift (Portal | None (Unaligned)) ---
+  * The Fire Giant Warlord — Portal Boss #3 (Giant · Zone 8 · Lv 36–40)
+      Services: Dimensional Portal Boss Encounter
+
+--- #20 The Rotspire (Portal | None (Unaligned)) ---
+  * The Elder Blight-Treant — Portal Boss #4 (Plant · Zone 10 · Lv 46–50)
+      Services: Dimensional Portal Boss Encounter
+
+==============================================================================
+MAP 3 — SUN-SCORCHED ISLES & IRONCREST HIGHLANDS (Regions 5–6 | Lv 49–75)
+==============================================================================
+
+--- #21 Port Veridia (Port Town | Free Towns & Guilds) ---
+  * Thyra Cooper — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Ragnar Dyer — Master Armorer & Provisions (Steps 13–14)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Steps 13–14), Potions, Buy Trade Goods
+  * Ulrika Fenwick — Apothecary & Caster Outfitter (Tier-5)
+      Services: Apothecary & Caster Outfitter (Tier-5), Potions & Caster Accessories, Buy Trade Goods
+  * Sigurd Glover — Coastal Ring Promoter
+      Services: Local Arena & Coliseum Matches
+  * Capt. Torsten Hayward — Harbor Master & Ship Captain
+      Services: Harbor Sea Travel (Map 1 / Map 2 / Map 4 Ports)
+      Quests: Silk & Cinders
+  * Uffe Inman — Port Shipping Clerk (Manifest Lead)
+      Services: Local Hub Quest
+      Quests: Chain A2: The Smuggler's Crossing
+  * Valdemar Judd — Coastal Fisherman
+      Services: Local Hub Quest
+      Quests: Stone-Eyed Coast
+  * Wulfric Kidd — Veridia Trade Guild
+      Services: Local Hub Quest
+      Quests: Break the Corsair Pier
+  * Valdis Locke — Warehouse Clerk
+      Services: Local Hub Quest
+      Quests: Scorpion Infestation in the Docks
+
+--- #23 Dunespire Oasis (Outpost | Free Towns & Guilds) ---
+  * Wanda Miller — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Adelard Naylor — Master Armorer & Provisions (Step 15)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 15), Potions, Buy Trade Goods
+  * Amina Oakhurst — Oasis Scholar & Apothecary & Caster Outfitter (Remaining Tier-5)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-5), Potions & Caster Accessories, Buy Trade Goods
+      Quests: Prism Echoes
+  * Baird Porter — Dunespire Caravan Chief
+      Services: Local Hub Quest
+      Quests: Tremors Under the Sand
+  * Bess Read — Water Warden
+      Services: Local Hub Quest
+      Quests: Guard the Oasis Spring
+  * Corvin Shepherd — Desert Excavator
+      Services: Local Hub Quest
+      Quests: Mummy Tomb Beneath the Dunes
+  * Draven Turner — Oasis Elder
+      Services: Local Hub Quest
+      Quests: Lost Desert Travelers
+
+--- #24 The Gilded Auction Manor (Keep / Castle | Slaver Syndicate) ---
+  * Cora Unwin — Liberated Garrison Steward (Unlocked Post-Liberation)
+      Services: Free Full Party Rest (0s Post-Liberation)
+  * Edric Ward — Master Armorer & Provisions (Step 15 (Unlocked Post-Liberation))
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 15 (Unlocked Post-Liberation)), Potions, Buy Trade Goods
+  * Fendrel Webster — Gladiator Pit-Master
+      Services: Local Arena & Coliseum Matches
+  * Cartel Master Cassian Vex — Slaver Syndicate Overseer (Chain A3 Boss)
+      Services: Liberation Boss Encounter (Unlocks Step 15 Trade Armory & Free Rest When Beaten)
+  * Garran Baker — Manor Rebel Informant
+      Services: Local Hub Quest
+      Quests: Chain A3: Broken Shackles
+  * Dahlia Brewer — Captive Clerk
+      Services: Local Hub Quest
+      Quests: Seize the Collar Ledgers
+  * Hakon Chapman — Freed Manor Guard
+      Services: Local Hub Quest
+      Quests: Disable the Holding Pens
+  * Eliza Decker — Liberated Steward
+      Services: Local Hub Quest
+      Quests: Guard Against Efreeti Scouts
+
+--- #26 Highpass Refuge (Town | Free Towns & Guilds) ---
+  * Frances Farrier — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Aldric Gale — Highpass Smith & Gear Merchant (Steps 16–17)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Steps 16–17), Potions, Buy Trade Goods
+      Quests: Star-Iron Ingots
+  * Grace Hall — Apothecary & Caster Outfitter (Tier-6)
+      Services: Apothecary & Caster Outfitter (Tier-6), Potions & Caster Accessories, Buy Trade Goods
+  * Bramwell Irwin — Highpass Sparring Master
+      Services: Local Arena & Coliseum Matches
+  * Cedric Jarvis — Pass Watchman
+      Services: Local Hub Quest
+      Quests: Granite Scree Pass
+  * Duncan Keene — Highpass Rancher
+      Services: Local Hub Quest
+      Quests: Blood-Hawk Roosts
+  * Hannah Lowe — Foothill Merchant
+      Services: Local Hub Quest
+      Quests: Missing Foothill Caravan
+  * Edmund Mason — Town Mason
+      Services: Local Hub Quest
+      Quests: Guard the Highland Storehouses
+
+--- #27 Anvilhall Forge (Keep / Castle | Free Towns & Guilds) ---
+  * Ida Needham — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Fletcher Orr — Master Forgemaster & Gear Merchant (Step 18)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 18), Potions, Buy Trade Goods
+      Quests: Meteoric Core Slabs
+  * Joan Page — Apothecary & Caster Outfitter (Remaining Tier-6)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-6), Potions & Caster Accessories, Buy Trade Goods
+  * Gideon Reeves — Forge Trial Master
+      Services: Local Arena & Coliseum Matches
+  * Kate Slater — Forge Warden
+      Services: Local Hub Quest
+      Quests: The Missing Envoy
+  * Hadrian Trask — Forge Armorer
+      Services: Local Hub Quest
+      Quests: Defend the Granite Foundry
+  * Ivor Usher — Head Miner
+      Services: Local Hub Quest
+      Quests: Clear the High-Ridge Ore Track
+  * Jasper Vickers — Smithy Apprentice
+      Services: Local Hub Quest
+      Quests: Chimney-Vent Tempests
+
+--- Clearwater Lake Village (Village | Free Towns & Guilds) ---
+  * Leah Wells — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Kendrick Bram — Master Armorer & Provisions (Step 17)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 17), Potions, Buy Trade Goods
+  * Martha Croft — Lake Warden
+      Services: Local Hub Quest
+      Quests: Lightning at Cragwater Storm-Stone
+  * Leopold Dale — Highland Pilgrim
+      Services: Local Hub Quest
+      Quests: Sanctuary of the Lake
+  * Malcolm Eaton — Village Fisherman
+      Services: Local Hub Quest
+      Quests: Wyverns on the Lake Shore
+  * Nolan Ford — Clearwater Elder
+      Services: Local Hub Quest
+      Quests: Cornered Lakeside Foragers
+
+--- Cragwatch Fort (Fort | Free Towns & Guilds) ---
+  * Nell Giles — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Oswald Holt — Master Armorer & Provisions (Step 18)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 18), Potions, Buy Trade Goods
+  * Percival Kerr — Guide Chief
+      Services: Local Hub Quest
+      Quests: Stranded on Crag-Ledge
+  * Quentin Lane — Fort Tracker
+      Services: Local Hub Quest
+      Quests: Clear the Alpine Crag Bear Den
+  * Roderick Marsh — Watch Captain
+      Services: Local Hub Quest
+      Quests: Highland Marauder Camp
+  * Sebastian Nash — Fort Quartermaster
+      Services: Local Hub Quest
+      Quests: Storm-Wards to Stormhold
+
+--- Sandwall Citadel (Keep / Castle | Free Towns & Guilds) ---
+  * Olive Pike — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Tobias Quinn — Master Armorer & Provisions (Step 15)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 15), Potions, Buy Trade Goods
+  * Ulric Rhodes — Desert Arena Champion-Master
+      Services: Local Arena & Coliseum Matches
+  * Victor Shaw — Citadel Garrison Captain
+      Services: Local Hub Quest
+      Quests: Scorched Dragon Lair
+  * Willem Todd — Signal Chief
+      Services: Local Hub Quest
+      Quests: Relight the Dune Beacons
+  * Xander Vaughan — Citadel Stablemaster
+      Services: Local Hub Quest
+      Quests: Break the Hell-Hound Pack
+  * Yorick Wade — Citadel Quartermaster
+      Services: Local Hub Quest
+      Quests: Munitions to Gilded Approach
+
+--- Stormhold Citadel (Keep / Castle | Free Towns & Guilds) ---
+  * Phoebe Briggs — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Zachary Cobb — Master Armorer & Provisions (Step 18)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 18), Potions, Buy Trade Goods
+  * Alistair Dunn — Storm Citadel Arena Master
+      Services: Local Arena & Coliseum Matches
+  * Barnaby Finch — Stormhold Castellan
+      Services: Local Hub Quest
+      Quests: Storm-Crag Dragon Roost
+  * Caspar Gunn — Citadel Sapper
+      Services: Local Hub Quest
+      Quests: Behir Tunnel Breach
+  * Dorian Hale — Stormhold Commander
+      Services: Local Hub Quest
+      Quests: Battlements of Lightning
+  * Evander Kaye — Citadel Champion
+      Services: Local Hub Quest
+      Quests: Silence the Storm-Giant Warband
+
+--- Sunstone Caravan Post (Outpost | Free Towns & Guilds) ---
+  * Rachel Moss — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Godwin Noyes — Master Armorer & Provisions (Step 14)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 14), Potions, Buy Trade Goods
+  * Henrik Poole — Sunstone Postmaster
+      Services: Local Hub Quest
+      Quests: Water-Casks Across the Dune
+  * Ignatius Rye — Caravan Chief
+      Services: Local Hub Quest
+      Quests: Desert Nomad Raider Camp
+  * Jonas Stroud — Caravan Guide
+      Services: Local Hub Quest
+      Quests: Fire Snakes at the Dry Wash
+  * Sarah Webb — Desert Merchant
+      Services: Local Hub Quest
+      Quests: Wrecked Spice Carts
+
+--- Dune-Runner Nomad Post (Zone Outpost | Highcrown Loyalists | Zone 11) ---
+  * Kieran Ashworth — Zone 11 Hunt Quartermaster
+      Services: Repeatable Zone 11 Monster Hunts (XP, Silver & Consumables)
+  * Lucian Blackwood — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Palm-Spring Hunter Pavilion (Zone Outpost | Highcrown Loyalists | Zone 12) ---
+  * Tessa Carter — Zone 12 Hunt Quartermaster
+      Services: Repeatable Zone 12 Monster Hunts (XP, Silver & Consumables)
+  * Vera Dunstan — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Mesa-Watch Ranger Outpost (Zone Outpost | Highcrown Loyalists | Zone 13) ---
+  * Matthias Elliot — Zone 13 Hunt Quartermaster
+      Services: Repeatable Zone 13 Monster Hunts (XP, Silver & Consumables)
+  * Nigel Fairfax — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Pine-Valley Wardens' Post (Zone Outpost | Highcrown Loyalists | Zone 14) ---
+  * Octavian Goodwin — Zone 14 Hunt Quartermaster
+      Services: Repeatable Zone 14 Monster Hunts (XP, Silver & Consumables)
+  * Wilma Hawthorne — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Highland Crag-Watch Camp (Zone Outpost | Highcrown Loyalists | Zone 15) ---
+  * Adeline Ironwood — Zone 15 Hunt Quartermaster
+      Services: Repeatable Zone 15 Monster Hunts (XP, Silver & Consumables)
+  * Piers Jennings — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Desert Harbor Port Town (Port Town | Free Towns & Guilds) ---
+  * Capt. Randall Kemp — Sea-Vessel Captain
+      Services: Inter-Continent Sea Travel (Royal Trade Port, Highland Cove, Arctic Sea-Port)
+  * Beatrice Lancaster — Harbor Rest Warden
+      Services: Free Harbor Rest (0s), Field Supplies & Buy Trade Goods
+
+--- #25 The Scorched Chasm (Portal | None (Unaligned)) ---
+  * The Efreeti Pasha — Portal Boss #5 (Elemental · Zone 13 · Lv 61–65)
+      Services: Dimensional Portal Boss Encounter
+
+--- #30 The Storm-Crowned Spire (Portal | None (Unaligned)) ---
+  * The Ancient Storm Dragon — Portal Boss #6 (Dragon · Zone 15 · Lv 71–75)
+      Services: Dimensional Portal Boss Encounter
+
+==============================================================================
+MAP 4 — FROSTBOUND REACH & THE DREADWASTE (Regions 7–8 | Lv 73–99)
+==============================================================================
+
+--- #31 Rimeport (Port Town | Free Towns & Guilds) ---
+  * Clara Mercer — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Silas Northwood — Master Armorer & Provisions (Steps 19–21)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Steps 19–21), Potions, Buy Trade Goods
+  * Delilah Oakley — Apothecary & Caster Outfitter (Tier-7)
+      Services: Apothecary & Caster Outfitter (Tier-7), Potions & Caster Accessories, Buy Trade Goods
+  * Thaddeus Pendleton — Harbor Arena Promoter
+      Services: Local Arena & Coliseum Matches
+  * Capt. Vance Quickwater — Harbor Master & Ship Captain
+      Services: Harbor Sea Travel (Map 1 / Map 2 / Map 3 Ports)
+      Quests: Frozen Beacon
+  * Walter Redmayne — Sea-Wall Gate Captain
+      Services: Local Hub Quest
+      Quests: Hellfire on the Sea-Wall
+  * Ambrose Stonebridge — Northern Naval Captain
+      Services: Local Hub Quest
+      Quests: Sunken Warships
+  * Eleanor Thatcher — Harbor Clerk
+      Services: Local Hub Quest
+      Quests: Supply Ledgers to Frostmere
+  * Bertram Underhill — Rimeport Shipwright
+      Services: Local Hub Quest
+      Quests: Shadows in the Drydock
+
+--- #34 Bleakwatch Citadel (Keep / Castle | Bleakwatch Warlord) ---
+  * Fiona Vane — Liberated Garrison Steward (Unlocked Post-Liberation)
+      Services: Free Full Party Rest (0s Post-Liberation)
+  * Conrad Whitaker — Master Armorer & Provisions (Step 21 (Unlocked Post-Liberation))
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 21 (Unlocked Post-Liberation)), Potions, Buy Trade Goods
+  * Desmond York — Warlord Pit-Master
+      Services: Local Arena & Coliseum Matches
+  * Marshal Vaelen Bleakwatch — Warlord Pretender (Chain C3 Boss)
+      Services: Liberation Boss Encounter (Unlocks Step 21 Clan Armory & Free Rest When Beaten)
+  * Eamon Alder — Jarl's Envoy
+      Services: Local Hub Quest
+      Quests: Chain C3: The Northern Pretender
+  * Fabian Barrow — Rebel Sergeant
+      Services: Local Hub Quest
+      Quests: Garrison Hostages in the Keep
+  * Gerard Chandler — Cavalry Officer
+      Services: Local Hub Quest
+      Quests: Shatter the Nightmare Stables
+  * Gwendolyn Draper — Rebel Chaplain
+      Services: Local Hub Quest
+      Quests: Infernal Pact Braziers
+  * Hugh Everett — Northern Commander
+      Services: Local Hub Quest
+      Quests: Gatekeepers of the Abyss
+
+--- #36 Ashenford War-Camp (Town | Highcrown Loyalists) ---
+  * Helena Fowler — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Isidore Granger — Master Armorer & Provisions (Steps 22–24)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Steps 22–24), Potions, Buy Trade Goods
+  * Isolde Hollis — Apothecary & Caster Outfitter (Tier-8)
+      Services: Apothecary & Caster Outfitter (Tier-8), Potions & Caster Accessories, Buy Trade Goods
+  * Jorah Ironside — Ashenford Commander
+      Services: Local Hub Quest
+      Quests: Hold the Ash-Wall
+  * Josephine Joss — War-Camp Chaplain
+      Services: Local Hub Quest
+      Quests: Consecrate the Sentry Posts
+  * Keegan Kestrel — Camp Quartermaster
+      Services: Local Hub Quest
+      Quests: Siege-Alchemist's Powder
+  * Lambert Larkin — Outrider Scout
+      Services: Local Hub Quest
+      Quests: Intercept Eclipse Supply Carts
+  * Martin Marrow — Northern Scout
+      Services: Local Hub Quest
+      Quests: Clear the Burned Ridge
+
+--- #40 Garrick's Black Keep (Citadel | King Garrick) ---
+  * Katrina Neville — Outer Bailey Vanguard Medic
+      Services: Free Vanguard Rest (0s), Field Supplies
+  * Norbert Osborne — Master Armorer & Provisions (Step 24 (Outer Bailey Vanguard))
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 24 (Outer Bailey Vanguard)), Potions, Buy Trade Goods
+  * King Garrick's Eclipse Guard — Obsidian Inner Bailey Garrison (Leads to Portal #8 Throne Hall)
+      Services: Final Siege Assault -> Portal #8 (The Eclipse Gate)
+  * Commander Orin (Home-Front Vanguard Lead) — Orin / Home-Front Vanguard
+      Services: Local Hub Quest
+      Quests: Breach the Outer Obsidian Gate
+  * Queen Ellowyn (Arcane Vanguard) — Ellowyn / Arcane Lead
+      Services: Local Hub Quest
+      Quests: Destroy the Three Necrotic Obelisks
+  * Valen (Party Hero Lead) — Companion Siege Objective
+      Services: Local Hub Quest
+      Quests: Hunt the Undead Lich Lieutenants
+  * Rowan (Party Hero Lead) — Companion Siege Objective
+      Services: Local Hub Quest
+      Quests: Honor Fallen Loyalist Banners
+  * Mera & Harlan (Party Hero Lead) — Companion Siege Objective
+      Services: Local Hub Quest
+      Quests: Unbind the Final Ward-Seal
+
+--- Ashvale Village (Village | Free Towns & Guilds) ---
+  * Lavinia Parr — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Otis Quarry — Master Armorer & Provisions (Step 23)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 23), Potions, Buy Trade Goods
+  * Patrick Rowley — Ashvale Elder
+      Services: Local Hub Quest
+      Quests: The Fallen Banner
+  * Redmond Sawyer — Ashvale Garrison Scribe (Koren's Transfer Order)
+      Services: Local Hub Quest
+      Quests: Chain D2: Shattered Sands
+  * Simeon Tanner — Refugee Chief
+      Services: Local Hub Quest
+      Quests: Escort Ashvale Survivors
+  * Miriam Upton — Ashvale Chaplain
+      Services: Local Hub Quest
+      Quests: Spectral Wails in the Ruins
+  * Nadia Voss — Ashvale Chronicler
+      Services: Local Hub Quest
+      Quests: Recover Fallen Knight Medallions
+
+--- Cinderwatch Bastion (Keep / Castle | Highcrown Loyalists) ---
+  * Ophelia Wainwright — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Tristan Yeoman — Master Armorer & Provisions (Step 23)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 23), Potions, Buy Trade Goods
+  * Phillipa Baxter — Bastion Warden
+      Services: Local Hub Quest
+      Quests: Eclipse Cultist Cliff Altar
+  * Vernon Cooper — Bastion Captain
+      Services: Local Hub Quest
+      Quests: Turncoat Patrols on the Ridge
+  * Warren Dyer — Obsidian Miner
+      Services: Local Hub Quest
+      Quests: Ghouls in the Ash Quarry
+  * Alaric Fenwick — Bastion Lookout
+      Services: Local Hub Quest
+      Quests: Hold the Ridge Signal Tower
+
+--- Frostmere Village (Village | Northern Clans) ---
+  * Rosalind Glover — Innkeeper
+      Services: Free Full Party Rest (0s)
+  * Benedict Hayward — Master Armorer & Provisions (Step 20)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 20), Potions, Buy Trade Goods
+  * Clement Inman — Village Supply Officer
+      Services: Local Hub Quest
+      Quests: Coal & Fur Crates
+  * Darius Judd — Northern Ice-Diver
+      Services: Local Hub Quest
+      Quests: Frost-Bound Shoreline Wreck
+  * Elias Kidd — Frostmere Elder
+      Services: Local Hub Quest
+      Quests: Trappers at the Frozen Shoreline
+  * Fergus Locke — Village Tanner
+      Services: Local Hub Quest
+      Quests: Abyssal Blight in the Pelts
+
+--- Glacierwatch Fort (Fort | Northern Clans) ---
+  * Sabina Miller — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Gilbert Naylor — Master Armorer & Provisions (Step 20)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 20), Potions, Buy Trade Goods
+  * Tabitha Oakhurst — Fort Scholar
+      Services: Local Hub Quest
+      Quests: Heart of the Ice
+  * Hector Porter — Glacierwatch Captain
+      Services: Local Hub Quest
+      Quests: Overrun Cliff Watch-Post
+  * Inigo Read — Fort Archer
+      Services: Local Hub Quest
+      Quests: Vrock Screechers on the Wall
+  * Julian Shepherd — Fort Marshal
+      Services: Local Hub Quest
+      Quests: Hold the Glacier Ramparts
+
+--- Icecrest Holdfast (Keep / Castle | Northern Clans) ---
+  * Ursula Turner — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Killian Unwin — Master Armorer & Provisions (Step 21)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 21), Potions, Buy Trade Goods
+  * Vivienne Ward — Apothecary & Caster Outfitter (Remaining Tier-7)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-7), Potions & Caster Accessories, Buy Trade Goods
+  * Lazarus Webster — Escaped Clansman
+      Services: Local Hub Quest
+      Quests: The Frozen Labor Camp
+  * Marcus Baker — Clan Huntmaster
+      Services: Local Hub Quest
+      Quests: Saber-Tooth Trail
+  * Nathaniel Brewer — Clan Scout
+      Services: Local Hub Quest
+      Quests: Chain-Devil Slaver Convoy
+  * Winifred Chapman — Clan Runekeeper
+      Services: Local Hub Quest
+      Quests: Clan Brazier Relics
+
+--- Scorchwall Fort (Fort | Highcrown Loyalists) ---
+  * Yvette Decker — Barracks Rest Steward
+      Services: Free Full Party Rest (0s)
+  * Orson Farrier — Master Armorer & Provisions (Step 24)
+      Services: Weapons, Helmets, Body Armor, Shields & Accessories (Step 24), Potions, Buy Trade Goods
+  * Zelda Gale — Apothecary & Caster Outfitter (Remaining Tier-8)
+      Services: Apothecary & Caster Outfitter (Remaining Tier-8), Potions & Caster Accessories, Buy Trade Goods
+  * Phineas Hall — Fort Scout
+      Services: Local Hub Quest
+      Quests: Prisoners of the Oathbreakers
+  * Quincy Irwin — Scorchwall Crypt Scholar (Inscribed Stone Tablet)
+      Services: Local Hub Quest
+      Quests: Lord of the Crypt
+  * Roland Jarvis — Volcanic Bay Lookout
+      Services: Local Hub Quest
+      Quests: Wreck of the Shadow-Fleet
+  * Stephen Keene — Scorchwall Captain
+      Services: Local Hub Quest
+      Quests: Hold the Bay Watch-Wall
+
+--- Snowdrift Fur-Hunter Post (Zone Outpost | Northern Clans | Zone 16) ---
+  * Theobald Lowe — Zone 16 Hunt Quartermaster
+      Services: Repeatable Zone 16 Monster Hunts (XP, Silver & Consumables)
+  * Agatha Mason — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Glacier-Edge Demon-Watch (Zone Outpost | Northern Clans | Zone 17) ---
+  * Uriah Needham — Zone 17 Hunt Quartermaster
+      Services: Repeatable Zone 17 Monster Hunts (XP, Silver & Consumables)
+  * Viggo Orr — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Ashen-Ridge Border Post (Zone Outpost | Highcrown Loyalists | Zone 18) ---
+  * Bridget Page — Zone 18 Hunt Quartermaster
+      Services: Repeatable Zone 18 Monster Hunts (XP, Silver & Consumables)
+  * Cecily Reeves — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Cinder-Plain Vanguard Camp (Zone Outpost | Highcrown Loyalists | Zone 19) ---
+  * Winston Slater — Zone 19 Hunt Quartermaster
+      Services: Repeatable Zone 19 Monster Hunts (XP, Silver & Consumables)
+  * Anders Trask — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Black-Crag Slayer's Post (Zone Outpost | Highcrown Loyalists | Zone 20) ---
+  * Bjorn Usher — Zone 20 Hunt Quartermaster
+      Services: Repeatable Zone 20 Monster Hunts (XP, Silver & Consumables)
+  * Dorothea Vickers — Outpost Camp Warden
+      Services: Free Field Rest (0s)
+
+--- Arctic Sea-Port Town (Port Town | Free Towns & Guilds) ---
+  * Capt. Caleb Wells — Sea-Vessel Captain
+      Services: Inter-Continent Sea Travel (Royal Trade Port, Highland Cove, Desert Harbor)
+  * Estelle Bram — Harbor Rest Warden
+      Services: Free Harbor Rest (0s), Field Supplies & Buy Trade Goods
+
+--- #35 The Pale Abyss (Portal | None (Unaligned)) ---
+  * The Pit Fiend General — Portal Boss #7 (Fiend · Zone 18 · Lv 86–90)
+      Services: Dimensional Portal Boss Encounter
+
+--- #39 The Eclipse Gate (Portal | None (Unaligned)) ---
+  * King Garrick, Sovereign of the Undead Eclipse — Final Portal Boss #8 (Undead · Zone 20 · Lv 96–99)
+      Services: Dimensional Portal Boss Encounter
+
+==============================================================================
+WORLD TRANSIT — BORDER CROSSINGS
+==============================================================================
+
+--- Border Mountain Pass Gate (Mountain Pass | None (Unaligned)) ---
+  * Derrick Croft — Pass Gate Watchman
+      Services: Mountain Pass Gate Passage

@@ -1,0 +1,47 @@
+# ROD — Global Shields Icons (5x5 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Shields (All classes, 6 Types x 4 Tiers = 24)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 SHIELD PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated heavy medieval fantasy shield fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All shields follow ONE clean unified 3/4 tilted upright display angle facing subtly forward-left so both the sculpted shield face boss/heraldry AND beveled outer rim thickness read crisply. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Cracked Wood Buckler): Small round cracked weathered oak buckler shield bound by thin rusted iron rim strip, dented central iron boss dome.
+Row 1, Col 2 (Iron-Rimmed Buckler): Sturdy circular hardwood buckler circled in broad hammered wrought-iron rim rivets, thick conical dark iron boss.
+Row 1, Col 3 (Crownland Steel Buckler): Clean Crownland polished bright steel small duelist buckler embossed with crisp radial fluted ridges and brass boss.
+Row 1, Col 4 (Saltwind Brass Buckler): Ornate Saltwind polished tarnished-brass small sailor's buckler rimmed in rope-knotted bronze trim and domed brass boss.
+Row 1, Col 5 (Oak-Plank Round Shield): Classic sturdy thick oak-plank round shield bound in simple flat iron edge band with iron center boss.
+
+Row 2, Col 1 (Mire-Iron Round Shield): Dark bog-iron banded Saltmarsh round shield painted dull marsh-green oak planks with scarred bronze center boss.
+Row 2, Col 2 (Redmarch Bronze Round Shield): Redmarch crimson-painted plank round shield framed by wide riveted bronze border band and spiked bronze boss.
+Row 2, Col 3 (Veteran's Steel Round Shield): Veteran's reinforced brushed-steel-faced round war-shield featuring dark crimson cross-rib straps and heavy dome boss.
+Row 2, Col 4 (Thornwall Crest Heater Shield): Classic flat-topped pointed-bottom heater shield painted slate-crimson with forged steel rim and Thornwall chevron.
+Row 2, Col 5 (Briarwood Steel Heater Shield): Weald hardwood-core steel heater shield rimmed in patinated emerald-bronze studded border and acorn crest plate.
+
+Row 3, Col 1 (Amber-Bound Heater Shield): Amber-bound forest guardian heater shield of dark lacquered oak inset neatly with warm amber center gem inside brass boss.
+Row 3, Col 2 (Greenwarden Heater Shield): Greenwarden polished dark-steel-and-moss-green enamel heraldic heater shield sculpted with crisp stag-leaf bronze trim.
+Row 3, Col 3 (Veridian Bronze Kite Shield): Tall elongated almond kite shield clad in warm bronze-trimmed sun-tan Veridian hide over curved iron rim.
+Row 3, Col 4 (Sun-Crest Caravan Kite Shield): Sun-Crest desert caravan kite shield painted golden ochre and cobalt blue with radiant brass sunburst boss.
+Row 3, Col 5 (Highpass Steel Kite Shield): Highpass rugged matte cold gray highland steel kite shield reinforced cleanly along vertical spine ridge with heavy iron rivets.
+
+Row 4, Col 1 (Storm-Rim Kite Shield): Storm-Rim alpine silvered-steel elite kite shield bordered with crisp lightning-gold bevel trim and steel center ridge.
+Row 4, Col 2 (Crag-Tooth Spiked Shield): Brutal Ironcrest dark steel spiked battle-shield sporting jagged steel border teeth and sharp center boss horn.
+Row 4, Col 3 (Anvilhall Star-Spiked Shield): Anvilhall Star-Spiked blackened star-iron war-shield glowing subtly with warm amber forge-lines and four sharp perimeter spikes.
+Row 4, Col 4 (Rime-Iron Barbed Shield): Rime-Iron frost-forged barbed oval shield rimmed in cold frosted steel fangs, trimmed at upper edge with white fur strap.
+Row 4, Col 5 (Glacierwall Spiked Bulwark): Glacierwall northern bulwark spiked shield fusing dark slate steel core with faceted pale ice-cyan serrated border spikes.
+
+Row 5, Col 1 (Bleakwatch Wall Tower Shield): Massive rectangular Bleakwatch fortress wall tower shield crafted from riveted dark iron slats with narrow top visor slit.
+Row 5, Col 2 (Ashen-Steel Tower Shield): Dreadwaste Ashen-Steel towering siege tower shield wrought of charred black volcanic iron showing glowing ember-orange vein.
+Row 5, Col 3 (Black-Keep Pavise Tower Shield): Black-Keep dark steel heavy pavise tower shield framed with crimson-lacquered jagged steel rim fangs and bold spine rib.
+Row 5, Col 4 (Aegis of the Crown): Aegis of the Crown — supreme Highcrown royal endgame relic tower shield uniting mirror star-steel body, sculpted brushed-gold crown crest centerpiece, and royal crimson inlay.
+Row 5, Col 5 (Shields Category Emblem & Empty-Slot Icon): Shields Category Emblem & Empty Left-Hand Slot Icon: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic classic heater shield silhouette crest—clean raised outer rim bevel and small central shield boss with NO gems, NO glow, NO circle border, and NO box frame on pure #FF00FF.
+--- 5x5 SHIELD PROMPT END ---

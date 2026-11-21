@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD — Internal World Builder &amp; Admin Suite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <a href="/" class="nav-link" title="Back to Dev Portal">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill active" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+
+    <nav class="map-tabs" id="mapTabs">
+      <button class="map-tab active" data-map="map_01">Map 1 · Crownlands</button>
+      <button class="map-tab" data-map="map_02">Map 2 · Thornwall</button>
+      <button class="map-tab" data-map="map_03">Map 3 · Isles</button>
+      <button class="map-tab" data-map="map_04">Map 4 · Frostbound</button>
+    </nav>
+
+    <div class="top-actions">
+      <span class="progress-pill" id="progressPill">0 / 40 Permanent Placed</span>
+      <button class="btn" id="btnUndo" disabled title="Undo last paint or location edit (Shift+U or Ctrl+Z)">Undo (Shift+U)</button>
+      <button class="btn" id="btnFitMap" title="Fit full 8192x8192 map in view">Fit Map</button>
+      <button class="btn primary" id="btnSave" title="Save to data/world-locations.json &amp; sync Game Client">Save World Data</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <!-- LEFT: Location Palette & Paint Tools -->
+    <aside class="sidebar">
+      <div class="mode-tabs" id="modeTabs">
+        <button class="mode-tab active" data-mode="place">Place</button>
+        <button class="mode-tab" data-mode="terrain">Terrain</button>
+        <button class="mode-tab" data-mode="zone">Zones</button>
+      </div>
+
+      <!-- Place Mode Pane -->
+      <div id="placeSidebarPane" class="sidebar-pane">
+        <div class="procedural-box">
+          <button class="btn primary full-btn" id="btnProceduralPlace" title="Automatically place Permanent Locations using Zone Level &amp; allowed Terrain rules (Quest markers left untouched)">Procedural Place Locations</button>
+          <button class="btn full-btn" id="btnProceduralPlaceQuests" title="Automatically place Overworld Quest Sites around already-placed Hubs using Zone Level, Island &amp; Terrain rules (skips Journal-only Courier &amp; In-Hub quests)">Procedural Place Quest Sites</button>
+          <button class="btn full-btn" id="btnLockMap" title="Lock all placed locations, quest sites, travel pins, and painted zones on this map so they cannot be accidentally moved, re-rolled, or cleared">🔓 Lock All Placed Pins on Map</button>
+          <div class="paint-action-row">
+            <button class="btn danger" id="btnClearMapLocations" title="Unplace all locations, quest sites &amp; travel pins on this map">Clear Map Pins</button>
+            <button class="btn danger" id="btnClearAllLocations" title="Unplace ALL locations, quest sites &amp; travel pins across Maps 1–4">Clear All Pins</button>
+          </div>
+          <label class="toggle-row" title="Leave unchecked so Procedural Place Locations replaces unlocked spots on every click (locked locations never move)">
+            <input type="checkbox" id="chkKeepPlaced" />
+            <span>Skip already-placed locations</span>
+          </label>
+        </div>
+
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-filter="permanent">Locations (68)</button>
+          <button class="filter-tab" data-filter="quest_field">Quest Sites</button>
+          <button class="filter-tab" data-filter="travel_bounty">Travel</button>
+        </div>
+
+        <div class="sidebar-tools">
+          <label class="toggle-row" title="Show all placed Overworld Quest markers at once without selecting a Hub or regenerating (Shortcut: Q)">
+            <input type="checkbox" id="chkShowQuestsTop" />
+            <span>Show all quest markers (Q)</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" id="chkAutoAdvance" />
+            <span>Auto-advance to next unplaced</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" id="chkAutoSave" checked />
+            <span>Auto-save edits &amp; paint</span>
+          </label>
+        </div>
+
+        <div class="palette-list" id="paletteList"></div>
+      </div>
+
+      <!-- Terrain / Zone Paint Mode Pane (constant tools docked at top) -->
+      <div id="paintSidebarPane" class="sidebar-pane hidden">
+        <div class="paint-controls-dock">
+          <div class="tool-btn-row" id="paintToolTabs">
+            <button class="tool-btn active" data-tool="brush" title="Brush (B)">Brush</button>
+            <button class="tool-btn" data-tool="bucket" title="Bucket Fill (G)">Bucket</button>
+            <button class="tool-btn" data-tool="eraser" title="Eraser (E)">Eraser</button>
+          </div>
+
+          <label class="slider-field compact">
+            <span>Brush Size <strong id="brushSizeVal">3 hex</strong></span>
+            <input type="range" id="rngBrushSize" min="1" max="15" step="1" value="3" />
+          </label>
+
+          <label class="slider-field compact">
+            <span>Paint Opacity <strong id="paintOpacityVal">58%</strong></span>
+            <input type="range" id="rngPaintOpacity" min="15" max="95" step="5" value="58" />
+          </label>
+
+          <label class="toggle-row">
+            <input type="checkbox" id="chkHexGridTop" checked />
+            <span>Show 3px Hex Grid (H)</span>
+          </label>
+
+          <div class="active-swatch-card" id="activeSwatchCard">
+            <span class="active-swatch-box" id="activeSwatchBox"></span>
+            <div class="active-swatch-meta">
+              <strong id="activeSwatchName">Impassable Terrain</strong>
+              <span id="activeSwatchNote">Select a color from the bar &rarr;</span>
+            </div>
+          </div>
+
+          <div class="paint-action-row">
+            <button class="btn" id="btnShowAllColors" title="Unhide all hidden colors">Show All</button>
+            <button class="btn danger" id="btnClearPaintLayer" title="Erase all painted hexes on active layer for this map">Clear Layer</button>
+          </div>
+        </div>
+
+        <div class="paint-legend-note" id="paintLegendNote"></div>
+      </div>
+    </aside>
+
+    <!-- 1:1 Vertical Color Swatch & Per-Color Hide Toggle Bar (Right of Left Panel) -->
+    <aside class="swatch-bar hidden" id="swatchBar" aria-label="Terrain and Zone Color Swatches"></aside>
+
+    <!-- CENTER: Interactive 8192x8192 Map Canvas -->
+    <section class="viewport-wrap">
+      <canvas id="mapCanvas"></canvas>
+      <div id="mapTooltip" class="map-tooltip hidden"></div>
+
+      <div class="hud-overlay top-left">
+        <div class="armed-banner" id="armedBanner">Select a location on the left, then click on the map to place it</div>
+      </div>
+
+      <div class="hud-overlay bottom-left">
+        <span id="coordReadout">X: — , Y: —</span>
+        <span class="sep">|</span>
+        <span id="zoomReadout">Zoom: 100%</span>
+        <span class="sep">|</span>
+        <span class="controls-hint">Left-Click: Place / Drag · Right/Middle-Drag or WASD: Pan · Wheel: Zoom</span>
+      </div>
+
+      <div class="hud-overlay bottom-right">
+        <label class="mini-toggle" title="Show all placed Overworld Quest pins at once (Shortcut: Q)"><input type="checkbox" id="chkShowQuests" /> All Quests (Q)</label>
+        <label class="mini-toggle"><input type="checkbox" id="chkShowHeroScale" checked /> Hero Ref</label>
+        <label class="mini-toggle"><input type="checkbox" id="chkShowRings" /> Rings</label>
+        <label class="mini-toggle"><input type="checkbox" id="chkShowLabels" checked /> Labels</label>
+        <label class="mini-toggle"><input type="checkbox" id="chkShowHexGrid" /> 3px Grid</label>
+        <label class="mini-toggle"><input type="checkbox" id="chkShowTerrain" /> Terrain</label>
+        <label class="mini-toggle"><input type="checkbox" id="chkShowZones" checked /> Zones</label>
+      </div>
+    </section>
+
+    <!-- RIGHT: Inspector Drawer -->
+    <aside class="inspector" id="inspector">
+      <div class="inspector-empty" id="inspectorEmpty">
+        <h3>Marker Inspector</h3>
+        <p>Click any location from the list on the left or click a placed token on the map to inspect, nudge, scale, or remove it.</p>
+      </div>
+
+      <div class="inspector-body hidden" id="inspectorBody">
+        <div class="insp-header">
+          <img id="inspThumb" class="insp-thumb" alt="" />
+          <div>
+            <div class="insp-tag" id="inspTag">Permanent</div>
+            <h2 id="inspTitle">Oakhaven</h2>
+            <div class="insp-sub" id="inspKind">Town #1</div>
+          </div>
+        </div>
+
+        <div class="insp-status" id="inspStatus">Unplaced</div>
+
+        <div class="insp-rich" id="inspRich">
+          <p class="insp-desc" id="inspDesc"></p>
+          <div class="insp-services" id="inspServices"></div>
+          <div class="insp-boss hidden" id="inspBoss"></div>
+
+          <div class="insp-ferry hidden" id="inspFerryBox"></div>
+
+          <div class="insp-quests-head" id="inspQuestsHead">Quests &amp; Markers To Place</div>
+          <div class="insp-quests-list" id="inspQuestsList"></div>
+        </div>
+
+        <div class="insp-coords-section">
+          <label class="toggle-row" style="margin-bottom:10px;">
+            <input type="checkbox" id="chkInspLocked" />
+            <span>Lock position (keep during Procedural Place)</span>
+          </label>
+          <div class="field-grid">
+            <label>
+              <span>X (0–8192)</span>
+              <input type="number" id="inspX" min="0" max="8192" step="1" />
+            </label>
+            <label>
+              <span>Y (0–8192)</span>
+              <input type="number" id="inspY" min="0" max="8192" step="1" />
+            </label>
+          </div>
+
+          <label class="slider-field">
+            <span>Display Scale <strong id="inspScaleVal">1.00×</strong></span>
+            <input type="range" id="inspScale" min="0.7" max="2.2" step="0.05" value="1.0" />
+          </label>
+
+          <label class="slider-field">
+            <span>Enter Trigger Radius <strong id="inspRadiusVal">88px</strong></span>
+            <input type="range" id="inspRadius" min="48" max="240" step="4" value="88" />
+          </label>
+
+          <div class="insp-buttons">
+            <button class="btn" id="btnCenterCam">Center View</button>
+            <button id="btnDuplicate" class="btn hidden">Duplicate Pin</button>
+            <button class="btn danger" id="btnUnplace">Unplace</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="world-paint.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

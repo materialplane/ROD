@@ -1,0 +1,14 @@
+{
+  "id": "map_02",
+  "name": "Thornwall & Verdant Weald",
+  "regionLabel": "Regions 3\u20134 \u00b7 Thornwall & Plague Woods",
+  "width": 8192,
+  "height": 8192,
+  "tileSize": 512,
+  "cols": 16,
+  "rows": 16,
+  "spawn": {
+    "x": 4096,
+    "y": 4096
+  }
+}

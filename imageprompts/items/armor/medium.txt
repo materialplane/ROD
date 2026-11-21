@@ -1,0 +1,86 @@
+# ROD — Medium Body Armor (Sheet 1 of 2) Icons (5x5 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Medium Armor -> Body
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 MEDIUM SHEET 1 START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated standalone floating torso armor fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All body armors & robes are displayed upright front-facing in a slight 3/4 hero-chest silhouette floating completely standalone as empty hollow armor/garments (strictly NO human heads, NO mannequins, NO hands inside sleeves—just dark empty neck & cuff openings). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Rough Boar-Hide Tunic): Rough coarse brown boar-hide barbarian tunic stitched with thick rawhide thongs and layered shaggy shoulder fur.
+Row 1, Col 2 (Thick Elk-Hide Vest): Thick sturdy elk-hide frontier sleeveless armor vest reinforced across shoulders with cured tan leather hide straps.
+Row 1, Col 3 (Crownland Bull-Hide Armor): Crownland heavy layered dark bull-hide chest harness cinched tightly by broad wrought-iron chest buckles and waist belt.
+Row 1, Col 4 (Harbor Sea-Hide Coat): Harbor tough thick sea-hide weatherproof coat trimmed in coarse gray seal-pelt collar and heavy bronze buckle clasps.
+Row 1, Col 5 (Saltwind Scale Mail): Saltwind overlapping dull sea-iron fish-scale mail tunic covering chest and hips above simple dark wool underskirt.
+
+Row 2, Col 1 (Mire-Iron Scale Mail): Mire-Iron dark moss-tinted hammered iron overlapping scale coat cinched cleanly by tarnished bronze waist straps.
+Row 2, Col 2 (Redmarch Bronze Scale Mail): Redmarch Bronze crisp warm gleaming bronze triangular scale armor worn proudly over deep crimson frontier cloth sleeves.
+Row 2, Col 3 (Bastion Steel Scale Mail): Bastion Steel polished overlapping heavy war-steel scale hauberk armored across shoulders with bold iron-banded pauldrons.
+Row 2, Col 4 (Crag-Steel Breastplate): Highland Crag-Steel solid matte gray steel forged torso breastplate worn over dark slate leather straps and waist faulds.
+Row 2, Col 5 (Anvilhall Star-Steel Breastplate): Anvilhall Star-Steel gleaming sculpted breastplate featuring subtle warm forge-amber inlay trim along chest border and steel pauldrons.
+
+Row 3, Col 1 (Rime-Steel Breastplate): Rime-Steel cold frosted blue-gray articulated breastplate lined warmly at collar edge with crisp pale northern wolf-pelt trim.
+Row 3, Col 2 (Frostguard Breastplate): Frostguard elite pale mirror-steel breastplate sculpted with bold feathered ice-steel chest ridges over deep navy straps.
+Row 3, Col 3 (Glacial Half Plate): Glacial half plate uniting heavy frosted blue-steel chest armor, articulated overlapping shoulder spaulders, and dark chain skirt.
+Row 3, Col 4 (Ashen-Steel Half Plate): Ashen-Steel Dreadwaste dark charcoal volcanic-iron half plate showing crisp warm ember-orange trim along beveled steel edges.
+Row 3, Col 5 (Crimson-Oath Half Plate): Crimson-Oath blackened high-steel knightly half plate accented dramatically with matte deep crimson chest-ridge heraldic chevrons.
+
+Row 4, Col 1 (Sovereign Royal Half Plate): Sovereign Royal Half Plate — apex Duelist endgame silvered star-steel half plate adorned with sculpted brushed-gold crown chest crest over royal crimson waist sash.
+Row 4, Col 2 (Charred-Copper Jerkin): Charred-Copper Jerkin (Archer Medium) — smoked charcoal-black tough leather body armor imbued warmly with gleaming coppery-burnt metallic edge sheen, riveted copper-burnt shoulder straps and buckles.
+Row 4, Col 3 (Ember-Burnished Leather): Ember-Burnished Leather (Archer Medium) — dark charred ash-black reinforced archer coat streaked deeply with rich burnished burnt-copper chest lamellae and dark leather arm braces.
+Row 4, Col 4 (Scorched-Copper Leather Coat): Scorched-Copper Leather Coat (Archer Medium) — heavy layered charcoal-charred long archer coat armored in gleaming coppery-burnt overlapping leather chest-plates and bronze-copper rivets.
+Row 4, Col 5 (Tarnished-Copper Cuirass): Tarnished-Copper Cuirass (Archer Medium) — master-cured obsidian-charcoal rigid archer cuirass glowing subtly with sculpted burnt-copper shoulder trim and charcoal-copper breastplates.
+
+Row 5, Col 1 (Charred-Silver Leather Plate): Charred-Silver Leather Plate (Archer Medium) — midnight charcoal-blackened rigid archer armor imbued cleanly with cool silvery-burnt metallic sheen across laminated leather chest plates.
+Row 5, Col 2 (Ash-Silver Leather Coat): Ash-Silver Leather Coat (Archer Medium) — tailored smoky ash-gray and black boiled leather-plate battle coat gleaming cleanly with burnt-silvered steel rib trim and buckles.
+Row 5, Col 3 (Eclipse-Burnt Leather Plate): Eclipse-Burnt Leather Plate (Archer Medium) — sleek charred-obsidian layered leather-plate cuirass traced finely with pale tarnished-silver streaks and pointed slate pauldrons.
+Row 5, Col 4 (Sovereign Shadow-Leather): Sovereign Shadow-Leather (Archer Medium Relic) — apex archer armor merging midnight shadow-charred rigid leather plates gleaming subtly with royal silvery-burnt shoulder filigree.
+Row 5, Col 5 (Medium Body Armor Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic medium scale/leather-plate body silhouette emblem—clean understated profile with NO gems, NO glow, NO circle frame, and NO box border on pure #FF00FF.
+--- 5x5 MEDIUM SHEET 1 END ---
+
+
+# ROD — Medium Body Armor (Sheet 2 of 2) Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Bone/Scale Medium -> Body
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 MEDIUM SHEET 2 START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated standalone floating torso armor fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 medium body armors are compact waist-length / hip-length torso armor pieces displayed upright front-facing in a slight 3/4 hero-chest silhouette floating completely standalone as empty hollow torso armor ONLY (strictly bare shoulder silhouettes with ZERO capes, ZERO cloaks, ZERO shoulder shawls, NO human heads, NO mannequins, NO hands inside sleeves—just dark empty neck & cuff openings). Show 100% of every armor piece completely uncut and intact from top neck collar to finished lower hip hem — strictly NO clipped collars at top borders, NO chopped waist skirts or cut hems at bottom borders, and NO cut-off sleeves at sides. Size each armor modestly to fill only ~62–68% of its invisible cell so wide generous pure empty flat #FF00FF magenta margins surround ALL 4 sides of every armor cleanly inside its cell.
+
+Render these exact 16 distinct compact waist-length armor icons cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Carved Rib-Bone Coat): Compact waist-length pale bleached beast rib-bone ribs lashed tightly over thick quilted charcoal leather vest and buckled belt.
+Row 1, Col 2 (Highland Padded Bone): Highland padded dark leather waist tunic reinforced across chest and shoulders with compact carved ivory mountain-horn shoulder plates and waist belt.
+Row 1, Col 3 (Tundra-Hide Bone Armor): Tundra-Hide Bone waist armor blending frost-white fur collar trim, thick dark winter-hide padding, and heavy curved beast scapula shoulder guards ending cleanly at hip belt.
+Row 1, Col 4 (Frost-Stitched Bone Vest): Tightly fitted hip-length quilted slate leather vest armored smoothly in pale frost-etched bone chest slats.
+
+Row 2, Col 1 (Giant-Skull Bone Plate): Formidable pale monster-bone torso cuirass sculpted with bold shoulder bone crests over dark hide ending cleanly at pointed hip plates.
+Row 2, Col 2 (Ashen-Carved Bone Armor): Ashen-Carved Dreadwaste bone cuirass blackened lightly by volcanic ash with faint glowing orange resin seals binding thick bone ribs.
+Row 2, Col 3 (Dreadwaste Ossuary Bone): Compact hip-length ossuary bone battle armor interlocking pale carved rib-cages with blackened iron rivets and belted dark leather harness.
+Row 2, Col 4 (Sovereign Bone Vestments): Apex Druid/Herbalist endgame gleaming ivory-and-gold-inlaid sacred bone-plate cuirass featuring layered sculpted ivory pauldrons and emerald-cloth belted waist tassets with clean bare shoulders.
+
+Row 3, Col 1 (Wyvern-Scale Plate): Sculpted overlapping dull olive-bronze wyvern scales forming a compact torso cuirass and segmented scale pauldrons worn over tailored indigo tunic sleeves with bare shoulders.
+Row 3, Col 2 (Drake-Crest Scale Plate): Bright rust-crimson and bronze articulated drake-scale mage breastplate framed by high collar and tapered waist plate.
+Row 3, Col 3 (Storm-Scale Plate): Gleaming storm-cobalt iridescent scale breastplate etched cleanly with lightning-gold belt clasp and clean hip tassets.
+Row 3, Col 4 (Boreal Scale Plate): Compact frosted-silver and glacier-blue interlocking ice-drake scale cuirass over midnight indigo hip belt and clean sleeves.
+
+Row 4, Col 1 (Blue-Wyrm Dragonscale): Shimmering deep sapphire-cobalt dragonscale waist-length armor jacket bordered cleanly in polished silver filigree trim and belted hips.
+Row 4, Col 2 (Crimson Dragonscale Coat): Regal deep blood-red dragon-hide scale armored tunic clasped cleanly with burnished gold collar clasps ending neatly at buckled waist hem.
+Row 4, Col 3 (Shadow-Wyrm Dragonscale): Sleek midnight obsidian-tinted matte dragonscale mage cuirass gleaming subtly pale silver along edge bevels.
+Row 4, Col 4 (Sovereign Dawn Dragonscale): Apex Mystic endgame shimmering brushed-gold and astral-ivory dragonscale torso cuirass with sculpted layered scale pauldrons, royal sun-crest sternum brooch, and compact hip tassets with bare shoulders.
+--- 4x4 MEDIUM SHEET 2 END ---

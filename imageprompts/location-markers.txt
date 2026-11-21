@@ -1,0 +1,210 @@
+# ROD — Circular VTT Overworld LOCATION Marker Prompts (4x4 on #FF00FF)
+# Scope: Permanent Overworld Hubs (40 Towns, Villages, Outposts, Forts & Castles), 8 Portals (Open & Closed), Travel Tokens & Portal Doors.
+# Note: All Quest-Triggered Field Sites, Caves, Ruins, Shrines, Dens & Camps live separately in imageprompts/quest-markers.txt.
+# Target Model: models/gemini-3-pro-image (1:1, 4K) via Gemini Batch API (50% off)
+# Export Pipeline: Key #FF00FF, slice 4x4, export compressed 256x256 .webp for Game Client & Admin Suite.
+#
+# Frame-By-Type Guide:
+#   - Sanctuary / Towns / Villages / Outposts: Warm weathered dark-bronze circular VTT ring
+#   - Keeps / Bastions / Castles / Fortresses / Citadels / Holdfasts: Heavy riveted dark-steel fortress circular VTT ring
+#   - Dimensional Portals (Open & Closed): Obsidian-iron circular ring framing a solid built land-based standing portal structure
+#   - Travel / Bridges / Ships / Ferries / Gates / Doors: Scarred dark tarnished iron circular VTT ring
+
+SHARED SHEET HEADER (Use at top of every 4x4 generation batch):
+1:1 square sheet showing a cleanly aligned 4x4 grid of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+
+================================================================================
+SECTION A: ALREADY GENERATED & ACTIVE LOCATION MARKERS (Batches 1–3, SUCCEEDED)
+================================================================================
+
+--- MAP 1 LOCATIONS (The Crownlands & Saltmarsh) ---
+- [Sheet 1 (1,1)] OVERGROWN GARDEN SANCTUARY [Bronze Ring]: Sun-dappled overgrown ruined stone garden courtyard with cracked moss-draped stone archway, blooming wild vines, and two small pitched traveler camp tents beside a warm small campfire.
+- [Sheet 1 (1,2)] OAKHAVEN [Bronze Ring]: Charming mid-sized timber-and-stone walled Crownlands heartland town surrounded by low stone walls and wooden watch-gate, slate-blue and warm terracotta cottage roofs, central cobblestones, blacksmith anvil awning, and oak trees.
+- [Sheet 7 (1,2)] MILLBROOK CROSSING [Bronze Ring] (Dryland Replacement): Dryland frontier dirt-crossroads village in sunny green meadow — rustic wind-powered wooden mill tower with cloth windmill sails, warm timber cottages, blacksmith anvil awning, wooden crossroads signpost, and parked supply wagon on dirt lane (STRICTLY NO river, NO stream, NO water, NO bridge).
+- [Sheet 1 (2,1)] THE ASHEN GATE — PORTAL #1 [Obsidian Ring]: Built land-based standing monument archway of charred black basalt and scorched obsidian blocks resting solidly on tiered stone steps, with carved lintel framing a glowing ember-orange and crimson portal doorway inside the stone arch flanked by iron braziers (NO cracks or tears in ground or sky).
+- [Sheet 1 (2,2)] SALTWIND HARBOR [Bronze Ring]: Bustling fortified coastal port city with pale sandstone sea-wall ramparts, weathered timber harbor piers stretching into deep sapphire water, docked wooden sailing cargo vessels, and waterfront warehouses.
+- [Sheet 1 (3,1)] MIREWATCH POST [Bronze Ring]: Elevated swamp-edge wooden plank outpost on sturdy timber pilings rising above emerald marsh reeds, palisade watch-platform, pitched canvas guard awning, and warm beacon brazier.
+- [Sheet 1 (3,2)] THE SUNKEN MAW — PORTAL #2 [Obsidian Ring]: Built land-based barnacle-crusted dark tidal stone standing archway resting solidly on a wet coastal stone pier foundation beside shallow marsh water, with carved sea-pillar jambs framing a glowing deep-sapphire and abyssal-teal portal doorway inside the stone arch (NO ground holes or sky tears).
+
+--- MAP 2 LOCATIONS (Thornwall & The Verdant Weald) ---
+- [Sheet 2 (1,1)] REDMARCH BASTION [Steel Ring]: Heavy fortified border garrison citadel built of weathered red-gray ashlar stone walls, crenellated guard battlements, crimson garrison banners, packed courtyard barracks, and iron gatehouse portcullis.
+- [Sheet 2 (1,3)] HOLLOWSTONE KEEP [Steel Ring] (Dark version; brighter golden-hour re-roll staged in Section B): Grim, imposing feudal stone castle stronghold with tall dark-slate square keep tower, jagged outer curtain walls, spiked gatehouse, and cold noble war-banners flying over stone courtyard.
+- [Sheet 2 (2,1)] THE IRON RIFT — PORTAL #3 [Obsidian Ring]: Built land-based heavy forged-iron and dark highland granite standing war-archway resting solidly on scarred stone flagstones, riveted iron pillars framing a glowing molten bronze-and-blood-red portal doorway inside the stone-and-iron arch (NO ground fissures or sky tears).
+- [Sheet 2 (2,2)] BRIARSTEAD [Bronze Ring]: Cozy timber-palisade forest town nestled beside mossy ancient woods — peaked wooden apothecary roofs, hanging dried herb racks, cobbled central well square, and warm lantern glow.
+- [Sheet 2 (3,2)] THE ROTSPIRE — PORTAL #4 [Obsidian Ring]: Built land-based moss-and-root-wrapped ancient carved stone standing archway resting solidly on stone steps in a shadowy forest clearing, stone arch framing a swirling virulent emerald-green and violet spore-lit portal doorway inside the arch (NO ground tears or pits).
+
+--- MAP 3 LOCATIONS (Sun-Scorched Isles & Ironcrest Highlands) ---
+- [Sheet 3 (1,1)] PORT VERIDIA [Bronze Ring]: Sun-bleached southern coastal trading harbor of pale limestone merchant arcades, colorful draped awning stalls, wooden piers jutting into turquoise tropical sea, and docked spice galleons.
+- [Sheet 3 (1,3)] DUNESPIRE OASIS [Bronze Ring]: Sheltered golden-sand desert caravan camp clustered around a clear emerald oasis spring and tall palm fronds, surrounded by woven merchant tents and water-barrel wagons.
+- [Sheet 3 (1,4)] THE GILDED AUCTION MANOR [Steel Ring]: Wealthy heavily guarded sandstone-and-iron slaver estate compound with high spiked courtyard walls, ornate bronze-domed vault hall, and iron-barred holding pens.
+- [Sheet 3 (2,1)] THE SCORCHED CHASM — PORTAL #5 [Obsidian Ring]: Built land-based monumental sun-scorched sandstone and tarnished-brass standing archway resting solidly on desert stone steps over golden sand, fluted sun-pillars framing a blazing amber-gold and brass-flame portal doorway inside the arch (NO canyon fissures or ground cracks).
+- [Sheet 3 (2,2)] HIGHPASS REFUGE [Bronze Ring]: Rugged alpine cliff town terraced onto steep mountain switchbacks — steep slate-shingle stone cottages, wooden walkway trestles, mountain supply aqueduct, and high pines.
+- [Sheet 3 (2,3)] ANVILHALL FORGE [Steel Ring]: Monumental carved granite mountain smithy hall built directly into towering peak cliffs, glowing forge chimney vent pouring warm orange hearth-smoke into crisp mountain air.
+- [Sheet 3 (3,2)] THE STORM-CROWNED SPIRE — PORTAL #6 [Obsidian Ring]: Built land-based weathered highland granite standing archway anchored securely on a flat mountain stone terrace with carved lightning pillars framing a crackling storm-blue and electric-gold portal doorway inside the arch (NO ground tears or sky fractures).
+
+--- MAP 4 LOCATIONS (Frostbound Reach & The Dreadwaste) ---
+- [Sheet 4 (1,1)] RIMEPORT [Bronze Ring]: Ice-locked northern timber-and-stone harbor town — snow-laden peaked docks, iron sea-wall lantern braziers, frozen harbor pilings, and sturdy northern supply longship moored in icy water.
+- [Sheet 4 (1,4)] BLEAKWATCH CITADEL [Steel Ring]: Grim snow-swept northern iron-and-basalt warlord fortress crowned with jagged spiked ramparts, chained iron drawbridge, and dark frost-rimmed battlements.
+- [Sheet 4 (2,1)] THE PALE ABYSS — PORTAL #7 [Obsidian Ring]: Built land-based frost-rimmed black basalt and tarnished bronze standing archway resting solidly on snow-dusted stone stairs, icy carved pillars framing a swirling cold crimson-and-violet portal doorway inside the stone arch (NO frozen pits or ground tears).
+- [Sheet 4 (2,2)] ASHENFORD WAR-CAMP [Bronze Ring]: Sprawling dark-ash frontier rebel war-camp of iron-ribbed canvas command tents, wooden palisade walls, glowing siege braziers, and supply wagons on volcanic soil.
+- [Sheet 4 (3,1)] THE ECLIPSE GATE — PORTAL #8 [Obsidian Ring]: Built land-based colossal blackened-silver and volcanic-basalt royal temple archway standing solidly on tiered dark stone steps, twin carved eclipse pillars and heavy stone lintel framing a glowing pitch-violet and pale blue-white portal doorway inside the arch (NO sky tears or ground fissures).
+- [Sheet 4 (3,2)] GARRICK'S BLACK KEEP [Steel Ring]: Towering dark volcanic basalt royal citadel with jagged black spires, towering fortified curtain walls, and ominous shadow clouds curling high around the central keep.
+
+--- CLOSED PORTALS (#1–#8, Sheet 6 Archive) ---
+- [Sheet 6 (1,1)] CLOSED ASHEN GATE — PORTAL #1 SEALED [Obsidian Ring]: Built land-based dormant charred black basalt standing archway resting peacefully on tiered stone steps, cold unlit iron braziers beside an empty dark shadowed archway opening (NO glowing fire, NO rift light).
+- [Sheet 6 (1,2)] CLOSED SUNKEN MAW — PORTAL #2 SEALED [Obsidian Ring]: Built land-based calm barnacle-crusted tidal stone standing archway resting quietly on a wet coastal stone pier above serene water, framing a dark empty shadowed opening inside the arch (NO glowing vortex).
+- [Sheet 6 (1,3)] CLOSED IRON RIFT — PORTAL #3 SEALED [Obsidian Ring]: Built land-based dormant riveted iron and dark highland granite standing war-archway resting quietly on flagstones with an empty dark shadowed doorway inside the arch (NO molten rift glow).
+- [Sheet 6 (1,4)] CLOSED ROTSPIRE — PORTAL #4 SEALED [Obsidian Ring]: Built land-based peaceful moss-and-ivy carved stone standing archway resting on stone steps in sunlit woods with wild white blossoms and a calm dark shadowed opening inside the arch (NO purple or green vortex).
+- [Sheet 6 (2,1)] CLOSED SCORCHED CHASM — PORTAL #5 SEALED [Obsidian Ring]: Built land-based quiet sun-bleached sandstone and tarnished-brass standing archway resting on desert stone steps framing a calm dark shadowed doorway inside the arch (NO brass flame or vortex).
+- [Sheet 6 (2,2)] CLOSED STORM-CROWNED SPIRE — PORTAL #6 SEALED [Obsidian Ring]: Built land-based weathered highland granite standing archway resting calmly on a clear mountain stone terrace framing a quiet dark shadowed doorway inside the arch (NO lightning or blue glow).
+- [Sheet 6 (2,3)] CLOSED PALE ABYSS — PORTAL #7 SEALED [Obsidian Ring]: Built land-based frost-rimmed black basalt and bronze standing archway resting peacefully on snow-dusted stone stairs with an empty dark cold shadowed doorway inside the arch (NO crimson glow).
+- [Sheet 6 (2,4)] CLOSED ECLIPSE GATE — PORTAL #8 SEALED [Obsidian Ring]: Built land-based monumental blackened-silver and volcanic-basalt royal temple archway standing quietly on tiered stone steps framing a calm dark shadowed archway opening (NO violet eclipse fire).
+
+--- TRAVEL & PORTAL DUNGEON DOOR STATES ---
+- [Sheet 7 (1,4)] FERRY CROSSING [Iron Ring]: Shoreline wooden ferry landing pier built on walkable coast beside calm deep-sapphire water and moored flat timber tow-ferry barge with wooden railings, coiled rope, stout mooring bollard, and warm glowing iron lantern (NO tall ship masts).
+- [Sheet 5 (1,1)] BORDER MOUNTAIN PASS GATE [Iron Ring]: Sturdy carved stone border toll archway and iron-strapped heavy timber gatehouse guarding a narrow cobbled highland mountain road between steep rocky slopes.
+- [Sheet 4 (4,1)] OPEN STONE ARCHWAY [Iron Ring]: Clear unobstructed carved ancient stone dungeon doorway opening softly into a shadowed corridor ahead.
+- [Sheet 4 (4,2)] LOCKED IRON GATE [Iron Ring]: Heavy forged iron bar-portcullis gate fastened shut by a thick bronze padlock and iron chains blocking a dungeon stone doorway.
+- [Sheet 4 (4,3)] COMBAT-SEALED BARRIER DOOR [Iron Ring]: Heavy stone dungeon gate sealed shut by glowing crackling amber-crimson ward runes etched across solid stone slabs.
+- [Sheet 4 (4,4)] PORTAL BOSS SANCTUM SEAL [Obsidian Ring]: Massive ornate double bronze-and-obsidian boss sanctum doors inlaid with glowing violet-gold dimensional rings and spiked iron jambs.
+
+--- RETIRED LOCATION TOKENS (Replaced by Sheet 7, Location Sheet C, & Land-Only Rule) ---
+- [Sheet 1 (1,4) RETIRED] MILLBROOK CROSSING (old river-bridge art — replaced by Sheet 7 (1,2) dryland version).
+- [Sheet 4 (3,3) RETIRED] OVERWORLD RIVER BRIDGE (retired — all rivers/inland water are impassable; Ferry Crossings handle strait crossings).
+- [Sheet 4 (3,4) RETIRED] MERCHANT SEA SHIP (floating ship replaced by 4 dedicated Sea-Port Town markers in Location Sheet C).
+
+
+================================================================================
+SECTION B: STAGED NEW LOCATION MARKERS (NOT YET SUBMITTED — 48 Tokens Across 3 x 4x4 Sheets)
+================================================================================
+
+================================================================================
+LOCATION SHEET A (4x4, 16 Tokens): MAP 1–2 NEW TOWNS & FORTS + HOLLOWSTONE + MAP 3 DESERT/LAKE HUBS
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens, NEVER duplicate any token) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give Villages, Hamlets, and Caravan Posts a warm weathered bronze VTT ring; give Forts, Castles, Keeps, and Citadels a heavy riveted dark-steel fortress VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1 (Map 1 New Towns & Forts — 4 tokens):
+- (1,1) CROWNLANDS HILL-FORT [Steel Ring]: Compact weathered timber-and-gray-stone border watch-fort atop sunny green hillside grass with sloped slate gatehouse tower, wooden palisade wing walls, supply barrels, and royal blue pennants.
+- (1,2) MEADOWBROOK HAMLET [Bronze Ring]: Cozy sunny green meadow agricultural village with three warm thatch-and-shingle stone cottages, fenced sheep pen, stacked hay bales, brick well, and blooming wildflowers.
+- (1,3) BRINECLIFF WATCH-FORT [Steel Ring]: Sturdy pale-gray coastal limestone cliff fortress perched above turquoise surf with crenellated watchtower, iron signal brazier, timber courtyard barracks, and sea-facing embrasures.
+- (1,4) REEDFEN VILLAGE [Bronze Ring]: Picturesque saltmarsh village of mossy timber plank walkways and reed-thatched fishing huts resting firmly on solid muddy green wetland earth beside small reeds and hanging drying nets (STRICTLY on solid wetland earth, NO huts built out over deep water).
+
+ROW 2 (Map 1 Castle + Map 2 Golden Highland New Hubs — 4 tokens):
+- (2,1) TIDEWATER KEEP [Steel Ring]: Fortified coastal stone sea-wall castle guarding a rocky headland with stout square gatehouse, arched seawall ramparts, weathered bronze cannon battery, and dark sapphire ocean spray.
+- (2,2) GOLDMOOR VILLAGE [Bronze Ring]: Sunny golden-ochre highland meadow frontier village with stone-and-timber cottages, wooden horse corral fence, golden wheat stacks, blacksmith awning, and warm dirt lane.
+- (2,3) SLATEPEAK MINING FORT [Steel Ring]: Compact gray-slate mountain quarry fortress built into sloped highland rock over golden grass, featuring a timber ore-hoist crane, stacked iron bars, stone guardhouse, and fortified gate.
+- (2,4) THORNWALL BORDER CASTLE [Steel Ring]: Sunny golden-hour stone border castle sitting squarely across golden highland grass and slate slopes with twin rounded towers, crimson war banners, cobbled courtyard, and portcullis gate.
+
+ROW 3 (Map 2 Verdant Weald Forest New Hubs — 4 tokens):
+- (3,1) TIMBERFALL VILLAGE [Bronze Ring]: Cheerful sunny emerald forest logging settlement with timber sawyer sheds, waterwheel-free outdoor log-splitting yard, stacked pine logs, smoking cabin chimneys, and green oaks (NO windmill sails).
+- (3,2) MOSSWOOD HAMLET [Bronze Ring]: Quiet mossy woodland hamlet nestled inside lush sunlit green forest glades with mossy shingle cottages, stone herb planters, cobbled mossy path, and glowing warm doorway lanterns.
+- (3,3) GREENWARDEN FORT [Steel Ring]: Woodland frontier ranger fort of heavy squared oak-log ramparts and gray fieldstone central keep nestled within vibrant green pine and oak woods with archer lookouts.
+- (3,4) BLIGHTWATCH KEEP [Steel Ring]: Grim stone frontier quarantine castle standing at the border between sunlit green forest and dark shadowed eastern pine glade, iron portcullis, watch-braziers, and thick stone battlements.
+
+ROW 4 (Map 2 Brightened Stronghold + Map 3 New Desert & Lakeside Hubs — 4 tokens):
+- (4,1) HOLLOWSTONE KEEP BRIGHTENED [Steel Ring]: Imposing noble stone stronghold sitting under warm golden-hour highland sunlight on golden-ochre grass and pale gray-slate rock — clean limestone towers, blue banners, outer courtyard bailey, NO gloomy dark storm fog.
+- (4,2) SUNSTONE CARAVAN POST [Bronze Ring]: Weathered golden sandstone desert trade post beside sand dunes and tan rock outcrops — woven shade awnings, desert water casks, hitching posts, and sandstone storehouse.
+- (4,3) SANDWALL CITADEL [Steel Ring]: Towering sun-baked orange-tan sandstone desert garrison fortress on sculpted desert cliffs with high battlement parapets, bronze gates, and wind-tattered crimson desert banners.
+- (4,4) CLEARWATER LAKE VILLAGE [Bronze Ring]: Peaceful green alpine valley village resting on solid grassy shore beside calm clear sapphire lake edge — steep slate-roof timber cottages, wooden shoreline fishing pier, and lush green pines (STRICTLY NO snow, NO ice).
+
+
+================================================================================
+LOCATION SHEET B (4x4, 16 Tokens): REMAINING NEW HUBS (8) + UNIQUE ZONE OUTPOSTS Z1–Z8 (8)
+================================================================================
+1:1 square sheet showing a cleanly aligned 4x4 grid of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give Towns, Villages, and all Zone Outposts a warm weathered bronze VTT ring; give Forts, Bastions, Holdfasts, and Citadels a heavy riveted dark-steel fortress VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1 (Map 3 Remaining New Hubs + Map 4 Frostbound Hubs):
+- (1,1) CRAGWATCH FORT [Steel Ring]: Rugged gray-granite mountain border fort built on sunny green highland turf with watchtower, crenellated stone walls, iron gate, and green pine trees (STRICTLY NO snow, NO ice).
+- (1,2) STORMHOLD CITADEL [Steel Ring]: Ancient monumental gray-granite highland castle crowning green mountain slopes under crisp storm-lit clouds, tall carved stone keep towers, spiked iron gates, and green hillside grass (STRICTLY NO snow).
+- (1,3) FROSTMERE VILLAGE [Bronze Ring]: Snow-buried northern timber trapper village perched beside a frozen blue-white ice lake — steep snow-laden wooden cabins, warm glowing hearth chimneys, stacked furs, and frosted pines.
+- (1,4) GLACIERWATCH FORT [Steel Ring]: Cold snow-draped gray stone and dark iron border fort anchored beside towering cobalt glacial ice cliffs with frost-rimmed battlements and glowing beacon braziers.
+
+ROW 2 (Map 4 Frostbound & Dreadwaste New Hubs):
+- (2,1) ICECREST HOLDFAST [Steel Ring]: Fortified northern clan stone hall and spiked log-and-stone ringwall nestled inside deep snowbanks and frosted pine forest with glowing central firepit.
+- (2,2) CINDERWATCH BASTION [Steel Ring]: Grim dark volcanic basalt forward bastion built onto scarred black-ash cliffs with iron-plated crenellations, glowing orange coal braziers, and tattered crimson scout banners.
+- (2,3) ASHVALE VILLAGE [Bronze Ring]: Fortified volcanic ash-basin survivor village built of dark gray basalt stone huts and timber palisade walls glowing softly with warm hearth lanterns amidst gray volcanic soil.
+- (2,4) SCORCHWALL FORT [Steel Ring]: Jagged dark obsidian-and-iron coastal fortress guarding volcanic sea cliffs above dark-navy waves with chained iron drawbridge and glowing warning braziers.
+
+ROW 3 (Map 1 Unique Zone Outposts Z1–Z4):
+- (3,1) MEADOWGATE WATCH-POST (Zone 1 · Lv 1–5) [Bronze Ring]: Small sunlit green meadow ranger hunting outpost with peaked canvas patrol tent, split-rail horse hitching post, trophy skull rack, and warm iron lantern post.
+- (3,2) OAKWOOD RANGER CAMP (Zone 2 · Lv 6–10) [Bronze Ring]: Sun-dappled oak forest timber lean-to lodge, stretched wolf-pelt drying frame, wooden bow racks, and crackling stone-ring campfire amidst oak leaves.
+- (3,3) SLATE-RIDGE SCOUT OUTPOST (Zone 3 · Lv 11–15) [Bronze Ring]: Gray-slate hillside stone watch-bunker with low timber palisade, brass signal horn post, and outdoor parchment map table on golden hillside grass.
+- (3,4) BRINEFEN HUNTER LANDING (Zone 4 · Lv 16–20) [Bronze Ring]: Coastal sandy grass-and-tide-pool timber dock outpost with stacked wooden crab traps, striped sun awning, harpoon rack, and glowing lantern.
+
+ROW 4 (Map 1 Z5 + Map 2 Z6–Z8 Unique Zone Outposts):
+- (4,1) BOGWARDEN STILT-POST (Zone 5 · Lv 21–25) [Bronze Ring]: Elevated saltmarsh wetland timber hunter platform on sturdy wooden footings resting on solid muddy green turf beside marsh reeds with hanging marsh-toad nets and smoking iron smudge pot (STRICTLY on walkable marsh land).
+- (4,2) OCHRE-DOWNS TRACKER CAMP (Zone 6 · Lv 26–30) [Bronze Ring]: Sunlit golden-ochre highland grass ranger outpost with canvas war-tent, wooden horse corral, crossbow target bales, and fluttering scout pennant.
+- (4,3) CRAGSPIRE QUARRY POST (Zone 7 · Lv 31–35) [Bronze Ring]: Gray-slate highland stone watch-outpost tucked beside iron boulders on golden grass with tripod fire brazier, pickaxe rack, and iron round-shields.
+- (4,4) FERNBROOK RANGER STATION (Zone 8 · Lv 36–40) [Bronze Ring]: Mossy eastern forest clearing timber ranger cabin with green hunter pennants, fletching workbench, stacked oak logs, and warm lantern glow.
+
+
+================================================================================
+LOCATION SHEET C (4x4, 16 Tokens): ZONE OUTPOSTS Z9–Z20 (12) + 4 SEA-TRAVEL PORT TOWNS (4)
+================================================================================
+1:1 square sheet showing a cleanly aligned 4x4 grid of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital illustration inside every circular token — chiseled silhouettes, bold sculpted rock and architecture planes, crisp dark contour definition, rich handcrafted color clarity, and moody directional lighting, framed as a 3/4 angled miniature scenic diorama filling the interior of each circle (strictly zero pixel art, zero scratchy ink outlines, zero colored-pencil or crayon sketchiness, zero watercolor bleed, zero paper or canvas grain, zero glossy plastic 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE BY CATEGORY: Give all Zone Outposts and Coastal Sea-Travel Port Towns a warm weathered bronze VTT ring (strictly NO magenta bleed onto frames).
+
+ROW 1 (Map 2 Z9–Z10 + Map 3 Desert Z11–Z12 Zone Outposts):
+- (1,1) CANOPY-WATCH TREE-POST (Zone 9 · Lv 41–45) [Bronze Ring]: Lush emerald woodland elevated timber lookout platform built around thick living oak trunks with rope-ladder scaffold, archer rail, and scout horn.
+- (1,2) MIRE-EDGE QUARANTINE CAMP (Zone 10 · Lv 46–50) [Bronze Ring]: Shadowed dark-emerald glade perimeter timber palisade post with glowing green alchemical lime braziers, apothecary vials, and iron spear rack.
+- (1,3) DUNE-RUNNER NOMAD POST (Zone 11 · Lv 51–55) [Bronze Ring]: Sun-baked sandstone desert patrol camp on golden sand dunes with woven striped canvas sun-tarp, clay water amphorae, saddlebags, and spear rack.
+- (1,4) PALM-SPRING HUNTER PAVILION (Zone 12 · Lv 56–60) [Bronze Ring]: Lush green desert palm-oasis wooden hunter pavilion with cooling shade cloth, carved monster skull trophies, water casks, and glowing brass lanterns.
+
+ROW 2 (Map 3 Mesa/Highland Z13–Z15 + Map 4 Z16 Zone Outposts):
+- (2,1) MESA-WATCH RANGER OUTPOST (Zone 13 · Lv 61–65) [Bronze Ring]: Terracotta sandstone desert mesa lookout camp with carved stone shelter, brass spyglass tripod, water barrels, and tattered desert banner.
+- (2,2) PINE-VALLEY WARDENS' POST (Zone 14 · Lv 66–70) [Bronze Ring]: Sunny green alpine meadow & pine timber hunter lodge with steep slate roof, drying bear pelts, bow rack, and crackling stone fire-ring (STRICTLY NO snow).
+- (2,3) HIGHLAND CRAG-WATCH CAMP (Zone 15 · Lv 71–75) [Bronze Ring]: Exposed gray-granite mountain ridge stone bunker camp on green highland grass with dragon-scale ward shields, iron pike racks, and storm-lit brazier (STRICTLY NO snow).
+- (2,4) SNOWDRIFT FUR-HUNTER POST (Zone 16 · Lv 76–80) [Bronze Ring]: Snow-covered northern timber and fur-draped trapper outpost beside snow-laden pines with wooden sled runners, glowing oil lamps, and frost-rimmed spears.
+
+ROW 3 (Map 4 Frostbound & Dreadwaste Z17–Z20 Zone Outposts):
+- (3,1) GLACIER-EDGE DEMON-WATCH (Zone 17 · Lv 81–85) [Bronze Ring]: Cobalt ice-cliff stone patrol post fortified with silvered iron ward stakes, pale-blue flame braziers, and snow-banked timber shelter.
+- (3,2) ASHEN-RIDGE BORDER POST (Zone 18 · Lv 86–90) [Bronze Ring]: Transitional gray stone and volcanic ash-scree ranger bunker with iron-plated shutters, scout signal horn, and glowing coal pit.
+- (3,3) CINDER-PLAIN VANGUARD CAMP (Zone 19 · Lv 91–95) [Bronze Ring]: Dark volcanic ash wasteland spiked iron-and-canvas hunter stockade with glowing orange ember braziers, obsidian ward stones, and weapon racks.
+- (3,4) BLACK-CRAG SLAYER'S POST (Zone 20 · Lv 96–99) [Bronze Ring]: Final obsidian-basalt ridge forward hunter outpost near Black Keep with consecrated silvered ward banners, heavy iron palisade, and radiant flame brazier.
+
+ROW 4 (4 Dedicated Continent Sea-Travel Port Towns — Replacing Floating Ship Marker):
+- (4,1) MAP 1 ROYAL TRADE PORT TOWN [Bronze Ring]: Bustling lush green Crownlands coastal harbor town with timber-and-slate harbor guildhalls, stone quay wall, tall lighthouse beacon, and sturdy wooden cargo dock jutting into calm turquoise-blue bay water.
+- (4,2) MAP 2 HIGHLAND COVE PORT TOWN [Bronze Ring]: Golden-ochre and gray-slate coastal warfront port town built into a sheltered cove with weathered stone harbor buildings, wooden crane pier, coiled anchor chains, and blue bay waters.
+- (4,3) MAP 3 DESERT HARBOR PORT TOWN [Bronze Ring]: Sun-bleached pale sandstone desert coastal spice-port town with domed limestone customs house, colorful striped market awnings along timber docks, amphora crates, and clear turquoise surf.
+- (4,4) MAP 4 ARCTIC SEA-PORT TOWN [Bronze Ring]: Northern snow-capped timber-and-granite coastal sea-port town beside dark icy bay water with steep slate warehouse roofs, glowing iron pier lanterns, fur crates, and stone seawall.
+
+
+================================================================================
+LOCATION SHEET D (4x4, 16 Tokens): HIGHCROWN ROYAL CAPITAL (16x REPLICATION)
+================================================================================
+1:1 square sheet showing a STRICT 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 circular tokens total, NEVER 5 columns, NEVER 5 rows, NEVER 25 tokens) of 16 evenly spaced circular tabletop RPG map landmark tokens floating completely separate on a pure, flat, solid neon magenta (#FF00FF) background with NO grid divider lines, NO outer drop shadows onto the pink, NO numbers, NO captions, and NO text labels anywhere under or beside any token (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY CIRCULAR RING). Replicate the EXACT SAME Highcrown Royal Capital landmark token composition across ALL 16 circles in the 4x4 grid (every single one of the 16 tokens must depict this same Highcrown Royal Citadel Keep scene below so the best render can be picked — depict ONLY the Royal Citadel & Capital gatehouse complex, never invent different cities or add any separate coliseum or stadium structure). Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted splash-art fantasy illustration inside every circular token — clean stylized painterly brushwork, chiseled angular stone and timber planes, crisp dark contour definition, rich scratched weathered stone/wood/masonry textures, subtle battle-worn chips and patina, and dramatic warm golden-hour directional rim-lighting contrasted against grounded moody slate shadow depth matching gritty fantasy character splash portraits, framed as a bold close-up 3/4 angled architectural diorama filling each circle cleanly with one cohesive royal citadel stronghold instead of tiny distant micro-cities (no flat cel-shaded mobile-game fills, no smooth plastic toy roofs, no pastel daylight wash, zero pixel art, zero scratchy ink sketchiness, zero watercolor bleed, zero paper grain, zero 3D CGI, and ZERO letters or printed titles anywhere in the image).
+
+FRAME RULE (MATCHING CLASS AVATAR TOKEN FRAME CRAFT): Frame EVERY token ([Steel Ring]) with an overlapping scarred forged dark-steel circular fortress VTT ring with brushed metal bevels, subtle battle-scarred edge nicks, crisp dark contour edges on both outer and inner perimeters, and understated burnished bronze corner bolts (matching the weathered scratched metal craft of hero avatar frames — NO cartoon dot rivets, NO smooth plastic rims, NO thin hairline borders, strictly NO magenta spill onto metal).
+
+HIGHCROWN ROYAL CAPITAL SUBJECT (REPLICATE THIS EXACT SUBJECT 16 TIMES):
+Heroic close-up 3/4 diorama of Ethoria's fortified Royal Capital resting on sunlit green Crownlands meadow turf — a towering tiered pale-limestone Royal Citadel Keep and sovereign high palace towers with chiseled crenellated battlements, rich royal slate-blue and warm terracotta peaked palace roofs, a monumental arched stone gatehouse with forged iron portcullis, deep navy-blue silver-trimmed royal banners flying proudly from upper ramparts, and carved white-marble palace garden arches draped in emerald ivy along the sunlit inner terrace, lit by crisp golden-hour rim light against cool slate shadow depth (strictly NO water or river, NO tiny grid of distant micro-cottages).
+
+ROW 1 (Replicate Highcrown Royal Capital 4 times):
+- (1,1) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (1,2) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (1,3) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (1,4) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+
+ROW 2 (Replicate Highcrown Royal Capital 4 times):
+- (2,1) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (2,2) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (2,3) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (2,4) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+
+ROW 3 (Replicate Highcrown Royal Capital 4 times):
+- (3,1) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (3,2) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (3,3) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (3,4) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+
+ROW 4 (Replicate Highcrown Royal Capital 4 times):
+- (4,1) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (4,2) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (4,3) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).
+- (4,4) HIGHCROWN [Steel Ring]: Exact replication of the Highcrown Royal Capital Citadel Keep composition above (pale limestone royal citadel & palace spires, royal slate-blue & terracotta roofs, arched iron-bound stone gatehouse, navy-blue silver-trimmed banners, ivy-draped marble garden arches, green Crownlands turf).

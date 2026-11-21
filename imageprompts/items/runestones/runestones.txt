@@ -1,0 +1,47 @@
+# ROD — Carved Runestones Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: docs/06-gear-and-runestones.md -> Section 5 (24 Tiered Stone Tablets + Socket Icon)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 RUNESTONES PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated carved fantasy stone rune tablet fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, horn, leather, gold, bronze, iron, and stone surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 stone tablets face straight forward subtly tilted 3/4 showing rock thickness and carved geometric surface grooves cleanly (NO readable alphabet letters, NO outer glow spilling onto #FF00FF). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Lesser Blazing Slate): Rough chipped flat gray slate tablet carved cleanly with single bright glowing ember-orange flame rune stroke (zero letters).
+Row 1, Col 2 (Lesser Glacial Slate): Rough chipped pale gray slate tablet etched cleanly with sharp pale ice-cyan frost rune geometry.
+Row 1, Col 3 (Lesser Arcing Slate): Weathered square dark-gray slate stone etched crisply with jagged bright storm-yellow lightning rune mark.
+Row 1, Col 4 (Lesser Venom Slate): Chipped moss-darkened gray slate pebble etched cleanly with vivid toxic chartreuse venom rune mark.
+Row 1, Col 5 (Lesser Hallowed Slate): Rough pale sandstone-gray slate slab carved cleanly with crisp radiant pale-gold sun-ray rune symbol.
+
+Row 2, Col 1 (Lesser Vampiric Slate): Dark charcoal-slate jagged rune tablet etched sharply with deep dark crimson blood-drop rune inlay.
+Row 2, Col 2 (Refined Detonating Basalt): Smoothed hexagonal dark volcanic basalt rune stone glowing warm bright molten-amber along geometric fracture inlay.
+Row 2, Col 3 (Refined Siphoning Basalt): Clean beveled dark blue-black basalt tablet inlaid sharply with vivid azure-sapphire mana-channel rune marks.
+Row 2, Col 4 (Refined Crushing Basalt): Stout heavy octagonal dark iron-basalt tablet stamped cleanly with thick brushed bronze anvil-wedge rune groove.
+Row 2, Col 5 (Refined Rending Basalt): Sharp notched dark basalt wedge stone etched sharply with twin bright crimson slash-arc rune strokes.
+
+Row 3, Col 1 (Refined Bastion Basalt): Shield-shaped polished dark basalt armor tablet inlaid boldly with bright steel-blue ward chevron rune.
+Row 3, Col 2 (Refined Retaliating Basalt): Spiked-edge dark charcoal basalt armor tablet glowing sharply with warm brass-orange thorn-counter rune mark.
+Row 3, Col 3 (Greater Executioner Stone): Heavy bone-and-granite faceted diamond runestone inlaid warmly in brushed brass rim with vivid crimson executioner notch rune.
+Row 3, Col 4 (Greater Echoing Stone): Twinned layered smooth dark slate & gold-rimmed stone inlaid crisply with bright pale-gold dual-echo wave runes.
+Row 3, Col 5 (Greater Resolve Bone-Stone): Carved weathered dark horn-trimmed ivory-bone runestone etched clearly with blazing amber resolve-heart symbol.
+
+Row 4, Col 1 (Greater Sanctified Stone): Clean rounded pale limestone-and-silver temple runestone gleaming subtly emerald-mint across pure sanctuary rune lines.
+Row 4, Col 2 (Greater Vanguard Stone): Stout dark steel-rimmed granite runestone carved deeply with gleaming sky-blue vanguard tower chevron.
+Row 4, Col 3 (Greater Unbreakable Stone): Heavy iron-collared fractured dark ironstone tablet fused cleanly by gleaming golden unbreakable seam runes.
+Row 4, Col 4 (Mythic Overflowing Obsidian): Gleaming faceted jet-black volcanic obsidian runestone framed in delicate gold bezel etched cleanly with glowing bright emerald-aqua shield runes.
+Row 4, Col 5 (Mythic Phantom Obsidian): Sleek sharp obsidian crescent-cut runestone inlaid silently with cool ghostly pale silver-white mist runes.
+
+Row 5, Col 1 (Mythic Adaptive Obsidian): Iridescent-sheen obsidian-and-bronze pentagonal stone inlaid sharply with crisp cyan-and-orange tri-element rune marks.
+Row 5, Col 2 (Mythic Martyr Obsidian): Regal heavy gold-bracketed black obsidian tablet etched vividly with bright warm crimson-gold protective ward circle.
+Row 5, Col 3 (Mythic Alacrity-Brutality Relic): Masterwork twin-bordered dark obsidian and brushed-silver hexagonal stone etched crisply with bright storm-gold geometric lightning-and-edge filigree.
+Row 5, Col 4 (Mythic Sovereign Runestone): Supreme Mythic Sovereign Obsidian-and-Gold octagonal carved runestone tablet gleaming cleanly inside with radiant astral-gold crown geometric inlay.
+Row 5, Col 5 (Runestones Category & Empty-Socket Emblem): Runestones Category & Empty-Socket Emblem: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic empty circular runestone socket rim cradling simple faint blank dark stone tablet—NO bright runes, NO glow, NO box border on pure #FF00FF.
+--- 5x5 RUNESTONES PROMPT END ---

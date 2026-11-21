@@ -1,0 +1,86 @@
+# ROD — Light Body Armor (Sheet 1 of 2) Icons (5x5 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Light Armor -> Body
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 LIGHT SHEET 1 START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated standalone floating torso armor fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All body armors & robes are displayed upright front-facing in a slight 3/4 hero-chest silhouette floating completely standalone as empty hollow torso garments ONLY (strictly bare clean shoulder outlines with ZERO capes, ZERO cloaks, NO human heads, NO mannequins, NO hands inside sleeves—just dark empty neck & cuff openings). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Worn Leather Jerkin): Worn soft cracked brown boiled-leather sleeveless travel jerkin laced down front chest with simple dark hemp cords.
+Row 1, Col 2 (Frontier Leather Coat): Sturdy tailored russet leather frontier long-coat sporting brass shoulder buckles, stitched chest lapels, broad leather waist belt.
+Row 1, Col 3 (Millbrook Leather Vest): Millbrook sculpted tempered dark-tan leather protective vest reinforced with thick layered shoulder and rib leather plates.
+Row 1, Col 4 (Saltwind Leather Cuirass): Saltwind sea-oiled veteran dark chestnut molded leather cuirass featuring crisp brass rivets, high collar guard, buckled waist straps.
+Row 1, Col 5 (Quilted Leather Jacket): Thick diamond-quilted pale brown canvas-over-leather travel jacket stitched warmly for road wear with rawhide ties.
+
+Row 2, Col 1 (Saltwind Padded Leather): Saltwind dark indigo-slate waterproof padded leather coat with quilted heavy vertical ribs and brass naval toggles.
+Row 2, Col 2 (Redmarch Padded Jerkin): Redmarch garrison padded crimson-tinted leather jerkin reinforced across chest seams with dark stitched iron shoulder flaps.
+Row 2, Col 3 (Thornwall Padded Hauberk): Thornwall padded heavy charcoal-and-russet hauberk blending thickly quilted leather sleeves and buckled dark leather cuirass.
+Row 2, Col 4 (Iron-Studded Leather): Supple blackened brown leather jerkin densely studded across chest and shoulders with neat rows of hammered iron dome rivets.
+Row 2, Col 5 (Briar Studded Leather): Briar dark forest-olive studded leather coat gleaming cleanly with patinated bronze studs along reinforced shoulder pauldrons.
+
+Row 3, Col 1 (Steel-Riveted Leather): Crisp bright steel-riveted dark mahogany leather battle armor sporting angled steel stud plates across collar and torso ribs.
+Row 3, Col 2 (Elderwood Studded Armor): Elderwood heavy master studded dark brown-green leather armor reinforced with layered sculpted bronze crescent stud bands.
+Row 3, Col 3 (Desert Spiked Leather): Sun-bleached desert tan spiked leather armor rigged across pauldrons and chest straps with short sharp brass-collared iron spikes.
+Row 3, Col 4 (Sun-Thorn Spiked Armor): Sun-Thorn gilded desert-amber boiled leather jerkin lined cleanly along shoulders and ribs with wicked tapered bronze spikes.
+Row 3, Col 5 (Veridian Spiked Coat): Arena-proven Veridian dark crimson-black heavy spiked leather battle coat armored with thick steel shoulder-spike plates.
+
+Row 4, Col 1 (Highpass Spiked Leather): Highpass granite-slate spiked leather cuirass bearing forged steel highland spikes along shoulders, ribs, and buckled belt.
+Row 4, Col 2 (Linen Travel Robes): Humble coarse oatmeal linen travel robes tied simply at the waist with twisted rope cord and dusty hem.
+Row 4, Col 3 (Simple Apprentice Robes): Neat slate-indigo wool apprentice mage robes with modest wide sleeves, simple leather belt, and wooden waist clasp.
+Row 4, Col 4 (Crownland Cloth Robes): Crownland rich cobalt-and-cream woven cloth robes embroidered sparingly along neckline and sleeves in muted antique bronze thread.
+Row 4, Col 5 (Harbor Wool Robes): Harbor thick weather-resistant sea-teal wool scholar robes featuring heavy brass collar button and storm-hem cuff bands.
+
+Row 5, Col 1 (Trimmed Fine Robes): Trimmed navy wool fine scholar robes edged crisply along open front lapels and wide cuffs in pale gold thread.
+Row 5, Col 2 (Dyed Velvet Robes): Lush dyed burgundy-and-plum velvet arcane robes clasped cleanly at sternum with twin brushed-gold oval brooches.
+Row 5, Col 3 (Redmarch Fine Mantle): Stately deep crimson tailored battle-mage buttoned coat-robes worn neatly over dark charcoal pleated under-tunic and ornate brass waist sash with clean fitted shoulders.
+Row 5, Col 4 (Noble Thread Robes): Noble Thread highborn royal-blue brocade silk-and-wool robes gleaming with clean silver-and-gold geometric collar embroidery.
+Row 5, Col 5 (Light Body Armor Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic light body silhouette emblem—clean understated front profile with NO gems, NO glow, NO circle frame, and NO box border floating on pure #FF00FF.
+--- 5x5 LIGHT SHEET 1 END ---
+
+
+# ROD — Light Body Armor (Sheet 2 of 2) Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Light Robes -> Body + UI Crests
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 LIGHT SHEET 2 START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated standalone floating torso armor fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All body robes & coats are displayed upright front-facing in a slight 3/4 hero-chest silhouette floating completely standalone as empty hollow torso garments ONLY (strictly clean fitted shoulders with ZERO capes, ZERO cloaks, NO human heads, NO mannequins, NO hands inside sleeves—just dark empty neck & cuff openings). Size each item cleanly to fill ~75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 16 distinct icons cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Quilted Hemp Robes): Heavy diamond-quilted natural unbleached hemp padded battle robes built to turn arrows and cold wind cleanly.
+Row 1, Col 2 (Marsh-Padded Robes): Saltwind dark marsh-green thickly quilted padded mantle tied securely with tarred hemp straps and bronze toggles.
+Row 1, Col 3 (Garrison Padded Robes): Garrison Redmarch quilted charcoal-crimson long battle-caster robes reinforced subtly with padded leather shoulder capelets.
+Row 1, Col 4 (Briar-Lined Padded Robes): Briar-Lined dark olive-brown cushioned woodland padded coat-robes sporting warm brass vine clasps and tough collar padding.
+
+Row 2, Col 1 (Weald Silk Robes): Shimmering forest-emerald Weald spun silk caster robes flowing softly in layered pleats with delicate golden-leaf embroidery.
+Row 2, Col 2 (Golden-Thread Silk Robes): Golden-Thread sunlit champagne-and-gold silk desert scholar robes belted neatly with wide embroidered bronze sash.
+Row 2, Col 3 (Oasis Star-Silk Robes): Oasis deep midnight-blue star-silk Veridian mantle accented richly along trailing sleeves with bright saffron and gold piping.
+Row 2, Col 4 (Storm-Woven Silk Robes): Storm-Woven highland ice-blue-and-silver shimmering storm-silk caster robes framed cleanly with tall crisp folded collar.
+
+Row 3, Col 1 (Dune-Web Widowsilk Robes): Dune-Web finely woven charcoal-and-sand matte widowsilk robes spun with dense crisp geometric spider-silk patterns.
+Row 3, Col 2 (Black-Spun Widowsilk): Black-Spun sleek midnight jet-black lustrous widowsilk vestments bordered subtly in polished silver thread filigree.
+Row 3, Col 3 (Velvet Widowsilk Mantle): Deep smoky charcoal-and-forest tailored velvet silk scholar coat gleaming subtly silver along embroidered layered cuffs, high lapels, and belted waist sash with fitted shoulders.
+Row 3, Col 4 (Frost-Spun Widowsilk): Frost-Spun eerie shimmering pale-silver translucent-look white-gray frost widowsilk ritual coat trimmed in dark iron clasps.
+
+Row 4, Col 1 (Arcane Robes Category Emblem): Minimalist matte dark tarnished-bronze and slate iconic draped scholar robe garment silhouette emblem—clean flat bevel with NO gems, NO glow, NO borders on pure #FF00FF.
+Row 4, Col 2 (Light Leather Category Emblem): Minimalist matte dark tarnished-bronze and slate iconic buckled leather jerkin silhouette emblem—clean flat bevel with NO gems, NO glow, NO borders on pure #FF00FF.
+Row 4, Col 3 (Cloth Attire Filter Tab Crest): Minimalist matte dark tarnished-bronze iconic tailored cloth coat shop-tab emblem with NO borders or glow on pure #FF00FF.
+Row 4, Col 4 (Empty Body UI Slot Silhouette): Muted low-contrast matte dark charcoal-slate empty equipment slot placeholder outline icon of a clean body silhouette with NO borders or glow on pure #FF00FF.
+--- 4x4 LIGHT SHEET 2 END ---

@@ -1,0 +1,180 @@
+# ROD — 6 Class Frames + Frameless 2x2 Avatar Portrait Prompts
+# Target Scripts:
+#   Frame / Portrait 1A & 1B -> imageprompts/premium/generate_image_1x1_4k_pro.py (1:1, 4K)
+#   Slicing / Chroma-Key     -> Frames keyed with #FF00FF outside + empty center hole; 2x2 Portraits cropped edge-to-edge & masked to circle behind locked Frame PNG.
+# Rules:
+#   1. Class Frame is generated ONCE on its own (empty center hole = pure #FF00FF, zero character inside) so it NEVER shifts across HP states.
+#   2. Portrait Step 1A -> Step 1B (2x2) are FRAMELESS square portraits edge-to-edge (~18% dark vignette headroom above hair, facing viewer's left).
+
+================================================================================
+HERO 1: PRINCE VALEN — DUELIST
+================================================================================
+
+--- VALEN FRAME (1:1, Text-Only, Empty Center) ---
+1:1 square illustration of a SINGLE large centered EMPTY decorative circular tabletop RPG token border frame floating completely empty on a solid chroma background. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy prop illustration with crisp dark ink contour definition, rich scratched metal/leather textures, zero pixel art, zero glossy 3D CGI, NO character, NO portrait, and NO text.
+
+CHROMA BACKGROUND (BOTH outside the circular frame AND filling the entire empty circular hole inside the middle): Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background with NO shadows, NO inner gradient, NO stone texture inside the center opening, and NO magenta spill onto the metal.
+
+DUELIST FRAME DESIGN: Bold sculpted circular border forged from two symmetrical curved, bevelled tarnished-steel duelist saber blades sweeping up the left and right arcs of the circle to meet cleanly tip-to-tip under a small iron rivet clasp at the top, featuring realistic blade fuller grooves, subtle battle-scarred edge nicks, dark crimson leather-wrapped sword-grip bands near the lower sides, two straight steel sword crossguards and heavy round steel pommels crossing neatly at the bottom rim, with a crisp solid dark contour edge around BOTH the outer perimeter and inner circular opening separating it cleanly from #FF00FF.
+
+--- VALEN PORTRAIT STEP 1A (1:1, Frameless Single Anchor) ---
+1:1 square edge-to-edge full-bleed high-fantasy character portrait painting filling the entire square canvas cleanly with NO decorative border, NO circular frame, NO vignette ring, and NO text. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled angular facial planes, clean stylized painterly brushwork, bold sculpted hair locks, crisp dark contour definition, rich textured leather and iron, and warm directional lighting matching crisp League of Legends splash art (no photorealistic skin pores, no chunky cartoon proportions, zero pixel art, zero 3D CGI).
+
+BACKGROUND: Rich, dark smoky charcoal-and-slate atmospheric painted stone vignette texture filling cleanly to all four edges of the square.
+
+CHARACTER (chest-up centered, ~18% clear dark background above head so a circular overlay fits cleanly, facing viewer's left): Stylized battle-worn young man in his early 20s in a calm three-quarter pose looking slightly toward the left side of the image, sculpted chiseled jawline and cheekbones, bold dark-defined wavy dark brown hair locks, sharp stylized determined eyes, a permanent horizontal scar across his right cheekbone, wearing rugged dark leather-and-iron shoulder armor over a worn slate tunic (stripped of royal gold). Calm, steady, hardened expression, completely unharmed.
+
+--- VALEN PORTRAIT STEP 1B: 2x2 MASTER HEALTH SHEET (1:1, Attach Valen Portrait Step 1A) ---
+Using the attached square portrait as an exact reference, create a seamless 1:1 edge-to-edge 2x2 grid of 4 equal square portrait panels (Top-Left, Top-Right, Bottom-Left, Bottom-Right) filling the entire canvas cleanly with NO frames, NO circular borders, NO white or colored divider lines, and NO text.
+
+STRICT LOCK RULE: Every quadrant must keep the EXACT same face, eyes, mouth, facial expression, permanent right-cheekbone scar, head size, centering, left-facing head angle, hairstyle, rugged dark leather-and-iron shoulder gear, and dark smoky slate background from the reference image. Do NOT change the facial expression, pose, framing, or clothing in any quadrant. ONLY layer progressive fresh physical wounds and bruising onto the exact same face:
+
+Top-Left: Exact reference portrait, completely unharmed (aside from his permanent pale cheekbone scar).
+Top-Right: Exact same face, expression, framing, and outfit, with one small fresh bleeding scratch on the cheek and a light smudge of dirt.
+Bottom-Left: Exact same face, expression, framing, and outfit, with dark purple-blue bruising on the cheek and brow, a small cut near the eyebrow, and light grime.
+Bottom-Right: Exact same face, expression, framing, and outfit, with heavy dark bruising across the cheek and temple, a swollen brow, a cut lip, and beads of sweat. NO expression change, NO magic effects, NO clothing changes.
+
+
+================================================================================
+HERO 2: QUEEN ELLOWYN — MYSTIC
+================================================================================
+
+--- ELLOWYN FRAME (1:1, Text-Only, Empty Center) ---
+1:1 square illustration of a SINGLE large centered EMPTY decorative circular tabletop RPG token border frame floating completely empty on a solid chroma background. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy prop illustration with crisp dark ink contour definition, rich scratched metal and leather textures, zero pixel art, zero glossy 3D CGI, NO character, NO portrait, and NO text.
+
+CHROMA BACKGROUND (BOTH outside the circular frame AND filling the entire empty circular hole inside the middle): Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background with NO shadows, NO inner gradient, NO stone texture inside the center opening, and NO magenta spill onto the metal.
+
+MYSTIC FRAME DESIGN: Slim, clean circular border hugging near the outer edges of the square so the empty #FF00FF circular opening inside is wide and uncluttered — composed of a slim smooth beveled weathered-bronze inner ring nested neatly inside a slim scarred dark-iron outer ring with a few tiny subtle etched chisel marks (no big rune letters). Sweeping up along ONLY the outer lower-left and lower-right edges of the ring are two razor-sleek curved steel crescent wing-blades tapering to sharp points near the bottom and at 9 and 3 o'clock, bound near the lower sides with crossed dark indigo-dyed leather bands and small rivets. Crowned cleanly at 12 o'clock by a compact dark-bronze upward crescent moon cradling a single unlit deep midnight-blue faceted gem, with a crisp solid dark contour edge around BOTH the outer perimeter and inner circular opening separating it cleanly from #FF00FF.
+
+--- ELLOWYN PORTRAIT STEP 1A (1:1, Frameless Single Anchor) ---
+1:1 square edge-to-edge full-bleed high-fantasy character portrait painting filling the entire square canvas cleanly with NO decorative border, NO circular frame, NO vignette ring, and NO text. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled angular facial planes, clean stylized painterly brushwork, bold sculpted hair locks, crisp dark contour definition, rich textured cloth and metal, and warm directional lighting matching crisp League of Legends splash art (no photorealistic skin pores, no chunky cartoon proportions, zero pixel art, zero 3D CGI).
+
+BACKGROUND: Rich, dark smoky charcoal-and-slate atmospheric painted stone vignette texture filling cleanly to all four edges of the square.
+
+CHARACTER (chest-up centered, ~18% clear dark background above head so a circular overlay fits cleanly, facing viewer's left): Stylized regal woman in her mid-30s in a calm three-quarter pose looking slightly toward the left side of the image, chiseled cheekbones, clean stylized painterly fair skin, sharp expressive obsidian-black eyes, bold sculpted wavy raven-black hair locks left bareheaded and uncovered, wearing a rugged high-collared dark indigo and weathered charcoal cloth-and-leather cloak fastened with a scarred tarnished-iron clasp and muted dark bronze collar trim. Calm, steady, composed expression, completely unharmed.
+
+--- ELLOWYN PORTRAIT STEP 1B: 2x2 MASTER HEALTH SHEET (1:1, Attach Ellowyn Portrait Step 1A) ---
+Using the attached square portrait as an exact reference, create a seamless 1:1 edge-to-edge 2x2 grid of 4 equal square portrait panels (Top-Left, Top-Right, Bottom-Left, Bottom-Right) filling the entire canvas cleanly with NO frames, NO circular borders, NO white or colored divider lines, and NO text.
+
+STRICT LOCK RULE: Every quadrant must keep the EXACT same face, eyes, mouth, facial expression, head size, centering, left-facing head angle, wavy raven-black hair, high-collared dark indigo cloak, tarnished-iron clasp, and dark smoky background from the reference image. Do NOT change the facial expression, pose, framing, or clothing in any quadrant. ONLY layer progressive physical wounds and bruising onto the exact same face:
+
+Top-Left: Exact reference portrait, completely unharmed.
+Top-Right: Exact same face, expression, framing, and outfit, with one small bleeding scratch on the cheek and a light smudge of dirt.
+Bottom-Left: Exact same face, expression, framing, and outfit, with dark purple-blue bruising on the cheek and brow, a small cut near the eyebrow, and light grime.
+Bottom-Right: Exact same face, expression, framing, and outfit, with heavy dark bruising across the cheek and temple, a swollen brow, a cut lip, and beads of sweat. NO expression change, NO magic effects, NO clothing changes.
+
+
+================================================================================
+HERO 3: COMMANDER ORIN — BULWARK
+================================================================================
+
+--- ORIN FRAME (1:1, Text-Only, Empty Center) ---
+1:1 square illustration of a SINGLE large centered EMPTY decorative circular tabletop RPG token border frame floating completely empty on a solid chroma background. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy prop illustration with crisp dark ink contour definition, rich scratched metal textures, zero pixel art, zero glossy 3D CGI, NO character, NO portrait, and NO text.
+
+CHROMA BACKGROUND (BOTH outside the circular frame AND filling the entire empty circular hole inside the middle): Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background with NO shadows, NO inner gradient, NO stone texture inside the center opening, and NO magenta spill onto the metal.
+
+BULWARK FRAME DESIGN: Massive sculpted circular border constructed from overlapping dark forged-iron tower-shield armor plates bolted with chunky burnished-bronze fortress rivets, crowned along the top arc with bold chiseled steel castle-battlement merlons, reinforced on left and right sides by heavy raised iron buckler bosses, cleanly joined along the bottom arc as solid riveted steel shield plating, with a crisp solid dark contour edge around BOTH the outer perimeter and inner circular opening separating it cleanly from #FF00FF.
+
+--- ORIN PORTRAIT STEP 1A (1:1, Frameless Single Anchor) ---
+1:1 square edge-to-edge full-bleed high-fantasy character portrait painting filling the entire square canvas cleanly with NO decorative border, NO circular frame, NO vignette ring, and NO text. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled angular facial planes, clean stylized painterly brushwork, bold sculpted hair locks, crisp dark contour definition, rich textured armor and metal, and warm directional lighting matching crisp League of Legends splash art (no photorealistic skin pores, no chunky cartoon proportions, zero pixel art, zero 3D CGI).
+
+BACKGROUND: Rich, dark atmospheric smoky iron-gray and charcoal painted stone vignette texture filling cleanly to all four edges of the square.
+
+CHARACTER (chest-up centered, ~18% clear dark background above head so a circular overlay fits cleanly, facing viewer's left): Stylized hardened military veteran commander in his mid-50s in a calm three-quarter pose looking slightly toward the left side of the image, bold chiseled brow and square jawline, sculpted short salt-and-pepper hair and neatly trimmed graying beard, sharp stylized watchful hazel eyes, wearing weathered battle-scarred dark steel-plate pauldrons over a heavy charcoal gambeson collar. Calm, stoic, unyielding expression, completely unharmed.
+
+--- ORIN PORTRAIT STEP 1B: 2x2 MASTER HEALTH SHEET (1:1, Attach Orin Portrait Step 1A) ---
+Using the attached square portrait as an exact reference, create a seamless 1:1 edge-to-edge 2x2 grid of 4 equal square portrait panels (Top-Left, Top-Right, Bottom-Left, Bottom-Right) filling the entire canvas cleanly with NO frames, NO circular borders, NO white or colored divider lines, and NO text.
+
+STRICT LOCK RULE: Every quadrant must keep the EXACT same face, eyes, mouth, facial expression, head size, centering, left-facing head angle, salt-and-pepper hair, graying beard, weathered steel-plate pauldrons, and dark smoky background from the reference image. Do NOT change the facial expression, pose, framing, or clothing in any quadrant. ONLY layer progressive physical wounds and bruising onto the exact same face:
+
+Top-Left: Exact reference portrait, completely unharmed.
+Top-Right: Exact same face, expression, framing, and outfit, with one small bleeding scratch on the cheek and a light smudge of dirt.
+Bottom-Left: Exact same face, expression, framing, and outfit, with dark purple-blue bruising on the cheek and brow, a small cut near the eyebrow, and light grime.
+Bottom-Right: Exact same face, expression, framing, and outfit, with heavy dark bruising across the cheek and temple, a swollen brow, a cut lip, and beads of sweat. NO expression change, NO magic effects, NO clothing changes.
+
+
+================================================================================
+HERO 4: ROWAN — ARCHER
+================================================================================
+
+--- ROWAN FRAME (1:1, Text-Only, Empty Center) ---
+1:1 square illustration of a SINGLE large centered EMPTY decorative circular tabletop RPG token border frame floating completely empty on a solid chroma background. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy prop illustration with crisp dark ink contour definition, rich scratched wood/leather/brass textures, zero pixel art, zero glossy 3D CGI, NO character, NO portrait, and NO text.
+
+CHROMA BACKGROUND (BOTH outside the circular frame AND filling the entire empty circular hole inside the middle): Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background with NO shadows, NO inner gradient, NO stone texture inside the center opening, and NO magenta spill onto the wood or metal.
+
+ARCHER FRAME DESIGN: Clean, well-proportioned circular border hugging near the outer edges of the square so the empty #FF00FF circular opening inside is large, round, and uncluttered (NOT a small thick chunky ring) — built from a smooth beveled antique-brass inner and outer rim framing a carved dark yew-wood recessed band engraved with subtle arrow-fletching feather notches. The smooth inner brass rim features small raised diamond studs spaced cleanly around the circle (3, 9, and the four diagonals). Wrapping ONLY the left and right outer wood-and-brass arc (at 9 and 3 o'clock) are neat stitched dark-brown leather grip bands trimmed with thin riveted straps (no giant protruding buckles), while the top (12 o'clock) and bottom (6 o'clock) carry compact brass chevron brackets cradling small notched ivory-horn bow-nock tips flush with the circle, with a crisp solid dark contour edge around BOTH the outer perimeter and inner circular opening separating it cleanly from #FF00FF.
+
+--- ROWAN PORTRAIT STEP 1A (1:1, Frameless Single Anchor) ---
+1:1 square edge-to-edge full-bleed high-fantasy character portrait painting filling the entire square canvas cleanly with NO decorative border, NO circular frame, NO vignette ring, and NO text. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled angular facial planes, clean stylized painterly brushwork, bold sculpted hair locks, crisp dark contour definition, rich textured leather and fur, and warm directional lighting matching crisp League of Legends splash art (no photorealistic skin pores, no chunky cartoon proportions, zero pixel art, zero 3D CGI).
+
+BACKGROUND: Rich, dark atmospheric smoky deep-pine-and-charcoal painted vignette texture filling cleanly to all four edges of the square.
+
+CHARACTER (chest-up centered, ~18% clear dark background above head so a circular overlay fits cleanly, facing viewer's left): Stylized young hardened borderland scout in his early 20s in a calm three-quarter pose looking slightly toward the left side of the image frame, sharp chiseled features, keen stylized alert eyes, neat natural short-to-medium dark chestnut hair resting calmly close to his head in indoor stillness, wearing a weathered forest-brown leather-and-fur ranger mantle with a buckled brown leather scout chest strap and clean uncluttered fur shoulders. Calm, focused, steady expression, completely unharmed.
+
+--- ROWAN PORTRAIT STEP 1B: 2x2 MASTER HEALTH SHEET (1:1, Attach Rowan Portrait Step 1A) ---
+Using the attached square portrait as an exact reference, create a seamless 1:1 edge-to-edge 2x2 grid of 4 equal square portrait panels (Top-Left, Top-Right, Bottom-Left, Bottom-Right) filling the entire canvas cleanly with NO frames, NO circular borders, NO white or colored divider lines, and NO text.
+
+STRICT LOCK RULE: Every quadrant must keep the EXACT same face, eyes, mouth, facial expression, head size, centering, left-facing head angle, neat settled hairstyle, leather-and-fur ranger mantle, buckled scout chest strap, and dark pine-smoke background from the reference image. Do NOT change the facial expression, pose, framing, or clothing in any quadrant. ONLY layer progressive physical wounds and bruising onto the exact same face:
+
+Top-Left: Exact reference portrait, completely unharmed.
+Top-Right: Exact same face, expression, framing, and outfit, with one small bleeding scratch on the cheek and a light smudge of dirt.
+Bottom-Left: Exact same face, expression, framing, and outfit, with dark purple-blue bruising on the cheek and brow, a small cut near the eyebrow, and light grime.
+Bottom-Right: Exact same face, expression, framing, and outfit, with heavy dark bruising across the cheek and temple, a swollen brow, a cut lip, and beads of sweat. NO expression change, NO magic effects, NO clothing changes.
+
+
+================================================================================
+HERO 5: MERA — DRUID
+================================================================================
+
+--- MERA FRAME (1:1, Text-Only, Empty Center) ---
+1:1 square illustration of a SINGLE large centered EMPTY decorative circular tabletop RPG token border frame floating completely empty on a solid chroma background. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy prop illustration with crisp dark ink contour definition, rich weathered dark oak-bark wood, muted moss-green foliage, aged woody briar vines, and tarnished iron/bronze metalwork textures, zero pixel art, zero glossy 3D CGI, NO character, NO portrait, and NO text.
+
+CHROMA BACKGROUND (BOTH outside the circular frame AND filling the entire empty circular hole inside the middle): Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background with NO shadows, NO inner gradient, NO stone texture inside the center opening, and NO magenta spill onto the wood, leaves, or metal.
+
+DRUID FRAME DESIGN: Clean, well-proportioned circular border hugging near the outer edges of the square so the empty #FF00FF circular opening inside is large, round, and completely unobstructed (NOT a small thick chunky ring, and NO thorns or leaves poking inward across the center hole) — built from a slim beveled tarnished dark-iron and antique-bronze inner rim nested cleanly inside a carved dark-umber weathered oak-bark wood outer ring wound tightly along the outer rim with earthy dark-brown thorny woody briar vines and sculpted deep forest-moss green and russet oak leaves. Reinforced neatly at 9 o'clock and 3 o'clock by compact tarnished dark-iron & weathered-bronze leaf-clasp bands with small rivets, and anchored cleanly at 6 o'clock by two small symmetrical curved tarnished-iron crescent druid-sickle tips cradling a single deep forest-emerald faceted nature crystal (unlit, rich emerald reflections), all bounded by a crisp solid dark contour edge around BOTH the outer perimeter and inner circular opening separating it cleanly from #FF00FF.
+
+--- MERA PORTRAIT STEP 1A (1:1, Frameless Single Anchor) ---
+1:1 square edge-to-edge full-bleed high-fantasy character portrait painting filling the entire square canvas cleanly with NO decorative border, NO circular frame, NO vignette ring, and NO text. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled angular facial planes, clean stylized painterly brushwork, bold sculpted hair locks, crisp dark contour definition, rich textured wool, stitched bark-brown leather, and dried forest leaves, and warm directional lighting matching crisp League of Legends splash art (no photorealistic skin pores, no chunky cartoon proportions, zero pixel art, zero 3D CGI).
+
+BACKGROUND: Rich, dark atmospheric smoky deep forest-pine and mossy-charcoal painted vignette texture filling cleanly to all four edges of the square.
+
+CHARACTER (chest-up centered, ~18% clear dark background above hood so a circular overlay fits cleanly, facing viewer's left): Stylized sharp-eyed young woman druid in her mid-20s in a calm three-quarter pose looking slightly toward the left side of the image, warm olive-fair skin, angular chiseled cheekbones, keen stylized focused hazel-green eyes, bold dark raven-brown hair with side-swept bangs and one thin leather-wrapped side braid tucked neatly beside her cheek under an open, relaxed deep forest-pine green wool druid hood (draped softly back around her crown so her forehead, hair, and entire face stay completely clear and well-lit), trimmed cleanly along the hood edge with weathered bark-brown stitched leather and small woven dried olive and russet forest leaves. Around her neck rests a coarse muted mossy-sage woven linen neck wrap (chin and lower face 100% visible, NOT mask-covered) fastened cleanly at her collarbone by a small tarnished blackened-silver twisted-briar brooch cradling a single smooth deep emerald-green druid crystal, worn over layered bark-brown stitched wild leather shoulder armor and a deep forest-green druid tunic. Calm, steady, untamed focus, completely unharmed.
+
+--- MERA PORTRAIT STEP 1B: 2x2 MASTER HEALTH SHEET (1:1, Attach Mera Portrait Step 1A) ---
+Using the attached square portrait as an exact reference, create a seamless 1:1 edge-to-edge 2x2 grid of 4 equal square portrait panels (Top-Left, Top-Right, Bottom-Left, Bottom-Right) filling the entire canvas cleanly with NO frames, NO circular borders, NO white or colored divider lines, and NO text.
+
+STRICT LOCK RULE: Every quadrant must keep the EXACT same face, eyes, mouth, facial expression, head size, centering, left-facing head angle, dark hair with side braid, deep forest-pine druid hood with woven dried leaves, mossy-sage neck wrap, emerald crystal briar brooch, bark-brown wild leather shoulder gear, and dark mossy-pine background from the reference image. Do NOT change the facial expression, pose, framing, or clothing in any quadrant. ONLY layer progressive physical wounds and bruising onto the exact same face:
+
+Top-Left: Exact reference portrait, completely unharmed.
+Top-Right: Exact same face, expression, framing, and outfit, with one small bleeding scratch on the cheek and a light smudge of dirt.
+Bottom-Left: Exact same face, expression, framing, and outfit, with dark purple-blue bruising on the cheek and brow, a small cut near the eyebrow, and light grime.
+Bottom-Right: Exact same face, expression, framing, and outfit, with heavy dark bruising across the cheek and temple, a swollen brow, a cut lip, and beads of sweat. NO expression change, NO magic effects, NO clothing changes.
+
+
+================================================================================
+HERO 6: HARLAN — HERBALIST
+================================================================================
+
+--- HARLAN FRAME (1:1, Text-Only, Empty Center) ---
+1:1 square illustration of a SINGLE large centered EMPTY decorative circular tabletop RPG token border frame floating completely empty on a solid chroma background. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy prop illustration with crisp dark ink contour definition, rich scratched tarnished metal textures, zero pixel art, zero wooden twigs, zero green leaves, zero glossy 3D CGI, NO character, NO portrait, and NO text.
+
+CHROMA BACKGROUND (BOTH outside the circular frame AND filling the entire empty circular hole inside the middle): Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background with NO shadows, NO inner gradient, NO stone texture inside the center opening, and NO magenta spill onto the metal.
+
+HERBALIST FRAME DESIGN: Well-proportioned circular metal ring leaving a large wide #FF00FF center opening (neither chunky nor overly thin, matching standard VTT token border thickness), forged entirely from scarred weathered antique bronze and tarnished dark iron. Woven seamlessly along the outer rim and cleanly etched across the bronze face are stylized metallic herb stems and pointed sage leaves rendered purely as hammered and engraved dark bronze/iron metalwork (strictly solid metal, NO organic wood bark or green foliage). Fastened cleanly at top, bottom, left, and right by four compact iron clasps with small rivets, with a crisp solid dark contour edge around BOTH the outer perimeter and inner circular opening separating it cleanly from #FF00FF.
+
+--- HARLAN PORTRAIT STEP 1A (1:1, Frameless Single Anchor) ---
+1:1 square edge-to-edge full-bleed high-fantasy character portrait painting filling the entire square canvas cleanly with NO decorative border, NO circular frame, NO vignette ring, and NO text. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital fantasy illustration — chiseled angular facial planes, clean stylized painterly brushwork, bold sculpted hair locks, crisp dark contour definition, rich textured cloth and leather, and warm directional lighting matching crisp League of Legends splash art (no photorealistic skin pores, no chunky cartoon proportions, zero pixel art, zero 3D CGI).
+
+BACKGROUND: Rich, dark atmospheric smoky mossy-slate and umber painted vignette texture filling cleanly to all four edges of the square.
+
+CHARACTER (chest-up centered, ~18% clear dark background above head so a circular overlay fits cleanly, facing viewer's left): Stylized lean, narrow-shouldered elderly herbalist scholar in his late 60s in a calm three-quarter pose looking slightly toward the left side of the image, a completely clean-shaven gaunt angular jawline, sunken high cheekbones, warm sun-weathered olive skin, closely shaved bald crown with long wispy silver-white hair swept back behind his ears, small round brass botanist spectacles pushed cleanly up resting on his forehead (eyes fully unobstructed), gentle weary dark amber eyes with painterly laugh lines, wearing soft layered dark moss-olive and worn brown cloth herbalist robes with soft draped cloth shoulders, an herb-stained linen neck wrap, and a worn leather herb-satchel strap across his chest with tucked dried sprigs. Calm, gentle, weathered expression, completely unharmed.
+
+--- HARLAN PORTRAIT STEP 1B: 2x2 MASTER HEALTH SHEET (1:1, Attach Harlan Portrait Step 1A) ---
+Using the attached square portrait as an exact reference, create a seamless 1:1 edge-to-edge 2x2 grid of 4 equal square portrait panels (Top-Left, Top-Right, Bottom-Left, Bottom-Right) filling the entire canvas cleanly with NO frames, NO circular borders, NO white or colored divider lines, and NO text.
+
+STRICT LOCK RULE: Every quadrant must keep the EXACT same clean-shaven gaunt face, eyes, mouth, facial expression, head size, centering, left-facing head angle, warm olive skin, shaved crown with swept-back hair, brass spectacles pushed up on forehead, moss-olive and brown cloth robes, leather herb-satchel strap, and dark mossy-slate background from the reference image. Do NOT change the facial expression, pose, framing, or clothing in any quadrant. ONLY layer progressive physical wounds and bruising onto the exact same face:
+
+Top-Left: Exact reference portrait, completely unharmed.
+Top-Right: Exact same face, expression, framing, and outfit, with one small bleeding scratch on the cheek and a light smudge of dirt.
+Bottom-Left: Exact same face, expression, framing, and outfit, with dark purple-blue bruising on the cheek and brow, a small cut near the eyebrow, and light grime.
+Bottom-Right: Exact same face, expression, framing, and outfit, with heavy dark bruising across the cheek and temple, a swollen brow, a cut lip, and beads of sweat. NO expression change, NO magic effects, NO clothing changes.

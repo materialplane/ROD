@@ -1,0 +1,37 @@
+# ROD — Heavy Helmets & Headgear Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Heavy Armor -> Helmet
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 HEAVY SHEET START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated standalone floating helmet & hood fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All helmets & coifs are displayed cleanly in a unified 3/4 angle facing toward the viewer's left (~8 o'clock) floating standalone with deeply shadowed dark empty interiors (strictly NO human faces, NO heads, NO necks underneath, and zero disconnected floating collar plates — all neck guards and chainmail skirts must join solidly onto the helmet bowl). Size each item cleanly to fill ~70% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 16 distinct icons cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Thornwall Ring Coif): Thornwall Ring Coif — heavy coarse leather coif draped seamlessly in dense rows of dark hammered iron rings.
+Row 1, Col 2 (Iron-Ringed Sallet): Iron-Ringed Sallet — dark gray steel dome sallet helmet dropping heavy iron-ringed mail skirt over back neck.
+Row 1, Col 3 (Briar Ring Barbute): Briar Ring Barbute — open-faced patinated bronze-iron barbute sporting riveted bronze cheek-plates and solid dark-shadowed bronze mail skirt.
+Row 1, Col 4 (Elderwood Ring Helm): Elderwood Ring Helm — masterwork matte steel-crowned dome helmet ringed cleanly around lower fringe in heavy bronze rings.
+
+Row 2, Col 1 (Veridian Chain Coif): Veridian bright steel tightly knitted chain mail coif draped cleanly over padded arming collar.
+Row 2, Col 2 (Sun-Forged Chain Helm): Sun-Forged gleaming brass-and-steel knightly kettle-crested greathelm with hanging steel chain aventail.
+Row 2, Col 3 (Sandwall Chain Greathelm): Sandwall heavy charcoal riveted steel chain-hooded greathelm sporting thick brass brow visor strip.
+Row 2, Col 4 (Highpass Chain Visor): Highpass heavy silvered-steel dome helm with full enclosed cold iron bar-visor and dense silver chain neck guard.
+
+Row 3, Col 1 (Crag-Iron Kettle Helm): Crag-Iron Kettle Helm — rugged wide-brimmed matte gray highland steel kettle helm reinforced with vertical iron crown splints.
+Row 3, Col 2 (Anvilhall Splint Greathelm): Anvilhall Splint Greathelm — heavy blackened star-iron splinted war-helm inlaid warmly along brow with glowing amber forge lines.
+Row 3, Col 3 (Rime-Bound Splint Visor): Frosted blue-gray articulated iron splint war-helmet sporting a riveted pale-silver brow band, pointed steel nasal guard, and compact steel neck plates joining smoothly beneath the skull bowl with zero fur.
+Row 3, Col 4 (Glacierwall Armet): Glacierwall Armet — bold northern navy-strapped icy steel splinted knight armet with angular breathing visor.
+
+Row 4, Col 1 (Bleakwatch Warhelm): Bleakwatch Warhelm — grim towering blackened iron full plate helm crowned with jagged steel brow ridges and dark slit visor.
+Row 4, Col 2 (Ashen-Iron Greathelm): Ashen-Iron Greathelm — Dreadwaste volcanic-charcoal full knightly greathelm glowing softly molten ember-orange inside visor eye-slits.
+Row 4, Col 3 (Black-Keep Full Visor): Black-Keep Full Visor — imposing gothic fluted black steel knight helm sporting fierce crimson-lacquered crown crest.
+Row 4, Col 4 (Crown of the First King): Crown of the First King — supreme Bulwark endgame relic gleaming star-steel royal greathelm crowned in solid sculpted brushed-gold king's crown.
+--- 4x4 HEAVY SHEET END ---

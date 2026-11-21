@@ -1,0 +1,86 @@
+# ROD — Light Helmets & Headgear (Sheet 1 of 2) Icons (5x5 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Light Armor -> Helmet
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 LIGHT SHEET 1 START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated standalone floating helmet & hood fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All leather caps/coifs (Rows 1–3 & Row 4 Col 1) and all cloth/silk robe Mage Hoods (Row 4 Cols 2–5 & Row 5 Cols 1–4) are displayed cleanly in a unified 3/4 angle facing toward the viewer's left (~8 o'clock) floating standalone with wide open front rims revealing textured inner leather/cloth lining and realistic shadow folds inside (ZERO solid flat black void holes inside openings). Strictly ALL cloth robe headpieces (Row 4 Cols 2–5 & Row 5 Cols 1–4) MUST be classic loose pointed cloth Mage Hoods & Cowls — metal circlets, bands, or medallions mount directly onto the front brow edge of a cloth hood (NO wide-brimmed witch hats, NO bare headbands/ribbons, NO bare floating wire rings, NO human faces, NO heads, NO necks). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Worn Leather Cap): Simple scuffed brown boiled-leather skullcap stitched cleanly with heavy hemp seams and plain leather ear flaps.
+Row 1, Col 2 (Scout's Leather Hood): Tapered brown leather scout's hood with folded forward brow shade, stitched chin strap, dark weathered hide finish.
+Row 1, Col 3 (Hardened Leather Coif): Hardened rigid russet leather rounded coif featuring reinforced thick brow band and brass buckle chin strap.
+Row 1, Col 4 (Saltwind Leather Cowl): Saltwind dark cured-chestnut leather navigator's cowl fitted with wide flared neck guard and tarnished brass rivets.
+Row 1, Col 5 (Padded Leather Cap): Thick quilted canvas-and-leather arming cap stitched neatly with vertical cushion channels and simple tie strings.
+
+Row 2, Col 1 (Stitched Leather Hood): Soft dark indigo stitched quilted leather field hood cushioned generously around cheeks and back neck.
+Row 2, Col 2 (Redmarch Padded Coif): Redmarch garrison padded crimson-tinted leather coif lined cleanly along temple edge with dark steel rivets.
+Row 2, Col 3 (Thornwall Padded Helm): Thornwall heavy padded leather dome helm reinforcing quilted crown beneath wide crossed boiled-leather iron straps.
+Row 2, Col 4 (Studded Leather Cap): Fitted dark brown leather cap accented tightly across brow and crown ribs with gleaming hammered iron rivets.
+Row 2, Col 5 (Riveted Leather Coif): Riveted olive-brown studded leather coif sporting double bands of antique bronze dome studs circling cheek and neck guards.
+
+Row 3, Col 1 (Briar Studded Hood): Briar forest studded leather hood featuring dark moss leather reinforced by crisp shiny steel stud rows and chin buckle.
+Row 3, Col 2 (Elderwood Studded Cowl): Elderwood heavy master studded dark cowl armored neatly with geometric crescent stud plates across crown and temples.
+Row 3, Col 3 (Spiked Leather Cap): Tan desert spiked leather battle cap crowned with short curved iron brow spikes along dark leather strap.
+Row 3, Col 4 (Sun-Horned Leather Coif): Sun-Horned Veridian crimson-tan leather coif displaying sharp brass-ferruled horn spikes sweeping cleanly up both temples.
+Row 3, Col 5 (Veridian Spiked Mask): Veridian dark arena spiked leather half-mask cowl hiding lower brow behind bristled short steel ridge spikes.
+
+Row 4, Col 1 (Highpass Spiked Hood): Highpass granite-slate spiked leather hood crested along central crown spine with crisp mountain-iron spikes.
+Row 4, Col 2 (Simple Linen Hood): Loose pointed coarse oatmeal linen traveler mage hood showing soft warm tan inner cloth lining folds around open collar.
+Row 4, Col 3 (Plain Cloth Cowl): Loose pointed slate-indigo wool novice mage hood draping calmly to collarbone edge with textured dark inner lining.
+Row 4, Col 4 (Wanderer's Hood): Loose pointed deep cobalt-blue and warm-tan trim soft wool traveler mage hood trimmed with bronze collar seam (no hat brim).
+Row 4, Col 5 (Saltwind Wool Hood): Loose pointed dark sea-teal heavy weathered wool sailor-scholar mage hood with wide folded cuff rim showing dark teal inner lining.
+
+Row 5, Col 1 (Fine Silk Fillet): Loose pointed rich navy-blue spun-silk mage hood bound cleanly across its open front brow rim by a folded navy silk fillet band pinned with a small antique gold medallion.
+Row 5, Col 2 (Copper Circlet): Loose pointed deep burgundy-plum velvet scholar mage hood crowned neatly across its front brow rim by a hammered warm antique-copper twisted circlet band.
+Row 5, Col 3 (Redmarch Noble Hood): Loose pointed crisp crimson velvet mage hood bordered cleanly along open face edge in pale brass embroidery showing warm dark inner folds.
+Row 5, Col 4 (Noble Velour Cowl): Loose pointed deep royal plum velour mage hood richly lined in champagne silk with fine silver filigree clasps at throat.
+Row 5, Col 5 (Light Helmets & Headgear Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic light helmet silhouette emblem—clean understated front profile with NO gems, NO glow, NO circle frame, and NO box border floating on pure #FF00FF.
+--- 5x5 LIGHT SHEET 1 END ---
+
+
+# ROD — Light Helmets & Headgear (Sheet 2 of 2) Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Light Robes -> Helmet + UI Crests
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 LIGHT SHEET 2 START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated standalone floating helmet & hood fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 12 cloth & silk headpieces (Rows 1–3) MUST be loose, pointed medieval fantasy cloth Mage Hoods & Cowls displayed in an open, relaxed 3/4 angle facing toward the viewer's left (~8 o'clock) with wide open front openings showing textured dark inner cloth lining and realistic fabric folds inside (metal bands, circlets, or crystals are mounted directly onto the cloth hood's brow rim — strictly NO bare floating headbands/ribbons, NO puffy baker berets, NO flat pitch-black circle holes inside openings, NO tight chin-wrapped headscarves or hijabs, NO transparent or sheer fabric showing pink, NO human faces, NO heads, and NO necks). Size each item cleanly to fill ~72% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 16 distinct icons cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Quilted Linen Cap): Loose open diamond-stitched natural hemp quilted mage hood with wide folded lapel rim showing warm tan inner canvas lining inside.
+Row 1, Col 2 (Soft Padded Hood): Loose pointed marsh-green quilted wool mage hood with wide open rolled brim revealing soft dark-olive inner cloth lining folds.
+Row 1, Col 3 (Garrison Padded Cowl): Broad open dark crimson quilted battle-caster hood sporting reinforced stitched dark leather brow cuff and curved burgundy padded inner collar.
+Row 1, Col 4 (Briar Padded Circlet): Loose pointed dark olive-brown quilted cloth mage hood encircled along its front rim by a modest braided antique-bronze brow circlet band.
+
+Row 2, Col 1 (Weald Silk Veil): Loose pointed forest-emerald spun-silk wizard hood edged with golden leaf embroidery along wide open flaring collar showing dark green inner silk folds.
+Row 2, Col 2 (Silver Silk Headband): Loose flowing champagne-gold spun-silk wizard hood bound cleanly across the front brow edge by a sculpted brushed-silver noble brow band.
+Row 2, Col 3 (Oasis Silk Crownlet): Loose sweeping midnight-cobalt and golden-saffron spun-silk wizard hood crowned along the front brow rim with a crisp sculpted brushed-brass desert filigree crest.
+Row 2, Col 4 (Highpass Silk Diadem): Loose open pale ice-blue embroidered silk wizard hood crowned cleanly across the brow with a sculpted silver mountain-peak diadem pin revealing folded light-blue inner lining.
+
+Row 3, Col 1 (Web-Spun Widowsilk Hood): Loose swept-back charcoal-gray pointed mage hood woven crisply with silver geometric stitching, wide open front collar revealing textured slate-gray interior folds.
+Row 3, Col 2 (Black-Silk Widowsilk Cowl): Wide open-rimmed midnight obsidian luster-cloth high-mage hood bordered in fine silver piping showing soft dark charcoal inner lining folds.
+Row 3, Col 3 (Spider-Thread Veil): Thick solid opaque dark forest-slate pointed shadow-mage hood pinned across the brow with a sculpted brushed-pewter crescent crest showing dark interior cloth lining.
+Row 3, Col 4 (Crystal Widowsilk Crown): Loose pointed frosted-silver brocade arcane wizard hood crowned at brow with a faceted cool quartz crystal crest above wide silver-lined folds.
+
+Row 4, Col 1 (Arcane Robes Category Emblem): Minimalist matte dark tarnished-bronze and slate iconic draped scholar robe hood silhouette emblem—clean flat bevel with NO gems, NO glow, NO borders on pure #FF00FF.
+Row 4, Col 2 (Light Leather Category Emblem): Minimalist matte dark tarnished-bronze and slate iconic buckled leather cap silhouette emblem—clean flat bevel with NO gems, NO glow, NO borders on pure #FF00FF.
+Row 4, Col 3 (Cloth Attire Filter Tab Crest): Minimalist matte dark tarnished-bronze iconic tailored cloth circlet shop-tab emblem with NO borders or glow on pure #FF00FF.
+Row 4, Col 4 (Empty Helmet UI Slot Silhouette): Muted low-contrast matte dark charcoal-slate empty equipment slot placeholder outline icon of a clean helmet silhouette with NO borders or glow on pure #FF00FF.
+--- 4x4 LIGHT SHEET 2 END ---

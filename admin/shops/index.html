@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Shops &amp; Item Display Mockup Studio</title>
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/interior-shell.css" />
+  <link rel="stylesheet" href="styles/shop-views.css" />
+  <link rel="stylesheet" href="styles/classic-ff.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill active" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+
+    <div class="studio-stats" id="studioStats">Loading 825 items &amp; 41 interior hubs...</div>
+  </header>
+
+  <section class="studio-toolbar" id="studioToolbar">
+    <div class="ctrl-group">
+      <label for="selHub">Town / Hub</label>
+      <select id="selHub" class="ctrl-select"></select>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Layout</label>
+      <div class="seg-group" id="segLayout">
+        <button class="seg-btn" data-val="ledger">Split Ledger</button>
+        <button class="seg-btn active" data-val="classic_ff">Classic FF</button>
+        <button class="seg-btn" data-val="grid">Icon Vault</button>
+        <button class="seg-btn" data-val="cards">Showcase Cards</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selSquad">Squad</label>
+      <select id="selSquad" class="ctrl-select">
+        <option value="valen,ellowyn,orin,rowan">Valen · Ellowyn · Orin · Rowan</option>
+        <option value="valen,mera,orin,harlan">Valen · Mera · Orin · Harlan</option>
+        <option value="ellowyn,mera,rowan,harlan">Ellowyn · Mera · Rowan · Harlan</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Icon Frame</label>
+      <div class="seg-group" id="segFrame">
+        <button class="seg-btn active" data-val="bronze">Bronze Slot</button>
+        <button class="seg-btn" data-val="flat">Frameless</button>
+        <button class="seg-btn" data-val="parchment">Parchment</button>
+        <button class="seg-btn" data-val="tier">Tier Edge</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Icon Size</label>
+      <div class="seg-group" id="segSize">
+        <button class="seg-btn" data-val="48">48px</button>
+        <button class="seg-btn active" data-val="64">64px</button>
+        <button class="seg-btn" data-val="80">80px</button>
+        <button class="seg-btn" data-val="96">96px</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Screen Target</label>
+      <div class="seg-group" id="segViewport">
+        <button class="seg-btn active" data-val="full">Full Fit</button>
+        <button class="seg-btn" data-val="deck">1280&times;800 Deck</button>
+        <button class="seg-btn" data-val="desktop">1600&times;900</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Tools</label>
+      <div class="seg-group" id="segAdminTool">
+        <button class="seg-btn" data-tool="runestones">Runestone Icons</button>
+        <button class="seg-btn" data-tool="audit">All 41 Town Shops</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="stage-outer" id="stageOuter">
+    <div class="interior-viewport" id="interiorViewport">
+      <div class="loading-box">Loading shop mockups...</div>
+    </div>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

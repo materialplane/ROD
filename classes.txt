@@ -1,0 +1,172 @@
+Duelist
+Weapons:
+- Longsword (1H): Rusted Longsword, Iron Longsword, Millbrook Longsword, Salt-Tempered Longsword, Brinecliff Longsword, Tidewater Longsword, Redmarch Longsword, Garrison War-Longsword, Thornwall Knight's Longsword, Briarwood Longsword, Greenwarden Longsword, Elderwood Longsword, Sun-Bronze Longsword, Mirage Steel Longsword, Veridian Sunblade, Highland Steel Longsword, Star-Iron Longsword, Anvilhall Master Longsword, Rime-Iron Longsword, Glacier-Edge Longsword, Frostguard Longsword, Ashen-Steel Longsword, Crimson-Oath Longsword, Sovereign's Edge
+- Greatsword (2H): Pitted Claymore, Iron Greatsword, Crownland Zweihander, Saltwind Greatsword, Harbor-Breaker Claymore, Tide-Forged Greatsword, Siege Greatsword, Slatepeak Zweihander, Hollowstone Greatsword, Thorn-Etched Greatsword, Moss-Iron Claymore, Elderwood Greatblade, Sand-Bronze Greatsword, Dunespire Claymore, Sunfire Greatsword, Crag-Splitter Greatsword, Storm-Forged Claymore, Anvilhall Titan-Blade, Icebreaker Greatsword, Bleakwatch Zweihander, Pale-Abyss Greatblade, Ashen-Iron Greatsword, Wolf-Bane Zweihander, Koren's Reckoning
+- Rapier (1H): Training Rapier, Steel Rapier, Millbrook Estoc, Corsair Rapier, Sea-Glass Rapier, Tidecaller Estoc, Redmarch Duelist Rapier, Officer's Estoc, Thornwall Captain's Rapier, Briar-Thorn Rapier, Hornet-Sting Rapier, Verdant Estoc, Golden-Sand Rapier, Viper-Fang Rapier, Mirage Estoc, Wind-Edge Rapier, Silver-Peak Estoc, Storm-Spire Rapier, Rime-Needle Rapier, Cold-Steel Estoc, Frostbite Rapier, Obsidian Estoc, Crimson-Dusk Rapier, Eclipse Heartseeker
+Armor:
+- Leather (Light)
+  - Body: Worn Leather Jerkin, Frontier Leather Coat, Millbrook Leather Vest, Saltwind Leather Cuirass
+  - Helmet: Worn Leather Cap, Scout's Leather Hood, Hardened Leather Coif, Saltwind Leather Cowl
+- Padded Leather (Light)
+  - Body: Quilted Leather Jacket, Saltwind Padded Leather, Redmarch Padded Jerkin, Thornwall Padded Hauberk
+  - Helmet: Padded Leather Cap, Stitched Leather Hood, Redmarch Padded Coif, Thornwall Padded Helm
+- Studded Leather (Light)
+  - Body: Iron-Studded Leather, Briar Studded Leather, Steel-Riveted Leather, Elderwood Studded Armor
+  - Helmet: Studded Leather Cap, Riveted Leather Coif, Briar Studded Hood, Elderwood Studded Cowl
+- Spiked Leather (Light)
+  - Body: Desert Spiked Leather, Sun-Thorn Spiked Armor, Veridian Spiked Coat, Highpass Spiked Leather
+  - Helmet: Spiked Leather Cap, Sun-Horned Leather Coif, Veridian Spiked Mask, Highpass Spiked Hood
+- Breastplate (Medium)
+  - Body: Crag-Steel Breastplate, Anvilhall Star-Steel Breastplate, Rime-Steel Breastplate, Frostguard Breastplate
+  - Helmet: Highland Open Barbute, Anvilhall Crest Helm, Rime-Steel Sallet, Frostguard Visor
+- Half Plate (Medium)
+  - Body: Glacial Half Plate, Ashen-Steel Half Plate, Crimson-Oath Half Plate, Sovereign Royal Half Plate
+  - Helmet: Glacial Close Helm, Ashen-Steel Armet, Crimson-Oath Greathelm, Crown Duelist Helm
+Accessory:
+- Cloaks: Tattered Travel Cloak, Oakhaven Wool Cloak, Millbrook Duelist Cape, Waxed Mariner Cloak, Saltwind Storm-Cape, Mirewatch Oilskin Cloak, Ash-Dyed Border Cloak, Redmarch Crimson Cape, Thornwall Vanguard Mantle, Fern-Dyed Weald Cloak, Briar-Thorn Mantle, Elderwood Canopy Cloak, Sun-Bleached Sand Cloak, Gilded Veridia Cape, Mirage Silk Cloak, Wolf-Fur Travel Cloak, Storm-Weave Cape, Anvilhall Silver-Trim Cloak, Rime-Lined Wolf Cloak, Tundra Snow-Mantle, Boreal Starlight Cape, Ashen-Hide Cloak, Crimson-Oath Cape, Sovereign Duelist Cloak
+
+Mystic
+Weapons:
+- Quarterstaff (2H): Oakwood Quarterstaff, Iron-Shod Quarterstaff, Millbrook Quarterstaff, Driftwood Quarterstaff, Saltwind Brass-Bound Staff, Mirewarden Ironwood Staff, Garrison Quarterstaff, Redmarch Steel-Cap Staff, Bastion War-Staff, Briarwood Quarterstaff, Heartwood Quarterstaff, Verdant Ironwood Staff, Sun-Hardened Quarterstaff, Gilded Oasis Staff, Desert Palm Quarterstaff, Highland Pine Quarterstaff, Star-Iron Quarterstaff, Storm-Iron Battle Staff, Frostpine Quarterstaff, Rime-Bound Quarterstaff, Boreal Warden Staff, Ashenwood Quarterstaff, Lifebinder's Ironwood Staff, Sovereign Dawn Quarterstaff
+- Dagger (1H): Chipped Iron Dagger, Balanced Steel Dagger, Millbrook Dirk, Gutting Dagger, Bilge-Rat Dirk, Salt-Stained Stiletto, Trench Dagger, Redmarch Poniard, Hollowstone Steel Dagger, Fang-Tipped Dagger, Nightshade Dirk, Briar-Thorn Stiletto, Curved Oasis Dagger, Obsidian Desert Dirk, Mirage Gilded Stiletto, Flint-Edge Dagger, Sky-Talon Dirk, Anvilhall Star-Steel Stiletto, Ice-Shard Dagger, Frost-Fang Dirk, Silent-Snow Stiletto, Shadow-Steel Dagger, Night-Viper Dirk, Eclipse Shadow Dagger
+- Light Crossbow (2H): Light Ash Crossbow, Iron-Latch Crossbow, Millbrook Scout Crossbow, Deck Light Crossbow, Mariner Steel Crossbow, Mire-Piercer Crossbow, Rampart Light Crossbow, Steel-Limb Crossbow, Garrison Rapid Crossbow, Yew-Stock Crossbow, Thorn-Bolt Crossbow, Canopy Sniper Crossbow, Brass-Gear Crossbow, Desert Scorpion Crossbow, Sun-Forged Crossbow, Crag-Winch Crossbow, Silver-Spring Crossbow, Thunder-Latch Crossbow, Ice-Lock Light Crossbow, Bleakwatch Crossbow, Boreal Bolt-Thrower, Dread-Latch Crossbow, Eclipse Quick-Crossbow, Starlight Bolt-Thrower
+Armor:
+- Simple Robes (Light)
+  - Body: Linen Travel Robes, Simple Apprentice Robes, Crownland Cloth Robes, Harbor Wool Robes
+  - Helmet: Simple Linen Hood, Plain Cloth Cowl, Wanderer's Hood, Saltwind Wool Hood
+- Fine Robes (Light)
+  - Body: Trimmed Fine Robes, Dyed Velvet Robes, Redmarch Fine Mantle, Noble Thread Robes
+  - Helmet: Fine Silk Fillet, Copper Circlet, Redmarch Noble Hood, Noble Velour Cowl
+- Padded Robes (Light)
+  - Body: Quilted Hemp Robes, Marsh-Padded Robes, Garrison Padded Robes, Briar-Lined Padded Robes
+  - Helmet: Quilted Linen Cap, Soft Padded Hood, Garrison Padded Cowl, Briar Padded Circlet
+- Silk Robes (Light)
+  - Body: Weald Silk Robes, Golden-Thread Silk Robes, Oasis Star-Silk Robes, Storm-Woven Silk Robes
+  - Helmet: Weald Silk Veil, Silver Silk Headband, Oasis Silk Crownlet, Highpass Silk Diadem
+- Scale Plate (Medium)
+  - Body: Wyvern-Scale Plate, Drake-Crest Scale Plate, Storm-Scale Plate, Boreal Scale Plate
+  - Helmet: Wyvern-Scale Diadem, Drake-Crest Scale Crown, Storm-Scale Circlet, Boreal Scale Tiara
+- Dragonscale (Medium)
+  - Body: Blue-Wyrm Dragonscale, Crimson Dragonscale Coat, Shadow-Wyrm Dragonscale, Sovereign Dawn Dragonscale
+  - Helmet: Blue-Wyrm Coronet, Crimson Wyrm Crown, Shadow-Wyrm Tiara, Circlet of the First Dawn
+Accessory:
+- Orbs: Cracked Glass Orb, Amber Focus Orb, Crownland Star-Orb, Brine-Pearl Sphere, Sea-Glass Orb, Tidestone Crystal Orb, Smoke-Quartz Sphere, War-Chanter Orb, Redmarch Focus Orb, Amber-Sap Sphere, Dewdrop Crystal Orb, Elderwood Star-Orb, Sun-Glass Sphere, Topaz Mirage Orb, Solar Prism Orb, Thunder-Quartz Orb, Silver-Core Orb, Anvilhall Prism Orb, Frosted Glass Orb, Boreal Ice-Orb, Pale-Star Crystal Orb, Void-Glass Orb, Eclipse Rift Orb, Heart of the First Dawn
+
+Bulwark
+Weapons:
+- Battleaxe (1H): Worn Camp Axe, Iron Bearded Battleaxe, Crownland Cleaver Axe, Boarding Battleaxe, Barnacle Cleaver Axe, Mire-Splitter Battleaxe, Trench Battleaxe, Redmarch War-Axe, Gatebreaker Battleaxe, Timberfall Battleaxe, Sap-Tempered Battleaxe, Weald-Reaper Axe, Crescent Dune Battleaxe, Brass-Edged War-Axe, Veridian Sun-Axe, Peak-Cleaver Battleaxe, Granite-Biter War-Axe, Anvilhall Runed Battleaxe, Ice-Carver Battleaxe, Northern Wolf-Axe, Rimefang Battleaxe, Ash-Forged Battleaxe, Skull-Splitter Battleaxe, Executioner's Judgment
+- Mace (1H): Oak Studded Mace, Iron Flanged Mace, Bridgewarden War-Mace, Belaying Iron Mace, Anchorhead Mace, Tidewater Flanged Mace, Siegebreaker Mace, Redmarch Spiked Mace, Bastion War-Mace, Ironwood Knobbed Mace, Root-Knotted Mace, Oakheart Morning-Mace, Sun-Disk Bronze Mace, Obsidian-Studded Mace, Sandwall Heavy Mace, Quarry Iron Mace, Crag-Breaker Mace, Anvilhall Forged Mace, Frost-Bound Mace, Glacial Crusher Mace, Permafrost War-Mace, Siege-Breaker Mace, Dread-Iron War-Mace, Citadel Shatterer
+- Spear (2H): Ashwood Spear, Iron War-Spear, Millbrook Long-Spear, Harpoon Spear, Reef-Guard Spear, Bog-Stalker Pike, Phalanx Spear, Borderland Partisan, Redmarch War-Spear, Thorn-Tipped Spear, Stag-Horn Spear, Elderwood Long-Spear, Sand-Strider Spear, Gilded Sun-Spear, Oasis War-Spear, Cliff-Guard Spear, Skybridge War-Spear, Storm-Peak Spear, Glacier Spear, Boreal Long-Spear, Frostguard War-Spear, War-Camp War-Spear, Black-Keep Partisan, Dragonspine Spear
+Armor:
+- Hide (Medium)
+  - Body: Rough Boar-Hide Tunic, Thick Elk-Hide Vest, Crownland Bull-Hide Armor, Harbor Sea-Hide Coat
+  - Helmet: Boar-Hide Cap, Elk-Hide Coif, Horned Hide Hood, Saltwind Hide Helm
+- Scale Mail (Medium)
+  - Body: Saltwind Scale Mail, Mire-Iron Scale Mail, Redmarch Bronze Scale Mail, Bastion Steel Scale Mail
+  - Helmet: Scale-Cheeked Nasal Helm, Brine Scale Bascinet, Garrison Scale Barbute, Bastion Scale Helm
+- Ring Mail (Heavy)
+  - Body: Thornwall Ring Mail, Iron-Ringed Mail, Amber-Linked Ring Mail, Elderwood Ring Mail
+  - Helmet: Thornwall Ring Coif, Iron-Ringed Sallet, Briar Ring Barbute, Elderwood Ring Helm
+- Chain Mail (Heavy)
+  - Body: Veridian Chain Mail, Sun-Forged Chain Mail, Sandwall Siege Chain Mail, Ironcrest Heavy Chain Mail
+  - Helmet: Veridian Chain Coif, Sun-Forged Chain Helm, Sandwall Chain Greathelm, Highpass Chain Visor
+- Splint (Heavy)
+  - Body: Crag-Iron Splint, Anvilhall Star-Splint, Rime-Bound Splint, Glacierwall Splint
+  - Helmet: Crag-Iron Kettle Helm, Anvilhall Splint Greathelm, Rime-Bound Splint Visor, Glacierwall Armet
+- Plate (Heavy)
+  - Body: Bleakwatch War-Plate, Ashen-Iron Full Plate, Black-Keep Siege Plate, Bastion of the First King
+  - Helmet: Bleakwatch Warhelm, Ashen-Iron Greathelm, Black-Keep Full Visor, Crown of the First King
+Accessory:
+- Horns: Wooden Watch-Horn, Brass Garrison Horn, Crownland Bugle-Horn, Conch Fog-Horn, Harbor Brass Horn, Mirewarden Iron Horn, Iron Signal-Horn, Redmarch War-Horn, Bastion Great-Horn, Carved Stag-Horn, Timberfall Oak Horn, Elderwood Ivory Horn, Sand-Bronze Hunting Horn, Sun-Gilded Battle Horn, Dunespire Ram-Horn, Ram-Horn Signal Trumpet, Highland Steel Horn, Anvilhall Thunder-Horn, Carved Mammoth-Horn, Frostguard War-Horn, Pale-Ice Great-Horn, Dread-Iron War-Horn, Crimson-Steel War-Horn, War-Horn of the Crown
+
+Archer
+Weapons:
+- Longbow (2H): Yew Hunting Longbow, Ashwood Longbow, Crownland Longbow, Driftwood Longbow, Horn-Tipped Longbow, Saltwind Composite Longbow, Border Longbow, Ironwood War-Longbow, Watchtower Longbow, Briarwood Longbow, Heartwood Recurve Longbow, Elderwood Greatbow, Palm-Horn Longbow, Dune-Wind Longbow, Sun-Crest Longbow, Ridge-Horn Longbow, Eagle-Eye Longbow, Storm-String Longbow, White-Pine Longbow, Glacial Horn-Longbow, Boreal Wind Longbow, Ashen-Yew Longbow, Shadow-Piercer Longbow, Horizon Starbow
+- Shortbow (2H): Scout's Shortbow, Sinew Shortbow, Ranger's Shortbow, Sea-Gull Shortbow, Reed-Bound Shortbow, Mire-Hunter Shortbow, Outrider Shortbow, Skirmisher Shortbow, Thornwall Captain's Shortbow, Leaf-Wrapped Shortbow, Willow Shortbow, Shadowbranch Shortbow, Nomad's Shortbow, Sand-Viper Shortbow, Sirocco Shortbow, Crag-Jumper Shortbow, Gale-Wing Shortbow, Falcon-Strike Shortbow, Snow-Stalker Shortbow, Tundra Shortbow, Winter-Fang Shortbow, Nightwatch Shortbow, Gale-Heart Shortbow, Phantom Shortbow
+- Dagger (1H): Chipped Iron Dagger, Balanced Steel Dagger, Millbrook Dirk, Gutting Dagger, Bilge-Rat Dirk, Salt-Stained Stiletto, Trench Dagger, Redmarch Poniard, Hollowstone Steel Dagger, Fang-Tipped Dagger, Nightshade Dirk, Briar-Thorn Stiletto, Curved Oasis Dagger, Obsidian Desert Dirk, Mirage Gilded Stiletto, Flint-Edge Dagger, Sky-Talon Dirk, Anvilhall Star-Steel Stiletto, Ice-Shard Dagger, Frost-Fang Dirk, Silent-Snow Stiletto, Shadow-Steel Dagger, Night-Viper Dirk, Eclipse Shadow Dagger
+Armor:
+- Leather (Light)
+  - Body: Worn Leather Jerkin, Frontier Leather Coat, Millbrook Leather Vest, Saltwind Leather Cuirass
+  - Helmet: Worn Leather Cap, Scout's Leather Hood, Hardened Leather Coif, Saltwind Leather Cowl
+- Padded Leather (Light)
+  - Body: Quilted Leather Jacket, Saltwind Padded Leather, Redmarch Padded Jerkin, Thornwall Padded Hauberk
+  - Helmet: Padded Leather Cap, Stitched Leather Hood, Redmarch Padded Coif, Thornwall Padded Helm
+- Studded Leather (Light)
+  - Body: Iron-Studded Leather, Briar Studded Leather, Steel-Riveted Leather, Elderwood Studded Armor
+  - Helmet: Studded Leather Cap, Riveted Leather Coif, Briar Studded Hood, Elderwood Studded Cowl
+- Spiked Leather (Light)
+  - Body: Desert Spiked Leather, Sun-Thorn Spiked Armor, Veridian Spiked Coat, Highpass Spiked Leather
+  - Helmet: Spiked Leather Cap, Sun-Horned Leather Coif, Veridian Spiked Mask, Highpass Spiked Hood
+- Reinforced Leather (Medium) — imbued with copper and charcoal, has a coppery burnt color
+  - Body: Charred-Copper Jerkin, Ember-Burnished Leather, Scorched-Copper Leather Coat, Tarnished-Copper Cuirass
+  - Helmet: Copper-Charred Hood, Ember-Burnished Mask, Burnt-Copper Coif, Tarnished-Copper Visor
+- Leather Plate (Medium) — imbued with silver and charcoal, has a silvery burnt color
+  - Body: Charred-Silver Leather Plate, Ash-Silver Leather Coat, Eclipse-Burnt Leather Plate, Sovereign Shadow-Leather
+  - Helmet: Charred-Silver Mask, Ash-Silver Hood, Eclipse-Burnt Helm, Horizon Scout Cowl
+Accessory:
+- Quivers: Torn Leather Quiver, Fletched Scout Quiver, Hardened Yew Quiver, Waterproof Seal Quiver, Gull-Feather Quiver, Mire-Hunter Quiver, Garrison Arrow Quiver, Steel-Capped Quiver, Border-Captain's Quiver, Bark-Wrapped Quiver, Willow-Woven Quiver, Phantom-Leaf Quiver, Camel-Hide Quiver, Gilded Brass Quiver, Sirocco Winged Quiver, Mountain-Horn Quiver, Eagle-Plume Quiver, Gale-Wing Quiver, Fur-Lined Quiver, Glacial Horn Quiver, Boreal Wind Quiver, Ashen-Hide Quiver, Shadow-Feather Quiver, Horizon Star-Quiver
+
+Druid
+Weapons:
+- Quarterstaff (2H): Oakwood Quarterstaff, Iron-Shod Quarterstaff, Millbrook Quarterstaff, Driftwood Quarterstaff, Saltwind Brass-Bound Staff, Mirewarden Ironwood Staff, Garrison Quarterstaff, Redmarch Steel-Cap Staff, Bastion War-Staff, Briarwood Quarterstaff, Heartwood Quarterstaff, Verdant Ironwood Staff, Sun-Hardened Quarterstaff, Gilded Oasis Staff, Desert Palm Quarterstaff, Highland Pine Quarterstaff, Star-Iron Quarterstaff, Storm-Iron Battle Staff, Frostpine Quarterstaff, Rime-Bound Quarterstaff, Boreal Warden Staff, Ashenwood Quarterstaff, Lifebinder's Ironwood Staff, Sovereign Dawn Quarterstaff
+- Scimitar (1H): Bronze Leaf Scimitar, Curved Forester Scimitar, Crownland Briar Scimitar, Mariner Crescent Scimitar, Brine-Edge Scimitar, Fen-Fang Scimitar, Border Cavalry Scimitar, Redmarch Curved Scimitar, Thornwall Trench Scimitar, Thorn-Curved Scimitar, Moss-Steel Scimitar, Elderwood Leaf Scimitar, Bronze Dune Scimitar, Mirage Shamshir, Oasis Golden Scimitar, Ridge-Steel Scimitar, Thunder-Curved Scimitar, Anvilhall Silver Scimitar, Frost-Iron Scimitar, Tundra Moon Scimitar, Boreal Glacier Scimitar, Obsidian Ash Scimitar, Wild-Eclipse Scimitar, Primal Dawn Scimitar
+- Sickle (1H): Iron Herb-Sickle, Curved Field Sickle, Harvest Steel Sickle, Marsh-Reed Sickle, Brine-Steel Sickle, Mire-Root Sickle, Trench-Iron Sickle, Borderland Hook-Sickle, Bastion War-Sickle, Grove Oak Sickle, Amber-Edge Sickle, Elderwood Moon-Sickle, Sun-Brass Sickle, Glasswind Crescent Sickle, Oasis Solar Sickle, Flint Ridge Sickle, Storm-Forged Sickle, Anvilhall Star-Sickle, Ice-Carved Sickle, Frostfang Hook-Sickle, Pale-Winter Sickle, Ash-Steel Sickle, Lifeblood Briar Sickle, Moonblade Crescent Sickle
+Armor:
+- Leather (Light)
+  - Body: Worn Leather Jerkin, Frontier Leather Coat, Millbrook Leather Vest, Saltwind Leather Cuirass
+  - Helmet: Worn Leather Cap, Scout's Leather Hood, Hardened Leather Coif, Saltwind Leather Cowl
+- Padded Leather (Light)
+  - Body: Quilted Leather Jacket, Saltwind Padded Leather, Redmarch Padded Jerkin, Thornwall Padded Hauberk
+  - Helmet: Padded Leather Cap, Stitched Leather Hood, Redmarch Padded Coif, Thornwall Padded Helm
+- Studded Leather (Light)
+  - Body: Iron-Studded Leather, Briar Studded Leather, Steel-Riveted Leather, Elderwood Studded Armor
+  - Helmet: Studded Leather Cap, Riveted Leather Coif, Briar Studded Hood, Elderwood Studded Cowl
+- Widowsilk Robes (Light)
+  - Body: Dune-Web Widowsilk Robes, Black-Spun Widowsilk, Velvet Widowsilk Mantle, Frost-Spun Widowsilk
+  - Helmet: Web-Spun Widowsilk Hood, Black-Silk Widowsilk Cowl, Spider-Thread Veil, Crystal Widowsilk Crown
+- Padded Bone (Medium)
+  - Body: Carved Rib-Bone Coat, Highland Padded Bone, Tundra-Hide Bone Armor, Frost-Stitched Bone Vest
+  - Helmet: Carved Bone Mask, Highland Bone Hood, Ivory Bone Coif, Frost-Bone Circlet
+- Reinforced Bone (Medium)
+  - Body: Giant-Skull Bone Plate, Ashen-Carved Bone Armor, Dreadwaste Ossuary Bone, Sovereign Bone Vestments
+  - Helmet: Skull-Crested Bone Mask, Ashen Bone Crown, Ossuary War-Hood, Lifebinder's Bone Diadem
+Accessory:
+- Crystals: Chipped Quartz Crystal, Moss-Lit Shard, Crownland Verdant Crystal, Sea-Salt Prism Crystal, Brine-Moss Crystal, Fen-Amber Crystal, Slate-Bound Crystal, Amber-Vein Crystal, Redmarch Storm-Crystal, Heartwood Sap Crystal, Emerald Weald Crystal, Ancient Grove Crystal, Sunstone Shard Crystal, Topaz Desert Crystal, Solar Hearth Crystal, Storm-Quartz Crystal, Silver-Peak Crystal, Sky-Heart Gem Crystal, Glacial Ice Crystal, Boreal Frost Crystal, Winter-Moon Crystal, Volcanic Obsidian Crystal, Wild-Eclipse Crystal, Seed-Heart Crystal
+
+Herbalist
+Weapons:
+- Quarterstaff (2H): Oakwood Quarterstaff, Iron-Shod Quarterstaff, Millbrook Quarterstaff, Driftwood Quarterstaff, Saltwind Brass-Bound Staff, Mirewarden Ironwood Staff, Garrison Quarterstaff, Redmarch Steel-Cap Staff, Bastion War-Staff, Briarwood Quarterstaff, Heartwood Quarterstaff, Verdant Ironwood Staff, Sun-Hardened Quarterstaff, Gilded Oasis Staff, Desert Palm Quarterstaff, Highland Pine Quarterstaff, Star-Iron Quarterstaff, Storm-Iron Battle Staff, Frostpine Quarterstaff, Rime-Bound Quarterstaff, Boreal Warden Staff, Ashenwood Quarterstaff, Lifebinder's Ironwood Staff, Sovereign Dawn Quarterstaff
+- Mace (1H): Oak Studded Mace, Iron Flanged Mace, Bridgewarden War-Mace, Belaying Iron Mace, Anchorhead Mace, Tidewater Flanged Mace, Siegebreaker Mace, Redmarch Spiked Mace, Bastion War-Mace, Ironwood Knobbed Mace, Root-Knotted Mace, Oakheart Morning-Mace, Sun-Disk Bronze Mace, Obsidian-Studded Mace, Sandwall Heavy Mace, Quarry Iron Mace, Crag-Breaker Mace, Anvilhall Forged Mace, Frost-Bound Mace, Glacial Crusher Mace, Permafrost War-Mace, Siege-Breaker Mace, Dread-Iron War-Mace, Citadel Shatterer
+- Dagger (1H): Chipped Iron Dagger, Balanced Steel Dagger, Millbrook Dirk, Gutting Dagger, Bilge-Rat Dirk, Salt-Stained Stiletto, Trench Dagger, Redmarch Poniard, Hollowstone Steel Dagger, Fang-Tipped Dagger, Nightshade Dirk, Briar-Thorn Stiletto, Curved Oasis Dagger, Obsidian Desert Dirk, Mirage Gilded Stiletto, Flint-Edge Dagger, Sky-Talon Dirk, Anvilhall Star-Steel Stiletto, Ice-Shard Dagger, Frost-Fang Dirk, Silent-Snow Stiletto, Shadow-Steel Dagger, Night-Viper Dirk, Eclipse Shadow Dagger
+Armor:
+- Simple Robes (Light)
+  - Body: Linen Travel Robes, Simple Apprentice Robes, Crownland Cloth Robes, Harbor Wool Robes
+  - Helmet: Simple Linen Hood, Plain Cloth Cowl, Wanderer's Hood, Saltwind Wool Hood
+- Padded Robes (Light)
+  - Body: Quilted Hemp Robes, Marsh-Padded Robes, Garrison Padded Robes, Briar-Lined Padded Robes
+  - Helmet: Quilted Linen Cap, Soft Padded Hood, Garrison Padded Cowl, Briar Padded Circlet
+- Silk Robes (Light)
+  - Body: Weald Silk Robes, Golden-Thread Silk Robes, Oasis Star-Silk Robes, Storm-Woven Silk Robes
+  - Helmet: Weald Silk Veil, Silver Silk Headband, Oasis Silk Crownlet, Highpass Silk Diadem
+- Widowsilk Robes (Light)
+  - Body: Dune-Web Widowsilk Robes, Black-Spun Widowsilk, Velvet Widowsilk Mantle, Frost-Spun Widowsilk
+  - Helmet: Web-Spun Widowsilk Hood, Black-Silk Widowsilk Cowl, Spider-Thread Veil, Crystal Widowsilk Crown
+- Padded Bone (Medium)
+  - Body: Carved Rib-Bone Coat, Highland Padded Bone, Tundra-Hide Bone Armor, Frost-Stitched Bone Vest
+  - Helmet: Carved Bone Mask, Highland Bone Hood, Ivory Bone Coif, Frost-Bone Circlet
+- Reinforced Bone (Medium)
+  - Body: Giant-Skull Bone Plate, Ashen-Carved Bone Armor, Dreadwaste Ossuary Bone, Sovereign Bone Vestments
+  - Helmet: Skull-Crested Bone Mask, Ashen Bone Crown, Ossuary War-Hood, Lifebinder's Bone Diadem
+Accessory:
+- Tomes: Linen Herbal Tome, Stitched Field Primer, Crownland Herbal Ledger, Mariner's Tide-Tome, Sea-Kelp Herbarium, Mire-Leaf Ledger, Battlefield Triage Tome, Cinder-Ink Compendium, Bastion Field Codex, Herbalist's Lore Tome, Amber-Leaf Codex, Elderwood Verdant Tome, Sun-Dial Field Tome, Oasis Apothecary Codex, Solar-Bloom Tome, Alpine-Herb Folio, Crag-Herb Compendium, Anvilhall Runic Tome, Frost-Script Folio, Ice-Bound Herbarium, Glacial Botany Tome, Ash-Ward Triage Tome, Lifebinder's Folio, Codex of the First Dawn
+
+Shields (All classes, requires 1H weapon)
+- Buckler (Light): Cracked Wood Buckler, Iron-Rimmed Buckler, Crownland Steel Buckler, Saltwind Brass Buckler
+- Round Shield (Light): Oak-Plank Round Shield, Mire-Iron Round Shield, Redmarch Bronze Round Shield, Veteran's Steel Round Shield
+- Heater Shield (Medium): Thornwall Crest Heater Shield, Briarwood Steel Heater Shield, Amber-Bound Heater Shield, Greenwarden Heater Shield
+- Kite Shield (Medium): Veridian Bronze Kite Shield, Sun-Crest Caravan Kite Shield, Highpass Steel Kite Shield, Storm-Rim Kite Shield
+- Spiked Shield (Heavy): Crag-Tooth Spiked Shield, Anvilhall Star-Spiked Shield, Rime-Iron Barbed Shield, Glacierwall Spiked Bulwark
+- Tower Shield (Heavy): Bleakwatch Wall Tower Shield, Ashen-Steel Tower Shield, Black-Keep Pavise Tower Shield, Aegis of the Crown
+
+Accessory Slots
+- 1 slot per hero

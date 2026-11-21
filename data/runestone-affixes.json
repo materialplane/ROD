@@ -1,0 +1,232 @@
+{
+  "version": 1,
+  "socketRule": "1 permanent Runestone socket per Weapon and Body Armor; socketing overwrites and destroys the previous Runestone with zero extraction.",
+  "rarityTiers": [
+    {
+      "id": "lesser",
+      "tier": "Lesser",
+      "regions": "Regions 1–2",
+      "rollFormula": "1 Prefix + 1 Suffix",
+      "strengthScale": "Base Tier (1×)"
+    },
+    {
+      "id": "refined",
+      "tier": "Refined",
+      "regions": "Regions 3–4",
+      "rollFormula": "1 Prefix + 1 Suffix",
+      "strengthScale": "Strong Tier (~1.5×)"
+    },
+    {
+      "id": "greater",
+      "tier": "Greater",
+      "regions": "Regions 5–6",
+      "rollFormula": "2 Prefixes + 1 Suffix or 1 Prefix + 2 Suffixes",
+      "strengthScale": "High Tier (~2×)"
+    },
+    {
+      "id": "mythic",
+      "tier": "Mythic",
+      "regions": "Regions 7–8",
+      "rollFormula": "2 Prefixes + 2 Suffixes",
+      "strengthScale": "Endgame Tier (~2.5×)"
+    }
+  ],
+  "weaponPrefixes": [
+    {
+      "id": "pfx_wpn_blazing",
+      "name": "Blazing",
+      "socket": "weapon",
+      "effect": "Strikes deal bonus Fire damage (+12%–25%), splash 35% to an adjacent enemy, and chance to Burn."
+    },
+    {
+      "id": "pfx_wpn_glacial",
+      "name": "Glacial",
+      "socket": "weapon",
+      "effect": "Strikes deal bonus Frost damage (+12%–25%) and apply Chill, pushing targets back on the timeline."
+    },
+    {
+      "id": "pfx_wpn_arcing",
+      "name": "Arcing",
+      "socket": "weapon",
+      "effect": "Strikes deal bonus Lightning damage (+12%–25%) that chains to a 2nd enemy with a Shock chance."
+    },
+    {
+      "id": "pfx_wpn_venomous",
+      "name": "Venomous",
+      "socket": "weapon",
+      "effect": "Strikes deal bonus Poison damage (+12%–25%); poisoned foes deal 10%–18% less physical damage."
+    },
+    {
+      "id": "pfx_wpn_hallowed",
+      "name": "Hallowed",
+      "socket": "weapon",
+      "effect": "Strikes deal bonus Radiant damage (+15%–32% vs. Undead & Portal Horrors) and purge 1 enemy buff on crit."
+    },
+    {
+      "id": "pfx_wpn_detonating",
+      "name": "Detonating",
+      "socket": "weapon",
+      "effect": "Hitting an enemy suffering Burn, Bleed, or Poison detonates 25%–50% of remaining over-time damage immediately."
+    },
+    {
+      "id": "pfx_wpn_vampiric",
+      "name": "Vampiric",
+      "socket": "weapon",
+      "effect": "Attacks & skills heal the user for 8%–18% of damage dealt."
+    },
+    {
+      "id": "pfx_wpn_siphoning",
+      "name": "Siphoning",
+      "socket": "weapon",
+      "effect": "Attacks & skills restore 2–7 MP per hit (doubled on Weakness or Critical hits)."
+    },
+    {
+      "id": "pfx_wpn_crushing",
+      "name": "Crushing",
+      "socket": "weapon",
+      "effect": "0 MP Attack Modes chip +1 extra Guard pip and lower enemy Defense by 10%–22% for 2 turns."
+    },
+    {
+      "id": "pfx_wpn_rending",
+      "name": "Rending",
+      "socket": "weapon",
+      "effect": "Weapon Critical Hits inflict heavy Bleed (3 turns) and deal +15%–32% bonus damage vs. Bleeding foes."
+    },
+    {
+      "id": "pfx_wpn_executioners",
+      "name": "Executioner's",
+      "socket": "weapon",
+      "effect": "Deal +20%–42% bonus weapon damage to enemies below 40% HP or Staggered."
+    },
+    {
+      "id": "pfx_wpn_echoing",
+      "name": "Echoing",
+      "socket": "weapon",
+      "effect": "15%–32% chance for single-target 0 MP attacks to strike a second time at 50% power."
+    }
+  ],
+  "armorPrefixes": [
+    {
+      "id": "pfx_arm_bastions",
+      "name": "Bastion's",
+      "socket": "armor",
+      "effect": "Enter every battle with a protective Ward Shield (12%–30% Max HP)."
+    },
+    {
+      "id": "pfx_arm_retaliating",
+      "name": "Retaliating",
+      "socket": "armor",
+      "effect": "Reflect 18%–38% of incoming melee damage back onto attackers and chip 1 Guard pip when hit while Battered."
+    },
+    {
+      "id": "pfx_arm_resolve_heart",
+      "name": "Resolve-Heart",
+      "socket": "armor",
+      "effect": "Gain +18%–38% damage & healing potency whenever HP is below 50% (Battered)."
+    },
+    {
+      "id": "pfx_arm_sanctified",
+      "name": "Sanctified",
+      "socket": "armor",
+      "effect": "Gain 25%–60% resistance to all Status Ailments & Stun, and heal 3%–6% HP when an ailment fails or expires."
+    },
+    {
+      "id": "pfx_arm_vanguards",
+      "name": "Vanguard's",
+      "socket": "armor",
+      "effect": "Taking the Guard action restores 6%–15% Max HP + 4–10 MP and pushes your next turn forward on the timeline."
+    },
+    {
+      "id": "pfx_arm_unbreakable",
+      "name": "Unbreakable",
+      "socket": "armor",
+      "effect": "Once per battle, survive a fatal hit at 1 HP and immediately gain a 10%–25% Ward Shield."
+    },
+    {
+      "id": "pfx_arm_overflowing",
+      "name": "Overflowing",
+      "socket": "armor",
+      "effect": "Excess healing above 100% Max HP converts into a protective Ward Shield (up to 15%–30% Max HP)."
+    },
+    {
+      "id": "pfx_arm_phantoms",
+      "name": "Phantom's",
+      "socket": "armor",
+      "effect": "Gain +6%–16% Dodge Chance, and dodging an attack immediately grants Momentum (+25% next hit)."
+    },
+    {
+      "id": "pfx_arm_adaptive",
+      "name": "Adaptive",
+      "socket": "armor",
+      "effect": "Taking elemental/magic damage grants a 25%–55% resistance barrier against that element for 2 turns."
+    },
+    {
+      "id": "pfx_arm_martyrs",
+      "name": "Martyr's",
+      "socket": "armor",
+      "effect": "When an adjacent ally is hit below 40% HP, intercept 25%–40% of the hit with 15% damage reduction."
+    }
+  ],
+  "universalSuffixes": [
+    {
+      "id": "sfx_of_alacrity",
+      "name": "of Alacrity",
+      "effect": "+3 to +14 Turn Timeline Speed & +3 to +12 opening battle Initiative."
+    },
+    {
+      "id": "sfx_of_precision",
+      "name": "of Precision",
+      "effect": "+3% to +14% Critical Chance & +5% to +18% Accuracy."
+    },
+    {
+      "id": "sfx_of_brutality",
+      "name": "of Brutality",
+      "effect": "+12% to +45% Critical Damage multiplier."
+    },
+    {
+      "id": "sfx_of_piercing",
+      "name": "of Piercing",
+      "effect": "Attacks & spells ignore 10%–30% of enemy Physical & Magic Defense."
+    },
+    {
+      "id": "sfx_of_vitality",
+      "name": "of Vitality",
+      "effect": "+30 to +280 Max HP & recover 3%–8% HP after battle victories."
+    },
+    {
+      "id": "sfx_of_the_magus",
+      "name": "of the Magus",
+      "effect": "+10 to +90 Max MP & -5% to -15% spell/remedy MP cost."
+    },
+    {
+      "id": "sfx_of_momentum",
+      "name": "of Momentum",
+      "effect": "Landing a kill or Critical Hit grants Momentum (+25% next hit or spell)."
+    },
+    {
+      "id": "sfx_of_mending",
+      "name": "of Mending",
+      "effect": "+8% to +28% Healing & Shielding Power (both cast and received)."
+    },
+    {
+      "id": "sfx_of_might",
+      "name": "of Might",
+      "effect": "+2 to +16 Force & +3% to +12% Guard-break power."
+    },
+    {
+      "id": "sfx_of_cunning",
+      "name": "of Cunning",
+      "effect": "+2 to +16 Finesse & +2% to +10% Dodge Chance."
+    },
+    {
+      "id": "sfx_of_iron",
+      "name": "of Iron",
+      "effect": "+2 to +16 Grit & +6 to +65 Physical Defense."
+    },
+    {
+      "id": "sfx_of_wisdom",
+      "name": "of Wisdom",
+      "effect": "+2 to +16 Arcana & Presence & +6 to +65 Magic Defense."
+    }
+  ]
+}

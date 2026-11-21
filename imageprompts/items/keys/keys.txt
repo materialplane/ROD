@@ -1,0 +1,27 @@
+# ROD — Dungeon Keys, Lockpicks & Area Charts Icons (4x2 16:9 Sheet Prompt on #FF00FF)
+# Category Source: docs/04, docs/08 & data/items-catalog.json -> Dungeon Keys, Lockpicks & Area Survey Maps (Separated from Portal Catalysts!)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (16:9 aspect ratio, 4K)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x2 (~1376x1536 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x2 DUNGEON KEYS PROMPT START (Copy from next line down — ALL 8 Cells) ---
+16:9 wide icon sprite sheet showing a STRICT 4x2 grid (EXACTLY 4 equal columns across by 2 equal rows down — 8 evenly spaced isolated fantasy dungeon gate keys, lockpicks, and exploration survey map scroll RPG icons total, NEVER 4x4, NEVER 3x3, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted iron, bronze, steel, oiled leather, and parchment paper surfaces, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows, and ZERO letters, numbers, or handwriting anywhere.
+
+UNIFORM FRAMING & 4x2 GUTTER SPACING LOCK:
+All 4 dungeon keys/lockpicks (Row 1) and all 4 rolled survey charts/maps (Row 2) angle crisply at ~40–45 degrees floating standalone on pure #FF00FF (zero readable words or letters anywhere on scrolls—abstract blank grid/map lines only). Size each item cleanly to fill ~68–72% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically.
+
+Render these exact 8 icons cleanly from Row 1 to Row 2, left to right:
+
+Row 1, Col 1 (Iron Dungeon Key): Heavy classic dark forged iron skeleton-tooth dungeon gate key featuring thick notched circular bow handle and scarred double-ward bit.
+Row 1, Col 2 (Skeleton Lockpick): Compact rolled dark oiled leather pocket lockpick set displaying crisp gleaming steel tension wrench and two hooked steel lockpicks.
+Row 1, Col 3 (Bronze Gate Key): Stout weathered antique-bronze keep door key stamped neatly along shaft collar with simple three-prong castle ward crest.
+Row 1, Col 4 (Boss Sanctum Seal Key): Imposing ornate blackened-steel and faceted deep ruby-crimson gem cathedral boss door key with sculpted gothic bow and heavy double-bit teeth.
+
+Row 2, Col 1 (Rift Area Chart): Partly unrolled dark-edged parchment dungeon blueprint scroll held by two gleaming brushed-brass rings showing blank stylized room-grid lines only (zero text).
+Row 2, Col 2 (Crownlands Survey Scroll): Clean rolled warm cream survey scroll tied neatly in emerald leather ribbon resting beside a small antique-bronze pocket compass rose.
+Row 2, Col 3 (Coast Sea-Port Chart): Tied sea-weathered navy nautical map scroll capped solidly on both ends in gleaming tarnished bronze chart-tube ferrules.
+Row 2, Col 4 (Dreadwaste Recon Map): Charred-edged dark gray parchment scout recon map scroll held flat cleanly by blackened iron bar weights showing stylized terrain contour lines only (no words).
+--- 4x2 DUNGEON KEYS PROMPT END ---

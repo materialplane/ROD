@@ -1,0 +1,37 @@
+# ROD — Region 5: The Sun-Scorched Isles Trade Goods Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: docs/07-bestiary-and-bosses.md & data/items-catalog.json (Region 5 Monster & Trade Loot (15 + Category Crest))
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 REGION 5 TRADE GOODS START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated fantasy RPG monster trophy and trade-good loot icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY LOOT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG merchant/bag icon readability, smooth sculpted chitin, horn, pelt, bone, metal, glass vial, scale, and stone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/liquids/glows, and ZERO letters or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 loot icons float centered cleanly in 3/4 RPG object view filling ~75% of each invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically.
+
+Render these exact 16 distinct trade goods cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Silk-Wrapped Claw Charm): Sharp curved pale desert talon wrapped elegantly at base with fine crimson-and-gold silk.
+Row 1, Col 2 (Cooled Obsidian Shard): Sharp glossy fractured pitch-black volcanic cooled obsidian obsidian shard.
+Row 1, Col 3 (Molten Shed Scale): Heavy arched glowing bronze-and-scarlet shed fire-drake scale plate gleaming warm sheen.
+Row 1, Col 4 (Charred Ash-Core): Smoldering porous charcoal volcanic ash sphere glowing vivid ember-orange deep inside cracks.
+
+Row 2, Col 1 (Brass-Forged Beard-Ring): Heavy intricately braided solid gleaming brass efreeti beard-ring inlaid cleanly with small ruby.
+Row 2, Col 2 (Heated Iron Spear-Tip): Cruel triple-flanged dark iron desert spearhead blackened around point by intense heat.
+Row 2, Col 3 (Petrified Eye-Stone): Smooth gray rocky stony sphere etched clearly around center by realistic staring petrified amber eye.
+Row 2, Col 4 (Tarnished Brass Anklet): Bent ornate engraved desert bronze ankle-cuff bracelet encrusted slightly with turquoise patina.
+
+Row 3, Col 1 (Desiccated Linen Wrap): Neatly rolled bundle of crisp ancient dry sand-tan linen burial wrappings.
+Row 3, Col 2 (Singed Brimstone Fang): Singed dark soot-tipped curved brimstone demon fang stained warm amber-yellow near root.
+Row 3, Col 3 (Three-Horned Crest): Heavy pale cream bony three-horned desert triceratops-beast brow crest fragment.
+Row 3, Col 4 (Eternal Cinder Essence): Crystal stopper diamond flask cradling blazing fiery orange-gold pure eternal cinder flame wisps.
+
+Row 4, Col 1 (Scarlet Hatchling Scale): Bright glossy crimson-scarlet triangular fiery desert dragon hatchling scale.
+Row 4, Col 2 (Massive Bore-Tooth): Enormous thick curved ivory-brown subterranean sand-worm bore-tooth.
+Row 4, Col 3 (Ember-Hot Horn Fragment): Jagged broken obsidian-and-ember giant horn tip glowing warmly orange at fractured base.
+Row 4, Col 4 (Region 5 Trade Goods Crest): Sun-Scorched Trophy Crest: Minimalist matte tarnished-bronze gilded desert sunburst & amphora emblem with NO text or borders on pure #FF00FF.
+--- 4x4 REGION 5 TRADE GOODS END ---

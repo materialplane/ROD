@@ -1,0 +1,37 @@
+# ROD — Region 3: Thornwall Warfronts Trade Goods Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: docs/07-bestiary-and-bosses.md & data/items-catalog.json (Region 3 Monster & Trade Loot (15 + Category Crest))
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 REGION 3 TRADE GOODS START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated fantasy RPG monster trophy and trade-good loot icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY LOOT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG merchant/bag icon readability, smooth sculpted chitin, horn, pelt, bone, metal, glass vial, scale, and stone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/liquids/glows, and ZERO letters or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 loot icons float centered cleanly in 3/4 RPG object view filling ~75% of each invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically.
+
+Render these exact 16 distinct trade goods cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Iron-Gray Wolf Pelt): Thick coarse iron-gray winter-tough highland worg wolf pelt strapped cleanly in heavy leather belt.
+Row 1, Col 2 (Massive Alpha Fang): Massive curved bright ivory-white monstrous alpha predator canine fang tooth notched at base.
+Row 1, Col 3 (Calcified Feather): Stiff slate-gray fossilized stone-heavy bird pinion feather gleaming cold stony sheen.
+Row 1, Col 4 (Bronze Wing-Pinion): Bold metallic gleaming antique-bronze sculpted griffon wing pinion feather.
+
+Row 2, Col 1 (Brass Nose-Ring): Heavy solid cast tarnished-brass bull minotaur nose-ring thick as a wrist.
+Row 2, Col 2 (Razor Lion-Talon): Razor-sharp curved jet-black lion-manticore talon claw capped at knuckle in dark amber bone.
+Row 2, Col 3 (Venomous Tail-Spike): Curved glistening chitinous dark-red barbed manticore venomous tail-spike.
+Row 2, Col 4 (Notched Iron Club-Band): Thick jagged notched riveted dark iron club reinforcement band bent from giant impact.
+
+Row 3, Col 1 (Iron-Scaled Horn): Massive curved ridged dark charcoal-and-iron bull-horn plated cleanly with metal rivets.
+Row 3, Col 2 (Scarred War-Belt Plate): Thick battered hammered bronze-and-iron highland warlord belt plate scarred by sword gashes.
+Row 3, Col 3 (Split-Skull Totem): Grim cracked pale bone horned skull-totem charm hung with frayed red border cloth.
+Row 3, Col 4 (Charred Troll Sinew): Tough darkened charred cord-like troll muscle sinew bundle wrapped tightly for alchemists.
+
+Row 4, Col 1 (Giant's Brass Buckle): Enormous palm-sized stamped tarnished brass belt buckle forged for an ogre warlord.
+Row 4, Col 2 (Curved Horn Mask): Carved dark crimson-lacquered wooden and horned highland shaman half-mask.
+Row 4, Col 3 (Carved Granite Heart): Heavy dense sculpted pure red-and-gray polished granite heart stone gleaming warmly.
+Row 4, Col 4 (Region 3 Trade Goods Crest): Thornwall Warfront Trophy Crest: Minimalist matte tarnished-bronze crossed banner & iron clasp emblem with NO text or borders on pure #FF00FF.
+--- 4x4 REGION 3 TRADE GOODS END ---

@@ -1,0 +1,51 @@
+# ROD — 1H Scimitar Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Druid -> Scimitar (1H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 1H curved scimitar fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 items follow ONE identical 45-degree diagonal UI icon angle inside their cell: hilt/pommel toward the bottom-left corner and blade tip pointing cleanly toward the upper-right corner. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Bronze Leaf Scimitar): Humble bronze-washed primitive curved leaf-blade scimitar with thick unpolished dull edge, simple iron cross-bar, coarse cloth-wrapped grip, plain pommel.
+Row 1, Col 2 (Curved Forester Scimitar): Curved Forester dark-iron single-edged scimitar featuring graceful sweeping slash curve, bent dark iron S-guard, brown stitched leather grip, brass cap.
+Row 1, Col 3 (Crownland Briar Scimitar): Crownland Briar Scimitar — polished steel curved blade etched lightly near spine, subtle antique bronze curved guard horns, tan hardwood grip, round bronze pommel.
+Row 1, Col 4 (Mariner Crescent Scimitar): Mariner Crescent coastal scimitar displaying broad choppy salt-blued steel cutlass curve, curved brass guard arc, hemp-rope handle, brass finial.
+Row 1, Col 5 (Brine-Edge Scimitar): Brine-Edge rugged coastal curved steel scimitar with tarnished sea-green patina bronze guard flanges, notched serrated back-edge tip, dark teal grip.
+
+Row 2, Col 1 (Fen-Fang Scimitar): Fen-Fang Scimitar — sleek dark marsh-steel deeply hooked sweeping curve, patinated bronze swamp-fang crossguard, dark oiled leather grip.
+Row 2, Col 2 (Border Cavalry Scimitar): Border Cavalry Redmarch curved sabre-scimitar built with heavy back-spine fuller, crimson-enamel iron S-shaped crossguard, red leather handle, iron pommel.
+Row 2, Col 3 (Redmarch Curved Scimitar): Redmarch Curved heavy steel war-scimitar sporting broad flared clipping tip, heavy riveted iron knuckle-guard bow, crimson-corded hilt.
+Row 2, Col 4 (Thornwall Trench Scimitar): Thornwall Trench elite curved dark-steel scimitar bearing sharp armored-piercing reinforced back-bevel at curved tip, brass-trimmed steel guard, spiked pommel.
+Row 2, Col 5 (Thorn-Curved Scimitar): Thorn-Curved Weald druid scimitar forging dark olive-steel swept crescent blade rising cleanly out of sculpted thorny bronze guard vines and dark wood hilt.
+
+Row 3, Col 1 (Moss-Steel Scimitar): Moss-Steel curved forest blade displaying mottled emerald-patina steel edge, sculpted bronze oak-leaf crossguard inset cleanly with warm amber cabochon, moss grip.
+Row 3, Col 2 (Elderwood Leaf Scimitar): Elderwood Leaf Scimitar — graceful woodland relic curved silver-steel blade shaped subtly like a sharp sweeping willow leaf with carved dark elderwood-and-bronze hilt.
+Row 3, Col 3 (Bronze Dune Scimitar): Bronze Dune southern scimitar featuring warm burnished gold-bronze curved spine welded onto razor steel crescent edge, desert-tan wrapped hilt.
+Row 3, Col 4 (Mirage Shamshir): Mirage Shamshir — sweeping hyper-curved Veridian high-steel desert shamshir with delicate engraved gold filigree down fuller, fluted brass pistol-grip pommel.
+Row 3, Col 5 (Oasis Golden Scimitar): Oasis Golden Scimitar — ornate gleaming gilded-brass sunburst-guarded mirror-steel shamshir accented with bright turquoise cabochon inlay cleanly in crossguard, tan grip.
+
+Row 4, Col 1 (Ridge-Steel Scimitar): Ridge-Steel mountain scimitar hammered of cool matte gray slate-steel into chunky angular curved chopping facets, dark iron guard, slate leather wrap.
+Row 4, Col 2 (Thunder-Curved Scimitar): Thunder-Curved highland steel scimitar etched cleanly along swept fuller with jagged lightning-gold zigzags, sharp steel horn guard, dark navy grip.
+Row 4, Col 3 (Anvilhall Silver Scimitar): Anvilhall Silver Scimitar — master-forged radiant pale star-silver deep-curved blade backed by blackened star-iron spine glowing subtly forge-amber at collar.
+Row 4, Col 4 (Frost-Iron Scimitar): Frost-Iron northern curved blade with pale frosted gray steel crescent cutting edge, notched iron guard trimmed cleanly in pale white wolf pelt.
+Row 4, Col 5 (Tundra Moon Scimitar): Tundra Moon Scimitar — broad gleaming crescent pale silver-steel northern blade curving cleanly into wicked razor hook, carved frost-brass claw guard, navy grip.
+
+Row 5, Col 1 (Boreal Glacier Scimitar): Boreal Glacier Scimitar — apex icy druid scimitar fusing blackened cold-iron spine cleanly to translucent pale ice-blue crystal-steel sweeping razor edge and silver pommel.
+Row 5, Col 2 (Obsidian Ash Scimitar): Obsidian Ash Dreadwaste scimitar forged from pitted charcoal-black steel showing bright molten-orange volcanic vein running up curved spine.
+Row 5, Col 3 (Wild-Eclipse Scimitar): Wild-Eclipse curved blackened star-iron scimitar sporting deep crimson enamel crescent inlays along sweeping spine, spiked crimson guard, black leather hilt.
+Row 5, Col 4 (Primal Dawn Scimitar): Primal Dawn Scimitar — supreme endgame Druid relic scimitar uniting blazing golden-sun etched star-steel crescent blade with living sculpted gold-and-emerald vine guard.
+Row 5, Col 5 (Scimitars Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic sweeping curved scimitar silhouette emblem at 45-degree angle—broad crescent blade tip & S-guard with NO gems, NO glow, NO circle frame, and NO box border on pure #FF00FF.
+--- 5x5 PROMPT END ---

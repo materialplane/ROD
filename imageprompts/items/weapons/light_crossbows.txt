@@ -1,0 +1,51 @@
+# ROD — 2H Light Crossbow Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Mystic -> Light Crossbow (2H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 2H medieval light crossbow fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 crossbows follow ONE identical 45-degree diagonal 3/4 view inside their cell: carved stock butt toward the bottom-left corner, wooden/steel crossbow rail pointing toward the upper-right corner, and transverse steel prod bow arms spanning clearly near the upper-right front tip (clean bolt groove only, NO separate floating arrows). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Light Ash Crossbow): Simple plain weathered ashwood stock light crossbow fitted with crude curved dull iron prod bow arms tied by thick hemp lashings, simple brass latch trigger.
+Row 1, Col 2 (Iron-Latch Crossbow): Sturdy dark oak-stock light crossbow featuring brushed wrought-iron prod bow arms, simple iron foot stirrup loop, iron trigger lever, taut bowstring.
+Row 1, Col 3 (Millbrook Scout Crossbow): Millbrook Scout Crossbow — finely carved dark walnut stock accented cleanly with polished brass sideplates, high-tensile steel bow arms, brass trigger.
+Row 1, Col 4 (Deck Light Crossbow): Deck Light Crossbow — Saltwind naval marine crossbow crafted of waterproof teakwood stock, corrosion-resistant tarnished bronze prod bow arms, brass stirrup.
+Row 1, Col 5 (Mariner Steel Crossbow): Mariner Steel Crossbow — heavy sea-stained oak tiller reinforced with riveted bronze cheek-straps flanking dark salt-blued steel bow limbs, rope grip.
+
+Row 2, Col 1 (Mire-Piercer Crossbow): Mire-Piercer dark bog-oak scout crossbow featuring sleek curved green-patinated iron prod limbs, subtle bronze bolt clip, wrapped dark green leather grip.
+Row 2, Col 2 (Rampart Light Crossbow): Rampart Redmarch garrison light crossbow built on heavy slate-banded timber tiller with tough blackened steel bow limbs, thick forged stirrup, trigger lever.
+Row 2, Col 3 (Steel-Limb Crossbow): Steel-Limb heavy siege light crossbow sporting reinforced twin-leaf forged spring-steel bow arms bolted cleanly across crimson-lacquered stock nose.
+Row 2, Col 4 (Garrison Rapid Crossbow): Garrison Rapid Crossbow — high-grade Redmarch officer crossbow with engraved brass rolling-nut housing, polished cold-steel bow arms, crimson leather grip.
+Row 2, Col 5 (Yew-Stock Crossbow): Yew-Stock woodland crossbow carved smoothly from rich dark burl yew wood with patinated emerald-bronze prod mounts and sleek curved blackened steel limbs.
+
+Row 3, Col 1 (Thorn-Bolt Crossbow): Thorn-Bolt forest crossbow decorated with sculpted bronze thorny rail cheeks framing dark olive-steel limbs and small warm amber bead inlay cleanly on stock.
+Row 3, Col 2 (Canopy Sniper Crossbow): Canopy Sniper Crossbow — master woodland elderwood light crossbow boasting elongated dark bronze sight rail and wide curved razor-sleek dark silver steel bow.
+Row 3, Col 3 (Brass-Gear Crossbow): Brass-Gear Veridian repeating-style crossbow showcasing exposed precision golden brass ratchet wheels along tan desert cedar stock and gilded steel limbs.
+Row 3, Col 4 (Desert Scorpion Crossbow): Desert Scorpion Crossbow — sleek forward-swept curved twin brass-and-steel prod arms resembling scorpion claws framing inlaid amber bone tiller cheeks.
+Row 3, Col 5 (Sun-Forged Crossbow): Sun-Forged ornate royal Veridian crossbow radiating sculpted golden sunburst side-plates, polished dark cobalt wood stock, gleaming bright bronze-steel bow.
+
+Row 4, Col 1 (Crag-Winch Crossbow): Crag-Winch mountain crossbow fitted with sturdy iron cranking spur collar, cold matte gray steel limbs, rugged charcoal mountain leather tiller wrap.
+Row 4, Col 2 (Silver-Spring Crossbow): Silver-Spring Ironcrest compact crossbow showcasing glowing brushed silver-steel split-leaf bow arms anchored securely to dark alpine-pine stock.
+Row 4, Col 3 (Thunder-Latch Crossbow): Thunder-Latch Anvilhall masterwork star-iron crossbow bearing glowing warm forge-amber geometric cheek inlays beneath gleaming heavy steel prod limbs.
+Row 4, Col 4 (Ice-Lock Light Crossbow): Ice-Lock northern pine light crossbow trimmed cleanly in pale wolf-fur wrap behind dark frosted-iron trigger guard and pale cold-steel bow arms.
+Row 4, Col 5 (Bleakwatch Crossbow): Bleakwatch northern tactical crossbow combining heavy blackened iron prod arms, jagged steel stirrup, navy-bound slate wood tiller stock.
+
+Row 5, Col 1 (Boreal Bolt-Thrower): Boreal Bolt-Thrower — endgame Frostbound relic light crossbow joining dark winter-iron tiller with pale glacier-blue crystal-steel curved bow limbs.
+Row 5, Col 2 (Dread-Latch Crossbow): Dread-Latch volcanic-iron Dreadwaste crossbow built from charred black ashwood strapped tightly with iron bands showing faint molten-ember orange seam along rail.
+Row 5, Col 3 (Eclipse Quick-Crossbow): Eclipse Quick-Crossbow — blackened star-steel tactical crossbow gleaming with sharp crimson enamel chevron mounts, spiked steel stirrup, crimson leather stock wrap.
+Row 5, Col 4 (Starlight Bolt-Thrower): Starlight Bolt-Thrower — supreme endgame Highcrown royal light crossbow crafted of gleaming brushed gold and silvered star-steel prod limbs atop carved crimson-and-ebony tiller.
+Row 5, Col 5 (Light Crossbows Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic crossbow silhouette emblem at 45-degree 3/4 view—clean stock and curved cross-prod bow with NO arrows, NO gems, NO glow, NO circle border, and NO box frame on pure #FF00FF.
+--- 5x5 PROMPT END ---

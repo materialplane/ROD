@@ -1,0 +1,37 @@
+# ROD — Region 4: The Verdant Weald Trade Goods Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: docs/07-bestiary-and-bosses.md & data/items-catalog.json (Region 4 Monster & Trade Loot (15 + Category Crest))
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 REGION 4 TRADE GOODS START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated fantasy RPG monster trophy and trade-good loot icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY LOOT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG merchant/bag icon readability, smooth sculpted chitin, horn, pelt, bone, metal, glass vial, scale, and stone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/liquids/glows, and ZERO letters or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 loot icons float centered cleanly in 3/4 RPG object view filling ~75% of each invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically.
+
+Render these exact 16 distinct trade goods cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Gnarled Dreadwood Heart): Twisted dark knotted living dreadwood heart-lump glowing gently inside cracks with golden forest sap.
+Row 1, Col 2 (Spectral Silk Fang): Pale wispy-sheen curved ghostly spider fang dripping tiny cool emerald drop at needle tip.
+Row 1, Col 3 (Shimmering Fur Tuft): Soft iridescent pale silver-emerald fur tuft tied neatly at root by thin bronze cord.
+Row 1, Col 4 (Torn Alpha Pelt): Wild thick dark forest-brown ragged alpha wolf pelt scarred crisply across shoulder fur.
+
+Row 2, Col 1 (Caustic Obsidian Gel): Stoppered clear glass corked jar holding thick churning pitch-black caustic obsidian gel.
+Row 2, Col 2 (Glowing Spore-Bulb): Round translucent bright toxic chartreuse-green forest fungal spore bulb glowing gently inside.
+Row 2, Col 3 (Acidic Slime Residue): Thick-walled amber apothecary glass flask swirling brightly with bubbling lime-green acid slime.
+Row 2, Col 4 (Spun Silk-Sac): Tightly spun glossy pale ivory-silver giant forest spider silk-cocoon bundle.
+
+Row 3, Col 1 (Nightmare Hearthstone): Smooth pitch-black obsidian nightmare stone glowing dimly with faint cold indigo core seam.
+Row 3, Col 2 (Amber Sap Pendant): Warm golden-honey polished fossilized amber tree-sap pendant enclosing tiny dark leaf inside.
+Row 3, Col 3 (Golden Gel Shard): Sharp faceted bright glowing golden-amber solid gel crystal shard.
+Row 3, Col 4 (Knotted Swamp-Wand): Short gnarled mossy swamp-witch crooked wooden wand bound tightly in twine and crow feathers.
+
+Row 4, Col 1 (Suspended Bone-Key): Carved hollow pale bone charm key suspended tightly inside dark braided leather loop.
+Row 4, Col 2 (Feathered Bear-Claw): Massive feathered brown-and-slate owlbear fore-claw talon trailing soft tawny feathers.
+Row 4, Col 3 (Pulsing Vine-Heart): Throbbing dark emerald-green knotted wooden plant vine-heart entwined with glowing gold veins.
+Row 4, Col 4 (Region 4 Trade Goods Crest): Verdant Weald Trophy Crest: Minimalist matte tarnished-bronze forest oak-leaf & hunter pouch emblem with NO text or borders on pure #FF00FF.
+--- 4x4 REGION 4 TRADE GOODS END ---

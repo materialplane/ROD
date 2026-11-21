@@ -1,0 +1,51 @@
+# ROD — 1H Longsword Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Duelist -> Longsword (1H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 1H straight longsword fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 items follow ONE identical 45-degree diagonal UI icon angle inside their cell: hilt/pommel toward the bottom-left corner and blade tip pointing cleanly toward the upper-right corner. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Rusted Longsword): Chipped rust-flecked straight iron longsword blade, simple bent iron bar crossguard, ragged cord-wrapped wooden grip, plain tarnished disc pommel.
+Row 1, Col 2 (Iron Longsword): Clean functional wrought-iron arming longsword with crisp central fuller, plain black iron crossguard, dark brown leather grip, and heavy wheel pommel.
+Row 1, Col 3 (Millbrook Longsword): Balanced Crownlands steel longsword with bright silver-gray double-edged blade, brass crossguard collar, stitched tan leather grip, and faceted steel pommel.
+Row 1, Col 4 (Salt-Tempered Longsword): Coastal salt-blued tempered steel longsword with slightly darkened corrosion-resistant blade, tarnished bronze sea-curved guard tips, wrapped hemp grip, heavy bronze pommel.
+Row 1, Col 5 (Brinecliff Longsword): Rugged Brinecliff steel longsword featuring beveled gray-steel blade edges, cast-bronze upturned quillions, dark blue-dyed salt-leather handle wrap, and teardrop bronze pommel.
+
+Row 2, Col 1 (Tidewater Longsword): Sleek Tidewater knightly longsword with rippled silvery-blue layered wave fuller, sculpted antique bronze shell-guard, emerald-slate leather grip, and fluted pommel.
+Row 2, Col 2 (Redmarch Longsword): Redmarch garrison steel longsword sporting a thick battle-beveled dark steel blade, riveted iron crossguard inlaid with subtle matte red lacquer bar, and crimson leather handle.
+Row 2, Col 3 (Garrison War-Longsword): Heavy border-fort war-longsword with reinforced fuller rib, heavy dark-steel angular guard wings, spiked iron pommel cap, and ribbed black-and-red leather grip.
+Row 2, Col 4 (Thornwall Knight's Longsword): Thornwall Knight's noble longsword boasting polished cold silver blade, winged dark steel and brass crossguard, tightly wire-wrapped crimson hilt, and crest-beveled pommel.
+Row 2, Col 5 (Briarwood Longsword): Briarwood forester longsword forged from dark spring steel with patinated emerald-bronze thorny guard arms, burl hardwood grip, and carved acorn-style bronze pommel.
+
+Row 3, Col 1 (Greenwarden Longsword): Greenwarden ranger knight's longsword featuring dark charcoal-patina steel fuller, sculpted brass leaf-scroll crossguard inset cleanly with small amber cabochon, moss-leather grip.
+Row 3, Col 2 (Elderwood Longsword): Ancient Elderwood silver-steel longsword whose blackened bronze crossguard sweeps cleanly into stylized branching roots framing a leaf-profile blade and dark wood pommel.
+Row 3, Col 3 (Sun-Bronze Longsword): Sun-Bronze southern longsword casting a rich warm burnished-bronze fuller spine flanked by honed steel cutting edges, curved gold crossguard, and desert-tan grip.
+Row 3, Col 4 (Mirage Steel Longsword): Mirage Steel Veridian longsword showcasing subtle rippled golden-amber desert steel, delicate fluted brass lantern-styled pommel, and deep cobalt-wrapped leather handle.
+Row 3, Col 5 (Veridian Sunblade): Veridian Sunblade — ornate golden-brass sunburst crossguard cradling a gleaming polished mirror-steel longsword blade etched with clean sunbeam geometric fuller grooves and gold pommel.
+
+Row 4, Col 1 (Highland Steel Longsword): Highland Steel heavy longsword wrought of cold matte gray mountain-steel with thick beveled facets, iron crossguard clamped by heavy steel rivets, and charcoal wool grip.
+Row 4, Col 2 (Star-Iron Longsword): Star-Iron Longsword — rare slate-dark meteoric star-iron blade catching faint cool silvery-blue sheen along bevels, brushed silvered-steel straight crossguard, and dark iron pommel.
+Row 4, Col 3 (Anvilhall Master Longsword): Anvilhall Master Longsword — forge-master masterpiece blending blackened star-iron fuller inlaid with glowing warm amber geometric lines, bright mirror-steel edges, and square anvil pommel.
+Row 4, Col 4 (Rime-Iron Longsword): Rime-Iron frost-forged longsword with pale blue-gray frosted steel blade, notched iron guard bound with white leather frost-ties, and heavy faceted iron scent-stopper pommel.
+Row 4, Col 5 (Glacier-Edge Longsword): Glacier-Edge northern longsword flashing razor-sharp pale ice-silver beveled edges along dark winter-steel core, carved frost-brass quillions, and fur-cuffed dark leather hilt.
+
+Row 5, Col 1 (Frostguard Longsword): Frostguard royal-clan longsword crafted of gleaming cold silvered steel, twin swept wing-like frosted iron crossguard arms, deep navy leather grip, and winter-crown steel pommel.
+Row 5, Col 2 (Ashen-Steel Longsword): Ashen-Steel Dreadwaste longsword hammered from pitted dark charcoal iron with a crisp warm ember-orange heat-vein gleaming inside its central fuller and iron chain-link pommel.
+Row 5, Col 3 (Crimson-Oath Longsword): Crimson-Oath dark-knight longsword featuring blackened high-steel blade etched with deep crimson fuller channel, sharp swept spiked steel guard, crimson leather hilt, and horned pommel.
+Row 5, Col 4 (Sovereign's Edge): Sovereign's Edge — apex Highcrown royal relic longsword uniting radiant mirror-polished silvered star-steel blade, sculpted brushed-gold crown-wing crossguard, crimson royal leather grip, and gleaming diamond-cut gold pommel.
+Row 5, Col 5 (Longswords Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic straight longsword silhouette emblem at exact 45-degree angle—clean unornamented beveled blade and simple straight crossguard with NO gems, NO glow, NO circle frame, and NO box border floating on pure #FF00FF.
+--- 5x5 PROMPT END ---

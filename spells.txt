@@ -1,0 +1,135 @@
+ROD (Realms of Dust) — Complete Spell List (72 Total MP Spells)
+Source: data/spells-catalog.json (3 Spellcasters x 8 Tiers x 3 Spells per Tier = 72 Spells)
+Shops: Sold across Town Magic Shops in Regions 1-8 (Hero-filtered by Caster)
+
+========================================================================================
+Queen Ellowyn — Mystic (24 Spells · Fire, Frost, Lightning, Radiant, Shadow, Arcane & Wards)
+========================================================================================
+
+Tier 1 — Region 1: The Crownlands (Lv 1-12)
+  1. Ember Spark (5 MP | Fire | 1 Enemy | 55s) — Quick Fire snap; high accuracy with light Burn chance (2 turns).
+  2. Frost Shard (6 MP | Frost | 1 Enemy | 55s) — Piercing Frost spike; applies Chill and delays enemy's next turn.
+  3. Crown Ward (7 MP | Radiant | 1 Ally | 55s) — Grants a protective Ward Shield and boosts Magic Defense for 2 turns.
+
+Tier 2 — Region 2: The Saltmarsh & Westward Coast (Lv 13-24)
+  1. Arcane Fireball (10 MP | Fire | 1 Enemy + Splash | 150s) — Blazing Fire orb hitting 1 target and splashing 50% heat to adjacent foes.
+  2. Chain Spark (10 MP | Lightning | 2 Enemies | 150s) — Fast Lightning bolt arcing to a second enemy; punishes armored targets.
+  3. Dawn Gleam (9 MP | Radiant | 1 Enemy | 150s) — Focused Radiant beam; extra damage vs Undead & Horrors, lowers Accuracy.
+
+Tier 3 — Region 3: Thornwall & The Border Warfronts (Lv 25-36)
+  1. Rime Curtain (14 MP | Frost | Up to 3 Enemies | 340s) — Sweeping Frost wave pushing all hit enemies back on the turn timeline.
+  2. Static Cage (13 MP | Lightning | 1 Enemy | 340s) — Inflicts Shock and delays telegraphed boss/enemy wind-ups.
+  3. Sovereign Aegis (15 MP | Radiant | 2 Allies | 340s) — Raises a protective barrier across 2 allies for 2 turns.
+
+Tier 4 — Region 4: The Verdant Weald & Plague Woods (Lv 37-48)
+  1. Flame Wall (18 MP | Fire | All Enemies | 680s) — Roaring curtain of Fire across all enemies with high Burn rate.
+  2. Umbral Lance (17 MP | Shadow | 1 Enemy | 680s) — Piercing Shadow spear bypassing 40% Magic Defense and applying Curse.
+  3. Arcane Conduit (12 MP | Arcane | 1 Ally / Self | 680s) — Empowers next spell (+35% damage, +1 Guard break) or restores ally MP.
+
+Tier 5 — Region 5: The Sun-Scorched Isles (Lv 49-60)
+  1. Tempest Arc (22 MP | Lightning | All Enemies | 1,280s) — High-voltage storm hitting all foes and stripping evasion buffs.
+  2. Glacial Prison (21 MP | Frost | 1 Enemy | 1,280s) — Heavy Frost crystal impact with strong Stun chance or turn delay.
+  3. Purifying Halo (20 MP | Radiant | Up to 3 Enemies | 1,280s) — Radiant strike cleansing 1 Curse/Shadow ailment from the party.
+
+Tier 6 — Region 6: The Ironcrest Highlands (Lv 61-72)
+  1. Solar Flare (26 MP | Fire + Radiant | 1 Enemy + Splash | 2,350s) — Blinding eruption breaking 2 Guard pips on Fire/Radiant weaknesses.
+  2. Void Pull (25 MP | Shadow | All Enemies | 2,350s) — Shadow gravity rift damaging all enemies and scrambling turn order.
+  3. Mirror Veil (24 MP | Arcane | 1 Ally | 2,350s) — Refractive ward reflecting 30% of incoming magic damage for 2 turns.
+
+Tier 7 — Region 7: The Frostbound Reach (Lv 73-85)
+  1. Blizzard Vortex (31 MP | Frost | All Enemies | 4,200s) — Swirling Frost storm battering all enemies and applying Chill.
+  2. Thunderhead Verdict (30 MP | Lightning | 1 Enemy | 4,200s) — Ignores 50% Magic Defense; massive bonus vs Shocked or Chilled foes.
+  3. Queen's Decree (28 MP | Radiant | All Allies | 4,200s) — Grants entire party +20% Phys & Magic Defense plus Momentum (2 turns).
+
+Tier 8 — Region 8: The Dreadwaste & Black Keep (Lv 86-99)
+  1. Meteor (42 MP | Fire | All Enemies | 7,400s) — Calls a devastating Fire comet onto all enemies with severe Burn.
+  2. Astral Judgment (40 MP | Radiant + Lightning | 1 Enemy | 7,400s) — Colossal single-target orbital strike that strips positive enemy buffs.
+  3. Eclipse Singularity (38 MP | Shadow | All Enemies | 7,400s) — Heavy multi-target Shadow collapse siphoning 15% damage as HP & MP.
+
+========================================================================================
+Mera — Druid (24 Spells · Nature, Piercing, Bludgeoning, Lightning, Poison, Fire & Regen)
+========================================================================================
+
+Tier 1 — Region 1: The Crownlands (Lv 1-12)
+  1. Thorn Lash (5 MP | Piercing | 1 Enemy | 55s) — Whips thorny vines across 1 enemy for Piercing damage + light Bleed.
+  2. Bramble Snare (6 MP | Nature | 1 Enemy | 55s) — Hardened roots chip 1 Guard pip and delay target's next turn.
+  3. Mossy Mend (6 MP | Nature | 1 Ally | 55s) — Restores light HP immediately plus a 3-turn Regeneration trickle.
+
+Tier 2 — Region 2: The Saltmarsh & Westward Coast (Lv 13-24)
+  1. Gale Gust (10 MP | Lightning | Up to 3 Enemies | 150s) — Sweeps wind-storm force pushing enemy turns back on the timeline.
+  2. Spore Cloud (9 MP | Poison | All Enemies | 150s) — Sprays choking Poison spores cutting enemy Accuracy for 2 turns.
+  3. Barkskin Call (9 MP | Nature | 1 Ally | 150s) — Hardens 1 ally with +30% Physical Defense for 3 turns.
+
+Tier 3 — Region 3: Thornwall & The Border Warfronts (Lv 25-36)
+  1. Stone Lance (13 MP | Bludgeoning | 1 Enemy | 340s) — Jagged stone spire ignoring 25% of target's Physical Defense.
+  2. Briar Wall (14 MP | Piercing | 2 Allies | 340s) — Thorns reflect 25% of incoming melee damage for 3 turns.
+  3. Wildfire Burst (14 MP | Fire | Up to 3 Enemies | 340s) — Ignites dry brush Fire across 3 targets with strong Burn chance.
+
+Tier 4 — Region 4: The Verdant Weald & Plague Woods (Lv 37-48)
+  1. Tremor Slam (18 MP | Bludgeoning | All Enemies | 680s) — Earth shockwave hitting all enemies and chipping 1 Guard pip.
+  2. Verdant Bloom (16 MP | Nature | 2 Allies | 680s) — Restores solid HP and grants 3-turn Regeneration across 2 allies.
+  3. Hawk Strike (15 MP | Piercing | 1 Enemy | 680s) — Wind-spirit strike pulling Mera's next turn earlier on the timeline.
+
+Tier 5 — Region 5: The Sun-Scorched Isles (Lv 49-60)
+  1. Razor Vines (21 MP | Piercing | Up to 3 Enemies | 1,280s) — Thorny steel-roots dealing heavy Piercing damage + strong Bleed.
+  2. Tempest Wing (22 MP | Lightning | All Enemies | 1,280s) — Roaring Lightning gale across all foes stripping positive buffs.
+  3. Grove Sanctuary (20 MP | Nature | 1 Ally | 1,280s) — Grants 2 turns of Status Immunity and restores 15 MP.
+
+Tier 6 — Region 6: The Ironcrest Highlands (Lv 61-72)
+  1. Sunbeam Canopy (25 MP | Radiant | 1 Enemy | 2,350s) — Focused sunlight melting Undead & Shadow creatures for bonus damage.
+  2. Earthshatter (27 MP | Bludgeoning | All Enemies | 2,350s) — Boulders slam all enemies with heavy damage and Stun chance.
+  3. Stag's Vigor (23 MP | Nature | All Allies | 2,350s) — Grants the entire party +25% Force & Finesse for 3 turns.
+
+Tier 7 — Region 7: The Frostbound Reach (Lv 73-85)
+  1. Elder Wrath (31 MP | Lightning + Nature | All Enemies | 4,200s) — Calls lightning and crushing roots applying Shock and heavy Guard break.
+  2. Moonlit Renewal (29 MP | Radiant | All Allies | 4,200s) — Party-wide HP heal, 3-turn Regeneration, and cleanses 1 ailment.
+  3. Dire Fang Spirit (30 MP | Piercing | 1 Enemy | 4,200s) — Summons ghostly white wolf bite with +35% Critical Chance.
+
+Tier 8 — Region 8: The Dreadwaste & Black Keep (Lv 86-99)
+  1. Cataclysm Quake (41 MP | Bludgeoning + Fire | All Enemies | 7,400s) — Volcanic fissure across all foes breaking 2 Guard pips.
+  2. Heart of the Wild (38 MP | Nature | All Allies | 7,400s) — Massive party heal + strong Regeneration + immediate Momentum.
+  3. Primal Eclipse (40 MP | Lightning + Radiant | 1 Enemy | 7,400s) — Apex wild storm focusing surging elemental fury onto 1 boss/elite.
+
+========================================================================================
+Harlan — Herbalist (24 Spells · Restorative Healing, Revivals, Cleanse, Poison & Buffs)
+========================================================================================
+
+Tier 1 — Region 1: The Crownlands (Lv 1-12)
+  1. Stinging Salve (4 MP | Restorative | 1 Ally | 55s) — Restores burst HP to 1 ally and removes 1 Bleed or Burn.
+  2. Bitterroot Vial (5 MP | Poison | 1 Enemy | 55s) — Corrosive Poison flask inflicting Poison for 3 turns.
+  3. Smelling Salts (5 MP | Restorative | 1 Ally | 55s) — Cures Stun, Chill, or Curse and nudges ally turn forward.
+
+Tier 2 — Region 2: The Saltmarsh & Westward Coast (Lv 13-24)
+  1. Soothing Poultice (9 MP | Restorative | 2 Allies | 150s) — Restores healthy HP across 2 chosen/adjacent allies.
+  2. Weakening Draught (8 MP | Poison | 1 Enemy | 150s) — Cuts enemy Physical & Magic Attack (-15%) for 3 turns.
+  3. Barkskin Tonic (8 MP | Restorative | 1 Ally | 150s) — Grants +25% Physical Defense and Poison/Burn resistance (3 turns).
+
+Tier 3 — Region 3: Thornwall & The Border Warfronts (Lv 25-36)
+  1. Venom Mist (12 MP | Poison | Up to 3 Enemies | 340s) — Toxic cloud dealing Poison damage across 3 enemies.
+  2. Reviving Tincture (14 MP | Restorative | 1 KO Ally | 340s) — Revives a fallen ally at 35% HP with 1-turn Bleed/Poison immunity.
+  3. Adrenaline Brew (11 MP | Restorative | 1 Ally | 340s) — Grants immediate Momentum (+25% next hit) and +10 Speed for 2 turns.
+
+Tier 4 — Region 4: The Verdant Weald & Plague Woods (Lv 37-48)
+  1. Blightbane Remedy (15 MP | Radiant | All Allies | 680s) — Removes all active ailments from every ally and restores modest HP.
+  2. Acidic Flask (15 MP | Poison + Bludgeon | 1 Enemy | 680s) — Melts armor (-25% Phys & Magic Def, 3 turns) and chips 1 Guard pip.
+  3. Vitality Infusion (14 MP | Restorative | 1 Ally | 680s) — Strong 3-turn Regeneration healing at the start of every turn.
+
+Tier 5 — Region 5: The Sun-Scorched Isles (Lv 49-60)
+  1. Mending Rain (20 MP | Restorative | All Allies | 1,280s) — Restores solid HP across all 4 party members.
+  2. Plague-Spore Burst (19 MP | Poison | All Enemies | 1,280s) — Detonates toxic cloud dealing bonus damage per active ailment.
+  3. Iron-Lung Elixir (17 MP | Restorative | 2 Allies | 1,280s) — Grants 2 turns of Status Immunity and +20% Magic Defense.
+
+Tier 6 — Region 6: The Ironcrest Highlands (Lv 61-72)
+  1. Miracle Balm (24 MP | Restorative | 1 Ally | 2,350s) — Massive emergency heal (~80% HP) clearing all active ailments.
+  2. Neurotoxin Dart (22 MP | Poison | 1 Enemy | 2,350s) — Severe Poison toxin with strong chance to Stun or delay enemy.
+  3. Mana Distillate (18 MP | Arcane | 1 Ally | 2,350s) — Restores +30–45 MP and boosts Magic Power for 2 turns.
+
+Tier 7 — Region 7: The Frostbound Reach (Lv 73-85)
+  1. Phoenix Draught (29 MP | Restorative | 1 Ally | 4,200s) — Revives at 75% HP with Ward Shield, or full-heals a living ally.
+  2. Rot-Cloud Catalyst (28 MP | Poison + Shadow | Up to 3 Enemies | 4,200s) — Doubles tick damage of all active Poison & Burn effects (2 turns).
+  3. Hero's Panacea (27 MP | Restorative | All Allies | 4,200s) — Grants +20% Defense and 15% HP regeneration per turn for 2 turns.
+
+Tier 8 — Region 8: The Dreadwaste & Black Keep (Lv 86-99)
+  1. Grand Elixir (38 MP | Restorative | All Allies | 7,400s) — Fully restores HP and clears every ailment across all 4 heroes.
+  2. Oakhollow Requiem (36 MP | Poison + Radiant | All Enemies | 7,400s) — Strips enemy buffs, inflicts severe Poison, and heals party 20% dealt.
+  3. Undying Vow (32 MP | Radiant | All Allies | 7,400s) — 2-turn grace preventing 1 lethal Knock Out per ally (survive at 20% HP).

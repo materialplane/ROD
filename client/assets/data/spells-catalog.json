@@ -1,0 +1,1303 @@
+{
+  "version": 2,
+  "source": "docs/05-cast-and-skills.md (Classic FF Magic Shop Spell Catalog)",
+  "totalSpells": 72,
+  "spells": [
+    {
+      "id": "spell_1_ellowyn_1",
+      "name": "Ember Spark",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 5,
+      "damageType": "Fire",
+      "target": "1 Enemy",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Quick Fire snap; high accuracy with light Burn chance (2 turns).",
+      "iconPath": "assets/icons/spells/spell_1_ellowyn_1.webp"
+    },
+    {
+      "id": "spell_1_ellowyn_2",
+      "name": "Frost Shard",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 6,
+      "damageType": "Frost",
+      "target": "1 Enemy",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Piercing Frost spike; applies Chill and delays enemy's next turn.",
+      "iconPath": "assets/icons/spells/spell_1_ellowyn_2.webp"
+    },
+    {
+      "id": "spell_1_ellowyn_3",
+      "name": "Crown Ward",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 7,
+      "damageType": "Radiant",
+      "target": "1 Ally",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Grants a protective Ward Shield and boosts Magic Defense for 2 turns.",
+      "iconPath": "assets/icons/spells/spell_1_ellowyn_3.webp"
+    },
+    {
+      "id": "spell_2_ellowyn_4",
+      "name": "Arcane Fireball",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 10,
+      "damageType": "Fire",
+      "target": "1 Enemy + Splash",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Blazing Fire orb hitting 1 target and splashing 50% heat to adjacent foes.",
+      "iconPath": "assets/icons/spells/spell_2_ellowyn_4.webp"
+    },
+    {
+      "id": "spell_2_ellowyn_5",
+      "name": "Chain Spark",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 10,
+      "damageType": "Lightning",
+      "target": "2 Enemies",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Fast Lightning bolt arcing to a second enemy; punishes armored targets.",
+      "iconPath": "assets/icons/spells/spell_2_ellowyn_5.webp"
+    },
+    {
+      "id": "spell_2_ellowyn_6",
+      "name": "Dawn Gleam",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 9,
+      "damageType": "Radiant",
+      "target": "1 Enemy",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Focused Radiant beam; extra damage vs Undead & Horrors, lowers Accuracy.",
+      "iconPath": "assets/icons/spells/spell_2_ellowyn_6.webp"
+    },
+    {
+      "id": "spell_3_ellowyn_7",
+      "name": "Rime Curtain",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 14,
+      "damageType": "Frost",
+      "target": "Up to 3 Enemies",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Sweeping Frost wave pushing all hit enemies back on the turn timeline.",
+      "iconPath": "assets/icons/spells/spell_3_ellowyn_7.webp"
+    },
+    {
+      "id": "spell_3_ellowyn_8",
+      "name": "Static Cage",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 13,
+      "damageType": "Lightning",
+      "target": "1 Enemy",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Inflicts Shock and delays telegraphed boss/enemy wind-ups.",
+      "iconPath": "assets/icons/spells/spell_3_ellowyn_8.webp"
+    },
+    {
+      "id": "spell_3_ellowyn_9",
+      "name": "Sovereign Aegis",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 15,
+      "damageType": "Radiant",
+      "target": "2 Allies",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Raises a protective barrier across 2 allies for 2 turns.",
+      "iconPath": "assets/icons/spells/spell_3_ellowyn_9.webp"
+    },
+    {
+      "id": "spell_4_ellowyn_10",
+      "name": "Flame Wall",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 18,
+      "damageType": "Fire",
+      "target": "All Enemies",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Roaring curtain of Fire across all enemies with high Burn rate.",
+      "iconPath": "assets/icons/spells/spell_4_ellowyn_10.webp"
+    },
+    {
+      "id": "spell_4_ellowyn_11",
+      "name": "Umbral Lance",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 17,
+      "damageType": "Shadow",
+      "target": "1 Enemy",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Piercing Shadow spear bypassing 40% Magic Defense and applying Curse.",
+      "iconPath": "assets/icons/spells/spell_4_ellowyn_11.webp"
+    },
+    {
+      "id": "spell_4_ellowyn_12",
+      "name": "Arcane Conduit",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 12,
+      "damageType": "Arcane",
+      "target": "1 Ally / Self",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Empowers next spell (+35% damage, +1 Guard break) or restores ally MP.",
+      "iconPath": "assets/icons/spells/spell_4_ellowyn_12.webp"
+    },
+    {
+      "id": "spell_5_ellowyn_13",
+      "name": "Tempest Arc",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 22,
+      "damageType": "Lightning",
+      "target": "All Enemies",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "High-voltage storm hitting all foes and stripping evasion buffs.",
+      "iconPath": "assets/icons/spells/spell_5_ellowyn_13.webp"
+    },
+    {
+      "id": "spell_5_ellowyn_14",
+      "name": "Glacial Prison",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 21,
+      "damageType": "Frost",
+      "target": "1 Enemy",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Heavy Frost crystal impact with strong Stun chance or turn delay.",
+      "iconPath": "assets/icons/spells/spell_5_ellowyn_14.webp"
+    },
+    {
+      "id": "spell_5_ellowyn_15",
+      "name": "Purifying Halo",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 20,
+      "damageType": "Radiant",
+      "target": "Up to 3 Enemies",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Radiant strike cleansing 1 Curse/Shadow ailment from the party.",
+      "iconPath": "assets/icons/spells/spell_5_ellowyn_15.webp"
+    },
+    {
+      "id": "spell_6_ellowyn_16",
+      "name": "Solar Flare",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 26,
+      "damageType": "Fire + Radiant",
+      "target": "1 Enemy + Splash",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Blinding eruption breaking 2 Guard pips on Fire/Radiant weaknesses.",
+      "iconPath": "assets/icons/spells/spell_6_ellowyn_16.webp"
+    },
+    {
+      "id": "spell_6_ellowyn_17",
+      "name": "Void Pull",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 25,
+      "damageType": "Shadow",
+      "target": "All Enemies",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Shadow gravity rift damaging all enemies and scrambling turn order.",
+      "iconPath": "assets/icons/spells/spell_6_ellowyn_17.webp"
+    },
+    {
+      "id": "spell_6_ellowyn_18",
+      "name": "Mirror Veil",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 24,
+      "damageType": "Arcane",
+      "target": "1 Ally",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Refractive ward reflecting 30% of incoming magic damage for 2 turns.",
+      "iconPath": "assets/icons/spells/spell_6_ellowyn_18.webp"
+    },
+    {
+      "id": "spell_7_ellowyn_19",
+      "name": "Blizzard Vortex",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 31,
+      "damageType": "Frost",
+      "target": "All Enemies",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Swirling Frost storm battering all enemies and applying Chill.",
+      "iconPath": "assets/icons/spells/spell_7_ellowyn_19.webp"
+    },
+    {
+      "id": "spell_7_ellowyn_20",
+      "name": "Thunderhead Verdict",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 30,
+      "damageType": "Lightning",
+      "target": "1 Enemy",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Ignores 50% Magic Defense; massive bonus vs Shocked or Chilled foes.",
+      "iconPath": "assets/icons/spells/spell_7_ellowyn_20.webp"
+    },
+    {
+      "id": "spell_7_ellowyn_21",
+      "name": "Queen's Decree",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 28,
+      "damageType": "Radiant",
+      "target": "All Allies",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Grants entire party +20% Phys & Magic Defense plus Momentum (2 turns).",
+      "iconPath": "assets/icons/spells/spell_7_ellowyn_21.webp"
+    },
+    {
+      "id": "spell_8_ellowyn_22",
+      "name": "Meteor",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 42,
+      "damageType": "Fire",
+      "target": "All Enemies",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Calls a devastating Fire comet onto all enemies with severe Burn.",
+      "iconPath": "assets/icons/spells/spell_8_ellowyn_22.webp"
+    },
+    {
+      "id": "spell_8_ellowyn_23",
+      "name": "Astral Judgment",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 40,
+      "damageType": "Radiant + Lightning",
+      "target": "1 Enemy",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Colossal single-target orbital strike that strips positive enemy buffs.",
+      "iconPath": "assets/icons/spells/spell_8_ellowyn_23.webp"
+    },
+    {
+      "id": "spell_8_ellowyn_24",
+      "name": "Eclipse Singularity",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "ellowyn"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 38,
+      "damageType": "Shadow",
+      "target": "All Enemies",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Heavy multi-target Shadow collapse siphoning 15% damage as HP & MP.",
+      "iconPath": "assets/icons/spells/spell_8_ellowyn_24.webp"
+    },
+    {
+      "id": "spell_1_mera_25",
+      "name": "Thorn Lash",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 5,
+      "damageType": "Piercing",
+      "target": "1 Enemy",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Whips thorny vines across 1 enemy for Piercing damage + light Bleed.",
+      "iconPath": "assets/icons/spells/spell_1_mera_25.webp"
+    },
+    {
+      "id": "spell_1_mera_26",
+      "name": "Bramble Snare",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 6,
+      "damageType": "Nature",
+      "target": "1 Enemy",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Hardened roots chip 1 Guard pip and delay target's next turn.",
+      "iconPath": "assets/icons/spells/spell_1_mera_26.webp"
+    },
+    {
+      "id": "spell_1_mera_27",
+      "name": "Mossy Mend",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 6,
+      "damageType": "Nature",
+      "target": "1 Ally",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Restores light HP immediately plus a 3-turn Regeneration trickle.",
+      "iconPath": "assets/icons/spells/spell_1_mera_27.webp"
+    },
+    {
+      "id": "spell_2_mera_28",
+      "name": "Gale Gust",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 10,
+      "damageType": "Lightning",
+      "target": "Up to 3 Enemies",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Sweeps wind-storm force pushing enemy turns back on the timeline.",
+      "iconPath": "assets/icons/spells/spell_2_mera_28.webp"
+    },
+    {
+      "id": "spell_2_mera_29",
+      "name": "Spore Cloud",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 9,
+      "damageType": "Poison",
+      "target": "All Enemies",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Sprays choking Poison spores cutting enemy Accuracy for 2 turns.",
+      "iconPath": "assets/icons/spells/spell_2_mera_29.webp"
+    },
+    {
+      "id": "spell_2_mera_30",
+      "name": "Barkskin Call",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 9,
+      "damageType": "Nature",
+      "target": "1 Ally",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Hardens 1 ally with +30% Physical Defense for 3 turns.",
+      "iconPath": "assets/icons/spells/spell_2_mera_30.webp"
+    },
+    {
+      "id": "spell_3_mera_31",
+      "name": "Stone Lance",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 13,
+      "damageType": "Bludgeoning",
+      "target": "1 Enemy",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Jagged stone spire ignoring 25% of target's Physical Defense.",
+      "iconPath": "assets/icons/spells/spell_3_mera_31.webp"
+    },
+    {
+      "id": "spell_3_mera_32",
+      "name": "Briar Wall",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 14,
+      "damageType": "Piercing",
+      "target": "2 Allies",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Thorns reflect 25% of incoming melee damage for 3 turns.",
+      "iconPath": "assets/icons/spells/spell_3_mera_32.webp"
+    },
+    {
+      "id": "spell_3_mera_33",
+      "name": "Wildfire Burst",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 14,
+      "damageType": "Fire",
+      "target": "Up to 3 Enemies",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Ignites dry brush Fire across 3 targets with strong Burn chance.",
+      "iconPath": "assets/icons/spells/spell_3_mera_33.webp"
+    },
+    {
+      "id": "spell_4_mera_34",
+      "name": "Tremor Slam",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 18,
+      "damageType": "Bludgeoning",
+      "target": "All Enemies",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Earth shockwave hitting all enemies and chipping 1 Guard pip.",
+      "iconPath": "assets/icons/spells/spell_4_mera_34.webp"
+    },
+    {
+      "id": "spell_4_mera_35",
+      "name": "Verdant Bloom",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 16,
+      "damageType": "Nature",
+      "target": "2 Allies",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Restores solid HP and grants 3-turn Regeneration across 2 allies.",
+      "iconPath": "assets/icons/spells/spell_4_mera_35.webp"
+    },
+    {
+      "id": "spell_4_mera_36",
+      "name": "Hawk Strike",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 15,
+      "damageType": "Piercing",
+      "target": "1 Enemy",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Wind-spirit strike pulling Mera's next turn earlier on the timeline.",
+      "iconPath": "assets/icons/spells/spell_4_mera_36.webp"
+    },
+    {
+      "id": "spell_5_mera_37",
+      "name": "Razor Vines",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 21,
+      "damageType": "Piercing",
+      "target": "Up to 3 Enemies",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Thorny steel-roots dealing heavy Piercing damage + strong Bleed.",
+      "iconPath": "assets/icons/spells/spell_5_mera_37.webp"
+    },
+    {
+      "id": "spell_5_mera_38",
+      "name": "Tempest Wing",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 22,
+      "damageType": "Lightning",
+      "target": "All Enemies",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Roaring Lightning gale across all foes stripping positive buffs.",
+      "iconPath": "assets/icons/spells/spell_5_mera_38.webp"
+    },
+    {
+      "id": "spell_5_mera_39",
+      "name": "Grove Sanctuary",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 20,
+      "damageType": "Nature",
+      "target": "1 Ally",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Grants 2 turns of Status Immunity and restores 15 MP.",
+      "iconPath": "assets/icons/spells/spell_5_mera_39.webp"
+    },
+    {
+      "id": "spell_6_mera_40",
+      "name": "Sunbeam Canopy",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 25,
+      "damageType": "Radiant",
+      "target": "1 Enemy",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Focused sunlight melting Undead & Shadow creatures for bonus damage.",
+      "iconPath": "assets/icons/spells/spell_6_mera_40.webp"
+    },
+    {
+      "id": "spell_6_mera_41",
+      "name": "Earthshatter",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 27,
+      "damageType": "Bludgeoning",
+      "target": "All Enemies",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Boulders slam all enemies with heavy damage and Stun chance.",
+      "iconPath": "assets/icons/spells/spell_6_mera_41.webp"
+    },
+    {
+      "id": "spell_6_mera_42",
+      "name": "Stag's Vigor",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 23,
+      "damageType": "Nature",
+      "target": "All Allies",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Grants the entire party +25% Force & Finesse for 3 turns.",
+      "iconPath": "assets/icons/spells/spell_6_mera_42.webp"
+    },
+    {
+      "id": "spell_7_mera_43",
+      "name": "Elder Wrath",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 31,
+      "damageType": "Lightning + Nature",
+      "target": "All Enemies",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Calls lightning and crushing roots applying Shock and heavy Guard break.",
+      "iconPath": "assets/icons/spells/spell_7_mera_43.webp"
+    },
+    {
+      "id": "spell_7_mera_44",
+      "name": "Moonlit Renewal",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 29,
+      "damageType": "Radiant",
+      "target": "All Allies",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Party-wide HP heal, 3-turn Regeneration, and cleanses 1 ailment.",
+      "iconPath": "assets/icons/spells/spell_7_mera_44.webp"
+    },
+    {
+      "id": "spell_7_mera_45",
+      "name": "Dire Fang Spirit",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 30,
+      "damageType": "Piercing",
+      "target": "1 Enemy",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Summons ghostly white wolf bite with +35% Critical Chance.",
+      "iconPath": "assets/icons/spells/spell_7_mera_45.webp"
+    },
+    {
+      "id": "spell_8_mera_46",
+      "name": "Cataclysm Quake",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 41,
+      "damageType": "Bludgeoning + Fire",
+      "target": "All Enemies",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Volcanic fissure across all foes breaking 2 Guard pips.",
+      "iconPath": "assets/icons/spells/spell_8_mera_46.webp"
+    },
+    {
+      "id": "spell_8_mera_47",
+      "name": "Heart of the Wild",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 38,
+      "damageType": "Nature",
+      "target": "All Allies",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Massive party heal + strong Regeneration + immediate Momentum.",
+      "iconPath": "assets/icons/spells/spell_8_mera_47.webp"
+    },
+    {
+      "id": "spell_8_mera_48",
+      "name": "Primal Eclipse",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "mera"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 40,
+      "damageType": "Lightning + Radiant",
+      "target": "1 Enemy",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Apex wild storm focusing surging elemental fury onto 1 boss/elite.",
+      "iconPath": "assets/icons/spells/spell_8_mera_48.webp"
+    },
+    {
+      "id": "spell_1_harlan_49",
+      "name": "Stinging Salve",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 4,
+      "damageType": "Restorative",
+      "target": "1 Ally",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Restores burst HP to 1 ally and removes 1 Bleed or Burn.",
+      "iconPath": "assets/icons/spells/spell_1_harlan_49.webp"
+    },
+    {
+      "id": "spell_1_harlan_50",
+      "name": "Bitterroot Vial",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 5,
+      "damageType": "Poison",
+      "target": "1 Enemy",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Corrosive Poison flask inflicting Poison for 3 turns.",
+      "iconPath": "assets/icons/spells/spell_1_harlan_50.webp"
+    },
+    {
+      "id": "spell_1_harlan_51",
+      "name": "Smelling Salts",
+      "category": "spell",
+      "subType": "Tier 1 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 1,
+      "step": 1,
+      "mpCost": 5,
+      "damageType": "Restorative",
+      "target": "1 Ally",
+      "priceSilver": 55,
+      "sellSilver": 22,
+      "effect": "Cures Stun, Chill, or Curse and nudges ally turn forward.",
+      "iconPath": "assets/icons/spells/spell_1_harlan_51.webp"
+    },
+    {
+      "id": "spell_2_harlan_52",
+      "name": "Soothing Poultice",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 9,
+      "damageType": "Restorative",
+      "target": "2 Allies",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Restores healthy HP across 2 chosen/adjacent allies.",
+      "iconPath": "assets/icons/spells/spell_2_harlan_52.webp"
+    },
+    {
+      "id": "spell_2_harlan_53",
+      "name": "Weakening Draught",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 8,
+      "damageType": "Poison",
+      "target": "1 Enemy",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Cuts enemy Physical & Magic Attack (-15%) for 3 turns.",
+      "iconPath": "assets/icons/spells/spell_2_harlan_53.webp"
+    },
+    {
+      "id": "spell_2_harlan_54",
+      "name": "Barkskin Tonic",
+      "category": "spell",
+      "subType": "Tier 2 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 2,
+      "step": 4,
+      "mpCost": 8,
+      "damageType": "Restorative",
+      "target": "1 Ally",
+      "priceSilver": 150,
+      "sellSilver": 60,
+      "effect": "Grants +25% Physical Defense and Poison/Burn resistance (3 turns).",
+      "iconPath": "assets/icons/spells/spell_2_harlan_54.webp"
+    },
+    {
+      "id": "spell_3_harlan_55",
+      "name": "Venom Mist",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 12,
+      "damageType": "Poison",
+      "target": "Up to 3 Enemies",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Toxic cloud dealing Poison damage across 3 enemies.",
+      "iconPath": "assets/icons/spells/spell_3_harlan_55.webp"
+    },
+    {
+      "id": "spell_3_harlan_56",
+      "name": "Reviving Tincture",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 14,
+      "damageType": "Restorative",
+      "target": "1 KO Ally",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Revives a fallen ally at 35% HP with 1-turn Bleed/Poison immunity.",
+      "iconPath": "assets/icons/spells/spell_3_harlan_56.webp"
+    },
+    {
+      "id": "spell_3_harlan_57",
+      "name": "Adrenaline Brew",
+      "category": "spell",
+      "subType": "Tier 3 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 3,
+      "step": 7,
+      "mpCost": 11,
+      "damageType": "Restorative",
+      "target": "1 Ally",
+      "priceSilver": 340,
+      "sellSilver": 136,
+      "effect": "Grants immediate Momentum (+25% next hit) and +10 Speed for 2 turns.",
+      "iconPath": "assets/icons/spells/spell_3_harlan_57.webp"
+    },
+    {
+      "id": "spell_4_harlan_58",
+      "name": "Blightbane Remedy",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 15,
+      "damageType": "Radiant",
+      "target": "All Allies",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Removes all active ailments from every ally and restores modest HP.",
+      "iconPath": "assets/icons/spells/spell_4_harlan_58.webp"
+    },
+    {
+      "id": "spell_4_harlan_59",
+      "name": "Acidic Flask",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 15,
+      "damageType": "Poison + Bludgeon",
+      "target": "1 Enemy",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Melts armor (-25% Phys & Magic Def, 3 turns) and chips 1 Guard pip.",
+      "iconPath": "assets/icons/spells/spell_4_harlan_59.webp"
+    },
+    {
+      "id": "spell_4_harlan_60",
+      "name": "Vitality Infusion",
+      "category": "spell",
+      "subType": "Tier 4 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 4,
+      "step": 10,
+      "mpCost": 14,
+      "damageType": "Restorative",
+      "target": "1 Ally",
+      "priceSilver": 680,
+      "sellSilver": 272,
+      "effect": "Strong 3-turn Regeneration healing at the start of every turn.",
+      "iconPath": "assets/icons/spells/spell_4_harlan_60.webp"
+    },
+    {
+      "id": "spell_5_harlan_61",
+      "name": "Mending Rain",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 20,
+      "damageType": "Restorative",
+      "target": "All Allies",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Restores solid HP across all 4 party members.",
+      "iconPath": "assets/icons/spells/spell_5_harlan_61.webp"
+    },
+    {
+      "id": "spell_5_harlan_62",
+      "name": "Plague-Spore Burst",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 19,
+      "damageType": "Poison",
+      "target": "All Enemies",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Detonates toxic cloud dealing bonus damage per active ailment.",
+      "iconPath": "assets/icons/spells/spell_5_harlan_62.webp"
+    },
+    {
+      "id": "spell_5_harlan_63",
+      "name": "Iron-Lung Elixir",
+      "category": "spell",
+      "subType": "Tier 5 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 5,
+      "step": 13,
+      "mpCost": 17,
+      "damageType": "Restorative",
+      "target": "2 Allies",
+      "priceSilver": 1280,
+      "sellSilver": 512,
+      "effect": "Grants 2 turns of Status Immunity and +20% Magic Defense.",
+      "iconPath": "assets/icons/spells/spell_5_harlan_63.webp"
+    },
+    {
+      "id": "spell_6_harlan_64",
+      "name": "Miracle Balm",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 24,
+      "damageType": "Restorative",
+      "target": "1 Ally",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Massive emergency heal (~80% HP) clearing all active ailments.",
+      "iconPath": "assets/icons/spells/spell_6_harlan_64.webp"
+    },
+    {
+      "id": "spell_6_harlan_65",
+      "name": "Neurotoxin Dart",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 22,
+      "damageType": "Poison",
+      "target": "1 Enemy",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Severe Poison toxin with strong chance to Stun or delay enemy.",
+      "iconPath": "assets/icons/spells/spell_6_harlan_65.webp"
+    },
+    {
+      "id": "spell_6_harlan_66",
+      "name": "Mana Distillate",
+      "category": "spell",
+      "subType": "Tier 6 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 6,
+      "step": 16,
+      "mpCost": 18,
+      "damageType": "Arcane",
+      "target": "1 Ally",
+      "priceSilver": 2350,
+      "sellSilver": 940,
+      "effect": "Restores +30–45 MP and boosts Magic Power for 2 turns.",
+      "iconPath": "assets/icons/spells/spell_6_harlan_66.webp"
+    },
+    {
+      "id": "spell_7_harlan_67",
+      "name": "Phoenix Draught",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 29,
+      "damageType": "Restorative",
+      "target": "1 Ally",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Revives at 75% HP with Ward Shield, or full-heals a living ally.",
+      "iconPath": "assets/icons/spells/spell_7_harlan_67.webp"
+    },
+    {
+      "id": "spell_7_harlan_68",
+      "name": "Rot-Cloud Catalyst",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 28,
+      "damageType": "Poison + Shadow",
+      "target": "Up to 3 Enemies",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Doubles tick damage of all active Poison & Burn effects (2 turns).",
+      "iconPath": "assets/icons/spells/spell_7_harlan_68.webp"
+    },
+    {
+      "id": "spell_7_harlan_69",
+      "name": "Hero's Panacea",
+      "category": "spell",
+      "subType": "Tier 7 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 7,
+      "step": 19,
+      "mpCost": 27,
+      "damageType": "Restorative",
+      "target": "All Allies",
+      "priceSilver": 4200,
+      "sellSilver": 1680,
+      "effect": "Grants +20% Defense and 15% HP regeneration per turn for 2 turns.",
+      "iconPath": "assets/icons/spells/spell_7_harlan_69.webp"
+    },
+    {
+      "id": "spell_8_harlan_70",
+      "name": "Grand Elixir",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 38,
+      "damageType": "Restorative",
+      "target": "All Allies",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Fully restores HP and clears every ailment across all 4 heroes.",
+      "iconPath": "assets/icons/spells/spell_8_harlan_70.webp"
+    },
+    {
+      "id": "spell_8_harlan_71",
+      "name": "Oakhollow Requiem",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 36,
+      "damageType": "Poison + Radiant",
+      "target": "All Enemies",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "Strips enemy buffs, inflicts severe Poison, and heals party 20% dealt.",
+      "iconPath": "assets/icons/spells/spell_8_harlan_71.webp"
+    },
+    {
+      "id": "spell_8_harlan_72",
+      "name": "Undying Vow",
+      "category": "spell",
+      "subType": "Tier 8 Spell",
+      "usableBy": [
+        "harlan"
+      ],
+      "region": 8,
+      "step": 22,
+      "mpCost": 32,
+      "damageType": "Radiant",
+      "target": "All Allies",
+      "priceSilver": 7400,
+      "sellSilver": 2960,
+      "effect": "2-turn grace preventing 1 lethal Knock Out per ally (survive at 20% HP).",
+      "iconPath": "assets/icons/spells/spell_8_harlan_72.webp"
+    }
+  ]
+}

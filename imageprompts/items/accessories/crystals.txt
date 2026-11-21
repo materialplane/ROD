@@ -1,0 +1,47 @@
+# ROD — Druid Accessory — Crystals Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Druid -> Crystals (24 + Crest)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 CRYSTALS PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated faceted standalone fantasy stone crystal fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, horn, leather, gold, bronze, iron, and stone surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 crystal shards stand upright centered cleanly with crisp faceted hard dark edges separating cleanly from #FF00FF (zero pink halo/glow). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Chipped Quartz Crystal): Rough chipped milky pale-white raw quartz stone point wrapped clumsily at base with simple twine cord.
+Row 1, Col 2 (Moss-Lit Shard): Natural hexagonal stone crystal spire streaked subtly inside with green forest moss and bound by copper wire.
+Row 1, Col 3 (Crownland Verdant Crystal): Crownland crisp translucent clear emerald-tinted pointed crystal resting solidly inside forged antique brass base collar.
+Row 1, Col 4 (Sea-Salt Prism Crystal): Sea-Salt pale frozen-aqua jagged salt-prism crystal cluster set neatly inside tarnished sea-bronze cradle.
+Row 1, Col 5 (Brine-Moss Crystal): Brine-Moss deep teal-green ocean mineral shard wrapped tightly at root in weathered dark bronze seaweed-scroll band.
+
+Row 2, Col 1 (Fen-Amber Crystal): Fen-Amber warm glowing golden-ochre marsh amber crystal shard mounted smoothly in dark iron claw setting.
+Row 2, Col 2 (Slate-Bound Crystal): Slate-Bound sharp jagged dark gray mountain crystal pillar braced in heavy riveted iron border straps.
+Row 2, Col 3 (Amber-Vein Crystal): Amber-Vein dark smoky-brown rocky crystal shard cracked boldly with vivid glowing warm orange-amber mineral veins inside.
+Row 2, Col 4 (Redmarch Storm-Crystal): Redmarch dark stormy blue-steel faceted shard clasped neatly by winged crimson-enameled iron setting prongs.
+Row 2, Col 5 (Heartwood Sap Crystal): Heartwood dense warm golden-amber sap-crystal prism resting cleanly inside carved living dark oak-root cradle.
+
+Row 3, Col 1 (Emerald Weald Crystal): Emerald lush translucent forest-green faceted hexagonal crystal spire set gracefully in sculpted gold-bronze leaves.
+Row 3, Col 2 (Ancient Grove Crystal): Ancient Grove large twin-pointed deep emerald relic crystal encircled smoothly by interlocking bronze woodland branches.
+Row 3, Col 3 (Sunstone Shard Crystal): Sunstone warm fiery peach-gold sunlit desert mineral crystal set cleanly atop engraved brass lotus base.
+Row 3, Col 4 (Topaz Desert Crystal): Topaz razor-cut brilliant golden-yellow desert faceted prism jewel clasped firmly inside sculpted gold desert-sun bezel.
+Row 3, Col 5 (Solar Hearth Crystal): Solar Hearth radiant glowing amber-gold multi-faceted crystal cluster cradled inside gleaming golden sunburst collar.
+
+Row 4, Col 1 (Storm-Quartz Crystal): Storm-Quartz jagged cool pale icy-blue highland crystal veined with bright crisp lightning-gold bolts inside rock.
+Row 4, Col 2 (Silver-Peak Crystal): Silver-Peak gleaming clear white-silver tall mountain quartz spire mounted cleanly in cold brushed star-silver claws.
+Row 4, Col 3 (Sky-Heart Gem Crystal): Sky-Heart vivid cerulean cobalt faceted gem-crystal cluster gleaming cleanly from an intricate silver peak collar.
+Row 4, Col 4 (Glacial Ice Crystal): Glacial translucent ice-cyan frosted angular crystal stalactite framed tightly in dark winter-iron collar ring.
+Row 4, Col 5 (Boreal Frost Crystal): Boreal twin-spired sharp frost-cobalt crystal formation etched along facets with pale ice veins & silver wrap.
+
+Row 5, Col 1 (Winter-Moon Crystal): Winter-Moon shimmering pale pearl-white & ice-blue faceted lunar prism crystal inside blackened steel crescent ring.
+Row 5, Col 2 (Volcanic Obsidian Crystal): Volcanic glossy jet-black chipped obsidian crystal shard gleaming sharply inside matte volcanic stone with orange fissure line.
+Row 5, Col 3 (Wild-Eclipse Crystal): Wild-Eclipse dark midnight-indigo-and-deep-gold sharp crystal cluster framed by jagged blackened thorny prongs.
+Row 5, Col 4 (Seed-Heart Crystal): Seed-Heart Crystal — apex Druid endgame vibrant emerald-and-golden starlight faceted life-crystal cradled in gleaming gold roots.
+Row 5, Col 5 (Crystals Category Emblem & Empty-Slot Icon): Crystals Category Emblem & Empty-Slot Icon: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic upright hexagonal faceted crystal shard emblem with simple collar base—NO pink tint, NO outer glow, NO borders on pure #FF00FF.
+--- 5x5 CRYSTALS PROMPT END ---

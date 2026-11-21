@@ -1,0 +1,51 @@
+# ROD — 1H Dagger Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Mystic, Archer & Herbalist -> Dagger (1H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated 1H medieval dagger fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 items follow ONE identical 45-degree diagonal UI icon angle inside their cell: hilt/pommel toward the bottom-left corner and blade tip pointing cleanly toward the upper-right corner. Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Chipped Iron Dagger): Rough chipped dull dark-iron utility dagger with short triangular blade, plain pitted iron guard, ragged cloth-wrapped wood grip, blunt iron cap.
+Row 1, Col 2 (Balanced Steel Dagger): Clean balanced steel soldier's dagger featuring sharp symmetric diamond blade, simple curved iron bar guard, dark leather grip, and heavy wheel pommel.
+Row 1, Col 3 (Millbrook Dirk): Millbrook Dirk — sleek polished steel highland-style dirk dagger with fluted brass collar bolsters, dark bog-oak handle, and heavy carved brass pommel.
+Row 1, Col 4 (Gutting Dagger): Gutting coastal fisherman-turned-sailor dagger sporting wide sharp notched utility blade, dull tarnished bronze hook-guard, tarred hemp rope grip.
+Row 1, Col 5 (Bilge-Rat Dirk): Bilge-Rat dark blackened-iron sailor dirk with rugged single-edged thick spine, heavy brass knuckle stud crossguard, cracked brown leather handle.
+
+Row 2, Col 1 (Salt-Stained Stiletto): Salt-Stained Stiletto — slender needle-sharp salt-blued steel armor-piercing dagger with compact tarnished bronze cross-bars and spiral-grooved grip.
+Row 2, Col 2 (Trench Dagger): Trench Redmarch combat dagger combining thick diamond-point slate steel blade, riveted dark-iron knuckle-bar guard, and ribbed crimson grip.
+Row 2, Col 3 (Redmarch Poniard): Redmarch Poniard — narrow vicious garrison steel parrying dagger with broad swept iron crossguard lugs, blood-groove spine, and spiked steel pommel.
+Row 2, Col 4 (Hollowstone Steel Dagger): Hollowstone Steel Dagger — aristocratic blackened-steel ceremonial-turned-combat dagger inlaid cleanly with rose-copper crossguard wings and wine-leather handle.
+Row 2, Col 5 (Fang-Tipped Dagger): Fang-Tipped Weald dagger forged from mottled dark olive steel curving subtly near a serrated venom-notch point, bronze thorn crossguard, wood grip.
+
+Row 3, Col 1 (Nightshade Dirk): Nightshade deep-woodland slender dirk displaying blackened patina blade tinted faint emerald-moss near spine, bronze leaf collar, smooth amber pommel.
+Row 3, Col 2 (Briar-Thorn Stiletto): Briar-Thorn Stiletto — razor-narrow elderwood-hilted armor needle crowned with sculpted twisting bronze thorns cupping an octagonal dark-steel spike.
+Row 3, Col 3 (Curved Oasis Dagger): Curved Oasis Veridian jambiya dagger showcasing graceful sweeping curved mirror-steel blade, inlaid brass-and-desert-stone scabbard-style hilt collar.
+Row 3, Col 4 (Obsidian Desert Dirk): Obsidian Desert Dirk — gleaming chipped jet-black volcanic obsidian-edged dagger mounted tightly inside sculpted golden-brass collar jaws and sand-tan grip.
+Row 3, Col 5 (Mirage Gilded Stiletto): Mirage Gilded Stiletto — opulent golden-filigree crossguarded thin needle blade traced with crisp warm gold damascene down center, cobalt grip.
+
+Row 4, Col 1 (Flint-Edge Dagger): Flint-Edge rugged highland dagger hammered from chiseled gray mountain-steel with dark slate beveled facets, heavy riveted iron guard, coarse grip.
+Row 4, Col 2 (Sky-Talon Dirk): Sky-Talon curved-tip Ironcrest dirk crafted from silvered mountain steel bearing sharp raptor-claw crossguard horns and navy-blue stitched grip.
+Row 4, Col 3 (Anvilhall Star-Steel Stiletto): Anvilhall Star-Steel Stiletto — masterwork star-iron armor stiletto inlaid with crisp glowing warm amber forge lines beneath gleaming mirror-polished needle.
+Row 4, Col 4 (Ice-Shard Dagger): Ice-Shard frostbound northern dagger fashioned with pale frosty gray faceted blade, thick white wolfskin collar cuff, notched iron crossguard.
+Row 4, Col 5 (Frost-Fang Dirk): Frost-Fang Dirk — vicious winter-steel curved dirk boasting bright frozen-blue steel edge bevels, sculpted silvered wolf-fang quillions, dark grip.
+
+Row 5, Col 1 (Silent-Snow Stiletto): Silent-Snow Stiletto — translucent-sheen glacier-cyan edged crystal-steel slender stiletto framed cleanly by blackened cold-iron cross-bars and frosted silver cap.
+Row 5, Col 2 (Shadow-Steel Dagger): Shadow-Steel Dreadwaste matte black volcanic-iron dagger showing faint glowing molten-orange heat-line along blade spine and chained dark pommel.
+Row 5, Col 3 (Night-Viper Dirk): Night-Viper dark-forged dirk featuring deep crimson-lacquered swept cross-fins flanking a gleaming obsidian-dark sharp blade with serrated back edge.
+Row 5, Col 4 (Eclipse Shadow Dagger): Eclipse Shadow Dagger — apex royal shadow-crafted relic dagger uniting midnight-black star-iron hollow-ground blade with sleek brushed-gold eclipse crescent guard and crimson grip.
+Row 5, Col 5 (Daggers Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic straight sharp dagger silhouette emblem at 45-degree angle—compact crossguard and tapered double-edge blade with NO gems, NO glow, NO circle frame, and NO box border on pure #FF00FF.
+--- 5x5 PROMPT END ---

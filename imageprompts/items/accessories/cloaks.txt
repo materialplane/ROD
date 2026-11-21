@@ -1,0 +1,47 @@
+# ROD — Duelist Accessory — Cloaks Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Duelist -> Cloaks (24 + Crest)
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 CLOAKS PROMPT START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated standalone draped fantasy cloak & cape fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY MATERIALS):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted cloth, glass, crystal, horn, leather, gold, bronze, iron, and stone surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints/glows on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 cloaks are displayed upright front-facing in graceful draped hangs with empty dark shadowed collar openings (zero human bodies/heads inside). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Tattered Travel Cloak): Frayed faded gray-brown burlap travel cloak with simple rawhide string tie and ragged bottom hem.
+Row 1, Col 2 (Oakhaven Wool Cloak): Cozy warm coarse charcoal-and-moss Crownland wool cloak fastened neatly by plain round bronze clasp.
+Row 1, Col 3 (Millbrook Duelist Cape): Tailored deep burgundy-and-charcoal shoulder cape of a Millbrook duelist edged cleanly in antique brass braid.
+Row 1, Col 4 (Waxed Mariner Cloak): Dark brown heavily beeswaxed waterproof sailor's boat-cloak sporting sturdy brass marine toggle buttons.
+Row 1, Col 5 (Saltwind Storm-Cape): Saltwind weathered slate-indigo coastal storm-cape reinforced across shoulders with oiled sea-leather.
+
+Row 2, Col 1 (Mirewatch Oilskin Cloak): Mirewatch hooded oilskin olive-green swamp cloak gleaming slightly with waterproof pitch treatment and bronze pin.
+Row 2, Col 2 (Ash-Dyed Border Cloak): Ash-dyed dark slate Redmarch border cloak worn with scarred steel collar rivets and rugged hem.
+Row 2, Col 3 (Redmarch Crimson Cape): Redmarch Crimson proud border captain's half-cape of deep scarlet heavy wool fastened by bright iron lionshead clasps.
+Row 2, Col 4 (Thornwall Vanguard Mantle): Thornwall fine crimson-and-silver lined silk-trimmed vanguard mantle featuring broad sculpted bronze shoulder clasp.
+Row 2, Col 5 (Fern-Dyed Weald Cloak): Fern-Dyed forest-green Weald woodland cloak trimmed quietly in moss wool stitching and carved wood toggle.
+
+Row 3, Col 1 (Briar-Thorn Mantle): Briar-Thorn dark emerald-and-umber forest ranger mantle accented with patinated thorny bronze leaf clasp.
+Row 3, Col 2 (Elderwood Canopy Cloak): Elderwood rich canopy-green draped relic cloak bordered elegantly in embroidered antique gold oak-leaf motifs.
+Row 3, Col 3 (Sun-Bleached Sand Cloak): Sun-bleached light sandstone-tan desert travel cloak trimmed sparingly along hem with golden ochre weave.
+Row 3, Col 4 (Gilded Veridia Cape): Gilded Veridia flowing deep saffron-gold merchant-prince cape pinned with ornate geometric brass sun-brooch.
+Row 3, Col 5 (Mirage Silk Cloak): Mirage Silk shimmering pale champagne-and-cobalt light desert silk cloak embroidered in delicate desert gold.
+
+Row 4, Col 1 (Wolf-Fur Travel Cloak): Wolf-Fur rugged gray highland travel cloak crowned proudly with thick bristled gray timber-wolf shoulder pelt.
+Row 4, Col 2 (Storm-Weave Cape): Storm-Weave dark tempest-cobalt alpine cloak laced along shoulders with bright storm-silver braided cord.
+Row 4, Col 3 (Anvilhall Silver-Trim Cloak): Anvilhall dark charcoal mountain mantle edged crisply with brushed star-silver trim and forged anvil pin.
+Row 4, Col 4 (Rime-Lined Wolf Cloak): Rime-Lined heavy frosted wolfskin winter cloak sporting thick pale white belly fur lining around dark navy shell.
+Row 4, Col 5 (Tundra Snow-Mantle): Tundra deep icy-slate wool snow-mantle weighted down at shoulder edge with white rabbit-fur collar.
+
+Row 5, Col 1 (Boreal Starlight Cape): Boreal Starlight flowing midnight-indigo northern cape gleaming subtly with pale ice-silver embroidered stars.
+Row 5, Col 2 (Ashen-Hide Cloak): Ashen-Hide Dreadwaste scarred dark volcanic-gray tough hide cloak clasped securely by jagged black iron chains.
+Row 5, Col 3 (Crimson-Oath Cape): Crimson-Oath blackened charcoal-and-blood-red duelist cape lined boldly in deep scarlet satin & steel clasp.
+Row 5, Col 4 (Sovereign Duelist Cloak): Sovereign Duelist Cloak — apex Highcrown royal flowing emerald-and-crimson velvet-lined mantle pinned with gleaming gold crown brooch.
+Row 5, Col 5 (Cloaks Category Emblem & Empty-Slot Icon): Cloaks Category Emblem & Empty-Slot Icon: Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic draped high-collared cloak silhouette crest with simple collar clasp, NO gems, NO glow, NO borders on pure #FF00FF.
+--- 5x5 CLOAKS PROMPT END ---

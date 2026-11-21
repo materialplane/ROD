@@ -1,0 +1,86 @@
+# ROD — Medium Helmets & Headgear (Sheet 1 of 2) Icons (5x5 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Medium Armor -> Helmet
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 5x5 MEDIUM SHEET 1 START (Copy from next line down — ALL 25 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated standalone floating helmet & hood fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All helmets, hoods, cowls & coifs are displayed cleanly in an open, relaxed 3/4 angle facing toward the viewer's left (~8 o'clock) floating standalone with wide open fronts clearly revealing textured matte dark-gray leather or stitched dark cloth interior lining and realistic curved shadow folds inside (strictly ZERO solid flat pitch-black #000000 oval void holes inside any hood or helmet opening, NO human faces, NO heads, and NO necks underneath). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right:
+
+Row 1, Col 1 (Boar-Hide Cap): Coarse rugged brown boar-hide stitched warrior cap fringed loosely at back neck with bristled dark hide fur.
+Row 1, Col 2 (Elk-Hide Coif): Thick tan elk-hide heavy folded frontier coif tied securely under chin with thick rawhide leather cords.
+Row 1, Col 3 (Horned Hide Hood): Horned Hide Hood — imposing bull-hide hunter hood mounted cleanly with two short curved pale ivory bull horns, flaring open to reveal warm stitched tan suede inner hood lining folds.
+Row 1, Col 4 (Saltwind Hide Helm): Saltwind Hide Helm — heavy weather-cured sea-hide rounded helmet reinforced with dull tarnished bronze brow plate.
+Row 1, Col 5 (Scale-Cheeked Nasal Helm): Scale-Cheeked Nasal Helm — forged steel dome helmet featuring clean nose-guard bar flanked by hanging overlapping iron scale cheek guards.
+
+Row 2, Col 1 (Brine Scale Bascinet): Brine Scale dark-iron pointed bascinet sporting dense draped dark teal-tinted overlapping metal scale neck aventail.
+Row 2, Col 2 (Garrison Scale Barbute): Garrison Scale Barbute — gleaming bronze-trimmed steel barbute protected along lower sides by tight rows of overlapping scales.
+Row 2, Col 3 (Bastion Scale Helm): Bastion Scale Helm — formidable war-steel dome helm draped seamlessly from temples to collarbone in crisp polished scales.
+Row 2, Col 4 (Highland Open Barbute): Highland Open Barbute — classic matte gray mountain-steel open-faced barbute helmet with crisp T-shaped cheek opening.
+Row 2, Col 5 (Anvilhall Crest Helm): Anvilhall Crest Helm — sleek forged star-steel close-trimmed helmet crowned by central brushed-bronze crest comb.
+
+Row 3, Col 1 (Rime-Steel Sallet): Rime-Steel Sallet — sweeping cold frosted-steel northern lobster-tail sallet helm lined warmly at brow with thin wolf fur.
+Row 3, Col 2 (Frostguard Visor): Frostguard Visor — noble gleaming ice-steel pointed visor knight helm with crisp breathing slits and feathered ridge.
+Row 3, Col 3 (Glacial Close Helm): Glacial Close Helm — heavy frosted blue-steel enclosed knightly close helm with bolted angular visor bevels.
+Row 3, Col 4 (Ashen-Steel Armet): Ashen-Steel Armet — Dreadwaste charred volcanic-iron armet showing glowing ember-orange cheek slits and sharp crown ridge.
+Row 3, Col 5 (Crimson-Oath Greathelm): Crimson-Oath Greathelm — imposing blackened high-steel greathelm featuring fierce crimson-lacquered T-visor trim.
+
+Row 4, Col 1 (Crown Duelist Helm): Crown Duelist Helm — apex Highcrown sculpted silvered star-steel noble armet crowned in gleaming brushed-gold laurel brow.
+Row 4, Col 2 (Copper-Charred Hood): Copper-Charred Hood (Archer Medium) — smoked obsidian-black archer cowl hood imbued warmly with burnt-copper sheen along wide stitched rim revealing textured matte charcoal-brown leather inner lining folds.
+Row 4, Col 3 (Ember-Burnished Mask): Ember-Burnished Mask (Archer Medium) — dark charred-black reinforced leather half-mask & hood traced smoothly with burnished burnt-copper cheek armor and dark slate cloth inner neck trim.
+Row 4, Col 4 (Burnt-Copper Coif): Burnt-Copper Coif (Archer Medium) — molded charcoal-charred archer skullcap coif reinforced cleanly with glowing coppery-burnt leather brow plates and padded charcoal inside trim.
+Row 4, Col 5 (Tarnished-Copper Visor): Tarnished-Copper Visor (Archer Medium) — apex scorched charcoal-black peaked archer hood visor gleaming sharply with burnt-copper rim bevels showing folded slate-gray cloth interior lining inside.
+
+Row 5, Col 1 (Charred-Silver Mask): Charred-Silver Mask (Archer Medium) — midnight charcoal rigid leather hood & armored lower face mask imbued cleanly with silvery-burnt sheen.
+Row 5, Col 2 (Ash-Silver Hood): Ash-Silver Hood (Archer Medium) — tailored smoky ash-gray and black boiled-leather archer cowl trimmed crisply with burnt-silvered brow bands showing textured smoky-gray inner leather lining.
+Row 5, Col 3 (Eclipse-Burnt Helm): Eclipse-Burnt Helm (Archer Medium) — sleek charred-obsidian molded leather-plate scout helm displaying pale tarnished-silver ridge chevrons and dark padded interior cap lining.
+Row 5, Col 4 (Horizon Scout Cowl): Horizon Scout Cowl (Archer Medium Relic) — apex wide open-rimmed archer cowl merging dark shadowed hood drape with gleaming silvery-burnt star-leather brow crown revealing folded dark slate interior lining.
+Row 5, Col 5 (Medium Helmets & Headgear Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic medium scale/leather-plate helmet silhouette emblem—clean understated profile with NO gems, NO glow, NO circle frame, and NO box border on pure #FF00FF.
+--- 5x5 MEDIUM SHEET 1 END ---
+
+
+# ROD — Medium Helmets & Headgear (Sheet 2 of 2) Icons (4x4 Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> classes.txt -> Bone/Scale Medium -> Helmet
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 4x4 (1024x1024 per cell at 4K), export compressed 256x256 .webp icons.
+
+--- 4x4 MEDIUM SHEET 2 START (Copy from next line down — ALL 16 Cells) ---
+1:1 square icon sprite sheet showing a STRICT 4x4 grid (EXACTLY 4 equal columns across by 4 equal rows down — 16 evenly spaced isolated standalone floating helmet & hood fantasy RPG icons total, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO heads, NO mannequins, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS, CLOTH & LEATHER):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, boiled leather, woven cloth, fur, scale, and carved bone textures, crisp directional rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 4x4 GUTTER SPACING LOCK:
+All 16 bone-armored & dragonscale headpieces (Rows 1–4) are full open-faced war-helmets, hoods & armored cowls displayed cleanly in a relaxed 3/4 angle facing toward the viewer's left (~8 o'clock) floating standalone with wide open front openings clearly revealing textured dark charcoal leather or padded cloth inner lining and curved fold depth inside (strictly ZERO solid flat pitch-black #000000 oval void holes inside openings, ZERO bare floating metal headbands or tiaras without a full helmet/hood underneath, NO human faces, NO heads, and NO necks). Size each item cleanly to fill ~72% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so nothing ever touches across cells.
+
+Render these exact 16 distinct icons cleanly from Row 1 to Row 4, left to right:
+
+Row 1, Col 1 (Carved Bone Mask): Carved pale bleached bone half-mask strapped solidly across dark padded charcoal wool skullcap showing textured dark inner cap lining.
+Row 1, Col 2 (Highland Bone Hood): Highland Bone Hood — loose open dark wool mountain cowl reinforced across forehead and crown with curved lashed ivory bone plates revealing textured charcoal wool inner folds inside.
+Row 1, Col 3 (Ivory Bone Coif): Ivory Bone Coif — fitted padded leather-and-bone skull coif ringed smoothly with notched polished beast ivory brow guards and warm dark leather interior lining.
+Row 1, Col 4 (Frost-Bone Circlet): Frost-Bone Circlet — pale frosted fur-edged padded cap crowned neatly with carved jagged ivory horn brow circlet showing textured dark gray cloth inside trim.
+
+Row 2, Col 1 (Skull-Crested Bone Mask): Skull-Crested Bone Mask — fearsome sculpted pale beast-skull visor mask locking cleanly over dark padded hood with dark stitched interior folds.
+Row 2, Col 2 (Ashen Bone Crown): Ashen Bone Crown — ash-dusted Dreadwaste carved dark-bone spiked war-crown framing thick padded leather war-helmet with textured brown interior leather lining.
+Row 2, Col 3 (Ossuary War-Hood): Ossuary War-Hood — wide open stitched dark hide war-cowl armored across forehead, brow-ridge, and cheeks in interlocking pale bone ribs revealing dark gray stitched hide inner lining folds.
+Row 2, Col 4 (Lifebinder's Bone Diadem): Lifebinder's Bone Diadem — apex gleaming ivory-and-gold sacred winged bone diadem mounted cleanly onto an open lush deep emerald-green cloth wizard hood showing olive-emerald inner lining folds.
+
+Row 3, Col 1 (Wyvern-Scale Diadem): Wyvern-Scale Diadem — sleek olive-bronze overlapping wyvern-scale war-helmet with bronze winged brow crown over tailored midnight-indigo padded inner cap lining and scale cheek guards.
+Row 3, Col 2 (Drake-Crest Scale Crown): Drake-Crest Scale Crown — bold rust-crimson and burnished-bronze overlapping drake-scale pointed mage battle-helmet with bronze crown crest over warm charcoal-leather inside trim.
+Row 3, Col 3 (Storm-Scale Circlet): Storm-Scale Circlet — gleaming iridescent storm-cobalt interlocking drake-scale open war-helmet with sculpted scale cheek-guards and padded charcoal lining crowned cleanly across brow with a lightning-gold diamond circlet band.
+Row 3, Col 4 (Boreal Scale Tiara): Boreal Scale Tiara — pale frosted-silver interlocking ice-drake scale battle-helm crowned along brow with sculpted silver crest spikes over midnight-navy padded leather inner lining.
+
+Row 4, Col 1 (Blue-Wyrm Coronet): Blue-Wyrm Coronet — deep gleaming sapphire-blue faceted dragonscale open war-helmet bordered neatly in brushed silver crown peaks with dark navy-charcoal padded inner lining.
+Row 4, Col 2 (Crimson Wyrm Crown): Crimson Wyrm Crown — regal dark crimson dragonscale pointed battlement war-helmet clasped cleanly in polished gold brow plates showing textured dark leather inside.
+Row 4, Col 3 (Shadow-Wyrm Tiara): Shadow-Wyrm Tiara — sleek midnight obsidian dragonscale battle-helmet gleaming faint silver along winged temple fins with matte slate-gray inner padded lining.
+Row 4, Col 4 (Circlet of the First Dawn): Circlet of the First Dawn — apex Mystic endgame radiant brushed-gold dragonscale battle-helm crowned in sculpted golden scales cradling bright opal brow crest with dark velvet inner lining.
+--- 4x4 MEDIUM SHEET 2 END ---

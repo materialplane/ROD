@@ -1,0 +1,51 @@
+# ROD — 2H Shortbow Weapon Icons (5x5 Full-Progression Sheet Prompt on #FF00FF)
+# Category Source: classes.txt -> Archer -> Shortbow (2H) — ALL 24 Progressive Steps + Slot 25 Category Emblem
+# Art Style Anchor: League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy item illustration — zero pixel art, zero ink cross-hatching, zero 3D CGI plastic gloss, zero text.
+# Target Model: Gemini 3 Pro Image (1:1 aspect ratio, 4K if available)
+# Export Pipeline: Key pure #FF00FF magenta (zero outer glow/drop shadow onto background), slice 5x5 (~819x819 per cell at 4K), export compressed 256x256 .webp icons.
+#
+# Grid Layout (ALL 25 SLOTS FILLED — Prevents Row Collapse):
+#   - Slots 1–24 (Row 1 Col 1 through Row 5 Col 4): Complete 24-step progression in exact order.
+#   - Slot 25 (Row 5 Col 5): Category Crest / UI Filter Tab & Empty-Slot Silhouette Icon (tarnished dark bronze & slate iron).
+
+--- 5x5 PROMPT START (Copy from next line down — ALL 24 Items + Category Crest) ---
+1:1 square icon sprite sheet showing a STRICT 5x5 grid (EXACTLY 5 equal columns across by 5 equal rows down — 25 evenly spaced isolated compact recurved hunting shortbow fantasy RPG icons total, NEVER 4x4, NEVER 4x6, NEVER 6x6, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO item slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY ITEM).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CLEAN PAINTERLY METALS & WOOD):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital item illustration — bold chiseled silhouettes built for crisp RPG inventory icon readability, smooth sculpted brushed-steel, dark-iron, bronze, wood, bone, and wrapped leather surfaces, crisp directional metallic rim-light highlights, clean dark contour separation without sketchiness, rich handcrafted material clarity, and strong contrast. Strictly ZERO pixel art, ZERO scratchy pen or ink hatching, ZERO colored-pencil or crayon grain, ZERO watercolor bleed, ZERO glossy plastic 3D CGI toy render finish, ZERO pink or magenta gems/tints on any item, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 5x5 GUTTER SPACING LOCK:
+All 25 bows follow ONE identical 45-degree diagonal UI icon angle inside their cell: bow grip centered, lower limb tip toward bottom-left and upper limb tip toward top-right with taut compact bowstring angled along the inner bottom-left-to-top-right chord (standalone bow only, NO loose arrows). Size each item cleanly to fill ~70–75% of its invisible cell with generous empty flat #FF00FF magenta margin separating every neighbor horizontally and vertically so zero tips, limbs, or pommels ever touch across cells.
+
+Render these exact 25 distinct icons cleanly from Row 1 to Row 5, left to right (1–24 progressing steadily from humble starter craft to royal endgame relic, plus Slot 25 as a crisp minimalist category crest emblem):
+
+Row 1, Col 1 (Scout's Shortbow): Compact rustic plain ash wood hunting shortbow with stubby curved limbs, frayed hemp twine center wrap, simple notched limb tips, taut pale string.
+Row 1, Col 2 (Sinew Shortbow): Springy sinew-backed brown horn-and-wood shortbow tightly bound in dark leather bands near center grip and dark horn tips.
+Row 1, Col 3 (Ranger's Shortbow): Ranger's agile Crownland shortbow crafted from oiled dark yew wood sporting double-curved reflex tips, brass grip ferrules, tan stitched leather handle.
+Row 1, Col 4 (Sea-Gull Shortbow): Sea-Gull light coastal shortbow of bleached pale saltwater cedar curved cleanly like gull wings, wrapped in sea-blue waxed twine with brass string nocks.
+Row 1, Col 5 (Reed-Bound Shortbow): Reed-Bound Saltmarsh shortbow reinforced neatly with overlapping ribbed marsh-cane bindings along dark bog-wood limbs and dark bronze limb caps.
+
+Row 2, Col 1 (Mire-Hunter Shortbow): Mire-Hunter Shortbow — compact dark olive-wood reflex bow inlaid with tarnished bronze belly collars, waterproof oiled-green leather grip, taut dark string.
+Row 2, Col 2 (Outrider Shortbow): Outrider Redmarch cavalry shortbow built short for riding, heavily reinforced dark ash limbs bound with iron bands and crimson cord riser grip.
+Row 2, Col 3 (Skirmisher Shortbow): Skirmisher swift composite shortbow pairing matte blackened iron limb plates, compact tight-drawn steel-tipped nock curls, dark leather wrap.
+Row 2, Col 4 (Thornwall Captain's Shortbow): Thornwall Captain's Shortbow — elite border patrol recurve shortbow with polished silver-rimmed brass riser plates, crimson leather wrap, carved horn tips.
+Row 2, Col 5 (Leaf-Wrapped Shortbow): Leaf-Wrapped Weald scout shortbow sculpted with layered dark green leather strips and subtle leaf-shaped antique bronze grip collars.
+
+Row 3, Col 1 (Willow Shortbow): Willow flexible woodland shortbow crafted from dark glowing supple willow timber curves ending in crisp brass bud nocks and mossy brown handle wrap.
+Row 3, Col 2 (Shadowbranch Shortbow): Shadowbranch Shortbow — ancient twisted midnight-bark woodland reflex bow trailing bronze bramble filigree near grip and sharp dark horn recurves.
+Row 3, Col 3 (Nomad's Shortbow): Nomad's Veridian desert horse-shortbow built tightly of camel-horn and golden oiled tamarisk wood with bright bronze ring bindings along deep reflex curves.
+Row 3, Col 4 (Sand-Viper Shortbow): Sand-Viper rapid curved shortbow boasting flared golden-brass snake-fang recurve tips biting cleanly at string nocks over tan desert-leather grip.
+Row 3, Col 5 (Sirocco Shortbow): Sirocco Shortbow — gleaming gilded wind-archer composite shortbow traced with sharp golden desert-flame linework on center wood grip and ivory horn ends.
+
+Row 4, Col 1 (Crag-Jumper Shortbow): Crag-Jumper nimble alpine shortbow shaped from pale mountain ash bound with dark gray iron reinforcement rings and rugged slate leather handle.
+Row 4, Col 2 (Gale-Wing Shortbow): Gale-Wing Ironcrest recurve shortbow sporting swept feathered-steel wing tips in cool mountain silver above navy-leather bound wood-and-horn limbs.
+Row 4, Col 3 (Falcon-Strike Shortbow): Falcon-Strike Shortbow — Anvilhall master-crafted blackened star-iron reflex bow with warm glowing forge-amber belly inlays and sharp falcon-beak silver nocks.
+Row 4, Col 4 (Snow-Stalker Shortbow): Snow-Stalker compact northern shortbow shaped from pale winter-birch bound in thick white rabbit-fur wrap above dark iron horn tips.
+Row 4, Col 5 (Tundra Shortbow): Tundra Frostbound horsebow laminating frosted gray bone limbs bound tightly with copper sinew cord and crisp steel wolf-claw nock hooks.
+
+Row 5, Col 1 (Winter-Fang Shortbow): Winter-Fang endgame northern recurve shortbow welding dark slate-iron riser to curved pale glacier-blue crystal-steel tips and silver grip.
+Row 5, Col 2 (Nightwatch Shortbow): Nightwatch Dreadwaste ashen-wood composite shortbow banded heavily in scarred blackened steel strapping with warm ember-orange inlay near grip.
+Row 5, Col 3 (Gale-Heart Shortbow): Gale-Heart ebony-and-steel agile war-shortbow carrying sharp swept crimson-lacquered hook limb tips, dark crimson grip, razor-taut black string.
+Row 5, Col 4 (Phantom Shortbow): Phantom Shortbow — apex dark hunter relic bow combining sleek midnight star-iron reflex wings inlaid cleanly with pale brushed-silver crescent accents and velvet grip.
+Row 5, Col 5 (Shortbows Category Emblem & Empty-Slot Icon): Minimalist matte dark tarnished-bronze and weathered charcoal-slate single-color-family iconic compact curved shortbow silhouette emblem at 45-degree angle—NO arrows, NO gems, NO glow, NO circle border, and NO box frame on pure #FF00FF.
+--- 5x5 PROMPT END ---
