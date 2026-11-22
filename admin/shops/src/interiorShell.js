@@ -1,18 +1,15 @@
 import { getShopStock } from "./data.js";
 import { SHOP_META } from "./shopTypes.js";
 import { renderNpcRail } from "./npcRail.js";
-import { renderHeroCompareBar } from "./heroCompareBar.js";
-import { renderDetailPane } from "./detailPane.js";
-import { renderLedgerView } from "./views/ledgerView.js";
-import { renderGridView } from "./views/gridView.js";
-import { renderCardsView } from "./views/cardsView.js";
 import { renderClassicFfView } from "./views/classicFfView.js";
 import { renderTradeGoodsView } from "./views/tradeGoodsView.js";
 import { renderHubAuditView } from "./views/hubAuditView.js";
 import { renderBuyPromptModal } from "./buyPrompt.js";
+import { hideItemTooltip } from "./itemTooltip.js";
 import { esc, formatSilver } from "./uiParts.js";
 
 export function renderInteriorViewport(viewport, data, state, handlers) {
+  hideItemTooltip();
   const hub = data.hubs.find((h) => h.id === state.hubId) ?? data.hubs[0];
   if (!hub) return;
 
@@ -106,7 +103,7 @@ export function renderInteriorViewport(viewport, data, state, handlers) {
           ? `Magic Shop · Tier ${hub.region} Spells`
           : state.vendorTab === "trade_goods"
             ? "Dedicated Trade Goods Exchange"
-            : `${meta.label} · ${stepBadge}`;
+            : `${meta.label} · ${hub.name}`;
       const questChipHtml = activeNpc?.hasQuest
         ? `<span class="vendor-quest-pill">! Quest: ${esc(activeNpc.questTitle)}</span>`
         : "";
@@ -123,9 +120,6 @@ export function renderInteriorViewport(viewport, data, state, handlers) {
           </div>
         </div>
       `;
-      if (state.layout !== "classic_ff" && state.vendorTab !== "trade_goods") {
-        topBand.appendChild(renderHeroCompareBar(state, selected, handlers.onPickHero));
-      }
       shell.appendChild(topBand);
 
       if (state.vendorTab === "trade_goods") {
@@ -148,24 +142,7 @@ export function renderInteriorViewport(viewport, data, state, handlers) {
           shell.appendChild(fRow);
         }
 
-        if (state.layout === "classic_ff") {
-          shell.appendChild(renderClassicFfView(stock, selected, state, handlers, anyHubStock));
-        } else if (stock.length === 0) {
-          const empty = document.createElement("div");
-          empty.style.cssText = "padding:24px;color:#b8c6dc;font-size:14px;";
-          empty.textContent = `No items for ${state.activeHeroId} in ${meta.label} here. Select another hero above.`;
-          shell.appendChild(empty);
-        } else {
-          const split = document.createElement("div");
-          split.className = "shop-split";
-          const stockPane = document.createElement("div");
-          stockPane.className = "stock-pane";
-          if (state.layout === "grid") stockPane.appendChild(renderGridView(stock, state, handlers.onSelectItem));
-          else if (state.layout === "cards") stockPane.appendChild(renderCardsView(stock, state, handlers.onSelectItem));
-          else stockPane.appendChild(renderLedgerView(stock, state, handlers.onSelectItem));
-          split.append(stockPane, renderDetailPane(selected, state, handlers.onBuyOrSell, handlers.onEquipTest, handlers.onOpenBuyPrompt));
-          shell.appendChild(split);
-        }
+        shell.appendChild(renderClassicFfView(stock, selected, state, handlers, anyHubStock));
       }
 
       if (state.buyPromptItem) {

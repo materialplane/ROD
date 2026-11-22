@@ -19,11 +19,13 @@ from PIL import Image
 REPO_ROOT = Path(__file__).resolve().parents[2]
 INTERIORS_FILE = REPO_ROOT / "imageprompts" / "location-interiors.txt"
 TAVERNS_FILE = REPO_ROOT / "imageprompts" / "bard-tavern.txt"
+OUTPOSTS_FILE = REPO_ROOT / "imageprompts" / "monster-hunter.txt"
 OUT_DIR = REPO_ROOT / "assets" / "maps" / "interiors"
 TAVERNS_OUT_DIR = REPO_ROOT / "assets" / "maps" / "taverns"
 DEFAULT_REF = REPO_ROOT / "assets" / "ui" / "menu_background_16x9_4k_v2.png"
 OUTPUT_JSONL = Path(__file__).resolve().parent / "interiors_batch.jsonl"
 TAVERNS_JSONL = Path(__file__).resolve().parent / "taverns_batch.jsonl"
+OUTPOSTS_JSONL = Path(__file__).resolve().parent / "outposts_batch.jsonl"
 DEFAULT_MODEL = "models/gemini-3-pro-image"
 
 
@@ -74,7 +76,7 @@ def parse_interior_scenes(
 
     text = prompts_path.read_text(encoding="utf-8")
     pattern = re.compile(
-        r"^\[(\d+)\]\s+ID:\s+(\S+)\s+\|\s+([^\n]+)\n-+\n--- COPY-PASTE PROMPT START ---\n(.*?)\n--- COPY-PASTE PROMPT END ---",
+        r"^\[(\d+)\]\s+ID:\s+(\S+)\s+\|\s+([^\n]+)\n(?:# SAVE AS:[^\n]*\n)?-+\n--- COPY-PASTE PROMPT START ---\n(.*?)\n--- COPY-PASTE PROMPT END ---",
         re.MULTILINE | re.DOTALL,
     )
     matches = pattern.findall(text)
@@ -141,8 +143,8 @@ def build_jsonl(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build & submit ROD 16:9 Hub Interior or Bard Tavern scenes to Gemini Batch API (50% off).")
-    parser.add_argument("--target", choices=("hubs", "taverns"), default="hubs", help="Which 16:9 prompt bank to submit (default: hubs).")
+    parser = argparse.ArgumentParser(description="Build & submit ROD 16:9 Hub Interior, Bard Tavern, or Outpost scenes to Gemini Batch API (50% off).")
+    parser.add_argument("--target", choices=("hubs", "taverns", "outposts"), default="hubs", help="Which 16:9 prompt bank to submit (default: hubs).")
     parser.add_argument("--dry-run", action="store_true", help="Only build JSONL and inspect counts without uploading/submitting.")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Gemini image model (default: {DEFAULT_MODEL}).")
     parser.add_argument("--reference", type=Path, default=DEFAULT_REF, help="Style reference image path.")
@@ -155,11 +157,12 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    is_taverns = args.target == "taverns"
-    prompts_file = TAVERNS_FILE if is_taverns else INTERIORS_FILE
-    out_dir = TAVERNS_OUT_DIR if is_taverns else OUT_DIR
-    base_jsonl = TAVERNS_JSONL if is_taverns else OUTPUT_JSONL
-    id_suffix = "_tavern" if is_taverns else ""
+    target_configs = {
+        "hubs": (INTERIORS_FILE, OUT_DIR, OUTPUT_JSONL, "", "rod-location-interiors", "INTERIORS"),
+        "taverns": (TAVERNS_FILE, TAVERNS_OUT_DIR, TAVERNS_JSONL, "_tavern", "rod-bard-taverns", "TAVERNS"),
+        "outposts": (OUTPOSTS_FILE, OUT_DIR, OUTPOSTS_JSONL, "", "rod-outpost-interiors", "OUTPOST INTERIORS"),
+    }
+    prompts_file, out_dir, base_jsonl, id_suffix, name_prefix, banner_label = target_configs[args.target]
 
     load_dotenv(REPO_ROOT / ".env")
     selected = parse_scene_selection(args.scenes)
@@ -200,7 +203,7 @@ def main() -> int:
     )
     print(f"Uploaded File URI: {uploaded.name}")
 
-    display_name = f"rod-bard-taverns-{len(scenes)}" if is_taverns else f"rod-location-interiors-{len(scenes)}"
+    display_name = f"{name_prefix}-{len(scenes)}"
     print(f"Submitting Batch Job ({args.model}, 16:9 4K, 50% batch tier)...")
     job = client.batches.create(
         model=args.model,
@@ -209,7 +212,7 @@ def main() -> int:
     )
 
     print("\n" + "=" * 64)
-    print(f"{'TAVERNS' if is_taverns else 'INTERIORS'} BATCH JOB SUBMITTED!")
+    print(f"{banner_label} BATCH JOB SUBMITTED!")
     print(f"Job Code : {job.name}")
     print(f"Job State: {job.state.name}")
     print(f"Model    : {args.model}")

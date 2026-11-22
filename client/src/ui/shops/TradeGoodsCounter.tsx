@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { assetUrl } from "../api";
 import type { ItemEntry, NpcEntry } from "../types";
+import { hideClientItemTooltip, itemTooltipHandlers } from "./itemTooltip";
 
 interface TradeGoodsCounterProps {
   npc: NpcEntry;
@@ -17,6 +18,7 @@ export const TradeGoodsCounter: React.FC<TradeGoodsCounterProps> = ({
   onSellAll,
   onReturnDialogue,
 }) => {
+  useEffect(() => () => hideClientItemTooltip(), []);
   const entries = Object.entries(tradeGoodCounts)
     .filter(([, qty]) => qty > 0)
     .map(([id, qty]) => ({ item: itemsById[id], qty }))
@@ -33,7 +35,7 @@ export const TradeGoodsCounter: React.FC<TradeGoodsCounterProps> = ({
             Trade Goods Exchange · {npc.name}
           </div>
           <h2 className="font-display m-0 text-[22px] md:text-[25px] font-bold text-[#fae2aa] leading-tight mt-0.5">
-            Monster Trophy Exchange
+            Trade Goods Exchange
           </h2>
         </div>
         <button
@@ -47,14 +49,14 @@ export const TradeGoodsCounter: React.FC<TradeGoodsCounterProps> = ({
 
       <div className="rounded border border-[#6e5936] bg-gradient-to-br from-[#241e11]/95 to-[#101520]/95 p-4 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#d7b267]">Party Spoils Appraisal</div>
+          <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#d7b267]">Trade Goods Appraisal</div>
           <div className="font-display text-[19px] font-bold text-[#fae2aa] mt-0.5">
-            {totalCount > 0 ? `${totalCount} Monster Trophies Ready to Sell` : "No Monster Trophies in Bag"}
+            {totalCount > 0 ? `${totalCount} Trade Goods Ready to Sell` : "No Trade Goods in Bag"}
           </div>
           <div className="text-[13.5px] text-[#c8d5e8] mt-0.5">
             {totalCount > 0
               ? `Total Exchange Value: +${totalSilver.toLocaleString()}s`
-              : "Defeat wild monsters and return here to weigh and sell their spoils for Silver."}
+              : "Defeat wild foes and return here to weigh and sell your trade goods for Silver."}
           </div>
         </div>
         <button
@@ -72,6 +74,7 @@ export const TradeGoodsCounter: React.FC<TradeGoodsCounterProps> = ({
           {entries.map(({ item, qty }) => (
             <div
               key={item.id}
+              {...itemTooltipHandlers(item, { isSellMode: true })}
               className="rounded border border-[#283144] bg-[#0f141e]/92 p-2 px-3 flex items-center gap-2.5"
             >
               <img

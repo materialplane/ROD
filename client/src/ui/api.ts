@@ -95,10 +95,13 @@ export function flushAutosaveOnUnload(data: SaveSlotData): void {
   });
 }
 
+const BROWSER_ASSET_VER = Date.now();
+
 /** Resolve assets cleanly in both browser (/client/assets/...) and packaged Electron (../../assets/...) */
 export function assetUrl(relPath: string): string {
   const clean = relPath.replace(/^\/+/, "");
-  return window.rodApi ? `../../${clean}` : clean;
+  if (window.rodApi) return `../../${clean}`;
+  return clean.includes("?") ? clean : `${clean}?v=${BROWSER_ASSET_VER}`;
 }
 
 export function formatSaveTime(iso: string): string {

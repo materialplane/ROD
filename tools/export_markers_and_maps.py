@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 import cv2
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageOps
 
 ROOT = Path(r"C:\Users\drew0\Documents\ROD")
 SHEETS_DIR = ROOT / "assets" / "tokens" / "markers" / "batch_sheets"
@@ -68,6 +68,7 @@ SHEET_FILES: dict[int | str, str] = {
     "quest_f": "rod_quest_markers_sheet_f.jpg",
     "quest_g": "rod_quest_markers_sheet_g.jpg",
     "quest_h": "rod_quest_markers_sheet_h.jpg",
+    "travel": "travel_markers.jpg",
 }
 
 # Core permanent locations (40 Hubs + 20 Zone Outposts + 8 Portals = 68), travel gates/ports,
@@ -101,9 +102,7 @@ TOKEN_DEFS: list[dict] = [
     {"sheet": 4, "r": 2, "c": 0, "id": "loc_39_the_eclipse_gate", "name": "The Eclipse Gate", "cat": "permanent", "map": "map_04", "locNum": 39, "region": 8, "kind": "Portal Dungeon #8 (King Garrick)", "ring": "obsidian", "isPortal": True, "portalNum": 8},
     {"sheet": 4, "r": 2, "c": 1, "id": "loc_40_garricks_black_keep", "name": "Garrick's Black Keep", "cat": "permanent", "map": "map_04", "locNum": 40, "region": 8, "kind": "Final Stronghold", "ring": "steel"},
 
-    # --- TRAVEL & DUNGEON DOORS (Fallback Ferry overwritten by Quest Sheet H once downloaded) ---
-    {"sheet": 5, "r": 0, "c": 0, "id": "tr_border_mountain_pass_gate", "name": "Border Mountain Pass Gate", "cat": "travel", "map": "all", "kind": "Internal Mountain Pass Gate", "ring": "iron"},
-    {"sheet": 7, "r": 0, "c": 3, "id": "tr_ferry_crossing", "name": "Ferry Crossing", "cat": "travel", "map": "all", "kind": "Island Strait Ferry Crossing", "ring": "iron"},
+    # --- DUNGEON DOORS ---
     {"sheet": 4, "r": 3, "c": 0, "id": "door_open_archway", "name": "Open Stone Archway", "cat": "dungeon_door", "kind": "Portal Grid Door State", "ring": "iron"},
     {"sheet": 4, "r": 3, "c": 1, "id": "door_locked_iron_gate", "name": "Locked Iron Gate", "cat": "dungeon_door", "kind": "Portal Grid Door State", "ring": "iron"},
     {"sheet": 4, "r": 3, "c": 2, "id": "door_combat_sealed", "name": "Combat-Sealed Barrier Door", "cat": "dungeon_door", "kind": "Portal Grid Door State", "ring": "iron"},
@@ -136,20 +135,20 @@ TOKEN_DEFS: list[dict] = [
     {"sheet": "loc_b", "r": 1, "c": 1, "id": "hub_cinderwatch_bastion", "name": "Cinderwatch Bastion", "cat": "permanent", "map": "map_04", "region": 8, "kind": "Volcanic Forward Bastion (Hub #37)", "ring": "steel"},
     {"sheet": "loc_b", "r": 1, "c": 2, "id": "hub_ashvale_village", "name": "Ashvale Village", "cat": "permanent", "map": "map_04", "region": 8, "kind": "Ash-Basin Survivor Village (Hub #38)", "ring": "bronze"},
     {"sheet": "loc_b", "r": 1, "c": 3, "id": "hub_scorchwall_fort", "name": "Scorchwall Fort", "cat": "permanent", "map": "map_04", "region": 8, "kind": "Obsidian Coastal Fort (Hub #39)", "ring": "steel"},
-    {"sheet": "loc_b", "r": 2, "c": 0, "id": "outpost_z01_meadowgate", "name": "Meadowgate Watch-Post", "cat": "permanent", "map": "map_01", "region": 1, "kind": "Meadow Watch-Post", "ring": "bronze", "zoneNum": 1},
-    {"sheet": "loc_b", "r": 2, "c": 1, "id": "outpost_z02_oakwood", "name": "Oakwood Ranger Camp", "cat": "permanent", "map": "map_01", "region": 1, "kind": "Woodland Ranger Camp", "ring": "bronze", "zoneNum": 2},
+    {"sheet": "loc_b", "r": 2, "c": 0, "id": "outpost_z01_meadowgate", "name": "Meadowgate Watch-Post", "cat": "permanent", "map": "map_01", "region": 1, "kind": "Meadow Palisade Fort", "ring": "bronze", "zoneNum": 1},
+    {"sheet": "loc_b", "r": 2, "c": 1, "id": "outpost_z02_oakwood", "name": "Oakwood Ranger Camp", "cat": "permanent", "map": "map_01", "region": 1, "kind": "Woodland Palisade Fort", "ring": "bronze", "zoneNum": 2},
     {"sheet": "loc_b", "r": 2, "c": 2, "id": "outpost_z03_slate_ridge", "name": "Slate-Ridge Scout Outpost", "cat": "permanent", "map": "map_01", "region": 1, "kind": "Foothill Scout Bunker", "ring": "bronze", "zoneNum": 3},
-    {"sheet": "loc_b", "r": 2, "c": 3, "id": "outpost_z04_brinefen", "name": "Brinefen Hunter Landing", "cat": "permanent", "map": "map_01", "region": 2, "kind": "Coastal Hunter Landing", "ring": "bronze", "zoneNum": 4},
-    {"sheet": "loc_b", "r": 3, "c": 0, "id": "outpost_z05_bogwarden", "name": "Bogwarden Stilt-Post", "cat": "permanent", "map": "map_01", "region": 2, "kind": "Saltmarsh Stilt-Post", "ring": "bronze", "zoneNum": 5},
-    {"sheet": "loc_b", "r": 3, "c": 1, "id": "outpost_z06_ochre_downs", "name": "Ochre-Downs Tracker Camp", "cat": "permanent", "map": "map_02", "region": 3, "kind": "Grassland Tracker Camp", "ring": "bronze", "zoneNum": 6},
+    {"sheet": "loc_b", "r": 2, "c": 3, "id": "outpost_z04_brinefen", "name": "Brinefen Hunter Landing", "cat": "permanent", "map": "map_01", "region": 2, "kind": "Coastal Palisade Sea-Fort", "ring": "bronze", "zoneNum": 4},
+    {"sheet": "loc_b", "r": 3, "c": 0, "id": "outpost_z05_bogwarden", "name": "Bogwarden Stilt-Post", "cat": "permanent", "map": "map_01", "region": 2, "kind": "Saltmarsh Palisade Fort", "ring": "bronze", "zoneNum": 5},
+    {"sheet": "loc_b", "r": 3, "c": 1, "id": "outpost_z06_ochre_downs", "name": "Ochre-Downs Tracker Camp", "cat": "permanent", "map": "map_02", "region": 3, "kind": "Highland Palisade Fort", "ring": "bronze", "zoneNum": 6},
     {"sheet": "loc_b", "r": 3, "c": 2, "id": "outpost_z07_cragspire", "name": "Cragspire Quarry Post", "cat": "permanent", "map": "map_02", "region": 3, "kind": "Quarry Watch-Post", "ring": "bronze", "zoneNum": 7},
     {"sheet": "loc_b", "r": 3, "c": 3, "id": "outpost_z08_fernbrook", "name": "Fernbrook Ranger Station", "cat": "permanent", "map": "map_02", "region": 4, "kind": "Clearing Ranger Station", "ring": "bronze", "zoneNum": 8},
 
     # --- LOCATION SHEET C (Zone Outposts Z9–Z20 + 4 Continent Sea-Travel Port Towns) ---
-    {"sheet": "loc_c", "r": 0, "c": 0, "id": "outpost_z09_canopy_watch", "name": "Canopy-Watch Tree-Post", "cat": "permanent", "map": "map_02", "region": 4, "kind": "Canopy Lookout Post", "ring": "bronze", "zoneNum": 9},
+    {"sheet": "loc_c", "r": 0, "c": 0, "id": "outpost_z09_canopy_watch", "name": "Canopy-Watch Tree-Post", "cat": "permanent", "map": "map_02", "region": 4, "kind": "Treetop Palisade Fort", "ring": "bronze", "zoneNum": 9},
     {"sheet": "loc_c", "r": 0, "c": 1, "id": "outpost_z10_mire_edge", "name": "Mire-Edge Quarantine Camp", "cat": "permanent", "map": "map_02", "region": 4, "kind": "Quarantine Perimeter Camp", "ring": "bronze", "zoneNum": 10},
-    {"sheet": "loc_c", "r": 0, "c": 2, "id": "outpost_z11_dune_runner", "name": "Dune-Runner Nomad Post", "cat": "permanent", "map": "map_03", "region": 5, "kind": "Desert Patrol Post", "ring": "bronze", "zoneNum": 11},
-    {"sheet": "loc_c", "r": 0, "c": 3, "id": "outpost_z12_palm_spring", "name": "Palm-Spring Hunter Pavilion", "cat": "permanent", "map": "map_03", "region": 5, "kind": "Oasis Hunter Pavilion", "ring": "bronze", "zoneNum": 12},
+    {"sheet": "loc_c", "r": 0, "c": 2, "id": "outpost_z11_dune_runner", "name": "Dune-Runner Nomad Post", "cat": "permanent", "map": "map_03", "region": 5, "kind": "Desert Palisade Fort", "ring": "bronze", "zoneNum": 11},
+    {"sheet": "loc_c", "r": 0, "c": 3, "id": "outpost_z12_palm_spring", "name": "Palm-Spring Hunter Pavilion", "cat": "permanent", "map": "map_03", "region": 5, "kind": "Oasis Palisade Fort", "ring": "bronze", "zoneNum": 12},
     {"sheet": "loc_c", "r": 1, "c": 0, "id": "outpost_z13_mesa_watch", "name": "Mesa-Watch Ranger Outpost", "cat": "permanent", "map": "map_03", "region": 5, "kind": "Sandstone Mesa Post", "ring": "bronze", "zoneNum": 13},
     {"sheet": "loc_c", "r": 1, "c": 1, "id": "outpost_z14_pine_valley", "name": "Pine-Valley Wardens' Post", "cat": "permanent", "map": "map_03", "region": 6, "kind": "Alpine Hunter Lodge", "ring": "bronze", "zoneNum": 14},
     {"sheet": "loc_c", "r": 1, "c": 2, "id": "outpost_z15_highland_crag", "name": "Highland Crag-Watch Camp", "cat": "permanent", "map": "map_03", "region": 6, "kind": "Granite Ridge Bunker", "ring": "bronze", "zoneNum": 15},
@@ -158,16 +157,38 @@ TOKEN_DEFS: list[dict] = [
     {"sheet": "loc_c", "r": 2, "c": 1, "id": "outpost_z18_ashen_ridge", "name": "Ashen-Ridge Border Post", "cat": "permanent", "map": "map_04", "region": 8, "kind": "Ash-Border Bunkhouse", "ring": "bronze", "zoneNum": 18},
     {"sheet": "loc_c", "r": 2, "c": 2, "id": "outpost_z19_cinder_plain", "name": "Cinder-Plain Vanguard Camp", "cat": "permanent", "map": "map_04", "region": 8, "kind": "Vanguard Ash Stockade", "ring": "bronze", "zoneNum": 19},
     {"sheet": "loc_c", "r": 2, "c": 3, "id": "outpost_z20_black_crag", "name": "Black-Crag Slayer's Post", "cat": "permanent", "map": "map_04", "region": 8, "kind": "Basalt Slayer Outpost", "ring": "bronze", "zoneNum": 20},
-    {"sheet": "loc_c", "r": 3, "c": 0, "id": "tr_port_map01_royal_trade", "name": "Royal Trade Port Town", "cat": "travel", "map": "map_01", "kind": "Map 1 Sea-Travel Port Town", "ring": "bronze"},
-    {"sheet": "loc_c", "r": 3, "c": 1, "id": "tr_port_map02_highland_cove", "name": "Highland Cove Port Town", "cat": "travel", "map": "map_02", "kind": "Map 2 Sea-Travel Port Town", "ring": "bronze"},
-    {"sheet": "loc_c", "r": 3, "c": 2, "id": "tr_port_map03_desert_harbor", "name": "Desert Harbor Port Town", "cat": "travel", "map": "map_03", "kind": "Map 3 Sea-Travel Port Town", "ring": "bronze"},
-    {"sheet": "loc_c", "r": 3, "c": 3, "id": "tr_port_map04_arctic_seaport", "name": "Arctic Sea-Port Town", "cat": "travel", "map": "map_04", "kind": "Map 4 Sea-Travel Port Town", "ring": "bronze"},
     # --- LOCATION SHEET D (Highcrown Royal Capital 16x Sheet; extracted cleanly from r=2, c=2 on loc_01 above) ---
 ]
 
 GEN_MARKERS_PATH = DATA_DIR / "generated-quest-markers.json"
 if GEN_MARKERS_PATH.exists():
     TOKEN_DEFS.extend(json.loads(GEN_MARKERS_PATH.read_text(encoding="utf-8")))
+
+# Unified 4x4 Upright Travel Tokens (replaces earlier Sheet 5 / Sheet 7 / loc_c / quest_h Travel assets and mirror hacks)
+TOKEN_DEFS.extend(
+    [
+        # Row 1: Boat-Free Ferry Crossing Piers
+        {"sheet": "travel", "r": 0, "c": 0, "id": "tr_ferry_crossing", "name": "Ferry Crossing", "cat": "travel", "map": "all", "kind": "Island Strait Ferry Crossing · Pier 1 (North Bank)", "ring": "iron", "preserveFrame": True},
+        {"sheet": "travel", "r": 0, "c": 1, "id": "tr_ferry_crossing_south_bank", "name": "Ferry Crossing", "cat": "travel", "map": "all", "kind": "Island Strait Ferry Crossing · Pier 2 (South Bank)", "ring": "iron", "preserveFrame": True},
+        {"sheet": "travel", "r": 0, "c": 2, "id": "tr_ferry_crossing_west_bank", "name": "Ferry Crossing", "cat": "travel", "map": "all", "kind": "Island Strait Ferry Crossing · Pier 3", "ring": "iron", "preserveFrame": True},
+        {"sheet": "travel", "r": 0, "c": 3, "id": "tr_ferry_crossing_east_bank", "name": "Ferry Crossing", "cat": "travel", "map": "all", "kind": "Island Strait Ferry Crossing · Pier 4", "ring": "iron", "preserveFrame": True},
+        # Row 2: Border Mountain Pass Gates
+        {"sheet": "travel", "r": 1, "c": 0, "id": "tr_border_mountain_pass_gate", "name": "Border Mountain Pass Gate", "cat": "travel", "map": "all", "kind": "Internal Mountain Pass Gate · Style 1", "ring": "iron", "preserveFrame": True},
+        {"sheet": "travel", "r": 1, "c": 1, "id": "tr_border_mountain_pass_gate_v2", "name": "Border Mountain Pass Gate", "cat": "travel", "map": "all", "kind": "Internal Mountain Pass Gate · Banner Arch", "ring": "iron", "preserveFrame": True},
+        {"sheet": "travel", "r": 1, "c": 2, "id": "tr_border_mountain_pass_gate_v3", "name": "Border Mountain Pass Gate", "cat": "travel", "map": "all", "kind": "Internal Mountain Pass Gate · Watch Tower", "ring": "iron", "preserveFrame": True},
+        {"sheet": "travel", "r": 1, "c": 3, "id": "tr_border_mountain_pass_gate_v4", "name": "Border Mountain Pass Gate", "cat": "travel", "map": "all", "kind": "Internal Mountain Pass Gate · Timber Gatehouse", "ring": "iron", "preserveFrame": True},
+        # Row 3: North-Coast Sea-Travel Port Towns
+        {"sheet": "travel", "r": 2, "c": 0, "id": "tr_port_map01_royal_trade", "name": "Royal Trade Port Town", "cat": "travel", "map": "map_01", "kind": "Map 1 Sea-Travel Port Town · North Coast", "ring": "bronze", "preserveFrame": True},
+        {"sheet": "travel", "r": 2, "c": 1, "id": "tr_port_map02_highland_cove", "name": "Highland Cove Port Town", "cat": "travel", "map": "map_02", "kind": "Map 2 Sea-Travel Port Town · North Coast", "ring": "bronze", "preserveFrame": True},
+        {"sheet": "travel", "r": 2, "c": 2, "id": "tr_port_map03_desert_harbor", "name": "Desert Harbor Port Town", "cat": "travel", "map": "map_03", "kind": "Map 3 Sea-Travel Port Town · North Coast", "ring": "bronze", "preserveFrame": True},
+        {"sheet": "travel", "r": 2, "c": 3, "id": "tr_port_map04_arctic_seaport", "name": "Arctic Sea-Port Town", "cat": "travel", "map": "map_04", "kind": "Map 4 Sea-Travel Port Town · North Coast", "ring": "bronze", "preserveFrame": True},
+        # Row 4: South-Coast Sea-Travel Port Towns
+        {"sheet": "travel", "r": 3, "c": 0, "id": "tr_port_map01_royal_trade_south", "name": "Royal Trade Port Town", "cat": "travel", "map": "map_01", "kind": "Map 1 Sea-Travel Port Town · South Coast", "ring": "bronze", "preserveFrame": True},
+        {"sheet": "travel", "r": 3, "c": 1, "id": "tr_port_map02_highland_cove_south", "name": "Highland Cove Port Town", "cat": "travel", "map": "map_02", "kind": "Map 2 Sea-Travel Port Town · South Coast", "ring": "bronze", "preserveFrame": True},
+        {"sheet": "travel", "r": 3, "c": 2, "id": "tr_port_map03_desert_harbor_south", "name": "Desert Harbor Port Town", "cat": "travel", "map": "map_03", "kind": "Map 3 Sea-Travel Port Town · South Coast", "ring": "bronze", "preserveFrame": True},
+        {"sheet": "travel", "r": 3, "c": 3, "id": "tr_port_map04_arctic_seaport_south", "name": "Arctic Sea-Port Town", "cat": "travel", "map": "map_04", "kind": "Map 4 Sea-Travel Port Town · South Coast", "ring": "bronze", "preserveFrame": True},
+    ]
+)
 
 
 def export_all_overworld_maps() -> None:
@@ -225,10 +246,11 @@ def clean_and_extract_cell(
     c: int,
     out_size: int = 256,
     preserve_frame: bool = False,
+    grid_size: int = 4,
 ) -> Image.Image:
-    """Slice one 4x4 cell, chroma-key #FF00FF magenta, and center cleanly onto transparent 256x256 RGBA."""
+    """Slice one grid_size x grid_size cell, chroma-key #FF00FF magenta, and center onto transparent 256x256 RGBA."""
     h, w, _ = sheet_rgb.shape
-    cw, ch = w / 4.0, h / 4.0
+    cw, ch = w / float(grid_size), h / float(grid_size)
     margin = max(8, int(round(min(cw, ch) * 0.015))) if preserve_frame else 0
     x0 = max(0, int(round(c * cw)) - margin)
     y0 = max(0, int(round(r * ch)) - margin)
@@ -486,8 +508,26 @@ def export_markers(json_only: bool = False, only_sheets: set[str] | None = None)
                     out_size=256,
                     preserve_frame=bool(entry.get("preserveFrame", False)),
                 )
+                if entry.get("flipX"):
+                    tok_img = ImageOps.mirror(tok_img)
+                if entry.get("flipY"):
+                    tok_img = ImageOps.flip(tok_img)
                 tok_img.save(out_path, "WEBP", quality=92, method=6)
                 exported_count += 1
+            elif entry.get("flipX") or entry.get("flipY"):
+                base_id = re.sub(r"_flipped(?:_v|_hv)?$", "", entry["id"])
+                base_out = OUT_MARKERS_DIR / f"{base_id}.webp"
+                if base_out.exists():
+                    with Image.open(base_out) as base_im:
+                        tok_img = base_im.convert("RGBA")
+                        if entry.get("flipX"):
+                            tok_img = ImageOps.mirror(tok_img)
+                        if entry.get("flipY"):
+                            tok_img = ImageOps.flip(tok_img)
+                        tok_img.save(out_path, "WEBP", quality=92, method=6)
+                    exported_count += 1
+                elif only_sheets is None:
+                    pending_count += 1
             elif only_sheets is None:
                 pending_count += 1
         manifest.append(
@@ -585,13 +625,21 @@ def export_markers(json_only: bool = False, only_sheets: set[str] | None = None)
                 "y": prev.get("y"),
                 "scale": prev.get("scale", 1.0),
                 "triggerRadius": prev.get("triggerRadius", 88),
+                **({"interiorAssetPath": prev["interiorAssetPath"]} if prev.get("interiorAssetPath") else {}),
+                **({"tavernAssetPath": prev["tavernAssetPath"]} if prev.get("tavernAssetPath") else {}),
+                **({"tavernName": prev["tavernName"]} if prev.get("tavernName") else {}),
                 **({"linkedFerryId": prev["linkedFerryId"]} if "linkedFerryId" in prev else {}),
+                **({"rotation": prev["rotation"]} if prev.get("rotation") else {}),
             }
         )
 
-    seen_ids = {l["id"] for l in locations}
+    by_tpl_id = {l["id"]: l for l in locations}
+    seen_ids = set(by_tpl_id.keys())
     for clone in cloned_instances:
         if clone.get("id") not in seen_ids:
+            base_id = re.sub(r"_inst_\d+$", "", str(clone.get("id", "")))
+            if base_id in by_tpl_id:
+                clone = {**clone, "name": by_tpl_id[base_id]["name"], "kind": by_tpl_id[base_id]["kind"]}
             locations.append(clone)
             seen_ids.add(clone["id"])
 

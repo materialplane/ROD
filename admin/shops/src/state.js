@@ -8,7 +8,6 @@ export function createInitialState(hubs) {
     vendorTab: firstNpc?.shopType ?? "weapon", // weapon | armor | tailor | magic | arcanist | adventurer | trade_goods | npc_service | runestones | audit
     activeNpcId: firstNpc?.id ?? null,
     catFilter: "all",
-    layout: "classic_ff",      // classic_ff | ledger | grid | cards
     frameStyle: "bronze",      // bronze | flat | parchment | tier
     iconSize: 64,              // 48 | 64 | 80 | 96
     viewportMode: "full",      // full | deck | desktop

@@ -3,6 +3,7 @@ import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById, HEROES } from "../heroes";
 import type { HeroId, MapMeta, WorldLocation } from "../types";
+import { findNearestClearPoint, isCircleClear, resolveCircleMove, type WorldCollisionIndex } from "../worldCollision";
 import { ServiceChip } from "./ServiceChip";
 
 export interface PlayerRuntimeRef {
@@ -20,6 +21,7 @@ interface OverworldCanvasProps {
   insideLocationId: string | null;
   mapMeta: MapMeta;
   worldLocations: WorldLocation[];
+  worldCollision: WorldCollisionIndex | null;
   partyOrder: HeroId[];
   level: number;
   startX: number;
@@ -51,7 +53,23 @@ function getEntryRadius(loc: WorldLocation): number {
 }
 
 function getWalkEnterRadius(loc: WorldLocation): number {
-  return clamp(BASE_MARKER_DISPLAY_SIZE * (loc.scale ?? 1.0) * 0.36, 46, 82);
+  const base = clamp(BASE_MARKER_DISPLAY_SIZE * (loc.scale ?? 1.0) * 0.36, 46, 82);
+  if (loc.category === "travel") {
+    return Math.max(base, 90);
+  }
+  return base;
+}
+
+function findLinkedFerryPartner(
+  loc: WorldLocation,
+  worldLocations: WorldLocation[],
+  mapId: string
+): WorldLocation | null {
+  if (!loc.id.startsWith("tr_ferry_crossing") || !loc.linkedFerryId) return null;
+  const partner = worldLocations.find(
+    (l) => l.id === loc.linkedFerryId && l.placed && l.mapId === mapId && l.x !== null && l.y !== null
+  );
+  return partner ?? null;
 }
 
 function drawFactionEmblem(ctx: CanvasRenderingContext2D, factionId: string, cx: number, cy: number, color: string): void {
@@ -337,6 +355,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   insideLocationId,
   mapMeta,
   worldLocations,
+  worldCollision,
   partyOrder,
   level,
   startX,
@@ -382,6 +401,9 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   const enterLocCbRef = useRef(onEnterLocation);
   enterLocCbRef.current = onEnterLocation;
 
+  const collisionRef = useRef<WorldCollisionIndex | null>(worldCollision);
+  collisionRef.current = worldCollision;
+
   const leaderId = partyOrder[0] ?? "valen";
   const leaderRef = useRef<HeroId>(leaderId);
   leaderRef.current = leaderId;
@@ -413,12 +435,59 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     plateAlphas: new Map<string, number>(),
     discovered: new Set<string>(initialDiscovered),
     entering: null as { loc: WorldLocation; startX: number; startY: number; elapsed: number } | null,
+    ferryTransit: null as {
+      origin: WorldLocation;
+      dest: WorldLocation;
+      startPlayerX: number;
+      startPlayerY: number;
+      landX: number;
+      landY: number;
+      boardDur: number;
+      travelDur: number;
+      disembarkDur: number;
+      elapsed: number;
+    } | null,
     suppressedLocId: null as string | null,
   });
 
   const startEnterLocation = (loc: WorldLocation) => {
     const st = stateRef.current;
-    if (st.entering || insideLocRef.current) return;
+    if (st.entering || st.ferryTransit || insideLocRef.current) return;
+    const ferryPartner = findLinkedFerryPartner(loc, worldLocations, mapMeta.id);
+    if (ferryPartner && loc.x !== null && loc.y !== null && ferryPartner.x !== null && ferryPartner.y !== null) {
+      st.pressed.clear();
+      st.targetX = null;
+      st.targetY = null;
+      st.suppressedLocId = loc.id;
+      const land = findNearestClearPoint(
+        collisionRef.current,
+        mapMeta.id,
+        ferryPartner.x,
+        ferryPartner.y,
+        TOKEN_RADIUS,
+        160,
+        mapMeta.width,
+        mapMeta.height
+      );
+      const dist = Math.hypot(land.x - loc.x, land.y - loc.y);
+      st.ferryTransit = {
+        origin: loc,
+        dest: ferryPartner,
+        startPlayerX: st.x,
+        startPlayerY: st.y,
+        landX: land.x,
+        landY: land.y,
+        boardDur: 0.24,
+        travelDur: clamp(dist / 780, 0.85, 1.45),
+        disembarkDur: 0.30,
+        elapsed: 0,
+      };
+      audioEngine.setMovementLoop("none");
+      audioEngine.playUiClick(0.32);
+      setHoveredLoc(null);
+      return;
+    }
+    if (!loc.interiorAssetPath) return;
     st.pressed.clear();
     st.targetX = null;
     st.targetY = null;
@@ -431,8 +500,20 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   // Sync spawn / loaded save position when entering world
   useEffect(() => {
     const st = stateRef.current;
-    st.x = clamp(startX, TOKEN_RADIUS, mapMeta.width - TOKEN_RADIUS);
-    st.y = clamp(startY, TOKEN_RADIUS, mapMeta.height - TOKEN_RADIUS);
+    const clampedX = clamp(startX, TOKEN_RADIUS, mapMeta.width - TOKEN_RADIUS);
+    const clampedY = clamp(startY, TOKEN_RADIUS, mapMeta.height - TOKEN_RADIUS);
+    const safe = findNearestClearPoint(
+      collisionRef.current,
+      mapMeta.id,
+      clampedX,
+      clampedY,
+      TOKEN_RADIUS,
+      260,
+      mapMeta.width,
+      mapMeta.height
+    );
+    st.x = safe.x;
+    st.y = safe.y;
     st.targetX = null;
     st.targetY = null;
     st.playtime = startPlaytime;
@@ -444,10 +525,11 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     st.plateAlphas.clear();
     st.pressed.clear();
     st.entering = null;
+    st.ferryTransit = null;
     const spawnedAt = worldLocations.find(
       (l) =>
         l.placed &&
-        l.interiorAssetPath &&
+        (l.interiorAssetPath || findLinkedFerryPartner(l, worldLocations, mapMeta.id)) &&
         l.mapId === mapMeta.id &&
         l.x !== null &&
         l.y !== null &&
@@ -464,6 +546,30 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       discoveredLocations: [...st.discovered],
     };
   }, [mapMeta, startX, startY, startPlaytime, initialDiscovered, runtimeRef]);
+
+  // If terrain collision mask finishes loading after initial mount, keep token cleanly on dry ground
+  useEffect(() => {
+    if (!worldCollision) return;
+    const st = stateRef.current;
+    if (!isCircleClear(worldCollision, mapMeta.id, st.x, st.y, TOKEN_RADIUS, mapMeta.width, mapMeta.height)) {
+      const safe = findNearestClearPoint(
+        worldCollision,
+        mapMeta.id,
+        st.x,
+        st.y,
+        TOKEN_RADIUS,
+        260,
+        mapMeta.width,
+        mapMeta.height
+      );
+      st.x = safe.x;
+      st.y = safe.y;
+      st.targetX = null;
+      st.targetY = null;
+      runtimeRef.current.x = st.x;
+      runtimeRef.current.y = st.y;
+    }
+  }, [worldCollision, mapMeta, runtimeRef]);
 
   useEffect(() => {
     if (!active) return;
@@ -509,7 +615,10 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         return existing.complete && existing.naturalWidth > 0 ? existing : null;
       }
       const img = new Image();
-      img.src = assetUrl(rel);
+      const url = assetUrl(rel);
+      img.src = typeof window !== "undefined" && window.location.protocol.startsWith("http")
+        ? `${url}?v=20261122r2`
+        : url;
       st.markers.set(rel, img);
       return null;
     };
@@ -569,7 +678,39 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         st.entering.elapsed = Math.min(ENTER_ANIM_DURATION, st.entering.elapsed + dt);
       }
 
-      if (!pausedRef.current && !st.entering) {
+      if (st.ferryTransit && !pausedRef.current) {
+        const ft = st.ferryTransit;
+        ft.elapsed += dt;
+        const emergeStart = Math.max(ft.boardDur, ft.travelDur - 0.14);
+        const totalDur = Math.max(ft.travelDur, emergeStart + ft.disembarkDur);
+
+        if (ft.elapsed < ft.travelDur) {
+          const u = clamp(ft.elapsed / ft.travelDur, 0, 1);
+          const ease = u * u * u * (u * (u * 6 - 15) + 10);
+          st.x = ft.startPlayerX + (ft.landX - ft.startPlayerX) * ease;
+          st.y = ft.startPlayerY + (ft.landY - ft.startPlayerY) * ease;
+        } else {
+          st.x = ft.landX;
+          st.y = ft.landY;
+        }
+
+        if (ft.elapsed >= totalDur) {
+          st.x = ft.landX;
+          st.y = ft.landY;
+          st.suppressedLocId = ft.dest.id;
+          st.ferryTransit = null;
+          st.lastSavedX = st.x;
+          st.lastSavedY = st.y;
+          st.lastAutoSaveMs = now;
+          runtimeRef.current.x = st.x;
+          runtimeRef.current.y = st.y;
+          autoSaveCbRef.current();
+          audioEngine.playUiClick(0.32);
+        }
+        updateCam();
+      }
+
+      if (!pausedRef.current && !st.entering && !st.ferryTransit) {
         st.playtime += dt;
         const prevX = st.x;
         const prevY = st.y;
@@ -584,21 +725,57 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           st.targetX = null;
           st.targetY = null;
           const len = Math.hypot(kx, ky);
-          st.x += (kx / len) * MOVE_SPEED * dt;
-          st.y += (ky / len) * MOVE_SPEED * dt;
+          const candX = st.x + (kx / len) * MOVE_SPEED * dt;
+          const candY = st.y + (ky / len) * MOVE_SPEED * dt;
+          const res = resolveCircleMove(
+            collisionRef.current,
+            mapMeta.id,
+            st.x,
+            st.y,
+            candX,
+            candY,
+            TOKEN_RADIUS,
+            mapMeta.width,
+            mapMeta.height
+          );
+          st.x = res.x;
+          st.y = res.y;
         } else if (st.targetX !== null && st.targetY !== null) {
           const dx = st.targetX - st.x;
           const dy = st.targetY - st.y;
           const dist = Math.hypot(dx, dy);
           const step = MOVE_SPEED * dt;
+          let candX: number;
+          let candY: number;
+          let reachedTarget = false;
           if (dist <= step) {
-            st.x = st.targetX;
-            st.y = st.targetY;
+            candX = st.targetX;
+            candY = st.targetY;
+            reachedTarget = true;
+          } else {
+            candX = st.x + (dx / dist) * step;
+            candY = st.y + (dy / dist) * step;
+          }
+          const res = resolveCircleMove(
+            collisionRef.current,
+            mapMeta.id,
+            st.x,
+            st.y,
+            candX,
+            candY,
+            TOKEN_RADIUS,
+            mapMeta.width,
+            mapMeta.height
+          );
+          const actualMove = Math.hypot(res.x - st.x, res.y - st.y);
+          st.x = res.x;
+          st.y = res.y;
+          if (reachedTarget && !res.slid) {
             st.targetX = null;
             st.targetY = null;
-          } else {
-            st.x += (dx / dist) * step;
-            st.y += (dy / dist) * step;
+          } else if (res.slid && actualMove < step * 0.2) {
+            st.targetX = null;
+            st.targetY = null;
           }
         }
 
@@ -663,10 +840,19 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         }
       }
 
-      // Preload 1-tile ring outside viewport
+      // Preload 1-tile ring outside viewport (and around destination ferry pier during transit)
       for (let r = Math.max(0, r0 - 1); r <= Math.min(mapMeta.rows - 1, r1 + 1); r++) {
         for (let c = Math.max(0, c0 - 1); c <= Math.min(mapMeta.cols - 1, c1 + 1); c++) {
           getOrLoadTile(c, r);
+        }
+      }
+      if (st.ferryTransit && st.ferryTransit.dest.x !== null && st.ferryTransit.dest.y !== null) {
+        const dc = Math.floor(st.ferryTransit.dest.x / mapMeta.tileSize);
+        const dr = Math.floor(st.ferryTransit.dest.y / mapMeta.tileSize);
+        for (let r = Math.max(0, dr - 1); r <= Math.min(mapMeta.rows - 1, dr + 1); r++) {
+          for (let c = Math.max(0, dc - 1); c <= Math.min(mapMeta.cols - 1, dc + 1); c++) {
+            getOrLoadTile(c, r);
+          }
         }
       }
 
@@ -677,8 +863,10 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       for (const loc of worldLocations) {
         if (!loc.placed || loc.mapId !== mapMeta.id || loc.x === null || loc.y === null) continue;
         const dPlayer = Math.hypot(st.x - loc.x, st.y - loc.y);
+        const ferryPartner = findLinkedFerryPartner(loc, worldLocations, mapMeta.id);
+        const isEnterable = Boolean(loc.interiorAssetPath || ferryPartner);
 
-        if (loc.interiorAssetPath && dPlayer <= getEntryRadius(loc) && dPlayer < closestEnterDist) {
+        if (!st.ferryTransit && isEnterable && dPlayer <= getEntryRadius(loc) && dPlayer < closestEnterDist) {
           closestEnterDist = dPlayer;
           closestEnterable = loc;
         }
@@ -688,12 +876,13 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           st.suppressedLocId = null;
         }
 
-        // Moving onto the center of an enterable hub token vanishes into it and loads the interior
+        // Moving onto an enterable town or linked ferry pier boards / enters automatically
         if (
           !pausedRef.current &&
           !st.entering &&
+          !st.ferryTransit &&
           !insideLocRef.current &&
-          loc.interiorAssetPath &&
+          isEnterable &&
           st.suppressedLocId !== loc.id &&
           dPlayer <= getWalkEnterRadius(loc)
         ) {
@@ -728,7 +917,16 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
             mImg.naturalWidth > targetMarkerPx * 1.15
               ? getScaledTokenCanvas(st.scaledMarkers, `${loc.id}_${targetMarkerPx}`, mImg, targetMarkerPx)
               : mImg;
-          ctx.drawImage(mSrc, lx - mHalf, ly - mHalf, mSize, mSize);
+          const rotDeg = loc.rotation ?? 0;
+          if (rotDeg !== 0) {
+            ctx.save();
+            ctx.translate(lx, ly);
+            ctx.rotate((rotDeg * Math.PI) / 180);
+            ctx.drawImage(mSrc, -mHalf, -mHalf, mSize, mSize);
+            ctx.restore();
+          } else {
+            ctx.drawImage(mSrc, lx - mHalf, ly - mHalf, mSize, mSize);
+          }
         }
 
         const nameRange = NAMEPLATE_TRIGGER_PX + Math.max(0, mHalf - BASE_MARKER_DISPLAY_SIZE / 2);
@@ -776,7 +974,8 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         ctx.fill();
       }
 
-      // Avatar token glides onto marker center and vanishes as the interior menu fades in
+      // Avatar token glides onto marker center and vanishes as the interior menu fades in (or pops in/out across ferries)
+      const ft = st.ferryTransit;
       const enterAnim = st.entering;
       let avatarAlpha = insideLocRef.current && !enterAnim ? 0 : 1;
       let avatarScale = 1;
@@ -791,6 +990,29 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         drawWorldY = enterAnim.startY + (destY - enterAnim.startY) * ease * 0.45;
         avatarScale = 1 - ease * 0.52;
         avatarAlpha = 1 - ease;
+      } else if (ft) {
+        const ox = ft.origin.x ?? st.x;
+        const oy = ft.origin.y ?? st.y;
+        const dx = ft.dest.x ?? ox;
+        const dy = ft.dest.y ?? oy;
+        const emergeStart = Math.max(ft.boardDur, ft.travelDur - 0.14);
+        if (ft.elapsed < ft.boardDur) {
+          const t = clamp(ft.elapsed / ft.boardDur, 0, 1);
+          const ease = t * t * (3 - 2 * t);
+          drawWorldX = ft.startPlayerX + (ox - ft.startPlayerX) * ease * 0.65;
+          drawWorldY = ft.startPlayerY + (oy - ft.startPlayerY) * ease * 0.65;
+          avatarScale = 1 - ease * 0.52;
+          avatarAlpha = 1 - ease;
+        } else if (ft.elapsed < emergeStart) {
+          avatarAlpha = 0;
+        } else {
+          const p = clamp((ft.elapsed - emergeStart) / ft.disembarkDur, 0, 1);
+          const easeOut = 1 - Math.pow(1 - p, 3);
+          drawWorldX = dx + (ft.landX - dx) * easeOut;
+          drawWorldY = dy + (ft.landY - dy) * easeOut;
+          avatarScale = 0.48 + 0.52 * easeOut;
+          avatarAlpha = easeOut;
+        }
       }
 
       if (avatarAlpha > 0.01) {
@@ -851,24 +1073,35 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   }, [active, mapMeta, worldLocations, runtimeRef, onToast]);
 
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!active || paused || e.button !== 0) return;
-    const rect = e.currentTarget.getBoundingClientRect();
     const st = stateRef.current;
+    if (!active || paused || st.ferryTransit || st.entering || e.button !== 0) return;
+    const rect = e.currentTarget.getBoundingClientRect();
     const wx = st.camX + (e.clientX - rect.left) / CAMERA_ZOOM;
     const wy = st.camY + (e.clientY - rect.top) / CAMERA_ZOOM;
 
     for (const loc of worldLocations) {
-      if (!loc.placed || !loc.interiorAssetPath || loc.mapId !== mapMeta.id || loc.x === null || loc.y === null) continue;
+      const canEnter = Boolean(loc.interiorAssetPath || findLinkedFerryPartner(loc, worldLocations, mapMeta.id));
+      if (!loc.placed || !canEnter || loc.mapId !== mapMeta.id || loc.x === null || loc.y === null) continue;
       const rad = (BASE_MARKER_DISPLAY_SIZE * (loc.scale ?? 1.0)) / 2;
       if (Math.hypot(wx - loc.x, wy - loc.y) <= rad) {
         if (Math.hypot(st.x - loc.x, st.y - loc.y) <= getWalkEnterRadius(loc)) {
           startEnterLocation(loc);
           return;
         }
-        // Clicking any hub marker walks the party right onto its center and clears re-entry lock
+        // Clicking any hub marker walks the party to the nearest walkable shore/approach within its entry trigger
         if (st.suppressedLocId === loc.id) st.suppressedLocId = null;
-        st.targetX = loc.x;
-        st.targetY = loc.y;
+        const stand = findNearestClearPoint(
+          collisionRef.current,
+          mapMeta.id,
+          loc.x,
+          loc.y,
+          TOKEN_RADIUS,
+          160,
+          mapMeta.width,
+          mapMeta.height
+        );
+        st.targetX = stand.x;
+        st.targetY = stand.y;
         audioEngine.playUiClick(0.24);
         return;
       }
@@ -995,7 +1228,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
             className="rpg-modal-panel flex items-center gap-2.5 px-5 py-2.5 rounded border border-[#d7b267] hover:border-[#f8df9c] bg-[#161a24]/95 hover:bg-[#231f16] text-[#fae3ae] hover:text-[#fff6db] shadow-[0_10px_28px_rgba(0,0,0,0.85)] cursor-pointer transition-all"
           >
             <span className="font-display text-[14px] font-bold tracking-wider uppercase">
-              Enter {nearbyLoc.name}
+              {nearbyLoc.id.startsWith("tr_ferry_crossing") ? "Cross Ferry" : `Enter ${nearbyLoc.name}`}
             </span>
             <span className="px-2 py-0.5 rounded-sm bg-[#2b2416] border border-[#b7914a] text-[11px] font-bold text-[#ffd985]">
               E

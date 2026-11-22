@@ -29,6 +29,9 @@
       "y": 5638,
       "scale": 2.0,
       "triggerRadius": 176,
+      "interiorAssetPath": "assets/maps/interiors/loc_01_overgrown_garden_sanctuary.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_01_overgrown_garden_sanctuary_tavern.webp",
+      "tavernName": "The Crown & Ivy Grand Tavern",
       "linkedFerryId": null,
       "description": "Ethoria's besieged Royal Capital in the green Crownlands heartland—home to Highcrown Keep, the Great Coliseum where Koren fell, and the overgrown palace gardens above the dry aqueducts.",
       "services": [
@@ -51,7 +54,7 @@
           "targetHubName": "Highcrown",
           "giver": "Orin / Capital Guard",
           "miniBoss": "Garrick Houndmaster & Wolves",
-          "reward": "60s | 80 XP | Lesser Draft",
+          "reward": "18s | 80 XP | Lesser Draft",
           "description": "During the months of unrest after Garrick abandoned Highcrown, rogue kennel trackers pried open the neglected dry aqueduct grate behind Highcrown's overgrown palace gardens, letting war-hounds prowl beneath the Coliseum undercroft. Descend through the garden grate, defeat the Garrick Houndmaster and his wolves guarding the culvert control chamber, and pull the gate lever to seal the breach shut.",
           "targetMarkerId": "qf_r1_q001_aqueduct_grate",
           "markerName": "Dry Aqueduct Drainage Gate"
@@ -67,7 +70,7 @@
           "targetHubName": null,
           "giver": "Coliseum Armorer",
           "miniBoss": "Road Bandits",
-          "reward": "75s | 100 XP | Lesser Draft",
+          "reward": "22s | 100 XP | Lesser Draft",
           "description": "During the succession riots that rocked Highcrown before Garrick fled north, Coliseum armorers stashed heavy repair trunks—including tools forged for Koren—along the brushwood hollow just beyond the outer capital road. Clear the opportunistic bandits looting the wreck and bring the steel back to Highcrown.",
           "targetMarkerId": "qf_r1_q002_brushwood_cache",
           "markerName": "Brushwood Salvage Hollow"
@@ -83,7 +86,7 @@
           "targetHubName": null,
           "giver": "Capital Loyalist Guard",
           "miniBoss": "Garrick Deserter Scout",
-          "reward": "90s | 120 XP | Lesser Draft",
+          "reward": "26s | 120 XP | Lesser Draft",
           "description": "Capital scouts spotted smoke rising behind a crumbling ivy-covered limestone wall just outside Highcrown, where deserters in Garrick's gray war-cloaks have stacked spears and crossbows around a hidden campfire to plot their next move. Ambush the forward camp and break up the plot before they act.",
           "targetMarkerId": "qf_r1_q003_garden_picket_wall",
           "markerName": "Ruined Wall Campfire"
@@ -99,7 +102,7 @@
           "targetHubName": "Oakhaven",
           "giver": "Highcrown Watch Captain",
           "miniBoss": "Crossbow Poacher Pack",
-          "reward": "95s | 135 XP | Lesser Draft",
+          "reward": "28s | 135 XP | Lesser Draft",
           "description": "Carry Highcrown's wax-sealed royal dispatch up the Crownlands trade road to Oakhaven's elder. Poachers and turncoat deserters have thrown up shield barricades along the bend to intercept every courier riding north from the capital.",
           "targetMarkerId": "bf_rival_house_patrol_barricade",
           "markerName": "Crossroad Poacher Barricade"
@@ -127,10 +130,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Crownlands",
-      "interiorAssetPath": "assets/maps/interiors/loc_01_overgrown_garden_sanctuary.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_01_overgrown_garden_sanctuary_tavern.webp",
-      "tavernName": "The Crown & Ivy Grand Tavern"
+      "playerRegion": "The Crownlands"
     },
     {
       "id": "loc_02_oakhaven",
@@ -153,6 +153,9 @@
       "y": 4639,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_02_oakhaven.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_02_oakhaven_tavern.webp",
+      "tavernName": "The Heart-Oak Inn & Taproom",
       "linkedFerryId": null,
       "description": "Walled Crownlands heartland entry town with blacksmith anvil, armory, town tourney ring, mystic shop, and free inn.",
       "services": [
@@ -174,7 +177,7 @@
           "targetHubName": null,
           "giver": "Oakhaven Granary Keeper",
           "miniBoss": "Bandit Wagon-Boss",
-          "reward": "110s | 140 XP | Lesser Draft",
+          "reward": "30s | 140 XP | Lesser Draft",
           "description": "Loaded grain wagons bound for Oakhaven vanished before dawn along the fenced dirt lanes outside town. Track the spilled wheat sacks to the ambushed bend and defeat the bandit wagon-boss's crew to recover the grain.",
           "targetMarkerId": "qf_r1_overturned_grain_wagons",
           "markerName": "Overturned Grain Wagons"
@@ -190,7 +193,7 @@
           "targetHubName": null,
           "giver": "Heartland Shepherd",
           "miniBoss": "Alpha Timber Wolf & Pack",
-          "reward": "120s | 160 XP | Lesser Draft",
+          "reward": "32s | 160 XP | Lesser Draft",
           "description": "A young shepherd boy chased a stray lamb into the deep woods after wolves scattered his flock. Track the pawprints to the pack's mossy wolf den among the trees and bring the boy home alive.",
           "targetMarkerId": "qf_r1_alpha_wolf_hollow",
           "markerName": "Alpha Wolf Hollow",
@@ -209,7 +212,7 @@
           "targetHubName": "Millbrook Crossing",
           "giver": "Oakhaven Blacksmith",
           "miniBoss": "Animated Armor Vanguard",
-          "reward": "135s | 185 XP | Lesser Draft",
+          "reward": "36s | 185 XP | Lesser Draft",
           "description": "Haul crates of hardened iron gate-rivets toward Millbrook Crossing's western palisade. Halfway up the lane, rogue animated armor drawn by stray Portal sparks has smashed the lead handcart across the oak road.",
           "targetMarkerId": "qf_r1_rift_construct_road_ambush",
           "markerName": "Rift Construct Road Ambush"
@@ -225,7 +228,7 @@
           "targetHubName": null,
           "giver": "Town Constable",
           "miniBoss": "Outlaw Orchard Boss",
-          "reward": "125s | 170 XP | Lesser Draft",
+          "reward": "34s | 170 XP | Lesser Draft",
           "description": "Armed highwaymen have turned the abandoned apple orchard outside Oakhaven into a toll hideout and cider-cellar ambush. Clear their orchard camp under the fruit trees so harvest wagons can pass unmolested.",
           "targetMarkerId": "qf_r1_q008_orchard_bandit_camp",
           "markerName": "Old Orchard Poacher Camp",
@@ -244,7 +247,7 @@
           "targetHubName": null,
           "giver": "Heartland Trapper",
           "miniBoss": "Tusked Dire Boar",
-          "reward": "115s | 150 XP | Lesser Draft",
+          "reward": "30s | 150 XP | Lesser Draft",
           "description": "Snare-wires and mauled deer carcasses line the game trails outside Oakhaven. Track the scarred trail into the deep oak grove where an enraged dire boar has gored both poachers and travelers alike.",
           "targetMarkerId": "bf_wild_beast_hunting_territory",
           "markerName": "Tusked Boar Thicket",
@@ -275,10 +278,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Crownlands",
-      "interiorAssetPath": "assets/maps/interiors/loc_02_oakhaven.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_02_oakhaven_tavern.webp",
-      "tavernName": "The Heart-Oak Inn & Taproom"
+      "playerRegion": "The Crownlands"
     },
     {
       "id": "loc_04_millbrook_crossing",
@@ -301,6 +301,9 @@
       "y": 4752,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/loc_04_millbrook_crossing.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_04_millbrook_crossing_tavern.webp",
+      "tavernName": "The Turning Millstone Tavern",
       "linkedFerryId": null,
       "description": "Dry frontier dirt-crossroads settlement in the harder half of Region 1.",
       "services": [
@@ -321,7 +324,7 @@
           "targetHubName": null,
           "giver": "Millbrook Warden",
           "miniBoss": "Garrick Deserter Sergeant",
-          "reward": "145s | 210 XP | Lesser Draft",
+          "reward": "65s | 210 XP | Lesser Draft",
           "description": "Arsonists wearing turncoat garrison colors are gathering oil flasks outside Millbrook's wooden western gatehouse. Stand at the sharpened timber palisade stakes and break the sergeant's night assault.",
           "targetMarkerId": "qf_r1_millbrook_west_timber_span",
           "markerName": "Millbrook West Palisade",
@@ -340,7 +343,7 @@
           "targetHubName": null,
           "giver": "Town Mason",
           "miniBoss": "Stone Gargoyle Alpha",
-          "reward": "160s | 240 XP | Lesser Draft",
+          "reward": "72s | 240 XP | Lesser Draft",
           "description": "Winged stone gargoyles shaken loose from eastern shrines have nested atop the cracked ridge windmill spire overlooking Millbrook. Head up to the bluff ruins and defeat the alpha stone gargoyle roosting above the broken sails.",
           "targetMarkerId": "qf_r1_shattered_mill_tower",
           "markerName": "Shattered Mill-Tower"
@@ -356,7 +359,7 @@
           "targetHubName": null,
           "giver": "Tavern Rumor",
           "miniBoss": "Arena Bounty-Captain",
-          "reward": "155s | 230 XP | Lesser Draft",
+          "reward": "70s | 230 XP | Lesser Draft",
           "description": "A loud-mouthed bounty hunter bragging about sealed papers tracing Koren's earliest transfer from the northern border war-pits to Highcrown's Great Coliseum made camp along the muddy woodland road outside Millbrook. Raid the campfire stockade and seize the transfer dossier.",
           "targetMarkerId": "qf_r1_bandit_bounty_camp",
           "markerName": "Roadside Bounty Camp",
@@ -375,7 +378,7 @@
           "targetHubName": null,
           "giver": "Crossroads Miner",
           "miniBoss": "Dust Mephit Swarm",
-          "reward": "150s | 220 XP | Lesser Draft",
+          "reward": "68s | 220 XP | Lesser Draft",
           "description": "Billowing ash vents have choked the old limestone quarry shaft north of Millbrook with giggling dust mephits. Seal the quarry vent and sweep the blinding swarm out of the timber shoring.",
           "targetMarkerId": "qf_r1_q017_mephit_ash_vent",
           "markerName": "Choking Chalk-Pit Vent",
@@ -394,7 +397,7 @@
           "targetHubName": null,
           "giver": "Crossroads Postmaster",
           "miniBoss": "Ankheg Burrower",
-          "reward": "165s | 250 XP | Lesser Draft",
+          "reward": "75s | 250 XP | Lesser Draft",
           "description": "The hill-fort dispatch rider's horse galloped back into Millbrook alone with chitin gashes down its flank. Follow the ridge trail to the ankheg burrows and defeat the beast to bring the wounded rider home.",
           "targetMarkerId": "qf_r1_q018_ankheg_sinkhole",
           "markerName": "Ankheg Ridge Burrows",
@@ -424,10 +427,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Crownlands",
-      "interiorAssetPath": "assets/maps/interiors/loc_04_millbrook_crossing.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_04_millbrook_crossing_tavern.webp",
-      "tavernName": "The Turning Millstone Tavern"
+      "playerRegion": "The Crownlands"
     },
     {
       "id": "loc_05_the_ashen_gate",
@@ -446,8 +446,8 @@
       "assetPath": "assets/tokens/markers/loc_05_the_ashen_gate.webp",
       "placed": true,
       "locked": false,
-      "x": 3617,
-      "y": 1560,
+      "x": 3940,
+      "y": 1326,
       "scale": 1.45,
       "triggerRadius": 128,
       "linkedFerryId": null,
@@ -463,8 +463,6 @@
         "guardPips": 3,
         "weaknesses": "Bludgeoning, Frost, Radiant"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_ashen_forge_keystone",
         "name": "Ashen Forge Keystone",
@@ -475,6 +473,8 @@
         "markerId": "qf_r2_cracked_lighthouse",
         "zoneTier": "Zone 3 · Lv 11–15"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A towering arch of scorched basalt humming with furnace heat from Earth and Forge. Ancient smith-wards bar the way; sailors whisper its lost keystone sank near Saltwind's reefs.",
@@ -502,6 +502,9 @@
       "y": 960,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_06_saltwind_harbor.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_06_saltwind_harbor_tavern.webp",
+      "tavernName": "The Barnacle & Lantern Tavern",
       "linkedFerryId": null,
       "description": "Fortified coastal port city on the northern bay linking Ethoria by sea, featuring a dockside fighting pit.",
       "services": [
@@ -623,10 +626,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Saltmarsh Coast",
-      "interiorAssetPath": "assets/maps/interiors/loc_06_saltwind_harbor.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_06_saltwind_harbor_tavern.webp",
-      "tavernName": "The Barnacle & Lantern Tavern"
+      "playerRegion": "Saltmarsh Coast"
     },
     {
       "id": "loc_09_mirewatch_post",
@@ -649,6 +649,7 @@
       "y": 4920,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/loc_09_mirewatch_post.webp",
       "linkedFerryId": null,
       "description": "Elevated swamp-edge timber outpost deep in the Saltmarsh wetlands.",
       "services": [
@@ -775,8 +776,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Saltmarsh Coast",
-      "interiorAssetPath": "assets/maps/interiors/loc_09_mirewatch_post.webp"
+      "playerRegion": "Saltmarsh Coast"
     },
     {
       "id": "loc_10_the_sunken_maw",
@@ -812,8 +812,6 @@
         "guardPips": 3,
         "weaknesses": "Lightning, Piercing, Fire"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_abyssal_brine_pearl",
         "name": "Abyssal Brine-Pearl",
@@ -824,6 +822,8 @@
         "markerId": "qf_r2_q044_shellback_shore_bluff",
         "zoneTier": "Zone 5 · Lv 21–25"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Barnacle-crusted tidal monoliths form a drowned sea-arch pulsing with cold abyssal light from the Plane of Water. Sea captains speak of a luminous brine-pearl guarded by beasts near Tidewater's outer cliffs.",
@@ -851,6 +851,9 @@
       "y": 6120,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_11_redmarch_bastion.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_11_redmarch_bastion_tavern.webp",
+      "tavernName": "The Scarlet Watchman Tavern",
       "linkedFerryId": null,
       "description": "Fortified border garrison town guarding Thornwall Warfronts with Region 3 steel and a bailey gladiatorial ring.",
       "services": [
@@ -964,10 +967,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Thornwall Warfronts",
-      "interiorAssetPath": "assets/maps/interiors/loc_11_redmarch_bastion.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_11_redmarch_bastion_tavern.webp",
-      "tavernName": "The Scarlet Watchman Tavern"
+      "playerRegion": "Thornwall Warfronts"
     },
     {
       "id": "loc_13_hollowstone_keep",
@@ -990,6 +990,7 @@
       "y": 816,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/loc_13_hollowstone_keep.webp",
       "linkedFerryId": null,
       "description": "Noble highland stronghold of Rival House Hollowstone contesting King Garrick's vacant throne, featuring an inner tourney duel yard.",
       "services": [
@@ -1106,8 +1107,7 @@
         "Stronghold",
         "Fighting Arena"
       ],
-      "playerRegion": "Thornwall Warfronts",
-      "interiorAssetPath": "assets/maps/interiors/loc_13_hollowstone_keep.webp"
+      "playerRegion": "Thornwall Warfronts"
     },
     {
       "id": "loc_15_the_iron_rift",
@@ -1143,8 +1143,6 @@
         "guardPips": 4,
         "weaknesses": "Frost, Piercing, Bludgeoning"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_blood_iron_keystone",
         "name": "Blood-Iron Keystone",
@@ -1155,6 +1153,8 @@
         "markerId": "qf_r3_q067_giant_boulder_picket",
         "zoneTier": "Zone 8 · Lv 36–40"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Riveted iron girders and scarred granite jambs frame a blistering gateway roaring with war-drums from the Blood-Iron Warlands. Rumors among captured quarrymen trace its molten seal to stone-giant pickets guarding the high crags.",
@@ -1182,6 +1182,9 @@
       "y": 1512,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_16_briarstead.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_16_briarstead_tavern.webp",
+      "tavernName": "The Briar & Amber Alehouse",
       "linkedFerryId": null,
       "description": "Timber-palisade forest town famous for apothecaries, hunters, woodland tourney ring, and Region 4 gear.",
       "services": [
@@ -1295,10 +1298,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Verdant Weald",
-      "interiorAssetPath": "assets/maps/interiors/loc_16_briarstead.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_16_briarstead_tavern.webp",
-      "tavernName": "The Briar & Amber Alehouse"
+      "playerRegion": "The Verdant Weald"
     },
     {
       "id": "loc_20_the_rotspire",
@@ -1334,8 +1334,6 @@
         "guardPips": 4,
         "weaknesses": "Fire, Slashing, Radiant"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_spore_heart_amber",
         "name": "Spore-Heart Amber",
@@ -1346,6 +1344,8 @@
         "markerId": "qf_r4_q089_rotspire_quarantine_gate",
         "zoneTier": "Zone 10 · Lv 46–50"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Gnarled roots and luminous lichen coil around a sunken forest arch choking the surrounding canopy with sickly emerald spores. Quarantine chaplains believe only hardened amber plucked from the quarantine gate can pierce its seal.",
@@ -1373,6 +1373,9 @@
       "y": 5376,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_21_port_veridia.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_21_port_veridia_tavern.webp",
+      "tavernName": "The Saffron Sail Grand Tavern",
       "linkedFerryId": null,
       "description": "Sun-bleached coastal spice-trade port city linking sea routes across the Sun-Scorched Isles, featuring a desert coastal fighting arena.",
       "services": [
@@ -1488,10 +1491,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Sun-Scorched Isles",
-      "interiorAssetPath": "assets/maps/interiors/loc_21_port_veridia.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_21_port_veridia_tavern.webp",
-      "tavernName": "The Saffron Sail Grand Tavern"
+      "playerRegion": "Sun-Scorched Isles"
     },
     {
       "id": "loc_23_dunespire_oasis",
@@ -1514,6 +1514,9 @@
       "y": 5880,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/loc_23_dunespire_oasis.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_23_dunespire_oasis_tavern.webp",
+      "tavernName": "The Oasis Lantern Caravan Tavern",
       "linkedFerryId": null,
       "description": "Sheltered desert oasis hub ringed by woven merchant tents around a clear palm spring.",
       "services": [
@@ -1625,10 +1628,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Sun-Scorched Isles",
-      "interiorAssetPath": "assets/maps/interiors/loc_23_dunespire_oasis.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_23_dunespire_oasis_tavern.webp",
-      "tavernName": "The Oasis Lantern Caravan Tavern"
+      "playerRegion": "Sun-Scorched Isles"
     },
     {
       "id": "loc_24_gilded_auction_manor",
@@ -1651,6 +1651,7 @@
       "y": 2832,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/loc_24_gilded_auction_manor.webp",
       "linkedFerryId": null,
       "description": "Fortified sandstone estate and gladiator blood-pit of the Slaver Baron where Mera's mother is held captive (Chain A Climax).",
       "services": [
@@ -1750,8 +1751,7 @@
         "Stronghold",
         "Fighting Arena"
       ],
-      "playerRegion": "Sun-Scorched Isles",
-      "interiorAssetPath": "assets/maps/interiors/loc_24_gilded_auction_manor.webp"
+      "playerRegion": "Sun-Scorched Isles"
     },
     {
       "id": "loc_25_the_scorched_chasm",
@@ -1787,8 +1787,6 @@
         "guardPips": 4,
         "weaknesses": "Frost, Piercing, Bludgeoning"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_brass_cinder_seal",
         "name": "Brass Cinder-Seal",
@@ -1799,6 +1797,8 @@
         "markerId": "qf_scorched_scale_beast_nest",
         "zoneTier": "Zone 13 · Lv 61–65"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A towering sun-blistered arch of sandstone and tarnished brass radiating furnace gusts from the Elemental Plane of Fire. Caravan elders tell of a brass cinder-seal carried off by fire-born raiders prowling near the gilded cliffs.",
@@ -1826,6 +1826,9 @@
       "y": 1464,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_26_highpass_refuge.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_26_highpass_refuge_tavern.webp",
+      "tavernName": "The Granite Peak Lodge Tavern",
       "linkedFerryId": null,
       "description": "Alpine cliff town terraced along sunny green mountain ridges with a cobbled duel ring, Region 6 gear, and skills.",
       "services": [
@@ -1939,10 +1942,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Ironcrest Highlands",
-      "interiorAssetPath": "assets/maps/interiors/loc_26_highpass_refuge.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_26_highpass_refuge_tavern.webp",
-      "tavernName": "The Granite Peak Lodge Tavern"
+      "playerRegion": "Ironcrest Highlands"
     },
     {
       "id": "loc_27_anvilhall_forge",
@@ -1965,6 +1965,7 @@
       "y": 1056,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/loc_27_anvilhall_forge.webp",
       "linkedFerryId": null,
       "description": "Legendary granite mountain smithy housing a guild trial-by-combat ring, Gear Step 18, and final Tier-6 master skills.",
       "services": [
@@ -2078,8 +2079,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Ironcrest Highlands",
-      "interiorAssetPath": "assets/maps/interiors/loc_27_anvilhall_forge.webp"
+      "playerRegion": "Ironcrest Highlands"
     },
     {
       "id": "loc_30_storm_crowned_spire",
@@ -2115,8 +2115,6 @@
         "guardPips": 5,
         "weaknesses": "Frost, Piercing, Shadow"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_storm_crown_lodestone",
         "name": "Storm-Crown Lodestone",
@@ -2127,6 +2125,8 @@
         "markerId": "qf_r6_q133_storm_giant_terrace",
         "zoneTier": "Zone 15 · Lv 71–75"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Crackling sky-bolts dance across a carved granite gateway opening toward the windswept Elemental Plane of Air and Dragon Crags. Rangers below Stormhold's walls tell of storm-giants hoarding the gate's crackling lodestone.",
@@ -2154,6 +2154,9 @@
       "y": 6816,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_31_rimeport.webp",
+      "tavernAssetPath": "assets/maps/taverns/loc_31_rimeport_tavern.webp",
+      "tavernName": "The Frost-Glass Harbor Tavern",
       "linkedFerryId": null,
       "description": "Ice-locked sea port city linking sea ships, an ice-harbor fighting pit, Tier-7 skills, and Region 7 gear.",
       "services": [
@@ -2269,10 +2272,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Frostbound Reach",
-      "interiorAssetPath": "assets/maps/interiors/loc_31_rimeport.webp",
-      "tavernAssetPath": "assets/maps/taverns/loc_31_rimeport_tavern.webp",
-      "tavernName": "The Frost-Glass Harbor Tavern"
+      "playerRegion": "Frostbound Reach"
     },
     {
       "id": "loc_34_bleakwatch_citadel",
@@ -2295,6 +2295,7 @@
       "y": 1368,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/loc_34_bleakwatch_citadel.webp",
       "linkedFerryId": null,
       "description": "Snow-swept warlord fortress and ice fighting pit of Marshal Bleakwatch, last rival throne-claimant (Chain C Climax).",
       "services": [
@@ -2411,8 +2412,7 @@
         "Stronghold",
         "Fighting Arena"
       ],
-      "playerRegion": "Frostbound Reach",
-      "interiorAssetPath": "assets/maps/interiors/loc_34_bleakwatch_citadel.webp"
+      "playerRegion": "Frostbound Reach"
     },
     {
       "id": "loc_35_the_pale_abyss",
@@ -2448,8 +2448,6 @@
         "guardPips": 5,
         "weaknesses": "Radiant, Frost, Bludgeoning"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_pale_abyss_ice_seal",
         "name": "Pale-Abyss Ice-Seal",
@@ -2460,6 +2458,8 @@
         "markerId": "qf_r7_q155_abyss_bridgehead_bastion",
         "zoneTier": "Zone 18 · Lv 86–90"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A frost-choked arch of black basalt breathing freezing hellfire from the deepest pits of the Abyss. Defectors from Bleakwatch whisper of an ice-locked seal held behind the warlord's bridgehead bastions.",
@@ -2487,6 +2487,7 @@
       "y": 2448,
       "scale": 1.25,
       "triggerRadius": 110,
+      "interiorAssetPath": "assets/maps/interiors/loc_36_ashenford_war_camp.webp",
       "linkedFerryId": null,
       "description": "Final forward rebel base before Black Keep, stocking Gear Steps 22–24 and Tier-8 skills.",
       "services": [
@@ -2598,8 +2599,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Dreadwaste",
-      "interiorAssetPath": "assets/maps/interiors/loc_36_ashenford_war_camp.webp"
+      "playerRegion": "The Dreadwaste"
     },
     {
       "id": "loc_39_the_eclipse_gate",
@@ -2635,8 +2635,6 @@
         "guardPips": 6,
         "weaknesses": "P1: Radiant/Piercing/Lightning · P2: Radiant/Fire/Bludgeoning"
       },
-      "quests": [],
-      "linkedQuestMarkerIds": [],
       "catalyst": {
         "keyId": "cat_interlocking_wolf_pendant",
         "name": "Interlocking Wolf Pendant",
@@ -2647,6 +2645,8 @@
         "markerId": "qf_r8_q178_throne_seal_threshold",
         "zoneTier": "Zone 20 · Lv 96–99"
       },
+      "quests": [],
+      "linkedQuestMarkerIds": [],
       "locationType": "Portal",
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A colossal temple archway of blackened silver and volcanic stone tearing open toward the Shadowfell itself. Heavy eclipse-wards lock the threshold; only breaking the inner throne seals will force the final gate wide.",
@@ -2674,6 +2674,7 @@
       "y": 5597,
       "scale": 1.7,
       "triggerRadius": 150,
+      "interiorAssetPath": "assets/maps/interiors/loc_40_garricks_black_keep.webp",
       "linkedFerryId": null,
       "description": "King Garrick's towering volcanic basalt stronghold where all 6 heroes reunite for the final campaign siege.",
       "services": [
@@ -2789,74 +2790,7 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Dreadwaste",
-      "interiorAssetPath": "assets/maps/interiors/loc_40_garricks_black_keep.webp"
-    },
-    {
-      "id": "tr_border_mountain_pass_gate",
-      "locNum": null,
-      "zoneNum": null,
-      "progOrder": 1025,
-      "levelRange": "All Regions",
-      "visibility": "always_visible",
-      "name": "Border Mountain Pass Gate",
-      "category": "travel",
-      "mapId": "all",
-      "region": null,
-      "kind": "Internal Mountain Pass Gate",
-      "isPortal": false,
-      "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate.webp",
-      "placed": false,
-      "locked": false,
-      "x": null,
-      "y": null,
-      "scale": 1.0,
-      "triggerRadius": 88,
-      "linkedFerryId": null,
-      "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
-      "services": [
-        "Internal Ridge / Pass Gate"
-      ],
-      "locationType": "Mountain Pass",
-      "playerKind": "Mountain Pass Gatehouse",
-      "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
-      "playerServices": [
-        "Highland Pass"
-      ]
-    },
-    {
-      "id": "tr_ferry_crossing",
-      "locNum": null,
-      "zoneNum": null,
-      "progOrder": 1026,
-      "levelRange": "All Regions",
-      "visibility": "always_visible",
-      "name": "Ferry Crossing",
-      "category": "travel",
-      "mapId": "map_01",
-      "region": null,
-      "kind": "Island Strait Ferry Crossing",
-      "isPortal": false,
-      "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_ferry_crossing.webp",
-      "placed": true,
-      "locked": false,
-      "x": 3615,
-      "y": 2227,
-      "scale": 1.0,
-      "triggerRadius": 88,
-      "linkedFerryId": "tr_ferry_crossing_inst_2",
-      "description": "Shoreline wooden ferry landing & moored flat tow-barge for crossing water straits dividing islands.",
-      "services": [
-        "Strait / Channel Ferry Crossing"
-      ],
-      "locationType": "Ferry Crossing",
-      "playerKind": "Strait Ferry Landing",
-      "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
-      "playerServices": [
-        "Strait Ferry"
-      ]
+      "playerRegion": "The Dreadwaste"
     },
     {
       "id": "hub_crownlands_hill_fort",
@@ -2882,6 +2816,7 @@
       "y": 3576,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_crownlands_hill_fort.webp",
       "linkedFerryId": null,
       "description": "Timber-and-stone eastern border watch-fort guarding the hills near The Ashen Gate.",
       "services": [
@@ -2901,7 +2836,7 @@
           "targetHubName": null,
           "giver": "Garrison Captain",
           "miniBoss": "Bramblewatch Ringleader & Dust Mephit",
-          "reward": "175s | 260 XP | Lesser Draft",
+          "reward": "80s | 260 XP | Lesser Draft",
           "description": "Cutthroats holding a captured hill-fort courier—and Valen's prized crimson arena keepsake—fortified a thorn-choked limestone cave in the eastern hills. Fight past the spiked barricade and free the courier.",
           "targetMarkerId": "loc_03_bramblewatch_cave",
           "markerName": "Bramblewatch Cave"
@@ -2917,7 +2852,7 @@
           "targetHubName": null,
           "giver": "Fort Quartermaster",
           "miniBoss": "Shield Guardian Prototype",
-          "reward": "170s | 250 XP | Lesser Draft",
+          "reward": "78s | 250 XP | Lesser Draft",
           "description": "Residual Earth-Plane tremors spilling from The Ashen Gate have awakened derelict stone-and-iron war prototypes atop the grassy western knoll. Smash the towering Shield Guardian before it marches on the hill-fort gates.",
           "targetMarkerId": "qf_r1_q020_sentinel_knoll",
           "markerName": "Scorched Sentinel Knoll",
@@ -2936,7 +2871,7 @@
           "targetHubName": null,
           "giver": "Fort Armorer",
           "miniBoss": "Rust Monster Alpha",
-          "reward": "165s | 240 XP | Lesser Draft",
+          "reward": "75s | 240 XP | Lesser Draft",
           "description": "Chittering rift creatures that melt forged steel on touch have burrowed under the fort's forward munitions depot cave. Exterminate the chitinous nest and save the remaining halberd crates before everything turns to red powder.",
           "targetMarkerId": "bf_portal_rift_monster_nest",
           "markerName": "Rusted Ore-Cave Dump",
@@ -2955,7 +2890,7 @@
           "targetHubName": null,
           "giver": "Hill-Fort Lookout",
           "miniBoss": "Gargoyle & Grick Pack",
-          "reward": "180s | 265 XP | Lesser Draft",
+          "reward": "85s | 265 XP | Lesser Draft",
           "description": "Dusk patrols of rock-camouflaged gricks and swooping gargoyles keep snuffing out the hill-fort's early warning brazier near Portal #1. Defend the rocky beacon ledge until the watch signal burns clear across the Crownlands.",
           "targetMarkerId": "qf_r1_q022_eastern_beacon_ridge",
           "markerName": "Eastern Ridge Beacon",
@@ -2984,8 +2919,7 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Crownlands",
-      "interiorAssetPath": "assets/maps/interiors/hub_crownlands_hill_fort.webp"
+      "playerRegion": "The Crownlands"
     },
     {
       "id": "hub_meadowbrook_hamlet",
@@ -3008,6 +2942,9 @@
       "y": 3624,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_meadowbrook_hamlet.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_meadowbrook_hamlet_tavern.webp",
+      "tavernName": "The Golden Sheaf Tavern",
       "linkedFerryId": null,
       "description": "Sunny meadow agricultural village flanked by split-rail sheep pastures and wheat barns.",
       "services": [
@@ -3028,7 +2965,7 @@
           "targetHubName": null,
           "giver": "Meadowbrook Herder",
           "miniBoss": "Timber Wolf Pack",
-          "reward": "115s | 155 XP | Lesser Draft",
+          "reward": "48s | 155 XP | Lesser Draft",
           "description": "Hungry timber wolves driven down from the eastern hills have broken through the split-rail fences of the hamlet's outlying sheep barn. Hold the timber barn door until the herders drive the last flocks inside.",
           "targetMarkerId": "qf_r1_raided_shepherd_barn",
           "markerName": "Meadowbrook Outer Sheepfold"
@@ -3044,7 +2981,7 @@
           "targetHubName": null,
           "giver": "Hamlet Farmer",
           "miniBoss": "Giant Spider Brood",
-          "reward": "130s | 180 XP | Lesser Draft",
+          "reward": "55s | 180 XP | Lesser Draft",
           "description": "Iron-thieving thugs hid Meadowbrook's spring ploughshares inside a stony hillside burrow only to get webbed up by nesting giant spiders. Cut open the silk-choked burrow and haul the town's metalwork back.",
           "targetMarkerId": "qf_r1_q011_spider_plough_burrow",
           "markerName": "Webbed Plough-Hill Burrow"
@@ -3060,7 +2997,7 @@
           "targetHubName": null,
           "giver": "Hamlet Bailiff",
           "miniBoss": "Road Bandit Lieutenant",
-          "reward": "135s | 190 XP | Lesser Draft",
+          "reward": "58s | 190 XP | Lesser Draft",
           "description": "Someone torched Meadowbrook's tax barn right after stealing the village tithe box, hoping fire would hide the theft. Follow soot-stained wagon ruts into the brush clearing and recover the bailiff's ledger from the bandit lieutenant.",
           "targetMarkerId": "qf_r1_q012_charred_stash_clearing",
           "markerName": "Ash-Sack Stash Clearing"
@@ -3076,7 +3013,7 @@
           "targetHubName": null,
           "giver": "Grain Merchant",
           "miniBoss": "Animated Sword Ambush",
-          "reward": "140s | 200 XP | Lesser Draft",
+          "reward": "60s | 200 XP | Lesser Draft",
           "description": "Wild blades animated by rogue Ashen Gate magic have pinned down the spring seed caravan halfway along the sunny wheat lane to Oakhaven. Smash the floating steel ambushers and clear the wagon turn.",
           "targetMarkerId": "qf_r1_q013_southern_seed_lane",
           "markerName": "Southern Seed-Wagon Turn"
@@ -3102,10 +3039,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Crownlands",
-      "interiorAssetPath": "assets/maps/interiors/hub_meadowbrook_hamlet.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_meadowbrook_hamlet_tavern.webp",
-      "tavernName": "The Golden Sheaf Tavern"
+      "playerRegion": "The Crownlands"
     },
     {
       "id": "hub_brinecliff_watch_fort",
@@ -3128,6 +3062,7 @@
       "y": 3744,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_brinecliff_watch_fort.webp",
       "linkedFerryId": null,
       "description": "Limestone sea-cliff patrol fort watching coastal reefs and smuggler coves.",
       "services": [
@@ -3222,8 +3157,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Saltmarsh Coast",
-      "interiorAssetPath": "assets/maps/interiors/hub_brinecliff_watch_fort.webp"
+      "playerRegion": "Saltmarsh Coast"
     },
     {
       "id": "hub_reedfen_village",
@@ -3246,6 +3180,9 @@
       "y": 2784,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_reedfen_village.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_reedfen_village_tavern.webp",
+      "tavernName": "The Willow-Lantern Tavern",
       "linkedFerryId": null,
       "description": "Saltmarsh reed-thatch fishing village anchored on solid marsh turf with drying nets and skiffs.",
       "services": [
@@ -3350,10 +3287,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Saltmarsh Coast",
-      "interiorAssetPath": "assets/maps/interiors/hub_reedfen_village.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_reedfen_village_tavern.webp",
-      "tavernName": "The Willow-Lantern Tavern"
+      "playerRegion": "Saltmarsh Coast"
     },
     {
       "id": "hub_tidewater_keep",
@@ -3376,6 +3310,7 @@
       "y": 5136,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/hub_tidewater_keep.webp",
       "linkedFerryId": null,
       "description": "Coastal granite sea-wall castle guarding the treacherous approach to The Sunken Maw, with an inner courtyard sparring arena.",
       "services": [
@@ -3477,8 +3412,7 @@
         "Armory & Provisions",
         "Fighting Arena"
       ],
-      "playerRegion": "Saltmarsh Coast",
-      "interiorAssetPath": "assets/maps/interiors/hub_tidewater_keep.webp"
+      "playerRegion": "Saltmarsh Coast"
     },
     {
       "id": "hub_goldmoor_village",
@@ -3501,6 +3435,9 @@
       "y": 5496,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_goldmoor_village.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_goldmoor_village_tavern.webp",
+      "tavernName": "The Drover's Flute Tavern",
       "linkedFerryId": null,
       "description": "Sunny golden-ochre highland farming settlement catching border skirmish spillover.",
       "services": [
@@ -3593,10 +3530,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Thornwall Warfronts",
-      "interiorAssetPath": "assets/maps/interiors/hub_goldmoor_village.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_goldmoor_village_tavern.webp",
-      "tavernName": "The Drover's Flute Tavern"
+      "playerRegion": "Thornwall Warfronts"
     },
     {
       "id": "hub_slatepeak_mining_fort",
@@ -3619,6 +3553,7 @@
       "y": 3336,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_slatepeak_mining_fort.webp",
       "linkedFerryId": null,
       "description": "Gray-slate quarry fortress overlooking Highland iron smelters and passes.",
       "services": [
@@ -3728,8 +3663,7 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "Thornwall Warfronts",
-      "interiorAssetPath": "assets/maps/interiors/hub_slatepeak_mining_fort.webp"
+      "playerRegion": "Thornwall Warfronts"
     },
     {
       "id": "hub_thornwall_border_castle",
@@ -3752,6 +3686,7 @@
       "y": 2496,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/hub_thornwall_border_castle.webp",
       "linkedFerryId": null,
       "description": "Golden-hour border citadel holding the loyalist front line against House Hollowstone.",
       "services": [
@@ -3845,8 +3780,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Thornwall Warfronts",
-      "interiorAssetPath": "assets/maps/interiors/hub_thornwall_border_castle.webp"
+      "playerRegion": "Thornwall Warfronts"
     },
     {
       "id": "hub_timberfall_village",
@@ -3869,6 +3803,9 @@
       "y": 2616,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_timberfall_village.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_timberfall_village_tavern.webp",
+      "tavernName": "The Pine-Log Sawyer Tavern",
       "linkedFerryId": null,
       "description": "Emerald forest sawyer settlement bordered by stacked pine timber and deep canopy trails.",
       "services": [
@@ -3961,10 +3898,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Verdant Weald",
-      "interiorAssetPath": "assets/maps/interiors/hub_timberfall_village.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_timberfall_village_tavern.webp",
-      "tavernName": "The Pine-Log Sawyer Tavern"
+      "playerRegion": "The Verdant Weald"
     },
     {
       "id": "hub_mosswood_hamlet",
@@ -3987,6 +3921,9 @@
       "y": 4464,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_mosswood_hamlet.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_mosswood_hamlet_tavern.webp",
+      "tavernName": "The Moss-Hearth Tavern",
       "linkedFerryId": null,
       "description": "Sun-dappled mossy glade hamlet tucked beside ancient standing stones and forest shrines.",
       "services": [
@@ -4079,10 +4016,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Verdant Weald",
-      "interiorAssetPath": "assets/maps/interiors/hub_mosswood_hamlet.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_mosswood_hamlet_tavern.webp",
-      "tavernName": "The Moss-Hearth Tavern"
+      "playerRegion": "The Verdant Weald"
     },
     {
       "id": "hub_greenwarden_fort",
@@ -4105,6 +4039,7 @@
       "y": 3216,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_greenwarden_fort.webp",
       "linkedFerryId": null,
       "description": "Oak-log ranger fortress holding the quarantine border before the darkened plague woods, with an inner sparring pit.",
       "services": [
@@ -4217,8 +4152,7 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Verdant Weald",
-      "interiorAssetPath": "assets/maps/interiors/hub_greenwarden_fort.webp"
+      "playerRegion": "The Verdant Weald"
     },
     {
       "id": "hub_blightwatch_keep",
@@ -4241,6 +4175,7 @@
       "y": 5376,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/hub_blightwatch_keep.webp",
       "linkedFerryId": null,
       "description": "Stone quarantine fortress guarding the shadowed fungal woods approaching The Rotspire.",
       "services": [
@@ -4333,8 +4268,7 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Verdant Weald",
-      "interiorAssetPath": "assets/maps/interiors/hub_blightwatch_keep.webp"
+      "playerRegion": "The Verdant Weald"
     },
     {
       "id": "hub_sunstone_caravan_post",
@@ -4357,6 +4291,7 @@
       "y": 6648,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_sunstone_caravan_post.webp",
       "linkedFerryId": null,
       "description": "Desert trade caravan stop tucked beside wind-carved dunes and sandstone water cellars.",
       "services": [
@@ -4449,8 +4384,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Sun-Scorched Isles",
-      "interiorAssetPath": "assets/maps/interiors/hub_sunstone_caravan_post.webp"
+      "playerRegion": "Sun-Scorched Isles"
     },
     {
       "id": "hub_sandwall_citadel",
@@ -4473,6 +4407,7 @@
       "y": 3816,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/hub_sandwall_citadel.webp",
       "linkedFerryId": null,
       "description": "Sun-baked orange sandstone desert fortress holding the frontier approach against slavers and dragons, with a desert garrison arena.",
       "services": [
@@ -4567,8 +4502,7 @@
         "Armory & Provisions",
         "Fighting Arena"
       ],
-      "playerRegion": "Sun-Scorched Isles",
-      "interiorAssetPath": "assets/maps/interiors/hub_sandwall_citadel.webp"
+      "playerRegion": "Sun-Scorched Isles"
     },
     {
       "id": "hub_clearwater_lake_village",
@@ -4591,6 +4525,9 @@
       "y": 1080,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_clearwater_lake_village.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_clearwater_lake_village_tavern.webp",
+      "tavernName": "The Sapphire Skiff Tavern",
       "linkedFerryId": null,
       "description": "Snow-free alpine lakeside fishing town resting beside crystal sapphire highland waters.",
       "services": [
@@ -4683,10 +4620,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Ironcrest Highlands",
-      "interiorAssetPath": "assets/maps/interiors/hub_clearwater_lake_village.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_clearwater_lake_village_tavern.webp",
-      "tavernName": "The Sapphire Skiff Tavern"
+      "playerRegion": "Ironcrest Highlands"
     },
     {
       "id": "hub_cragwatch_fort",
@@ -4709,6 +4643,7 @@
       "y": 1584,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_cragwatch_fort.webp",
       "linkedFerryId": null,
       "description": "Granite ridge garrison guarding high highland wyvern territories and mountain passes.",
       "services": [
@@ -4801,8 +4736,7 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "Ironcrest Highlands",
-      "interiorAssetPath": "assets/maps/interiors/hub_cragwatch_fort.webp"
+      "playerRegion": "Ironcrest Highlands"
     },
     {
       "id": "hub_stormhold_citadel",
@@ -4825,6 +4759,7 @@
       "y": 3648,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/hub_stormhold_citadel.webp",
       "linkedFerryId": null,
       "description": "Monumental storm-lashed granite citadel standing below The Storm-Crowned Spire, hosting a highland champion arena.",
       "services": [
@@ -4919,8 +4854,7 @@
         "Armory & Provisions",
         "Fighting Arena"
       ],
-      "playerRegion": "Ironcrest Highlands",
-      "interiorAssetPath": "assets/maps/interiors/hub_stormhold_citadel.webp"
+      "playerRegion": "Ironcrest Highlands"
     },
     {
       "id": "hub_frostmere_village",
@@ -4943,6 +4877,9 @@
       "y": 4872,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_frostmere_village.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_frostmere_village_tavern.webp",
+      "tavernName": "The Wolf-Pelt Hearth Tavern",
       "linkedFerryId": null,
       "description": "Snowbound timber trapper village perched beside a frozen cobalt lake.",
       "services": [
@@ -5035,10 +4972,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Frostbound Reach",
-      "interiorAssetPath": "assets/maps/interiors/hub_frostmere_village.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_frostmere_village_tavern.webp",
-      "tavernName": "The Wolf-Pelt Hearth Tavern"
+      "playerRegion": "Frostbound Reach"
     },
     {
       "id": "hub_glacierwatch_fort",
@@ -5061,6 +4995,7 @@
       "y": 5640,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_glacierwatch_fort.webp",
       "linkedFerryId": null,
       "description": "Frost-draped granite and dark iron border fortress anchored beside towering glacial ice cliffs.",
       "services": [
@@ -5153,8 +5088,7 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "Frostbound Reach",
-      "interiorAssetPath": "assets/maps/interiors/hub_glacierwatch_fort.webp"
+      "playerRegion": "Frostbound Reach"
     },
     {
       "id": "hub_icecrest_holdfast",
@@ -5177,6 +5111,7 @@
       "y": 3648,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/hub_icecrest_holdfast.webp",
       "linkedFerryId": null,
       "description": "Fortified northern clan stone lodge and ringwall defying Marshal Bleakwatch's levies.",
       "services": [
@@ -5270,8 +5205,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Frostbound Reach",
-      "interiorAssetPath": "assets/maps/interiors/hub_icecrest_holdfast.webp"
+      "playerRegion": "Frostbound Reach"
     },
     {
       "id": "hub_cinderwatch_bastion",
@@ -5294,6 +5228,7 @@
       "y": 3785,
       "scale": 1.45,
       "triggerRadius": 128,
+      "interiorAssetPath": "assets/maps/interiors/hub_cinderwatch_bastion.webp",
       "linkedFerryId": null,
       "description": "Volcanic basalt forward bastion holding ash-scree lines against Eclipse Cultists.",
       "services": [
@@ -5386,8 +5321,7 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Dreadwaste",
-      "interiorAssetPath": "assets/maps/interiors/hub_cinderwatch_bastion.webp"
+      "playerRegion": "The Dreadwaste"
     },
     {
       "id": "hub_ashvale_village",
@@ -5410,6 +5344,9 @@
       "y": 4575,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_ashvale_village.webp",
+      "tavernAssetPath": "assets/maps/taverns/hub_ashvale_village_tavern.webp",
+      "tavernName": "The Ember-Hearth Survivor Tavern",
       "linkedFerryId": null,
       "description": "Fortified ash-basin survivor town guarding routes toward the Dreadwaste War-Pit ruins.",
       "services": [
@@ -5519,10 +5456,7 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Dreadwaste",
-      "interiorAssetPath": "assets/maps/interiors/hub_ashvale_village.webp",
-      "tavernAssetPath": "assets/maps/taverns/hub_ashvale_village_tavern.webp",
-      "tavernName": "The Ember-Hearth Survivor Tavern"
+      "playerRegion": "The Dreadwaste"
     },
     {
       "id": "hub_scorchwall_fort",
@@ -5545,6 +5479,7 @@
       "y": 6912,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/hub_scorchwall_fort.webp",
       "linkedFerryId": null,
       "description": "Obsidian coastal fort overlooking the haunted ash bay and Zone 20 approaches toward Black Keep.",
       "services": [
@@ -5638,8 +5573,7 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Dreadwaste",
-      "interiorAssetPath": "assets/maps/interiors/hub_scorchwall_fort.webp"
+      "playerRegion": "The Dreadwaste"
     },
     {
       "id": "outpost_z01_meadowgate",
@@ -5652,7 +5586,7 @@
       "category": "permanent",
       "mapId": "map_01",
       "region": 1,
-      "kind": "Meadow Watch-Post",
+      "kind": "Meadow Palisade Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z01_meadowgate.webp",
@@ -5662,8 +5596,9 @@
       "y": 6608,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z01_meadowgate.webp",
       "linkedFerryId": null,
-      "description": "Sunlit Crownlands patrol camp with peaked canvas tents, a split-rail horse hitching post, and lantern-lit trophy racks where royal scouts post silver bounties on wandering wolves and pasture pests.",
+      "description": "Sunlit Crownlands oak-timber palisade hunting fort with a pointed gatehouse tower, split-rail hitching post, and lantern-lit horned skull arch where royal scouts post silver bounties on wandering wolves and pasture pests.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -5675,8 +5610,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Frontier Watch-Post",
-      "playerDescription": "Sunlit Crownlands patrol camp with peaked canvas tents, hitching rails, and lantern-lit trophy racks where royal scouts post silver bounties on beasts prowling the meadows.",
+      "playerKind": "Meadow Palisade Fort",
+      "playerDescription": "Sunlit Crownlands oak-timber palisade hunting fort with a pointed gatehouse tower, hitching rails, and lantern-lit trophy arches where royal scouts post silver bounties on beasts prowling the meadows.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -5694,7 +5629,7 @@
       "category": "permanent",
       "mapId": "map_01",
       "region": 1,
-      "kind": "Woodland Ranger Camp",
+      "kind": "Woodland Palisade Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z02_oakwood.webp",
@@ -5704,8 +5639,9 @@
       "y": 4344,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z02_oakwood.webp",
       "linkedFerryId": null,
-      "description": "Sun-dappled oak forest timber lean-to lodge fitted with wolf-pelt drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols against aggressive woodland beasts.",
+      "description": "Sun-dappled oak-log palisade stockade fort fitted with a bark-shingled gatehouse, wolf-pelt drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols against aggressive woodland beasts.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -5717,8 +5653,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Woodland Ranger Camp",
-      "playerDescription": "Sun-dappled timber lean-to lodge fitted with drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols through the oak groves.",
+      "playerKind": "Woodland Palisade Fort",
+      "playerDescription": "Sun-dappled oak-log palisade stockade fort fitted with a bark-shingled gatehouse, drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols through the oak groves.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -5746,6 +5682,7 @@
       "y": 1176,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z03_slate_ridge.webp",
       "linkedFerryId": null,
       "description": "Gray-slate hillside bunker with a low timber palisade, brass signal horn, and outdoor map table overlooking the upland foothill trails toward eastern raider ridges.",
       "services": [
@@ -5778,7 +5715,7 @@
       "category": "permanent",
       "mapId": "map_01",
       "region": 2,
-      "kind": "Coastal Hunter Landing",
+      "kind": "Coastal Palisade Sea-Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z04_brinefen.webp",
@@ -5788,8 +5725,9 @@
       "y": 1800,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z04_brinefen.webp",
       "linkedFerryId": null,
-      "description": "Salt-weathered coastal timber landing stacked with wooden crab traps, harpoon racks, and sun awnings where shoreline trackers post bounties on reef and tide-pool beasts.",
+      "description": "Salt-weathered coastal stone-and-driftwood palisade sea-fort stacked with wooden crab cages, harpoon racks, and watch lanterns where shoreline trackers post bounties on reef and tide-pool beasts.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -5801,8 +5739,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Coastal Hunter Landing",
-      "playerDescription": "Salt-weathered coastal timber landing stacked with crab traps, harpoon racks, and sun awnings where shoreline trackers post bounties on tide-pool creatures.",
+      "playerKind": "Coastal Palisade Sea-Fort",
+      "playerDescription": "Salt-weathered coastal stone-and-driftwood palisade sea-fort stacked with crab cages, harpoon racks, and watch lanterns where shoreline trackers post bounties on tide-pool creatures.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -5820,7 +5758,7 @@
       "category": "permanent",
       "mapId": "map_01",
       "region": 2,
-      "kind": "Saltmarsh Stilt-Post",
+      "kind": "Saltmarsh Palisade Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z05_bogwarden.webp",
@@ -5830,8 +5768,9 @@
       "y": 7152,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z05_bogwarden.webp",
       "linkedFerryId": null,
-      "description": "Elevated saltmarsh timber platform anchored on solid marsh turf amidst cattail reeds, hung with netting and smoking iron smudge pots where mire wardens thin dangerous bog creatures.",
+      "description": "Elevated cypress-timber saltmarsh palisade fort anchored on thick wooden pilings and solid marsh turf amidst cattail reeds, hung with netting and smoking iron smudge pots where mire wardens thin dangerous bog creatures.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -5843,8 +5782,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Saltmarsh Stilt-Post",
-      "playerDescription": "Elevated saltmarsh timber platform set on solid turf amidst cattail reeds, hung with netting and smoking smudge pots where mire wardens cull bog monsters.",
+      "playerKind": "Saltmarsh Palisade Fort",
+      "playerDescription": "Elevated cypress-timber saltmarsh palisade fort anchored on thick wooden pilings amidst cattail reeds, hung with netting and smoking smudge pots where mire wardens cull bog monsters.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -5862,7 +5801,7 @@
       "category": "permanent",
       "mapId": "map_02",
       "region": 3,
-      "kind": "Grassland Tracker Camp",
+      "kind": "Highland Palisade Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z06_ochre_downs.webp",
@@ -5872,8 +5811,9 @@
       "y": 6696,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z06_ochre_downs.webp",
       "linkedFerryId": null,
-      "description": "Canvas patrol tents, a wooden horse corral, and crossbow target bales pitched across golden-ochre meadowlands where frontier trackers post bounties on prowling worgs and pasture predators.",
+      "description": "Earth-and-oak frontier palisade fort with corner watchtowers, an enclosed horse paddock, and crossbow target bales set across golden-ochre meadowlands where frontier trackers post bounties on prowling worgs and pasture predators.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -5885,8 +5825,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Highland Tracker Camp",
-      "playerDescription": "Canvas patrol tents, a wooden horse corral, and crossbow bales pitched across golden-ochre grasslands where trackers post bounties on prowling pasture packs.",
+      "playerKind": "Highland Palisade Fort",
+      "playerDescription": "Earth-and-oak frontier palisade fort with corner watchtowers, an enclosed horse paddock, and crossbow bales set across golden-ochre grasslands where trackers post bounties on prowling pasture packs.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -5914,6 +5854,7 @@
       "y": 2856,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z07_cragspire.webp",
       "linkedFerryId": null,
       "description": "Gray-slate stone watch-outpost tucked beneath crag boulders beside a glowing tripod brazier, staffed by iron-route wardens paying silver to clear giants and ridge beasts.",
       "services": [
@@ -5956,6 +5897,7 @@
       "y": 2040,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z08_fernbrook.webp",
       "linkedFerryId": null,
       "description": "Moss-roofed timber ranger station in a bright Weald clearing equipped with fletching benches and stacked lumber where border scouts monitor creatures emerging from the deeper woods.",
       "services": [
@@ -5988,7 +5930,7 @@
       "category": "permanent",
       "mapId": "map_02",
       "region": 4,
-      "kind": "Canopy Lookout Post",
+      "kind": "Treetop Palisade Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z09_canopy_watch.webp",
@@ -5998,8 +5940,9 @@
       "y": 4104,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z09_canopy_watch.webp",
       "linkedFerryId": null,
-      "description": "Elevated archer platform lashed high around ancient oaks with rope ladders and brass signal horns keeping watch over dense forest canopy trails.",
+      "description": "Enclosed cedar palisade treetop fort wedged securely around ancient oaks with rope hoists, archer galleries, and brass signal horns keeping watch over dense forest canopy trails.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -6011,8 +5954,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Canopy Lookout Post",
-      "playerDescription": "Elevated archer platform lashed high around ancient oaks with rope ladders and brass signal horns keeping vigil beneath tangled forest boughs.",
+      "playerKind": "Treetop Palisade Fort",
+      "playerDescription": "Enclosed cedar palisade treetop fort wedged securely around ancient oaks with rope hoists, archer galleries, and brass signal horns keeping vigil beneath tangled forest boughs.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -6040,6 +5983,7 @@
       "y": 6432,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z10_mire_edge.webp",
       "linkedFerryId": null,
       "description": "Timber perimeter palisade lit by green lime-smoke braziers and apothecary racks where wardens hire brave hands to cull spore-touched blight horrors from the glade.",
       "services": [
@@ -6072,7 +6016,7 @@
       "category": "permanent",
       "mapId": "map_03",
       "region": 5,
-      "kind": "Desert Patrol Post",
+      "kind": "Desert Palisade Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z11_dune_runner.webp",
@@ -6082,8 +6026,9 @@
       "y": 5880,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z11_dune_runner.webp",
       "linkedFerryId": null,
-      "description": "Sun-bleached canvas patrol camp pitched beside clay water amphorae and spear stands where nomad outriders trade silver bounties for thinning sandstone dune beasts.",
+      "description": "Sun-baked sandstone-and-cedar desert palisade fort fitted with spiked stockade ramparts, clay water amphorae, and spear stands where nomad outriders trade silver bounties for thinning sandstone dune beasts.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -6095,8 +6040,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Desert Patrol Post",
-      "playerDescription": "Sun-bleached canvas camp pitched beside clay water amphorae and spear stands where desert outriders pay silver bounties for hunting sandstone beasts.",
+      "playerKind": "Desert Palisade Fort",
+      "playerDescription": "Sun-baked sandstone-and-cedar desert palisade fort fitted with spiked stockade ramparts, clay water amphorae, and spear stands where desert outriders pay silver bounties for hunting sandstone beasts.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -6114,7 +6059,7 @@
       "category": "permanent",
       "mapId": "map_03",
       "region": 5,
-      "kind": "Oasis Hunter Pavilion",
+      "kind": "Oasis Palisade Fort",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/outpost_z12_palm_spring.webp",
@@ -6124,8 +6069,9 @@
       "y": 5832,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z12_palm_spring.webp",
       "linkedFerryId": null,
-      "description": "Shaded palm-oasis wooden hunter pavilion hung with desert skull trophies and brass lanterns where caravan guards water mounts and post local oasis bounties.",
+      "description": "Desert palm-oasis fortified sandstone-and-timber palisade outpost with corner watchtowers, mounted beast-skull trophies, and brass lanterns where caravan guards water mounts and post local oasis bounties.",
       "services": [
         "Free Field Rest",
         "Hunt Quartermaster (Local Bounties)"
@@ -6137,8 +6083,8 @@
       "factionPrimaryColor": "#d7a648",
       "factionSecondaryColor": "#6e1f22",
       "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Oasis Hunter Pavilion",
-      "playerDescription": "Shaded palm-oasis wooden pavilion hung with bleached desert trophies and brass lanterns where caravan guards water mounts and post hunting contracts.",
+      "playerKind": "Oasis Palisade Fort",
+      "playerDescription": "Desert palm-oasis fortified sandstone-and-timber palisade outpost with corner watchtowers, bleached desert trophies, and brass lanterns where caravan guards water mounts and post hunting contracts.",
       "playerServices": [
         "Rest Camp",
         "Hunter Bounties"
@@ -6166,6 +6112,7 @@
       "y": 2832,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z13_mesa_watch.webp",
       "linkedFerryId": null,
       "description": "Terracotta sandstone lookout shelter fitted with a brass spyglass tripod scanning outer desert canyon rims for wyverns and slaver outriders.",
       "services": [
@@ -6208,6 +6155,7 @@
       "y": 648,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z14_pine_valley.webp",
       "linkedFerryId": null,
       "description": "Steep slate-roofed timber lodge set across sunny green alpine meadows and pine stands with curing pelts and a stone fire-ring where valley wardens post alpine hunting contracts.",
       "services": [
@@ -6250,6 +6198,7 @@
       "y": 1800,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z15_highland_crag.webp",
       "linkedFerryId": null,
       "description": "Exposed gray-granite mountain bunker ringed with dragon-scale ward shields and pike racks standing vigil below the stormy high passes.",
       "services": [
@@ -6292,6 +6241,7 @@
       "y": 6768,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z16_snowdrift.webp",
       "linkedFerryId": null,
       "description": "Fur-draped log trapper post beside wooden cargo sleds and glowing oil lamps sheltered inside frosted pines where northern scouts track frost-beasts.",
       "services": [
@@ -6334,6 +6284,7 @@
       "y": 2952,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z17_glacier_edge.webp",
       "linkedFerryId": null,
       "description": "Cobalt ice-cliff stone patrol redoubt fortified with silvered iron ward stakes and cold-flame braziers to keep abyssal fiends from spilling off the glaciers.",
       "services": [
@@ -6376,6 +6327,7 @@
       "y": 2304,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z18_ashen_ridge.webp",
       "linkedFerryId": null,
       "description": "Iron-shuttered gray stone bunker astride the volcanic ash-scree border ridge where vanguard scouts track ash-plain prowlers crossing the border ridge.",
       "services": [
@@ -6418,6 +6370,7 @@
       "y": 3599,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z19_cinder_plain.webp",
       "linkedFerryId": null,
       "description": "Spiked iron-and-canvas stockade burning orange ember braziers across charred wasteland dunes where veteran slayers post high-paying Dreadwaste bounties.",
       "services": [
@@ -6460,6 +6413,7 @@
       "y": 5163,
       "scale": 1.0,
       "triggerRadius": 88,
+      "interiorAssetPath": "assets/maps/interiors/outpost_z20_black_crag.webp",
       "linkedFerryId": null,
       "description": "Final obsidian-basalt bastion outside Black Keep consecrated under silvered ward banners where elite hunters strike at Shadowfell abominations.",
       "services": [
@@ -6480,174 +6434,6 @@
         "Hunter Bounties"
       ],
       "playerRegion": "The Dreadwaste"
-    },
-    {
-      "id": "tr_port_map01_royal_trade",
-      "locNum": null,
-      "zoneNum": null,
-      "progOrder": 1074,
-      "levelRange": "All Regions",
-      "visibility": "always_visible",
-      "name": "Royal Trade Port Town",
-      "category": "travel",
-      "mapId": "map_01",
-      "region": null,
-      "kind": "Map 1 Sea-Travel Port Town",
-      "isPortal": false,
-      "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_port_map01_royal_trade.webp",
-      "placed": true,
-      "locked": false,
-      "x": 3871,
-      "y": 7335,
-      "scale": 1.25,
-      "triggerRadius": 110,
-      "linkedFerryId": null,
-      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
-      "services": [
-        "Inter-Continent Sea Travel Port",
-        "Free Harbor Rest"
-      ],
-      "locationType": "Port Town",
-      "factionId": "crown_loyalists",
-      "factionName": "Highcrown Loyalists",
-      "factionAllegiance": "Friendly",
-      "factionPrimaryColor": "#d7a648",
-      "factionSecondaryColor": "#6e1f22",
-      "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
-      "playerKind": "Sea-Trade Harbor",
-      "playerDescription": "Royal timber piers moored with deep-water trading ships bound across the open seas between Ethoria's four island continents.",
-      "playerServices": [
-        "Sea Voyages",
-        "Free Harbor Rest"
-      ],
-      "playerRegion": "Southern Coast"
-    },
-    {
-      "id": "tr_port_map02_highland_cove",
-      "locNum": null,
-      "zoneNum": null,
-      "progOrder": 1075,
-      "levelRange": "All Regions",
-      "visibility": "always_visible",
-      "name": "Highland Cove Port Town",
-      "category": "travel",
-      "mapId": "map_02",
-      "region": null,
-      "kind": "Map 2 Sea-Travel Port Town",
-      "isPortal": false,
-      "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_port_map02_highland_cove.webp",
-      "placed": false,
-      "locked": false,
-      "x": null,
-      "y": null,
-      "scale": 1.25,
-      "triggerRadius": 110,
-      "linkedFerryId": null,
-      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
-      "services": [
-        "Inter-Continent Sea Travel Port",
-        "Free Harbor Rest"
-      ],
-      "locationType": "Port Town",
-      "factionId": "free_towns",
-      "factionName": "Free Towns & Guilds",
-      "factionAllegiance": "Friendly",
-      "factionPrimaryColor": "#53b09c",
-      "factionSecondaryColor": "#1b3d39",
-      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
-      "playerKind": "Sea-Trade Harbor",
-      "playerDescription": "Sheltered cliff cove anchorage where weather-beaten cargo vessels haul Highland iron and carry travelers to distant continent shores.",
-      "playerServices": [
-        "Sea Voyages",
-        "Free Harbor Rest"
-      ],
-      "playerRegion": "Thornwall Cove"
-    },
-    {
-      "id": "tr_port_map03_desert_harbor",
-      "locNum": null,
-      "zoneNum": null,
-      "progOrder": 1076,
-      "levelRange": "All Regions",
-      "visibility": "always_visible",
-      "name": "Desert Harbor Port Town",
-      "category": "travel",
-      "mapId": "map_03",
-      "region": null,
-      "kind": "Map 3 Sea-Travel Port Town",
-      "isPortal": false,
-      "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_port_map03_desert_harbor.webp",
-      "placed": false,
-      "locked": false,
-      "x": null,
-      "y": null,
-      "scale": 1.25,
-      "triggerRadius": 110,
-      "linkedFerryId": null,
-      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
-      "services": [
-        "Inter-Continent Sea Travel Port",
-        "Free Harbor Rest"
-      ],
-      "locationType": "Port Town",
-      "factionId": "free_towns",
-      "factionName": "Free Towns & Guilds",
-      "factionAllegiance": "Friendly",
-      "factionPrimaryColor": "#53b09c",
-      "factionSecondaryColor": "#1b3d39",
-      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
-      "playerKind": "Sea-Trade Harbor",
-      "playerDescription": "Sun-bleached stone seawalls and spice-laden docks dispatching lateen vessels across tropical straits and distant seas.",
-      "playerServices": [
-        "Sea Voyages",
-        "Free Harbor Rest"
-      ],
-      "playerRegion": "Sun-Scorched Bay"
-    },
-    {
-      "id": "tr_port_map04_arctic_seaport",
-      "locNum": null,
-      "zoneNum": null,
-      "progOrder": 1077,
-      "levelRange": "All Regions",
-      "visibility": "always_visible",
-      "name": "Arctic Sea-Port Town",
-      "category": "travel",
-      "mapId": "map_04",
-      "region": null,
-      "kind": "Map 4 Sea-Travel Port Town",
-      "isPortal": false,
-      "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_port_map04_arctic_seaport.webp",
-      "placed": false,
-      "locked": false,
-      "x": null,
-      "y": null,
-      "scale": 1.25,
-      "triggerRadius": 110,
-      "linkedFerryId": null,
-      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
-      "services": [
-        "Inter-Continent Sea Travel Port",
-        "Free Harbor Rest"
-      ],
-      "locationType": "Port Town",
-      "factionId": "free_towns",
-      "factionName": "Free Towns & Guilds",
-      "factionAllegiance": "Friendly",
-      "factionPrimaryColor": "#53b09c",
-      "factionSecondaryColor": "#1b3d39",
-      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
-      "playerKind": "Sea-Trade Harbor",
-      "playerDescription": "Ice-broken harbor pilings lined with heavy iron lanterns guiding sturdy northern ships safely to warmer waters.",
-      "playerServices": [
-        "Sea Voyages",
-        "Free Harbor Rest"
-      ],
-      "playerRegion": "Frostbound Bay"
     },
     {
       "id": "qf_r1_q001_aqueduct_grate",
@@ -6683,7 +6469,7 @@
         "Picked up at: Highcrown (Orin / Capital Guard)",
         "Journal Token · Resolves Inside Highcrown",
         "Mini-Boss: Garrick Houndmaster & Wolves",
-        "Reward: 60s | 80 XP | Lesser Draft"
+        "Reward: 18s | 80 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -6694,7 +6480,7 @@
           "title": "Seal the Aqueduct Grate",
           "giver": "Orin / Capital Guard",
           "miniBoss": "Garrick Houndmaster & Wolves",
-          "reward": "60s | 80 XP | Lesser Draft",
+          "reward": "18s | 80 XP | Lesser Draft",
           "description": "During the months of unrest after Garrick abandoned Highcrown, rogue kennel trackers pried open the neglected dry aqueduct grate behind Highcrown's overgrown palace gardens, letting war-hounds prowl beneath the Coliseum undercroft. Descend through the garden grate, defeat the Garrick Houndmaster and his wolves guarding the culvert control chamber, and pull the gate lever to seal the breach shut."
         }
       ],
@@ -6737,7 +6523,7 @@
         "Picked up at: Highcrown (Coliseum Armorer)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Road Bandits",
-        "Reward: 75s | 100 XP | Lesser Draft"
+        "Reward: 22s | 100 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -6748,7 +6534,7 @@
           "title": "Salvage Koren's Forge-Kit",
           "giver": "Coliseum Armorer",
           "miniBoss": "Road Bandits",
-          "reward": "75s | 100 XP | Lesser Draft",
+          "reward": "22s | 100 XP | Lesser Draft",
           "description": "During the succession riots that rocked Highcrown before Garrick fled north, Coliseum armorers stashed heavy repair trunks—including tools forged for Koren—along the brushwood hollow just beyond the outer capital road. Clear the opportunistic bandits looting the wreck and bring the steel back to Highcrown."
         }
       ],
@@ -6791,7 +6577,7 @@
         "Picked up at: Highcrown (Capital Loyalist Guard)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Garrick Deserter Scout",
-        "Reward: 90s | 120 XP | Lesser Draft"
+        "Reward: 26s | 120 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -6802,7 +6588,7 @@
           "title": "Highcrown Perimeter Watch",
           "giver": "Capital Loyalist Guard",
           "miniBoss": "Garrick Deserter Scout",
-          "reward": "90s | 120 XP | Lesser Draft",
+          "reward": "26s | 120 XP | Lesser Draft",
           "description": "Capital scouts spotted smoke rising behind a crumbling ivy-covered limestone wall just outside Highcrown, where deserters in Garrick's gray war-cloaks have stacked spears and crossbows around a hidden campfire to plot their next move. Ambush the forward camp and break up the plot before they act."
         }
       ],
@@ -6845,7 +6631,7 @@
         "Picked up at: Highcrown (Highcrown Watch Captain)",
         "Journal Token · Deliver to Oakhaven",
         "Mini-Boss: Crossbow Poacher Pack",
-        "Reward: 95s | 135 XP | Lesser Draft"
+        "Reward: 28s | 135 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -6856,7 +6642,7 @@
           "title": "Word to Oakhaven",
           "giver": "Highcrown Watch Captain",
           "miniBoss": "Crossbow Poacher Pack",
-          "reward": "95s | 135 XP | Lesser Draft",
+          "reward": "28s | 135 XP | Lesser Draft",
           "description": "Carry Highcrown's wax-sealed royal dispatch up the Crownlands trade road to Oakhaven's elder. Poachers and turncoat deserters have thrown up shield barricades along the bend to intercept every courier riding north from the capital."
         }
       ],
@@ -6899,7 +6685,7 @@
         "Picked up at: Oakhaven (Oakhaven Granary Keeper)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Bandit Wagon-Boss",
-        "Reward: 110s | 140 XP | Lesser Draft"
+        "Reward: 30s | 140 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -6910,7 +6696,7 @@
           "title": "Missing Grain Carts",
           "giver": "Oakhaven Granary Keeper",
           "miniBoss": "Bandit Wagon-Boss",
-          "reward": "110s | 140 XP | Lesser Draft",
+          "reward": "30s | 140 XP | Lesser Draft",
           "description": "Loaded grain wagons bound for Oakhaven vanished before dawn along the fenced dirt lanes outside town. Track the spilled wheat sacks to the ambushed bend and defeat the bandit wagon-boss's crew to recover the grain."
         }
       ],
@@ -6956,7 +6742,7 @@
         "Picked up at: Oakhaven (Heartland Shepherd)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Alpha Timber Wolf & Pack",
-        "Reward: 120s | 160 XP | Lesser Draft"
+        "Reward: 32s | 160 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -6967,7 +6753,7 @@
           "title": "Boy in the Fold",
           "giver": "Heartland Shepherd",
           "miniBoss": "Alpha Timber Wolf & Pack",
-          "reward": "120s | 160 XP | Lesser Draft",
+          "reward": "32s | 160 XP | Lesser Draft",
           "description": "A young shepherd boy chased a stray lamb into the deep woods after wolves scattered his flock. Track the pawprints to the pack's mossy wolf den among the trees and bring the boy home alive."
         }
       ],
@@ -7010,7 +6796,7 @@
         "Picked up at: Oakhaven (Oakhaven Blacksmith)",
         "Journal Token · Deliver to Millbrook Crossing",
         "Mini-Boss: Animated Armor Vanguard",
-        "Reward: 135s | 185 XP | Lesser Draft"
+        "Reward: 36s | 185 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7021,7 +6807,7 @@
           "title": "Forged Rivets for the Palisade",
           "giver": "Oakhaven Blacksmith",
           "miniBoss": "Animated Armor Vanguard",
-          "reward": "135s | 185 XP | Lesser Draft",
+          "reward": "36s | 185 XP | Lesser Draft",
           "description": "Haul crates of hardened iron gate-rivets toward Millbrook Crossing's western palisade. Halfway up the lane, rogue animated armor drawn by stray Portal sparks has smashed the lead handcart across the oak road."
         }
       ],
@@ -7068,7 +6854,7 @@
         "Picked up at: Oakhaven (Town Constable)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Outlaw Orchard Boss",
-        "Reward: 125s | 170 XP | Lesser Draft"
+        "Reward: 34s | 170 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7079,7 +6865,7 @@
           "title": "Bandits at the Old Orchard",
           "giver": "Town Constable",
           "miniBoss": "Outlaw Orchard Boss",
-          "reward": "125s | 170 XP | Lesser Draft",
+          "reward": "34s | 170 XP | Lesser Draft",
           "description": "Armed highwaymen have turned the abandoned apple orchard outside Oakhaven into a toll hideout and cider-cellar ambush. Clear their orchard camp under the fruit trees so harvest wagons can pass unmolested."
         }
       ],
@@ -7125,7 +6911,7 @@
         "Picked up at: Oakhaven (Heartland Trapper)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Tusked Dire Boar",
-        "Reward: 115s | 150 XP | Lesser Draft"
+        "Reward: 30s | 150 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7136,7 +6922,7 @@
           "title": "Poachers on the Meadow Trail",
           "giver": "Heartland Trapper",
           "miniBoss": "Tusked Dire Boar",
-          "reward": "115s | 150 XP | Lesser Draft",
+          "reward": "30s | 150 XP | Lesser Draft",
           "description": "Snare-wires and mauled deer carcasses line the game trails outside Oakhaven. Track the scarred trail into the deep oak grove where an enraged dire boar has gored both poachers and travelers alike."
         }
       ],
@@ -7179,7 +6965,7 @@
         "Picked up at: Meadowbrook Hamlet (Meadowbrook Herder)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Timber Wolf Pack",
-        "Reward: 115s | 155 XP | Lesser Draft"
+        "Reward: 48s | 155 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7190,7 +6976,7 @@
           "title": "Wolves in the Sheepfold",
           "giver": "Meadowbrook Herder",
           "miniBoss": "Timber Wolf Pack",
-          "reward": "115s | 155 XP | Lesser Draft",
+          "reward": "48s | 155 XP | Lesser Draft",
           "description": "Hungry timber wolves driven down from the eastern hills have broken through the split-rail fences of the hamlet's outlying sheep barn. Hold the timber barn door until the herders drive the last flocks inside."
         }
       ],
@@ -7233,7 +7019,7 @@
         "Picked up at: Meadowbrook Hamlet (Hamlet Farmer)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Giant Spider Brood",
-        "Reward: 130s | 180 XP | Lesser Draft"
+        "Reward: 55s | 180 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7244,7 +7030,7 @@
           "title": "Stolen Plough-Iron",
           "giver": "Hamlet Farmer",
           "miniBoss": "Giant Spider Brood",
-          "reward": "130s | 180 XP | Lesser Draft",
+          "reward": "55s | 180 XP | Lesser Draft",
           "description": "Iron-thieving thugs hid Meadowbrook's spring ploughshares inside a stony hillside burrow only to get webbed up by nesting giant spiders. Cut open the silk-choked burrow and haul the town's metalwork back."
         }
       ],
@@ -7287,7 +7073,7 @@
         "Picked up at: Meadowbrook Hamlet (Hamlet Bailiff)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Road Bandit Lieutenant",
-        "Reward: 135s | 190 XP | Lesser Draft"
+        "Reward: 58s | 190 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7298,7 +7084,7 @@
           "title": "Burned Granary Ledger",
           "giver": "Hamlet Bailiff",
           "miniBoss": "Road Bandit Lieutenant",
-          "reward": "135s | 190 XP | Lesser Draft",
+          "reward": "58s | 190 XP | Lesser Draft",
           "description": "Someone torched Meadowbrook's tax barn right after stealing the village tithe box, hoping fire would hide the theft. Follow soot-stained wagon ruts into the brush clearing and recover the bailiff's ledger from the bandit lieutenant."
         }
       ],
@@ -7341,7 +7127,7 @@
         "Picked up at: Meadowbrook Hamlet (Grain Merchant)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Animated Sword Ambush",
-        "Reward: 140s | 200 XP | Lesser Draft"
+        "Reward: 60s | 200 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7352,7 +7138,7 @@
           "title": "Seed Caravan to Oakhaven",
           "giver": "Grain Merchant",
           "miniBoss": "Animated Sword Ambush",
-          "reward": "140s | 200 XP | Lesser Draft",
+          "reward": "60s | 200 XP | Lesser Draft",
           "description": "Wild blades animated by rogue Ashen Gate magic have pinned down the spring seed caravan halfway along the sunny wheat lane to Oakhaven. Smash the floating steel ambushers and clear the wagon turn."
         }
       ],
@@ -7398,7 +7184,7 @@
         "Picked up at: Millbrook Crossing (Millbrook Warden)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Garrick Deserter Sergeant",
-        "Reward: 145s | 210 XP | Lesser Draft"
+        "Reward: 65s | 210 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7409,7 +7195,7 @@
           "title": "Hold the West Palisade",
           "giver": "Millbrook Warden",
           "miniBoss": "Garrick Deserter Sergeant",
-          "reward": "145s | 210 XP | Lesser Draft",
+          "reward": "65s | 210 XP | Lesser Draft",
           "description": "Arsonists wearing turncoat garrison colors are gathering oil flasks outside Millbrook's wooden western gatehouse. Stand at the sharpened timber palisade stakes and break the sergeant's night assault."
         }
       ],
@@ -7452,7 +7238,7 @@
         "Picked up at: Millbrook Crossing (Town Mason)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Stone Gargoyle Alpha",
-        "Reward: 160s | 240 XP | Lesser Draft"
+        "Reward: 72s | 240 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7463,7 +7249,7 @@
           "title": "Shattered Mill-Tower",
           "giver": "Town Mason",
           "miniBoss": "Stone Gargoyle Alpha",
-          "reward": "160s | 240 XP | Lesser Draft",
+          "reward": "72s | 240 XP | Lesser Draft",
           "description": "Winged stone gargoyles shaken loose from eastern shrines have nested atop the cracked ridge windmill spire overlooking Millbrook. Head up to the bluff ruins and defeat the alpha stone gargoyle roosting above the broken sails."
         }
       ],
@@ -7509,7 +7295,7 @@
         "Picked up at: Millbrook Crossing (Tavern Rumor)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Arena Bounty-Captain",
-        "Reward: 155s | 230 XP | Lesser Draft"
+        "Reward: 70s | 230 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7520,7 +7306,7 @@
           "title": "Chain D1: The Scarred Name",
           "giver": "Tavern Rumor",
           "miniBoss": "Arena Bounty-Captain",
-          "reward": "155s | 230 XP | Lesser Draft",
+          "reward": "70s | 230 XP | Lesser Draft",
           "description": "A loud-mouthed bounty hunter bragging about sealed papers tracing Koren's earliest transfer from the northern border war-pits to Highcrown's Great Coliseum made camp along the muddy woodland road outside Millbrook. Raid the campfire stockade and seize the transfer dossier."
         }
       ],
@@ -7566,7 +7352,7 @@
         "Picked up at: Millbrook Crossing (Crossroads Miner)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Dust Mephit Swarm",
-        "Reward: 150s | 220 XP | Lesser Draft"
+        "Reward: 68s | 220 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7577,7 +7363,7 @@
           "title": "Dust Mephits in the Old Mine Shack",
           "giver": "Crossroads Miner",
           "miniBoss": "Dust Mephit Swarm",
-          "reward": "150s | 220 XP | Lesser Draft",
+          "reward": "68s | 220 XP | Lesser Draft",
           "description": "Billowing ash vents have choked the old limestone quarry shaft north of Millbrook with giggling dust mephits. Seal the quarry vent and sweep the blinding swarm out of the timber shoring."
         }
       ],
@@ -7623,7 +7409,7 @@
         "Picked up at: Millbrook Crossing (Crossroads Postmaster)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Ankheg Burrower",
-        "Reward: 165s | 250 XP | Lesser Draft"
+        "Reward: 75s | 250 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7634,7 +7420,7 @@
           "title": "Lost Courier on the North Ridge",
           "giver": "Crossroads Postmaster",
           "miniBoss": "Ankheg Burrower",
-          "reward": "165s | 250 XP | Lesser Draft",
+          "reward": "75s | 250 XP | Lesser Draft",
           "description": "The hill-fort dispatch rider's horse galloped back into Millbrook alone with chitin gashes down its flank. Follow the ridge trail to the ankheg burrows and defeat the beast to bring the wounded rider home."
         }
       ],
@@ -7677,7 +7463,7 @@
         "Picked up at: Crownlands Hill-Fort (Garrison Captain)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Bramblewatch Ringleader & Dust Mephit",
-        "Reward: 175s | 260 XP | Lesser Draft"
+        "Reward: 80s | 260 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7688,7 +7474,7 @@
           "title": "The Stolen Ribbon",
           "giver": "Garrison Captain",
           "miniBoss": "Bramblewatch Ringleader & Dust Mephit",
-          "reward": "175s | 260 XP | Lesser Draft",
+          "reward": "80s | 260 XP | Lesser Draft",
           "description": "Cutthroats holding a captured hill-fort courier—and Valen's prized crimson arena keepsake—fortified a thorn-choked limestone cave in the eastern hills. Fight past the spiked barricade and free the courier."
         }
       ],
@@ -7734,7 +7520,7 @@
         "Picked up at: Crownlands Hill-Fort (Fort Quartermaster)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Shield Guardian Prototype",
-        "Reward: 170s | 250 XP | Lesser Draft"
+        "Reward: 78s | 250 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7745,7 +7531,7 @@
           "title": "Animated Sentinels of the Knoll",
           "giver": "Fort Quartermaster",
           "miniBoss": "Shield Guardian Prototype",
-          "reward": "170s | 250 XP | Lesser Draft",
+          "reward": "78s | 250 XP | Lesser Draft",
           "description": "Residual Earth-Plane tremors spilling from The Ashen Gate have awakened derelict stone-and-iron war prototypes atop the grassy western knoll. Smash the towering Shield Guardian before it marches on the hill-fort gates."
         }
       ],
@@ -7791,7 +7577,7 @@
         "Picked up at: Crownlands Hill-Fort (Fort Armorer)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Rust Monster Alpha",
-        "Reward: 165s | 240 XP | Lesser Draft"
+        "Reward: 75s | 240 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7802,7 +7588,7 @@
           "title": "Rust Monsters at the Munitions Dump",
           "giver": "Fort Armorer",
           "miniBoss": "Rust Monster Alpha",
-          "reward": "165s | 240 XP | Lesser Draft",
+          "reward": "75s | 240 XP | Lesser Draft",
           "description": "Chittering rift creatures that melt forged steel on touch have burrowed under the fort's forward munitions depot cave. Exterminate the chitinous nest and save the remaining halberd crates before everything turns to red powder."
         }
       ],
@@ -7849,7 +7635,7 @@
         "Picked up at: Crownlands Hill-Fort (Hill-Fort Lookout)",
         "Overworld Quest Site (Shows When Quest Active)",
         "Mini-Boss: Gargoyle & Grick Pack",
-        "Reward: 180s | 265 XP | Lesser Draft"
+        "Reward: 85s | 265 XP | Lesser Draft"
       ],
       "quests": [
         {
@@ -7860,7 +7646,7 @@
           "title": "Signal Fires on the Ridge",
           "giver": "Hill-Fort Lookout",
           "miniBoss": "Gargoyle & Grick Pack",
-          "reward": "180s | 265 XP | Lesser Draft",
+          "reward": "85s | 265 XP | Lesser Draft",
           "description": "Dusk patrols of rock-camouflaged gricks and swooping gargoyles keep snuffing out the hill-fort's early warning brazier near Portal #1. Defend the rocky beacon ledge until the watch signal burns clear across the Crownlands."
         }
       ],
@@ -16337,103 +16123,742 @@
       "locationType": "Quest Site"
     },
     {
-      "id": "tr_ferry_crossing_inst_2",
+      "id": "tr_ferry_crossing",
       "locNum": null,
       "zoneNum": null,
-      "progOrder": 1026,
+      "progOrder": 1250,
       "levelRange": "All Regions",
       "visibility": "always_visible",
       "name": "Ferry Crossing",
       "category": "travel",
-      "mapId": "map_01",
+      "mapId": "all",
       "region": null,
-      "kind": "Island Strait Ferry Crossing",
+      "kind": "Island Strait Ferry Crossing · Pier 1 (North Bank)",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/tr_ferry_crossing.webp",
-      "placed": true,
+      "placed": false,
       "locked": false,
-      "x": 3261,
-      "y": 1305,
+      "x": null,
+      "y": null,
       "scale": 1.0,
       "triggerRadius": 88,
-      "description": "Shoreline wooden ferry landing & moored flat tow-barge for crossing water straits dividing islands.",
+      "linkedFerryId": null,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
         "Strait / Channel Ferry Crossing"
       ],
-      "linkedFerryId": "tr_ferry_crossing",
       "locationType": "Ferry Crossing",
       "playerKind": "Strait Ferry Landing",
-      "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
       "playerServices": [
         "Strait Ferry"
       ]
     },
     {
-      "id": "tr_ferry_crossing_inst_3",
+      "id": "tr_ferry_crossing_south_bank",
       "locNum": null,
       "zoneNum": null,
-      "progOrder": 1026,
+      "progOrder": 1256,
       "levelRange": "All Regions",
       "visibility": "always_visible",
       "name": "Ferry Crossing",
       "category": "travel",
-      "mapId": "map_01",
+      "mapId": "all",
       "region": null,
-      "kind": "Island Strait Ferry Crossing",
+      "kind": "Island Strait Ferry Crossing · Pier 2 (South Bank)",
       "isPortal": false,
       "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_ferry_crossing.webp",
-      "placed": true,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_south_bank.webp",
+      "placed": false,
       "locked": false,
-      "x": 4832,
-      "y": 4279,
+      "x": null,
+      "y": null,
       "scale": 1.0,
       "triggerRadius": 88,
-      "linkedFerryId": "tr_ferry_crossing_inst_4",
-      "description": "Shoreline wooden ferry landing & moored flat tow-barge for crossing water straits dividing islands.",
+      "linkedFerryId": null,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
         "Strait / Channel Ferry Crossing"
       ],
       "locationType": "Ferry Crossing",
       "playerKind": "Strait Ferry Landing",
-      "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
       "playerServices": [
         "Strait Ferry"
       ]
     },
     {
-      "id": "tr_ferry_crossing_inst_4",
+      "id": "tr_ferry_crossing_west_bank",
       "locNum": null,
       "zoneNum": null,
-      "progOrder": 1026,
+      "progOrder": 1257,
       "levelRange": "All Regions",
       "visibility": "always_visible",
       "name": "Ferry Crossing",
       "category": "travel",
       "mapId": "map_01",
       "region": null,
-      "kind": "Island Strait Ferry Crossing",
+      "kind": "Island Strait Ferry Crossing · Pier 3",
       "isPortal": false,
       "portalNum": null,
-      "assetPath": "assets/tokens/markers/tr_ferry_crossing.webp",
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_west_bank.webp",
       "placed": true,
       "locked": false,
-      "x": 4448,
-      "y": 4556,
+      "x": 4996,
+      "y": 7165,
       "scale": 1.0,
       "triggerRadius": 88,
-      "linkedFerryId": "tr_ferry_crossing_inst_3",
-      "description": "Shoreline wooden ferry landing & moored flat tow-barge for crossing water straits dividing islands.",
+      "linkedFerryId": "tr_ferry_crossing_east_bank",
+      "rotation": 323,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
         "Strait / Channel Ferry Crossing"
       ],
       "locationType": "Ferry Crossing",
       "playerKind": "Strait Ferry Landing",
-      "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
       "playerServices": [
         "Strait Ferry"
       ]
+    },
+    {
+      "id": "tr_ferry_crossing_east_bank",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1258,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_01",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 4",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_east_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 5729,
+      "y": 6687,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "linkedFerryId": "tr_ferry_crossing_west_bank",
+      "rotation": 359,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ]
+    },
+    {
+      "id": "tr_border_mountain_pass_gate",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1259,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Border Mountain Pass Gate",
+      "category": "travel",
+      "mapId": "all",
+      "region": null,
+      "kind": "Internal Mountain Pass Gate · Style 1",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "linkedFerryId": null,
+      "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
+      "services": [
+        "Internal Ridge / Pass Gate"
+      ],
+      "locationType": "Mountain Pass",
+      "playerKind": "Mountain Pass Gatehouse",
+      "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
+      "playerServices": [
+        "Highland Pass"
+      ]
+    },
+    {
+      "id": "tr_border_mountain_pass_gate_v2",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1260,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Border Mountain Pass Gate",
+      "category": "travel",
+      "mapId": "all",
+      "region": null,
+      "kind": "Internal Mountain Pass Gate · Banner Arch",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v2.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "linkedFerryId": null,
+      "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
+      "services": [
+        "Internal Ridge / Pass Gate"
+      ],
+      "locationType": "Mountain Pass",
+      "playerKind": "Mountain Pass Gatehouse",
+      "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
+      "playerServices": [
+        "Highland Pass"
+      ]
+    },
+    {
+      "id": "tr_border_mountain_pass_gate_v3",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1261,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Border Mountain Pass Gate",
+      "category": "travel",
+      "mapId": "all",
+      "region": null,
+      "kind": "Internal Mountain Pass Gate · Watch Tower",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v3.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "linkedFerryId": null,
+      "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
+      "services": [
+        "Internal Ridge / Pass Gate"
+      ],
+      "locationType": "Mountain Pass",
+      "playerKind": "Mountain Pass Gatehouse",
+      "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
+      "playerServices": [
+        "Highland Pass"
+      ]
+    },
+    {
+      "id": "tr_border_mountain_pass_gate_v4",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1262,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Border Mountain Pass Gate",
+      "category": "travel",
+      "mapId": "all",
+      "region": null,
+      "kind": "Internal Mountain Pass Gate · Timber Gatehouse",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v4.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "linkedFerryId": null,
+      "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
+      "services": [
+        "Internal Ridge / Pass Gate"
+      ],
+      "locationType": "Mountain Pass",
+      "playerKind": "Mountain Pass Gatehouse",
+      "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
+      "playerServices": [
+        "Highland Pass"
+      ]
+    },
+    {
+      "id": "tr_port_map01_royal_trade",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1263,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Royal Trade Port Town",
+      "category": "travel",
+      "mapId": "map_01",
+      "region": null,
+      "kind": "Map 1 Sea-Travel Port Town · North Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map01_royal_trade.webp",
+      "placed": true,
+      "locked": false,
+      "x": 3871,
+      "y": 7335,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "crown_loyalists",
+      "factionName": "Highcrown Loyalists",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#d7a648",
+      "factionSecondaryColor": "#6e1f22",
+      "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Royal timber piers moored with deep-water trading ships bound across the open seas between Ethoria's four island continents.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Southern Coast"
+    },
+    {
+      "id": "tr_port_map02_highland_cove",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1264,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Highland Cove Port Town",
+      "category": "travel",
+      "mapId": "map_02",
+      "region": null,
+      "kind": "Map 2 Sea-Travel Port Town · North Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map02_highland_cove.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "free_towns",
+      "factionName": "Free Towns & Guilds",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#53b09c",
+      "factionSecondaryColor": "#1b3d39",
+      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Sheltered cliff cove anchorage where weather-beaten cargo vessels haul Highland iron and carry travelers to distant continent shores.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Thornwall Cove"
+    },
+    {
+      "id": "tr_port_map03_desert_harbor",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1265,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Desert Harbor Port Town",
+      "category": "travel",
+      "mapId": "map_03",
+      "region": null,
+      "kind": "Map 3 Sea-Travel Port Town · North Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map03_desert_harbor.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "free_towns",
+      "factionName": "Free Towns & Guilds",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#53b09c",
+      "factionSecondaryColor": "#1b3d39",
+      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Sun-bleached stone seawalls and spice-laden docks dispatching lateen vessels across tropical straits and distant seas.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Sun-Scorched Bay"
+    },
+    {
+      "id": "tr_port_map04_arctic_seaport",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1266,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Arctic Sea-Port Town",
+      "category": "travel",
+      "mapId": "map_04",
+      "region": null,
+      "kind": "Map 4 Sea-Travel Port Town · North Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map04_arctic_seaport.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "free_towns",
+      "factionName": "Free Towns & Guilds",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#53b09c",
+      "factionSecondaryColor": "#1b3d39",
+      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Ice-broken harbor pilings lined with heavy iron lanterns guiding sturdy northern ships safely to warmer waters.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Frostbound Bay"
+    },
+    {
+      "id": "tr_port_map01_royal_trade_south",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1267,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Royal Trade Port Town",
+      "category": "travel",
+      "mapId": "map_01",
+      "region": null,
+      "kind": "Map 1 Sea-Travel Port Town · South Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map01_royal_trade_south.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "crown_loyalists",
+      "factionName": "Highcrown Loyalists",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#d7a648",
+      "factionSecondaryColor": "#6e1f22",
+      "bannerAssetPath": "assets/tokens/banners/banner_crown_loyalists.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Royal timber piers moored with deep-water trading ships bound across the open seas between Ethoria's four island continents.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Southern Coast"
+    },
+    {
+      "id": "tr_port_map02_highland_cove_south",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1268,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Highland Cove Port Town",
+      "category": "travel",
+      "mapId": "map_02",
+      "region": null,
+      "kind": "Map 2 Sea-Travel Port Town · South Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map02_highland_cove_south.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "free_towns",
+      "factionName": "Free Towns & Guilds",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#53b09c",
+      "factionSecondaryColor": "#1b3d39",
+      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Sheltered cliff cove anchorage where weather-beaten cargo vessels haul Highland iron and carry travelers to distant continent shores.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Thornwall Cove"
+    },
+    {
+      "id": "tr_port_map03_desert_harbor_south",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1269,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Desert Harbor Port Town",
+      "category": "travel",
+      "mapId": "map_03",
+      "region": null,
+      "kind": "Map 3 Sea-Travel Port Town · South Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map03_desert_harbor_south.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "free_towns",
+      "factionName": "Free Towns & Guilds",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#53b09c",
+      "factionSecondaryColor": "#1b3d39",
+      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Sun-bleached stone seawalls and spice-laden docks dispatching lateen vessels across tropical straits and distant seas.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Sun-Scorched Bay"
+    },
+    {
+      "id": "tr_port_map04_arctic_seaport_south",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1270,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Arctic Sea-Port Town",
+      "category": "travel",
+      "mapId": "map_04",
+      "region": null,
+      "kind": "Map 4 Sea-Travel Port Town · South Coast",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_port_map04_arctic_seaport_south.webp",
+      "placed": false,
+      "locked": false,
+      "x": null,
+      "y": null,
+      "scale": 1.25,
+      "triggerRadius": 110,
+      "linkedFerryId": null,
+      "description": "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4.",
+      "services": [
+        "Inter-Continent Sea Travel Port",
+        "Free Harbor Rest"
+      ],
+      "locationType": "Port Town",
+      "factionId": "free_towns",
+      "factionName": "Free Towns & Guilds",
+      "factionAllegiance": "Friendly",
+      "factionPrimaryColor": "#53b09c",
+      "factionSecondaryColor": "#1b3d39",
+      "bannerAssetPath": "assets/tokens/banners/banner_free_towns.webp",
+      "playerKind": "Sea-Trade Harbor",
+      "playerDescription": "Ice-broken harbor pilings lined with heavy iron lanterns guiding sturdy northern ships safely to warmer waters.",
+      "playerServices": [
+        "Sea Voyages",
+        "Free Harbor Rest"
+      ],
+      "playerRegion": "Frostbound Bay"
+    },
+    {
+      "id": "tr_ferry_crossing_east_bank_inst_2",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1258,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_01",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 4",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_east_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 4151,
+      "y": 3638,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "linkedFerryId": "tr_ferry_crossing_west_bank_inst_2",
+      "rotation": 351
+    },
+    {
+      "id": "tr_ferry_crossing_west_bank_inst_2",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1257,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_01",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 3",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_west_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 3810,
+      "y": 3761,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "linkedFerryId": "tr_ferry_crossing_east_bank_inst_2",
+      "rotation": 333
+    },
+    {
+      "id": "tr_ferry_crossing_west_bank_inst_3",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1257,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_01",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 3",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_west_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 3314,
+      "y": 1415,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "linkedFerryId": "tr_ferry_crossing_east_bank_inst_3",
+      "rotation": 30
+    },
+    {
+      "id": "tr_ferry_crossing_east_bank_inst_3",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1258,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_01",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 4",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_east_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 3578,
+      "y": 1538,
+      "scale": 1.0,
+      "triggerRadius": 88,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "linkedFerryId": "tr_ferry_crossing_west_bank_inst_3",
+      "rotation": 16
     }
   ]
 }

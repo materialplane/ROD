@@ -365,7 +365,7 @@ class RodAudioEngine {
     if (this.activeDeck) candidates.add(this.activeDeck);
     for (const d of candidates) {
       d.pause();
-      d.src = "";
+      d.removeAttribute("src");
     }
     this.fadingOutDecks.clear();
   }
@@ -440,7 +440,7 @@ class RodAudioEngine {
         oldDeck.volume = clamp01(startVol * (1 - t));
         if (t >= 1) {
           oldDeck.pause();
-          oldDeck.src = "";
+          oldDeck.removeAttribute("src");
           this.fadingOutDecks.delete(oldDeck);
         }
       }
@@ -476,7 +476,7 @@ class RodAudioEngine {
     if (!this.moveAudio || switchingFile) {
       if (this.moveAudio) {
         this.moveAudio.pause();
-        this.moveAudio.src = "";
+        this.moveAudio.removeAttribute("src");
       }
       const el = new Audio(assetUrl(targetRel));
       el.loop = true;

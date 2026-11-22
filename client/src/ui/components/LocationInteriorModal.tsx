@@ -125,7 +125,7 @@ function buildDefenderDialogue(heroId: HeroId, partnerName: string, partyOrder: 
     case "rowan":
       return `Northern approaches have stayed quiet since dusk, ${leaderName}. ${partnerName} holds the council floor while my scouts keep clear sightlines past the outer ridge.`;
     case "mera":
-      return `Nothing crosses Highcrown's postern alleys without reaching my ears first, ${leaderName}. Rest your boots by the hearth—${partnerName} and I are watching every shadow.`;
+      return `Even the old oaks and wind-currents beyond Highcrown's walls carry warning when anything unnatural draws near, ${leaderName}. Rest by the hearth—${partnerName} and I have the Keep wrapped in thorns and steel.`;
     case "harlan":
       return `You look ready for dry boots and a warm table, ${leaderName}. ${partnerName} and I have stocked the Keep infirmary and held the inner hall since you rode out.`;
   }
@@ -1011,7 +1011,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                               <div className="text-[14.5px] font-bold text-[#f3dfb1]">{selectedNpc.shopLabel ?? "Merchant Shop"}</div>
                               <div className="text-[12.5px] text-[#adbed6] mt-0.5">
                                 {selectedNpc.shopType === "trade_goods"
-                                  ? "Appraise & sell recovered monster trophies for Silver"
+                                  ? "Appraise & sell recovered trade goods for Silver"
                                   : `Browse ${selectedNpc.displayName}'s stocked inventory`}
                               </div>
                             </div>

@@ -1,0 +1,226 @@
+{
+  "totalSheets": 5,
+  "totalAnimations": 30,
+  "sheets": [
+    {
+      "num": 1,
+      "saveAs": "assets/vfx/batch_sheets/vfx_sheet_01.jpg",
+      "slug": "vfx_pack_01_melee_slashes_and_impacts_6x6",
+      "title": "Melee Slashes & Blunt Impacts",
+      "rows": [
+        [
+          "Quick Diagonal Slash",
+          "1H Longsword/Saber/Dagger/Sickle Fast Hits",
+          "diagonal polished-steel crescent blade-slash arc",
+          "polished silver-steel and bright ivory"
+        ],
+        [
+          "Heavy Greatblade Cleave",
+          "2H Greatsword/Battleaxe/Colossal Cleaves",
+          "heavy molten-steel and amber curved blade-slash crescent",
+          "forged steel and fiery amber-gold"
+        ],
+        [
+          "Twin X-Cross Slash",
+          "Cross Slash/Breakneck Flurry/Scimitar Whirl",
+          "symmetrical twin intersecting steel-and-gold X-cross blade-slash arcs",
+          "steel-silver and warm sunlit gold"
+        ],
+        [
+          "Serrated Scarlet Cut",
+          "Ragged Cut/Crimson Arc/Mob Claw Rake",
+          "jagged deep blued-steel and vivid crimson crescent blade-slash arc",
+          "deep blued-steel and vivid scarlet"
+        ],
+        [
+          "Kinetic Blunt Smash",
+          "Pommel Bash/Mace Heavy Bash/Root Slam",
+          "flat front-facing radial iron-and-bronze kinetic starburst with sharp impact wedges",
+          "forged slate-iron and bronze-amber"
+        ],
+        [
+          "Shattering Armor Crush",
+          "Shield-Splitter/Titan Cracker/Earthshatter",
+          "radial molten-bronze fracture starburst ringed closely by angular slate-iron shards",
+          "molten bronze, gold, and cool slate"
+        ]
+      ]
+    },
+    {
+      "num": 2,
+      "saveAs": "assets/vfx/batch_sheets/vfx_sheet_02.jpg",
+      "slug": "vfx_pack_02_piercing_arrows_fire_lightning_6x6",
+      "title": "Piercing, Arrows, Fire & Lightning",
+      "rows": [
+        [
+          "Needle Pierce Streak",
+          "Rapier Thrust/Spear Thrust/Heartseeker",
+          "diagonal gleaming silver-steel rapier spear-tip piercing two small solid steel-cyan diamond wind-rings",
+          "gleaming silver-white and steel-cyan"
+        ],
+        [
+          "Hunting Arrow Shot",
+          "Snap Arrow/Bodkin Bolt/Crossbow/Flare",
+          "diagonal solid burnished-gold hunting war-arrow with beveled broadhead tip, crisp wooden shaft, painted crimson tail fletching, and amber speed chevrons",
+          "burnished gold, warm amber, and crimson"
+        ],
+        [
+          "Parallel Arrow Barrage",
+          "Split Volley/Rain of Arrows/Arrow Tempest",
+          "five staggered detached parallel sky-cyan and silver arrows spaced cleanly apart flying along ONE locked 45-degree upper-left to lower-right trajectory through bright cyan slash-crescents with wide empty space between every shaft",
+          "bright silver and icy sky-cyan"
+        ],
+        [
+          "Ember Swirl Spark",
+          "Ember Spark/Burn Tick/Fire Imbue/Cinder",
+          "tightly coiled small clockwise spiral of amber-gold and vivid orange sculpted flame-ribbons curled closely inward",
+          "bright orange and sunlit yellow-gold"
+        ],
+        [
+          "Roaring Fireball Burst",
+          "Arcane Fireball/Flame Crest/Meteor/Solar Flare",
+          "centered layered blazing orange-red flame blossom with short tight solid flame petals",
+          "blazing yellow-orange and vivid vermilion"
+        ],
+        [
+          "Forked Lightning Strike",
+          "Chain Spark/Tempest Arc/Thunderhead/Shock",
+          "tightly folded zigzag electric yellow-gold and sky-cyan lightning Z-bolts clustered closely inside a small center circle",
+          "electric yellow-gold and bright sky-cyan"
+        ]
+      ]
+    },
+    {
+      "num": 3,
+      "saveAs": "assets/vfx/batch_sheets/vfx_sheet_03.jpg",
+      "slug": "vfx_pack_03_frost_poison_indigo_radiant_6x6",
+      "title": "Frost, Poison, Indigo & Radiant",
+      "rows": [
+        [
+          "Crystal Frost Starburst",
+          "Frost Shard/Chill Tick/Frost Imbue",
+          "symmetrical six-point radial faceted icy-cyan crystal starburst with short contained crystal points",
+          "pale icy-cyan and crisp frost-white"
+        ],
+        [
+          "Glacial Ice Shards",
+          "Rime Sweep/Glacial Lock/Blizzard Swirl/Chill",
+          "tightly grouped counterclockwise ring of small sharp faceted glacier-cyan and frost-white ice wedges curving inward",
+          "deep glacier-blue and frost-white"
+        ],
+        [
+          "Acid Splash Burst",
+          "Bitterroot Vial/Acidic Flask/Poison Tick/Sap",
+          "flat 2D asymmetrical irregular jagged acid-lime and moss-emerald comic paint-splat burst exploding from a solid bright chartreuse center core into uneven curved slime tongues and crisp detached oval droplets",
+          "bright acid-lime and deep moss-emerald"
+        ],
+        [
+          "Toxic Spore Cluster",
+          "Spore Burst/Venom Splash/Plague-Spore/Slime",
+          "tightly clustered jade-green and chartreuse solid spore pods snapping small lime drops",
+          "toxic jade-green and chartreuse-lime"
+        ],
+        [
+          "Umbral Indigo Lance",
+          "Umbral Lance/Necrotic Lance/Abyssal Psychic",
+          "diagonal dark cobalt-indigo faceted crystal lance blade framed tightly by small sharp slate-violet speed chevrons",
+          "deep cobalt-indigo and slate-violet"
+        ],
+        [
+          "Solar Radiant Sunburst",
+          "Dawn Gleam/Sunbeam/Astral Judgment/Purify",
+          "centered eight-point sunlight-gold and ivory diamond sun-starburst with short contained prism rays",
+          "radiant sunlight-gold and pure ivory"
+        ]
+      ]
+    },
+    {
+      "num": 4,
+      "saveAs": "assets/vfx/batch_sheets/vfx_sheet_04.jpg",
+      "slug": "vfx_pack_04_healing_rebirth_shields_mana_6x6",
+      "title": "Healing, Rebirth, Wards & Mana",
+      "rows": [
+        [
+          "Herbal Healing Ribbon",
+          "Stinging Salve/Mossy Mend/Light Potions",
+          "twin coiled emerald-green ribbons framing crisp painted sage leaves and small gold four-point stars",
+          "emerald-green and warm gold"
+        ],
+        [
+          "Lush Blossom Nova",
+          "Verdant Bloom/Miracle Balm/Grand Elixir/Heart",
+          "symmetrical emerald flower crest of crisp painted green leaf petals and small sunlight-gold stars",
+          "vivid emerald-green and sunlit gold"
+        ],
+        [
+          "Phoenix Rebirth Wing",
+          "Reviving Tincture/Phoenix Draught/Undying Vow",
+          "upright pair of neatly folded blazing phoenix-gold and emerald sculpted wing-emblems tucked closely inward",
+          "blazing phoenix-gold and bright emerald"
+        ],
+        [
+          "Arcane Hex Ward",
+          "Crown Ward/Sovereign Aegis/Mirror Veil/Lock",
+          "flat front-facing octagonal vibrant teal-cyan and burnished-gold faceted rune shield emblem",
+          "vibrant teal-cyan and burnished gold"
+        ],
+        [
+          "Iron Bastion Chevrons",
+          "Hold the Line/Shield Slam/Phalanx/Guard",
+          "upright beveled steel-gray and bastion-gold kite shield emblem flanked closely by tight chevrons",
+          "polished steel-gray and bastion gold"
+        ],
+        [
+          "Sapphire Mana Surge",
+          "Arcane Conduit/Mana Distillate/Potions/Momentum",
+          "tightly coiled twin vivid sapphire-blue and icy aqua ribbons spiraling closely around a small white four-point star",
+          "vivid sapphire-blue and icy aqua"
+        ]
+      ]
+    },
+    {
+      "num": 5,
+      "saveAs": "assets/vfx/batch_sheets/vfx_sheet_05.jpg",
+      "slug": "vfx_pack_05_nature_cleanse_eclipse_hazard_6x6",
+      "title": "Nature, Cleanse, Eclipse & Crit/Hazard",
+      "rows": [
+        [
+          "Thorny Vine Whip",
+          "Thorn Lash/Bramble Snare/Razor Vines/Briar",
+          "tightly coiled ring of crisp forest-emerald thorned vines with small sharp crimson thorns",
+          "forest emerald and sharp crimson"
+        ],
+        [
+          "Purifying Cleanse Chime",
+          "Smelling Salts/Antidote/Cooling/Warming/Panacea",
+          "centered bright mint-aqua and pale ivory-gold diamond starburst emblem ringed closely by four small crisp chimes",
+          "fresh mint-aqua and pure ivory-gold"
+        ],
+        [
+          "Golden Rally Crest",
+          "Veteran's Call/Stag's Vigor/Queen's Decree/Resolve",
+          "upright burnished-gold and vivid scarlet folded twin war-ribbons framing a small golden sunburst crest",
+          "burnished gold and vivid scarlet"
+        ],
+        [
+          "Dark Eclipse Starburst",
+          "Void Pull/Eclipse Singularity/Hellfire/Siphon",
+          "centered midnight cobalt-navy crescent eclipse disc rimmed tightly by short sharp amber-gold corona spikes",
+          "midnight cobalt-navy and blazing amber-gold"
+        ],
+        [
+          "Gale Wind & Spectral Fang",
+          "Gale Gust/Tempest Wing/Dire Fang/Dodge Evade",
+          "tight pair of crisp aqua-cyan wind-crescent ribbons framing a small sharp icy-white wolf-fang crest",
+          "pale aqua-cyan and icy silver-white"
+        ],
+        [
+          "Boss Hazard & Stun Flash",
+          "Boss Telegraph Crest/Stun Stars/Crit/Parry",
+          "bold crimson-and-gold diamond hazard starburst topped cleanly by three small gleaming gold stars",
+          "warning crimson and gleaming gold"
+        ]
+      ]
+    }
+  ]
+}

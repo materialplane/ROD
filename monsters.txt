@@ -1,230 +1,886 @@
+# ROD (Realms of Dust) — Complete 127-Monster Bestiary & Balanced Combat Stats
+# Combat Flow: Immediate Turns (Visible Turn-Order Timeline) | AI: Classic FF 1-6 Weighted Move Table (0 MP)
+# Gear Rule: Humanoids & armed foes strictly match ROD's 13 Weapon Types, 23 Armor Types, and 6 Shield Types (zone color/wear variants allowed)
+# Weaknesses: 1.5x damage + chips 1 Guard Pip | Resists: 0.5x damage | Immune: 0x damage | Stagger: 1.5x damage for 1 turn
+# Damage Formulas (docs/03): PhysRaw = (ATK + 4 + Lv*1.5)*(1 + Force*0.015)*Mult | MagRaw = (MAG + 5 + Lv*1.5)*(1 + Arcana*0.016)*Mult
+
 Map 1 - Zone 1 (Lv 1-5)
   Crownland Meadows:
-    Bandit (CR 1/8)
-    Acolyte (CR 1/4)
+    Bandit (CR 1/8) | Lv 2 | Role: Fighter
+      Gear: Weapons: Longsword (1H, Slashing) & Light Crossbow (2H, Piercing) | Armor: Leather (Light)
+      Stats: HP 41 | ATK 5 | MAG 0 | PDEF 3 | MDEF 3 | Guard 0 | XP 18 | Silver 16s
+      Attrs: Force 3 | Finesse 3 | Grit 3 | Arcana 1 | Presence 2
+      Affinities: Weak: None | Resist: None | Immune: None
+      Moves: 70% Sword Slash (1.0x Slashing) | 30% Crossbow Shot (1.3x Piercing)
+    Acolyte (CR 1/4) | Lv 3 | Role: Caster
+      Gear: Weapons: Quarterstaff (2H, Bludgeoning) & Mystic Spells | Armor: Simple Robes (Light)
+      Stats: HP 38 | ATK 3 | MAG 6 | PDEF 3 | MDEF 4 | Guard 0 | XP 19 | Silver 17s
+      Attrs: Force 2 | Finesse 4 | Grit 3 | Arcana 5 | Presence 5
+      Affinities: Weak: Slashing | Resist: Radiant | Immune: None
+      Moves: 45% Staff Strike (0.9x Bludgeoning) | 35% Ember Spark (1.25x Fire, light Burn) | 20% Crown Ward (+MDEF Shield on Ally, 2t)
   Oakleaf Groves:
-    Cultist (CR 1/8)
-    Wolf (CR 1/4)
+    Cultist (CR 1/8) | Lv 2 | Role: Skirmisher
+      Gear: Weapons: Scimitar (1H, Slashing) & Dark Chant | Armor: Simple Robes (Light)
+      Stats: HP 35 | ATK 5 | MAG 0 | PDEF 3 | MDEF 3 | Guard 0 | XP 18 | Silver 16s
+      Attrs: Force 3 | Finesse 4 | Grit 2 | Arcana 1 | Presence 2
+      Affinities: Weak: Radiant | Resist: Shadow | Immune: None
+      Moves: 70% Curved Cut (1.0x Slashing) | 30% Dark Bolt (1.2x Shadow, light Curse)
+    Wolf (CR 1/4) | Lv 3 | Role: Beast
+      Gear: Weapons: Natural (Bite) | Armor: None (Natural Fur)
+      Stats: HP 48 | ATK 6 | MAG 0 | PDEF 3 | MDEF 3 | Guard 0 | XP 19 | Silver 17s
+      Attrs: Force 4 | Finesse 4 | Grit 4 | Arcana 1 | Presence 2
+      Affinities: Weak: Fire | Resist: None | Immune: None
+      Moves: 70% Fang Bite (1.0x Piercing) | 30% Pack Lunge (1.3x Piercing, high Crit)
   Coastal Shore (Crown Sea):
-    Giant Crab (CR 1/8)
+    Giant Crab (CR 1/8) | Lv 2 | Role: Heavy
+      Gear: Weapons: Natural (Pincers) | Armor: None (Natural Shell)
+      Stats: HP 50 | ATK 6 | MAG 0 | PDEF 4 | MDEF 3 | Guard 0 | XP 18 | Silver 16s
+      Attrs: Force 4 | Finesse 2 | Grit 4 | Arcana 1 | Presence 2
+      Affinities: Weak: Lightning, Bludgeoning | Resist: Frost | Immune: None
+      Moves: 70% Shell Snap (1.0x Bludgeoning) | 30% Crushing Claw (1.3x Bludgeoning, light Stun chance)
   Upland Foothills:
-    Skeleton (CR 1/4)
+    Skeleton (CR 1/4) | Lv 3 | Role: Fighter
+      Gear: Weapons: Longsword (1H, Slashing) & Shortbow (2H, Piercing) | Armor: Leather (Light, Tattered)
+      Stats: HP 45 | ATK 5 | MAG 0 | PDEF 3 | MDEF 3 | Guard 0 | XP 19 | Silver 17s
+      Attrs: Force 4 | Finesse 4 | Grit 4 | Arcana 1 | Presence 3
+      Affinities: Weak: Bludgeoning, Radiant | Resist: Shadow, Poison | Immune: None
+      Moves: 70% Rusted Blade (1.0x Slashing) | 30% Bone Arrow (1.25x Piercing)
 
 Map 1 - Zone 2 (Lv 6-10)
   Oakleaf Groves:
-    Zombie (CR 1/4)
+    Zombie (CR 1/4) | Lv 7 | Role: Heavy
+      Gear: Weapons: Natural (Slam) | Armor: Simple Robes (Light, Rotting)
+      Stats: HP 105 | ATK 10 | MAG 0 | PDEF 6 | MDEF 4 | Guard 0 | XP 39 | Silver 34s
+      Attrs: Force 9 | Finesse 6 | Grit 10 | Arcana 2 | Presence 5
+      Affinities: Weak: Fire, Radiant | Resist: Poison, Shadow | Immune: None
+      Moves: 70% Rotting Slam (1.05x Bludgeoning) | 30% Plague Grip (1.2x Poison, Poison chance)
   Sunlit Downs:
-    Scout (CR 1/2)
+    Scout (CR 1/2) | Lv 8 | Role: Skirmisher
+      Gear: Weapons: Longbow (2H, Piercing) & Dagger (1H, Piercing) | Armor: Leather (Light)
+      Stats: HP 80 | ATK 9 | MAG 0 | PDEF 4 | MDEF 4 | Guard 0 | XP 43 | Silver 37s
+      Attrs: Force 8 | Finesse 12 | Grit 7 | Arcana 2 | Presence 5
+      Affinities: Weak: Bludgeoning | Resist: None | Immune: None
+      Moves: 65% Longbow Shot (1.0x Piercing) | 35% Aimed Arrow (1.35x Piercing, high Crit)
   Crownland Meadows:
-    Thug (CR 1/2)
-    Spy (CR 1)
+    Thug (CR 1/2) | Lv 8 | Role: Heavy
+      Gear: Weapons: Mace (1H, Bludgeoning) & Light Crossbow (2H, Piercing) | Armor: Hide (Medium)
+      Stats: HP 115 | ATK 10 | MAG 0 | PDEF 6 | MDEF 4 | Guard 0 | XP 43 | Silver 37s
+      Attrs: Force 11 | Finesse 6 | Grit 12 | Arcana 2 | Presence 5
+      Affinities: Weak: Lightning, Frost | Resist: None | Immune: None
+      Moves: 65% Heavy Mace (1.05x Bludgeoning) | 35% Bruising Bash (1.35x Bludgeoning, light Stun chance)
+    Spy (CR 1) | Lv 10 | Role: Skirmisher
+      Gear: Weapons: Rapier (1H, Piercing) & Dagger (1H, Piercing) | Armor: Leather (Light, Darkened)
+      Stats: HP 92 | ATK 9 | MAG 0 | PDEF 4 | MDEF 4 | Guard 0 | XP 50 | Silver 43s
+      Attrs: Force 9 | Finesse 14 | Grit 9 | Arcana 3 | Presence 6
+      Affinities: Weak: Bludgeoning | Resist: None | Immune: None
+      Moves: 55% Rapier Thrust (1.05x Piercing) | 25% Venom Dagger (1.15x Piercing, Poison 2t) | 20% Vital Gouge (1.45x Piercing, high Crit)
   Graystone Foothills:
-    Shadow (CR 1/2)
+    Shadow (CR 1/2) | Lv 8 | Role: Skirmisher
+      Gear: Weapons: Natural (Shadow Touch) | Armor: None (Incorporeal)
+      Stats: HP 82 | ATK 9 | MAG 0 | PDEF 4 | MDEF 4 | Guard 0 | XP 44 | Silver 38s
+      Attrs: Force 8 | Finesse 12 | Grit 7 | Arcana 2 | Presence 5
+      Affinities: Weak: Radiant, Fire | Resist: Slashing, Poison | Immune: Shadow
+      Moves: 65% Chill Touch (1.0x Shadow) | 35% Strength Drain (1.25x Shadow, Curse 2t)
   Upland Foothills:
-    Worg (CR 1/2)
+    Worg (CR 1/2) | Lv 8 | Role: Beast
+      Gear: Weapons: Natural (Jaws) | Armor: None (Natural Fur)
+      Stats: HP 103 | ATK 9 | MAG 0 | PDEF 4 | MDEF 4 | Guard 0 | XP 45 | Silver 38s
+      Attrs: Force 10 | Finesse 10 | Grit 9 | Arcana 2 | Presence 4
+      Affinities: Weak: Fire | Resist: None | Immune: None
+      Moves: 70% Brutal Bite (1.05x Piercing) | 30% Savage Pounce (1.35x Piercing, light Stun chance)
 
 Map 1 - Zone 3 (Lv 11-15)
   Coastal Shore (Crown Sea):
-    Pirate (CR 1)
+    Pirate (CR 1) | Lv 13 | Role: Skirmisher
+      Gear: Weapons: Scimitar (1H, Slashing) & Light Crossbow (2H, Piercing) | Armor: Leather (Light, Salt-Stained)
+      Stats: HP 136 | ATK 13 | MAG 0 | PDEF 5 | MDEF 6 | Guard 0 | XP 84 | Silver 70s
+      Attrs: Force 12 | Finesse 18 | Grit 11 | Arcana 4 | Presence 8
+      Affinities: Weak: Lightning | Resist: None | Immune: None
+      Moves: 65% Cutlass Slash (1.0x Slashing) | 35% Boarding Bolt (1.3x Piercing)
   Oakleaf Groves:
-    Ghoul (CR 1)
-    Dire Wolf (CR 1)
-    Giant Spider (CR 1)
+    Ghoul (CR 1) | Lv 13 | Role: Skirmisher
+      Gear: Weapons: Natural (Claws & Bite) | Armor: Simple Robes (Light, Tattered)
+      Stats: HP 138 | ATK 13 | MAG 0 | PDEF 5 | MDEF 6 | Guard 0 | XP 85 | Silver 71s
+      Attrs: Force 12 | Finesse 18 | Grit 11 | Arcana 4 | Presence 8
+      Affinities: Weak: Radiant, Fire | Resist: Shadow, Poison | Immune: None
+      Moves: 65% Raking Claws (1.0x Slashing) | 35% Paralyzing Bite (1.25x Shadow, light Stun chance)
+    Dire Wolf (CR 1) | Lv 13 | Role: Beast
+      Gear: Weapons: Natural (Bite) | Armor: None (Natural Thick Fur)
+      Stats: HP 175 | ATK 14 | MAG 0 | PDEF 6 | MDEF 5 | Guard 0 | XP 87 | Silver 72s
+      Attrs: Force 15 | Finesse 16 | Grit 15 | Arcana 3 | Presence 7
+      Affinities: Weak: Fire | Resist: None | Immune: None
+      Moves: 65% Dire Fangs (1.05x Piercing) | 35% Throat Rip (1.4x Piercing, high Crit)
+    Giant Spider (CR 1) | Lv 13 | Role: Skirmisher
+      Gear: Weapons: Natural (Venom Fangs) | Armor: None (Natural Chitin)
+      Stats: HP 138 | ATK 13 | MAG 0 | PDEF 5 | MDEF 6 | Guard 0 | XP 85 | Silver 71s
+      Attrs: Force 12 | Finesse 18 | Grit 11 | Arcana 4 | Presence 8
+      Affinities: Weak: Fire, Slashing | Resist: Poison | Immune: None
+      Moves: 60% Spider Bite (1.0x Piercing + light Poison) | 40% Venom Spray (1.25x Poison, 2 Allies)
   Upland Foothills:
-    Brown Bear (CR 1)
-    Harpy (CR 1)
+    Brown Bear (CR 1) | Lv 14 | Role: Heavy
+      Gear: Weapons: Natural (Claws & Bite) | Armor: None (Natural Thick Pelt)
+      Stats: HP 205 | ATK 15 | MAG 0 | PDEF 9 | MDEF 6 | Guard 0 | XP 88 | Silver 73s
+      Attrs: Force 18 | Finesse 11 | Grit 20 | Arcana 4 | Presence 9
+      Affinities: Weak: Fire | Resist: None | Immune: None
+      Moves: 65% Heavy Paw (1.1x Bludgeoning) | 35% Mauling Claws (1.4x Slashing)
+    Harpy (CR 1) | Lv 13 | Role: Skirmisher
+      Gear: Weapons: Natural (Talons) & Song | Armor: Hide (Medium, Feathered)
+      Stats: HP 138 | ATK 13 | MAG 0 | PDEF 5 | MDEF 6 | Guard 0 | XP 85 | Silver 71s
+      Attrs: Force 12 | Finesse 18 | Grit 11 | Arcana 4 | Presence 8
+      Affinities: Weak: Piercing, Frost | Resist: None | Immune: None
+      Moves: 65% Talon Dive (1.0x Slashing) | 35% Luring Screech (1.15x Shadow, 2 Allies + light Curse)
 
 Map 1 - Zone 4 (Lv 16-20)
   Crownland Meadows:
-    Bandit Captain (CR 2)
+    Bandit Captain (CR 2) | Lv 19 | Role: Fighter
+      Gear: Weapons: Scimitar (1H, Slashing) & Dagger (1H, Piercing) | Armor: Padded Leather (Light)
+      Stats: HP 299 | ATK 25 | MAG 0 | PDEF 12 | MDEF 10 | Guard 1 | XP 184 | Silver 160s
+      Attrs: Force 21 | Finesse 20 | Grit 20 | Arcana 5 | Presence 13
+      Affinities: Weak: Lightning | Resist: None | Immune: None
+      Moves: 55% Twin Cutlass (1.05x Slashing) | 25% Dagger Feint (1.3x Piercing) | 20% Captain's Cleave (1.35x Slashing, 2 Allies)
   Sandstone Ridges:
-    Cultist Fanatic (CR 2)
-    Gargoyle (CR 2)
+    Cultist Fanatic (CR 2) | Lv 19 | Role: Hybrid
+      Gear: Weapons: Dagger (1H, Piercing) & Cult Spells | Armor: Fine Robes (Light)
+      Stats: HP 318 | ATK 25 | MAG 26 | PDEF 12 | MDEF 13 | Guard 0 | XP 167 | Silver 145s
+      Attrs: Force 20 | Finesse 20 | Grit 21 | Arcana 20 | Presence 20
+      Affinities: Weak: Radiant | Resist: Shadow | Immune: None
+      Moves: 45% Ritual Dagger (0.95x Piercing) | 35% Umbral Lance (1.35x Shadow + Curse 2t) | 20% Arcane Fireball (1.2x Fire, Splash)
+    Gargoyle (CR 2) | Lv 19 | Role: Heavy
+      Gear: Weapons: Natural (Stone Claws) | Armor: None (Natural Living Stone)
+      Stats: HP 365 | ATK 28 | MAG 0 | PDEF 15 | MDEF 10 | Guard 1 | XP 184 | Silver 160s
+      Attrs: Force 24 | Finesse 14 | Grit 26 | Arcana 5 | Presence 12
+      Affinities: Weak: Bludgeoning | Resist: Slashing, Piercing | Immune: Poison
+      Moves: 65% Granite Claw (1.1x Slashing) | 35% Diving Slam (1.4x Bludgeoning)
   Upland Foothills:
-    Berserker (CR 2)
+    Berserker (CR 2) | Lv 19 | Role: Heavy
+      Gear: Weapons: Battleaxe (1H, Slashing) | Armor: Hide (Medium)
+      Stats: HP 360 | ATK 28 | MAG 0 | PDEF 15 | MDEF 10 | Guard 0 | XP 167 | Silver 145s
+      Attrs: Force 24 | Finesse 14 | Grit 26 | Arcana 5 | Presence 12
+      Affinities: Weak: Frost | Resist: None | Immune: None
+      Moves: 65% Reckless Axe (1.15x Slashing) | 35% Wild Cleave (1.45x Slashing)
   Saltmarsh Wetlands:
-    Ghast (CR 2)
+    Ghast (CR 2) | Lv 19 | Role: Skirmisher
+      Gear: Weapons: Natural (Claws & Stench) | Armor: Padded Leather (Light, Decayed)
+      Stats: HP 255 | ATK 24 | MAG 0 | PDEF 9 | MDEF 10 | Guard 0 | XP 169 | Silver 147s
+      Attrs: Force 17 | Finesse 26 | Grit 16 | Arcana 5 | Presence 11
+      Affinities: Weak: Radiant, Fire | Resist: Shadow | Immune: Poison
+      Moves: 60% Filthy Claws (1.05x Slashing) | 40% Carrion Bite (1.3x Poison, Poison 3t + Stun chance)
   Saltmarsh Waterways (Shore):
-    Giant Constrictor Snake (CR 2)
+    Giant Constrictor Snake (CR 2) | Lv 19 | Role: Beast
+      Gear: Weapons: Natural (Bite & Coils) | Armor: None (Natural Scales)
+      Stats: HP 322 | ATK 26 | MAG 0 | PDEF 11 | MDEF 9 | Guard 1 | XP 187 | Silver 162s
+      Attrs: Force 22 | Finesse 22 | Grit 21 | Arcana 4 | Presence 10
+      Affinities: Weak: Fire, Slashing | Resist: None | Immune: None
+      Moves: 60% Constrict (1.1x Bludgeoning, light Stun) | 40% Crushing Fang (1.4x Piercing)
 
 Map 1 - Zone 5 (Lv 21-25)
   Sandstone Ridges:
-    Ogre (CR 2)
+    Ogre (CR 2) | Lv 22 | Role: Heavy
+      Gear: Weapons: Mace (1H Greatclub, Bludgeoning) | Armor: Hide (Medium)
+      Stats: HP 486 | ATK 36 | MAG 0 | PDEF 20 | MDEF 13 | Guard 1 | XP 273 | Silver 220s
+      Attrs: Force 27 | Finesse 17 | Grit 30 | Arcana 6 | Presence 14
+      Affinities: Weak: Frost, Piercing | Resist: None | Immune: None
+      Moves: 70% Greatclub Smash (1.15x Bludgeoning) | 30% Bonebreaker Swing (1.45x Bludgeoning)
   Saltmarsh Wetlands:
-    Merrow (CR 2)
-    Werewolf (CR 3)
+    Merrow (CR 2) | Lv 22 | Role: Fighter
+      Gear: Weapons: Spear (2H Harpoon, Piercing) & Natural (Claws) | Armor: None (Natural Sea Scales)
+      Stats: HP 399 | ATK 32 | MAG 0 | PDEF 15 | MDEF 13 | Guard 1 | XP 273 | Silver 220s
+      Attrs: Force 24 | Finesse 23 | Grit 23 | Arcana 6 | Presence 15
+      Affinities: Weak: Lightning | Resist: Frost | Immune: None
+      Moves: 65% Harpoon Thrust (1.05x Piercing) | 35% Dragging Pull (1.25x Piercing, delays turn)
+    Werewolf (CR 3) | Lv 24 | Role: Beast
+      Gear: Weapons: Natural (Claws & Bite) | Armor: None (Natural Wolf-Hide)
+      Stats: HP 483 | ATK 34 | MAG 0 | PDEF 14 | MDEF 12 | Guard 1 | XP 309 | Silver 249s
+      Attrs: Force 27 | Finesse 28 | Grit 26 | Arcana 5 | Presence 12
+      Affinities: Weak: Radiant | Resist: Slashing | Immune: None
+      Moves: 65% Rending Claws (1.1x Slashing) | 35% Savage Maul (1.45x Piercing)
   Saltmarsh Waterways (Shore):
-    Black Dragon Wyrmling (CR 2)
+    Black Dragon Wyrmling (CR 2) | Lv 23 | Role: Beast
+      Gear: Weapons: Natural (Bite & Acid Breath) | Armor: None (Natural Black Scales)
+      Stats: HP 438 | ATK 34 | MAG 0 | PDEF 14 | MDEF 12 | Guard 1 | XP 282 | Silver 227s
+      Attrs: Force 26 | Finesse 27 | Grit 25 | Arcana 5 | Presence 12
+      Affinities: Weak: Radiant, Frost | Resist: Poison | Immune: None
+      Moves: 65% Wyrmling Bite (1.1x Piercing) | 35% Acid Breath (1.2x Poison, 2 Allies + Poison 2t)
   Crownland Meadows:
-    Warrior Veteran (CR 3)
+    Warrior Veteran (CR 3) | Lv 24 | Role: Fighter
+      Gear: Weapons: Longsword (1H, Slashing) + Round Shield | Armor: Scale Mail (Medium)
+      Stats: HP 456 | ATK 32 | MAG 0 | PDEF 15 | MDEF 13 | Guard 1 | XP 309 | Silver 249s
+      Attrs: Force 26 | Finesse 25 | Grit 25 | Arcana 6 | Presence 16
+      Affinities: Weak: Lightning, Bludgeoning | Resist: Slashing | Immune: None
+      Moves: 60% Broadsword Slash (1.05x Slashing) | 40% Veteran's Strike (1.4x Slashing)
   Sunlit Downs:
-    Knight (CR 3)
+    Knight (CR 3) | Lv 25 | Role: Heavy
+      Gear: Weapons: Greatsword (2H, Slashing) | Armor: Ring Mail (Heavy)
+      Stats: HP 591 | ATK 36 | MAG 0 | PDEF 20 | MDEF 13 | Guard 2 | XP 353 | Silver 283s
+      Attrs: Force 31 | Finesse 19 | Grit 34 | Arcana 6 | Presence 16
+      Affinities: Weak: Lightning, Bludgeoning | Resist: Slashing | Immune: None
+      Moves: 60% Heavy Greatsword (1.1x Slashing) | 25% Pommel Bash (1.2x Bludgeoning, light Stun) | 15% Knight's Vow (+PDEF 2t)
 
 Map 2 - Zone 6 (Lv 26-30)
   Thornwall Slate Crags:
-    Minotaur (CR 3)
-    Manticore (CR 3)
-    Winter Wolf (CR 3)
+    Minotaur (CR 3) | Lv 28 | Role: Heavy
+      Gear: Weapons: Battleaxe (1H Greataxe, Slashing) & Natural (Horns) | Armor: Hide (Medium)
+      Stats: HP 789 | ATK 45 | MAG 0 | PDEF 25 | MDEF 16 | Guard 1 | XP 487 | Silver 354s
+      Attrs: Force 34 | Finesse 21 | Grit 38 | Arcana 7 | Presence 17
+      Affinities: Weak: Frost | Resist: None | Immune: None
+      Moves: 65% Greataxe Cleave (1.15x Slashing) | 35% Gore Charge (1.45x Piercing, light Stun)
+    Manticore (CR 3) | Lv 28 | Role: Beast
+      Gear: Weapons: Natural (Claws & Tail Spikes) | Armor: None (Natural Fur & Spines)
+      Stats: HP 674 | ATK 42 | MAG 0 | PDEF 17 | MDEF 15 | Guard 0 | XP 438 | Silver 318s
+      Attrs: Force 31 | Finesse 32 | Grit 30 | Arcana 6 | Presence 14
+      Affinities: Weak: Lightning, Fire | Resist: None | Immune: None
+      Moves: 60% Tail Spike Volley (1.05x Piercing, 2 Allies) | 40% Lion Bite (1.4x Piercing)
+    Winter Wolf (CR 3) | Lv 28 | Role: Beast
+      Gear: Weapons: Natural (Bite & Frost Breath) | Armor: None (Natural Frost Pelt)
+      Stats: HP 685 | ATK 42 | MAG 0 | PDEF 17 | MDEF 15 | Guard 1 | XP 487 | Silver 354s
+      Attrs: Force 31 | Finesse 32 | Grit 30 | Arcana 6 | Presence 14
+      Affinities: Weak: Fire | Resist: None | Immune: Frost
+      Moves: 65% Freezing Bite (1.05x Piercing) | 35% Frost Breath (1.25x Frost, 2 Allies + Chill)
   Ochre Grasslands:
-    Wight (CR 3)
-    Vampire Familiar (CR 3)
-    Hell Hound (CR 3)
+    Wight (CR 3) | Lv 29 | Role: Fighter
+      Gear: Weapons: Longsword (1H, Slashing) & Longbow (2H, Piercing) | Armor: Scale Mail (Medium, Ancient)
+      Stats: HP 657 | ATK 40 | MAG 0 | PDEF 19 | MDEF 17 | Guard 1 | XP 495 | Silver 359s
+      Attrs: Force 32 | Finesse 30 | Grit 30 | Arcana 8 | Presence 20
+      Affinities: Weak: Radiant, Fire | Resist: Shadow, Poison | Immune: None
+      Moves: 65% Nether Blade (1.05x Slashing) | 35% Life Drain (1.35x Shadow, Curse 2t + small self heal)
+    Vampire Familiar (CR 3) | Lv 28 | Role: Skirmisher
+      Gear: Weapons: Dagger (1H, Piercing) & Natural (Bite) | Armor: Fine Robes (Light, Darkened)
+      Stats: HP 541 | ATK 38 | MAG 0 | PDEF 15 | MDEF 17 | Guard 0 | XP 438 | Silver 318s
+      Attrs: Force 25 | Finesse 37 | Grit 23 | Arcana 7 | Presence 16
+      Affinities: Weak: Radiant, Fire | Resist: Shadow | Immune: None
+      Moves: 65% Dusk Dagger (1.0x Piercing) | 35% Blood Bite (1.3x Shadow, light self heal)
+    Hell Hound (CR 3) | Lv 29 | Role: Beast
+      Gear: Weapons: Natural (Bite & Fire Breath) | Armor: None (Natural Cinder Hide)
+      Stats: HP 697 | ATK 42 | MAG 0 | PDEF 17 | MDEF 15 | Guard 0 | XP 453 | Silver 329s
+      Attrs: Force 32 | Finesse 34 | Grit 32 | Arcana 6 | Presence 15
+      Affinities: Weak: Frost | Resist: None | Immune: Fire
+      Moves: 65% Scorching Bite (1.1x Fire) | 35% Fire Breath (1.3x Fire, 2 Allies + Burn)
 
 Map 2 - Zone 7 (Lv 31-35)
   Thornwall Slate Crags:
-    Basilisk (CR 3)
-    Mummy (CR 3)
-    Red Dragon Wyrmling (CR 4)
-    Ettin (CR 4)
+    Basilisk (CR 3) | Lv 33 | Role: Beast
+      Gear: Weapons: Natural (Bite & Petrifying Gaze) | Armor: None (Natural Armored Scales)
+      Stats: HP 923 | ATK 51 | MAG 0 | PDEF 21 | MDEF 18 | Guard 1 | XP 676 | Silver 512s
+      Attrs: Force 37 | Finesse 38 | Grit 36 | Arcana 7 | Presence 17
+      Affinities: Weak: Frost, Lightning | Resist: Poison | Immune: None
+      Moves: 65% Crushing Bite (1.05x Piercing) | 35% Stone Gaze (1.2x Shadow, Stun chance)
+    Mummy (CR 3) | Lv 33 | Role: Heavy
+      Gear: Weapons: Natural (Rotting Fist) | Armor: Simple Robes (Light, Burial Wraps)
+      Stats: HP 1082 | ATK 54 | MAG 0 | PDEF 30 | MDEF 19 | Guard 1 | XP 687 | Silver 521s
+      Attrs: Force 40 | Finesse 24 | Grit 44 | Arcana 8 | Presence 20
+      Affinities: Weak: Fire, Radiant | Resist: Shadow, Poison | Immune: None
+      Moves: 65% Cursed Fist (1.1x Bludgeoning) | 35% Mummy Rot (1.35x Shadow, Curse 3t)
+    Red Dragon Wyrmling (CR 4) | Lv 34 | Role: Beast
+      Gear: Weapons: Natural (Bite & Fire Breath) | Armor: None (Natural Red Scales)
+      Stats: HP 1038 | ATK 51 | MAG 0 | PDEF 21 | MDEF 18 | Guard 1 | XP 752 | Silver 570s
+      Attrs: Force 38 | Finesse 39 | Grit 37 | Arcana 7 | Presence 18
+      Affinities: Weak: Frost | Resist: None | Immune: Fire
+      Moves: 65% Wyrmling Bite (1.1x Piercing) | 35% Fire Breath (1.3x Fire, 2 Allies + Burn 2t)
+    Ettin (CR 4) | Lv 34 | Role: Heavy
+      Gear: Weapons: Battleaxe (1H, Slashing) & Mace (1H Morningstar, Bludgeoning) | Armor: Hide (Medium)
+      Stats: HP 1232 | ATK 54 | MAG 0 | PDEF 30 | MDEF 19 | Guard 2 | XP 835 | Silver 633s
+      Attrs: Force 41 | Finesse 25 | Grit 46 | Arcana 9 | Presence 21
+      Affinities: Weak: Lightning, Frost | Resist: None | Immune: None
+      Moves: 55% Two-Headed Flurry (1.15x Slashing) | 45% Heavy Morningstar (1.45x Bludgeoning)
   Ochre Grasslands:
-    Bearded Devil (CR 3)
-    Guard Captain (CR 4)
+    Bearded Devil (CR 3) | Lv 33 | Role: Fighter
+      Gear: Weapons: Greatsword (2H Infernal Glaive, Slashing) & Natural (Beard) | Armor: Scale Mail (Medium, Bronze)
+      Stats: HP 917 | ATK 50 | MAG 0 | PDEF 23 | MDEF 20 | Guard 1 | XP 708 | Silver 537s
+      Attrs: Force 36 | Finesse 34 | Grit 34 | Arcana 8 | Presence 22
+      Affinities: Weak: Radiant, Frost | Resist: Poison | Immune: Fire
+      Moves: 60% Infernal Glaive (1.1x Slashing) | 40% Poisoned Beard (1.3x Poison, Poison 3t)
+    Guard Captain (CR 4) | Lv 35 | Role: Heavy
+      Gear: Weapons: Longsword (1H, Slashing) + Round Shield | Armor: Scale Mail (Medium)
+      Stats: HP 1270 | ATK 54 | MAG 0 | PDEF 30 | MDEF 19 | Guard 2 | XP 857 | Silver 650s
+      Attrs: Force 42 | Finesse 26 | Grit 47 | Arcana 9 | Presence 22
+      Affinities: Weak: Lightning | Resist: Slashing | Immune: None
+      Moves: 55% Longsword Slash (1.1x Slashing) | 25% Shield Bash (1.2x Bludgeoning, Stun chance) | 20% Rallying Command (+ATK all allies 2t)
 
 Map 2 - Zone 8 (Lv 36-40)
   Verdant Canopy Woods:
-    Green Hag (CR 3)
-    Owlbear (CR 3)
-    Wereboar (CR 4)
+    Green Hag (CR 3) | Lv 38 | Role: Caster
+      Gear: Weapons: Natural (Claws) & Blight Spells | Armor: Padded Robes (Light, Moss-Stained)
+      Stats: HP 1031 | ATK 44 | MAG 76 | PDEF 24 | MDEF 42 | Guard 0 | XP 881 | Silver 693s
+      Attrs: Force 18 | Finesse 38 | Grit 29 | Arcana 45 | Presence 45
+      Affinities: Weak: Fire, Radiant | Resist: Poison | Immune: None
+      Moves: 45% Claw Rake (0.95x Slashing) | 35% Spore Cloud (1.2x Poison, 2 Allies) | 20% Bramble Snare (1.3x Shadow, delays turn)
+    Owlbear (CR 3) | Lv 38 | Role: Beast
+      Gear: Weapons: Natural (Beak & Claws) | Armor: None (Natural Feathered Hide)
+      Stats: HP 1347 | ATK 73 | MAG 0 | PDEF 30 | MDEF 27 | Guard 1 | XP 1001 | Silver 788s
+      Attrs: Force 42 | Finesse 44 | Grit 41 | Arcana 8 | Presence 20
+      Affinities: Weak: Fire | Resist: None | Immune: None
+      Moves: 65% Savage Claws (1.15x Slashing) | 35% Snapping Beak (1.45x Piercing)
+    Wereboar (CR 4) | Lv 39 | Role: Heavy
+      Gear: Weapons: Mace (1H Maul, Bludgeoning) & Natural (Tusks) | Armor: Hide (Medium)
+      Stats: HP 1657 | ATK 77 | MAG 0 | PDEF 43 | MDEF 28 | Guard 1 | XP 1064 | Silver 836s
+      Attrs: Force 47 | Finesse 29 | Grit 52 | Arcana 10 | Presence 24
+      Affinities: Weak: Radiant | Resist: Slashing | Immune: None
+      Moves: 60% Heavy Maul (1.1x Bludgeoning) | 40% Boar Charge (1.45x Piercing, light Stun)
   Weald Clearings:
-    Lamia (CR 4)
-    Ghost (CR 4)
-    Succubus (CR 4)
+    Lamia (CR 4) | Lv 39 | Role: Hybrid
+      Gear: Weapons: Dagger (1H, Piercing) & Curse Magic | Armor: Silk Robes (Light)
+      Stats: HP 1490 | ATK 69 | MAG 72 | PDEF 34 | MDEF 36 | Guard 0 | XP 990 | Silver 779s
+      Attrs: Force 40 | Finesse 39 | Grit 42 | Arcana 41 | Presence 40
+      Affinities: Weak: Radiant, Piercing | Resist: Shadow | Immune: None
+      Moves: 55% Ceremonial Dagger (1.05x Piercing) | 45% Intoxicating Touch (1.35x Shadow, Curse 3t)
+    Ghost (CR 4) | Lv 39 | Role: Caster
+      Gear: Weapons: Natural (Withering Touch) | Armor: None (Incorporeal)
+      Stats: HP 1159 | ATK 44 | MAG 76 | PDEF 24 | MDEF 42 | Guard 0 | XP 990 | Silver 779s
+      Attrs: Force 18 | Finesse 39 | Grit 30 | Arcana 46 | Presence 46
+      Affinities: Weak: Radiant, Lightning | Resist: Slashing, Piercing | Immune: Poison, Shadow
+      Moves: 60% Withering Touch (1.1x Shadow) | 40% Horrifying Wail (1.2x Shadow, 2 Allies + Curse)
+    Succubus (CR 4) | Lv 39 | Role: Skirmisher
+      Gear: Weapons: Natural (Claws & Drain) | Armor: Fine Robes (Light, Crimson)
+      Stats: HP 1191 | ATK 67 | MAG 0 | PDEF 26 | MDEF 29 | Guard 0 | XP 1006 | Silver 791s
+      Attrs: Force 34 | Finesse 51 | Grit 32 | Arcana 10 | Presence 22
+      Affinities: Weak: Radiant | Resist: Fire, Shadow, Poison | Immune: None
+      Moves: 60% Fiendish Claw (1.05x Slashing) | 40% Draining Kiss (1.4x Shadow, Curse + small heal)
 
 Map 2 - Zone 9 (Lv 41-45)
   Borderland Channel (Shore):
-    Chuul (CR 4)
-    Giant Crocodile (CR 5)
+    Chuul (CR 4) | Lv 43 | Role: Heavy
+      Gear: Weapons: Natural (Pincers & Tentacles) | Armor: None (Natural Carapace)
+      Stats: HP 2029 | ATK 90 | MAG 0 | PDEF 49 | MDEF 32 | Guard 1 | XP 1330 | Silver 1090s
+      Attrs: Force 52 | Finesse 32 | Grit 57 | Arcana 11 | Presence 26
+      Affinities: Weak: Lightning | Resist: Poison | Immune: None
+      Moves: 60% Heavy Pincers (1.1x Bludgeoning) | 40% Paralytic Tentacles (1.3x Poison, Stun chance)
+    Giant Crocodile (CR 5) | Lv 44 | Role: Beast
+      Gear: Weapons: Natural (Jaws & Tail) | Armor: None (Natural Thick Scales)
+      Stats: HP 1981 | ATK 85 | MAG 0 | PDEF 34 | MDEF 31 | Guard 2 | XP 1601 | Silver 1312s
+      Attrs: Force 49 | Finesse 50 | Grit 47 | Arcana 9 | Presence 22
+      Affinities: Weak: Lightning, Frost | Resist: None | Immune: None
+      Moves: 65% Titan Bite (1.15x Piercing) | 35% Tail Sweep (1.25x Bludgeoning, 2 Allies + Stun chance)
   Blighted Mire-Glade:
-    Shadow Demon (CR 4)
-    Troll (CR 5)
-    Night Hag (CR 5)
+    Shadow Demon (CR 4) | Lv 43 | Role: Skirmisher
+      Gear: Weapons: Natural (Shadow Claws) | Armor: None (Incorporeal Shadow)
+      Stats: HP 1439 | ATK 78 | MAG 0 | PDEF 30 | MDEF 34 | Guard 0 | XP 1229 | Silver 1008s
+      Attrs: Force 37 | Finesse 56 | Grit 35 | Arcana 11 | Presence 24
+      Affinities: Weak: Radiant, Fire | Resist: Frost, Lightning | Immune: Shadow, Poison
+      Moves: 60% Shadow Claws (1.15x Shadow) | 40% Abyssal Dread (1.3x Shadow, 2 Allies + Curse)
+    Troll (CR 5) | Lv 44 | Role: Heavy
+      Gear: Weapons: Natural (Bite & Claws) | Armor: None (Natural Troll-Hide)
+      Stats: HP 2316 | ATK 90 | MAG 0 | PDEF 49 | MDEF 32 | Guard 2 | XP 1623 | Silver 1330s
+      Attrs: Force 53 | Finesse 32 | Grit 58 | Arcana 11 | Presence 27
+      Affinities: Weak: Fire | Resist: Bludgeoning, Poison | Immune: None
+      Moves: 55% Rend Claws (1.15x Slashing) | 25% Savage Bite (1.4x Piercing) | 20% Troll Regeneration (+10% HP unless Burned)
+    Night Hag (CR 5) | Lv 44 | Role: Caster
+      Gear: Weapons: Natural (Claws) & Nightmare Spells | Armor: Widowsilk Robes (Light)
+      Stats: HP 1595 | ATK 51 | MAG 88 | PDEF 28 | MDEF 48 | Guard 1 | XP 1501 | Silver 1230s
+      Attrs: Force 20 | Finesse 44 | Grit 34 | Arcana 52 | Presence 52
+      Affinities: Weak: Radiant | Resist: Fire, Frost, Shadow | Immune: None
+      Moves: 40% Hag Claws (1.0x Slashing) | 35% Umbral Lance (1.4x Shadow + Curse) | 25% Nightmare Rays (1.2x Shadow, All Allies)
   Weald Clearings:
-    Gladiator (CR 5)
+    Gladiator (CR 5) | Lv 45 | Role: Fighter
+      Gear: Weapons: Battleaxe (1H, Slashing) + Heater Shield | Armor: Studded Leather (Light)
+      Stats: HP 1987 | ATK 82 | MAG 0 | PDEF 37 | MDEF 34 | Guard 2 | XP 1687 | Silver 1382s
+      Attrs: Force 48 | Finesse 46 | Grit 46 | Arcana 12 | Presence 30
+      Affinities: Weak: Lightning, Frost | Resist: Slashing | Immune: None
+      Moves: 55% Arena Battleaxe (1.1x Slashing) | 25% Shield Bash (1.2x Bludgeoning, Stun chance) | 20% Savage Flurry (1.5x Slashing)
 
 Map 2 - Zone 10 (Lv 46-50)
   Blighted Mire-Glade:
-    Flesh Golem (CR 5)
-    Wraith (CR 5)
+    Flesh Golem (CR 5) | Lv 48 | Role: Heavy
+      Gear: Weapons: Natural (Slam) | Armor: Leather (Light, Stitched Scraps)
+      Stats: HP 2606 | ATK 104 | MAG 0 | PDEF 57 | MDEF 37 | Guard 2 | XP 1908 | Silver 1630s
+      Attrs: Force 58 | Finesse 35 | Grit 64 | Arcana 12 | Presence 29
+      Affinities: Weak: Fire | Resist: Slashing, Piercing | Immune: Lightning, Poison
+      Moves: 65% Stitched Slam (1.15x Bludgeoning) | 35% Berserk Batter (1.45x Bludgeoning)
+    Wraith (CR 5) | Lv 48 | Role: Skirmisher
+      Gear: Weapons: Natural (Life Drain) | Armor: None (Incorporeal)
+      Stats: HP 1847 | ATK 90 | MAG 0 | PDEF 35 | MDEF 39 | Guard 1 | XP 1778 | Silver 1519s
+      Attrs: Force 42 | Finesse 63 | Grit 39 | Arcana 12 | Presence 27
+      Affinities: Weak: Radiant, Fire | Resist: Slashing, Piercing | Immune: Poison, Shadow
+      Moves: 60% Spectral Touch (1.15x Shadow) | 40% Life Drain (1.4x Shadow, Curse + small heal)
   Verdant Canopy Woods:
-    Vampire Spawn (CR 5)
+    Vampire Spawn (CR 5) | Lv 48 | Role: Skirmisher
+      Gear: Weapons: Natural (Claws & Bite) | Armor: Studded Leather (Light, Darkened)
+      Stats: HP 1879 | ATK 90 | MAG 0 | PDEF 35 | MDEF 39 | Guard 1 | XP 1805 | Silver 1542s
+      Attrs: Force 42 | Finesse 63 | Grit 39 | Arcana 12 | Presence 27
+      Affinities: Weak: Radiant, Fire | Resist: Shadow | Immune: None
+      Moves: 60% Vampire Claws (1.1x Slashing) | 40% Blood Bite (1.4x Shadow + self heal)
   Highland Foothills:
-    Hill Giant (CR 5)
-    Bulette (CR 5)
+    Hill Giant (CR 5) | Lv 49 | Role: Heavy
+      Gear: Weapons: Mace (1H Greatclub, Bludgeoning) & Boulders | Armor: Hide (Medium)
+      Stats: HP 2787 | ATK 104 | MAG 0 | PDEF 57 | MDEF 37 | Guard 2 | XP 2018 | Silver 1725s
+      Attrs: Force 59 | Finesse 36 | Grit 65 | Arcana 12 | Presence 30
+      Affinities: Weak: Frost, Fire | Resist: None | Immune: None
+      Moves: 65% Greatclub Smash (1.2x Bludgeoning) | 35% Hurl Boulder (1.45x Bludgeoning, light Stun)
+    Bulette (CR 5) | Lv 49 | Role: Beast
+      Gear: Weapons: Natural (Jaws & Leap) | Armor: None (Natural Armor Plating)
+      Stats: HP 2421 | ATK 98 | MAG 0 | PDEF 40 | MDEF 36 | Guard 2 | XP 2018 | Silver 1725s
+      Attrs: Force 54 | Finesse 56 | Grit 52 | Arcana 10 | Presence 25
+      Affinities: Weak: Frost, Lightning | Resist: Slashing, Piercing | Immune: None
+      Moves: 65% Armor Jaws (1.15x Piercing) | 35% Deadly Leap (1.3x Bludgeoning, 2 Allies)
   Sandy Cove Beaches:
-    Pirate Captain (CR 6)
+    Pirate Captain (CR 6) | Lv 50 | Role: Fighter
+      Gear: Weapons: Rapier (1H, Piercing) & Scimitar (1H, Slashing) | Armor: Studded Leather (Light)
+      Stats: HP 2507 | ATK 94 | MAG 0 | PDEF 43 | MDEF 39 | Guard 2 | XP 2184 | Silver 1866s
+      Attrs: Force 54 | Finesse 51 | Grit 51 | Arcana 13 | Presence 33
+      Affinities: Weak: Lightning | Resist: None | Immune: None
+      Moves: 55% Corsair Rapier (1.1x Piercing) | 25% Deck Mortar (1.2x Fire, 2 Allies + Burn) | 20% Duelist Lunge (1.5x Piercing)
 
 Map 3 - Zone 11 (Lv 51-55)
   Sun-Scorched Dunes:
-    Salamander (CR 5)
-    Fire Elemental (CR 5)
+    Salamander (CR 5) | Lv 53 | Role: Fighter
+      Gear: Weapons: Spear (2H, Piercing) & Natural (Tail) | Armor: None (Natural Flame Scales)
+      Stats: HP 2594 | ATK 108 | MAG 0 | PDEF 50 | MDEF 45 | Guard 1 | XP 2158 | Silver 1940s
+      Attrs: Force 57 | Finesse 54 | Grit 54 | Arcana 14 | Presence 35
+      Affinities: Weak: Frost | Resist: None | Immune: Fire
+      Moves: 60% Heated Spear (1.1x Piercing + Burn) | 40% Coiling Tail (1.35x Fire, Burn 2t)
+    Fire Elemental (CR 5) | Lv 53 | Role: Skirmisher
+      Gear: Weapons: Natural (Flame Touch) | Armor: None (Pure Elemental Fire)
+      Stats: HP 2244 | ATK 103 | MAG 0 | PDEF 40 | MDEF 45 | Guard 1 | XP 2193 | Silver 1971s
+      Attrs: Force 46 | Finesse 69 | Grit 43 | Arcana 14 | Presence 30
+      Affinities: Weak: Frost | Resist: Slashing, Piercing | Immune: Fire, Poison
+      Moves: 60% Flame Lash (1.15x Fire + Burn) | 40% Wildfire Sweep (1.25x Fire, 2 Allies + Burn)
   Sandstone Mesas:
-    Barbed Devil (CR 5)
-    Mage (CR 6)
-    Chimera (CR 6)
-    Wyvern (CR 6)
+    Barbed Devil (CR 5) | Lv 53 | Role: Hybrid
+      Gear: Weapons: Natural (Barbed Claws) & Flame | Armor: None (Natural Barbed Hide)
+      Stats: HP 2950 | ATK 106 | MAG 110 | PDEF 52 | MDEF 55 | Guard 1 | XP 2262 | Silver 2034s
+      Attrs: Force 54 | Finesse 53 | Grit 57 | Arcana 55 | Presence 54
+      Affinities: Weak: Radiant, Frost | Resist: Poison | Immune: Fire
+      Moves: 60% Barbed Claws (1.1x Piercing) | 40% Hurl Flame (1.35x Fire, Burn 2t)
+    Mage (CR 6) | Lv 54 | Role: Caster
+      Gear: Weapons: Quarterstaff (2H, Bludgeoning) & Arcane Spells | Armor: Silk Robes (Light)
+      Stats: HP 2448 | ATK 67 | MAG 117 | PDEF 37 | MDEF 63 | Guard 1 | XP 2401 | Silver 2158s
+      Attrs: Force 24 | Finesse 53 | Grit 40 | Arcana 62 | Presence 62
+      Affinities: Weak: Slashing, Piercing | Resist: Fire, Frost | Immune: None
+      Moves: 45% Arcane Fireball (1.35x Fire, Splash) | 35% Chain Spark (1.2x Lightning, 2 Allies) | 20% Frost Shard (1.3x Frost + Chill)
+    Chimera (CR 6) | Lv 54 | Role: Beast
+      Gear: Weapons: Natural (Claws, Bite & Fire Breath) | Armor: None (Natural Hide & Scales)
+      Stats: HP 3138 | ATK 112 | MAG 0 | PDEF 46 | MDEF 41 | Guard 2 | XP 2633 | Silver 2367s
+      Attrs: Force 58 | Finesse 60 | Grit 57 | Arcana 11 | Presence 27
+      Affinities: Weak: Frost, Lightning | Resist: None | Immune: None
+      Moves: 60% Three-Headed Rush (1.15x Piercing) | 40% Fire Breath (1.3x Fire, All Allies + Burn)
+    Wyvern (CR 6) | Lv 54 | Role: Beast
+      Gear: Weapons: Natural (Bite & Venom Stinger) | Armor: None (Natural Wyvern Scales)
+      Stats: HP 3187 | ATK 112 | MAG 0 | PDEF 46 | MDEF 41 | Guard 2 | XP 2668 | Silver 2399s
+      Attrs: Force 58 | Finesse 60 | Grit 57 | Arcana 11 | Presence 27
+      Affinities: Weak: Frost, Lightning | Resist: Poison | Immune: None
+      Moves: 60% Wyvern Bite (1.1x Piercing) | 40% Stinger Thrust (1.45x Poison, heavy Poison 3t)
 
 Map 3 - Zone 12 (Lv 56-60)
   Oasis & Alpine Lakes (Shore):
-    Water Elemental (CR 5)
-    Young Black Dragon (CR 7)
+    Water Elemental (CR 5) | Lv 58 | Role: Heavy
+      Gear: Weapons: Natural (Wave Slam) | Armor: None (Pure Elemental Water)
+      Stats: HP 3841 | ATK 135 | MAG 0 | PDEF 74 | MDEF 48 | Guard 1 | XP 2616 | Silver 2562s
+      Attrs: Force 68 | Finesse 42 | Grit 75 | Arcana 14 | Presence 35
+      Affinities: Weak: Lightning | Resist: Fire, Slashing | Immune: Poison
+      Moves: 65% Crashing Slam (1.1x Bludgeoning) | 35% Whelm Surge (1.25x Frost, 2 Allies + Chill)
+    Young Black Dragon (CR 7) | Lv 59 | Role: Beast
+      Gear: Weapons: Natural (Bite, Claws & Acid Breath) | Armor: None (Natural Black Scales)
+      Stats: HP 3809 | ATK 127 | MAG 0 | PDEF 52 | MDEF 46 | Guard 2 | XP 3192 | Silver 3125s
+      Attrs: Force 64 | Finesse 66 | Grit 62 | Arcana 12 | Presence 30
+      Affinities: Weak: Radiant, Frost | Resist: Shadow | Immune: Poison
+      Moves: 60% Dragon Claws (1.15x Slashing) | 40% Acid Line Breath (1.35x Poison, All Allies + Poison 3t)
   Palm Oasis Verge:
-    Oni (CR 7)
+    Oni (CR 7) | Lv 59 | Role: Hybrid
+      Gear: Weapons: Greatsword (2H, Slashing) & Frost Spells | Armor: Chain Mail (Heavy)
+      Stats: HP 3881 | ATK 120 | MAG 125 | PDEF 59 | MDEF 63 | Guard 2 | XP 3192 | Silver 3125s
+      Attrs: Force 59 | Finesse 58 | Grit 62 | Arcana 60 | Presence 59
+      Affinities: Weak: Radiant, Fire | Resist: Frost | Immune: None
+      Moves: 50% Giant Glaive (1.15x Slashing) | 30% Rime Curtain (1.2x Frost, All Allies + Chill) | 20% Dark Regeneration (+10% HP)
   Sun-Scorched Dunes:
-    Vrock (CR 6)
-    Invisible Stalker (CR 6)
+    Vrock (CR 6) | Lv 58 | Role: Skirmisher
+      Gear: Weapons: Natural (Talons & Spores) | Armor: None (Natural Feathered Hide)
+      Stats: HP 2818 | ATK 116 | MAG 0 | PDEF 45 | MDEF 50 | Guard 1 | XP 2742 | Silver 2685s
+      Attrs: Force 49 | Finesse 74 | Grit 46 | Arcana 14 | Presence 32
+      Affinities: Weak: Radiant, Lightning | Resist: Fire, Frost | Immune: Poison
+      Moves: 60% Talon Flurry (1.1x Slashing) | 40% Toxic Spores (1.25x Poison, All Allies + Stun chance)
+    Invisible Stalker (CR 6) | Lv 58 | Role: Skirmisher
+      Gear: Weapons: Natural (Wind Slam) | Armor: None (Incorporeal Air)
+      Stats: HP 2865 | ATK 116 | MAG 0 | PDEF 45 | MDEF 50 | Guard 1 | XP 2784 | Silver 2726s
+      Attrs: Force 49 | Finesse 74 | Grit 46 | Arcana 14 | Presence 32
+      Affinities: Weak: Fire, Lightning | Resist: Slashing, Piercing | Immune: Poison
+      Moves: 65% Unseen Strike (1.15x Bludgeoning, high Crit) | 35% Cyclone Ambush (1.45x Bludgeoning)
   Sandstone Mesas:
-    Stone Giant (CR 7)
+    Stone Giant (CR 7) | Lv 60 | Role: Heavy
+      Gear: Weapons: Mace (1H Greatclub, Bludgeoning) & Boulders | Armor: Hide (Medium)
+      Stats: HP 4520 | ATK 135 | MAG 0 | PDEF 74 | MDEF 48 | Guard 2 | XP 3276 | Silver 3208s
+      Attrs: Force 72 | Finesse 44 | Grit 79 | Arcana 15 | Presence 37
+      Affinities: Weak: Lightning, Frost | Resist: Slashing, Piercing | Immune: None
+      Moves: 60% Stone Club (1.2x Bludgeoning) | 40% Hurl Boulder (1.5x Bludgeoning, Stun chance)
 
 Map 3 - Zone 13 (Lv 61-65)
   Granite Highland Ridge:
-    Young White Dragon (CR 6)
-    Young Copper Dragon (CR 7)
+    Young White Dragon (CR 6) | Lv 63 | Role: Beast
+      Gear: Weapons: Natural (Bite & Frost Breath) | Armor: None (Natural White Scales)
+      Stats: HP 4080 | ATK 161 | MAG 0 | PDEF 65 | MDEF 58 | Guard 2 | XP 3381 | Silver 3985s
+      Attrs: Force 68 | Finesse 71 | Grit 66 | Arcana 13 | Presence 32
+      Affinities: Weak: Fire | Resist: None | Immune: Frost
+      Moves: 60% Glacial Bite (1.15x Piercing) | 40% Frost Breath (1.35x Frost, All Allies + Chill)
+    Young Copper Dragon (CR 7) | Lv 63 | Role: Beast
+      Gear: Weapons: Natural (Claws & Corrosive Breath) | Armor: None (Natural Copper Scales)
+      Stats: HP 4221 | ATK 161 | MAG 0 | PDEF 65 | MDEF 58 | Guard 2 | XP 3479 | Silver 4100s
+      Attrs: Force 68 | Finesse 71 | Grit 66 | Arcana 13 | Presence 32
+      Affinities: Weak: Frost, Lightning | Resist: None | Immune: Poison
+      Moves: 60% Copper Claws (1.15x Slashing) | 40% Corrosive Breath (1.3x Poison, All Allies + Chill)
   Ironcrest Foothills:
-    Shield Guardian (CR 7)
+    Shield Guardian (CR 7) | Lv 63 | Role: Heavy
+      Gear: Weapons: Natural (Steel Fist) | Armor: Chain Mail (Heavy, Arcane Construct)
+      Stats: HP 4940 | ATK 170 | MAG 0 | PDEF 94 | MDEF 60 | Guard 2 | XP 3528 | Silver 4158s
+      Attrs: Force 74 | Finesse 45 | Grit 82 | Arcana 16 | Presence 38
+      Affinities: Weak: Lightning, Bludgeoning | Resist: Slashing, Piercing | Immune: Poison
+      Moves: 65% Iron Fist (1.15x Bludgeoning) | 35% Shielding Slam (1.35x Bludgeoning, +PDEF 2t)
   Highland Oak Woods:
-    Assassin (CR 8)
+    Assassin (CR 8) | Lv 64 | Role: Skirmisher
+      Gear: Weapons: Dagger (1H, Piercing) & Light Crossbow (2H, Piercing) | Armor: Spiked Leather (Light, Darkened)
+      Stats: HP 3612 | ATK 147 | MAG 0 | PDEF 57 | MDEF 64 | Guard 1 | XP 3395 | Silver 4001s
+      Attrs: Force 54 | Finesse 82 | Grit 51 | Arcana 16 | Presence 35
+      Affinities: Weak: Radiant, Bludgeoning | Resist: Poison | Immune: None
+      Moves: 55% Venom Blade (1.15x Piercing + Poison 3t) | 25% Crossbow Snipe (1.45x Piercing, high Crit) | 20% Heartseeker (1.6x Piercing)
   Oasis & Alpine Lakes (Shore):
-    Hydra (CR 8)
+    Hydra (CR 8) | Lv 64 | Role: Beast
+      Gear: Weapons: Natural (Multi-Head Bites) | Armor: None (Natural Scales)
+      Stats: HP 4646 | ATK 161 | MAG 0 | PDEF 65 | MDEF 58 | Guard 2 | XP 3773 | Silver 4447s
+      Attrs: Force 69 | Finesse 72 | Grit 67 | Arcana 13 | Presence 32
+      Affinities: Weak: Fire | Resist: Poison | Immune: None
+      Moves: 60% Multi-Head Bite (1.2x Piercing, 2 Allies) | 40% Savage Snap (1.5x Piercing)
   Evergreen Pine Forest:
-    Young Green Dragon (CR 8)
+    Young Green Dragon (CR 8) | Lv 65 | Role: Beast
+      Gear: Weapons: Natural (Bite & Poison Breath) | Armor: None (Natural Green Scales)
+      Stats: HP 4717 | ATK 161 | MAG 0 | PDEF 65 | MDEF 58 | Guard 2 | XP 3822 | Silver 4504s
+      Attrs: Force 71 | Finesse 74 | Grit 69 | Arcana 13 | Presence 33
+      Affinities: Weak: Fire, Radiant | Resist: None | Immune: Poison
+      Moves: 60% Dragon Claws (1.15x Slashing) | 40% Poison Breath (1.35x Poison, All Allies + Poison 3t)
 
 Map 3 - Zone 14 (Lv 66-70)
   Granite Highland Ridge:
-    Frost Giant (CR 8)
-    Chain Devil (CR 8)
+    Frost Giant (CR 8) | Lv 68 | Role: Heavy
+      Gear: Weapons: Battleaxe (1H Giant Axe, Slashing) | Armor: Splint (Heavy, Fur-Trimmed)
+      Stats: HP 5652 | ATK 190 | MAG 0 | PDEF 105 | MDEF 67 | Guard 2 | XP 4018 | Silver 5267s
+      Attrs: Force 80 | Finesse 49 | Grit 88 | Arcana 17 | Presence 41
+      Affinities: Weak: Fire | Resist: None | Immune: Frost
+      Moves: 65% Frost Greataxe (1.2x Slashing) | 35% Ice-Rock Smash (1.45x Frost, Chill)
+    Chain Devil (CR 8) | Lv 68 | Role: Fighter
+      Gear: Weapons: Spiked Chain (Natural Weapon, Slashing & Piercing) | Armor: Chain Mail (Heavy, Living Chains)
+      Stats: HP 4712 | ATK 173 | MAG 0 | PDEF 79 | MDEF 71 | Guard 1 | XP 3747 | Silver 4913s
+      Attrs: Force 71 | Finesse 68 | Grit 68 | Arcana 17 | Presence 44
+      Affinities: Weak: Radiant, Lightning | Resist: Frost, Poison | Immune: Fire
+      Moves: 60% Barbed Chains (1.15x Slashing, 2 Allies) | 40% Binding Lash (1.4x Piercing, Stun chance)
   Ironcrest Foothills:
-    Cloaker (CR 8)
-    Clay Golem (CR 9)
+    Cloaker (CR 8) | Lv 68 | Role: Skirmisher
+      Gear: Weapons: Natural (Bite & Tail) | Armor: None (Natural Shadow Wing)
+      Stats: HP 4005 | ATK 164 | MAG 0 | PDEF 63 | MDEF 71 | Guard 1 | XP 3747 | Silver 4913s
+      Attrs: Force 58 | Finesse 87 | Grit 54 | Arcana 17 | Presence 37
+      Affinities: Weak: Radiant, Fire | Resist: Shadow | Immune: None
+      Moves: 60% Latching Bite (1.15x Piercing) | 40% Phantasmal Moan (1.25x Shadow, 2 Allies + Curse)
+    Clay Golem (CR 9) | Lv 69 | Role: Heavy
+      Gear: Weapons: Natural (Clay Slam) | Armor: None (Natural Hardened Clay)
+      Stats: HP 6328 | ATK 190 | MAG 0 | PDEF 105 | MDEF 67 | Guard 2 | XP 4420 | Silver 5794s
+      Attrs: Force 81 | Finesse 50 | Grit 90 | Arcana 17 | Presence 41
+      Affinities: Weak: Bludgeoning, Frost | Resist: Slashing, Piercing | Immune: Poison
+      Moves: 65% Heavy Slam (1.2x Bludgeoning) | 35% Shattering Smash (1.5x Bludgeoning, Curse chance)
   Oasis & Alpine Lakes (Shore):
-    Hezrou (CR 8)
+    Hezrou (CR 8) | Lv 69 | Role: Heavy
+      Gear: Weapons: Natural (Bite, Claws & Stench) | Armor: None (Natural Armored Hide)
+      Stats: HP 5942 | ATK 190 | MAG 0 | PDEF 105 | MDEF 67 | Guard 2 | XP 4190 | Silver 5493s
+      Attrs: Force 81 | Finesse 50 | Grit 90 | Arcana 17 | Presence 41
+      Affinities: Weak: Radiant | Resist: Fire, Frost, Lightning | Immune: Poison
+      Moves: 65% Abyssal Claw (1.15x Slashing) | 35% Noxious Jaws (1.4x Poison, Poison 3t)
   Ironcrest Alpine Meadow:
-    Cloud Giant (CR 9)
+    Cloud Giant (CR 9) | Lv 70 | Role: Hybrid
+      Gear: Weapons: Mace (1H Giant Morningstar, Bludgeoning) & Storm Spells | Armor: Splint (Heavy, Storm-Silver)
+      Stats: HP 5687 | ATK 169 | MAG 176 | PDEF 83 | MDEF 89 | Guard 2 | XP 4477 | Silver 5870s
+      Attrs: Force 71 | Finesse 70 | Grit 75 | Arcana 72 | Presence 71
+      Affinities: Weak: Frost, Piercing | Resist: Lightning | Immune: None
+      Moves: 55% Giant Morningstar (1.2x Bludgeoning) | 45% Tempest Arc (1.25x Lightning, All Allies + Shock)
 
 Map 3 - Zone 15 (Lv 71-75)
   Granite Highland Ridge:
-    Fire Giant (CR 9)
-    Young Blue Dragon (CR 9)
+    Young Silver Dragon (CR 9) | Lv 73 | Role: Beast
+      Gear: Weapons: Natural (Bite & Frost Breath) | Armor: None (Natural Silver Scales)
+      Stats: HP 5758 | ATK 200 | MAG 0 | PDEF 81 | MDEF 73 | Guard 2 | XP 4594 | Silver 6860s
+      Attrs: Force 79 | Finesse 82 | Grit 77 | Arcana 15 | Presence 36
+      Affinities: Weak: Fire | Resist: Radiant | Immune: Frost
+      Moves: 60% Silver Claws (1.15x Slashing) | 40% Freezing Breath (1.35x Frost, All Allies + Stun chance)
+    Young Blue Dragon (CR 9) | Lv 73 | Role: Beast
+      Gear: Weapons: Natural (Bite & Lightning Breath) | Armor: None (Natural Blue Scales)
+      Stats: HP 5857 | ATK 200 | MAG 0 | PDEF 81 | MDEF 73 | Guard 2 | XP 4659 | Silver 6958s
+      Attrs: Force 79 | Finesse 82 | Grit 77 | Arcana 15 | Presence 36
+      Affinities: Weak: Frost, Piercing | Resist: None | Immune: Lightning
+      Moves: 60% Dragon Bite (1.15x Piercing) | 40% Lightning Breath (1.35x Lightning, All Allies + Shock)
   Ironcrest Foothills:
-    Bone Devil (CR 9)
+    Bone Devil (CR 9) | Lv 73 | Role: Skirmisher
+      Gear: Weapons: Natural (Claws & Venom Sting) | Armor: None (Natural Bone Chitin)
+      Stats: HP 4775 | ATK 183 | MAG 0 | PDEF 71 | MDEF 80 | Guard 1 | XP 4350 | Silver 6496s
+      Attrs: Force 62 | Finesse 93 | Grit 58 | Arcana 18 | Presence 40
+      Affinities: Weak: Radiant, Bludgeoning | Resist: Frost | Immune: Fire, Poison
+      Moves: 60% Hooked Claws (1.15x Slashing) | 40% Devilish Sting (1.45x Poison, Poison 3t)
   Highland Oak Woods:
-    Glabrezu (CR 9)
+    Glabrezu (CR 9) | Lv 74 | Role: Hybrid
+      Gear: Weapons: Natural (Pincers) & Shadow Magic | Armor: None (Natural Fiend Hide)
+      Stats: HP 6168 | ATK 189 | MAG 196 | PDEF 93 | MDEF 99 | Guard 2 | XP 4791 | Silver 7154s
+      Attrs: Force 74 | Finesse 73 | Grit 78 | Arcana 75 | Presence 74
+      Affinities: Weak: Radiant | Resist: Fire, Frost, Lightning | Immune: Poison
+      Moves: 60% Giant Pincers (1.15x Bludgeoning) | 40% Void Pull (1.3x Shadow, All Allies + Curse)
   Ironcrest Alpine Meadow:
-    Warrior Commander (CR 10)
+    Warrior Commander (CR 10) | Lv 75 | Role: Heavy
+      Gear: Weapons: Greatsword (2H, Slashing) & Longbow (2H, Piercing) | Armor: Splint (Heavy)
+      Stats: HP 7533 | ATK 212 | MAG 0 | PDEF 117 | MDEF 75 | Guard 2 | XP 5119 | Silver 7644s
+      Attrs: Force 90 | Finesse 55 | Grit 99 | Arcana 19 | Presence 46
+      Affinities: Weak: Lightning | Resist: Slashing | Immune: None
+      Moves: 55% Commander's Greatsword (1.15x Slashing) | 25% Heavy Volley (1.15x Piercing, 2 Allies) | 20% Cleave & Break (1.55x Slashing)
   Evergreen Pine Forest:
-    Cultist Hierophant (CR 10)
+    Cultist Hierophant (CR 10) | Lv 75 | Role: Caster
+      Gear: Weapons: Quarterstaff (2H, Bludgeoning) & High Cult Spells | Armor: Widowsilk Robes (Light, Dark Crimson)
+      Stats: HP 5187 | ATK 119 | MAG 208 | PDEF 66 | MDEF 113 | Guard 2 | XP 5119 | Silver 7644s
+      Attrs: Force 34 | Finesse 74 | Grit 57 | Arcana 87 | Presence 87
+      Affinities: Weak: Radiant | Resist: Shadow | Immune: None
+      Moves: 45% Umbral Lance (1.4x Shadow + Curse) | 30% Flame Wall (1.2x Fire, All Allies + Burn) | 25% Sovereign Aegis (+Ward Shield 2t)
 
 Map 4 - Zone 16 (Lv 76-80)
   Frostbound Foothills:
-    Stone Golem (CR 10)
-    Bandit Crime Lord (CR 11)
-  Frozen Glacial Lakes (Shore):
-    Aboleth (CR 10)
+    Stone Golem (CR 10) | Lv 78 | Role: Heavy
+      Gear: Weapons: Natural (Stone Slam) | Armor: None (Natural Living Monolith)
+      Stats: HP 7691 | ATK 236 | MAG 0 | PDEF 130 | MDEF 84 | Guard 2 | XP 5169 | Silver 8820s
+      Attrs: Force 92 | Finesse 56 | Grit 101 | Arcana 20 | Presence 47
+      Affinities: Weak: Bludgeoning, Lightning | Resist: Slashing, Piercing | Immune: Poison
+      Moves: 60% Monolith Slam (1.2x Bludgeoning) | 40% Slowing Pulse (1.25x Shadow, All Allies + Chill)
+    Bandit Crime Lord (CR 11) | Lv 79 | Role: Skirmisher
+      Gear: Weapons: Scimitar (1H, Slashing) & Light Crossbow (2H, Piercing) | Armor: Reinforced Leather (Medium)
+      Stats: HP 5907 | ATK 203 | MAG 0 | PDEF 79 | MDEF 89 | Guard 2 | XP 5613 | Silver 9576s
+      Attrs: Force 67 | Finesse 101 | Grit 63 | Arcana 20 | Presence 43
+      Affinities: Weak: Lightning, Bludgeoning | Resist: Poison | Immune: None
+      Moves: 55% Gilded Scimitar (1.15x Slashing) | 25% Poisoned Bolt (1.35x Piercing + Poison 3t) | 20% Merciless Slash (1.6x Slashing)
   Frostpine Taiga:
-    Guardian Naga (CR 10)
+    Guardian Naga (CR 10) | Lv 78 | Role: Caster
+      Gear: Weapons: Natural (Spit & Bite) & Mystic Spells | Armor: None (Natural Serpent Scales)
+      Stats: HP 5386 | ATK 133 | MAG 231 | PDEF 73 | MDEF 126 | Guard 1 | XP 4821 | Silver 8226s
+      Attrs: Force 35 | Finesse 76 | Grit 58 | Arcana 90 | Presence 90
+      Affinities: Weak: Slashing, Frost | Resist: Poison | Immune: None
+      Moves: 45% Poison Spit (1.3x Poison, Poison 3t) | 35% Tempest Arc (1.25x Lightning, All Allies) | 20% Solar Flare (1.45x Radiant)
   Glacial Snowfields:
-    Remorhaz (CR 11)
-    Djinni (CR 11)
+    Roc (CR 11) | Lv 79 | Role: Beast
+      Gear: Weapons: Natural (Beak & Talons) | Armor: None (Natural Giant Plumage)
+      Stats: HP 7481 | ATK 223 | MAG 0 | PDEF 91 | MDEF 81 | Guard 2 | XP 5686 | Silver 9702s
+      Attrs: Force 85 | Finesse 88 | Grit 83 | Arcana 16 | Presence 40
+      Affinities: Weak: Lightning, Piercing | Resist: Frost | Immune: None
+      Moves: 60% Giant Talons (1.2x Slashing) | 40% Gale Wing-Sweep (1.25x Bludgeoning, All Allies)
+    Remorhaz (CR 11) | Lv 79 | Role: Beast
+      Gear: Weapons: Natural (Heated Bite) | Armor: None (Natural Frost-Heat Carapace)
+      Stats: HP 7481 | ATK 223 | MAG 0 | PDEF 91 | MDEF 81 | Guard 2 | XP 5686 | Silver 9702s
+      Attrs: Force 85 | Finesse 88 | Grit 83 | Arcana 16 | Presence 40
+      Affinities: Weak: Lightning, Piercing | Resist: None | Immune: Fire, Frost
+      Moves: 65% Scorching Maw (1.15x Fire + Burn) | 35% Swallow Crush (1.5x Bludgeoning)
+    Djinni (CR 11) | Lv 79 | Role: Hybrid
+      Gear: Weapons: Scimitar (1H, Slashing) & Whirlwind Magic | Armor: Silk Robes (Light, Storm-Dyed)
+      Stats: HP 7622 | ATK 210 | MAG 218 | PDEF 103 | MDEF 110 | Guard 1 | XP 5264 | Silver 8982s
+      Attrs: Force 79 | Finesse 77 | Grit 83 | Arcana 81 | Presence 79
+      Affinities: Weak: Frost, Shadow | Resist: None | Immune: Lightning
+      Moves: 55% Tempest Scimitar (1.15x Slashing) | 45% Whirlwind Gust (1.3x Lightning, All Allies + Shock)
 
 Map 4 - Zone 17 (Lv 81-85)
   Frostbound Foothills:
-    Young Red Dragon (CR 10)
-    Behir (CR 11)
-    Horned Devil (CR 11)
+    Young Red Dragon (CR 10) | Lv 83 | Role: Beast
+      Gear: Weapons: Natural (Bite & Fire Breath) | Armor: None (Natural Red Scales)
+      Stats: HP 7529 | ATK 273 | MAG 0 | PDEF 111 | MDEF 99 | Guard 2 | XP 5675 | Silver 10988s
+      Attrs: Force 90 | Finesse 93 | Grit 87 | Arcana 17 | Presence 42
+      Affinities: Weak: Frost | Resist: None | Immune: Fire
+      Moves: 60% Red Claws (1.15x Slashing) | 40% Fire Breath (1.35x Fire, All Allies + Burn 3t)
+    Behir (CR 11) | Lv 84 | Role: Beast
+      Gear: Weapons: Natural (Bite & Lightning Breath) | Armor: None (Natural Scaled Hide)
+      Stats: HP 8052 | ATK 273 | MAG 0 | PDEF 111 | MDEF 99 | Guard 2 | XP 6004 | Silver 11625s
+      Attrs: Force 91 | Finesse 94 | Grit 88 | Arcana 17 | Presence 42
+      Affinities: Weak: Frost | Resist: None | Immune: Lightning
+      Moves: 60% Constricting Bite (1.15x Piercing) | 40% Lightning Breath (1.35x Lightning, All Allies + Shock)
+    Horned Devil (CR 11) | Lv 84 | Role: Heavy
+      Gear: Weapons: Spear (2H Infernal Fork, Piercing) & Natural (Tail) | Armor: None (Natural Armored Chitin)
+      Stats: HP 9418 | ATK 289 | MAG 0 | PDEF 159 | MDEF 102 | Guard 2 | XP 6086 | Silver 11784s
+      Attrs: Force 99 | Finesse 60 | Grit 109 | Arcana 21 | Presence 50
+      Affinities: Weak: Radiant, Frost | Resist: Poison | Immune: Fire
+      Moves: 60% Infernal Fork (1.2x Piercing) | 40% Stinging Tail (1.35x Poison + Fire Burn)
   Ashen Border Scree:
-    Efreeti (CR 11)
+    Sphinx of Lore (CR 11) | Lv 84 | Role: Caster
+      Gear: Weapons: Natural (Claws) & Astral Spells | Armor: None (Natural Lion Hide & Wings)
+      Stats: HP 6588 | ATK 163 | MAG 284 | PDEF 89 | MDEF 154 | Guard 2 | XP 6169 | Silver 11944s
+      Attrs: Force 38 | Finesse 82 | Grit 63 | Arcana 97 | Presence 97
+      Affinities: Weak: Shadow | Resist: Radiant, Frost | Immune: None
+      Moves: 45% Lion Claws (1.05x Slashing) | 35% Astral Judgment (1.45x Radiant) | 20% Blizzard Vortex (1.2x Frost, All Allies + Chill)
   Glacial Snowfields:
-    Archmage (CR 12)
-    Erinyes (CR 12)
+    Archmage (CR 12) | Lv 85 | Role: Caster
+      Gear: Weapons: Quarterstaff (2H, Bludgeoning) & Archmage Spells | Armor: Scale Plate (Medium)
+      Stats: HP 6899 | ATK 163 | MAG 284 | PDEF 89 | MDEF 154 | Guard 2 | XP 6416 | Silver 12422s
+      Attrs: Force 39 | Finesse 84 | Grit 64 | Arcana 99 | Presence 99
+      Affinities: Weak: Slashing, Piercing | Resist: Fire, Lightning | Immune: None
+      Moves: 40% Blizzard Vortex (1.2x Frost, All Allies + Chill) | 35% Thunderhead Verdict (1.55x Lightning) | 25% Mirror Veil (+Magic Shield 2t)
+    Erinyes (CR 12) | Lv 85 | Role: Fighter
+      Gear: Weapons: Longsword (1H, Slashing) & Longbow (2H, Piercing) | Armor: Half Plate (Medium, Darkened)
+      Stats: HP 8213 | ATK 263 | MAG 0 | PDEF 120 | MDEF 108 | Guard 2 | XP 6416 | Silver 12422s
+      Attrs: Force 90 | Finesse 86 | Grit 86 | Arcana 22 | Presence 56
+      Affinities: Weak: Radiant | Resist: Frost, Poison | Immune: Fire
+      Moves: 55% Hellfire Blade (1.15x Slashing + Burn) | 45% Poisoned Longbow (1.45x Piercing + Poison 3t)
 
 Map 4 - Zone 18 (Lv 86-90)
   Frost-Shore Beaches:
-    Pirate Admiral (CR 12)
+    Pirate Admiral (CR 12) | Lv 87 | Role: Fighter
+      Gear: Weapons: Rapier (1H, Piercing) & Scimitar (1H, Slashing) | Armor: Half Plate (Medium, Naval Brass)
+      Stats: HP 7829 | ATK 292 | MAG 0 | PDEF 134 | MDEF 120 | Guard 1 | XP 5523 | Silver 12334s
+      Attrs: Force 91 | Finesse 87 | Grit 87 | Arcana 22 | Presence 57
+      Affinities: Weak: Lightning | Resist: Frost | Immune: None
+      Moves: 55% Admiral's Rapier (1.15x Piercing) | 25% Broadside Mortar (1.2x Fire, All Allies + Burn) | 20% Relentless Flurry (1.55x Slashing)
   Frostpine Taiga:
-    Rakshasa (CR 13)
-    Vampire (CR 13)
+    Rakshasa (CR 13) | Lv 88 | Role: Caster
+      Gear: Weapons: Natural (Cursed Claws) & Illusion Spells | Armor: Fine Robes (Light, Gilded Crimson)
+      Stats: HP 7049 | ATK 181 | MAG 315 | PDEF 99 | MDEF 171 | Guard 2 | XP 6399 | Silver 14289s
+      Attrs: Force 40 | Finesse 86 | Grit 66 | Arcana 101 | Presence 101
+      Affinities: Weak: Piercing, Radiant | Resist: Fire, Frost | Immune: None
+      Moves: 45% Cursed Claw (1.1x Slashing, Curse 3t) | 35% Meteor (1.25x Fire, All Allies) | 20% Umbral Lance (1.5x Shadow)
+    Vampire (CR 13) | Lv 88 | Role: Hybrid
+      Gear: Weapons: Natural (Claws & Bite) & Shadow Magic | Armor: Leather Plate (Medium, Crimson-Black)
+      Stats: HP 9216 | ATK 286 | MAG 297 | PDEF 140 | MDEF 150 | Guard 2 | XP 6489 | Silver 14490s
+      Attrs: Force 88 | Finesse 86 | Grit 92 | Arcana 90 | Presence 88
+      Affinities: Weak: Radiant, Fire | Resist: Shadow, Frost | Immune: None
+      Moves: 55% Vampire Claws (1.15x Slashing) | 25% Blood Bite (1.45x Shadow + self heal) | 20% Children of Night (1.25x Shadow, All Allies)
   Frozen Glacial Lakes (Ice / Shore):
-    Storm Giant (CR 13)
-    Adult Black Dragon (CR 14)
+    Storm Giant (CR 13) | Lv 89 | Role: Hybrid
+      Gear: Weapons: Greatsword (2H, Slashing) & Storm Magic | Armor: Plate (Heavy, Storm-Forged)
+      Stats: HP 9368 | ATK 286 | MAG 297 | PDEF 140 | MDEF 150 | Guard 2 | XP 6579 | Silver 14691s
+      Attrs: Force 89 | Finesse 87 | Grit 93 | Arcana 91 | Presence 89
+      Affinities: Weak: Frost, Shadow | Resist: None | Immune: Lightning
+      Moves: 55% Thunder Greatsword (1.2x Slashing) | 45% Storm Strike (1.35x Lightning, All Allies + Shock)
+    Adult Black Dragon (CR 14) | Lv 89 | Role: Beast
+      Gear: Weapons: Natural (Bite, Wing & Acid Breath) | Armor: None (Natural Black Dragonscales)
+      Stats: HP 9792 | ATK 303 | MAG 0 | PDEF 123 | MDEF 110 | Guard 2 | XP 6940 | Silver 15496s
+      Attrs: Force 96 | Finesse 100 | Grit 93 | Arcana 18 | Presence 44
+      Affinities: Weak: Radiant, Frost | Resist: Shadow | Immune: Poison
+      Moves: 55% Dragon Rend (1.2x Slashing) | 25% Wing Buffet (1.2x Bludgeoning, All Allies) | 20% Acid Breath (1.45x Poison, All Allies)
   Glacial Snowfields:
-    Ice Devil (CR 14)
+    Ice Devil (CR 14) | Lv 90 | Role: Heavy
+      Gear: Weapons: Spear (2H Frost Spear, Piercing) & Natural (Tail) | Armor: None (Natural Glacial Chitin)
+      Stats: HP 11441 | ATK 321 | MAG 0 | PDEF 176 | MDEF 114 | Guard 2 | XP 7030 | Silver 15698s
+      Attrs: Force 106 | Finesse 65 | Grit 117 | Arcana 22 | Presence 54
+      Affinities: Weak: Fire, Radiant | Resist: Poison | Immune: Frost
+      Moves: 60% Frostbite Spear (1.2x Frost + Chill) | 40% Glacial Hail (1.3x Frost, All Allies + Chill)
 
 Map 4 - Zone 19 (Lv 91-95)
   Charred Ash Plains:
-    Nalfeshnee (CR 13)
-    Purple Worm (CR 15)
-    Marilith (CR 16)
+    Nalfeshnee (CR 13) | Lv 93 | Role: Hybrid
+      Gear: Weapons: Natural (Bite & Claws) & Abyssal Horror | Armor: None (Natural Demon Hide)
+      Stats: HP 9676 | ATK 316 | MAG 329 | PDEF 155 | MDEF 166 | Guard 2 | XP 6783 | Silver 16660s
+      Attrs: Force 93 | Finesse 91 | Grit 98 | Arcana 95 | Presence 93
+      Affinities: Weak: Radiant | Resist: Fire, Frost, Lightning | Immune: Poison
+      Moves: 60% Abyssal Bite (1.2x Piercing) | 40% Horror Nimbus (1.25x Shadow, All Allies + Stun chance)
+    Purple Worm (CR 15) | Lv 94 | Role: Beast
+      Gear: Weapons: Natural (Maw & Tail Stinger) | Armor: None (Natural Chitinous Hide)
+      Stats: HP 10336 | ATK 335 | MAG 0 | PDEF 136 | MDEF 121 | Guard 2 | XP 7282 | Silver 17885s
+      Attrs: Force 102 | Finesse 105 | Grit 99 | Arcana 19 | Presence 47
+      Affinities: Weak: Frost, Lightning | Resist: Bludgeoning | Immune: None
+      Moves: 60% Crushing Maw (1.25x Piercing) | 40% Venomous Stinger (1.5x Poison, heavy Poison 3t)
+    Marilith (CR 16) | Lv 95 | Role: Skirmisher
+      Gear: Weapons: Longsword (1H Six-Blade Flurry, Slashing) & Natural (Tail) | Armor: None (Natural Serpentine Scales)
+      Stats: HP 8962 | ATK 306 | MAG 0 | PDEF 118 | MDEF 133 | Guard 2 | XP 7780 | Silver 19110s
+      Attrs: Force 81 | Finesse 122 | Grit 76 | Arcana 24 | Presence 52
+      Affinities: Weak: Radiant | Resist: Fire, Frost, Lightning | Immune: Poison
+      Moves: 65% Six-Blade Flurry (1.25x Slashing) | 35% Tail Crush (1.45x Bludgeoning, Stun chance)
   Ashen Border Scree:
-    Mummy Lord (CR 15)
-    Adult Green Dragon (CR 15)
-    Iron Golem (CR 16)
+    Mummy Lord (CR 15) | Lv 94 | Role: Caster
+      Gear: Weapons: Natural (Rotting Fist) & Tomb Spells | Armor: Reinforced Bone (Medium, Royal Tomb Bone)
+      Stats: HP 8324 | ATK 200 | MAG 348 | PDEF 109 | MDEF 189 | Guard 2 | XP 7382 | Silver 18130s
+      Attrs: Force 42 | Finesse 92 | Grit 70 | Arcana 108 | Presence 108
+      Affinities: Weak: Fire, Radiant | Resist: Shadow | Immune: Poison
+      Moves: 45% Rotting Fist (1.15x Shadow + Curse 3t) | 35% Eclipse Singularity (1.3x Shadow, All Allies) | 20% Sandstorm Curse (1.3x Poison, All Allies)
+    Adult Green Dragon (CR 15) | Lv 94 | Role: Beast
+      Gear: Weapons: Natural (Bite, Wing & Poison Breath) | Armor: None (Natural Green Dragonscales)
+      Stats: HP 10672 | ATK 335 | MAG 0 | PDEF 136 | MDEF 121 | Guard 2 | XP 7481 | Silver 18375s
+      Attrs: Force 102 | Finesse 105 | Grit 99 | Arcana 19 | Presence 47
+      Affinities: Weak: Fire, Radiant | Resist: None | Immune: Poison
+      Moves: 55% Dragon Claws (1.2x Slashing) | 25% Wing Buffet (1.2x Bludgeoning, All Allies) | 20% Poison Breath (1.45x Poison, All Allies + Poison)
+    Iron Golem (CR 16) | Lv 95 | Role: Heavy
+      Gear: Weapons: Greatsword (2H Iron Greatblade, Slashing) & Poison Breath | Armor: Plate (Heavy, Solid Forged Iron)
+      Stats: HP 13056 | ATK 354 | MAG 0 | PDEF 195 | MDEF 126 | Guard 2 | XP 7880 | Silver 19355s
+      Attrs: Force 112 | Finesse 68 | Grit 124 | Arcana 24 | Presence 57
+      Affinities: Weak: Lightning, Bludgeoning | Resist: Slashing, Piercing | Immune: Fire, Poison
+      Moves: 60% Iron Greatsword (1.25x Slashing) | 40% Poison Gas Breath (1.3x Poison, All Allies + Poison 3t)
 
 Map 4 - Zone 20 (Lv 96-99)
   Ashen Border Scree:
-    Adult Blue Dragon (CR 16)
+    Adult Silver Dragon (CR 16) | Lv 97 | Role: Beast
+      Gear: Weapons: Natural (Bite, Wing & Frost Breath) | Armor: None (Natural Silver Dragonscales)
+      Stats: HP 10515 | ATK 370 | MAG 0 | PDEF 150 | MDEF 133 | Guard 2 | XP 7504 | Silver 21105s
+      Attrs: Force 105 | Finesse 109 | Grit 102 | Arcana 19 | Presence 48
+      Affinities: Weak: Fire | Resist: Radiant | Immune: Frost
+      Moves: 55% Silver Claws (1.2x Slashing) | 25% Wing Buffet (1.2x Bludgeoning, All Allies) | 20% Cold Breath (1.45x Frost, All Allies + Chill)
   Charred Ash Plains:
-    Adult Red Dragon (CR 17)
-    Balor (CR 19)
-    Pit Fiend (CR 20)
-    Lich (CR 21)
+    Adult Red Dragon (CR 17) | Lv 98 | Role: Beast
+      Gear: Weapons: Natural (Bite, Wing & Fire Breath) | Armor: None (Natural Red Dragonscales)
+      Stats: HP 11272 | ATK 370 | MAG 0 | PDEF 150 | MDEF 133 | Guard 2 | XP 7952 | Silver 22365s
+      Attrs: Force 106 | Finesse 110 | Grit 103 | Arcana 20 | Presence 49
+      Affinities: Weak: Frost | Resist: None | Immune: Fire
+      Moves: 55% Inferno Claws (1.2x Slashing) | 25% Wing Buffet (1.2x Bludgeoning, All Allies) | 20% Fire Breath (1.5x Fire, All Allies + Burn)
+    Balor (CR 19) | Lv 99 | Role: Hybrid
+      Gear: Weapons: Longsword (1H Flame Blade, Slashing) & Lightning Whip | Armor: None (Natural Flame-Wreathed Hide)
+      Stats: HP 12641 | ATK 348 | MAG 363 | PDEF 171 | MDEF 182 | Guard 2 | XP 8624 | Silver 24255s
+      Attrs: Force 99 | Finesse 97 | Grit 104 | Arcana 101 | Presence 99
+      Affinities: Weak: Radiant, Frost | Resist: Lightning | Immune: Fire, Poison
+      Moves: 55% Flame Greatsword (1.25x Fire + Slashing) | 25% Lightning Whip (1.4x Lightning + Stun chance) | 20% Death Aura (1.2x Fire, All Allies)
+    Ancient Black Dragon (CR 21) | Lv 99 | Role: Beast
+      Gear: Weapons: Natural (Cataclysm Claws, Wing & Acid Breath) | Armor: None (Natural Ancient Black Scales)
+      Stats: HP 12785 | ATK 370 | MAG 0 | PDEF 150 | MDEF 133 | Guard 2 | XP 8848 | Silver 24885s
+      Attrs: Force 107 | Finesse 111 | Grit 104 | Arcana 20 | Presence 50
+      Affinities: Weak: Radiant, Frost | Resist: Shadow | Immune: Poison
+      Moves: 55% Ancient Jaws (1.25x Piercing) | 25% Wing Buffet (1.2x Bludgeoning, All Allies) | 20% Cataclysm Acid (1.35x Poison, All Allies)
+    Lich (CR 21) | Lv 99 | Role: Caster
+      Gear: Weapons: Natural (Paralyzing Touch) & Archlich Spells | Armor: Reinforced Bone (Medium, Ossuary Lich Vestments)
+      Stats: HP 10132 | ATK 220 | MAG 384 | PDEF 120 | MDEF 208 | Guard 2 | XP 8848 | Silver 24885s
+      Attrs: Force 45 | Finesse 97 | Grit 74 | Arcana 114 | Presence 114
+      Affinities: Weak: Radiant, Fire | Resist: Frost, Shadow | Immune: Poison
+      Moves: 40% Eclipse Singularity (1.2x Shadow, All Allies) | 35% Blizzard Vortex (1.15x Frost, All Allies + Chill) | 25% Paralyzing Touch (1.45x Shadow, Stun chance)
   Coastal Shore (Frostbound Ocean):
-    Dragon Turtle (CR 17)
+    Dragon Turtle (CR 17) | Lv 98 | Role: Heavy
+      Gear: Weapons: Natural (Bite & Steam Breath) | Armor: None (Natural Dreadnought Shell)
+      Stats: HP 13191 | ATK 391 | MAG 0 | PDEF 215 | MDEF 138 | Guard 2 | XP 8064 | Silver 22680s
+      Attrs: Force 116 | Finesse 71 | Grit 127 | Arcana 24 | Presence 59
+      Affinities: Weak: Lightning, Frost | Resist: Slashing | Immune: Fire
+      Moves: 60% Dreadnought Bite (1.25x Piercing) | 40% Steam Breath (1.4x Fire, All Allies + Burn)
+
+Portal Bosses (Portals 1-7)
+  Portal 1 - The Ashen Gate (Lv 11-15):
+    Earth Elemental (CR 5) | Lv 12 Boss | Role: Portal Boss
+      Gear: Weapons: Natural (Stone Slam) | Armor: None (Natural Living Stone)
+      Stats: HP 650 | ATK 20 | MAG 0 | PDEF 32 | MDEF 22 | Guard 3 | XP 220 | Silver 250s
+      Attrs: Force 16 | Finesse 8 | Grit 16 | Arcana 2 | Presence 6
+      Affinities: Weak: Frost, Bludgeoning | Resist: Slashing, Poison | Immune: None
+      Moves: 50% Granite Slam (1.0x Bludgeoning) | 25% Rockfall Tremor (0.85x Bludgeoning, 2 Allies + Stun chance) | 15% Stone Skin (+1 Guard Pip & +PDEF 2t, if Guard < 3) | 10% [TELEGRAPH] Seismic Crush (2.4x Bludgeoning)
+  Portal 2 - The Sunken Maw (Lv 21-25):
+    Otyugh (CR 5) | Lv 23 Boss | Role: Portal Boss
+      Gear: Weapons: Natural (Bite & Tentacles) | Armor: None (Natural Mire Hide)
+      Stats: HP 2400 | ATK 42 | MAG 0 | PDEF 45 | MDEF 36 | Guard 3 | XP 850 | Silver 750s
+      Attrs: Force 32 | Finesse 14 | Grit 28 | Arcana 8 | Presence 12
+      Affinities: Weak: Fire, Radiant | Resist: Poison | Immune: None
+      Moves: 50% Plague Bite (1.0x Piercing + Poison 3t) | 25% Tentacle Slam (0.9x Bludgeoning, 2 Allies + Stun chance) | 15% Foul Miasma (0.85x Poison, All Allies + Curse) | 10% [TELEGRAPH] Crushing Maw (2.4x Bludgeoning)
+  Portal 3 - The Iron Rift (Lv 36-40):
+    Fire Giant (CR 9) | Lv 38 Boss | Role: Portal Boss
+      Gear: Weapons: Greatsword (2H, Slashing) & Molten Rock | Armor: Plate (Heavy, Charred Black Iron)
+      Stats: HP 6000 | ATK 92 | MAG 55 | PDEF 72 | MDEF 48 | Guard 4 | XP 1900 | Silver 1800s
+      Attrs: Force 48 | Finesse 22 | Grit 46 | Arcana 28 | Presence 22
+      Affinities: Weak: Frost, Lightning | Resist: Slashing | Immune: Fire
+      Moves: 50% Magma Greatsword (1.05x Slashing + Burn) | 25% Molten Boulder (1.25x Fire, Burn 3t) | 15% Flame Sweep (0.95x Fire, All Allies) | 10% [TELEGRAPH] Volcanic Cleave (2.3x Fire + Slashing, All Allies)
+  Portal 4 - The Rotspire (Lv 46-50):
+    Aboleth (CR 10) | Lv 48 Boss | Role: Portal Boss
+      Gear: Weapons: Natural (Tentacles & Psychic Lash) | Armor: None (Natural Abyssal Hide)
+      Stats: HP 12500 | ATK 118 | MAG 125 | PDEF 84 | MDEF 92 | Guard 4 | XP 3400 | Silver 3800s
+      Attrs: Force 44 | Finesse 34 | Grit 42 | Arcana 64 | Presence 54
+      Affinities: Weak: Lightning, Radiant | Resist: Frost, Shadow | Immune: None
+      Moves: 45% Tentacle Lash (1.0x Bludgeoning + Poison) | 25% Psychic Drain (1.2x Shadow + Curse 3t) | 20% Enslaving Wave (0.95x Shadow, All Allies + Chill) | 10% [TELEGRAPH] Abyssal Maelstrom (2.0x Shadow, All Allies)
+  Portal 5 - The Scorched Chasm (Lv 61-65):
+    Efreeti (CR 11) | Lv 63 Boss | Role: Portal Boss
+      Gear: Weapons: Scimitar (1H, Slashing) & Elemental Fire | Armor: Scale Plate (Medium, Brass-Gilded Fire Mantle)
+      Stats: HP 22000 | ATK 195 | MAG 205 | PDEF 115 | MDEF 118 | Guard 4 | XP 5200 | Silver 7500s
+      Attrs: Force 78 | Finesse 52 | Grit 72 | Arcana 86 | Presence 68
+      Affinities: Weak: Frost, Bludgeoning | Resist: Shadow | Immune: Fire
+      Moves: 45% Cinder Scimitar (1.05x Slashing + Burn) | 25% Arcane Fireball (1.25x Fire, Splash) | 20% Flame Wall (1.0x Fire, All Allies + Burn 3t) | 10% [TELEGRAPH] Sunfire Tempest (2.05x Fire, All Allies)
+  Portal 6 - The Storm-Crowned Spire (Lv 71-75):
+    Adult Blue Dragon (CR 16) | Lv 73 Boss | Role: Portal Boss
+      Gear: Weapons: Natural (Bite, Claws & Lightning Breath) | Armor: None (Natural Blue Dragonscales)
+      Stats: HP 36000 | ATK 245 | MAG 250 | PDEF 138 | MDEF 134 | Guard 5 | XP 7500 | Silver 13500s
+      Attrs: Force 94 | Finesse 62 | Grit 88 | Arcana 92 | Presence 76
+      Affinities: Weak: Frost, Piercing | Resist: Slashing | Immune: Lightning
+      Moves: 45% Storm Claws (1.1x Slashing) | 25% Wing Buffet (0.95x Bludgeoning, All Allies + pushback) | 20% Frightful Presence (Curse 2 Allies & +ATK self 2t) | 10% [TELEGRAPH] Storm-Crown Breath (2.1x Lightning, All Allies + Shock)
+  Portal 7 - The Pale Abyss (Lv 86-90):
+    Pit Fiend (CR 20) | Lv 88 Boss | Role: Portal Boss
+      Gear: Weapons: Mace (1H Infernal Mace, Bludgeoning) & Hellfire | Armor: Plate (Heavy, Black-Iron Abyssal Plate)
+      Stats: HP 55000 | ATK 355 | MAG 345 | PDEF 165 | MDEF 160 | Guard 5 | XP 11000 | Silver 24000s
+      Attrs: Force 110 | Finesse 78 | Grit 102 | Arcana 108 | Presence 92
+      Affinities: Weak: Radiant, Frost | Resist: Shadow, Slashing | Immune: Fire, Poison
+      Moves: 45% Infernal Mace (1.1x Bludgeoning + Burn) | 25% Hellfire Meteor (1.1x Fire, All Allies + Burn) | 20% Venom Tail & Bite (1.35x Poison + Curse) | 10% [TELEGRAPH] Abyssal Execution (2.3x Shadow + Fire, Stun chance)

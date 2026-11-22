@@ -187,7 +187,7 @@ Status ailments stay clean, readable, and impactful (never bloated):
 
 ### A. Level `1`–`99` XP Curve
 * **Formula:** `XP_To_Next_Level(L) = 100 × L + 12 × L²` *(per party member; active 4 heroes earn full XP)*
-* **Intentional Pacing (Light Grinding Required):** Main Portal Bosses + Story Chains alone provide roughly **`35%–40%`** of the XP & Silver needed to keep pace—meaning players **must** engage with wilderness encounters, Hub quests, and **Zone Outpost Hunts** (`XP + Silver + Consumables`) to gear up and survive deeper Danger Zones.
+* **Natural Content Pacing (Zero Forced Grind Walls — Decoupled From Silver):** XP and Silver scale **independently** across Ethoria so neither forces repetitive grinding. Simply exploring all `4` continents, clearing `178` quests (`151` dungeon sites, `16` hub events, `11` couriers), conquering the `8` Portals, and taking optional **`0–3` Zone Outpost Hunts** naturally carries the party from **`Lv 1` to `Lv 91–99`** across `~100–200+` hours of real content—with Hunts acting strictly as an optional catch-up valve and completionist milestone (`25 / 100 / 200 / 500`) rather than a mandatory grind gate.
 * **Hidden Zone Stealth *(Internal Overworld Encounter Pacing — Never Advertised)*:**
   * Each of the **`20` 5-level Zones** (`Zone_Min`–`Zone_Max`) tracks an invisible, internal stealth value based on the party's level relative to that Zone (`never shown in any HUD meter, menu, stat line, or tutorial`).
   * **Baseline (`0%` Stealth):** At or below a Zone's entry level (`<= Zone_Min`), the party is `100%` visible and overworld wild encounters build up at the normal `100%` rate.
@@ -198,18 +198,18 @@ Status ailments stay clean, readable, and impactful (never bloated):
   * **Within `4` Hexes of Ocean:** Any walkable terrain within **`4` painted hexes of Ocean water (`kind: "ocean"`)** is treated as coastal range and can spawn that Zone's **coastal mobs** *(when the Zone/Region includes coastal species)* alongside its current land biome pool under normal **Encounter Danger Indicator** buildup and **Zone Stealth** pacing.
   * **No Map `4` Beach-Only Pool Required:** Regions without distinct coastal beasts (such as **Map `4`'s** tiny frost-shore slivers) simply pull from their Zone's normal adjacent biome tables.
 
-| Level Step | XP Required for Next Level | Avg Wilderness Fights per Level | Region Context |
+| Level Step | XP Required for Next Level | Avg Natural Fights per Level | Region Context |
 | :---: | :---: | :---: | :--- |
-| **1 $\to$ 2** | `112 XP` | `4–5` fights | Region 1 Outskirts |
-| **5 $\to$ 6** | `800 XP` | `6–8` fights | Region 1 Mid-Wilds |
-| **12 $\to$ 13** | `2,928 XP` | `8–10` fights | Portal #1 / Early Region 2 |
-| **24 $\to$ 25** | `9,312 XP` | `9–12` fights | Portal #2 / Early Region 3 |
-| **36 $\to$ 37** | `19,152 XP` | `10–13` fights | Portal #3 / Early Region 4 |
-| **48 $\to$ 49** | `32,448 XP` | `11–14` fights | Portal #4 / Early Region 5 |
-| **60 $\to$ 61** | `49,200 XP` | `11–15` fights | Portal #5 / Early Region 6 |
-| **72 $\to$ 73** | `69,408 XP` | `12–16` fights | Portal #6 / Early Region 7 |
-| **85 $\to$ 86** | `95,200 XP` | `13–17` fights | Portal #7 / Early Region 8 |
-| **98 $\to$ 99** | `125,048 XP` | `15–20` fights | Endgame (*Bone Reliquary* / *Dreadwaste*) |
+| **1 $\to$ 2** | `112 XP` | `6–8` fights | Region 1 Outskirts *(Highcrown)* |
+| **5 $\to$ 6** | `800 XP` | `18–22` fights | Region 1 Mid-Wilds |
+| **12 $\to$ 13** | `2,928 XP` | `26–32` fights | Portal #1 / Early Region 2 |
+| **24 $\to$ 25** | `9,312 XP` | `28–34` fights | Portal #2 / Early Region 3 |
+| **36 $\to$ 37** | `19,152 XP` | `28–34` fights | Portal #3 / Early Region 4 |
+| **48 $\to$ 49** | `32,448 XP` | `28–34` fights | Portal #4 / Early Region 5 |
+| **60 $\to$ 61** | `49,200 XP` | `26–32` fights | Portal #5 / Early Region 6 |
+| **72 $\to$ 73** | `69,408 XP` | `26–32` fights | Portal #6 / Early Region 7 |
+| **85 $\to$ 86** | `95,200 XP` | `28–33` fights | Portal #7 / Early Region 8 |
+| **98 $\to$ 99** | `125,048 XP` | `28–34` fights | Endgame (*Bone Reliquary* / *Dreadwaste*) |
 
 ---
 
@@ -220,14 +220,14 @@ Status ailments stay clean, readable, and impactful (never bloated):
 
 | Region | Lv Band | Avg Fight XP *(Per Hero)* | Avg Fight Value *(Silver + Trade Goods)* | One-Time Quest Silver | Zone Outpost Hunt Silver | Avg Normal Mob HP | Portal Boss HP *(Target)* |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Region 1** | `1–12` | `25 – 220 XP` | `20s – 110s` | `120s – 250s` | `90s – 180s` | `32 – 140 HP` | `~650 HP` |
-| **Region 2** | `13–24` | `250 – 850 XP` | `150s – 480s` | `450s – 900s` | `320s – 650s` | `160 – 450 HP` | `~2,400 HP` |
-| **Region 3** | `25–36` | `900 – 1,800 XP` | `550s – 1,250s` | `1,400s – 2,400s` | `900s – 1,700s` | `500 – 1,050 HP` | `~6,000 HP` |
-| **Region 4** | `37–48` | `1,900 – 3,100 XP` | `1,400s – 2,700s` | `3,200s – 5,000s` | `2,200s – 3,600s` | `1,150 – 1,950 HP` | `~12,500 HP` |
-| **Region 5** | `49–60` | `3,200 – 4,700 XP` | `3,000s – 5,200s` | `6,500s – 10,000s` | `4,500s – 7,000s` | `2,100 – 3,200 HP` | `~22,000 HP` |
-| **Region 6** | `61–72` | `4,800 – 6,500 XP` | `5,800s – 9,500s` | `12,000s – 18,000s` | `8,500s – 13,000s` | `3,400 – 4,900 HP` | `~36,000 HP` |
-| **Region 7** | `73–85` | `6,600 – 8,400 XP` | `10,500s – 16,500s` | `22,000s – 32,000s` | `15,000s – 23,000s` | `5,100 – 7,200 HP` | `~55,000 HP` |
-| **Region 8** | `86–99` | `8,500 – 10,500 XP` | `18,000s – 28,000s` | `40,000s – 60,000s` | `28,000s – 42,000s` | `7,500 – 10,500 HP` | `~90,000 HP` *(2-Phase Garrick)* |
+| **Region 1** | `1–12` | `10 – 95 XP` | `4s – 21s` | `18s – 85s` | `45s – 140s` | `32 – 140 HP` | `~650 HP` |
+| **Region 2** | `13–24` | `80 – 375 XP` | `21s – 93s` | `260s – 520s` | `300s – 790s` | `160 – 450 HP` | `~2,400 HP` |
+| **Region 3** | `25–36` | `275 – 795 XP` | `72s – 235s` | `690s – 1,450s` | `1,300s – 2,700s` | `500 – 1,050 HP` | `~6,000 HP` |
+| **Region 4** | `37–48` | `555 – 1,425 XP` | `180s – 520s` | `1,500s – 2,600s` | `3,750s – 5,100s` | `1,150 – 1,950 HP` | `~12,500 HP` |
+| **Region 5** | `49–60` | `940 – 2,175 XP` | `380s – 1,005s` | `3,000s – 5,350s` | `7,200s – 9,500s` | `2,100 – 3,200 HP` | `~22,000 HP` |
+| **Region 6** | `61–72` | `1,395 – 3,090 XP` | `720s – 1,875s` | `5,800s – 9,500s` | `12,500s – 20,000s` | `3,400 – 4,900 HP` | `~36,000 HP` |
+| **Region 7** | `73–85` | `1,935 – 4,110 XP` | `1,300s – 3,240s` | `10,500s – 16,800s` | `26,000s – 33,000s` | `5,100 – 7,200 HP` | `~55,000 HP` |
+| **Region 8** | `86–99` | `2,505 – 5,130 XP` | `2,200s – 5,520s` | `18,000s – 30,000s` | `41,500s – 64,500s` | `7,500 – 10,500 HP` | `~90,000 HP` *(2-Phase Garrick)* |
 
 ---
 

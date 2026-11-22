@@ -257,7 +257,7 @@ def build_npcs() -> tuple[list[dict], list[dict]]:
                 "servicesOffered": ["Free Strait Ferry Crossing"],
                 "questsOffered": [],
             })
-        elif lid == "tr_border_mountain_pass_gate":
+        elif lid.startswith("tr_border_mountain_pass_gate"):
             warden_name = alloc.next_name(prefer_female=False)
             npcs.append({
                 "id": f"npc_{slugify(lid)}_warden",

@@ -37,7 +37,7 @@ def parse_tavern_names() -> dict[str, str]:
 
 
 def export_interior_webps() -> dict[str, str]:
-    """Convert all 4K interior masters in assets/maps/interiors/ to compressed 2560x1440 WebPs."""
+    """Convert all 4K interior masters (41 Hubs + 20 Outposts = 61) in assets/maps/interiors/ to 2560x1440 WebPs."""
     if not SRC_DIR.exists():
         raise FileNotFoundError(f"Missing interior masters directory: {SRC_DIR}")
 
@@ -49,8 +49,8 @@ def export_interior_webps() -> dict[str, str]:
         p for p in SRC_DIR.iterdir()
         if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png"} and not p.name.startswith("_rejected")
     )
-    if len(src_files) != 41:
-        raise ValueError(f"Expected 41 interior masters in {SRC_DIR}, found {len(src_files)}.")
+    if len(src_files) != 61:
+        raise ValueError(f"Expected 61 interior masters in {SRC_DIR}, found {len(src_files)}.")
 
     for src in src_files:
         dst = DST_DIR / f"{src.stem}.webp"
@@ -144,8 +144,18 @@ def wire_world_locations(
 
 
 if __name__ == "__main__":
+    json_only = "--json-only" in sys.argv
     taverns_only = "--taverns-only" in sys.argv
     interiors_only = "--interiors-only" in sys.argv
-    exported_int = None if taverns_only else export_interior_webps()
-    exported_tav = None if interiors_only else export_tavern_webps()
-    wire_world_locations(exported_int, exported_tav)
+    if json_only:
+        tavern_names = parse_tavern_names()
+        exported_int = {p.stem: f"assets/maps/interiors/{p.name}" for p in sorted(DST_DIR.glob("*.webp"))} if DST_DIR.exists() else {}
+        exported_tav = {
+            p.stem[: -len("_tavern")]: (f"assets/maps/taverns/{p.name}", tavern_names.get(p.stem[: -len("_tavern")], f"{p.stem[: -len('_tavern')]} Tavern"))
+            for p in sorted(TAVERNS_DST_DIR.glob("*_tavern.webp"))
+        } if TAVERNS_DST_DIR.exists() else {}
+        wire_world_locations(exported_int, exported_tav)
+    else:
+        exported_int = None if taverns_only else export_interior_webps()
+        exported_tav = None if interiors_only else export_tavern_webps()
+        wire_world_locations(exported_int, exported_tav)

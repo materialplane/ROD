@@ -195,57 +195,58 @@ def main() -> None:
     (ROOT / "client" / "assets" / "data" / "quests-catalog.json").write_text(cat_json, encoding="utf-8")
     print(f"Wrote data/quests-catalog.json & client mirror ({len(all_quests)} unique quests)")
 
-    # 2) Update imageprompts/quest-markers.txt (preserve up through QUEST SHEET A, then write B–H cleanly)
-    qtxt_path = ROOT / "imageprompts" / "quest-markers.txt"
-    qtxt = qtxt_path.read_text(encoding="utf-8")
+    # 2) Update imageprompts/quest-markers.txt unless --skip-prompts is passed
+    if "--skip-prompts" not in sys.argv:
+        qtxt_path = ROOT / "imageprompts" / "quest-markers.txt"
+        qtxt = qtxt_path.read_text(encoding="utf-8")
 
-    # Retire the 2 wet-marsh slots replaced by Sheets B–H and update header count
-    qtxt = qtxt.replace(
-        "- [Sheet 5 (1,4)] MARSH SIGNAL LANTERNS [Iron Ring]: Mist-shrouded deep green bog flats pierced by crooked wooden walkways and wrought-iron signal lantern poles flickering warmly above sunken reeds.",
-        "- [Sheet 5 (1,4) RETIRED — REPLACED IN QUEST SHEET C] MARSH SIGNAL LANTERNS (water boardwalk retired; replaced by dry marsh trail poles).",
-    )
-    qtxt = qtxt.replace(
-        "- [Sheet 6 (3,1)] MARSH CAUSEWAY AMBUSH [Iron Ring]: Narrow raised wet cobblestone causeway bridge cutting across dark-green coastal marsh reeds with a tipped wooden apothecary cart and spilled herb vials.",
-        "- [Sheet 6 (3,1) RETIRED — REPLACED IN QUEST SHEET C] MARSH CAUSEWAY AMBUSH (stone water-bridge art retired; replaced by dry dirt-and-cobble track).",
-    )
-    qtxt = qtxt.replace(
-        "SECTION B: STAGED NEW QUEST MARKERS (NOT YET SUBMITTED — 16 Tokens Across 1 x 4x4 Sheet)",
-        "SECTION B: QUEST MARKER SHEETS A–H (128 Tokens Across 8 x 4x4 Sheets — Sheet A SUCCEEDED, Sheets B–H Staged for Batch)",
-    )
+        # Retire the 2 wet-marsh slots replaced by Sheets B–H and update header count
+        qtxt = qtxt.replace(
+            "- [Sheet 5 (1,4)] MARSH SIGNAL LANTERNS [Iron Ring]: Mist-shrouded deep green bog flats pierced by crooked wooden walkways and wrought-iron signal lantern poles flickering warmly above sunken reeds.",
+            "- [Sheet 5 (1,4) RETIRED — REPLACED IN QUEST SHEET C] MARSH SIGNAL LANTERNS (water boardwalk retired; replaced by dry marsh trail poles).",
+        )
+        qtxt = qtxt.replace(
+            "- [Sheet 6 (3,1)] MARSH CAUSEWAY AMBUSH [Iron Ring]: Narrow raised wet cobblestone causeway bridge cutting across dark-green coastal marsh reeds with a tipped wooden apothecary cart and spilled herb vials.",
+            "- [Sheet 6 (3,1) RETIRED — REPLACED IN QUEST SHEET C] MARSH CAUSEWAY AMBUSH (stone water-bridge art retired; replaced by dry dirt-and-cobble track).",
+        )
+        qtxt = qtxt.replace(
+            "SECTION B: STAGED NEW QUEST MARKERS (NOT YET SUBMITTED — 16 Tokens Across 1 x 4x4 Sheet)",
+            "SECTION B: QUEST MARKER SHEETS A–H (128 Tokens Across 8 x 4x4 Sheets — Sheet A SUCCEEDED, Sheets B–H Staged for Batch)",
+        )
 
-    cut_marker = "\n================================================================================\nQUEST SHEET B "
-    if cut_marker in qtxt:
-        qtxt = qtxt.split(cut_marker)[0].rstrip() + "\n"
+        cut_marker = "\n================================================================================\nQUEST SHEET B "
+        if cut_marker in qtxt:
+            qtxt = qtxt.split(cut_marker)[0].rstrip() + "\n"
 
-    sheet_blocks: list[str] = []
-    for ltr in SHEET_LETTERS:
-        items = sheets_map[ltr]
-        assert len(items) == 16
-        regs = sorted({it["quest"]["region"] for it in items if it["kind"] == "quest"})
-        reg_tag = f"R{regs[0]}–R{regs[-1]}" if len(regs) > 1 else (f"R{regs[0]}" if regs else "Travel/Standby")
-        block_lines = [
-            "",
-            "=" * 80,
-            f"QUEST SHEET {ltr} (4x4, 16 Tokens): UNIQUE QUEST SITES ({reg_tag})",
-            "=" * 80,
-            SHEET_HEADER,
-            "",
-            "FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).",
-            "",
-        ]
-        for row in range(4):
-            block_lines.append(f"ROW {row + 1}:")
-            for col in range(4):
-                it = items[row * 4 + col]
-                ring_lbl = f"{it['ring'].capitalize()} Ring"
-                title_upper = it["name"].upper()
-                block_lines.append(f"- ({row + 1},{col + 1}) {title_upper} [{ring_lbl}]: {it['prompt']}")
-            block_lines.append("")
-        sheet_blocks.append("\n".join(block_lines).rstrip())
+        sheet_blocks: list[str] = []
+        for ltr in SHEET_LETTERS:
+            items = sheets_map[ltr]
+            assert len(items) == 16
+            regs = sorted({it["quest"]["region"] for it in items if it["kind"] == "quest"})
+            reg_tag = f"R{regs[0]}–R{regs[-1]}" if len(regs) > 1 else (f"R{regs[0]}" if regs else "Travel/Standby")
+            block_lines = [
+                "",
+                "=" * 80,
+                f"QUEST SHEET {ltr} (4x4, 16 Tokens): UNIQUE QUEST SITES ({reg_tag})",
+                "=" * 80,
+                SHEET_HEADER,
+                "",
+                "FRAME RULE BY CATEGORY: Give every circular VTT token on this sheet a scarred dark tarnished iron circular VTT ring (strictly NO magenta bleed onto frames).",
+                "",
+            ]
+            for row in range(4):
+                block_lines.append(f"ROW {row + 1}:")
+                for col in range(4):
+                    it = items[row * 4 + col]
+                    ring_lbl = f"{it['ring'].capitalize()} Ring"
+                    title_upper = it["name"].upper()
+                    block_lines.append(f"- ({row + 1},{col + 1}) {title_upper} [{ring_lbl}]: {it['prompt']}")
+                block_lines.append("")
+            sheet_blocks.append("\n".join(block_lines).rstrip())
 
-    new_qtxt = qtxt.rstrip() + "\n\n" + "\n\n".join(sheet_blocks) + "\n"
-    qtxt_path.write_text(new_qtxt, encoding="utf-8")
-    print(f"Updated imageprompts/quest-markers.txt with QUEST SHEET B–H (7 x 16 = 112 new tokens)")
+        new_qtxt = qtxt.rstrip() + "\n\n" + "\n\n".join(sheet_blocks) + "\n"
+        qtxt_path.write_text(new_qtxt, encoding="utf-8")
+        print(f"Updated imageprompts/quest-markers.txt with QUEST SHEET B–H (7 x 16 = 112 new tokens)")
 
     # 3) Write generated marker subset file consumed by export_markers_and_maps.py
     gen_marker_defs = []
@@ -314,7 +315,7 @@ def main() -> None:
     )
 
     region_titles = {
-        1: "### Map 1 — Region 1: The Crownlands *(`22` Quests | `Lv 1–12` | `60s–180s` | `80–265 XP` | Lesser Draft)*",
+        1: "### Map 1 — Region 1: The Crownlands *(`22` Quests | `Lv 1–12` | `18s–85s` | `80–265 XP` | Lesser Draft)*",
         2: "### Map 1 — Region 2: The Saltmarsh & Westward Coast *(`22` Quests | `Lv 12–25` | `260s–520s` | `360–780 XP` | Lesser Draft)*",
         3: "### Map 2 — Region 3: Thornwall Warfronts *(`23` Quests | `Lv 25–39` | `690s–1,450s` | `810–1,750 XP` | Refined Draft)*",
         4: "### Map 2 — Region 4: The Verdant Weald & Plague Woods *(`22` Quests | `Lv 37–50` | `1,500s–2,600s` | `1,750–3,000 XP` | Refined Draft)*",

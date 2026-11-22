@@ -1,6 +1,7 @@
 import { HERO_ROSTER } from "../data.js";
 import { computeHeroDelta, itemSlotFor } from "../compare.js";
 import { esc, formatSilver, makeIconBox } from "../uiParts.js";
+import { bindItemTooltip } from "../itemTooltip.js";
 import { buildClassicCompareBox } from "./classicCompareBox.js";
 
 export function renderClassicFfView(items, selectedItem, state, handlers, anyHubStock = items) {
@@ -61,6 +62,7 @@ export function renderClassicFfView(items, selectedItem, state, handlers, anyHub
       priceEl.textContent = isLearned ? "Learned ✓" : price > 0 ? formatSilver(price) : "Relic";
 
       row.append(nameEl, priceEl);
+      bindItemTooltip(row, item, state);
       row.addEventListener("click", () => handlers.onSelectItem(item.id));
       listGrid.appendChild(row);
     }

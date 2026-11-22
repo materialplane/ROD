@@ -16465,7 +16465,7 @@
       "sourceType": "Construct",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 8,
+      "sellSilver": 2,
       "effect": "Wilderness trade good recovered from Animated Flying Sword. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_animated_flying_sword_chipped_rune_blade_shard.webp"
     },
@@ -16479,7 +16479,7 @@
       "sourceType": "Construct",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 12,
+      "sellSilver": 2,
       "effect": "Wilderness trade good recovered from Animated Armor. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_animated_armor_hollow_greave_plate.webp"
     },
@@ -16493,7 +16493,7 @@
       "sourceType": "Construct",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 15,
+      "sellSilver": 3,
       "effect": "Wilderness trade good recovered from Flesh Golem. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_flesh_golem_iron_sutured_hide.webp"
     },
@@ -16507,7 +16507,7 @@
       "sourceType": "Construct",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 17,
+      "sellSilver": 3,
       "effect": "Wilderness trade good recovered from Clay Golem. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_clay_golem_carved_earthen_seal.webp"
     },
@@ -16521,7 +16521,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 20,
+      "sellSilver": 3,
       "effect": "Wilderness trade good recovered from Dust Mephit. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_dust_mephit_jar_of_cinder_ash.webp"
     },
@@ -16535,7 +16535,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 25,
+      "sellSilver": 4,
       "effect": "Wilderness trade good recovered from Gargoyle. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_gargoyle_cracked_stone_horn.webp"
     },
@@ -16549,7 +16549,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 28,
+      "sellSilver": 5,
       "effect": "Wilderness trade good recovered from Rust Monster. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_rust_monster_oxidized_antenna.webp"
     },
@@ -16563,7 +16563,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 32,
+      "sellSilver": 5,
       "effect": "Wilderness trade good recovered from Ankheg. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_ankheg_chitinous_mandible.webp"
     },
@@ -16577,7 +16577,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 35,
+      "sellSilver": 5,
       "effect": "Wilderness trade good recovered from Darkmantle. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_darkmantle_shadow_cowl_membrane.webp"
     },
@@ -16591,7 +16591,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 39,
+      "sellSilver": 6,
       "effect": "Wilderness trade good recovered from Grick. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_grick_stone_worm_beak.webp"
     },
@@ -16605,7 +16605,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 43,
+      "sellSilver": 7,
       "effect": "Wilderness trade good recovered from Roper. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_roper_petrous_tendril_core.webp"
     },
@@ -16619,7 +16619,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 47,
+      "sellSilver": 7,
       "effect": "Wilderness trade good recovered from Xorn. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_xorn_gem_flecked_claw.webp"
     },
@@ -16633,7 +16633,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 51,
+      "sellSilver": 8,
       "effect": "Wilderness trade good recovered from Bulette. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_bulette_landshark_armor_plate.webp"
     },
@@ -16647,7 +16647,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 54,
+      "sellSilver": 9,
       "effect": "Wilderness trade good recovered from Earth Elemental. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_earth_elemental_dense_geode_heart.webp"
     },
@@ -16661,7 +16661,7 @@
       "sourceType": "Construct",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 59,
+      "sellSilver": 9,
       "effect": "Wilderness trade good recovered from Shield Guardian. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r1_shield_guardian_runed_guardian_amulet.webp"
     },
@@ -16675,7 +16675,7 @@
       "sourceType": "Beast",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 57,
+      "sellSilver": 9,
       "effect": "Wilderness trade good recovered from Reef Shark. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_reef_shark_serrated_reef_fin.webp"
     },
@@ -16689,7 +16689,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 67,
+      "sellSilver": 11,
       "effect": "Wilderness trade good recovered from Black Dragon Wyrmling. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_black_dragon_wyrmling_corrosive_trench_scale.webp"
     },
@@ -16703,7 +16703,7 @@
       "sourceType": "Aberration",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 77,
+      "sellSilver": 12,
       "effect": "Wilderness trade good recovered from Otyugh. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_otyugh_barbed_trench_tentacle.webp"
     },
@@ -16717,7 +16717,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 90,
+      "sellSilver": 15,
       "effect": "Wilderness trade good recovered from Hydra. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_hydra_severed_hydra_neck_crest.webp"
     },
@@ -16731,7 +16731,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 104,
+      "sellSilver": 17,
       "effect": "Wilderness trade good recovered from Steam Mephit. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_steam_mephit_scalding_vapor_phial.webp"
     },
@@ -16745,7 +16745,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 117,
+      "sellSilver": 19,
       "effect": "Wilderness trade good recovered from Merrow. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_merrow_barbed_coral_harpoon.webp"
     },
@@ -16759,7 +16759,7 @@
       "sourceType": "Fey",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 131,
+      "sellSilver": 21,
       "effect": "Wilderness trade good recovered from Sea Hag. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_sea_hag_brine_salt_talisman.webp"
     },
@@ -16773,7 +16773,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 144,
+      "sellSilver": 23,
       "effect": "Wilderness trade good recovered from Water Weird. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_water_weird_pure_abyssal_vial.webp"
     },
@@ -16787,7 +16787,7 @@
       "sourceType": "Beast",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 161,
+      "sellSilver": 25,
       "effect": "Wilderness trade good recovered from Giant Octopus. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_giant_octopus_coiled_sucker_tendril.webp"
     },
@@ -16801,7 +16801,7 @@
       "sourceType": "Beast",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 178,
+      "sellSilver": 28,
       "effect": "Wilderness trade good recovered from Killer Whale. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_killer_whale_ivory_trench_tooth.webp"
     },
@@ -16815,7 +16815,7 @@
       "sourceType": "Beast",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 194,
+      "sellSilver": 31,
       "effect": "Wilderness trade good recovered from Giant Shark. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_giant_shark_pale_abyssal_jawbone.webp"
     },
@@ -16829,7 +16829,7 @@
       "sourceType": "Aberration",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 211,
+      "sellSilver": 34,
       "effect": "Wilderness trade good recovered from Gibbering Mouther. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_gibbering_mouther_writhing_eye_cluster.webp"
     },
@@ -16843,7 +16843,7 @@
       "sourceType": "Aberration",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 224,
+      "sellSilver": 36,
       "effect": "Wilderness trade good recovered from Chuul. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_chuul_translucent_pincer.webp"
     },
@@ -16857,7 +16857,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 241,
+      "sellSilver": 39,
       "effect": "Wilderness trade good recovered from Water Elemental. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_water_elemental_living_tide_core.webp"
     },
@@ -16871,7 +16871,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 261,
+      "sellSilver": 42,
       "effect": "Wilderness trade good recovered from Dragon Turtle. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r2_dragon_turtle_steam_scarred_scute.webp"
     },
@@ -16885,7 +16885,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 201,
+      "sellSilver": 32,
       "effect": "Wilderness trade good recovered from Worg. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_worg_iron_gray_wolf_pelt.webp"
     },
@@ -16899,7 +16899,7 @@
       "sourceType": "Beast",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 221,
+      "sellSilver": 36,
       "effect": "Wilderness trade good recovered from Dire Wolf. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_dire_wolf_massive_alpha_fang.webp"
     },
@@ -16913,7 +16913,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 245,
+      "sellSilver": 39,
       "effect": "Wilderness trade good recovered from Cockatrice. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_cockatrice_calcified_feather.webp"
     },
@@ -16927,7 +16927,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 268,
+      "sellSilver": 43,
       "effect": "Wilderness trade good recovered from Hippogriff. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_hippogriff_bronze_wing_pinion.webp"
     },
@@ -16941,7 +16941,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 298,
+      "sellSilver": 48,
       "effect": "Wilderness trade good recovered from Minotaur. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_minotaur_brass_nose_ring.webp"
     },
@@ -16955,7 +16955,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 328,
+      "sellSilver": 52,
       "effect": "Wilderness trade good recovered from Griffon. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_griffon_razor_lion_talon.webp"
     },
@@ -16969,7 +16969,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 358,
+      "sellSilver": 58,
       "effect": "Wilderness trade good recovered from Manticore. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_manticore_venomous_tail_spike.webp"
     },
@@ -16983,7 +16983,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 392,
+      "sellSilver": 63,
       "effect": "Wilderness trade good recovered from Ogre. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_ogre_notched_iron_club_band.webp"
     },
@@ -16997,7 +16997,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 425,
+      "sellSilver": 67,
       "effect": "Wilderness trade good recovered from Gorgon. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_gorgon_iron_scaled_horn.webp"
     },
@@ -17011,7 +17011,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 462,
+      "sellSilver": 74,
       "effect": "Wilderness trade good recovered from Frost Giant. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_frost_giant_scarred_war_belt_plate.webp"
     },
@@ -17025,7 +17025,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 499,
+      "sellSilver": 80,
       "effect": "Wilderness trade good recovered from Ettin. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_ettin_split_skull_totem.webp"
     },
@@ -17039,7 +17039,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 536,
+      "sellSilver": 87,
       "effect": "Wilderness trade good recovered from Troll. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_troll_charred_troll_sinew.webp"
     },
@@ -17053,7 +17053,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 576,
+      "sellSilver": 94,
       "effect": "Wilderness trade good recovered from Hill Giant. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_hill_giant_giants_brass_buckle.webp"
     },
@@ -17067,7 +17067,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 616,
+      "sellSilver": 97,
       "effect": "Wilderness trade good recovered from Oni. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_oni_curved_horn_mask.webp"
     },
@@ -17081,7 +17081,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 657,
+      "sellSilver": 104,
       "effect": "Wilderness trade good recovered from Stone Giant. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r3_stone_giant_carved_granite_heart.webp"
     },
@@ -17095,7 +17095,7 @@
       "sourceType": "Plant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 496,
+      "sellSilver": 80,
       "effect": "Wilderness trade good recovered from Awakened Tree. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_awakened_tree_gnarled_dreadwood_heart.webp"
     },
@@ -17109,7 +17109,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 543,
+      "sellSilver": 87,
       "effect": "Wilderness trade good recovered from Phase Spider. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_phase_spider_spectral_silk_fang.webp"
     },
@@ -17123,7 +17123,7 @@
       "sourceType": "Fey",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 596,
+      "sellSilver": 94,
       "effect": "Wilderness trade good recovered from Blink Dog. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_blink_dog_shimmering_fur_tuft.webp"
     },
@@ -17137,7 +17137,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 650,
+      "sellSilver": 104,
       "effect": "Wilderness trade good recovered from Werewolf. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_werewolf_torn_alpha_pelt.webp"
     },
@@ -17151,7 +17151,7 @@
       "sourceType": "Ooze",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 710,
+      "sellSilver": 114,
       "effect": "Wilderness trade good recovered from Black Pudding. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_black_pudding_caustic_obsidian_gel.webp"
     },
@@ -17165,7 +17165,7 @@
       "sourceType": "Plant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 770,
+      "sellSilver": 124,
       "effect": "Wilderness trade good recovered from Violet Fungus. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_violet_fungus_glowing_spore_bulb.webp"
     },
@@ -17179,7 +17179,7 @@
       "sourceType": "Ooze",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 838,
+      "sellSilver": 134,
       "effect": "Wilderness trade good recovered from Gray Ooze. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_gray_ooze_acidic_slime_residue.webp"
     },
@@ -17193,7 +17193,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 904,
+      "sellSilver": 144,
       "effect": "Wilderness trade good recovered from Ettercap. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_ettercap_spun_silk_sac.webp"
     },
@@ -17207,7 +17207,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 978,
+      "sellSilver": 157,
       "effect": "Wilderness trade good recovered from Night Hag. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_night_hag_nightmare_hearthstone.webp"
     },
@@ -17221,7 +17221,7 @@
       "sourceType": "Fey",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1052,
+      "sellSilver": 168,
       "effect": "Wilderness trade good recovered from Dryad. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_dryad_amber_sap_pendant.webp"
     },
@@ -17235,7 +17235,7 @@
       "sourceType": "Ooze",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1126,
+      "sellSilver": 181,
       "effect": "Wilderness trade good recovered from Ochre Jelly. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_ochre_jelly_golden_gel_shard.webp"
     },
@@ -17249,7 +17249,7 @@
       "sourceType": "Fey",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1206,
+      "sellSilver": 194,
       "effect": "Wilderness trade good recovered from Green Hag. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_green_hag_knotted_swamp_wand.webp"
     },
@@ -17263,7 +17263,7 @@
       "sourceType": "Ooze",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1286,
+      "sellSilver": 204,
       "effect": "Wilderness trade good recovered from Gelatinous Cube. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_gelatinous_cube_suspended_bone_key.webp"
     },
@@ -17277,7 +17277,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1367,
+      "sellSilver": 218,
       "effect": "Wilderness trade good recovered from Owlbear. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_owlbear_feathered_bear_claw.webp"
     },
@@ -17291,7 +17291,7 @@
       "sourceType": "Plant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1447,
+      "sellSilver": 231,
       "effect": "Wilderness trade good recovered from Shambling Mound. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r4_shambling_mound_pulsing_vine_heart.webp"
     },
@@ -17305,7 +17305,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1072,
+      "sellSilver": 171,
       "effect": "Wilderness trade good recovered from Rakshasa. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_rakshasa_silk_wrapped_claw_charm.webp"
     },
@@ -17319,7 +17319,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1172,
+      "sellSilver": 188,
       "effect": "Wilderness trade good recovered from Magma Mephit. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_magma_mephit_cooled_obsidian_shard.webp"
     },
@@ -17333,7 +17333,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1273,
+      "sellSilver": 204,
       "effect": "Wilderness trade good recovered from Fire Snake. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_fire_snake_molten_shed_scale.webp"
     },
@@ -17347,7 +17347,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1380,
+      "sellSilver": 221,
       "effect": "Wilderness trade good recovered from Magmin. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_magmin_charred_ash_core.webp"
     },
@@ -17361,7 +17361,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1494,
+      "sellSilver": 238,
       "effect": "Wilderness trade good recovered from Azer Sentinel. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_azer_sentinel_brass_forged_beard_ring.webp"
     },
@@ -17375,7 +17375,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1608,
+      "sellSilver": 258,
       "effect": "Wilderness trade good recovered from Salamander. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_salamander_heated_iron_spear_tip.webp"
     },
@@ -17389,7 +17389,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1729,
+      "sellSilver": 278,
       "effect": "Wilderness trade good recovered from Basilisk. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_basilisk_petrified_eye_stone.webp"
     },
@@ -17403,7 +17403,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1849,
+      "sellSilver": 295,
       "effect": "Wilderness trade good recovered from Lamia. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_lamia_tarnished_brass_anklet.webp"
     },
@@ -17417,7 +17417,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1977,
+      "sellSilver": 315,
       "effect": "Wilderness trade good recovered from Mummy. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_mummy_desiccated_linen_wrap.webp"
     },
@@ -17431,7 +17431,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2110,
+      "sellSilver": 338,
       "effect": "Wilderness trade good recovered from Hell Hound. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_hell_hound_singed_brimstone_fang.webp"
     },
@@ -17445,7 +17445,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2244,
+      "sellSilver": 358,
       "effect": "Wilderness trade good recovered from Chimera. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_chimera_three_horned_crest.webp"
     },
@@ -17459,7 +17459,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2385,
+      "sellSilver": 382,
       "effect": "Wilderness trade good recovered from Fire Elemental. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_fire_elemental_eternal_cinder_essence.webp"
     },
@@ -17473,7 +17473,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2526,
+      "sellSilver": 405,
       "effect": "Wilderness trade good recovered from Red Dragon Wyrmling. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_red_dragon_wyrmling_scarlet_hatchling_scale.webp"
     },
@@ -17487,7 +17487,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2667,
+      "sellSilver": 425,
       "effect": "Wilderness trade good recovered from Purple Worm. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_purple_worm_massive_bore_tooth.webp"
     },
@@ -17501,7 +17501,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2814,
+      "sellSilver": 449,
       "effect": "Wilderness trade good recovered from Young Red Dragon. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r5_young_red_dragon_ember_hot_horn_fragment.webp"
     },
@@ -17515,7 +17515,7 @@
       "sourceType": "Beast",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2010,
+      "sellSilver": 322,
       "effect": "Wilderness trade good recovered from Blood Hawk. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_blood_hawk_crimson_talon.webp"
     },
@@ -17529,7 +17529,7 @@
       "sourceType": "Celestial",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2198,
+      "sellSilver": 352,
       "effect": "Wilderness trade good recovered from Sphinx of Lore. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_sphinx_of_lore_carved_sphinx_feather.webp"
     },
@@ -17543,7 +17543,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2385,
+      "sellSilver": 382,
       "effect": "Wilderness trade good recovered from Ice Mephit. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_ice_mephit_unmelting_ice_splinter.webp"
     },
@@ -17557,7 +17557,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2586,
+      "sellSilver": 415,
       "effect": "Wilderness trade good recovered from Harpy. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_harpy_jagged_wing_quill.webp"
     },
@@ -17571,7 +17571,7 @@
       "sourceType": "Beast",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 2787,
+      "sellSilver": 446,
       "effect": "Wilderness trade good recovered from Giant Eagle. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_giant_eagle_storm_tipped_feather.webp"
     },
@@ -17585,7 +17585,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3002,
+      "sellSilver": 479,
       "effect": "Wilderness trade good recovered from Air Elemental. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_air_elemental_bottled_tempest_wind.webp"
     },
@@ -17599,7 +17599,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3216,
+      "sellSilver": 516,
       "effect": "Wilderness trade good recovered from Invisible Stalker. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_invisible_stalker_whispering_air_core.webp"
     },
@@ -17613,7 +17613,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3450,
+      "sellSilver": 553,
       "effect": "Wilderness trade good recovered from Wyvern. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_wyvern_barbed_poison_stinger.webp"
     },
@@ -17627,7 +17627,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3685,
+      "sellSilver": 590,
       "effect": "Wilderness trade good recovered from Blue Dragon Wyrmling. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_blue_dragon_wyrmling_cobalt_hatchling_scale.webp"
     },
@@ -17641,7 +17641,7 @@
       "sourceType": "Elemental",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3926,
+      "sellSilver": 630,
       "effect": "Wilderness trade good recovered from Djinni. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_djinni_braided_cloud_silk.webp"
     },
@@ -17655,7 +17655,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 4181,
+      "sellSilver": 670,
       "effect": "Wilderness trade good recovered from Young Blue Dragon. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_young_blue_dragon_crackling_lightning_fang.webp"
     },
@@ -17669,7 +17669,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 4435,
+      "sellSilver": 710,
       "effect": "Wilderness trade good recovered from Behir. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_behir_twelve_legged_storm_hide.webp"
     },
@@ -17683,7 +17683,7 @@
       "sourceType": "Monstrosity",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 4690,
+      "sellSilver": 750,
       "effect": "Wilderness trade good recovered from Roc. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_roc_plume_of_the_sky_titan.webp"
     },
@@ -17697,7 +17697,7 @@
       "sourceType": "Dragon",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 4958,
+      "sellSilver": 791,
       "effect": "Wilderness trade good recovered from Adult Blue Dragon. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_adult_blue_dragon_charged_sapphire_horn.webp"
     },
@@ -17711,7 +17711,7 @@
       "sourceType": "Giant",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 5226,
+      "sellSilver": 838,
       "effect": "Wilderness trade good recovered from Storm Giant. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r6_storm_giant_crown_forged_storm_pearl.webp"
     },
@@ -17725,7 +17725,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3618,
+      "sellSilver": 580,
       "effect": "Wilderness trade good recovered from Erinyes. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_erinyes_blackened_wing_pinion.webp"
     },
@@ -17739,7 +17739,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3953,
+      "sellSilver": 633,
       "effect": "Wilderness trade good recovered from Hezrou. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_hezrou_abyssal_chitin_fang.webp"
     },
@@ -17753,7 +17753,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 4288,
+      "sellSilver": 683,
       "effect": "Wilderness trade good recovered from Marilith. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_marilith_sixfold_iron_bracelet.webp"
     },
@@ -17767,7 +17767,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 4656,
+      "sellSilver": 744,
       "effect": "Wilderness trade good recovered from Shadow Demon. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_shadow_demon_condensed_void_shroud.webp"
     },
@@ -17781,7 +17781,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 5025,
+      "sellSilver": 804,
       "effect": "Wilderness trade good recovered from Spined Devil. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_spined_devil_scorched_tail_spine.webp"
     },
@@ -17795,7 +17795,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 5394,
+      "sellSilver": 864,
       "effect": "Wilderness trade good recovered from Bearded Devil. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_bearded_devil_venomous_beard_tendril.webp"
     },
@@ -17809,7 +17809,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 5762,
+      "sellSilver": 925,
       "effect": "Wilderness trade good recovered from Nightmare. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_nightmare_blazing_horseshoe.webp"
     },
@@ -17823,7 +17823,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 6164,
+      "sellSilver": 985,
       "effect": "Wilderness trade good recovered from Succubus / Incubus. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_succubus_incubus_whispering_silver_clasp.webp"
     },
@@ -17837,7 +17837,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 6566,
+      "sellSilver": 1052,
       "effect": "Wilderness trade good recovered from Vrock. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_vrock_ash_gray_buzzard_plume.webp"
     },
@@ -17851,7 +17851,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 6968,
+      "sellSilver": 1112,
       "effect": "Wilderness trade good recovered from Barbed Devil. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_barbed_devil_jagged_iron_hide_plate.webp"
     },
@@ -17865,7 +17865,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 7370,
+      "sellSilver": 1179,
       "effect": "Wilderness trade good recovered from Chain Devil. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_chain_devil_living_spiked_link.webp"
     },
@@ -17879,7 +17879,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 7772,
+      "sellSilver": 1246,
       "effect": "Wilderness trade good recovered from Bone Devil. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_bone_devil_pale_scorpion_stinger.webp"
     },
@@ -17893,7 +17893,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 8174,
+      "sellSilver": 1306,
       "effect": "Wilderness trade good recovered from Glabrezu. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_glabrezu_massive_pincer_claw.webp"
     },
@@ -17907,7 +17907,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 8610,
+      "sellSilver": 1380,
       "effect": "Wilderness trade good recovered from Horned Devil. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_horned_devil_branded_hell_horn.webp"
     },
@@ -17921,7 +17921,7 @@
       "sourceType": "Fiend",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 9045,
+      "sellSilver": 1447,
       "effect": "Wilderness trade good recovered from Ice Devil. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r7_ice_devil_eternal_permafrost_shard.webp"
     },
@@ -17935,7 +17935,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 6164,
+      "sellSilver": 985,
       "effect": "Wilderness trade good recovered from Vampire Familiar. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_vampire_familiar_crimson_signet_thimble.webp"
     },
@@ -17949,7 +17949,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 6767,
+      "sellSilver": 1085,
       "effect": "Wilderness trade good recovered from Skeleton. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_skeleton_bleached_marrow_bone.webp"
     },
@@ -17963,7 +17963,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 7370,
+      "sellSilver": 1179,
       "effect": "Wilderness trade good recovered from Zombie. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_zombie_tattered_burial_band.webp"
     },
@@ -17977,7 +17977,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 7973,
+      "sellSilver": 1273,
       "effect": "Wilderness trade good recovered from Shadow. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_shadow_cold_twilight_ash.webp"
     },
@@ -17991,7 +17991,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 8610,
+      "sellSilver": 1380,
       "effect": "Wilderness trade good recovered from Ghoul. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_ghoul_rotting_claw_tip.webp"
     },
@@ -18005,7 +18005,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 9246,
+      "sellSilver": 1481,
       "effect": "Wilderness trade good recovered from Specter. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_specter_ethereal_wisp_thread.webp"
     },
@@ -18019,7 +18019,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 9882,
+      "sellSilver": 1581,
       "effect": "Wilderness trade good recovered from Will-o'-Wisp. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_will_o_wisp_flickering_soul_lantern.webp"
     },
@@ -18033,7 +18033,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 10552,
+      "sellSilver": 1688,
       "effect": "Wilderness trade good recovered from Ghast. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_ghast_fetid_crypt_fang.webp"
     },
@@ -18047,7 +18047,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 11222,
+      "sellSilver": 1796,
       "effect": "Wilderness trade good recovered from Wight. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_wight_tarnished_tomb_blade.webp"
     },
@@ -18061,7 +18061,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 11926,
+      "sellSilver": 1910,
       "effect": "Wilderness trade good recovered from Ghost. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_ghost_wailing_silver_shroud.webp"
     },
@@ -18075,7 +18075,7 @@
       "sourceType": "Aberration",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 12596,
+      "sellSilver": 2017,
       "effect": "Wilderness trade good recovered from Cloaker. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_cloaker_shadow_hide_cloak.webp"
     },
@@ -18089,7 +18089,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 13300,
+      "sellSilver": 2131,
       "effect": "Wilderness trade good recovered from Wraith. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_wraith_black_frost_shackle.webp"
     },
@@ -18103,7 +18103,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 14003,
+      "sellSilver": 2238,
       "effect": "Wilderness trade good recovered from Vampire Spawn. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_vampire_spawn_crimson_blood_vial.webp"
     },
@@ -18117,7 +18117,7 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 14706,
+      "sellSilver": 2352,
       "effect": "Wilderness trade good recovered from Vampire. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_vampire_royal_velvet_signet.webp"
     },
@@ -18131,113 +18131,9 @@
       "sourceType": "Undead",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 15410,
+      "sellSilver": 2466,
       "effect": "Wilderness trade good recovered from Lich. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_r8_lich_shattered_phylactery_seal.webp"
-    },
-    {
-      "id": "tg_native_road_bandit_rusty_coin_purse",
-      "name": "Rusty Coin Purse",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 1–2",
-      "sourceMob": "Road Bandit",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 19,
-      "effect": "Trade good recovered from Road Bandit. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_road_bandit_rusty_coin_purse.webp"
-    },
-    {
-      "id": "tg_native_crossbow_poacher_fletched_bolt_case",
-      "name": "Fletched Bolt Case",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 1–3",
-      "sourceMob": "Crossbow Poacher",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 23,
-      "effect": "Trade good recovered from Crossbow Poacher. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_crossbow_poacher_fletched_bolt_case.webp"
-    },
-    {
-      "id": "tg_native_smuggler_cutthroat_contraband_seal",
-      "name": "Contraband Seal",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 2, 5",
-      "sourceMob": "Smuggler Cutthroat",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 124,
-      "effect": "Trade good recovered from Smuggler Cutthroat. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_smuggler_cutthroat_contraband_seal.webp"
-    },
-    {
-      "id": "tg_native_garrick_deserter_torn_wolf_tabard",
-      "name": "Torn Wolf Tabard",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 1, 3",
-      "sourceMob": "Garrick Deserter",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 35,
-      "effect": "Trade good recovered from Garrick Deserter. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_garrick_deserter_torn_wolf_tabard.webp"
-    },
-    {
-      "id": "tg_native_rival_house_pikeman_usurper_pennant",
-      "name": "Usurper Pennant",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 3, 7",
-      "sourceMob": "Rival House Pikeman",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 368,
-      "effect": "Trade good recovered from Rival House Pikeman. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_rival_house_pikeman_usurper_pennant.webp"
-    },
-    {
-      "id": "tg_native_rival_house_knight_steel_crest_badge",
-      "name": "Steel Crest Badge",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 3, 7",
-      "sourceMob": "Rival House Knight",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 523,
-      "effect": "Trade good recovered from Rival House Knight. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_rival_house_knight_steel_crest_badge.webp"
-    },
-    {
-      "id": "tg_native_gilded_slaver_enforcer_brass_collar_key",
-      "name": "Brass Collar Key",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Region 5",
-      "sourceMob": "Gilded Slaver Enforcer",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 1809,
-      "effect": "Trade good recovered from Gilded Slaver Enforcer. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_gilded_slaver_enforcer_brass_collar_key.webp"
-    },
-    {
-      "id": "tg_native_eclipse_cultist_obsidian_talisman",
-      "name": "Obsidian Talisman",
-      "category": "trade_good",
-      "subType": "Ethoria Trade Good",
-      "regionsFound": "Region 8",
-      "sourceMob": "Eclipse Cultist",
-      "shopType": "sell_only",
-      "priceSilver": 0,
-      "sellSilver": 9715,
-      "effect": "Trade good recovered from Eclipse Cultist. Sell to Armory or Mystic merchants for Silver.",
-      "iconPath": "assets/icons/items/tg_native_eclipse_cultist_obsidian_talisman.webp"
     },
     {
       "id": "tg_native_wolf_gray_wolf_pelt",
@@ -18248,7 +18144,7 @@
       "sourceMob": "Wolf",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 15,
+      "sellSilver": 3,
       "effect": "Trade good recovered from Wolf. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_wolf_gray_wolf_pelt.webp"
     },
@@ -18261,7 +18157,7 @@
       "sourceMob": "Giant Boar",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 31,
+      "sellSilver": 5,
       "effect": "Trade good recovered from Giant Boar. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_giant_boar_curved_ivory_tusk.webp"
     },
@@ -18274,7 +18170,7 @@
       "sourceMob": "Giant Spider",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 39,
+      "sellSilver": 6,
       "effect": "Trade good recovered from Giant Spider. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_giant_spider_intact_venom_gland.webp"
     },
@@ -18287,7 +18183,7 @@
       "sourceMob": "Brown Bear",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 395,
+      "sellSilver": 63,
       "effect": "Trade good recovered from Brown Bear. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_brown_bear_thick_bear_hide.webp"
     },
@@ -18300,7 +18196,7 @@
       "sourceMob": "Giant Scorpion",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 1474,
+      "sellSilver": 234,
       "effect": "Trade good recovered from Giant Scorpion. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_giant_scorpion_amber_chitin_stinger.webp"
     },
@@ -18313,7 +18209,7 @@
       "sourceMob": "Polar Bear",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 3484,
+      "sellSilver": 556,
       "effect": "Trade good recovered from Polar Bear. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_polar_bear_snow_white_pelt.webp"
     },
@@ -18326,7 +18222,7 @@
       "sourceMob": "Winter Wolf",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 5293,
+      "sellSilver": 844,
       "effect": "Trade good recovered from Winter Wolf. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_winter_wolf_frosted_alpha_pelt.webp"
     },
@@ -18339,9 +18235,113 @@
       "sourceMob": "Saber-Toothed Tiger",
       "shopType": "sell_only",
       "priceSilver": 0,
-      "sellSilver": 4422,
+      "sellSilver": 710,
       "effect": "Trade good recovered from Saber-Toothed Tiger. Sell to Armory or Mystic merchants for Silver.",
       "iconPath": "assets/icons/items/tg_native_saber_toothed_tiger_massive_ivory_fang.webp"
+    },
+    {
+      "id": "tg_native_road_bandit_rusty_coin_purse",
+      "name": "Rusty Coin Purse",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Regions 1–2",
+      "sourceMob": "Road Bandit",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 3,
+      "effect": "Trade good recovered from Road Bandit. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_road_bandit_rusty_coin_purse.webp"
+    },
+    {
+      "id": "tg_native_crossbow_poacher_fletched_bolt_case",
+      "name": "Fletched Bolt Case",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Regions 1–3",
+      "sourceMob": "Crossbow Poacher",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 4,
+      "effect": "Trade good recovered from Crossbow Poacher. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_crossbow_poacher_fletched_bolt_case.webp"
+    },
+    {
+      "id": "tg_native_smuggler_cutthroat_contraband_seal",
+      "name": "Contraband Seal",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Regions 2, 5",
+      "sourceMob": "Smuggler Cutthroat",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 20,
+      "effect": "Trade good recovered from Smuggler Cutthroat. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_smuggler_cutthroat_contraband_seal.webp"
+    },
+    {
+      "id": "tg_native_garrick_deserter_torn_wolf_tabard",
+      "name": "Torn Wolf Tabard",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Regions 1, 3",
+      "sourceMob": "Garrick Deserter",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 6,
+      "effect": "Trade good recovered from Garrick Deserter. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_garrick_deserter_torn_wolf_tabard.webp"
+    },
+    {
+      "id": "tg_native_rival_house_pikeman_usurper_pennant",
+      "name": "Usurper Pennant",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Regions 3, 7",
+      "sourceMob": "Rival House Pikeman",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 59,
+      "effect": "Trade good recovered from Rival House Pikeman. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_rival_house_pikeman_usurper_pennant.webp"
+    },
+    {
+      "id": "tg_native_rival_house_knight_steel_crest_badge",
+      "name": "Steel Crest Badge",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Regions 3, 7",
+      "sourceMob": "Rival House Knight",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 85,
+      "effect": "Trade good recovered from Rival House Knight. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_rival_house_knight_steel_crest_badge.webp"
+    },
+    {
+      "id": "tg_native_gilded_slaver_enforcer_brass_collar_key",
+      "name": "Brass Collar Key",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Region 5",
+      "sourceMob": "Gilded Slaver Enforcer",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 290,
+      "effect": "Trade good recovered from Gilded Slaver Enforcer. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_gilded_slaver_enforcer_brass_collar_key.webp"
+    },
+    {
+      "id": "tg_native_eclipse_cultist_obsidian_talisman",
+      "name": "Obsidian Talisman",
+      "category": "trade_good",
+      "subType": "Ethoria Trade Good",
+      "regionsFound": "Region 8",
+      "sourceMob": "Eclipse Cultist",
+      "shopType": "sell_only",
+      "priceSilver": 0,
+      "sellSilver": 1555,
+      "effect": "Trade good recovered from Eclipse Cultist. Sell to Armory or Mystic merchants for Silver.",
+      "iconPath": "assets/icons/items/tg_native_eclipse_cultist_obsidian_talisman.webp"
     },
     {
       "id": "key_portal_1_ashen_forge_keystone",

@@ -145,168 +145,168 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 ### Portal #1 Realm: **Elemental Plane of Earth & Forge** *(Levels `1–12` | Region 1)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Animated Flying Sword** | Construct | *Cross Slash, Viper Lunge* | Bludgeoning, Lightning | `15` | `12s` | Chipped Rune-Blade Shard |
-| 2 | **Animated Armor** | Construct | *Pommel Bash, Hold the Line* | Bludgeoning, Lightning | `22` | `18s` | Hollow Greave Plate |
-| 3 | **Flesh Golem** | Construct | *Crushing Blow, Scarred Gambit* | Fire, Lightning | `28` | `22s` | Iron-Sutured Hide |
-| 4 | **Clay Golem** | Construct | *Armor Crush, Phalanx Brace* | Bludgeoning, Radiant | `32` | `25s` | Carved Earthen Seal |
-| 5 | **Dust Mephit** | Elemental | *Choking Powder, Ember Spark* | Bludgeoning, Frost | `40` | `30s` | Jar of Cinder-Ash |
-| 6 | **Gargoyle** | Elemental | *Sandsweep, Phalanx Brace* | Bludgeoning, Frost | `52` | `38s` | Cracked Stone Horn |
-| 7 | **Rust Monster** | Monstrosity | *Armor Feint, Expose Seam* | Piercing, Frost | `60` | `42s` | Oxidized Antenna |
-| 8 | **Ankheg** | Monstrosity | *Acidic Flask, Ragged Cut* | Fire, Slashing | `72` | `48s` | Chitinous Mandible |
-| 9 | **Darkmantle** | Monstrosity | *Smokescreen, Shadowstep Ambush* | Radiant, Fire | `80` | `52s` | Shadow-Cowl Membrane |
-| 10 | **Grick** | Monstrosity | *Viper Lunge, Ankle Nick* | Fire, Bludgeoning | `95` | `58s` | Stone-Worm Beak |
-| 11 | **Roper** | Monstrosity | *Void Pull, Piercing Shot* | Fire, Slashing | `110` | `64s` | Petrous Tendril Core |
-| 12 | **Xorn** | Elemental | *Crushing Blow, Armor Crush* | Frost, Lightning | `125` | `70s` | Gem-Flecked Claw |
-| 13 | **Bulette** | Monstrosity | *Shield-Splitter, Earthshaker* | Frost, Piercing | `140` | `76s` | Landshark Armor Plate |
-| 14 | **Earth Elemental** | Elemental | *Concussive Bash, Phalanx Brace* | Lightning, Frost | `150` | `80s` | Dense Geode Heart |
-| 15 | **Shield Guardian** | Construct | *Intercept Stance, Iron Steadfast* | Lightning, Bludgeoning | `165` | `88s` | Runed Guardian Amulet |
+| 1 | **Animated Flying Sword** | Construct | *Cross Slash, Viper Lunge* | Bludgeoning, Lightning | `6` | `3s` | Chipped Rune-Blade Shard |
+| 2 | **Animated Armor** | Construct | *Pommel Bash, Hold the Line* | Bludgeoning, Lightning | `8` | `3s` | Hollow Greave Plate |
+| 3 | **Flesh Golem** | Construct | *Crushing Blow, Scarred Gambit* | Fire, Lightning | `11` | `4s` | Iron-Sutured Hide |
+| 4 | **Clay Golem** | Construct | *Armor Crush, Phalanx Brace* | Bludgeoning, Radiant | `12` | `4s` | Carved Earthen Seal |
+| 5 | **Dust Mephit** | Elemental | *Choking Powder, Ember Spark* | Bludgeoning, Frost | `15` | `5s` | Jar of Cinder-Ash |
+| 6 | **Gargoyle** | Elemental | *Sandsweep, Phalanx Brace* | Bludgeoning, Frost | `20` | `6s` | Cracked Stone Horn |
+| 7 | **Rust Monster** | Monstrosity | *Armor Feint, Expose Seam* | Piercing, Frost | `23` | `7s` | Oxidized Antenna |
+| 8 | **Ankheg** | Monstrosity | *Acidic Flask, Ragged Cut* | Fire, Slashing | `27` | `8s` | Chitinous Mandible |
+| 9 | **Darkmantle** | Monstrosity | *Smokescreen, Shadowstep Ambush* | Radiant, Fire | `30` | `8s` | Shadow-Cowl Membrane |
+| 10 | **Grick** | Monstrosity | *Viper Lunge, Ankle Nick* | Fire, Bludgeoning | `36` | `9s` | Stone-Worm Beak |
+| 11 | **Roper** | Monstrosity | *Void Pull, Piercing Shot* | Fire, Slashing | `42` | `10s` | Petrous Tendril Core |
+| 12 | **Xorn** | Elemental | *Crushing Blow, Armor Crush* | Frost, Lightning | `48` | `11s` | Gem-Flecked Claw |
+| 13 | **Bulette** | Monstrosity | *Shield-Splitter, Earthshaker* | Frost, Piercing | `53` | `12s` | Landshark Armor Plate |
+| 14 | **Earth Elemental** | Elemental | *Concussive Bash, Phalanx Brace* | Lightning, Frost | `57` | `13s` | Dense Geode Heart |
+| 15 | **Shield Guardian** | Construct | *Intercept Stance, Iron Steadfast* | Lightning, Bludgeoning | `63` | `14s` | Runed Guardian Amulet |
 
 ---
 
 ### Portal #2 Realm: **Elemental Plane of Water & Deep Trench** *(Levels `13–24` | Region 2)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Reef Shark** | Beast | *Viper Lunge, Ragged Cut* | Lightning, Piercing | `140` | `85s` | Serrated Reef Fin |
-| 2 | **Black Dragon Wyrmling** | Dragon | *Acidic Flask (Breath), Sandsweep* | Lightning, Piercing | `165` | `100s` | Corrosive Trench Scale |
-| 3 | **Otyugh** | Aberration | *Void Pull, Concussive Bash* | Fire, Piercing | `190` | `115s` | Barbed Trench Tentacle |
-| 4 | **Hydra** | Monstrosity | *Crescent Cleave, Twin-Fang Cascade* | Fire, Slashing | `220` | `135s` | Severed Hydra Neck-Crest |
-| 5 | **Steam Mephit** | Elemental | *Ember Spark, Smokescreen* | Frost, Lightning | `250` | `155s` | Scalding Vapor Phial |
-| 6 | **Merrow** | Monstrosity | *Spearhead Lunge, Sandsweep* | Lightning, Fire | `285` | `175s` | Barbed Coral Harpoon |
-| 7 | **Sea Hag** | Fey | *Weakening Draught, Dawn Gleam (Hex)* | Lightning, Radiant | `320` | `195s` | Brine-Salt Talisman |
-| 8 | **Water Weird** | Elemental | *Intercept Stance, Void Pull* | Frost, Lightning | `360` | `215s` | Pure Abyssal Vial |
-| 9 | **Giant Octopus** | Beast | *Choking Powder (Ink), Twin-Fang Cascade* | Fire, Lightning | `400` | `240s` | Coiled Sucker Tendril |
-| 10 | **Killer Whale** | Beast | *Shield-Splitter, Skewer Thrust* | Lightning, Piercing | `440` | `265s` | Ivory Trench Tooth |
-| 11 | **Giant Shark** | Beast | *Artery Slice, Executioner's Arc* | Lightning, Slashing | `485` | `290s` | Pale Abyssal Jawbone |
-| 12 | **Gibbering Mouther** | Aberration | *Choking Powder, Nerve Strike* | Radiant, Fire | `525` | `315s` | Writhing Eye-Cluster |
-| 13 | **Chuul** | Aberration | *Neurotoxin Dart, Concussive Bash* | Lightning, Radiant | `565` | `335s` | Translucent Pincer |
-| 14 | **Water Elemental** | Elemental | *Earthshaker (Tidal), Iron Steadfast* | Frost, Lightning | `610` | `360s` | Living Tide-Core |
-| 15 | **Dragon Turtle** | Dragon | *Flame Wall (Steam), Titan Breaker* | Lightning, Piercing | `660` | `390s` | Steam-Scarred Scute |
+| 1 | **Reef Shark** | Beast | *Viper Lunge, Ragged Cut* | Lightning, Piercing | `53` | `14s` | Serrated Reef Fin |
+| 2 | **Black Dragon Wyrmling** | Dragon | *Acidic Flask (Breath), Sandsweep* | Lightning, Piercing | `63` | `16s` | Corrosive Trench Scale |
+| 3 | **Otyugh** | Aberration | *Void Pull, Concussive Bash* | Fire, Piercing | `72` | `18s` | Barbed Trench Tentacle |
+| 4 | **Hydra** | Monstrosity | *Crescent Cleave, Twin-Fang Cascade* | Fire, Slashing | `84` | `22s` | Severed Hydra Neck-Crest |
+| 5 | **Steam Mephit** | Elemental | *Ember Spark, Smokescreen* | Frost, Lightning | `95` | `25s` | Scalding Vapor Phial |
+| 6 | **Merrow** | Monstrosity | *Spearhead Lunge, Sandsweep* | Lightning, Fire | `108` | `28s` | Barbed Coral Harpoon |
+| 7 | **Sea Hag** | Fey | *Weakening Draught, Dawn Gleam (Hex)* | Lightning, Radiant | `122` | `31s` | Brine-Salt Talisman |
+| 8 | **Water Weird** | Elemental | *Intercept Stance, Void Pull* | Frost, Lightning | `137` | `34s` | Pure Abyssal Vial |
+| 9 | **Giant Octopus** | Beast | *Choking Powder (Ink), Twin-Fang Cascade* | Fire, Lightning | `152` | `38s` | Coiled Sucker Tendril |
+| 10 | **Killer Whale** | Beast | *Shield-Splitter, Skewer Thrust* | Lightning, Piercing | `167` | `42s` | Ivory Trench Tooth |
+| 11 | **Giant Shark** | Beast | *Artery Slice, Executioner's Arc* | Lightning, Slashing | `184` | `46s` | Pale Abyssal Jawbone |
+| 12 | **Gibbering Mouther** | Aberration | *Choking Powder, Nerve Strike* | Radiant, Fire | `200` | `50s` | Writhing Eye-Cluster |
+| 13 | **Chuul** | Aberration | *Neurotoxin Dart, Concussive Bash* | Lightning, Radiant | `215` | `54s` | Translucent Pincer |
+| 14 | **Water Elemental** | Elemental | *Earthshaker (Tidal), Iron Steadfast* | Frost, Lightning | `230` | `58s` | Living Tide-Core |
+| 15 | **Dragon Turtle** | Dragon | *Flame Wall (Steam), Titan Breaker* | Lightning, Piercing | `250` | `62s` | Steam-Scarred Scute |
 
 ---
 
 ### Portal #3 Realm: **The Blood-Iron Warlands *(Ysgard / Giant Steppes)*** *(Levels `25–36` | Region 3)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Worg** | Monstrosity | *Ragged Cut, Hunter's Mark* | Fire, Piercing | `480` | `300s` | Iron-Gray Wolf Pelt |
-| 2 | **Dire Wolf** | Beast | *Viper Lunge, Split Volley (Pack)* | Fire, Slashing | `530` | `330s` | Massive Alpha Fang |
-| 3 | **Cockatrice** | Monstrosity | *Ankle Nick, Nerve Strike* | Bludgeoning, Frost | `580` | `365s` | Calcified Feather |
-| 4 | **Hippogriff** | Monstrosity | *Gale Piercer, Slip-Step Dash* | Lightning, Piercing | `640` | `400s` | Bronze Wing-Pinion |
-| 5 | **Minotaur** | Monstrosity | *Shield-Splitter, Arena Challenge* | Piercing, Frost | `700` | `445s` | Brass Nose-Ring |
-| 6 | **Griffon** | Monstrosity | *Crescent Cleave, Tactical Retreat* | Lightning, Piercing | `760` | `490s` | Razor Lion-Talon |
-| 7 | **Manticore** | Monstrosity | *Split Volley, Crippling Sinew* | Fire, Piercing | `820` | `535s` | Venomous Tail-Spike |
-| 8 | **Ogre** | Giant | *Crushing Blow, Pommel Bash* | Fire, Piercing | `890` | `585s` | Notched Iron Club-Band |
-| 9 | **Gorgon** | Monstrosity | *Armor Feint, Concussive Bash* | Lightning, Frost | `960` | `635s` | Iron-Scaled Horn |
-| 10 | **Frost Giant** | Giant | *Frost Shard (Greataxe), Shatterplate* | Fire, Piercing | `1,030` | `690s` | Scarred War-Belt Plate |
-| 11 | **Ettin** | Giant | *Twin-Fang Cascade (Twin Clubs), Veteran's Call* | Fire, Lightning | `1,100` | `745s` | Split-Skull Totem |
-| 12 | **Troll** | Giant | *Ragged Cut, Vitality Infusion (Regen)* | **Fire**, Acid/Poison | `1,180` | `800s` | Charred Troll Sinew |
-| 13 | **Hill Giant** | Giant | *Earthshaker, Heavy Cleave* | Piercing, Fire | `1,250` | `860s` | Giant's Brass Buckle |
-| 14 | **Oni** | Giant | *Frost Shard, Shadowstep Ambush, Miracle Balm* | Radiant, Fire | `1,320` | `920s` | Curved Horn Mask |
-| 15 | **Stone Giant** | Giant | *Titan Breaker, Phalanx Brace* | Lightning, Frost | `1,400` | `980s` | Carved Granite Heart |
+| 1 | **Worg** | Monstrosity | *Ragged Cut, Hunter's Mark* | Fire, Piercing | `182` | `48s` | Iron-Gray Wolf Pelt |
+| 2 | **Dire Wolf** | Beast | *Viper Lunge, Split Volley (Pack)* | Fire, Slashing | `200` | `53s` | Massive Alpha Fang |
+| 3 | **Cockatrice** | Monstrosity | *Ankle Nick, Nerve Strike* | Bludgeoning, Frost | `220` | `58s` | Calcified Feather |
+| 4 | **Hippogriff** | Monstrosity | *Gale Piercer, Slip-Step Dash* | Lightning, Piercing | `245` | `64s` | Bronze Wing-Pinion |
+| 5 | **Minotaur** | Monstrosity | *Shield-Splitter, Arena Challenge* | Piercing, Frost | `265` | `71s` | Brass Nose-Ring |
+| 6 | **Griffon** | Monstrosity | *Crescent Cleave, Tactical Retreat* | Lightning, Piercing | `290` | `78s` | Razor Lion-Talon |
+| 7 | **Manticore** | Monstrosity | *Split Volley, Crippling Sinew* | Fire, Piercing | `310` | `86s` | Venomous Tail-Spike |
+| 8 | **Ogre** | Giant | *Crushing Blow, Pommel Bash* | Fire, Piercing | `340` | `94s` | Notched Iron Club-Band |
+| 9 | **Gorgon** | Monstrosity | *Armor Feint, Concussive Bash* | Lightning, Frost | `365` | `100s` | Iron-Scaled Horn |
+| 10 | **Frost Giant** | Giant | *Frost Shard (Greataxe), Shatterplate* | Fire, Piercing | `390` | `110s` | Scarred War-Belt Plate |
+| 11 | **Ettin** | Giant | *Twin-Fang Cascade (Twin Clubs), Veteran's Call* | Fire, Lightning | `420` | `120s` | Split-Skull Totem |
+| 12 | **Troll** | Giant | *Ragged Cut, Vitality Infusion (Regen)* | **Fire**, Acid/Poison | `450` | `130s` | Charred Troll Sinew |
+| 13 | **Hill Giant** | Giant | *Earthshaker, Heavy Cleave* | Piercing, Fire | `475` | `140s` | Giant's Brass Buckle |
+| 14 | **Oni** | Giant | *Frost Shard, Shadowstep Ambush, Miracle Balm* | Radiant, Fire | `500` | `145s` | Curved Horn Mask |
+| 15 | **Stone Giant** | Giant | *Titan Breaker, Phalanx Brace* | Lightning, Frost | `530` | `155s` | Carved Granite Heart |
 
 ---
 
 ### Portal #4 Realm: **The Corrupted Feywild & Spore-Mire** *(Levels `37–48` | Region 4)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Awakened Tree** | Plant | *Crushing Blow, Iron Steadfast* | **Fire**, Slashing | `980` | `740s` | Gnarled Dreadwood Heart |
-| 2 | **Phase Spider** | Monstrosity | *Shadowstep Ambush, Neurotoxin Dart* | Fire, Bludgeoning | `1,060` | `810s` | Spectral Silk Fang |
-| 3 | **Blink Dog** | Fey | *Slip-Step Dash, Back-Alley Strike* | Shadow, Poison | `1,140` | `890s` | Shimmering Fur Tuft |
-| 4 | **Werewolf** | Monstrosity | *Ragged Cut, Bloodied Fury* | Fire, Shadow | `1,230` | `970s` | Torn Alpha Pelt |
-| 5 | **Black Pudding** | Ooze | *Acidic Flask, Shatterplate* | Fire, Lightning | `1,320` | `1,060s` | Caustic Obsidian Gel |
-| 6 | **Violet Fungus** | Plant | *Bitterroot Vial, Artery Slice* | Fire, Radiant | `1,420` | `1,150s` | Glowing Spore-Bulb |
-| 7 | **Gray Ooze** | Ooze | *Acidic Flask, Expose Seam* | Lightning, Frost | `1,520` | `1,250s` | Acidic Slime Residue |
-| 8 | **Ettercap** | Monstrosity | *Pinning Arrow (Web), Venom-Tipped Blade* | Fire, Slashing | `1,630` | `1,350s` | Spun Silk-Sac |
-| 9 | **Night Hag** | Fiend | *Umbral Lance, Weakening Draught* | Radiant, Fire | `1,740` | `1,460s` | Nightmare Hearthstone |
-| 10 | **Dryad** | Fey | *Soothing Poultice, Barkskin Tonic* | Fire, Shadow | `1,860` | `1,570s` | Amber Sap Pendant |
-| 11 | **Ochre Jelly** | Ooze | *Venom Mist, Split/Echo Strike* | Fire, Frost | `1,980` | `1,680s` | Golden Gel Shard |
-| 12 | **Green Hag** | Fey | *Umbral Lance, Weakening Draught, Mirage Decoy* | Fire, Radiant | `2,100` | `1,800s` | Knotted Swamp-Wand |
-| 13 | **Gelatinous Cube** | Ooze | *Acidic Flask, Silence the Guard* | Fire, Lightning | `2,230` | `1,920s` | Suspended Bone-Key |
-| 14 | **Owlbear** | Monstrosity | *Bloodied Fury, Crescent Cleave* | Fire, Piercing | `2,360` | `2,040s` | Feathered Bear-Claw |
-| 15 | **Shambling Mound** | Plant | *Void Pull, Static Cage (Absorbs Lightning!)* | **Fire**, Slashing | `2,500` | `2,160s` | Pulsing Vine-Heart |
+| 1 | **Awakened Tree** | Plant | *Crushing Blow, Iron Steadfast* | **Fire**, Slashing | `370` | `120s` | Gnarled Dreadwood Heart |
+| 2 | **Phase Spider** | Monstrosity | *Shadowstep Ambush, Neurotoxin Dart* | Fire, Bludgeoning | `405` | `130s` | Spectral Silk Fang |
+| 3 | **Blink Dog** | Fey | *Slip-Step Dash, Back-Alley Strike* | Shadow, Poison | `435` | `140s` | Shimmering Fur Tuft |
+| 4 | **Werewolf** | Monstrosity | *Ragged Cut, Bloodied Fury* | Fire, Shadow | `465` | `155s` | Torn Alpha Pelt |
+| 5 | **Black Pudding** | Ooze | *Acidic Flask, Shatterplate* | Fire, Lightning | `500` | `170s` | Caustic Obsidian Gel |
+| 6 | **Violet Fungus** | Plant | *Bitterroot Vial, Artery Slice* | Fire, Radiant | `540` | `185s` | Glowing Spore-Bulb |
+| 7 | **Gray Ooze** | Ooze | *Acidic Flask, Expose Seam* | Lightning, Frost | `580` | `200s` | Acidic Slime Residue |
+| 8 | **Ettercap** | Monstrosity | *Pinning Arrow (Web), Venom-Tipped Blade* | Fire, Slashing | `620` | `215s` | Spun Silk-Sac |
+| 9 | **Night Hag** | Fiend | *Umbral Lance, Weakening Draught* | Radiant, Fire | `660` | `235s` | Nightmare Hearthstone |
+| 10 | **Dryad** | Fey | *Soothing Poultice, Barkskin Tonic* | Fire, Shadow | `705` | `250s` | Amber Sap Pendant |
+| 11 | **Ochre Jelly** | Ooze | *Venom Mist, Split/Echo Strike* | Fire, Frost | `750` | `270s` | Golden Gel Shard |
+| 12 | **Green Hag** | Fey | *Umbral Lance, Weakening Draught, Mirage Decoy* | Fire, Radiant | `800` | `290s` | Knotted Swamp-Wand |
+| 13 | **Gelatinous Cube** | Ooze | *Acidic Flask, Silence the Guard* | Fire, Lightning | `845` | `305s` | Suspended Bone-Key |
+| 14 | **Owlbear** | Monstrosity | *Bloodied Fury, Crescent Cleave* | Fire, Piercing | `895` | `325s` | Feathered Bear-Claw |
+| 15 | **Shambling Mound** | Plant | *Void Pull, Static Cage (Absorbs Lightning!)* | **Fire**, Slashing | `950` | `345s` | Pulsing Vine-Heart |
 
 ---
 
 ### Portal #5 Realm: **Elemental Plane of Fire *(City of Brass & Glass Wastes)*** *(Levels `49–60` | Region 5)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Rakshasa** | Fiend | *Mirage Decoy, Crimson Arc* | Piercing, Radiant | `1,650` | `1,600s` | Silk-Wrapped Claw Charm |
-| 2 | **Magma Mephit** | Elemental | *Arcane Fireball, Smokescreen* | **Frost**, Piercing | `1,780` | `1,750s` | Cooled Obsidian Shard |
-| 3 | **Fire Snake** | Elemental | *Flare Arrow, Slip-Step Dash* | Frost, Bludgeoning | `1,910` | `1,900s` | Molten Shed Scale |
-| 4 | **Magmin** | Elemental | *Flame Wall, Scarred Gambit* | Frost, Lightning | `2,050` | `2,060s` | Charred Ash-Core |
-| 5 | **Azer Sentinel** | Elemental | *Shield-Splitter, Riposte Stance* | Frost, Lightning | `2,200` | `2,230s` | Brass-Forged Beard-Ring |
-| 6 | **Salamander** | Elemental | *Crimson Arc, Spearhead Lunge* | Frost, Piercing | `2,350` | `2,400s` | Heated Iron Spear-Tip |
-| 7 | **Basilisk** | Monstrosity | *Nerve Strike (Petrify), Armor Feint* | Frost, Bludgeoning | `2,500` | `2,580s` | Petrified Eye-Stone |
-| 8 | **Lamia** | Monstrosity | *Umbral Lance, Disarming Feint* | Radiant, Piercing | `2,660` | `2,760s` | Tarnished Brass Anklet |
-| 9 | **Mummy** | Undead | *Weakening Draught, Plague-Spore Burst (Rot)* | **Fire**, Radiant | `2,820` | `2,950s` | Desiccated Linen Wrap |
-| 10 | **Hell Hound** | Fiend | *Flare Arrow (Breath), Hunter's Mark* | Frost, Radiant | `2,980` | `3,150s` | Singed Brimstone Fang |
-| 11 | **Chimera** | Monstrosity | *Flame Wall, Twin-Fang Cascade* | Frost, Piercing | `3,140` | `3,350s` | Three-Horned Crest |
-| 12 | **Fire Elemental** | Elemental | *Meteor (Mini), Burn/Retaliation Wall* | **Frost**, Bludgeoning | `3,300` | `3,560s` | Eternal Cinder Essence |
-| 13 | **Red Dragon Wyrmling** | Dragon | *Arcane Fireball, Sandsweep* | Frost, Piercing | `3,470` | `3,770s` | Scarlet Hatchling Scale |
-| 14 | **Purple Worm** | Monstrosity | *Titan Cracker, Acidic Flask* | Frost, Lightning | `3,640` | `3,980s` | Massive Bore-Tooth |
-| 15 | **Young Red Dragon** | Dragon | *Solar Flare, Tempest Edge* | Frost, Piercing | `3,820` | `4,200s` | Ember-Hot Horn Fragment |
+| 1 | **Rakshasa** | Fiend | *Mirage Decoy, Crimson Arc* | Piercing, Radiant | `625` | `255s` | Silk-Wrapped Claw Charm |
+| 2 | **Magma Mephit** | Elemental | *Arcane Fireball, Smokescreen* | **Frost**, Piercing | `675` | `280s` | Cooled Obsidian Shard |
+| 3 | **Fire Snake** | Elemental | *Flare Arrow, Slip-Step Dash* | Frost, Bludgeoning | `725` | `305s` | Molten Shed Scale |
+| 4 | **Magmin** | Elemental | *Flame Wall, Scarred Gambit* | Frost, Lightning | `780` | `330s` | Charred Ash-Core |
+| 5 | **Azer Sentinel** | Elemental | *Shield-Splitter, Riposte Stance* | Frost, Lightning | `835` | `355s` | Brass-Forged Beard-Ring |
+| 6 | **Salamander** | Elemental | *Crimson Arc, Spearhead Lunge* | Frost, Piercing | `895` | `385s` | Heated Iron Spear-Tip |
+| 7 | **Basilisk** | Monstrosity | *Nerve Strike (Petrify), Armor Feint* | Frost, Bludgeoning | `950` | `415s` | Petrified Eye-Stone |
+| 8 | **Lamia** | Monstrosity | *Umbral Lance, Disarming Feint* | Radiant, Piercing | `1,010` | `440s` | Tarnished Brass Anklet |
+| 9 | **Mummy** | Undead | *Weakening Draught, Plague-Spore Burst (Rot)* | **Fire**, Radiant | `1,070` | `470s` | Desiccated Linen Wrap |
+| 10 | **Hell Hound** | Fiend | *Flare Arrow (Breath), Hunter's Mark* | Frost, Radiant | `1,130` | `505s` | Singed Brimstone Fang |
+| 11 | **Chimera** | Monstrosity | *Flame Wall, Twin-Fang Cascade* | Frost, Piercing | `1,190` | `535s` | Three-Horned Crest |
+| 12 | **Fire Elemental** | Elemental | *Meteor (Mini), Burn/Retaliation Wall* | **Frost**, Bludgeoning | `1,250` | `570s` | Eternal Cinder Essence |
+| 13 | **Red Dragon Wyrmling** | Dragon | *Arcane Fireball, Sandsweep* | Frost, Piercing | `1,320` | `605s` | Scarlet Hatchling Scale |
+| 14 | **Purple Worm** | Monstrosity | *Titan Cracker, Acidic Flask* | Frost, Lightning | `1,380` | `635s` | Massive Bore-Tooth |
+| 15 | **Young Red Dragon** | Dragon | *Solar Flare, Tempest Edge* | Frost, Piercing | `1,450` | `670s` | Ember-Hot Horn Fragment |
 
 ---
 
 ### Portal #6 Realm: **Elemental Plane of Air & Dragon Crags** *(Levels `61–72` | Region 6)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Blood Hawk** | Beast | *Rapid Draw, Hunter's Mark* | Lightning, Frost | `2,450` | `3,000s` | Crimson Talon |
-| 2 | **Sphinx of Lore** | Celestial | *Queen's Decree, Astral Judgment* | Shadow, Piercing | `2,630` | `3,280s` | Carved Sphinx Feather |
-| 3 | **Ice Mephit** | Elemental | *Frost Shard, Choking Powder* | **Fire**, Bludgeoning | `2,820` | `3,560s` | Unmelting Ice-Splinter |
-| 4 | **Harpy** | Monstrosity | *Silence the Guard (Song), Back-Alley Strike* | Lightning, Piercing | `3,010` | `3,860s` | Jagged Wing-Quill |
-| 5 | **Giant Eagle** | Beast | *Gale Piercer, Tactical Retreat* | Lightning, Frost | `3,210` | `4,160s` | Storm-Tipped Feather |
-| 6 | **Air Elemental** | Elemental | *Void Pull (Whirlwind), Mirage Decoy* | Lightning, Frost | `3,410` | `4,480s` | Bottled Tempest Wind |
-| 7 | **Invisible Stalker** | Elemental | *Shadowstep Ambush, Unchained Ghost* | Radiant, Lightning | `3,620` | `4,800s` | Whispering Air-Core |
-| 8 | **Wyvern** | Dragon | *Artery Slice, Venom-Tipped Blade* | Frost, Piercing | `3,830` | `5,150s` | Barbed Poison Stinger |
-| 9 | **Blue Dragon Wyrmling** | Dragon | *Chain Spark, Sandsweep* | Frost, Piercing | `4,050` | `5,500s` | Cobalt Hatchling Scale |
-| 10 | **Djinni** | Elemental | *Tempest Arc, Queen's Decree* | Shadow, Frost | `4,270` | `5,860s` | Braided Cloud-Silk |
-| 11 | **Young Blue Dragon** | Dragon | *Thunderhead Verdict, Crescent Cleave* | Frost, Piercing | `4,490` | `6,240s` | Crackling Lightning Fang |
-| 12 | **Behir** | Monstrosity | *Static Cage, Titan Cracker* | Frost, Slashing | `4,720` | `6,620s` | Twelve-Legged Storm-Hide |
-| 13 | **Roc** | Monstrosity | *Skyfall Deluge, Executioner's Arc* | Lightning, Frost | `4,950` | `7,000s` | Plume of the Sky-Titan |
-| 14 | **Adult Blue Dragon** | Dragon | *Tempest Arc, Shockwave Decree, Iron Banner* | Frost, Piercing | `5,180` | `7,400s` | Charged Sapphire Horn |
-| 15 | **Storm Giant** | Giant | *Thunderhead Verdict, Shattered Crown* | Shadow, Poison | `5,420` | `7,800s` | Crown-Forged Storm Pearl |
+| 1 | **Blood Hawk** | Beast | *Rapid Draw, Hunter's Mark* | Lightning, Frost | `930` | `480s` | Crimson Talon |
+| 2 | **Sphinx of Lore** | Celestial | *Queen's Decree, Astral Judgment* | Shadow, Piercing | `1,000` | `525s` | Carved Sphinx Feather |
+| 3 | **Ice Mephit** | Elemental | *Frost Shard, Choking Powder* | **Fire**, Bludgeoning | `1,070` | `570s` | Unmelting Ice-Splinter |
+| 4 | **Harpy** | Monstrosity | *Silence the Guard (Song), Back-Alley Strike* | Lightning, Piercing | `1,140` | `620s` | Jagged Wing-Quill |
+| 5 | **Giant Eagle** | Beast | *Gale Piercer, Tactical Retreat* | Lightning, Frost | `1,220` | `665s` | Storm-Tipped Feather |
+| 6 | **Air Elemental** | Elemental | *Void Pull (Whirlwind), Mirage Decoy* | Lightning, Frost | `1,300` | `715s` | Bottled Tempest Wind |
+| 7 | **Invisible Stalker** | Elemental | *Shadowstep Ambush, Unchained Ghost* | Radiant, Lightning | `1,380` | `770s` | Whispering Air-Core |
+| 8 | **Wyvern** | Dragon | *Artery Slice, Venom-Tipped Blade* | Frost, Piercing | `1,460` | `825s` | Barbed Poison Stinger |
+| 9 | **Blue Dragon Wyrmling** | Dragon | *Chain Spark, Sandsweep* | Frost, Piercing | `1,540` | `880s` | Cobalt Hatchling Scale |
+| 10 | **Djinni** | Elemental | *Tempest Arc, Queen's Decree* | Shadow, Frost | `1,620` | `940s` | Braided Cloud-Silk |
+| 11 | **Young Blue Dragon** | Dragon | *Thunderhead Verdict, Crescent Cleave* | Frost, Piercing | `1,710` | `1,000s` | Crackling Lightning Fang |
+| 12 | **Behir** | Monstrosity | *Static Cage, Titan Cracker* | Frost, Slashing | `1,790` | `1,060s` | Twelve-Legged Storm-Hide |
+| 13 | **Roc** | Monstrosity | *Skyfall Deluge, Executioner's Arc* | Lightning, Frost | `1,880` | `1,120s` | Plume of the Sky-Titan |
+| 14 | **Adult Blue Dragon** | Dragon | *Tempest Arc, Shockwave Decree, Iron Banner* | Frost, Piercing | `1,970` | `1,180s` | Charged Sapphire Horn |
+| 15 | **Storm Giant** | Giant | *Thunderhead Verdict, Shattered Crown* | Shadow, Poison | `2,060` | `1,250s` | Crown-Forged Storm Pearl |
 
 ---
 
 ### Portal #7 Realm: **The Nine Hells & The Abyss *(Frozen Pit)*** *(Levels `73–85` | Region 7)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Erinyes** | Fiend | *Venom-Tipped Blade, Pinning Arrow* | Radiant, Frost | `3,400` | `5,400s` | Blackened Wing-Pinion |
-| 2 | **Hezrou** | Fiend | *Crushing Blow, Venom Mist* | Radiant, Fire | `3,640` | `5,900s` | Abyssal Chitin Fang |
-| 3 | **Marilith** | Fiend | *Fivefold Reckoning, Riposte Stance* | Radiant, Frost | `3,890` | `6,400s` | Sixfold Iron Bracelet |
-| 4 | **Shadow Demon** | Fiend | *Shadowstep Ambush, Eclipse Singularity* | **Radiant**, Lightning | `4,150` | `6,950s` | Condensed Void-Shroud |
-| 5 | **Spined Devil** | Fiend | *Split Volley, Flare Arrow* | Radiant, Frost | `4,410` | `7,500s` | Scorched Tail-Spine |
-| 6 | **Bearded Devil** | Fiend | *Ragged Cut, Acidic Flask* | Radiant, Frost | `4,680` | `8,050s` | Venomous Beard-Tendril |
-| 7 | **Nightmare** | Fiend | *Flame Wall, Slip-Step Dash* | Radiant, Frost | `4,950` | `8,600s` | Blazing Horseshoe |
-| 8 | **Succubus / Incubus** | Fiend | *Disarming Feint, Silence the Guard* | Radiant, Lightning | `5,230` | `9,200s` | Whispering Silver Clasp |
-| 9 | **Vrock** | Fiend | *Plague-Spore Burst, Nerve Strike* | Radiant, Lightning | `5,510` | `9,800s` | Ash-Gray Buzzard Plume |
-| 10 | **Barbed Devil** | Fiend | *Retaliation Wall, Heartseeker* | Radiant, Frost | `5,790` | `10,400s` | Jagged Iron Hide-Plate |
-| 11 | **Chain Devil** | Fiend | *Void Pull, Arena Challenge* | Radiant, Bludgeoning | `6,070` | `11,000s` | Living Spiked Link |
-| 12 | **Bone Devil** | Fiend | *Neurotoxin Dart, Spearhead Lunge* | Radiant, Bludgeoning | `6,350` | `11,600s` | Pale Scorpion Stinger |
-| 13 | **Glabrezu** | Fiend | *Power Pincer (Shield-Splitter), Void Pull* | Radiant, Slashing | `6,630` | `12,200s` | Massive Pincer-Claw |
-| 14 | **Horned Devil** | Fiend | *Solar Flare (Infernal), Artery Slice* | Radiant, Frost | `6,910` | `12,850s` | Branded Hell-Horn |
-| 15 | **Ice Devil** | Fiend | *Blizzard Vortex, Glacial Prison, Phalanx Brace* | **Fire**, Radiant | `7,200` | `13,500s` | Eternal Permafrost Shard |
+| 1 | **Erinyes** | Fiend | *Venom-Tipped Blade, Pinning Arrow* | Radiant, Frost | `1,290` | `865s` | Blackened Wing-Pinion |
+| 2 | **Hezrou** | Fiend | *Crushing Blow, Venom Mist* | Radiant, Fire | `1,380` | `945s` | Abyssal Chitin Fang |
+| 3 | **Marilith** | Fiend | *Fivefold Reckoning, Riposte Stance* | Radiant, Frost | `1,480` | `1,020s` | Sixfold Iron Bracelet |
+| 4 | **Shadow Demon** | Fiend | *Shadowstep Ambush, Eclipse Singularity* | **Radiant**, Lightning | `1,580` | `1,110s` | Condensed Void-Shroud |
+| 5 | **Spined Devil** | Fiend | *Split Volley, Flare Arrow* | Radiant, Frost | `1,680` | `1,200s` | Scorched Tail-Spine |
+| 6 | **Bearded Devil** | Fiend | *Ragged Cut, Acidic Flask* | Radiant, Frost | `1,780` | `1,290s` | Venomous Beard-Tendril |
+| 7 | **Nightmare** | Fiend | *Flame Wall, Slip-Step Dash* | Radiant, Frost | `1,880` | `1,380s` | Blazing Horseshoe |
+| 8 | **Succubus / Incubus** | Fiend | *Disarming Feint, Silence the Guard* | Radiant, Lightning | `1,990` | `1,470s` | Whispering Silver Clasp |
+| 9 | **Vrock** | Fiend | *Plague-Spore Burst, Nerve Strike* | Radiant, Lightning | `2,090` | `1,570s` | Ash-Gray Buzzard Plume |
+| 10 | **Barbed Devil** | Fiend | *Retaliation Wall, Heartseeker* | Radiant, Frost | `2,200` | `1,660s` | Jagged Iron Hide-Plate |
+| 11 | **Chain Devil** | Fiend | *Void Pull, Arena Challenge* | Radiant, Bludgeoning | `2,310` | `1,760s` | Living Spiked Link |
+| 12 | **Bone Devil** | Fiend | *Neurotoxin Dart, Spearhead Lunge* | Radiant, Bludgeoning | `2,410` | `1,860s` | Pale Scorpion Stinger |
+| 13 | **Glabrezu** | Fiend | *Power Pincer (Shield-Splitter), Void Pull* | Radiant, Slashing | `2,520` | `1,950s` | Massive Pincer-Claw |
+| 14 | **Horned Devil** | Fiend | *Solar Flare (Infernal), Artery Slice* | Radiant, Frost | `2,630` | `2,060s` | Branded Hell-Horn |
+| 15 | **Ice Devil** | Fiend | *Blizzard Vortex, Glacial Prison, Phalanx Brace* | **Fire**, Radiant | `2,740` | `2,160s` | Eternal Permafrost Shard |
 
 ---
 
 ### Portal #8 Realm: **The Shadowfell *(Realm of Death)*** *(Levels `86–99` | Region 8)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Vampire Familiar** | Undead | *Gouge & Fade, Back-Alley Strike* | Radiant, Fire | `4,400` | `9,200s` | Crimson Signet Thimble |
-| 2 | **Skeleton** | Undead | *Cross Slash, Piercing Shot* | **Bludgeoning**, Radiant | `4,700` | `10,100s` | Bleached Marrow Bone |
-| 3 | **Zombie** | Undead | *Crushing Blow, Iron Steadfast* | **Radiant**, Fire | `5,000` | `11,000s` | Tattered Burial Band |
-| 4 | **Shadow** | Undead | *Weakening Draught, Shadowstep Ambush* | **Radiant**, Fire | `5,320` | `11,900s` | Cold Twilight Ash |
-| 5 | **Ghoul** | Undead | *Nerve Strike (Paralyze), Ragged Cut* | Radiant, Fire | `5,640` | `12,850s` | Rotting Claw-Tip |
-| 6 | **Specter** | Undead | *Umbral Lance, Mirage Decoy* | Radiant, Lightning | `5,960` | `13,800s` | Ethereal Wisp-Thread |
-| 7 | **Will-o'-Wisp** | Undead | *Chain Spark, Unchained Ghost* | Radiant, Bludgeoning | `6,290` | `14,750s` | Flickering Soul-Lantern |
-| 8 | **Ghast** | Undead | *Venom Mist (Stench), Artery Slice* | Radiant, Fire | `6,620` | `15,750s` | Fetid Crypt Fang |
-| 9 | **Wight** | Undead | *Heartseeker, Horizon Obliteration* | **Radiant**, Fire | `6,950` | `16,750s` | Tarnished Tomb-Blade |
-| 10 | **Ghost** | Undead | *Silence the Guard, Oakhollow Requiem (Possession)* | Radiant, Lightning | `7,290` | `17,800s` | Wailing Silver Shroud |
-| 11 | **Cloaker** | Aberration | *Smokescreen, Mirror Veil* | Radiant, Fire | `7,630` | `18,800s` | Shadow-Hide Cloak |
-| 12 | **Wraith** | Undead | *Midnight Execution, Void Pull* | **Radiant**, Fire | `7,970` | `19,850s` | Black-Frost Shackle |
-| 13 | **Vampire Spawn** | Undead | *Bloodied Fury, Deathless Duel (Drain)* | **Radiant**, Fire | `8,310` | `20,900s` | Crimson Blood-Vial |
-| 14 | **Vampire** | Undead | *Eclipse Singularity, Unchained Ghost* | **Radiant**, Fire | `8,650` | `21,950s` | Royal Velvet Signet |
-| 15 | **Lich** | Undead | *Astral Judgment, Meteor, Last Bastion* | **Radiant**, Bludgeoning | `9,000` | `23,000s` | Shattered Phylactery Seal |
+| 1 | **Vampire Familiar** | Undead | *Gouge & Fade, Back-Alley Strike* | Radiant, Fire | `1,670` | `1,470s` | Crimson Signet Thimble |
+| 2 | **Skeleton** | Undead | *Cross Slash, Piercing Shot* | **Bludgeoning**, Radiant | `1,790` | `1,620s` | Bleached Marrow Bone |
+| 3 | **Zombie** | Undead | *Crushing Blow, Iron Steadfast* | **Radiant**, Fire | `1,900` | `1,760s` | Tattered Burial Band |
+| 4 | **Shadow** | Undead | *Weakening Draught, Shadowstep Ambush* | **Radiant**, Fire | `2,020` | `1,900s` | Cold Twilight Ash |
+| 5 | **Ghoul** | Undead | *Nerve Strike (Paralyze), Ragged Cut* | Radiant, Fire | `2,140` | `2,060s` | Rotting Claw-Tip |
+| 6 | **Specter** | Undead | *Umbral Lance, Mirage Decoy* | Radiant, Lightning | `2,260` | `2,210s` | Ethereal Wisp-Thread |
+| 7 | **Will-o'-Wisp** | Undead | *Chain Spark, Unchained Ghost* | Radiant, Bludgeoning | `2,390` | `2,360s` | Flickering Soul-Lantern |
+| 8 | **Ghast** | Undead | *Venom Mist (Stench), Artery Slice* | Radiant, Fire | `2,520` | `2,520s` | Fetid Crypt Fang |
+| 9 | **Wight** | Undead | *Heartseeker, Horizon Obliteration* | **Radiant**, Fire | `2,640` | `2,680s` | Tarnished Tomb-Blade |
+| 10 | **Ghost** | Undead | *Silence the Guard, Oakhollow Requiem (Possession)* | Radiant, Lightning | `2,770` | `2,850s` | Wailing Silver Shroud |
+| 11 | **Cloaker** | Aberration | *Smokescreen, Mirror Veil* | Radiant, Fire | `2,900` | `3,010s` | Shadow-Hide Cloak |
+| 12 | **Wraith** | Undead | *Midnight Execution, Void Pull* | **Radiant**, Fire | `3,030` | `3,180s` | Black-Frost Shackle |
+| 13 | **Vampire Spawn** | Undead | *Bloodied Fury, Deathless Duel (Drain)* | **Radiant**, Fire | `3,160` | `3,340s` | Crimson Blood-Vial |
+| 14 | **Vampire** | Undead | *Eclipse Singularity, Unchained Ghost* | **Radiant**, Fire | `3,290` | `3,510s` | Royal Velvet Signet |
+| 15 | **Lich** | Undead | *Astral Judgment, Meteor, Last Bastion* | **Radiant**, Bludgeoning | `3,420` | `3,680s` | Shattered Phylactery Seal |
 
 ---
 
@@ -317,12 +317,12 @@ Along Ethoria's wild roads and frontier biomes, players also encounter **natural
 ### Ethoria Natural Wildlife *(8 Beast Types)*
 | # | SRD 5.2 Beast | Regions | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP *(By Region)* | Silver *(By Region)* | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Wolf** | Regions `1, 4` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `30` *(R1)* / `1,150` *(R4)* | `22s` *(R1)* / `900s` *(R4)* | Gray Wolf Pelt |
-| 2 | **Giant Boar** | Regions `1, 4` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `65` *(R1)* / `1,650` *(R4)* | `46s` *(R1)* / `1,380s` *(R4)* | Curved Ivory Tusk |
-| 3 | **Giant Spider** | Regions `1, 4` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `85` *(R1)* / `1,950` *(R4)* | `58s` *(R1)* / `1,650s` *(R4)* | Intact Venom Gland |
-| 4 | **Brown Bear** | Regions `3, 6` | *Heavy Cleave, Hold the Line* | Fire, Piercing | `880` *(R3)* / `3,300` *(R6)* | `590s` *(R3)* / `4,300s` *(R6)* | Thick Bear Hide |
-| 5 | **Giant Scorpion** | Region `5` | *Venom-Tipped Blade, Artery Slice* | Frost, Bludgeoning | `2,150` | `2,200s` | Amber Chitin Stinger |
-| 6 | **Polar Bear** | Regions `6, 7` | *Crushing Blow, Iron Steadfast* | Fire, Piercing | `3,900` *(R6)* / `5,100` *(R7)* | `5,200s` *(R6)* / `9,000s` *(R7)* | Snow-White Pelt |
-| 7 | **Winter Wolf** | Region `7` | *Frost Shard (Breath), Ragged Cut* | **Fire**, Bludgeoning | `4,600` | `7,900s` | Frosted Alpha Pelt |
-| 8 | **Saber-Toothed Tiger** | Regions `6, 7` | *Executioner's Arc, Twin-Fang Cascade* | Fire, Lightning | `4,750` *(R6)* / `6,100` *(R7)* | `6,600s` *(R6)* / `11,000s` *(R7)* | Massive Ivory Fang |
+| 1 | **Wolf** | Regions `1, 4` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `11` *(R1)* / `435` *(R4)* | `4s` *(R1)* / `145s` *(R4)* | Gray Wolf Pelt |
+| 2 | **Giant Boar** | Regions `1, 4` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `25` *(R1)* / `625` *(R4)* | `7s` *(R1)* / `220s` *(R4)* | Curved Ivory Tusk |
+| 3 | **Giant Spider** | Regions `1, 4` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `32` *(R1)* / `740` *(R4)* | `9s` *(R1)* / `265s` *(R4)* | Intact Venom Gland |
+| 4 | **Brown Bear** | Regions `3, 6` | *Heavy Cleave, Hold the Line* | Fire, Piercing | `335` *(R3)* / `1,250` *(R6)* | `94s` *(R3)* / `690s` *(R6)* | Thick Bear Hide |
+| 5 | **Giant Scorpion** | Region `5` | *Venom-Tipped Blade, Artery Slice* | Frost, Bludgeoning | `815` | `350s` | Amber Chitin Stinger |
+| 6 | **Polar Bear** | Regions `6, 7` | *Crushing Blow, Iron Steadfast* | Fire, Piercing | `1,480` *(R6)* / `1,940` *(R7)* | `830s` *(R6)* / `1,440s` *(R7)* | Snow-White Pelt |
+| 7 | **Winter Wolf** | Region `7` | *Frost Shard (Breath), Ragged Cut* | **Fire**, Bludgeoning | `1,750` | `1,260s` | Frosted Alpha Pelt |
+| 8 | **Saber-Toothed Tiger** | Regions `6, 7` | *Executioner's Arc, Twin-Fang Cascade* | Fire, Lightning | `1,800` *(R6)* / `2,320` *(R7)* | `1,060s` *(R6)* / `1,760s` *(R7)* | Massive Ivory Fang |
 

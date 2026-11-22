@@ -415,7 +415,7 @@ def parse_trade_goods() -> list[dict]:
             mob_type = cells[2]
             silver_val = parse_silver(cells[6])
             trophy_name = cells[7]
-            sell_val = max(5, round(silver_val * 0.67))
+            sell_val = max(2, round(silver_val * 0.67))
             goods.append({
                 "id": f"tg_r{cur_region}_{slugify(mob_name)}_{slugify(trophy_name)}",
                 "name": trophy_name,
@@ -436,7 +436,7 @@ def parse_trade_goods() -> list[dict]:
             silver_nums = [parse_silver(part) for part in cells[6].split("/")]
             silver_val = silver_nums[0] if silver_nums and silver_nums[0] > 0 else 25
             good_name = cells[7]
-            sell_val = max(8, round(silver_val * 0.67))
+            sell_val = max(3, round(silver_val * 0.67))
             goods.append({
                 "id": f"tg_native_{slugify(mob_name)}_{slugify(good_name)}",
                 "name": good_name,
@@ -449,6 +449,36 @@ def parse_trade_goods() -> list[dict]:
                 "sellSilver": sell_val,
                 "effect": f"Trade good recovered from {mob_name}. Sell to Armory or Mystic merchants for Silver.",
                 "iconPath": f"assets/icons/items/tg_native_{slugify(mob_name)}_{slugify(good_name)}.webp",
+            })
+
+    # Preserve the 8 Ethorian humanoid trade goods whose icons live in client/assets/icons/items/
+    # (scaled to the updated 0.16x Trade Good economy so all 825 catalog icons remain wired).
+    humanoid_fallbacks = [
+        ("Road Bandit", "Regions 1–2", "Rusty Coin Purse", 3),
+        ("Crossbow Poacher", "Regions 1–3", "Fletched Bolt Case", 4),
+        ("Smuggler Cutthroat", "Regions 2, 5", "Contraband Seal", 20),
+        ("Garrick Deserter", "Regions 1, 3", "Torn Wolf Tabard", 6),
+        ("Rival House Pikeman", "Regions 3, 7", "Usurper Pennant", 59),
+        ("Rival House Knight", "Regions 3, 7", "Steel Crest Badge", 85),
+        ("Gilded Slaver Enforcer", "Region 5", "Brass Collar Key", 290),
+        ("Eclipse Cultist", "Region 8", "Obsidian Talisman", 1555),
+    ]
+    existing_ids = {g["id"] for g in goods}
+    for mob_name, regions_str, good_name, sell_val in humanoid_fallbacks:
+        gid = f"tg_native_{slugify(mob_name)}_{slugify(good_name)}"
+        if gid not in existing_ids:
+            goods.append({
+                "id": gid,
+                "name": good_name,
+                "category": "trade_good",
+                "subType": "Ethoria Trade Good",
+                "regionsFound": regions_str,
+                "sourceMob": mob_name,
+                "shopType": "sell_only",
+                "priceSilver": 0,
+                "sellSilver": sell_val,
+                "effect": f"Trade good recovered from {mob_name}. Sell to Armory or Mystic merchants for Silver.",
+                "iconPath": f"assets/icons/items/{gid}.webp",
             })
     return goods
 

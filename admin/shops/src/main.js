@@ -187,7 +187,6 @@ async function boot() {
     });
   };
 
-  wireSeg("segLayout", "layout");
   wireSeg("segFrame", "frameStyle");
   wireSeg("segSize", "iconSize", Number);
   wireSeg("segViewport", "viewportMode");

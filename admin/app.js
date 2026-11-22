@@ -2,6 +2,10 @@
   const MAP_SIZE = 8192;
   const TILE_SIZE = 512;
   const BASE_MARKER_PX = 148;
+  const ASSET_REV = String(Date.now());
+  function assetUrl(rel) {
+    return "/" + String(rel || "").replace(/^\/+/, "") + "?v=" + ASSET_REV;
+  }
 
   const canvas = document.getElementById("mapCanvas");
   const ctx = canvas.getContext("2d");
@@ -66,6 +70,10 @@
   const inspScaleVal = document.getElementById("inspScaleVal");
   const inspRadius = document.getElementById("inspRadius");
   const inspRadiusVal = document.getElementById("inspRadiusVal");
+  const inspRotateWrap = document.getElementById("inspRotateWrap");
+  const inspRotate = document.getElementById("inspRotate");
+  const inspRotateVal = document.getElementById("inspRotateVal");
+  const btnRotReset = document.getElementById("btnRotReset");
   const btnCenterCam = document.getElementById("btnCenterCam");
   const btnDuplicate = document.getElementById("btnDuplicate");
   const btnUnplace = document.getElementById("btnUnplace");
@@ -202,7 +210,7 @@
   function getMarkerImage(assetPath) {
     if (!markerImgCache.has(assetPath)) {
       markerImgCache.set(assetPath, null);
-      loadImage("/" + assetPath).then((img) => {
+      loadImage(assetUrl(assetPath)).then((img) => {
         markerImgCache.set(assetPath, img);
       });
     }
@@ -618,7 +626,7 @@
       card.className = "loc-card" + (loc.id === selectedId || loc.id === stampTemplateId ? " selected" : "");
 
       const img = document.createElement("img");
-      img.src = "/" + loc.assetPath;
+      img.src = assetUrl(loc.assetPath);
       img.alt = loc.name;
 
       const info = document.createElement("div");
@@ -730,7 +738,7 @@
     inspectorEmpty.classList.add("hidden");
     inspectorBody.classList.remove("hidden");
 
-    inspThumb.src = "/" + loc.assetPath;
+    inspThumb.src = assetUrl(loc.assetPath);
     inspTag.textContent = (loc.region ? `Region ${loc.region} · ` : "") + (loc.levelRange || loc.category.replace("_", " "));
     inspTitle.textContent = loc.category === "permanent" && loc.progOrder <= 48
       ? `Step ${loc.progOrder}: ${loc.name}`
@@ -778,6 +786,17 @@
     inspRadius.value = rad;
     inspRadius.disabled = markerLocked;
     inspRadiusVal.textContent = `${rad}px`;
+
+    const isTravel = loc.category === "travel";
+    const rotDeg = ((Math.round(Number(loc.rotation) || 0) % 360) + 360) % 360;
+    inspRotateWrap.classList.toggle("hidden", !isTravel);
+    inspRotate.value = rotDeg;
+    inspRotate.disabled = markerLocked || !isTravel;
+    inspRotateVal.textContent = `${rotDeg}°`;
+    for (const rBtn of inspRotateWrap.querySelectorAll(".rot-btn")) {
+      rBtn.disabled = markerLocked || !isTravel;
+    }
+    inspThumb.style.transform = rotDeg ? `rotate(${rotDeg}deg)` : "";
 
     btnDuplicate.classList.toggle("hidden", loc.category === "permanent");
     btnUnplace.disabled = !loc.placed || markerLocked;
@@ -1030,6 +1049,7 @@
       tmpl.y = y;
       tmpl.locked = false;
       tmpl.linkedFerryId = null;
+      tmpl.rotation = 0;
       selectedId = tmpl.id;
     } else {
       let idx = 2;
@@ -1046,6 +1066,7 @@
         y,
         locked: false,
         linkedFerryId: null,
+        rotation: 0,
       };
       worldData.locations.push(clone);
       selectedId = clone.id;
@@ -1628,6 +1649,39 @@
     if (loc && !isMarkerLocked(loc) && chkAutoSave.checked) saveWorldData(true);
   });
 
+  function applyMarkerRotation(deg, commitSave = false) {
+    const loc = getSelectedLocation();
+    if (!loc || loc.category !== "travel" || isMarkerLocked(loc)) return;
+    const norm = ((Math.round(Number(deg) || 0) % 360) + 360) % 360;
+    loc.rotation = norm;
+    inspRotate.value = norm;
+    inspRotateVal.textContent = `${norm}°`;
+    inspThumb.style.transform = norm ? `rotate(${norm}deg)` : "";
+    if (commitSave && chkAutoSave.checked) saveWorldData(true);
+  }
+
+  inspRotate.addEventListener("input", () => {
+    applyMarkerRotation(inspRotate.value, false);
+  });
+  inspRotate.addEventListener("change", () => {
+    applyMarkerRotation(inspRotate.value, true);
+  });
+  for (const rBtn of inspRotateWrap.querySelectorAll("[data-rot-delta]")) {
+    rBtn.addEventListener("click", () => {
+      const loc = getSelectedLocation();
+      if (!loc || loc.category !== "travel" || isMarkerLocked(loc)) return;
+      pushLocationsUndo();
+      const delta = Number(rBtn.dataset.rotDelta) || 0;
+      applyMarkerRotation((Number(loc.rotation) || 0) + delta, true);
+    });
+  }
+  btnRotReset.addEventListener("click", () => {
+    const loc = getSelectedLocation();
+    if (!loc || loc.category !== "travel" || isMarkerLocked(loc)) return;
+    pushLocationsUndo();
+    applyMarkerRotation(0, true);
+  });
+
   btnCenterCam.addEventListener("click", () => {
     const loc = getSelectedLocation();
     if (!loc || !loc.placed) return;
@@ -1809,15 +1863,20 @@
 
       const img = getMarkerImage(loc.assetPath);
       if (img) {
+        const rotDeg = loc.rotation ?? 0;
+        ctx.save();
         if (isSel) {
-          ctx.save();
           ctx.shadowColor = "rgba(242, 201, 120, 0.9)";
           ctx.shadowBlur = 18;
-          ctx.drawImage(img, loc.x - size / 2, loc.y - size / 2, size, size);
-          ctx.restore();
+        }
+        if (rotDeg !== 0) {
+          ctx.translate(loc.x, loc.y);
+          ctx.rotate((rotDeg * Math.PI) / 180);
+          ctx.drawImage(img, -size / 2, -size / 2, size, size);
         } else {
           ctx.drawImage(img, loc.x - size / 2, loc.y - size / 2, size, size);
         }
+        ctx.restore();
       } else {
         ctx.beginPath();
         ctx.arc(loc.x, loc.y, size / 2, 0, Math.PI * 2);

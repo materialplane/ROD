@@ -1,5 +1,5 @@
 {
-  "count": 261,
+  "count": 271,
   "markers": [
     {
       "sheet": "loc_d",
@@ -419,34 +419,6 @@
       "fileSizeBytes": 19154
     },
     {
-      "sheet": 5,
-      "r": 0,
-      "c": 0,
-      "id": "tr_border_mountain_pass_gate",
-      "name": "Border Mountain Pass Gate",
-      "cat": "travel",
-      "map": "all",
-      "kind": "Internal Mountain Pass Gate",
-      "ring": "iron",
-      "ready": true,
-      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate.webp",
-      "fileSizeBytes": 18924
-    },
-    {
-      "sheet": "quest_h",
-      "r": 2,
-      "c": 3,
-      "id": "tr_ferry_crossing",
-      "name": "Ferry Crossing",
-      "cat": "travel",
-      "map": "all",
-      "kind": "Island Strait Ferry Crossing",
-      "ring": "iron",
-      "ready": true,
-      "assetPath": "assets/tokens/markers/tr_ferry_crossing.webp",
-      "fileSizeBytes": 20318
-    },
-    {
       "sheet": 4,
       "r": 3,
       "c": 0,
@@ -739,7 +711,7 @@
       "ring": "steel",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_cragwatch_fort.webp",
-      "fileSizeBytes": 24236
+      "fileSizeBytes": 23760
     },
     {
       "sheet": "loc_b",
@@ -754,7 +726,7 @@
       "ring": "steel",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_stormhold_citadel.webp",
-      "fileSizeBytes": 22394
+      "fileSizeBytes": 22268
     },
     {
       "sheet": "loc_b",
@@ -769,7 +741,7 @@
       "ring": "bronze",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_frostmere_village.webp",
-      "fileSizeBytes": 28270
+      "fileSizeBytes": 28268
     },
     {
       "sheet": "loc_b",
@@ -784,7 +756,7 @@
       "ring": "steel",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_glacierwatch_fort.webp",
-      "fileSizeBytes": 24292
+      "fileSizeBytes": 24322
     },
     {
       "sheet": "loc_b",
@@ -799,7 +771,7 @@
       "ring": "steel",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_icecrest_holdfast.webp",
-      "fileSizeBytes": 25738
+      "fileSizeBytes": 25736
     },
     {
       "sheet": "loc_b",
@@ -814,7 +786,7 @@
       "ring": "steel",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_cinderwatch_bastion.webp",
-      "fileSizeBytes": 22570
+      "fileSizeBytes": 22504
     },
     {
       "sheet": "loc_b",
@@ -829,7 +801,7 @@
       "ring": "bronze",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_ashvale_village.webp",
-      "fileSizeBytes": 23826
+      "fileSizeBytes": 23954
     },
     {
       "sheet": "loc_b",
@@ -844,7 +816,7 @@
       "ring": "steel",
       "ready": true,
       "assetPath": "assets/tokens/markers/hub_scorchwall_fort.webp",
-      "fileSizeBytes": 21486
+      "fileSizeBytes": 21472
     },
     {
       "sheet": "loc_b",
@@ -855,12 +827,12 @@
       "cat": "permanent",
       "map": "map_01",
       "region": 1,
-      "kind": "Meadow Watch-Post",
+      "kind": "Meadow Palisade Fort",
       "ring": "bronze",
       "zoneNum": 1,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z01_meadowgate.webp",
-      "fileSizeBytes": 23068
+      "fileSizeBytes": 24638
     },
     {
       "sheet": "loc_b",
@@ -871,12 +843,12 @@
       "cat": "permanent",
       "map": "map_01",
       "region": 1,
-      "kind": "Woodland Ranger Camp",
+      "kind": "Woodland Palisade Fort",
       "ring": "bronze",
       "zoneNum": 2,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z02_oakwood.webp",
-      "fileSizeBytes": 25360
+      "fileSizeBytes": 25556
     },
     {
       "sheet": "loc_b",
@@ -892,7 +864,7 @@
       "zoneNum": 3,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z03_slate_ridge.webp",
-      "fileSizeBytes": 23864
+      "fileSizeBytes": 23962
     },
     {
       "sheet": "loc_b",
@@ -903,12 +875,12 @@
       "cat": "permanent",
       "map": "map_01",
       "region": 2,
-      "kind": "Coastal Hunter Landing",
+      "kind": "Coastal Palisade Sea-Fort",
       "ring": "bronze",
       "zoneNum": 4,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z04_brinefen.webp",
-      "fileSizeBytes": 25470
+      "fileSizeBytes": 25878
     },
     {
       "sheet": "loc_b",
@@ -919,12 +891,12 @@
       "cat": "permanent",
       "map": "map_01",
       "region": 2,
-      "kind": "Saltmarsh Stilt-Post",
+      "kind": "Saltmarsh Palisade Fort",
       "ring": "bronze",
       "zoneNum": 5,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z05_bogwarden.webp",
-      "fileSizeBytes": 24642
+      "fileSizeBytes": 24588
     },
     {
       "sheet": "loc_b",
@@ -935,12 +907,12 @@
       "cat": "permanent",
       "map": "map_02",
       "region": 3,
-      "kind": "Grassland Tracker Camp",
+      "kind": "Highland Palisade Fort",
       "ring": "bronze",
       "zoneNum": 6,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z06_ochre_downs.webp",
-      "fileSizeBytes": 24392
+      "fileSizeBytes": 23372
     },
     {
       "sheet": "loc_b",
@@ -956,7 +928,7 @@
       "zoneNum": 7,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z07_cragspire.webp",
-      "fileSizeBytes": 24142
+      "fileSizeBytes": 24228
     },
     {
       "sheet": "loc_b",
@@ -972,7 +944,7 @@
       "zoneNum": 8,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z08_fernbrook.webp",
-      "fileSizeBytes": 25838
+      "fileSizeBytes": 25846
     },
     {
       "sheet": "loc_c",
@@ -983,12 +955,12 @@
       "cat": "permanent",
       "map": "map_02",
       "region": 4,
-      "kind": "Canopy Lookout Post",
+      "kind": "Treetop Palisade Fort",
       "ring": "bronze",
       "zoneNum": 9,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z09_canopy_watch.webp",
-      "fileSizeBytes": 24056
+      "fileSizeBytes": 23504
     },
     {
       "sheet": "loc_c",
@@ -1004,7 +976,7 @@
       "zoneNum": 10,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z10_mire_edge.webp",
-      "fileSizeBytes": 21744
+      "fileSizeBytes": 21700
     },
     {
       "sheet": "loc_c",
@@ -1015,12 +987,12 @@
       "cat": "permanent",
       "map": "map_03",
       "region": 5,
-      "kind": "Desert Patrol Post",
+      "kind": "Desert Palisade Fort",
       "ring": "bronze",
       "zoneNum": 11,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z11_dune_runner.webp",
-      "fileSizeBytes": 22852
+      "fileSizeBytes": 23310
     },
     {
       "sheet": "loc_c",
@@ -1031,12 +1003,12 @@
       "cat": "permanent",
       "map": "map_03",
       "region": 5,
-      "kind": "Oasis Hunter Pavilion",
+      "kind": "Oasis Palisade Fort",
       "ring": "bronze",
       "zoneNum": 12,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z12_palm_spring.webp",
-      "fileSizeBytes": 25526
+      "fileSizeBytes": 24304
     },
     {
       "sheet": "loc_c",
@@ -1052,7 +1024,7 @@
       "zoneNum": 13,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z13_mesa_watch.webp",
-      "fileSizeBytes": 21794
+      "fileSizeBytes": 22138
     },
     {
       "sheet": "loc_c",
@@ -1068,7 +1040,7 @@
       "zoneNum": 14,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z14_pine_valley.webp",
-      "fileSizeBytes": 25284
+      "fileSizeBytes": 25318
     },
     {
       "sheet": "loc_c",
@@ -1084,7 +1056,7 @@
       "zoneNum": 15,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z15_highland_crag.webp",
-      "fileSizeBytes": 22546
+      "fileSizeBytes": 22454
     },
     {
       "sheet": "loc_c",
@@ -1100,7 +1072,7 @@
       "zoneNum": 16,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z16_snowdrift.webp",
-      "fileSizeBytes": 24564
+      "fileSizeBytes": 24638
     },
     {
       "sheet": "loc_c",
@@ -1116,7 +1088,7 @@
       "zoneNum": 17,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z17_glacier_edge.webp",
-      "fileSizeBytes": 23216
+      "fileSizeBytes": 23172
     },
     {
       "sheet": "loc_c",
@@ -1132,7 +1104,7 @@
       "zoneNum": 18,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z18_ashen_ridge.webp",
-      "fileSizeBytes": 21314
+      "fileSizeBytes": 20936
     },
     {
       "sheet": "loc_c",
@@ -1148,7 +1120,7 @@
       "zoneNum": 19,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z19_cinder_plain.webp",
-      "fileSizeBytes": 21722
+      "fileSizeBytes": 21720
     },
     {
       "sheet": "loc_c",
@@ -1164,63 +1136,7 @@
       "zoneNum": 20,
       "ready": true,
       "assetPath": "assets/tokens/markers/outpost_z20_black_crag.webp",
-      "fileSizeBytes": 21842
-    },
-    {
-      "sheet": "loc_c",
-      "r": 3,
-      "c": 0,
-      "id": "tr_port_map01_royal_trade",
-      "name": "Royal Trade Port Town",
-      "cat": "travel",
-      "map": "map_01",
-      "kind": "Map 1 Sea-Travel Port Town",
-      "ring": "bronze",
-      "ready": true,
-      "assetPath": "assets/tokens/markers/tr_port_map01_royal_trade.webp",
-      "fileSizeBytes": 23158
-    },
-    {
-      "sheet": "loc_c",
-      "r": 3,
-      "c": 1,
-      "id": "tr_port_map02_highland_cove",
-      "name": "Highland Cove Port Town",
-      "cat": "travel",
-      "map": "map_02",
-      "kind": "Map 2 Sea-Travel Port Town",
-      "ring": "bronze",
-      "ready": true,
-      "assetPath": "assets/tokens/markers/tr_port_map02_highland_cove.webp",
-      "fileSizeBytes": 23844
-    },
-    {
-      "sheet": "loc_c",
-      "r": 3,
-      "c": 2,
-      "id": "tr_port_map03_desert_harbor",
-      "name": "Desert Harbor Port Town",
-      "cat": "travel",
-      "map": "map_03",
-      "kind": "Map 3 Sea-Travel Port Town",
-      "ring": "bronze",
-      "ready": true,
-      "assetPath": "assets/tokens/markers/tr_port_map03_desert_harbor.webp",
-      "fileSizeBytes": 24638
-    },
-    {
-      "sheet": "loc_c",
-      "r": 3,
-      "c": 3,
-      "id": "tr_port_map04_arctic_seaport",
-      "name": "Arctic Sea-Port Town",
-      "cat": "travel",
-      "map": "map_04",
-      "kind": "Map 4 Sea-Travel Port Town",
-      "ring": "bronze",
-      "ready": true,
-      "assetPath": "assets/tokens/markers/tr_port_map04_arctic_seaport.webp",
-      "fileSizeBytes": 24102
+      "fileSizeBytes": 21834
     },
     {
       "sheet": "quest_b",
@@ -5570,6 +5486,21 @@
       "fileSizeBytes": 21666
     },
     {
+      "sheet": "travel",
+      "r": 0,
+      "c": 0,
+      "id": "tr_ferry_crossing",
+      "name": "Ferry Crossing",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Island Strait Ferry Crossing \u00b7 Pier 1 (North Bank)",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing.webp",
+      "fileSizeBytes": 17302
+    },
+    {
       "sheet": "quest_a",
       "r": 3,
       "c": 0,
@@ -5638,6 +5569,231 @@
       "ready": true,
       "assetPath": "assets/tokens/markers/bf_northern_cairn_beacons.webp",
       "fileSizeBytes": 22488
+    },
+    {
+      "sheet": "travel",
+      "r": 0,
+      "c": 1,
+      "id": "tr_ferry_crossing_south_bank",
+      "name": "Ferry Crossing",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Island Strait Ferry Crossing \u00b7 Pier 2 (South Bank)",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_south_bank.webp",
+      "fileSizeBytes": 16472
+    },
+    {
+      "sheet": "travel",
+      "r": 0,
+      "c": 2,
+      "id": "tr_ferry_crossing_west_bank",
+      "name": "Ferry Crossing",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Island Strait Ferry Crossing \u00b7 Pier 3",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_west_bank.webp",
+      "fileSizeBytes": 16848
+    },
+    {
+      "sheet": "travel",
+      "r": 0,
+      "c": 3,
+      "id": "tr_ferry_crossing_east_bank",
+      "name": "Ferry Crossing",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Island Strait Ferry Crossing \u00b7 Pier 4",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_east_bank.webp",
+      "fileSizeBytes": 16792
+    },
+    {
+      "sheet": "travel",
+      "r": 1,
+      "c": 0,
+      "id": "tr_border_mountain_pass_gate",
+      "name": "Border Mountain Pass Gate",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Internal Mountain Pass Gate \u00b7 Style 1",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate.webp",
+      "fileSizeBytes": 21008
+    },
+    {
+      "sheet": "travel",
+      "r": 1,
+      "c": 1,
+      "id": "tr_border_mountain_pass_gate_v2",
+      "name": "Border Mountain Pass Gate",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Internal Mountain Pass Gate \u00b7 Banner Arch",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v2.webp",
+      "fileSizeBytes": 19418
+    },
+    {
+      "sheet": "travel",
+      "r": 1,
+      "c": 2,
+      "id": "tr_border_mountain_pass_gate_v3",
+      "name": "Border Mountain Pass Gate",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Internal Mountain Pass Gate \u00b7 Watch Tower",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v3.webp",
+      "fileSizeBytes": 21026
+    },
+    {
+      "sheet": "travel",
+      "r": 1,
+      "c": 3,
+      "id": "tr_border_mountain_pass_gate_v4",
+      "name": "Border Mountain Pass Gate",
+      "cat": "travel",
+      "map": "all",
+      "kind": "Internal Mountain Pass Gate \u00b7 Timber Gatehouse",
+      "ring": "iron",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v4.webp",
+      "fileSizeBytes": 20382
+    },
+    {
+      "sheet": "travel",
+      "r": 2,
+      "c": 0,
+      "id": "tr_port_map01_royal_trade",
+      "name": "Royal Trade Port Town",
+      "cat": "travel",
+      "map": "map_01",
+      "kind": "Map 1 Sea-Travel Port Town \u00b7 North Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map01_royal_trade.webp",
+      "fileSizeBytes": 19962
+    },
+    {
+      "sheet": "travel",
+      "r": 2,
+      "c": 1,
+      "id": "tr_port_map02_highland_cove",
+      "name": "Highland Cove Port Town",
+      "cat": "travel",
+      "map": "map_02",
+      "kind": "Map 2 Sea-Travel Port Town \u00b7 North Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map02_highland_cove.webp",
+      "fileSizeBytes": 21272
+    },
+    {
+      "sheet": "travel",
+      "r": 2,
+      "c": 2,
+      "id": "tr_port_map03_desert_harbor",
+      "name": "Desert Harbor Port Town",
+      "cat": "travel",
+      "map": "map_03",
+      "kind": "Map 3 Sea-Travel Port Town \u00b7 North Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map03_desert_harbor.webp",
+      "fileSizeBytes": 19166
+    },
+    {
+      "sheet": "travel",
+      "r": 2,
+      "c": 3,
+      "id": "tr_port_map04_arctic_seaport",
+      "name": "Arctic Sea-Port Town",
+      "cat": "travel",
+      "map": "map_04",
+      "kind": "Map 4 Sea-Travel Port Town \u00b7 North Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map04_arctic_seaport.webp",
+      "fileSizeBytes": 21210
+    },
+    {
+      "sheet": "travel",
+      "r": 3,
+      "c": 0,
+      "id": "tr_port_map01_royal_trade_south",
+      "name": "Royal Trade Port Town",
+      "cat": "travel",
+      "map": "map_01",
+      "kind": "Map 1 Sea-Travel Port Town \u00b7 South Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map01_royal_trade_south.webp",
+      "fileSizeBytes": 20090
+    },
+    {
+      "sheet": "travel",
+      "r": 3,
+      "c": 1,
+      "id": "tr_port_map02_highland_cove_south",
+      "name": "Highland Cove Port Town",
+      "cat": "travel",
+      "map": "map_02",
+      "kind": "Map 2 Sea-Travel Port Town \u00b7 South Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map02_highland_cove_south.webp",
+      "fileSizeBytes": 21842
+    },
+    {
+      "sheet": "travel",
+      "r": 3,
+      "c": 2,
+      "id": "tr_port_map03_desert_harbor_south",
+      "name": "Desert Harbor Port Town",
+      "cat": "travel",
+      "map": "map_03",
+      "kind": "Map 3 Sea-Travel Port Town \u00b7 South Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map03_desert_harbor_south.webp",
+      "fileSizeBytes": 20566
+    },
+    {
+      "sheet": "travel",
+      "r": 3,
+      "c": 3,
+      "id": "tr_port_map04_arctic_seaport_south",
+      "name": "Arctic Sea-Port Town",
+      "cat": "travel",
+      "map": "map_04",
+      "kind": "Map 4 Sea-Travel Port Town \u00b7 South Coast",
+      "ring": "bronze",
+      "preserveFrame": true,
+      "ready": true,
+      "assetPath": "assets/tokens/markers/tr_port_map04_arctic_seaport_south.webp",
+      "fileSizeBytes": 21654
     }
   ]
 }

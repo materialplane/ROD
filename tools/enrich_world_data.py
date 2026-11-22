@@ -323,13 +323,13 @@ PORTAL_CATALYSTS: dict[str, dict] = {
 
 OUTPOST_CUSTOM_DETAILS: dict[str, dict] = {
     "outpost_z01_meadowgate": {
-        "kind": "Meadow Watch-Post",
-        "description": "Sunlit Crownlands patrol camp with peaked canvas tents, a split-rail horse hitching post, and lantern-lit trophy racks where royal scouts post silver bounties on wandering wolves and pasture pests.",
+        "kind": "Meadow Palisade Fort",
+        "description": "Sunlit Crownlands oak-timber palisade hunting fort with a pointed gatehouse tower, split-rail hitching post, and lantern-lit horned skull arch where royal scouts post silver bounties on wandering wolves and pasture pests.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z02_oakwood": {
-        "kind": "Woodland Ranger Camp",
-        "description": "Sun-dappled oak forest timber lean-to lodge fitted with wolf-pelt drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols against aggressive woodland beasts.",
+        "kind": "Woodland Palisade Fort",
+        "description": "Sun-dappled oak-log palisade stockade fort fitted with a bark-shingled gatehouse, wolf-pelt drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols against aggressive woodland beasts.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z03_slate_ridge": {
@@ -338,18 +338,18 @@ OUTPOST_CUSTOM_DETAILS: dict[str, dict] = {
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z04_brinefen": {
-        "kind": "Coastal Hunter Landing",
-        "description": "Salt-weathered coastal timber landing stacked with wooden crab traps, harpoon racks, and sun awnings where shoreline trackers post bounties on reef and tide-pool beasts.",
+        "kind": "Coastal Palisade Sea-Fort",
+        "description": "Salt-weathered coastal stone-and-driftwood palisade sea-fort stacked with wooden crab cages, harpoon racks, and watch lanterns where shoreline trackers post bounties on reef and tide-pool beasts.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z05_bogwarden": {
-        "kind": "Saltmarsh Stilt-Post",
-        "description": "Elevated saltmarsh timber platform anchored on solid marsh turf amidst cattail reeds, hung with netting and smoking iron smudge pots where mire wardens thin dangerous bog creatures.",
+        "kind": "Saltmarsh Palisade Fort",
+        "description": "Elevated cypress-timber saltmarsh palisade fort anchored on thick wooden pilings and solid marsh turf amidst cattail reeds, hung with netting and smoking iron smudge pots where mire wardens thin dangerous bog creatures.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z06_ochre_downs": {
-        "kind": "Grassland Tracker Camp",
-        "description": "Canvas patrol tents, a wooden horse corral, and crossbow target bales pitched across golden-ochre meadowlands where frontier trackers post bounties on prowling worgs and pasture predators.",
+        "kind": "Highland Palisade Fort",
+        "description": "Earth-and-oak frontier palisade fort with corner watchtowers, an enclosed horse paddock, and crossbow target bales set across golden-ochre meadowlands where frontier trackers post bounties on prowling worgs and pasture predators.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z07_cragspire": {
@@ -363,8 +363,8 @@ OUTPOST_CUSTOM_DETAILS: dict[str, dict] = {
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z09_canopy_watch": {
-        "kind": "Canopy Lookout Post",
-        "description": "Elevated archer platform lashed high around ancient oaks with rope ladders and brass signal horns keeping watch over dense forest canopy trails.",
+        "kind": "Treetop Palisade Fort",
+        "description": "Enclosed cedar palisade treetop fort wedged securely around ancient oaks with rope hoists, archer galleries, and brass signal horns keeping watch over dense forest canopy trails.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z10_mire_edge": {
@@ -373,13 +373,13 @@ OUTPOST_CUSTOM_DETAILS: dict[str, dict] = {
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z11_dune_runner": {
-        "kind": "Desert Patrol Post",
-        "description": "Sun-bleached canvas patrol camp pitched beside clay water amphorae and spear stands where nomad outriders trade silver bounties for thinning sandstone dune beasts.",
+        "kind": "Desert Palisade Fort",
+        "description": "Sun-baked sandstone-and-cedar desert palisade fort fitted with spiked stockade ramparts, clay water amphorae, and spear stands where nomad outriders trade silver bounties for thinning sandstone dune beasts.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z12_palm_spring": {
-        "kind": "Oasis Hunter Pavilion",
-        "description": "Shaded palm-oasis wooden hunter pavilion hung with desert skull trophies and brass lanterns where caravan guards water mounts and post local oasis bounties.",
+        "kind": "Oasis Palisade Fort",
+        "description": "Desert palm-oasis fortified sandstone-and-timber palisade outpost with corner watchtowers, mounted beast-skull trophies, and brass lanterns where caravan guards water mounts and post local oasis bounties.",
         "services": ["Free Field Rest", "Hunt Quartermaster (Local Bounties)"],
     },
     "outpost_z13_mesa_watch": {
@@ -582,8 +582,9 @@ def assign_faction(loc: dict) -> str | None:
         return None
     if loc.get("isPortal") or "portal dungeon" in str(loc.get("kind", "")).lower():
         return None
-    if lid in FACTION_BY_ID:
-        return FACTION_BY_ID[lid]
+    base_lid = re.sub(r"(?:_flipped|_south)$", "", lid)
+    if base_lid in FACTION_BY_ID:
+        return FACTION_BY_ID[base_lid]
     if lid in ("outpost_z16_snowdrift", "outpost_z17_glacier_edge"):
         return "northern_clans"
     if lid.startswith("outpost_z"):
@@ -728,7 +729,7 @@ def main() -> None:
             loc["description"] = "Dedicated island-continent sea-travel port town linking ship voyages across Maps 1, 2, 3, and 4."
             loc["services"] = ["Inter-Continent Sea Travel Port", "Free Harbor Rest"]
         elif lid.startswith("tr_ferry_crossing"):
-            loc["description"] = "Shoreline wooden ferry landing & moored flat tow-barge for crossing water straits dividing islands."
+            loc["description"] = "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits."
             loc["services"] = ["Strait / Channel Ferry Crossing"]
         elif lid.startswith("tr_border_mountain_pass_gate"):
             loc["description"] = "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot)."
@@ -754,7 +755,15 @@ def main() -> None:
             for k in ("factionId", "factionName", "factionAllegiance", "factionPrimaryColor", "factionSecondaryColor", "bannerAssetPath"):
                 loc.pop(k, None)
 
-        plore = PLAYER_LORE_BY_ID.get(lid)
+        lore_id = lid
+        if lore_id not in PLAYER_LORE_BY_ID:
+            if lore_id.startswith("tr_ferry_crossing"):
+                lore_id = "tr_ferry_crossing"
+            elif lore_id.startswith("tr_border_mountain_pass_gate"):
+                lore_id = "tr_border_mountain_pass_gate"
+            elif lore_id.startswith("tr_port_"):
+                lore_id = re.sub(r"_south$", "", lore_id)
+        plore = PLAYER_LORE_BY_ID.get(lore_id)
         if plore:
             loc["playerKind"] = plore["playerKind"]
             loc["playerDescription"] = plore["playerDescription"]

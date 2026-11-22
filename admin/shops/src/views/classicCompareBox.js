@@ -1,5 +1,6 @@
 import { HERO_ROSTER } from "../data.js";
 import { WEAPON_ATTACK_MODES, cleanDamageTypeLabel, computeHeroDelta, itemOwnStatRows } from "../compare.js";
+import { bindItemTooltip } from "../itemTooltip.js";
 import { esc, formatSilver, makeIconBox } from "../uiParts.js";
 
 function heroName(id) {
@@ -20,11 +21,12 @@ function buildDeltaPill(row) {
   return `<span class="ff-dpill is-flat">Same</span>`;
 }
 
-function buildSwapCard(label, item, subText, extraClass) {
+function buildSwapCard(label, item, subText, extraClass, state) {
   const card = document.createElement("div");
   card.className = `ff-swap-card ${extraClass}`;
   if (item) {
     card.appendChild(makeIconBox(item));
+    if (state) bindItemTooltip(card, item, state);
   } else {
     const empty = document.createElement("div");
     empty.className = "ff-empty-icon";
@@ -160,13 +162,13 @@ export function buildClassicCompareBox(item, state, handlers) {
     const swap = document.createElement("div");
     swap.className = "ff-swap-strip";
     const curSub = delta.comparedItem
-      ? `${delta.comparedItem.step ? `Step ${delta.comparedItem.step}` : "Equipped"} · Sell +${formatSilver(delta.comparedItem.sellSilver)}`
+      ? `Equipped · Sell +${formatSilver(delta.comparedItem.sellSilver)}`
       : "No item equipped";
-    const newSub = `${item.step ? `Step ${item.step}` : "Gear"} · ${item.priceSilver > 0 ? formatSilver(item.priceSilver) : "Relic"}`;
+    const newSub = `${item.handed ? `${item.handed} · ` : item.subType ? `${item.subType} · ` : ""}${item.priceSilver > 0 ? formatSilver(item.priceSilver) : "Relic"}`;
     swap.append(
-      buildSwapCard("Currently Wearing", delta.comparedItem, curSub, "is-cur"),
+      buildSwapCard("Currently Wearing", delta.comparedItem, curSub, "is-cur", state),
       Object.assign(document.createElement("div"), { className: `ff-swap-arrow ${(delta.primaryDiff ?? 0) > 0 ? "is-up" : ""}`, innerHTML: "&rarr;" }),
-      buildSwapCard(sameEquipped ? "Matching Shop Item" : "Shop Item", item, newSub, `is-new${sameEquipped ? " is-same" : ""}`)
+      buildSwapCard(sameEquipped ? "Matching Shop Item" : "Shop Item", item, newSub, `is-new${sameEquipped ? " is-same" : ""}`, state)
     );
     body.appendChild(swap);
   }
@@ -243,6 +245,7 @@ export function buildClassicCompareBox(item, state, handlers) {
         <div class="ff-stat-tile"><div class="ff-stile-top"><span class="ff-stile-lbl">Grimoire Tier</span></div><div class="ff-stile-vals"><span class="ff-sval-new is-tier">Tier ${item.region} · ${esc(learnedTag)}</span></div></div>
       </div>
     `;
+    bindItemTooltip(spot.querySelector(".ff-spell-spotlight-art"), item, state);
     body.appendChild(spot);
   } else if (rows.length > 0) {
     const grid = document.createElement("div");
@@ -277,7 +280,7 @@ export function buildClassicCompareBox(item, state, handlers) {
     }
     body.appendChild(grid);
   } else if (!isGear && item.iconPath) {
-    const card = buildSwapCard(state.vendorTab === "trade_sell" ? "From Party Bag" : "Merchant Stock", item, item.sourceMob ? `Dropped by ${item.sourceMob}` : "Stacks in Shared Party Bag", "is-single-item");
+    const card = buildSwapCard(state.vendorTab === "trade_sell" ? "From Party Bag" : "Merchant Stock", item, item.sourceMob ? `Dropped by ${item.sourceMob}` : "Stacks in Shared Party Bag", "is-single-item", state);
     body.appendChild(card);
   }
 
@@ -297,8 +300,8 @@ export function buildClassicCompareBox(item, state, handlers) {
   } else if (isGear && delta.usable && delta.comparedItem?.sellSilver > 0 && item.priceSilver > 0) {
     const net = Math.max(0, item.priceSilver - delta.comparedItem.sellSilver);
     footNote = `Trade in old: +${formatSilver(delta.comparedItem.sellSilver)} · Net: ${formatSilver(net)}`;
-  } else if (item.step) {
-    footNote = `Gear Tier Step ${item.step}`;
+  } else if (isGear) {
+    footNote = `${delta.slotLabel} · ${item.subType}`;
   }
 
   const buyBtnLabel = isGear && focusHero ? `Buy for ${focusHero.name} (${formatSilver(item.priceSilver)})` : `Buy (${formatSilver(item.priceSilver)})`;

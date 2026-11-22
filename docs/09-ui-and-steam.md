@@ -69,7 +69,7 @@ Opening the Party Menu (`Hotkey P`) or ledger pauses exploration cleanly across 
    * Clean filters matching all 4 sandbox quest layers (tracked under one **Global Active Quest Limit**, e.g. `15` active quests total): **Main Portals (`X/8`) & Home Front**, **Story Chains (`4`)**, **Hub Quests (`178`)**, and **Zone Outpost Hunts (`20` Outposts)**.
    * Bestiary sub-tab logs every seen SRD 5.2 realm mob, boss, and Ethoria native along with discovered **Weaknesses** and Trade Good drops.
 6. **World Atlas & System:**
-   * Interactive zoomed-out preview of explored Regions, discovered **Towns & Keeps**, **Ship Ports**, and **Portal status** *(Sealed vs. Open)*.
+   * Interactive zoomed-out preview of explored Regions, discovered **Towns & Keeps**, **Ferry Crossings** *(unlocked once a map's 1st Portal is destroyed)*, **`4` Sea-Port Towns** *(captains sail onward from Maps `1–3` once that map's last Portal falls, while Map 4's **Arctic Sea-Port Town** returns cleanly to **Maps 1, 2, or 3**)*, and **Portal status** *(Sealed vs. Open)*.
    * Manual **Save Anywhere** button *(outside combat)*, Settings, and Return to Title.
 
 ---
@@ -96,7 +96,7 @@ Because music tracks and SFX are **already provided by the Creative Director**, 
 ## 6. Save Architecture & Steam Integration
 
 ### Save System
-* **Save Anywhere:** Available anytime outside active combat across manual save slots + rotating **Auto-Save** slots *(triggered on entering Towns, using Ship Ports, stepping before a Portal Boss Seal, or waking at an Inn after party wipe keeping XP/Levels)*.
+* **Save Anywhere:** Available anytime outside active combat across manual save slots + rotating **Auto-Save** slots *(triggered on entering Towns, crossing Ferries, sailing from Sea-Port Towns, stepping before a Portal Boss Seal, or waking at an Inn after party wipe keeping XP/Levels)*.
 * **Post-Ending "Cleared" Save:** After defeating **King Garrick** and watching the ending & credits, the game awards victory Achievements, marks the slot with a **Cleared Crown**, and places you right outside **The Eclipse Gate** *(with your 4-hero party intact)* so you can continue finishing leftover side content, Level `99`, and Bestiary entries.
 * **Clean JSON Save State:** Stores your **4 party members** *(plus which 2 characters are holding Highcrown Keep)*, `campaignCleared` badge flag, stats, XP/levels, equipped gear + Runestones, silver, quest/bounty states *(including cumulative completed Outpost Hunts)*, discovered Bestiary weaknesses, explored Dungeon & Portal room flags, and current overworld map ID + player coordinates.
 

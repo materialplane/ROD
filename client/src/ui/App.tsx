@@ -20,6 +20,7 @@ import { DEFAULT_PARTY_ORDER, getHeroById, normalizePartyOrder } from "./heroes"
 import type { BuyConfirmChoice } from "./shops/ShopCounterPanel";
 import { buildStarterEquipment, itemSlotFor } from "./shops/shopLogic";
 import type { AudioSettings, EquippedGearMap, HeroId, ItemEntry, MapMeta, NpcLocationGroup, QuestEntry, SaveSlotData, SpellEntry, WorldLocation } from "./types";
+import { buildWorldCollisionIndex, type WorldCollisionIndex } from "./worldCollision";
 
 const SESSION_ACTIVE_KEY = "rod_active_game";
 
@@ -77,6 +78,7 @@ export const App: React.FC = () => {
 
   const [mapMeta, setMapMeta] = useState<MapMeta | null>(null);
   const [worldLocations, setWorldLocations] = useState<WorldLocation[]>([]);
+  const [worldCollision, setWorldCollision] = useState<WorldCollisionIndex | null>(null);
   const [npcsByLocation, setNpcsByLocation] = useState<Record<string, NpcLocationGroup>>({});
   const [questsByKey, setQuestsByKey] = useState<Record<string, QuestEntry>>({});
   const [itemsCatalog, setItemsCatalog] = useState<ItemEntry[]>([]);
@@ -149,17 +151,22 @@ export const App: React.FC = () => {
     let loadedLocations: WorldLocation[] = [];
     let loadedItems: ItemEntry[] = itemsCatalog;
     try {
-      const [wResp, nResp, qResp, iResp, sResp] = await Promise.all([
+      const [wResp, nResp, qResp, iResp, sResp, pResp] = await Promise.all([
         fetch(assetUrl(`assets/data/world-locations.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/npcs-catalog.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/quests-catalog.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/items-catalog.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/spells-catalog.json?t=${bust}`)),
+        fetch(assetUrl(`assets/data/world-paint.json?t=${bust}`)),
       ]);
       if (wResp.ok) {
         const parsed = (await wResp.json()) as { locations?: WorldLocation[] };
         loadedLocations = parsed.locations ?? [];
         setWorldLocations(loadedLocations);
+      }
+      if (pResp.ok) {
+        const parsedPaint = (await pResp.json()) as unknown;
+        setWorldCollision(buildWorldCollisionIndex(parsedPaint));
       }
       if (nResp.ok) {
         const parsed = (await nResp.json()) as { locations?: NpcLocationGroup[] };
@@ -867,6 +874,7 @@ export const App: React.FC = () => {
           insideLocationId={overworldRootLocationId}
           mapMeta={mapMeta}
           worldLocations={worldLocations}
+          worldCollision={worldCollision}
           partyOrder={partyOrder}
           level={partyLevel}
           startX={spawnState.x}

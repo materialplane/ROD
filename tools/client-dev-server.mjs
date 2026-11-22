@@ -80,7 +80,7 @@ function serveFile(req, res, baseDir, relPath) {
   const ext = path.extname(resolved).toLowerCase();
   const stat = fs.statSync(resolved);
   const contentType = MIME[ext] || "application/octet-stream";
-  const cacheControl = ext === ".webp" || ext === ".ogg" ? "public, max-age=3600" : "no-store";
+  const cacheControl = ext === ".ogg" ? "public, max-age=3600" : "no-store";
   const range = req.headers.range;
   if (range) {
     const match = /bytes=(\d*)-(\d*)/.exec(range);
@@ -218,6 +218,7 @@ const server = http.createServer((req, res) => {
                 scale: inc.scale ?? prev.scale ?? 1.0,
                 triggerRadius: inc.triggerRadius ?? prev.triggerRadius ?? 88,
                 linkedFerryId: "linkedFerryId" in inc ? inc.linkedFerryId : prev.linkedFerryId ?? null,
+                rotation: "rotation" in inc ? Number(inc.rotation) || 0 : prev.rotation ?? 0,
                 locked: "locked" in inc ? Boolean(inc.locked) : Boolean(prev.locked),
               };
             }).filter(Boolean);

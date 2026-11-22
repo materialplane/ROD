@@ -4,6 +4,7 @@ import { audioEngine } from "../audio";
 import { getHeroById } from "../heroes";
 import type { EquippedGearMap, HeroId, ItemEntry, NpcEntry, ShopType, SpellEntry, WorldLocation } from "../types";
 import { CompareBox } from "./CompareBox";
+import { hideClientItemTooltip, itemTooltipHandlers } from "./itemTooltip";
 import { computeHeroDelta, getStockForHero, itemSlotFor, SHOP_META, type ShopCatalogEntry } from "./shopLogic";
 
 export interface BuyConfirmChoice {
@@ -51,6 +52,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
   const anyHeroStock = getStockForHero(items, spells, hub, shopType, catFilter, null);
 
   useEffect(() => {
+    hideClientItemTooltip();
     setCatFilter("all");
     setSelectedId(null);
     setConfirmEntry(null);
@@ -61,6 +63,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
       );
       if (firstUsableHero) setActiveHeroId(firstUsableHero);
     }
+    return () => hideClientItemTooltip();
   }, [hub.id, shopType, npc.id]);
 
   const heroStock = getStockForHero(items, spells, hub, shopType, catFilter, activeHeroId);
@@ -189,6 +192,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                   <button
                     key={it.id}
                     type="button"
+                    {...itemTooltipHandlers(it, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
                     onClick={() => {
                       audioEngine.playUiClick(0.22);
                       setSelectedId(it.id);

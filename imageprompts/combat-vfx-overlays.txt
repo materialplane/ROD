@@ -1,103 +1,363 @@
-# ROD — Combat VFX Overlays (4x4 Sprite Sheet #1: Region 1 Starter Skills)
-# Usage: Paste the prompt between the START/END lines into Gemini (1:1 aspect ratio, 4K if available).
-# After generation, save to assets/ui/vfx_sheet_01_starter_skills.png and slice 4x4 with chroma-key removal.
-# Color-Shift Pairing: Played simultaneously for 1.0–2.0s over the struck hero token (Canvas source-atop color wash) or enemy art.
-# Camera Plane Rule: Every VFX frame MUST be drawn flat facing the camera plane (vertical/radial/diagonal overlays)—NEVER horizontal 3D ground rings/floor pedestals so every frame aligns cleanly over flat circular VTT tokens.
+# ROD — Compact 5-Sheet (30 x 6-Frame = 180 Sprites) Production Combat VFX Prompts
+# Covers all 236 combat abilities in data/vfx-effects.json via 2-3 distinct animations per family + Canvas tint/scale/shake.
+# Browser / Image Setup: 1:1 Aspect Ratio on pure #FF00FF chroma-key background using the proven Item Sheet structure.
+
+================================================================================
+SHEET 01 OF 5 (vfx_pack_01_melee_slashes_and_impacts_6x6) — Melee Slashes & Blunt Impacts
+# SAVE AS: assets/vfx/batch_sheets/vfx_sheet_01.jpg  (or .png)
+================================================================================
+# ROW MANIFEST:
+#   Row 1 -> Quick Diagonal Slash (1H Longsword/Saber/Dagger/Sickle Fast Hits)
+#   Row 2 -> Heavy Greatblade Cleave (2H Greatsword/Battleaxe/Colossal Cleaves)
+#   Row 3 -> Twin X-Cross Slash (Cross Slash/Breakneck Flurry/Scimitar Whirl)
+#   Row 4 -> Serrated Scarlet Cut (Ragged Cut/Crimson Arc/Mob Claw Rake)
+#   Row 5 -> Kinetic Blunt Smash (Pommel Bash/Mace Heavy Bash/Root Slam)
+#   Row 6 -> Shattering Armor Crush (Shield-Splitter/Titan Cracker/Earthshatter)
 
 --- SHEET 1 PROMPT START (Copy from next line down) ---
-1:1 square illustration showing an evenly spaced 4x4 grid (4 rows by 4 columns) of 16 COMPLETELY SEPARATE standalone high-fantasy combat spell and weapon VFX overlay icons/effects floating in empty space. Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy game VFX art style — bold crisp energy ribbons, sharp stylized sparks, faceted ice/stone shards, clean dark accent definition, rich vibrant highlights, zero pixel art, zero blurry soft airbrush fog, NO characters, NO faces, NO circular portrait frames, NO dividing grid lines, NO boxes around cells, NO drop shadows on the background, and NO text or numbers anywhere.
+1:1 square VFX sprite sheet showing a STRICT 6x6 grid (EXACTLY 6 equal columns across by 6 equal rows down — 36 evenly spaced isolated opaque flat 2D fantasy combat VFX cutouts total, NEVER 4x4, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY EFFECT).
 
-BACKGROUND RULE: Pure, flat, unshaded solid neon magenta (#FF00FF) chroma-key background across the entire canvas behind all 16 effects, with generous empty magenta margin separating every cell cleanly from its neighbors and NO semi-transparent smoke or pink glow bleeding into the magenta.
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CRISP HARD-EDGED OPAQUE 2D VFX):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital VFX illustration — bold solid hard-edged opaque shapes built for crisp RPG readability, sculpted hard-edged ribbons, sharp metallic slash arcs, crystal facets, painted leaves, glossy solid liquid droplets, crisp directional rim-light highlights, clean dark contour separation, rich handcrafted color clarity, and strong contrast. Every single sprite MUST have crisp hard-edged painted silhouettes — strictly ZERO soft airbrush blur, ZERO cloudy smoke, ZERO hazy fog or mist, ZERO soft translucent edges, ZERO pixel art, ZERO scratchy pen hatching, ZERO watercolor bleed, ZERO glossy 3D CGI toy render finish, and ZERO letters, runes-as-words, or numbers anywhere.
 
-Render these 16 exact isolated VFX overlays centered cleanly in each cell (strictly top-to-bottom, left-to-right):
+UNIFORM FRAMING & 6x6 GUTTER SPACING LOCK:
+All 36 VFX cutouts face straight forward flat on the 2D camera plane with razor-clean opaque edges separating sharply from #FF00FF. Each horizontal row (Col 1 to Col 6, left to right) animates one unified effect across 6 stages: Col 1 (tiny onset seed) -> Col 2 (small growing form) -> Col 3 (compact full-form peak) -> Col 4 (tight fracturing breakup inside the SAME small diameter) -> Col 5 (smaller separating pieces) -> Col 6 (tiny remnant flecks).
 
-Row 1, Col 1 (Cross Slash): Twin intersecting diagonal blazing steel and warm amber sword-slash X-arcs with sharp crisp metallic spark bursts.
-Row 1, Col 2 (Pommel Bash): Heavy circular iron concussion shockwave ring bursting outward with crisp angular kinetic impact wedges and gold-white sparks.
-Row 1, Col 3 (Sandsweep): Wide horizontal sweeping crescent steel blade-trail intertwined with stylized coiled tan desert-sand ribbons.
-Row 1, Col 4 (Shield Slam): Bold stylized forged-steel chevron shield impact wave ringed by bright bronze-orange concussion fractures.
+CRITICAL PADDING & ZERO-CLIPPING MANDATES:
+1. MANDATORY 25% MAGENTA SAFETY BUFFER: Because this is a tight 6x6 sheet, scale EVERY spell cutout down small to occupy ONLY the central 45% to 55% of its space. A wide empty moat of solid #FF00FF magenta background MUST completely surround every cutout on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO lightning bolts, flame tongues, arrow tips, fletchings, wings, crystal spikes, leaves, droplets, or ribbons may reach, touch, or cross ANY neighbor boundary or outer image edge. Keep Peak (Col 3) and Breakup (Col 4) compact and tightly contained — Col 4 splits into fractured pieces INSIDE the exact same small central footprint (NEVER wider or taller than Col 3) so wide solid #FF00FF margins stay completely clean above Row 1, below Row 6, and between every row and column.
 
-Row 2, Col 1 (Hold the Line / Guard): Upright translucent golden-steel fortress shield crest aura bordered by interlocking glowing amber defensive barrier chevrons.
-Row 2, Col 2 (Veteran's Call): Twin upward-surging burnished-gold and warm crimson rallying war-banner energy ribbons spiraling cleanly skyward.
-Row 2, Col 3 (Piercing Shot): Razor-sharp diagonal silver-white arrow slipstream spear-cone slicing through two crisp supersonic wind shock-rings.
-Row 2, Col 4 (Hunter's Mark): Floating stylized crimson-and-burnished-gold tactical crosshair reticle crest with four sharp inward-pointing arrow-barb arrowheads.
+Render these exact 36 distinct keyframes cleanly from Row 1 to Row 6, left to right:
 
-Row 3, Col 1 (Ember Spark): Spiraling whip-coil of crisp bright orange-and-gold stylized League of Legends flame ribbons with sharp floating ember diamonds.
-Row 3, Col 2 (Frost Shard): Burst cluster of three jagged razor-faceted pale icy-cyan crystal spears radiating cleanly out of a sharp frosted starflake.
-Row 3, Col 3 (Crown Ward): Ornate floating circular geometric glowing teal-cyan and gold arcane rune-barrier ring pulsing cleanly with sharp faceted ward shields.
-Row 3, Col 4 (Ankle Nick / Bleed): Wicked twin curving blackened-steel and bright crimson dagger-swipe crescent arcs flinging three sharp crimson droplets.
+Row 1, Col 1 (Quick Diagonal Slash — Onset): Tiny centered solid polished silver-steel and bright ivory spark cluster starting the diagonal polished-steel crescent blade-slash arc.
+Row 1, Col 2 (Quick Diagonal Slash — Surge): Small growing hard-edged opaque diagonal polished-steel crescent blade-slash arc in vivid polished silver-steel and bright ivory, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 3 (Quick Diagonal Slash — Peak): Compact full-form crisp hard-edged opaque diagonal polished-steel crescent blade-slash arc with bold painted polished silver-steel and bright ivory highlights, wide #FF00FF margin on all 4 sides.
+Row 1, Col 4 (Quick Diagonal Slash — Breakup): Tightly contained crisp fractured pieces of the same compact diagonal polished-steel crescent blade-slash arc kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 5 (Quick Diagonal Slash — Fade): Smaller crisp separating shards of the same diagonal polished-steel crescent blade-slash arc in polished silver-steel and bright ivory.
+Row 1, Col 6 (Quick Diagonal Slash — Remnant): Tiny crisp solid polished silver-steel and bright ivory spark flecks centered in ample #FF00FF.
 
-Row 4, Col 1 (Smokescreen): Stylized curling dark charcoal-and-slate ninja smoke-plume ribbons with crisp painted edges and twin bright glint-sparks.
-Row 4, Col 2 (Stinging Salve / Heal): Rising spiral ribbon of vibrant emerald-green and warm gold restorative healing light motes paired with crisp glowing herb-leaf silhouettes.
-Row 4, Col 3 (Bitterroot Vial / Poison): Splashing burst of toxic bright green and dark moss venom liquid tendrils with sharp bubbling droplets.
-Row 4, Col 4 (Smelling Salts / Cleanse): Pure radiant pale-gold and fresh mint-white purifying swirl burst shattering away small dark purple shadow shards.
+Row 2, Col 1 (Heavy Greatblade Cleave — Onset): Tiny centered solid forged steel and fiery amber-gold spark cluster starting the heavy molten-steel and amber curved blade-slash crescent.
+Row 2, Col 2 (Heavy Greatblade Cleave — Surge): Small growing hard-edged opaque heavy molten-steel and amber curved blade-slash crescent in vivid forged steel and fiery amber-gold, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 3 (Heavy Greatblade Cleave — Peak): Compact full-form crisp hard-edged opaque heavy molten-steel and amber curved blade-slash crescent with bold painted forged steel and fiery amber-gold highlights, wide #FF00FF margin on all 4 sides.
+Row 2, Col 4 (Heavy Greatblade Cleave — Breakup): Tightly contained crisp fractured pieces of the same compact heavy molten-steel and amber curved blade-slash crescent kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 5 (Heavy Greatblade Cleave — Fade): Smaller crisp separating shards of the same heavy molten-steel and amber curved blade-slash crescent in forged steel and fiery amber-gold.
+Row 2, Col 6 (Heavy Greatblade Cleave — Remnant): Tiny crisp solid forged steel and fiery amber-gold spark flecks centered in ample #FF00FF.
+
+Row 3, Col 1 (Twin X-Cross Slash — Onset): Tiny centered solid steel-silver and warm sunlit gold spark cluster starting the symmetrical twin intersecting steel-and-gold X-cross blade-slash arcs.
+Row 3, Col 2 (Twin X-Cross Slash — Surge): Small growing hard-edged opaque symmetrical twin intersecting steel-and-gold X-cross blade-slash arcs in vivid steel-silver and warm sunlit gold, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 3 (Twin X-Cross Slash — Peak): Compact full-form crisp hard-edged opaque symmetrical twin intersecting steel-and-gold X-cross blade-slash arcs with bold painted steel-silver and warm sunlit gold highlights, wide #FF00FF margin on all 4 sides.
+Row 3, Col 4 (Twin X-Cross Slash — Breakup): Tightly contained crisp fractured pieces of the same compact symmetrical twin intersecting steel-and-gold X-cross blade-slash arcs kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 5 (Twin X-Cross Slash — Fade): Smaller crisp separating shards of the same symmetrical twin intersecting steel-and-gold X-cross blade-slash arcs in steel-silver and warm sunlit gold.
+Row 3, Col 6 (Twin X-Cross Slash — Remnant): Tiny crisp solid steel-silver and warm sunlit gold spark flecks centered in ample #FF00FF.
+
+Row 4, Col 1 (Serrated Scarlet Cut — Onset): Tiny centered solid deep blued-steel and vivid scarlet spark cluster starting the jagged deep blued-steel and vivid crimson crescent blade-slash arc.
+Row 4, Col 2 (Serrated Scarlet Cut — Surge): Small growing hard-edged opaque jagged deep blued-steel and vivid crimson crescent blade-slash arc in vivid deep blued-steel and vivid scarlet, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 3 (Serrated Scarlet Cut — Peak): Compact full-form crisp hard-edged opaque jagged deep blued-steel and vivid crimson crescent blade-slash arc with bold painted deep blued-steel and vivid scarlet highlights, wide #FF00FF margin on all 4 sides.
+Row 4, Col 4 (Serrated Scarlet Cut — Breakup): Tightly contained crisp fractured pieces of the same compact jagged deep blued-steel and vivid crimson crescent blade-slash arc kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 5 (Serrated Scarlet Cut — Fade): Smaller crisp separating shards of the same jagged deep blued-steel and vivid crimson crescent blade-slash arc in deep blued-steel and vivid scarlet.
+Row 4, Col 6 (Serrated Scarlet Cut — Remnant): Tiny crisp solid deep blued-steel and vivid scarlet spark flecks centered in ample #FF00FF.
+
+Row 5, Col 1 (Kinetic Blunt Smash — Onset): Tiny centered solid forged slate-iron and bronze-amber spark cluster starting the flat front-facing radial iron-and-bronze kinetic starburst with sharp impact wedges.
+Row 5, Col 2 (Kinetic Blunt Smash — Surge): Small growing hard-edged opaque flat front-facing radial iron-and-bronze kinetic starburst with sharp impact wedges in vivid forged slate-iron and bronze-amber, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 3 (Kinetic Blunt Smash — Peak): Compact full-form crisp hard-edged opaque flat front-facing radial iron-and-bronze kinetic starburst with sharp impact wedges with bold painted forged slate-iron and bronze-amber highlights, wide #FF00FF margin on all 4 sides.
+Row 5, Col 4 (Kinetic Blunt Smash — Breakup): Tightly contained crisp fractured pieces of the same compact flat front-facing radial iron-and-bronze kinetic starburst with sharp impact wedges kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 5 (Kinetic Blunt Smash — Fade): Smaller crisp separating shards of the same flat front-facing radial iron-and-bronze kinetic starburst with sharp impact wedges in forged slate-iron and bronze-amber.
+Row 5, Col 6 (Kinetic Blunt Smash — Remnant): Tiny crisp solid forged slate-iron and bronze-amber spark flecks centered in ample #FF00FF.
+
+Row 6, Col 1 (Shattering Armor Crush — Onset): Tiny centered solid molten bronze, gold, and cool slate spark cluster starting the radial molten-bronze fracture starburst ringed closely by angular slate-iron shards.
+Row 6, Col 2 (Shattering Armor Crush — Surge): Small growing hard-edged opaque radial molten-bronze fracture starburst ringed closely by angular slate-iron shards in vivid molten bronze, gold, and cool slate, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 3 (Shattering Armor Crush — Peak): Compact full-form crisp hard-edged opaque radial molten-bronze fracture starburst ringed closely by angular slate-iron shards with bold painted molten bronze, gold, and cool slate highlights, wide #FF00FF margin on all 4 sides with extra clear #FF00FF below.
+Row 6, Col 4 (Shattering Armor Crush — Breakup): Tightly contained crisp fractured pieces of the same compact radial molten-bronze fracture starburst ringed closely by angular slate-iron shards kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 5 (Shattering Armor Crush — Fade): Smaller crisp separating shards of the same radial molten-bronze fracture starburst ringed closely by angular slate-iron shards in molten bronze, gold, and cool slate.
+Row 6, Col 6 (Shattering Armor Crush — Remnant): Tiny crisp solid molten bronze, gold, and cool slate spark flecks centered in ample #FF00FF.
+
 --- SHEET 1 PROMPT END ---
 
 
-# ==============================================================================
-# ENGINE METADATA REFERENCE (260-Color Shift + 1-2s Overlay Mapping for Sheet 1)
-# ==============================================================================
-# Cell     | Effect Name          | Token Color Shift Hex | Suggested Canvas Motion (1.0–2.0s)
-# R1 C1    | Cross Slash          | #D9E2EC (Steel Flash) | Quick diagonal snap + double X-scale pop
-# R1 C2    | Pommel Bash          | #C9A25B (Amber Concuss)| Sharp punch-zoom + 6px horizontal micro-shake
-# R1 C3    | Sandsweep            | #B89B6A (Dust Tan)    | Fast left-to-right sweep across target
-# R1 C4    | Shield Slam          | #D48A3B (Bronze Shock)| Heavy thud-expand + brief hold
-# R2 C1    | Hold the Line/Guard  | #E3B341 (Bastion Gold)| Steady fade-in armor-crest pulse (1.5s)
-# R2 C2    | Veteran's Call       | #E05A3A (Rally Crimson)| Upward rise + golden pulse
-# R2 C3    | Piercing Shot        | #E8F1F8 (Silver Streak)| Fast diagonal lunge-through across token
-# R2 C4    | Hunter's Mark        | #C92A2A (Mark Scarlet)| Lock-on shrink-snap over target center
-# R3 C1    | Ember Spark          | #FF6B1A (Pyre Orange) | Snappy flare-burst + ember flicker
-# R3 C2    | Frost Shard          | #5CE1E6 (Glacial Cyan)| Piercing diagonal stab + brief ice freeze-tint
-# R3 C3    | Crown Ward           | #38D9C0 (Arcane Teal) | Slow rotating ward-ring glow (1.8s)
-# R3 C4    | Ankle Nick / Bleed   | #B01729 (Crimson Cut) | Twin rapid cross-swipe + red flash
-# R4 C1    | Smokescreen          | #6C757D (Shadow Slate)| Expanding swirl puff + soft fade
-# R4 C2    | Stinging Salve/Heal  | #2ECC71 (Salve Emerald)| Gentle upward float + emerald shimmer (1.6s)
-# R4 C3    | Bitterroot / Poison  | #7AC74F (Venom Green) | Splash-pop + brief sickly green pulse
-# R4 C4    | Smelling Salts/Cure  | #F6E58D (Cleanse Gold)| Crisp radial burst + cleansing wash
-
-
-
 ================================================================================
-PROMPT 2 (EXPERIMENT): 4x6 ANIMATED VFX SPRITE SHEET (4 Effects x 6 Stages Each)
+SHEET 02 OF 5 (vfx_pack_02_piercing_arrows_fire_lightning_6x6) — Piercing, Arrows, Fire & Lightning
+# SAVE AS: assets/vfx/batch_sheets/vfx_sheet_02.jpg  (or .png)
 ================================================================================
-# Usage: Paste the prompt between the START/END lines into Gemini (3:2 landscape aspect ratio so each of the 24 slots is a clean 1:1 square).
-# Tests 1 effect per horizontal row across 6 progressive compact animation cutouts (left-to-right) on ONE continuous solid #FF00FF backdrop.
+# ROW MANIFEST:
+#   Row 1 -> Needle Pierce Streak (Rapier Thrust/Spear Thrust/Heartseeker)
+#   Row 2 -> Hunting Arrow Shot (Snap Arrow/Bodkin Bolt/Crossbow/Flare)
+#   Row 3 -> Parallel Arrow Barrage (Split Volley/Rain of Arrows/Arrow Tempest)
+#   Row 4 -> Ember Swirl Spark (Ember Spark/Burn Tick/Fire Imbue/Cinder)
+#   Row 5 -> Roaring Fireball Burst (Arcane Fireball/Flame Crest/Meteor/Solar Flare)
+#   Row 6 -> Forked Lightning Strike (Chain Spark/Tempest Arc/Thunderhead/Shock)
 
 --- SHEET 2 PROMPT START (Copy from next line down) ---
-3:2 landscape high-definition fantasy VFX sticker sheet showing 24 compact, self-contained hand-painted combat effect cutouts arranged cleanly in 4 evenly spaced invisible horizontal rows by 6 columns — 1 effect per row progressing smoothly across 6 sequential animation stages from left to right (Stage 1 through Stage 6). Every effect is drawn strictly flat front-facing directly on the vertical camera plane (designed to overlay flat 2D circular tokens cleanly). Stylized League of Legends (Legends of Runeterra / Arcane) crisp opaque hand-painted VFX cutout style — bold opaque painted energy ribbons, sharp crisp flame tongues, faceted ice spears, bright metallic slash crescents, and clean crisp painted outlines separating every shape cleanly from the background. Strictly solid opaque digital fantasy painting with zero pixel art and zero text or numbers.
+1:1 square VFX sprite sheet showing a STRICT 6x6 grid (EXACTLY 6 equal columns across by 6 equal rows down — 36 evenly spaced isolated opaque flat 2D fantasy combat VFX cutouts total, NEVER 4x4, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY EFFECT).
 
-CHROMA BACKGROUND & CONTAINMENT RULE: The ENTIRE canvas must be ONE seamless continuous, flat, unshaded, blindingly bright solid neon magenta (#FF00FF, exact RGB 255,0,255) studio backdrop from corner to corner — every single one of the 24 effects floats cleanly in open bright #FF00FF space. Keep EVERY individual stage compact (`at most 65%` of its slot width and height) and centered cleanly inside its own space with generous empty #FF00FF pink margin (`at least 25%` clear pink padding on top, bottom, left, and right) so every blade tip, ribbon tail, leaf, and spark finishes cleanly in empty pink space and NEVER touches or gets clipped by a neighbor or border.
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CRISP HARD-EDGED OPAQUE 2D VFX):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital VFX illustration — bold solid hard-edged opaque shapes built for crisp RPG readability, sculpted hard-edged ribbons, sharp metallic slash arcs, crystal facets, painted leaves, glossy solid liquid droplets, crisp directional rim-light highlights, clean dark contour separation, rich handcrafted color clarity, and strong contrast. Every single sprite MUST have crisp hard-edged painted silhouettes — strictly ZERO soft airbrush blur, ZERO cloudy smoke, ZERO hazy fog or mist, ZERO soft translucent edges, ZERO pixel art, ZERO scratchy pen hatching, ZERO watercolor bleed, ZERO glossy 3D CGI toy render finish, and ZERO letters, runes-as-words, or numbers anywhere.
 
-Render these 4 exact 6-stage compact cutouts row-by-row (Stage 1 = startup, Stage 2 = onset, Stage 3 = peak, Stage 4 = compact expansion, Stage 5 = breaking pieces, Stage 6 = final compact sparks):
+UNIFORM FRAMING & 6x6 GUTTER SPACING LOCK:
+All 36 VFX cutouts face straight forward flat on the 2D camera plane with razor-clean opaque edges separating sharply from #FF00FF. Each horizontal row (Col 1 to Col 6, left to right) animates one unified effect across 6 stages: Col 1 (tiny onset seed) -> Col 2 (small growing form) -> Col 3 (compact full-form peak) -> Col 4 (tight fracturing breakup inside the SAME small diameter) -> Col 5 (smaller separating pieces) -> Col 6 (tiny remnant flecks).
 
-ROW 1 — CROSS SLASH (Opaque Blazing Steel & Amber Sword X-Slash):
-- Col 1: Small sharp opaque white-amber spark diamond and tiny silver blade-tip dart centered nicely in empty pink space.
-- Col 2: Compact curved diagonal silver-and-amber sword-slash crescent arc tapering cleanly to sharp points at both ends inside its center slot.
-- Col 3: Peak impact — two crisp intersecting diagonal silver-and-gold slash blades forming a tight centered X-cross with a sharp opaque starburst core and short metallic spark spikes.
-- Col 4: Wide but well-contained glowing X-slash of bold blazing orange-silver double blade arcs with crisp flying metallic spark splinters inside safe pink padding.
-- Col 5: Breaking slash arc shards — clean crisp steel-and-amber crescent slivers separating apart near center.
-- Col 6: Four tiny crisp opaque gold-orange spark flecks and two short silver streak slivers fading cleanly near center.
+CRITICAL PADDING & ZERO-CLIPPING MANDATES:
+1. MANDATORY 25% MAGENTA SAFETY BUFFER: Because this is a tight 6x6 sheet, scale EVERY spell cutout down small to occupy ONLY the central 45% to 55% of its space. A wide empty moat of solid #FF00FF magenta background MUST completely surround every cutout on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO lightning bolts, flame tongues, arrow tips, fletchings, wings, crystal spikes, leaves, droplets, or ribbons may reach, touch, or cross ANY neighbor boundary or outer image edge. Keep Peak (Col 3) and Breakup (Col 4) compact and tightly contained — Col 4 splits into fractured pieces INSIDE the exact same small central footprint (NEVER wider or taller than Col 3) so wide solid #FF00FF margins stay completely clean above Row 1, below Row 6, and between every row and column.
 
-ROW 2 — EMBER SPARK (Crisp Opaque Swirling Fire Vortex):
-- Col 1: Tight small compact spiral swirl of bright crisp yellow-orange opaque flame curls centered in pink space.
-- Col 2: Crisp bold stylized orange-and-gold flame C-crescent curving tightly with three sharp opaque diamond embers.
-- Col 3: Peak eruption — compact circular League of Legends stylized fire ring of sharp jagged opaque yellow-orange flame tongues and four crisp diamond sparks centered cleanly.
-- Col 4: Slightly expanded dynamic fiery burst ring breaking into bold swirling red-orange flame arcs and sharp flying ember triangles well inside its pink margin.
-- Col 5: Fragmented compact S-curls of stylized dark-amber smoke ribbons and scattered crisp orange flame flecks inside safe margin.
-- Col 6: Four small separated crisp orange-gold teardrop embers fading cleanly near center.
+Render these exact 36 distinct keyframes cleanly from Row 1 to Row 6, left to right:
 
-ROW 3 — FROST SHARD (Crisp Faceted Icy-Cyan Crystal Burst):
-- Col 1: Compact crisp gleaming icy-white eight-point frost starflake with thin pale-blue needles centered in pink space.
-- Col 2: Compact diagonal icy-cyan crystal shard spear pointing upward-right with a crisp dark-blue rim and three tiny ice splinters.
-- Col 3: Peak impact — tight compact fan of three razor-faceted pale cyan-blue jagged ice spears bursting from a sharp geometric frost star inside clear pink margins.
-- Col 4: Compact shattering frost ring throwing crisp icy-white faceted crystal wedges and sharp pale-blue crescent wind slashes cleanly contained inside pink padding.
-- Col 5: Separated cluster of sharp triangular icy-blue crystal splinters drifting slightly apart near center.
-- Col 6: Five tiny crisp pale-cyan diamond ice flecks centered cleanly in empty pink space.
+Row 1, Col 1 (Needle Pierce Streak — Onset): Tiny centered solid gleaming silver-white and steel-cyan spark cluster starting the diagonal gleaming silver-steel rapier spear-tip piercing two small solid steel-cyan diamond wind-rings.
+Row 1, Col 2 (Needle Pierce Streak — Surge): Small growing hard-edged opaque diagonal gleaming silver-steel rapier spear-tip piercing two small solid steel-cyan diamond wind-rings in vivid gleaming silver-white and steel-cyan, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 3 (Needle Pierce Streak — Peak): Compact full-form crisp hard-edged opaque diagonal gleaming silver-steel rapier spear-tip piercing two small solid steel-cyan diamond wind-rings with bold painted gleaming silver-white and steel-cyan highlights, wide #FF00FF margin on all 4 sides.
+Row 1, Col 4 (Needle Pierce Streak — Breakup): Tightly contained crisp fractured pieces of the same compact diagonal gleaming silver-steel rapier spear-tip piercing two small solid steel-cyan diamond wind-rings kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 5 (Needle Pierce Streak — Fade): Smaller crisp separating shards of the same diagonal gleaming silver-steel rapier spear-tip piercing two small solid steel-cyan diamond wind-rings in gleaming silver-white and steel-cyan.
+Row 1, Col 6 (Needle Pierce Streak — Remnant): Tiny crisp solid gleaming silver-white and steel-cyan spark flecks centered in ample #FF00FF.
 
-ROW 4 — STINGING SALVE / HEAL (Compact Emerald & Gold Herbal Blossom):
-- Col 1: Three small crisp opaque emerald-green and warm gold four-point sparkles centered gently in empty pink space.
-- Col 2: Compact vertical S-curve of twin bright emerald-and-gold herbal ribbons with two crisp green sage leaves tucked tightly inside the center (`wide pink padding top and bottom`).
-- Col 3: Peak bloom — compact symmetrical spiraling blossom of crisp opaque emerald-green ribbons circling three vibrant painted herbal leaves and sharp golden four-point star sparkles cleanly inside safe pink margins.
-- Col 4: Compact bursting herbal crown — twin curved emerald-and-gold ribbons flaring gently outward in a tidy centered V-bloom with four floating green leaves and crisp golden stars (`completely floating inside wide pink padding on all 4 sides, tapering cleanly at every tip`).
-- Col 5: Separating compact spiral of two thinning golden-emerald ribbon curls floating gently upward with three crisp four-point stars centered neatly inside wide pink margin.
-- Col 6: Four tiny crisp emerald and pale-gold diamond sparkles and one small drifting leaf mote centered cleanly in empty pink space.
+Row 2, Col 1 (Hunting Arrow Shot — Onset): Tiny centered solid burnished gold, warm amber, and crimson spark cluster starting the diagonal solid burnished-gold hunting war-arrow with beveled broadhead tip, crisp wooden shaft, painted crimson tail fletching, and amber speed chevrons.
+Row 2, Col 2 (Hunting Arrow Shot — Surge): Small growing hard-edged opaque diagonal solid burnished-gold hunting war-arrow with beveled broadhead tip, crisp wooden shaft, painted crimson tail fletching, and amber speed chevrons in vivid burnished gold, warm amber, and crimson, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 3 (Hunting Arrow Shot — Peak): Compact full-form crisp hard-edged opaque diagonal solid burnished-gold hunting war-arrow with beveled broadhead tip, crisp wooden shaft, painted crimson tail fletching, and amber speed chevrons with bold painted burnished gold, warm amber, and crimson highlights, wide #FF00FF margin on all 4 sides.
+Row 2, Col 4 (Hunting Arrow Shot — Breakup): Tightly contained crisp fractured pieces of the same compact diagonal solid burnished-gold hunting war-arrow with beveled broadhead tip, crisp wooden shaft, painted crimson tail fletching, and amber speed chevrons kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 5 (Hunting Arrow Shot — Fade): Smaller crisp separating shards of the same diagonal solid burnished-gold hunting war-arrow with beveled broadhead tip, crisp wooden shaft, painted crimson tail fletching, and amber speed chevrons in burnished gold, warm amber, and crimson.
+Row 2, Col 6 (Hunting Arrow Shot — Remnant): Tiny crisp solid burnished gold, warm amber, and crimson spark flecks centered in ample #FF00FF.
+
+Row 3, Col 1 (Parallel Arrow Barrage — Onset): Tiny centered solid bright silver and icy sky-cyan spark cluster starting the five staggered detached parallel sky-cyan and silver arrows spaced cleanly apart flying along ONE locked 45-degree upper-left to lower-right trajectory through bright cyan slash-crescents with wide empty space between every shaft.
+Row 3, Col 2 (Parallel Arrow Barrage — Surge): Small growing hard-edged opaque five staggered detached parallel sky-cyan and silver arrows spaced cleanly apart flying along ONE locked 45-degree upper-left to lower-right trajectory through bright cyan slash-crescents with wide empty space between every shaft in vivid bright silver and icy sky-cyan, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 3 (Parallel Arrow Barrage — Peak): Compact full-form crisp hard-edged opaque five staggered detached parallel sky-cyan and silver arrows spaced cleanly apart flying along ONE locked 45-degree upper-left to lower-right trajectory through bright cyan slash-crescents with wide empty space between every shaft with bold painted bright silver and icy sky-cyan highlights, wide #FF00FF margin on all 4 sides.
+Row 3, Col 4 (Parallel Arrow Barrage — Breakup): Tightly contained crisp fractured pieces of the same compact five staggered detached parallel sky-cyan and silver arrows spaced cleanly apart flying along ONE locked 45-degree upper-left to lower-right trajectory through bright cyan slash-crescents with wide empty space between every shaft kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 5 (Parallel Arrow Barrage — Fade): Smaller crisp separating shards of the same five staggered detached parallel sky-cyan and silver arrows spaced cleanly apart flying along ONE locked 45-degree upper-left to lower-right trajectory through bright cyan slash-crescents with wide empty space between every shaft in bright silver and icy sky-cyan.
+Row 3, Col 6 (Parallel Arrow Barrage — Remnant): Tiny crisp solid bright silver and icy sky-cyan spark flecks centered in ample #FF00FF.
+
+Row 4, Col 1 (Ember Swirl Spark — Onset): Tiny centered solid bright orange and sunlit yellow-gold spark cluster starting the tightly coiled small clockwise spiral of amber-gold and vivid orange sculpted flame-ribbons curled closely inward.
+Row 4, Col 2 (Ember Swirl Spark — Surge): Small growing hard-edged opaque tightly coiled small clockwise spiral of amber-gold and vivid orange sculpted flame-ribbons curled closely inward in vivid bright orange and sunlit yellow-gold, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 3 (Ember Swirl Spark — Peak): Compact full-form crisp hard-edged opaque tightly coiled small clockwise spiral of amber-gold and vivid orange sculpted flame-ribbons curled closely inward with bold painted bright orange and sunlit yellow-gold highlights, wide #FF00FF margin on all 4 sides.
+Row 4, Col 4 (Ember Swirl Spark — Breakup): Tightly contained crisp fractured pieces of the same compact tightly coiled small clockwise spiral of amber-gold and vivid orange sculpted flame-ribbons curled closely inward kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 5 (Ember Swirl Spark — Fade): Smaller crisp separating shards of the same tightly coiled small clockwise spiral of amber-gold and vivid orange sculpted flame-ribbons curled closely inward in bright orange and sunlit yellow-gold.
+Row 4, Col 6 (Ember Swirl Spark — Remnant): Tiny crisp solid bright orange and sunlit yellow-gold spark flecks centered in ample #FF00FF.
+
+Row 5, Col 1 (Roaring Fireball Burst — Onset): Tiny centered solid blazing yellow-orange and vivid vermilion spark cluster starting the centered layered blazing orange-red flame blossom with short tight solid flame petals.
+Row 5, Col 2 (Roaring Fireball Burst — Surge): Small growing hard-edged opaque centered layered blazing orange-red flame blossom with short tight solid flame petals in vivid blazing yellow-orange and vivid vermilion, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 3 (Roaring Fireball Burst — Peak): Compact full-form crisp hard-edged opaque centered layered blazing orange-red flame blossom with short tight solid flame petals with bold painted blazing yellow-orange and vivid vermilion highlights, wide #FF00FF margin on all 4 sides.
+Row 5, Col 4 (Roaring Fireball Burst — Breakup): Tightly contained crisp fractured pieces of the same compact centered layered blazing orange-red flame blossom with short tight solid flame petals kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 5 (Roaring Fireball Burst — Fade): Smaller crisp separating shards of the same centered layered blazing orange-red flame blossom with short tight solid flame petals in blazing yellow-orange and vivid vermilion.
+Row 5, Col 6 (Roaring Fireball Burst — Remnant): Tiny crisp solid blazing yellow-orange and vivid vermilion spark flecks centered in ample #FF00FF.
+
+Row 6, Col 1 (Forked Lightning Strike — Onset): Tiny centered solid electric yellow-gold and bright sky-cyan spark cluster starting the tightly folded zigzag electric yellow-gold and sky-cyan lightning Z-bolts clustered closely inside a small center circle.
+Row 6, Col 2 (Forked Lightning Strike — Surge): Small growing hard-edged opaque tightly folded zigzag electric yellow-gold and sky-cyan lightning Z-bolts clustered closely inside a small center circle in vivid electric yellow-gold and bright sky-cyan, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 3 (Forked Lightning Strike — Peak): Compact full-form crisp hard-edged opaque tightly folded zigzag electric yellow-gold and sky-cyan lightning Z-bolts clustered closely inside a small center circle with bold painted electric yellow-gold and bright sky-cyan highlights, wide #FF00FF margin on all 4 sides with extra clear #FF00FF below.
+Row 6, Col 4 (Forked Lightning Strike — Breakup): Tightly contained crisp fractured pieces of the same compact tightly folded zigzag electric yellow-gold and sky-cyan lightning Z-bolts clustered closely inside a small center circle kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 5 (Forked Lightning Strike — Fade): Smaller crisp separating shards of the same tightly folded zigzag electric yellow-gold and sky-cyan lightning Z-bolts clustered closely inside a small center circle in electric yellow-gold and bright sky-cyan.
+Row 6, Col 6 (Forked Lightning Strike — Remnant): Tiny crisp solid electric yellow-gold and bright sky-cyan spark flecks centered in ample #FF00FF.
+
 --- SHEET 2 PROMPT END ---
+
+
+================================================================================
+SHEET 03 OF 5 (vfx_pack_03_frost_poison_indigo_radiant_6x6) — Frost, Poison, Indigo & Radiant
+# SAVE AS: assets/vfx/batch_sheets/vfx_sheet_03.jpg  (or .png)
+================================================================================
+# ROW MANIFEST:
+#   Row 1 -> Crystal Frost Starburst (Frost Shard/Chill Tick/Frost Imbue)
+#   Row 2 -> Glacial Ice Shards (Rime Sweep/Glacial Lock/Blizzard Swirl/Chill)
+#   Row 3 -> Acid Splash Burst (Bitterroot Vial/Acidic Flask/Poison Tick/Sap)
+#   Row 4 -> Toxic Spore Cluster (Spore Burst/Venom Splash/Plague-Spore/Slime)
+#   Row 5 -> Umbral Indigo Lance (Umbral Lance/Necrotic Lance/Abyssal Psychic)
+#   Row 6 -> Solar Radiant Sunburst (Dawn Gleam/Sunbeam/Astral Judgment/Purify)
+
+--- SHEET 3 PROMPT START (Copy from next line down) ---
+1:1 square VFX sprite sheet showing a STRICT 6x6 grid (EXACTLY 6 equal columns across by 6 equal rows down — 36 evenly spaced isolated opaque flat 2D fantasy combat VFX cutouts total, NEVER 4x4, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY EFFECT).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CRISP HARD-EDGED OPAQUE 2D VFX):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital VFX illustration — bold solid hard-edged opaque shapes built for crisp RPG readability, sculpted hard-edged ribbons, sharp metallic slash arcs, crystal facets, painted leaves, glossy solid liquid droplets, crisp directional rim-light highlights, clean dark contour separation, rich handcrafted color clarity, and strong contrast. Every single sprite MUST have crisp hard-edged painted silhouettes — strictly ZERO soft airbrush blur, ZERO cloudy smoke, ZERO hazy fog or mist, ZERO soft translucent edges, ZERO pixel art, ZERO scratchy pen hatching, ZERO watercolor bleed, ZERO glossy 3D CGI toy render finish, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 6x6 GUTTER SPACING LOCK:
+All 36 VFX cutouts face straight forward flat on the 2D camera plane with razor-clean opaque edges separating sharply from #FF00FF. Each horizontal row (Col 1 to Col 6, left to right) animates one unified effect across 6 stages: Col 1 (tiny onset seed) -> Col 2 (small growing form) -> Col 3 (compact full-form peak) -> Col 4 (tight fracturing breakup inside the SAME small diameter) -> Col 5 (smaller separating pieces) -> Col 6 (tiny remnant flecks).
+
+CRITICAL PADDING & ZERO-CLIPPING MANDATES:
+1. MANDATORY 25% MAGENTA SAFETY BUFFER: Because this is a tight 6x6 sheet, scale EVERY spell cutout down small to occupy ONLY the central 45% to 55% of its space. A wide empty moat of solid #FF00FF magenta background MUST completely surround every cutout on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO lightning bolts, flame tongues, arrow tips, fletchings, wings, crystal spikes, leaves, droplets, or ribbons may reach, touch, or cross ANY neighbor boundary or outer image edge. Keep Peak (Col 3) and Breakup (Col 4) compact and tightly contained — Col 4 splits into fractured pieces INSIDE the exact same small central footprint (NEVER wider or taller than Col 3) so wide solid #FF00FF margins stay completely clean above Row 1, below Row 6, and between every row and column.
+
+Render these exact 36 distinct keyframes cleanly from Row 1 to Row 6, left to right:
+
+Row 1, Col 1 (Crystal Frost Starburst — Onset): Tiny centered solid pale icy-cyan and crisp frost-white spark cluster starting the symmetrical six-point radial faceted icy-cyan crystal starburst with short contained crystal points.
+Row 1, Col 2 (Crystal Frost Starburst — Surge): Small growing hard-edged opaque symmetrical six-point radial faceted icy-cyan crystal starburst with short contained crystal points in vivid pale icy-cyan and crisp frost-white, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 3 (Crystal Frost Starburst — Peak): Compact full-form crisp hard-edged opaque symmetrical six-point radial faceted icy-cyan crystal starburst with short contained crystal points with bold painted pale icy-cyan and crisp frost-white highlights, wide #FF00FF margin on all 4 sides.
+Row 1, Col 4 (Crystal Frost Starburst — Breakup): Tightly contained crisp fractured pieces of the same compact symmetrical six-point radial faceted icy-cyan crystal starburst with short contained crystal points kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 5 (Crystal Frost Starburst — Fade): Smaller crisp separating shards of the same symmetrical six-point radial faceted icy-cyan crystal starburst with short contained crystal points in pale icy-cyan and crisp frost-white.
+Row 1, Col 6 (Crystal Frost Starburst — Remnant): Tiny crisp solid pale icy-cyan and crisp frost-white spark flecks centered in ample #FF00FF.
+
+Row 2, Col 1 (Glacial Ice Shards — Onset): Tiny centered solid deep glacier-blue and frost-white spark cluster starting the tightly grouped counterclockwise ring of small sharp faceted glacier-cyan and frost-white ice wedges curving inward.
+Row 2, Col 2 (Glacial Ice Shards — Surge): Small growing hard-edged opaque tightly grouped counterclockwise ring of small sharp faceted glacier-cyan and frost-white ice wedges curving inward in vivid deep glacier-blue and frost-white, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 3 (Glacial Ice Shards — Peak): Compact full-form crisp hard-edged opaque tightly grouped counterclockwise ring of small sharp faceted glacier-cyan and frost-white ice wedges curving inward with bold painted deep glacier-blue and frost-white highlights, wide #FF00FF margin on all 4 sides.
+Row 2, Col 4 (Glacial Ice Shards — Breakup): Tightly contained crisp fractured pieces of the same compact tightly grouped counterclockwise ring of small sharp faceted glacier-cyan and frost-white ice wedges curving inward kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 5 (Glacial Ice Shards — Fade): Smaller crisp separating shards of the same tightly grouped counterclockwise ring of small sharp faceted glacier-cyan and frost-white ice wedges curving inward in deep glacier-blue and frost-white.
+Row 2, Col 6 (Glacial Ice Shards — Remnant): Tiny crisp solid deep glacier-blue and frost-white spark flecks centered in ample #FF00FF.
+
+Row 3, Col 1 (Acid Splash Burst — Onset): Tiny centered solid bright acid-lime and deep moss-emerald spark cluster starting the flat 2D asymmetrical irregular jagged acid-lime and moss-emerald comic paint-splat burst exploding from a solid bright chartreuse center core into uneven curved slime tongues and crisp detached oval droplets.
+Row 3, Col 2 (Acid Splash Burst — Surge): Small growing hard-edged opaque flat 2D asymmetrical irregular jagged acid-lime and moss-emerald comic paint-splat burst exploding from a solid bright chartreuse center core into uneven curved slime tongues and crisp detached oval droplets in vivid bright acid-lime and deep moss-emerald, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 3 (Acid Splash Burst — Peak): Compact full-form crisp hard-edged opaque flat 2D asymmetrical irregular jagged acid-lime and moss-emerald comic paint-splat burst exploding from a solid bright chartreuse center core into uneven curved slime tongues and crisp detached oval droplets with bold painted bright acid-lime and deep moss-emerald highlights, wide #FF00FF margin on all 4 sides.
+Row 3, Col 4 (Acid Splash Burst — Breakup): Tightly contained crisp fractured pieces of the same compact flat 2D asymmetrical irregular jagged acid-lime and moss-emerald comic paint-splat burst exploding from a solid bright chartreuse center core into uneven curved slime tongues and crisp detached oval droplets kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 5 (Acid Splash Burst — Fade): Smaller crisp separating shards of the same flat 2D asymmetrical irregular jagged acid-lime and moss-emerald comic paint-splat burst exploding from a solid bright chartreuse center core into uneven curved slime tongues and crisp detached oval droplets in bright acid-lime and deep moss-emerald.
+Row 3, Col 6 (Acid Splash Burst — Remnant): Tiny crisp solid bright acid-lime and deep moss-emerald spark flecks centered in ample #FF00FF.
+
+Row 4, Col 1 (Toxic Spore Cluster — Onset): Tiny centered solid toxic jade-green and chartreuse-lime spark cluster starting the tightly clustered jade-green and chartreuse solid spore pods snapping small lime drops.
+Row 4, Col 2 (Toxic Spore Cluster — Surge): Small growing hard-edged opaque tightly clustered jade-green and chartreuse solid spore pods snapping small lime drops in vivid toxic jade-green and chartreuse-lime, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 3 (Toxic Spore Cluster — Peak): Compact full-form crisp hard-edged opaque tightly clustered jade-green and chartreuse solid spore pods snapping small lime drops with bold painted toxic jade-green and chartreuse-lime highlights, wide #FF00FF margin on all 4 sides.
+Row 4, Col 4 (Toxic Spore Cluster — Breakup): Tightly contained crisp fractured pieces of the same compact tightly clustered jade-green and chartreuse solid spore pods snapping small lime drops kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 5 (Toxic Spore Cluster — Fade): Smaller crisp separating shards of the same tightly clustered jade-green and chartreuse solid spore pods snapping small lime drops in toxic jade-green and chartreuse-lime.
+Row 4, Col 6 (Toxic Spore Cluster — Remnant): Tiny crisp solid toxic jade-green and chartreuse-lime spark flecks centered in ample #FF00FF.
+
+Row 5, Col 1 (Umbral Indigo Lance — Onset): Tiny centered solid deep cobalt-indigo and slate-violet spark cluster starting the diagonal dark cobalt-indigo faceted crystal lance blade framed tightly by small sharp slate-violet speed chevrons.
+Row 5, Col 2 (Umbral Indigo Lance — Surge): Small growing hard-edged opaque diagonal dark cobalt-indigo faceted crystal lance blade framed tightly by small sharp slate-violet speed chevrons in vivid deep cobalt-indigo and slate-violet, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 3 (Umbral Indigo Lance — Peak): Compact full-form crisp hard-edged opaque diagonal dark cobalt-indigo faceted crystal lance blade framed tightly by small sharp slate-violet speed chevrons with bold painted deep cobalt-indigo and slate-violet highlights, wide #FF00FF margin on all 4 sides.
+Row 5, Col 4 (Umbral Indigo Lance — Breakup): Tightly contained crisp fractured pieces of the same compact diagonal dark cobalt-indigo faceted crystal lance blade framed tightly by small sharp slate-violet speed chevrons kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 5 (Umbral Indigo Lance — Fade): Smaller crisp separating shards of the same diagonal dark cobalt-indigo faceted crystal lance blade framed tightly by small sharp slate-violet speed chevrons in deep cobalt-indigo and slate-violet.
+Row 5, Col 6 (Umbral Indigo Lance — Remnant): Tiny crisp solid deep cobalt-indigo and slate-violet spark flecks centered in ample #FF00FF.
+
+Row 6, Col 1 (Solar Radiant Sunburst — Onset): Tiny centered solid radiant sunlight-gold and pure ivory spark cluster starting the centered eight-point sunlight-gold and ivory diamond sun-starburst with short contained prism rays.
+Row 6, Col 2 (Solar Radiant Sunburst — Surge): Small growing hard-edged opaque centered eight-point sunlight-gold and ivory diamond sun-starburst with short contained prism rays in vivid radiant sunlight-gold and pure ivory, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 3 (Solar Radiant Sunburst — Peak): Compact full-form crisp hard-edged opaque centered eight-point sunlight-gold and ivory diamond sun-starburst with short contained prism rays with bold painted radiant sunlight-gold and pure ivory highlights, wide #FF00FF margin on all 4 sides with extra clear #FF00FF below.
+Row 6, Col 4 (Solar Radiant Sunburst — Breakup): Tightly contained crisp fractured pieces of the same compact centered eight-point sunlight-gold and ivory diamond sun-starburst with short contained prism rays kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 5 (Solar Radiant Sunburst — Fade): Smaller crisp separating shards of the same centered eight-point sunlight-gold and ivory diamond sun-starburst with short contained prism rays in radiant sunlight-gold and pure ivory.
+Row 6, Col 6 (Solar Radiant Sunburst — Remnant): Tiny crisp solid radiant sunlight-gold and pure ivory spark flecks centered in ample #FF00FF.
+
+--- SHEET 3 PROMPT END ---
+
+
+================================================================================
+SHEET 04 OF 5 (vfx_pack_04_healing_rebirth_shields_mana_6x6) — Healing, Rebirth, Wards & Mana
+# SAVE AS: assets/vfx/batch_sheets/vfx_sheet_04.jpg  (or .png)
+================================================================================
+# ROW MANIFEST:
+#   Row 1 -> Herbal Healing Ribbon (Stinging Salve/Mossy Mend/Light Potions)
+#   Row 2 -> Lush Blossom Nova (Verdant Bloom/Miracle Balm/Grand Elixir/Heart)
+#   Row 3 -> Phoenix Rebirth Wing (Reviving Tincture/Phoenix Draught/Undying Vow)
+#   Row 4 -> Arcane Hex Ward (Crown Ward/Sovereign Aegis/Mirror Veil/Lock)
+#   Row 5 -> Iron Bastion Chevrons (Hold the Line/Shield Slam/Phalanx/Guard)
+#   Row 6 -> Sapphire Mana Surge (Arcane Conduit/Mana Distillate/Potions/Momentum)
+
+--- SHEET 4 PROMPT START (Copy from next line down) ---
+1:1 square VFX sprite sheet showing a STRICT 6x6 grid (EXACTLY 6 equal columns across by 6 equal rows down — 36 evenly spaced isolated opaque flat 2D fantasy combat VFX cutouts total, NEVER 4x4, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY EFFECT).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CRISP HARD-EDGED OPAQUE 2D VFX):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital VFX illustration — bold solid hard-edged opaque shapes built for crisp RPG readability, sculpted hard-edged ribbons, sharp metallic slash arcs, crystal facets, painted leaves, glossy solid liquid droplets, crisp directional rim-light highlights, clean dark contour separation, rich handcrafted color clarity, and strong contrast. Every single sprite MUST have crisp hard-edged painted silhouettes — strictly ZERO soft airbrush blur, ZERO cloudy smoke, ZERO hazy fog or mist, ZERO soft translucent edges, ZERO pixel art, ZERO scratchy pen hatching, ZERO watercolor bleed, ZERO glossy 3D CGI toy render finish, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 6x6 GUTTER SPACING LOCK:
+All 36 VFX cutouts face straight forward flat on the 2D camera plane with razor-clean opaque edges separating sharply from #FF00FF. Each horizontal row (Col 1 to Col 6, left to right) animates one unified effect across 6 stages: Col 1 (tiny onset seed) -> Col 2 (small growing form) -> Col 3 (compact full-form peak) -> Col 4 (tight fracturing breakup inside the SAME small diameter) -> Col 5 (smaller separating pieces) -> Col 6 (tiny remnant flecks).
+
+CRITICAL PADDING & ZERO-CLIPPING MANDATES:
+1. MANDATORY 25% MAGENTA SAFETY BUFFER: Because this is a tight 6x6 sheet, scale EVERY spell cutout down small to occupy ONLY the central 45% to 55% of its space. A wide empty moat of solid #FF00FF magenta background MUST completely surround every cutout on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO lightning bolts, flame tongues, arrow tips, fletchings, wings, crystal spikes, leaves, droplets, or ribbons may reach, touch, or cross ANY neighbor boundary or outer image edge. Keep Peak (Col 3) and Breakup (Col 4) compact and tightly contained — Col 4 splits into fractured pieces INSIDE the exact same small central footprint (NEVER wider or taller than Col 3) so wide solid #FF00FF margins stay completely clean above Row 1, below Row 6, and between every row and column.
+
+Render these exact 36 distinct keyframes cleanly from Row 1 to Row 6, left to right:
+
+Row 1, Col 1 (Herbal Healing Ribbon — Onset): Tiny centered solid emerald-green and warm gold spark cluster starting the twin coiled emerald-green ribbons framing crisp painted sage leaves and small gold four-point stars.
+Row 1, Col 2 (Herbal Healing Ribbon — Surge): Small growing hard-edged opaque twin coiled emerald-green ribbons framing crisp painted sage leaves and small gold four-point stars in vivid emerald-green and warm gold, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 3 (Herbal Healing Ribbon — Peak): Compact full-form crisp hard-edged opaque twin coiled emerald-green ribbons framing crisp painted sage leaves and small gold four-point stars with bold painted emerald-green and warm gold highlights, wide #FF00FF margin on all 4 sides.
+Row 1, Col 4 (Herbal Healing Ribbon — Breakup): Tightly contained crisp fractured pieces of the same compact twin coiled emerald-green ribbons framing crisp painted sage leaves and small gold four-point stars kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 5 (Herbal Healing Ribbon — Fade): Smaller crisp separating shards of the same twin coiled emerald-green ribbons framing crisp painted sage leaves and small gold four-point stars in emerald-green and warm gold.
+Row 1, Col 6 (Herbal Healing Ribbon — Remnant): Tiny crisp solid emerald-green and warm gold spark flecks centered in ample #FF00FF.
+
+Row 2, Col 1 (Lush Blossom Nova — Onset): Tiny centered solid vivid emerald-green and sunlit gold spark cluster starting the symmetrical emerald flower crest of crisp painted green leaf petals and small sunlight-gold stars.
+Row 2, Col 2 (Lush Blossom Nova — Surge): Small growing hard-edged opaque symmetrical emerald flower crest of crisp painted green leaf petals and small sunlight-gold stars in vivid emerald-green and sunlit gold, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 3 (Lush Blossom Nova — Peak): Compact full-form crisp hard-edged opaque symmetrical emerald flower crest of crisp painted green leaf petals and small sunlight-gold stars with bold painted vivid emerald-green and sunlit gold highlights, wide #FF00FF margin on all 4 sides.
+Row 2, Col 4 (Lush Blossom Nova — Breakup): Tightly contained crisp fractured pieces of the same compact symmetrical emerald flower crest of crisp painted green leaf petals and small sunlight-gold stars kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 5 (Lush Blossom Nova — Fade): Smaller crisp separating shards of the same symmetrical emerald flower crest of crisp painted green leaf petals and small sunlight-gold stars in vivid emerald-green and sunlit gold.
+Row 2, Col 6 (Lush Blossom Nova — Remnant): Tiny crisp solid vivid emerald-green and sunlit gold spark flecks centered in ample #FF00FF.
+
+Row 3, Col 1 (Phoenix Rebirth Wing — Onset): Tiny centered solid blazing phoenix-gold and bright emerald spark cluster starting the upright pair of neatly folded blazing phoenix-gold and emerald sculpted wing-emblems tucked closely inward.
+Row 3, Col 2 (Phoenix Rebirth Wing — Surge): Small growing hard-edged opaque upright pair of neatly folded blazing phoenix-gold and emerald sculpted wing-emblems tucked closely inward in vivid blazing phoenix-gold and bright emerald, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 3 (Phoenix Rebirth Wing — Peak): Compact full-form crisp hard-edged opaque upright pair of neatly folded blazing phoenix-gold and emerald sculpted wing-emblems tucked closely inward with bold painted blazing phoenix-gold and bright emerald highlights, wide #FF00FF margin on all 4 sides.
+Row 3, Col 4 (Phoenix Rebirth Wing — Breakup): Tightly contained crisp fractured pieces of the same compact upright pair of neatly folded blazing phoenix-gold and emerald sculpted wing-emblems tucked closely inward kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 5 (Phoenix Rebirth Wing — Fade): Smaller crisp separating shards of the same upright pair of neatly folded blazing phoenix-gold and emerald sculpted wing-emblems tucked closely inward in blazing phoenix-gold and bright emerald.
+Row 3, Col 6 (Phoenix Rebirth Wing — Remnant): Tiny crisp solid blazing phoenix-gold and bright emerald spark flecks centered in ample #FF00FF.
+
+Row 4, Col 1 (Arcane Hex Ward — Onset): Tiny centered solid vibrant teal-cyan and burnished gold spark cluster starting the flat front-facing octagonal vibrant teal-cyan and burnished-gold faceted rune shield emblem.
+Row 4, Col 2 (Arcane Hex Ward — Surge): Small growing hard-edged opaque flat front-facing octagonal vibrant teal-cyan and burnished-gold faceted rune shield emblem in vivid vibrant teal-cyan and burnished gold, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 3 (Arcane Hex Ward — Peak): Compact full-form crisp hard-edged opaque flat front-facing octagonal vibrant teal-cyan and burnished-gold faceted rune shield emblem with bold painted vibrant teal-cyan and burnished gold highlights, wide #FF00FF margin on all 4 sides.
+Row 4, Col 4 (Arcane Hex Ward — Breakup): Tightly contained crisp fractured pieces of the same compact flat front-facing octagonal vibrant teal-cyan and burnished-gold faceted rune shield emblem kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 5 (Arcane Hex Ward — Fade): Smaller crisp separating shards of the same flat front-facing octagonal vibrant teal-cyan and burnished-gold faceted rune shield emblem in vibrant teal-cyan and burnished gold.
+Row 4, Col 6 (Arcane Hex Ward — Remnant): Tiny crisp solid vibrant teal-cyan and burnished gold spark flecks centered in ample #FF00FF.
+
+Row 5, Col 1 (Iron Bastion Chevrons — Onset): Tiny centered solid polished steel-gray and bastion gold spark cluster starting the upright beveled steel-gray and bastion-gold kite shield emblem flanked closely by tight chevrons.
+Row 5, Col 2 (Iron Bastion Chevrons — Surge): Small growing hard-edged opaque upright beveled steel-gray and bastion-gold kite shield emblem flanked closely by tight chevrons in vivid polished steel-gray and bastion gold, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 3 (Iron Bastion Chevrons — Peak): Compact full-form crisp hard-edged opaque upright beveled steel-gray and bastion-gold kite shield emblem flanked closely by tight chevrons with bold painted polished steel-gray and bastion gold highlights, wide #FF00FF margin on all 4 sides.
+Row 5, Col 4 (Iron Bastion Chevrons — Breakup): Tightly contained crisp fractured pieces of the same compact upright beveled steel-gray and bastion-gold kite shield emblem flanked closely by tight chevrons kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 5 (Iron Bastion Chevrons — Fade): Smaller crisp separating shards of the same upright beveled steel-gray and bastion-gold kite shield emblem flanked closely by tight chevrons in polished steel-gray and bastion gold.
+Row 5, Col 6 (Iron Bastion Chevrons — Remnant): Tiny crisp solid polished steel-gray and bastion gold spark flecks centered in ample #FF00FF.
+
+Row 6, Col 1 (Sapphire Mana Surge — Onset): Tiny centered solid vivid sapphire-blue and icy aqua spark cluster starting the tightly coiled twin vivid sapphire-blue and icy aqua ribbons spiraling closely around a small white four-point star.
+Row 6, Col 2 (Sapphire Mana Surge — Surge): Small growing hard-edged opaque tightly coiled twin vivid sapphire-blue and icy aqua ribbons spiraling closely around a small white four-point star in vivid sapphire-blue and icy aqua, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 3 (Sapphire Mana Surge — Peak): Compact full-form crisp hard-edged opaque tightly coiled twin vivid sapphire-blue and icy aqua ribbons spiraling closely around a small white four-point star with bold painted vivid sapphire-blue and icy aqua highlights, wide #FF00FF margin on all 4 sides with extra clear #FF00FF below.
+Row 6, Col 4 (Sapphire Mana Surge — Breakup): Tightly contained crisp fractured pieces of the same compact tightly coiled twin vivid sapphire-blue and icy aqua ribbons spiraling closely around a small white four-point star kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 5 (Sapphire Mana Surge — Fade): Smaller crisp separating shards of the same tightly coiled twin vivid sapphire-blue and icy aqua ribbons spiraling closely around a small white four-point star in vivid sapphire-blue and icy aqua.
+Row 6, Col 6 (Sapphire Mana Surge — Remnant): Tiny crisp solid vivid sapphire-blue and icy aqua spark flecks centered in ample #FF00FF.
+
+--- SHEET 4 PROMPT END ---
+
+
+================================================================================
+SHEET 05 OF 5 (vfx_pack_05_nature_cleanse_eclipse_hazard_6x6) — Nature, Cleanse, Eclipse & Crit/Hazard
+# SAVE AS: assets/vfx/batch_sheets/vfx_sheet_05.jpg  (or .png)
+================================================================================
+# ROW MANIFEST:
+#   Row 1 -> Thorny Vine Whip (Thorn Lash/Bramble Snare/Razor Vines/Briar)
+#   Row 2 -> Purifying Cleanse Chime (Smelling Salts/Antidote/Cooling/Warming/Panacea)
+#   Row 3 -> Golden Rally Crest (Veteran's Call/Stag's Vigor/Queen's Decree/Resolve)
+#   Row 4 -> Dark Eclipse Starburst (Void Pull/Eclipse Singularity/Hellfire/Siphon)
+#   Row 5 -> Gale Wind & Spectral Fang (Gale Gust/Tempest Wing/Dire Fang/Dodge Evade)
+#   Row 6 -> Boss Hazard & Stun Flash (Boss Telegraph Crest/Stun Stars/Crit/Parry)
+
+--- SHEET 5 PROMPT START (Copy from next line down) ---
+1:1 square VFX sprite sheet showing a STRICT 6x6 grid (EXACTLY 6 equal columns across by 6 equal rows down — 36 evenly spaced isolated opaque flat 2D fantasy combat VFX cutouts total, NEVER 4x4, NEVER 5x5, NEVER duplicate or omit a cell) floating completely separate on a pure, flat, solid neon magenta (#FF00FF) chroma-key background with NO grid divider lines, NO slot boxes or borders, NO pedestals, NO hands, NO drop shadows onto the pink, NO outer magic aura or glow blooming into the pink, NO numbers, NO captions, and NO text labels anywhere (STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY EFFECT).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA — CRISP HARD-EDGED OPAQUE 2D VFX):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital VFX illustration — bold solid hard-edged opaque shapes built for crisp RPG readability, sculpted hard-edged ribbons, sharp metallic slash arcs, crystal facets, painted leaves, glossy solid liquid droplets, crisp directional rim-light highlights, clean dark contour separation, rich handcrafted color clarity, and strong contrast. Every single sprite MUST have crisp hard-edged painted silhouettes — strictly ZERO soft airbrush blur, ZERO cloudy smoke, ZERO hazy fog or mist, ZERO soft translucent edges, ZERO pixel art, ZERO scratchy pen hatching, ZERO watercolor bleed, ZERO glossy 3D CGI toy render finish, and ZERO letters, runes-as-words, or numbers anywhere.
+
+UNIFORM FRAMING & 6x6 GUTTER SPACING LOCK:
+All 36 VFX cutouts face straight forward flat on the 2D camera plane with razor-clean opaque edges separating sharply from #FF00FF. Each horizontal row (Col 1 to Col 6, left to right) animates one unified effect across 6 stages: Col 1 (tiny onset seed) -> Col 2 (small growing form) -> Col 3 (compact full-form peak) -> Col 4 (tight fracturing breakup inside the SAME small diameter) -> Col 5 (smaller separating pieces) -> Col 6 (tiny remnant flecks).
+
+CRITICAL PADDING & ZERO-CLIPPING MANDATES:
+1. MANDATORY 25% MAGENTA SAFETY BUFFER: Because this is a tight 6x6 sheet, scale EVERY spell cutout down small to occupy ONLY the central 45% to 55% of its space. A wide empty moat of solid #FF00FF magenta background MUST completely surround every cutout on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO lightning bolts, flame tongues, arrow tips, fletchings, wings, crystal spikes, leaves, droplets, or ribbons may reach, touch, or cross ANY neighbor boundary or outer image edge. Keep Peak (Col 3) and Breakup (Col 4) compact and tightly contained — Col 4 splits into fractured pieces INSIDE the exact same small central footprint (NEVER wider or taller than Col 3) so wide solid #FF00FF margins stay completely clean above Row 1, below Row 6, and between every row and column.
+
+Render these exact 36 distinct keyframes cleanly from Row 1 to Row 6, left to right:
+
+Row 1, Col 1 (Thorny Vine Whip — Onset): Tiny centered solid forest emerald and sharp crimson spark cluster starting the tightly coiled ring of crisp forest-emerald thorned vines with small sharp crimson thorns.
+Row 1, Col 2 (Thorny Vine Whip — Surge): Small growing hard-edged opaque tightly coiled ring of crisp forest-emerald thorned vines with small sharp crimson thorns in vivid forest emerald and sharp crimson, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 3 (Thorny Vine Whip — Peak): Compact full-form crisp hard-edged opaque tightly coiled ring of crisp forest-emerald thorned vines with small sharp crimson thorns with bold painted forest emerald and sharp crimson highlights, wide #FF00FF margin on all 4 sides.
+Row 1, Col 4 (Thorny Vine Whip — Breakup): Tightly contained crisp fractured pieces of the same compact tightly coiled ring of crisp forest-emerald thorned vines with small sharp crimson thorns kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 1, Col 5 (Thorny Vine Whip — Fade): Smaller crisp separating shards of the same tightly coiled ring of crisp forest-emerald thorned vines with small sharp crimson thorns in forest emerald and sharp crimson.
+Row 1, Col 6 (Thorny Vine Whip — Remnant): Tiny crisp solid forest emerald and sharp crimson spark flecks centered in ample #FF00FF.
+
+Row 2, Col 1 (Purifying Cleanse Chime — Onset): Tiny centered solid fresh mint-aqua and pure ivory-gold spark cluster starting the centered bright mint-aqua and pale ivory-gold diamond starburst emblem ringed closely by four small crisp chimes.
+Row 2, Col 2 (Purifying Cleanse Chime — Surge): Small growing hard-edged opaque centered bright mint-aqua and pale ivory-gold diamond starburst emblem ringed closely by four small crisp chimes in vivid fresh mint-aqua and pure ivory-gold, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 3 (Purifying Cleanse Chime — Peak): Compact full-form crisp hard-edged opaque centered bright mint-aqua and pale ivory-gold diamond starburst emblem ringed closely by four small crisp chimes with bold painted fresh mint-aqua and pure ivory-gold highlights, wide #FF00FF margin on all 4 sides.
+Row 2, Col 4 (Purifying Cleanse Chime — Breakup): Tightly contained crisp fractured pieces of the same compact centered bright mint-aqua and pale ivory-gold diamond starburst emblem ringed closely by four small crisp chimes kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 2, Col 5 (Purifying Cleanse Chime — Fade): Smaller crisp separating shards of the same centered bright mint-aqua and pale ivory-gold diamond starburst emblem ringed closely by four small crisp chimes in fresh mint-aqua and pure ivory-gold.
+Row 2, Col 6 (Purifying Cleanse Chime — Remnant): Tiny crisp solid fresh mint-aqua and pure ivory-gold spark flecks centered in ample #FF00FF.
+
+Row 3, Col 1 (Golden Rally Crest — Onset): Tiny centered solid burnished gold and vivid scarlet spark cluster starting the upright burnished-gold and vivid scarlet folded twin war-ribbons framing a small golden sunburst crest.
+Row 3, Col 2 (Golden Rally Crest — Surge): Small growing hard-edged opaque upright burnished-gold and vivid scarlet folded twin war-ribbons framing a small golden sunburst crest in vivid burnished gold and vivid scarlet, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 3 (Golden Rally Crest — Peak): Compact full-form crisp hard-edged opaque upright burnished-gold and vivid scarlet folded twin war-ribbons framing a small golden sunburst crest with bold painted burnished gold and vivid scarlet highlights, wide #FF00FF margin on all 4 sides.
+Row 3, Col 4 (Golden Rally Crest — Breakup): Tightly contained crisp fractured pieces of the same compact upright burnished-gold and vivid scarlet folded twin war-ribbons framing a small golden sunburst crest kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 3, Col 5 (Golden Rally Crest — Fade): Smaller crisp separating shards of the same upright burnished-gold and vivid scarlet folded twin war-ribbons framing a small golden sunburst crest in burnished gold and vivid scarlet.
+Row 3, Col 6 (Golden Rally Crest — Remnant): Tiny crisp solid burnished gold and vivid scarlet spark flecks centered in ample #FF00FF.
+
+Row 4, Col 1 (Dark Eclipse Starburst — Onset): Tiny centered solid midnight cobalt-navy and blazing amber-gold spark cluster starting the centered midnight cobalt-navy crescent eclipse disc rimmed tightly by short sharp amber-gold corona spikes.
+Row 4, Col 2 (Dark Eclipse Starburst — Surge): Small growing hard-edged opaque centered midnight cobalt-navy crescent eclipse disc rimmed tightly by short sharp amber-gold corona spikes in vivid midnight cobalt-navy and blazing amber-gold, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 3 (Dark Eclipse Starburst — Peak): Compact full-form crisp hard-edged opaque centered midnight cobalt-navy crescent eclipse disc rimmed tightly by short sharp amber-gold corona spikes with bold painted midnight cobalt-navy and blazing amber-gold highlights, wide #FF00FF margin on all 4 sides.
+Row 4, Col 4 (Dark Eclipse Starburst — Breakup): Tightly contained crisp fractured pieces of the same compact centered midnight cobalt-navy crescent eclipse disc rimmed tightly by short sharp amber-gold corona spikes kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 4, Col 5 (Dark Eclipse Starburst — Fade): Smaller crisp separating shards of the same centered midnight cobalt-navy crescent eclipse disc rimmed tightly by short sharp amber-gold corona spikes in midnight cobalt-navy and blazing amber-gold.
+Row 4, Col 6 (Dark Eclipse Starburst — Remnant): Tiny crisp solid midnight cobalt-navy and blazing amber-gold spark flecks centered in ample #FF00FF.
+
+Row 5, Col 1 (Gale Wind & Spectral Fang — Onset): Tiny centered solid pale aqua-cyan and icy silver-white spark cluster starting the tight pair of crisp aqua-cyan wind-crescent ribbons framing a small sharp icy-white wolf-fang crest.
+Row 5, Col 2 (Gale Wind & Spectral Fang — Surge): Small growing hard-edged opaque tight pair of crisp aqua-cyan wind-crescent ribbons framing a small sharp icy-white wolf-fang crest in vivid pale aqua-cyan and icy silver-white, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 3 (Gale Wind & Spectral Fang — Peak): Compact full-form crisp hard-edged opaque tight pair of crisp aqua-cyan wind-crescent ribbons framing a small sharp icy-white wolf-fang crest with bold painted pale aqua-cyan and icy silver-white highlights, wide #FF00FF margin on all 4 sides.
+Row 5, Col 4 (Gale Wind & Spectral Fang — Breakup): Tightly contained crisp fractured pieces of the same compact tight pair of crisp aqua-cyan wind-crescent ribbons framing a small sharp icy-white wolf-fang crest kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 5, Col 5 (Gale Wind & Spectral Fang — Fade): Smaller crisp separating shards of the same tight pair of crisp aqua-cyan wind-crescent ribbons framing a small sharp icy-white wolf-fang crest in pale aqua-cyan and icy silver-white.
+Row 5, Col 6 (Gale Wind & Spectral Fang — Remnant): Tiny crisp solid pale aqua-cyan and icy silver-white spark flecks centered in ample #FF00FF.
+
+Row 6, Col 1 (Boss Hazard & Stun Flash — Onset): Tiny centered solid warning crimson and gleaming gold spark cluster starting the bold crimson-and-gold diamond hazard starburst topped cleanly by three small gleaming gold stars.
+Row 6, Col 2 (Boss Hazard & Stun Flash — Surge): Small growing hard-edged opaque bold crimson-and-gold diamond hazard starburst topped cleanly by three small gleaming gold stars in vivid warning crimson and gleaming gold, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 3 (Boss Hazard & Stun Flash — Peak): Compact full-form crisp hard-edged opaque bold crimson-and-gold diamond hazard starburst topped cleanly by three small gleaming gold stars with bold painted warning crimson and gleaming gold highlights, wide #FF00FF margin on all 4 sides with extra clear #FF00FF below.
+Row 6, Col 4 (Boss Hazard & Stun Flash — Breakup): Tightly contained crisp fractured pieces of the same compact bold crimson-and-gold diamond hazard starburst topped cleanly by three small gleaming gold stars kept strictly inside the same small central footprint, wide empty #FF00FF moat on all 4 sides.
+Row 6, Col 5 (Boss Hazard & Stun Flash — Fade): Smaller crisp separating shards of the same bold crimson-and-gold diamond hazard starburst topped cleanly by three small gleaming gold stars in warning crimson and gleaming gold.
+Row 6, Col 6 (Boss Hazard & Stun Flash — Remnant): Tiny crisp solid warning crimson and gleaming gold spark flecks centered in ample #FF00FF.
+
+--- SHEET 5 PROMPT END ---
+

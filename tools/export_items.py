@@ -266,49 +266,45 @@ def build_slot_assignments(cat_items: list[dict], manifest: list[dict]) -> dict[
                 eslug = f"extra_{slugify(wtype)}_{slugify(sname)}"
                 assign_subpath(s2, j, f"extras/{eslug}.webp", eslug, sname)
 
-    # 2. Armor & Helms (92 + 92)
-    for cat_key, sheet_seq, pref in [
-        (
-            "armor",
-            [
-                ("items_armor_light_sheet1", 24, "emblems/emblem_armor_light.webp"),
-                ("items_armor_light_sheet2", 12, None),
-                ("items_armor_medium_sheet1", 24, "emblems/emblem_armor_medium.webp"),
-                ("items_armor_medium_sheet2", 16, None),
-                ("items_armor_heavy", 16, None),
-            ],
-            "armor",
-        ),
-        (
-            "helm",
-            [
-                ("items_helms_light_sheet1", 24, "emblems/emblem_helm_light.webp"),
-                ("items_helms_light_sheet2", 12, None),
-                ("items_helms_medium_sheet1", 24, "emblems/emblem_helm_medium.webp"),
-                ("items_helms_medium_sheet2", 16, None),
-                ("items_helms_heavy", 16, None),
-            ],
-            "helm",
-        ),
-    ]:
-        items_list = [x for x in cat_items if x["category"] == cat_key]
-        assert len(items_list) == 92
-        cursor = 0
-        for sid, take_count, emblem_rel in sheet_seq:
-            for i in range(take_count):
-                assign_catalog_item(sid, i, items_list[cursor])
-                cursor += 1
-            if emblem_rel is not None and len(sh_by_id[sid]["slots"]) > take_count:
+    # 2. Armor & Helms (92 + 92) — match by exact sheet subType order + step ascending
+    armor_helm_sheet_subtypes: list[tuple[str, list[str], str | None]] = [
+        ("light_sheet1", ["Leather", "Padded Leather", "Studded Leather", "Spiked Leather", "Simple Robes", "Fine Robes"], "emblems/emblem_{pref}_light.webp"),
+        ("light_sheet2", ["Padded Robes", "Silk Robes", "Widowsilk Robes"], None),
+        ("medium_sheet1", ["Hide", "Scale Mail", "Breastplate", "Half Plate", "Reinforced Leather", "Leather Plate"], "emblems/emblem_{pref}_medium.webp"),
+        ("medium_sheet2", ["Padded Bone", "Reinforced Bone", "Scale Plate", "Dragonscale"], None),
+        ("heavy", ["Ring Mail", "Chain Mail", "Splint", "Plate"], None),
+    ]
+
+    for cat_key, sheet_prefix, pref in [("armor", "items_armor_", "armor"), ("helm", "items_helms_", "helm")]:
+        by_sub: dict[str, list[dict]] = {}
+        for x in cat_items:
+            if x["category"] == cat_key:
+                by_sub.setdefault(x["subType"], []).append(x)
+        for grp in by_sub.values():
+            grp.sort(key=lambda x: x["step"])
+
+        mapped_count = 0
+        for suffix, sub_list, emblem_tmpl in armor_helm_sheet_subtypes:
+            sid = f"{sheet_prefix}{suffix}"
+            ordered_items: list[dict] = []
+            for st in sub_list:
+                ordered_items.extend(by_sub[st])
+            take_count = len(ordered_items)
+            for i, it in enumerate(ordered_items):
+                assign_catalog_item(sid, i, it)
+                mapped_count += 1
+            if emblem_tmpl is not None and len(sh_by_id[sid]["slots"]) > take_count:
+                emblem_rel = emblem_tmpl.format(pref=pref)
                 sl = sh_by_id[sid]["slots"][take_count]
                 eid = Path(emblem_rel).stem
                 assign_subpath(sid, take_count, emblem_rel, eid, sl["name"])
-            for j in range(take_count + (1 if emblem_rel else 0), len(sh_by_id[sid]["slots"])):
+            for j in range(take_count + (1 if emblem_tmpl else 0), len(sh_by_id[sid]["slots"])):
                 if (sid, j) in SKIP_SLOTS:
                     continue
                 sl = sh_by_id[sid]["slots"][j]
                 eslug = f"extra_{pref}_{slugify(sl['name'])}"
                 assign_subpath(sid, j, f"extras/{eslug}.webp", eslug, sl["name"])
-        assert cursor == 92
+        assert mapped_count == 92
 
     # 3. Shields (24 + 1 emblem)
     shd_items = [x for x in cat_items if x["category"] == "shield"]

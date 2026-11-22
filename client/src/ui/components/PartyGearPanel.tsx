@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { assetUrl } from "../api";
+import { hideClientItemTooltip, itemTooltipHandlers } from "../shops/itemTooltip";
 import { SLOT_LABELS, itemSlotFor } from "../shops/shopLogic";
 import type { EquippedGearMap, GearSlot, HeroId, ItemEntry, SpellEntry } from "../types";
 
@@ -26,6 +27,7 @@ export const PartyGearPanel: React.FC<PartyGearPanelProps> = ({
   spells,
   onEquipFromBag,
 }) => {
+  useEffect(() => () => hideClientItemTooltip(), [tab, heroId]);
   const heroGear = equippedByHero[heroId] ?? {};
 
   if (tab === "gear") {
@@ -35,7 +37,11 @@ export const PartyGearPanel: React.FC<PartyGearPanelProps> = ({
           const itemId = heroGear[slot];
           const item = itemId ? itemsById[itemId] : null;
           return (
-            <div key={slot} className="rounded border border-[#2c3446] bg-[#161b26] p-1.5 px-2.5 flex items-center gap-2.5">
+            <div
+              key={slot}
+              {...itemTooltipHandlers(item, { activeHeroId: heroId, equippedByHero, itemsById, learnedSpellIds })}
+              className="rounded border border-[#2c3446] bg-[#161b26] p-1.5 px-2.5 flex items-center gap-2.5"
+            >
               {item ? (
                 <img src={assetUrl(item.iconPath)} alt={item.name} className="w-11 h-11 p-0.5 rounded object-contain border border-[#6e5936] bg-[#0f131b] shrink-0" />
               ) : (
@@ -66,7 +72,11 @@ export const PartyGearPanel: React.FC<PartyGearPanelProps> = ({
           <div className="text-[10.5px] uppercase tracking-wider text-[#d7b267] font-bold mb-1">Learned Spells ({heroSpells.length})</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
             {heroSpells.map((sp) => (
-              <div key={sp.id} className="rounded border border-[#3a4259] bg-[#161c2a] p-1.5 px-2 flex items-center gap-2">
+              <div
+                key={sp.id}
+                {...itemTooltipHandlers(sp, { activeHeroId: heroId, equippedByHero, itemsById, learnedSpellIds })}
+                className="rounded border border-[#3a4259] bg-[#161c2a] p-1.5 px-2 flex items-center gap-2"
+              >
                 <img src={assetUrl(sp.iconPath)} alt="" className="w-10 h-10 rounded object-cover border border-[#4c5b7a] shrink-0" />
                 <div className="min-w-0 flex-1">
                   <div className="text-[12px] font-bold text-[#f3e6cb] truncate">{sp.name}</div>
@@ -88,7 +98,11 @@ export const PartyGearPanel: React.FC<PartyGearPanelProps> = ({
               const slot = itemSlotFor(item);
               const canEquip = Boolean(slot && (!item.usableBy || item.usableBy.includes(heroId)));
               return (
-                <div key={item.id} className="rounded border border-[#2c3446] bg-[#161b26] p-1.5 px-2 flex items-center gap-2">
+                <div
+                  key={item.id}
+                  {...itemTooltipHandlers(item, { activeHeroId: heroId, equippedByHero, itemsById, learnedSpellIds })}
+                  className="rounded border border-[#2c3446] bg-[#161b26] p-1.5 px-2 flex items-center gap-2"
+                >
                   <img src={assetUrl(item.iconPath)} alt="" className="w-10 h-10 p-0.5 rounded object-contain border border-[#59492d] bg-[#0f131b] shrink-0" />
                   <div className="min-w-0 flex-1">
                     <div className="text-[12.5px] font-bold text-[#efe4cc] truncate">{item.name} ×{qty}</div>

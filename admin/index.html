@@ -213,6 +213,22 @@
             <input type="range" id="inspRadius" min="48" max="240" step="4" value="88" />
           </label>
 
+          <div id="inspRotateWrap" class="hidden">
+            <label class="slider-field">
+              <span>Coast Rotation <strong id="inspRotateVal">0°</strong></span>
+              <input type="range" id="inspRotate" min="0" max="359" step="1" value="0" />
+            </label>
+            <div class="rot-step-row">
+              <button type="button" class="btn rot-btn" data-rot-delta="-45">-45°</button>
+              <button type="button" class="btn rot-btn" data-rot-delta="-15">-15°</button>
+              <button type="button" class="btn rot-btn" data-rot-delta="-5">-5°</button>
+              <button type="button" class="btn rot-btn" data-rot-delta="5">+5°</button>
+              <button type="button" class="btn rot-btn" data-rot-delta="15">+15°</button>
+              <button type="button" class="btn rot-btn" data-rot-delta="45">+45°</button>
+              <button type="button" class="btn rot-btn" id="btnRotReset">0°</button>
+            </div>
+          </div>
+
           <div class="insp-buttons">
             <button class="btn" id="btnCenterCam">Center View</button>
             <button id="btnDuplicate" class="btn hidden">Duplicate Pin</button>

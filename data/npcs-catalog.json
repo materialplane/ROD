@@ -134,7 +134,7 @@
           "category": "merchant_trade",
           "shopType": "trade_goods",
           "servicesOffered": [
-            "Trade Goods Exchange (Buy Monster Trophies)"
+            "Trade Goods Exchange (Buy Trade Goods)"
           ],
           "portraitPath": "assets/portraits/npcs/npc_res_guild_appraiser.webp",
           "shopLabel": "Trade Goods Buyer"
@@ -588,7 +588,7 @@
           "category": "merchant_trade",
           "shopType": "trade_goods",
           "servicesOffered": [
-            "Trade Goods Exchange (Buy Monster Trophies)"
+            "Trade Goods Exchange (Buy Trade Goods)"
           ],
           "portraitPath": "assets/portraits/npcs/npc_res_saltwind_dockhand.webp",
           "shopLabel": "Trade Goods Buyer"

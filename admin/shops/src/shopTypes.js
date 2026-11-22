@@ -51,7 +51,7 @@ export const SHOP_META = {
     id: "trade_goods",
     label: "Trade Goods Buyer",
     badge: "Trade Goods",
-    quote: "Drop any monster spoils on the counter and I will weigh them out in Silver.",
+    quote: "Drop any trade goods on the counter and I will weigh them out in Silver.",
     pills: [],
   },
 };

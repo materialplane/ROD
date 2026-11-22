@@ -131,14 +131,14 @@ ROW 2 (Map 4 Frostbound & Dreadwaste New Hubs):
 - (2,4) SCORCHWALL FORT [Steel Ring]: Jagged dark obsidian-and-iron coastal fortress guarding volcanic sea cliffs above dark-navy waves with chained iron drawbridge and glowing warning braziers.
 
 ROW 3 (Map 1 Unique Zone Outposts Z1–Z4):
-- (3,1) MEADOWGATE WATCH-POST (Zone 1 · Lv 1–5) [Bronze Ring]: Small sunlit green meadow ranger hunting outpost with peaked canvas patrol tent, split-rail horse hitching post, trophy skull rack, and warm iron lantern post.
-- (3,2) OAKWOOD RANGER CAMP (Zone 2 · Lv 6–10) [Bronze Ring]: Sun-dappled oak forest timber lean-to lodge, stretched wolf-pelt drying frame, wooden bow racks, and crackling stone-ring campfire amidst oak leaves.
+- (3,1) MEADOWGATE WATCH-POST (Zone 1 · Lv 1–5) [Bronze Ring]: Sunlit green Crownlands oak-timber palisade hunting fort with sharpened log perimeter wall, pointed timber gatehouse watchtower, horned beast-skull gate arch, lantern post, and split-rail horse hitching post.
+- (3,2) OAKWOOD RANGER CAMP (Zone 2 · Lv 6–10) [Bronze Ring]: Woodland oak-log palisade stockade fort nestled among sun-dappled oak trees with bark-shingled gatehouse roof, raised corner watch-bastion, drying wolf-pelts along inner timber parapet, bow racks, and stone fire-ring.
 - (3,3) SLATE-RIDGE SCOUT OUTPOST (Zone 3 · Lv 11–15) [Bronze Ring]: Gray-slate hillside stone watch-bunker with low timber palisade, brass signal horn post, and outdoor parchment map table on golden hillside grass.
-- (3,4) BRINEFEN HUNTER LANDING (Zone 4 · Lv 16–20) [Bronze Ring]: Coastal sandy grass-and-tide-pool timber dock outpost with stacked wooden crab traps, striped sun awning, harpoon rack, and glowing lantern.
+- (3,4) BRINEFEN HUNTER LANDING (Zone 4 · Lv 16–20) [Bronze Ring]: Coastal stone-and-driftwood palisade sea-fort overlooking sandy tide pools with tarred-pine sharpened stockade wall, striped canvas watchtower canopy, stacked crab cages, harpoon rack, and glowing beacon lantern.
 
 ROW 4 (Map 1 Z5 + Map 2 Z6–Z8 Unique Zone Outposts):
-- (4,1) BOGWARDEN STILT-POST (Zone 5 · Lv 21–25) [Bronze Ring]: Elevated saltmarsh wetland timber hunter platform on sturdy wooden footings resting on solid muddy green turf beside marsh reeds with hanging marsh-toad nets and smoking iron smudge pot (STRICTLY on walkable marsh land).
-- (4,2) OCHRE-DOWNS TRACKER CAMP (Zone 6 · Lv 26–30) [Bronze Ring]: Sunlit golden-ochre highland grass ranger outpost with canvas war-tent, wooden horse corral, crossbow target bales, and fluttering scout pennant.
+- (4,1) BOGWARDEN STILT-POST (Zone 5 · Lv 21–25) [Bronze Ring]: Elevated cypress-timber saltmarsh palisade fort anchored on thick wooden pilings and solid muddy green turf beside cattail reeds with enclosed timber blockhouse, sharpened stockade wall, marsh-toad nets, and smoking iron smudge pots (STRICTLY on walkable marsh land).
+- (4,2) OCHRE-DOWNS TRACKER CAMP (Zone 6 · Lv 26–30) [Bronze Ring]: Golden-ochre highland earth-and-oak frontier palisade fort with sloped earthen berm, sharpened timber ringwall, corner wooden watchtower, enclosed horse paddock, crossbow parapet, and fluttering crimson scout pennant.
 - (4,3) CRAGSPIRE QUARRY POST (Zone 7 · Lv 31–35) [Bronze Ring]: Gray-slate highland stone watch-outpost tucked beside iron boulders on golden grass with tripod fire brazier, pickaxe rack, and iron round-shields.
 - (4,4) FERNBROOK RANGER STATION (Zone 8 · Lv 36–40) [Bronze Ring]: Mossy eastern forest clearing timber ranger cabin with green hunter pennants, fletching workbench, stacked oak logs, and warm lantern glow.
 
@@ -151,10 +151,10 @@ LOCATION SHEET C (4x4, 16 Tokens): ZONE OUTPOSTS Z9–Z20 (12) + 4 SEA-TRAVEL PO
 FRAME RULE BY CATEGORY: Give all Zone Outposts and Coastal Sea-Travel Port Towns a warm weathered bronze VTT ring (strictly NO magenta bleed onto frames).
 
 ROW 1 (Map 2 Z9–Z10 + Map 3 Desert Z11–Z12 Zone Outposts):
-- (1,1) CANOPY-WATCH TREE-POST (Zone 9 · Lv 41–45) [Bronze Ring]: Lush emerald woodland elevated timber lookout platform built around thick living oak trunks with rope-ladder scaffold, archer rail, and scout horn.
+- (1,1) CANOPY-WATCH TREE-POST (Zone 9 · Lv 41–45) [Bronze Ring]: Lofty emerald oak-canopy treetop palisade fort wedged securely around massive living oak trunks with sharpened cedar stockade parapet, covered peaked longhouse tower, rope-hoist scaffold, archer gallery, and brass scout horn.
 - (1,2) MIRE-EDGE QUARANTINE CAMP (Zone 10 · Lv 46–50) [Bronze Ring]: Shadowed dark-emerald glade perimeter timber palisade post with glowing green alchemical lime braziers, apothecary vials, and iron spear rack.
-- (1,3) DUNE-RUNNER NOMAD POST (Zone 11 · Lv 51–55) [Bronze Ring]: Sun-baked sandstone desert patrol camp on golden sand dunes with woven striped canvas sun-tarp, clay water amphorae, saddlebags, and spear rack.
-- (1,4) PALM-SPRING HUNTER PAVILION (Zone 12 · Lv 56–60) [Bronze Ring]: Lush green desert palm-oasis wooden hunter pavilion with cooling shade cloth, carved monster skull trophies, water casks, and glowing brass lanterns.
+- (1,3) DUNE-RUNNER NOMAD POST (Zone 11 · Lv 51–55) [Bronze Ring]: Sun-baked sandstone-and-cedar desert palisade fort perched on golden sand dunes with battered sandstone lower wall topped by sharpened cedar palisade spikes, shaded crimson-ochre gate bastion, clay water amphorae, and spear rack.
+- (1,4) PALM-SPRING HUNTER PAVILION (Zone 12 · Lv 56–60) [Bronze Ring]: Desert palm-oasis fortified sandstone-and-timber palisade outpost set beside green date palms with sandstone corner watchtowers linked by sharpened cedar stockade walls, shaded roof parapet, monster skull trophies, and glowing brass lanterns.
 
 ROW 2 (Map 3 Mesa/Highland Z13–Z15 + Map 4 Z16 Zone Outposts):
 - (2,1) MESA-WATCH RANGER OUTPOST (Zone 13 · Lv 61–65) [Bronze Ring]: Terracotta sandstone desert mesa lookout camp with carved stone shelter, brass spyglass tripod, water barrels, and tattered desert banner.

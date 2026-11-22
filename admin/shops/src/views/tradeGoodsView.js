@@ -1,13 +1,14 @@
 import { esc, formatSilver, makeIconBox } from "../uiParts.js";
+import { bindItemTooltip } from "../itemTooltip.js";
 
-// Dedicated Trade Goods NPC Exchange Counter: shows carried spoils + 1-click Sell All (NO buy list).
-export function renderTradeGoodsView(trophies, state, handlers) {
+// Dedicated Trade Goods NPC Exchange Counter: shows carried trade goods + 1-click Sell All (NO buy list).
+export function renderTradeGoodsView(tradeGoods, state, handlers) {
   const wrap = document.createElement("div");
   wrap.className = "tg-wrap";
 
-  const remaining = trophies.filter((it) => !state.soldTradeIds.has(it.id));
+  const remaining = tradeGoods.filter((it) => !state.soldTradeIds.has(it.id));
   const totalSilver = remaining.reduce((s, it) => s + (it.sellSilver || 0), 0);
-  const earnedSilver = trophies
+  const earnedSilver = tradeGoods
     .filter((it) => state.soldTradeIds.has(it.id))
     .reduce((s, it) => s + (it.sellSilver || 0), 0);
 
@@ -15,17 +16,17 @@ export function renderTradeGoodsView(trophies, state, handlers) {
   banner.className = "tg-banner";
   banner.innerHTML = `
     <div class="tg-summary">
-      <div class="tg-eyebrow">Party Spoils Appraisal</div>
+      <div class="tg-eyebrow">Trade Goods Appraisal</div>
       <div class="tg-headline font-display">${
         remaining.length > 0
-          ? `${remaining.length} Monster Trophies Ready to Sell`
-          : `All Trophies Sold (+${formatSilver(earnedSilver)} Earned)`
+          ? `${remaining.length} Trade Goods Ready to Sell`
+          : `All Trade Goods Sold (+${formatSilver(earnedSilver)} Earned)`
       }</div>
       <div class="tg-sub">
         ${
           remaining.length > 0
             ? `Total Exchange Value: <strong style="color:#fae2aa;">+${formatSilver(totalSilver)}</strong>`
-            : "Bring back more fangs, hides, shards, and horns from the wilds to trade for Silver."
+            : "Bring back more trade goods from the wilds to exchange for Silver."
         }
       </div>
     </div>
@@ -33,13 +34,13 @@ export function renderTradeGoodsView(trophies, state, handlers) {
       ${remaining.length > 0 ? `Sell All Trade Goods (+${formatSilver(totalSilver)})` : "✓ Bag Empty"}
     </button>
   `;
-  banner.querySelector(".tg-sell-btn").addEventListener("click", () => handlers.onSellAllTrade(trophies));
+  banner.querySelector(".tg-sell-btn").addEventListener("click", () => handlers.onSellAllTrade(tradeGoods));
   wrap.appendChild(banner);
 
   if (remaining.length > 0) {
     const manifestHead = document.createElement("div");
     manifestHead.className = "tg-list-head";
-    manifestHead.textContent = "Carrying in Party Loot Sack (Weighed All Together)";
+    manifestHead.textContent = "Carrying in Party Pack (Weighed All Together)";
     wrap.appendChild(manifestHead);
 
     const grid = document.createElement("div");
@@ -60,6 +61,7 @@ export function renderTradeGoodsView(trophies, state, handlers) {
       val.textContent = `+${formatSilver(item.sellSilver)}`;
 
       row.append(meta, val);
+      bindItemTooltip(row, item, state);
       grid.appendChild(row);
     }
     wrap.appendChild(grid);

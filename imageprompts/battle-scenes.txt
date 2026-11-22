@@ -1,0 +1,866 @@
+# ROD — All 41 Biome & Portal 16:9 Turn-Based Battle Stage Backdrops
+# Source: 34 Painted Ethoria Biomes/Shores + 7 Dimensional Portals from monsters.txt
+# Art Style Anchor: Matches loc_01_overgrown_garden_sanctuary.jpg, hub_timberfall_village.jpg, and menu_background_16x9_4k_v2.png — moody overcast chiaroscuro daylight with crisp golden sunbreaks under dramatic cobalt-indigo storm clouds (zero dusk/dawn/night, zero bright washed sun).
+# Browser / Batch Mode: Strictly text-only (no reference images needed).
+# Layout: ~85% open detailed battle arena (BATTLESCENE MANDATE — no protruding rocks, boulders or branches), ~15% top biome rim.
+# Target Model: models/gemini-3-pro-image (16:9 Aspect Ratio, 4K) via Gemini Batch API (50% off) after review
+
+================================================================================
+BIOME 01 OF 41 (biome_01_crownland_meadows) — CROWNLAND MEADOWS
+================================================================================
+# Zones / Section: Map 1 - Zone 1 (Lv 1-5), Map 1 - Zone 2 (Lv 6-10), Map 1 - Zone 4 (Lv 16-20), Map 1 - Zone 5 (Lv 21-25)
+# Monsters Spawning Here: Bandit, Acolyte, Thug, Spy, Bandit Captain, Warrior Veteran
+
+--- COPY PROMPT START (BIOME 01: CROWNLAND MEADOWS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+High-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Crownlands meadow clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds treeline, hills, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED MEADOW BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: sun-baked winding golden-ochre dirt wagon ruts and worn earth blended cleanly into rich sunlit emerald-and-olive meadow turf, crisp chiseled flat stones flush in the grass, mossy seams, small clover patches, and scattered low grass blades along edges—strictly clear across both the left hero zone and right enemy zone with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — MEADOW OAK RIM, HILLS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a low weathered mossy dry-stone boundary wall lined with gnarled Crownlands oak trunks and golden-amber rim-lit foliage canopies cropping along the upper edge, softly shadowed blue-cobalt distant hills hugging close to the upper horizon, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 01: CROWNLAND MEADOWS) ---
+
+
+================================================================================
+BIOME 02 OF 41 (biome_02_oakleaf_groves) — OAKLEAF GROVES
+================================================================================
+# Zones / Section: Map 1 - Zone 1 (Lv 1-5), Map 1 - Zone 2 (Lv 6-10), Map 1 - Zone 3 (Lv 11-15)
+# Monsters Spawning Here: Cultist, Wolf, Zombie, Ghoul, Dire Wolf, Giant Spider
+
+--- COPY PROMPT START (BIOME 02: OAKLEAF GROVES) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open sheltered Crownlands Oakleaf Groves forest glade—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds woodland treeline and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED OAKLEAF GROVES BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: intricately painted warm sunlit dirt woodland trail paths blended cleanly into detailed layered emerald grass tufts and moss patches, cracked mossy pebbles and weathered oak root seams flush in soil, crisp golden fallen oak leaves, and tiny fern clusters along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — GNARLED OAK RIM & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a low mossy forest edge lined with colossal gnarled oak trunks and golden-amber rim-lit leafy canopies cropping cleanly along the upper edge, softly shadowed cobalt woodland depths behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 02: OAKLEAF GROVES) ---
+
+
+================================================================================
+BIOME 03 OF 41 (biome_03_coastal_shore_crown_sea) — COASTAL SHORE (CROWN SEA)
+================================================================================
+# Zones / Section: Map 1 - Zone 1 (Lv 1-5), Map 1 - Zone 3 (Lv 11-15)
+# Monsters Spawning Here: Giant Crab, Pirate
+
+--- COPY PROMPT START (BIOME 03: COASTAL SHORE (CROWN SEA)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Crown Sea coastal beachhead clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds dune rim, sea, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED COASTAL SHORE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: broad smoothly compacted golden-ochre dry and damp tidal beach sand blended cleanly into lush sunlit coastal marram turf, weathered coastal stone seams flush in sand, and scattered low dune-grass blades along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — DUNES, CROWN SEA & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run low golden sandy dune crests lined with windblown sea-grass hugging tightly along the upper edge catching bright warm golden-amber sunset rim light above deep-cobalt Crown Sea waters, distant sapphire headlands, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 03: COASTAL SHORE (CROWN SEA)) ---
+
+
+================================================================================
+BIOME 04 OF 41 (biome_04_upland_foothills) — UPLAND FOOTHILLS
+================================================================================
+# Zones / Section: Map 1 - Zone 1 (Lv 1-5), Map 1 - Zone 2 (Lv 6-10), Map 1 - Zone 3 (Lv 11-15), Map 1 - Zone 4 (Lv 16-20)
+# Monsters Spawning Here: Skeleton, Worg, Brown Bear, Harpy, Berserker
+
+--- COPY PROMPT START (BIOME 04: UPLAND FOOTHILLS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open elevated Crownlands Upland Foothills ridge clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds ridge hills, pines, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED UPLAND FOOTHILLS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: broad firm golden-ochre highland trail dirt blended cleanly into rich sunlit olive upland turf, tiny weathered upland pebbles flush in soil, mossy seams, and heather sprigs along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — FOOTHILL HILLS, PINES & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run low grassy upland ridge crests dotted with weathered mossy fieldstone outcrops and golden-amber rim-lit highland pines set far back along only the upper edge, softly shadowed blue-cobalt hills close behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 04: UPLAND FOOTHILLS) ---
+
+
+================================================================================
+BIOME 05 OF 41 (biome_05_sunlit_downs) — SUNLIT DOWNS
+================================================================================
+# Zones / Section: Map 1 - Zone 2 (Lv 6-10), Map 1 - Zone 5 (Lv 21-25)
+# Monsters Spawning Here: Scout, Knight
+
+--- COPY PROMPT START (BIOME 05: SUNLIT DOWNS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open rolling Sunlit Downs grassland clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds hedgerows, hills, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED SUNLIT DOWNS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: open sun-baked winding ochre bridle trail dirt blended cleanly into lush sunlit golden-emerald downland meadow grass, weathered chalk pebbles flush in earth, and small clover-and-buttercup specks along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — HAWTHORN RIM, DOWNS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run sweeping crisp sunlit meadow hillocks dotted with gnarled golden-amber rim-lit hawthorn crowns cropping closely along the upper edge, softly shadowed blue-cobalt distant downs behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 05: SUNLIT DOWNS) ---
+
+
+================================================================================
+BIOME 06 OF 41 (biome_06_graystone_foothills) — GRAYSTONE FOOTHILLS
+================================================================================
+# Zones / Section: Map 1 - Zone 2 (Lv 6-10)
+# Monsters Spawning Here: Shadow
+
+--- COPY PROMPT START (BIOME 06: GRAYSTONE FOOTHILLS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open weathered Graystone Foothills grassy saddle clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds distant rocky hills, peaks, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED GRAYSTONE FOOTHILLS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: broad firm warm umber-and-ochre foothill trail dirt blended cleanly into rich deep olive-and-emerald highland turf, mossy soil seams, and sparse tiny weathered slate pebbles flush in dirt—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — FOOTHILL RIDGES, PINES & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run low moss-draped graystone hillocks lined with golden-amber rim-lit scrub oaks and hardy mountain pines set strictly far back along only the upper rim, softly shadowed blue-cobalt mountain peaks close behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 06: GRAYSTONE FOOTHILLS) ---
+
+
+================================================================================
+BIOME 07 OF 41 (biome_07_sandstone_ridges) — SANDSTONE RIDGES
+================================================================================
+# Zones / Section: Map 1 - Zone 4 (Lv 16-20), Map 1 - Zone 5 (Lv 21-25)
+# Monsters Spawning Here: Cultist Fanatic, Gargoyle, Ogre
+
+--- COPY PROMPT START (BIOME 07: SANDSTONE RIDGES) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified sandstone, sun-cracked mortar seams, wind-rippled desert sand trails, detailed layered dry scrub tufts, gnarled desert timber bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open sun-warmed western Sandstone Ridges plateau clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds low desert mesas and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED SANDSTONE RIDGES BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: crisp compacted warm terracotta-ochre desert earth blended cleanly into wind-rippled golden-tan sand trails and sparse tiny desert grass tufts along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — TERRACOTTA RIDGES & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a far-distant line of low golden-amber rim-lit terracotta sandstone mesas and sparse dry scrub, softly shadowed indigo-cobalt desert ridges behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 07: SANDSTONE RIDGES) ---
+
+
+================================================================================
+BIOME 08 OF 41 (biome_08_saltmarsh_wetlands) — SALTMARSH WETLANDS
+================================================================================
+# Zones / Section: Map 1 - Zone 4 (Lv 16-20), Map 1 - Zone 5 (Lv 21-25)
+# Monsters Spawning Here: Ghast, Merrow, Werewolf
+
+--- COPY PROMPT START (BIOME 08: SALTMARSH WETLANDS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open elevated firm Saltmarsh Wetlands bog clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds reed banks, marsh woods, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED SALTMARSH WETLANDS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: solid damp dark-peat bog earth and weathered timber causeway planks flush in mud bordered seamlessly by rich sunlit emerald marsh turf, mossy stepping stones flush in soil, and low sedge tufts along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — MARSH TREELINE & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a lush border of emerald marsh reed banks and twisted weeping bog willows catching bright warm golden-amber sunset rim light along the upper edge, dark cobalt swamp waters close behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 08: SALTMARSH WETLANDS) ---
+
+
+================================================================================
+BIOME 09 OF 41 (biome_09_saltmarsh_waterways_shore) — SALTMARSH WATERWAYS (SHORE)
+================================================================================
+# Zones / Section: Map 1 - Zone 4 (Lv 16-20), Map 1 - Zone 5 (Lv 21-25)
+# Monsters Spawning Here: Giant Constrictor Snake, Black Dragon Wyrmling
+
+--- COPY PROMPT START (BIOME 09: SALTMARSH WATERWAYS (SHORE)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide-open Saltmarsh Waterways mudflat and coastal sedge meadow clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds distant waterways, reed banks, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED SALTMARSH WATERWAYS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, flat, unobstructed open combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: broad compacted silt-earth tidal flat and worn dirt wagon ruts blended cleanly into short sunlit emerald coastal sedge grass and small flat embedded river pebbles edge to edge—strictly clear and wide-open across the entire foreground, center, left, and right sides with NO enclosing stone walls, NO wooden docks or protruding piers, NO fences, tall boulders, bushes, or tree trunks obstructing or cramping the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — BRACKISH WATERWAYS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run distant calm deep-cobalt brackish marsh waterways lined with golden-amber rim-lit reeds and far-off cypress groves hugging close along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 09: SALTMARSH WATERWAYS (SHORE)) ---
+
+
+================================================================================
+BIOME 10 OF 41 (biome_10_thornwall_slate_crags) — THORNWALL SLATE CRAGS
+================================================================================
+# Zones / Section: Map 2 - Zone 6 (Lv 26-30), Map 2 - Zone 7 (Lv 31-35)
+# Monsters Spawning Here: Minotaur, Manticore, Winter Wolf, Basilisk, Mummy, Red Dragon Wyrmling, Ettin
+
+--- COPY PROMPT START (BIOME 10: THORNWALL SLATE CRAGS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open highland Thornwall Slate Crags terrace clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds crag ridges, fortifications, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED THORNWALL SLATE CRAGS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: hard-packed dark umber-slate highland dirt and worn war-road earth blended cleanly into hardy ochre-emerald upland grass with scattered weathered slate gravel flush in soil—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — SLATE CRAGS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run distant dark-slate highland ridge crests tufted with wind-bent thorn pines catching bright warm golden-amber sunset rim light far back along the upper edge, shadowed cobalt Thornwall mountain spires behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 10: THORNWALL SLATE CRAGS) ---
+
+
+================================================================================
+BIOME 11 OF 41 (biome_11_ochre_grasslands) — OCHRE GRASSLANDS
+================================================================================
+# Zones / Section: Map 2 - Zone 6 (Lv 26-30), Map 2 - Zone 7 (Lv 31-35)
+# Monsters Spawning Here: Wight, Vampire Familiar, Hell Hound, Bearded Devil, Guard Captain
+
+--- COPY PROMPT START (BIOME 11: OCHRE GRASSLANDS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open warfront Ochre Grasslands plain clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds tall grass, border hills, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED OCHRE GRASSLANDS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: broad open warm chestnut frontier dirt road blended cleanly into trimmed sunlit golden-ochre steppe grass, tiny field pebbles flush in compacted earth, and low grass tufts along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — GOLDEN STEPPE RIM & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run rippling tall golden-ochre prairie grass banks and lone gnarled border oaks catching bright warm golden-amber sunset rim light along the upper edge, softly shadowed blue-cobalt hills behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 11: OCHRE GRASSLANDS) ---
+
+
+================================================================================
+BIOME 12 OF 41 (biome_12_verdant_canopy_woods) — VERDANT CANOPY WOODS
+================================================================================
+# Zones / Section: Map 2 - Zone 8 (Lv 36-40), Map 2 - Zone 10 (Lv 46-50)
+# Monsters Spawning Here: Green Hag, Owlbear, Wereboar, Vampire Spawn
+
+--- COPY PROMPT START (BIOME 12: VERDANT CANOPY WOODS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open primeval Verdant Canopy Woods ancient clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds forest trunks, canopy, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED VERDANT CANOPY WOODS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: cushiony velvety emerald-moss and rich dark-loam woodland earth veined cleanly with weathered oak root ridges flush in soil, mossy earth seams, and tiny clover sprigs along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — PRIMEVAL CANOPY & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run colossal ancient mossy oak and redwood trunks supporting towering golden-amber rim-lit emerald canopies along the upper edge, velvety deep indigo-cobalt woodland depths behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 12: VERDANT CANOPY WOODS) ---
+
+
+================================================================================
+BIOME 13 OF 41 (biome_13_weald_clearings) — WEALD CLEARINGS
+================================================================================
+# Zones / Section: Map 2 - Zone 8 (Lv 36-40), Map 2 - Zone 9 (Lv 41-45)
+# Monsters Spawning Here: Lamia, Ghost, Succubus, Gladiator
+
+--- COPY PROMPT START (BIOME 13: WEALD CLEARINGS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open sunlit Weald Clearings woodland meadow—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds birch-oak treeline and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED WEALD CLEARINGS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: sunlit emerald meadow grass crossed by a winding golden-brown woodland footpath of compacted earth, mossy turf patches, delicate white woodland blossoms, and tiny stepping stones flush in grass—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — WEALD OAK RIM & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a far-distant horizontal treeline of golden-amber rim-lit emerald oaks and sunlit woodland boughs cropping closely along the upper edge, softly shadowed blue-cobalt hills glimpsed between trunks, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 13: WEALD CLEARINGS) ---
+
+
+================================================================================
+BIOME 14 OF 41 (biome_14_borderland_channel_shore) — BORDERLAND CHANNEL (SHORE)
+================================================================================
+# Zones / Section: Map 2 - Zone 9 (Lv 41-45)
+# Monsters Spawning Here: Chuul, Giant Crocodile
+
+--- COPY PROMPT START (BIOME 14: BORDERLAND CHANNEL (SHORE)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Borderland Channel river-gravel bank clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds channel waters, woods, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED BORDERLAND CHANNEL BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compacted river-gravel earth and warm sandy trail dirt bordered seamlessly by short sunlit emerald shore grass and crisp weathered river stones flush in earth—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — CHANNEL WATERS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run deep sapphire-cobalt channel waters framed by opposite golden-amber rim-lit green wooded banks and distant stone watchtowers hugging tightly along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 14: BORDERLAND CHANNEL (SHORE)) ---
+
+
+================================================================================
+BIOME 15 OF 41 (biome_15_blighted_mire_glade) — BLIGHTED MIRE-GLADE
+================================================================================
+# Zones / Section: Map 2 - Zone 9 (Lv 41-45), Map 2 - Zone 10 (Lv 46-50)
+# Monsters Spawning Here: Shadow Demon, Troll, Night Hag, Flesh Golem, Wraith
+
+--- COPY PROMPT START (BIOME 15: BLIGHTED MIRE-GLADE) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Blighted Mire-Glade hollow clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds deadwood treeline and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED BLIGHTED MIRE-GLADE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compact dark slate-peat mire earth and deep olive-emerald moss patches crossed smoothly by gnarled dark roots flush in mud and weathered moss-seamed earth—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — BLIGHTED TREELINE & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run twisted dark bog cypress and gnarled deadwood trees draped in trailing moss catching bright warm golden-amber sunset rim light along the upper edge, deep rich cobalt mire shadows behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 15: BLIGHTED MIRE-GLADE) ---
+
+
+================================================================================
+BIOME 16 OF 41 (biome_16_highland_foothills) — HIGHLAND FOOTHILLS
+================================================================================
+# Zones / Section: Map 2 - Zone 10 (Lv 46-50)
+# Monsters Spawning Here: Hill Giant, Bulette
+
+--- COPY PROMPT START (BIOME 16: HIGHLAND FOOTHILLS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open grassy Highland Foothills saddle clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds mountain ridges, pines, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED HIGHLAND FOOTHILLS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: reddish-brown highland trail dirt and short hardy sage-emerald alpine turf stitched cleanly with tiny weathered mountain pebbles flush in soil and mossy seams—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — HIGHLAND PEAKS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run distant highland ridges lined with golden-amber rim-lit mountain pines set far back along only the upper edge, layered deep-cobalt mountain peaks close behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 16: HIGHLAND FOOTHILLS) ---
+
+
+================================================================================
+BIOME 17 OF 41 (biome_17_sandy_cove_beaches) — SANDY COVE BEACHES
+================================================================================
+# Zones / Section: Map 2 - Zone 10 (Lv 46-50)
+# Monsters Spawning Here: Pirate Captain
+
+--- COPY PROMPT START (BIOME 17: SANDY COVE BEACHES) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified sandstone, sun-cracked mortar seams, wind-rippled desert sand trails, detailed layered dry scrub tufts, gnarled desert timber bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open crescent Sandy Cove Beaches clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds headlands, cove sea, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED SANDY COVE BEACHES BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: firm warm golden-ivory beach sand packed crisp across the clearing with crisp sculpted wind ripples, weathered sandstone seams flush in sand, and tiny dry sea-grass tufts along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — COVE HEADLANDS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run far-distant golden sandstone cove headlands straight across the upper horizon topped with golden-amber rim-lit coastal palms and calm deep-cobalt bay waters hugging tightly along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 17: SANDY COVE BEACHES) ---
+
+
+================================================================================
+BIOME 18 OF 41 (biome_18_sun_scorched_dunes) — SUN-SCORCHED DUNES
+================================================================================
+# Zones / Section: Map 3 - Zone 11 (Lv 51-55), Map 3 - Zone 12 (Lv 56-60)
+# Monsters Spawning Here: Salamander, Fire Elemental, Vrock, Invisible Stalker
+
+--- COPY PROMPT START (BIOME 18: SUN-SCORCHED DUNES) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified sandstone, sun-cracked mortar seams, wind-rippled desert sand trails, detailed layered dry scrub tufts, gnarled desert timber bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Sun-Scorched Dunes hardpan basin clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds desert dunes, monoliths, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED SUN-SCORCHED DUNES BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: firm wind-packed golden desert hardpan and smooth sunlit sand trails interlaced cleanly with weathered sandstone seams flush in clay and sparse dry scrub—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — DUNES, MONOLITHS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run sweeping golden desert sand dunes and distant golden-amber rim-lit sandstone monoliths hugging tightly along the upper edge above deep cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 18: SUN-SCORCHED DUNES) ---
+
+
+================================================================================
+BIOME 19 OF 41 (biome_19_sandstone_mesas) — SANDSTONE MESAS
+================================================================================
+# Zones / Section: Map 3 - Zone 11 (Lv 51-55), Map 3 - Zone 12 (Lv 56-60)
+# Monsters Spawning Here: Barbed Devil, Mage, Chimera, Wyvern, Stone Giant
+
+--- COPY PROMPT START (BIOME 19: SANDSTONE MESAS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified sandstone, sun-cracked mortar seams, wind-rippled desert sand trails, detailed layered dry scrub tufts, gnarled desert timber bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open elevated Sandstone Mesas desert plateau clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds sandstone mesas and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED SANDSTONE MESAS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: sun-baked terracotta sandstone dirt dusted evenly with windblown golden ochre sand, weathered stone cracks flush in earth, and tiny dry desert grass sprigs—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — RED MESAS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run monumental red and burnt-orange stratified sandstone mesas catching crisp bright warm golden-amber sunset rim light along the upper edge above rich deep cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 19: SANDSTONE MESAS) ---
+
+
+================================================================================
+BIOME 20 OF 41 (biome_20_oasis_alpine_lakes_shore) — OASIS & ALPINE LAKES (SHORE)
+================================================================================
+# Zones / Section: Map 3 - Zone 12 (Lv 56-60), Map 3 - Zone 13 (Lv 61-65), Map 3 - Zone 14 (Lv 66-70)
+# Monsters Spawning Here: Water Elemental, Young Black Dragon, Hydra, Hezrou
+
+--- COPY PROMPT START (BIOME 20: OASIS & ALPINE LAKES (SHORE)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Oasis & Alpine Lakes shoreline terrace clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds lake waters, shoreline cliffs, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED OASIS & ALPINE LAKES BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: firm damp shore earth and warm tan sand blended cleanly into rich sunlit emerald shore grass with small water-worn pebbles flush in soil along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — SHORE WATERS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run shimmering deep-cobalt lake waters backed by golden-amber rim-lit hills, hardy shoreline evergreens, and lush lakeside tufts clustered closely along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 20: OASIS & ALPINE LAKES (SHORE)) ---
+
+
+================================================================================
+BIOME 21 OF 41 (biome_21_palm_oasis_verge) — PALM OASIS VERGE
+================================================================================
+# Zones / Section: Map 3 - Zone 12 (Lv 56-60)
+# Monsters Spawning Here: Oni
+
+--- COPY PROMPT START (BIOME 21: PALM OASIS VERGE) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified sandstone, sun-cracked mortar seams, wind-rippled desert sand trails, detailed layered dry scrub tufts, gnarled desert timber bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open shaded Palm Oasis Verge verdant desert clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds date palms, desert dunes, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PALM OASIS VERGE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: hard-packed warm golden desert dirt turning cleanly into rich short emerald oasis grass with weathered sandstone curbs flush in earth along edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — PALM CANOPY & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run graceful date palm trunks topped with golden-amber rim-lit emerald frond canopies backed closely by rolling desert dunes along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 21: PALM OASIS VERGE) ---
+
+
+================================================================================
+BIOME 22 OF 41 (biome_22_granite_highland_ridge) — GRANITE HIGHLAND RIDGE
+================================================================================
+# Zones / Section: Map 3 - Zone 13 (Lv 61-65), Map 3 - Zone 14 (Lv 66-70), Map 3 - Zone 15 (Lv 71-75)
+# Monsters Spawning Here: Young White Dragon, Young Copper Dragon, Frost Giant, Chain Devil, Young Silver Dragon, Young Blue Dragon
+
+--- COPY PROMPT START (BIOME 22: GRANITE HIGHLAND RIDGE) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open high-altitude Granite Highland Ridge crest clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds granite peaks, pines, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED GRANITE HIGHLAND RIDGE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: firm weathered highland earth and packed coarse alpine dirt meeting short mossy alpine grass and small worn granite pebbles flush in soil—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — GRANITE PEAKS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run dramatic distant highland granite peaks and hardy wind-bent alpine pines catching bright warm golden-amber sunset rim light far back along the upper edge, shadowed deep-cobalt mountain ridges close behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 22: GRANITE HIGHLAND RIDGE) ---
+
+
+================================================================================
+BIOME 23 OF 41 (biome_23_ironcrest_foothills) — IRONCREST FOOTHILLS
+================================================================================
+# Zones / Section: Map 3 - Zone 13 (Lv 61-65), Map 3 - Zone 14 (Lv 66-70), Map 3 - Zone 15 (Lv 71-75)
+# Monsters Spawning Here: Shield Guardian, Cloaker, Clay Golem, Bone Devil
+
+--- COPY PROMPT START (BIOME 23: IRONCREST FOOTHILLS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open rust-tinted Ironcrest Foothills shelf clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds iron cliffs, peaks, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED IRONCREST FOOTHILLS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compact warm russet-charcoal mountain trail dirt blended cleanly into short hardy olive alpine grass with tiny worn ironstone gravel flush in dirt—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — IRONCREST PEAKS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run distant iron-veined ridges studded with dark evergreens catching bright warm golden-amber sunset rim light far back along the upper edge, shadowed cobalt Ironcrest peaks behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 23: IRONCREST FOOTHILLS) ---
+
+
+================================================================================
+BIOME 24 OF 41 (biome_24_highland_oak_woods) — HIGHLAND OAK WOODS
+================================================================================
+# Zones / Section: Map 3 - Zone 13 (Lv 61-65), Map 3 - Zone 15 (Lv 71-75)
+# Monsters Spawning Here: Assassin, Glabrezu
+
+--- COPY PROMPT START (BIOME 24: HIGHLAND OAK WOODS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open sheltered Highland Oak Woods mountain forest glade—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds mountain oaks, cliffs, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED HIGHLAND OAK WOODS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compacted woodland earth and rich emerald-olive moss turf stitched cleanly with small worn stones flush in moss, fallen oak leaves, and tiny fern sprigs—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — HIGHLAND OAKS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run sturdy twisted highland oaks draped in golden-amber rim-lit emerald foliage backed by distant cobalt-shadowed mountain ridges hugging along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 24: HIGHLAND OAK WOODS) ---
+
+
+================================================================================
+BIOME 25 OF 41 (biome_25_evergreen_pine_forest) — EVERGREEN PINE FOREST
+================================================================================
+# Zones / Section: Map 3 - Zone 13 (Lv 61-65), Map 3 - Zone 15 (Lv 71-75)
+# Monsters Spawning Here: Young Green Dragon, Cultist Hierophant
+
+--- COPY PROMPT START (BIOME 25: EVERGREEN PINE FOREST) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Evergreen Pine Forest clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds evergreen pines, hills, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED EVERGREEN PINE FOREST BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: warm reddish-brown fallen pine needles and compacted dark woodland dirt bordered cleanly by lush green moss and rich cracked forest loam flush across all edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — EVERGREEN TIMBER & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run dense rows of towering dark-emerald alpine pines catching bright warm golden-amber sunset rim light along the upper edge, softly shadowed blue-cobalt mountain hills behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 25: EVERGREEN PINE FOREST) ---
+
+
+================================================================================
+BIOME 26 OF 41 (biome_26_ironcrest_alpine_meadow) — IRONCREST ALPINE MEADOW
+================================================================================
+# Zones / Section: Map 3 - Zone 14 (Lv 66-70), Map 3 - Zone 15 (Lv 71-75)
+# Monsters Spawning Here: Cloud Giant, Warrior Commander
+
+--- COPY PROMPT START (BIOME 26: IRONCREST ALPINE MEADOW) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open high serene Ironcrest Alpine Meadow clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds snow-streaked peaks, pines, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED IRONCREST ALPINE MEADOW BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: rich sunlit emerald alpine grass crossed by a clean compacted golden-brown mountain trail and tiny blue-and-white wildflowers with worn earth flush across all sides—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — ALPINE PEAKS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run jagged snow-dusted Ironcrest crags towering behind dark emerald pine skirts along the upper edge with bright warm golden-amber sunset rim light highlights over deep cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 26: IRONCREST ALPINE MEADOW) ---
+
+
+================================================================================
+BIOME 27 OF 41 (biome_27_frostbound_foothills) — FROSTBOUND FOOTHILLS
+================================================================================
+# Zones / Section: Map 4 - Zone 16 (Lv 76-80), Map 4 - Zone 17 (Lv 81-85)
+# Monsters Spawning Here: Stone Golem, Bandit Crime Lord, Young Red Dragon, Behir, Horned Devil
+
+--- COPY PROMPT START (BIOME 27: FROSTBOUND FOOTHILLS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled frost-split fieldstones, rime mortar seams, wind-packed winter dirt and snow trails, detailed hardy winter grass tufts, gnarled winter pine bark, detailed painted evergreen foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Frostbound Foothills frozen plateau clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds frozen ridges, peaks, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED FROSTBOUND FOOTHILLS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: hard-packed frozen slate-brown highland dirt meeting cleanly with wind-packed crusted snow patches and frost-dusted pebbles flush in frozen mud—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — FROSTED PEAKS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run distant frost-rimmed dark foothills and rime-crusted pines catching bright warm golden-amber sunset rim light far back along the upper edge, towering deep-cobalt frozen northern peaks behind them, and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 27: FROSTBOUND FOOTHILLS) ---
+
+
+================================================================================
+BIOME 28 OF 41 (biome_28_frostpine_taiga) — FROSTPINE TAIGA
+================================================================================
+# Zones / Section: Map 4 - Zone 16 (Lv 76-80), Map 4 - Zone 18 (Lv 86-90)
+# Monsters Spawning Here: Guardian Naga, Rakshasa, Vampire
+
+--- COPY PROMPT START (BIOME 28: FROSTPINE TAIGA) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled frost-split fieldstones, rime mortar seams, wind-packed winter dirt and snow trails, detailed hardy winter grass tufts, gnarled winter pine bark, detailed painted evergreen foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open snow-swept Frostpine Taiga northern glade—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds snowy spruces and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED FROSTPINE TAIGA BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compact wind-packed winter snow meeting cleanly with frozen dark woodland earth trails, frost-dusted pine needles, and frosty ground seams flush across edges—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — SNOWY TAIGA & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run dense snow-laden towering northern spruces and dark winter pines catching bright warm golden-amber sunset rim light against rich deep cobalt shadows along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 28: FROSTPINE TAIGA) ---
+
+
+================================================================================
+BIOME 29 OF 41 (biome_29_glacial_snowfields) — GLACIAL SNOWFIELDS
+================================================================================
+# Zones / Section: Map 4 - Zone 16 (Lv 76-80), Map 4 - Zone 17 (Lv 81-85), Map 4 - Zone 18 (Lv 86-90)
+# Monsters Spawning Here: Roc, Remorhaz, Djinni, Archmage, Erinyes, Ice Devil
+
+--- COPY PROMPT START (BIOME 29: GLACIAL SNOWFIELDS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled frost-split fieldstones, rime mortar seams, wind-packed winter dirt and snow trails, detailed hardy winter grass tufts, gnarled winter pine bark, detailed painted evergreen foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open arctic Glacial Snowfields clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds glacier walls, peaks, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED GLACIAL SNOWFIELDS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: firm wind-packed snow crust and exposed icy hardpack leveled cleanly across the entire clearing with gentle sculpted wind grooves and flush frost seams—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — GLACIER WALLS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run towering deep-cobalt crystal glacier ridges and distant snow peaks catching bright warm golden-amber sunset rim light tightly along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 29: GLACIAL SNOWFIELDS) ---
+
+
+================================================================================
+BIOME 30 OF 41 (biome_30_ashen_border_scree) — ASHEN BORDER SCREE
+================================================================================
+# Zones / Section: Map 4 - Zone 17 (Lv 81-85), Map 4 - Zone 19 (Lv 91-95), Map 4 - Zone 20 (Lv 96-99)
+# Monsters Spawning Here: Sphinx of Lore, Mummy Lord, Adult Green Dragon, Iron Golem, Adult Silver Dragon
+
+--- COPY PROMPT START (BIOME 30: ASHEN BORDER SCREE) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled fractured basalt fieldstones, heat-cracked mortar seams, compacted ash-and-cinder dirt trails, detailed scarred stone facets, gnarled charred bark, detailed painted crag textures, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open scorched Ashen Border Scree shelf clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds volcanic crags and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED ASHEN BORDER SCREE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: firm dark charcoal-umber volcanic scree dirt dusted evenly with compacted gray ash and small worn volcanic gravel flush in cinder earth—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — ASHEN CRAGS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run distant blackened volcanic scree ridges and gnarled charred tree silhouettes catching bright warm golden-amber sunset rim light along the upper edge against deep cobalt-espresso shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 30: ASHEN BORDER SCREE) ---
+
+
+================================================================================
+BIOME 31 OF 41 (biome_31_frost_shore_beaches) — FROST-SHORE BEACHES
+================================================================================
+# Zones / Section: Map 4 - Zone 18 (Lv 86-90)
+# Monsters Spawning Here: Pirate Admiral
+
+--- COPY PROMPT START (BIOME 31: FROST-SHORE BEACHES) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled frost-split fieldstones, rime mortar seams, wind-packed winter dirt and snow trails, detailed hardy winter grass tufts, gnarled winter pine bark, detailed painted evergreen foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Frost-Shore Beaches frozen coastline clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds icy sea, snow cliffs, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED FROST-SHORE BEACHES BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compacted frozen dark-slate beach sand and coastal gravel meeting cleanly with frost crust seams and crisp tidal pebbles flush in wet sand—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — FROST SEA & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run dark cobalt northern sea swells dotted with drifting ice sheets below snow-capped sea hills catching bright warm golden-amber sunset rim light tightly along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 31: FROST-SHORE BEACHES) ---
+
+
+================================================================================
+BIOME 32 OF 41 (biome_32_frozen_glacial_lakes) — FROZEN GLACIAL LAKES (ICE / SHORE)
+================================================================================
+# Zones / Section: Map 4 - Zone 18 (Lv 86-90)
+# Monsters Spawning Here: Storm Giant, Adult Black Dragon
+
+--- COPY PROMPT START (BIOME 32: FROZEN GLACIAL LAKES (ICE / SHORE)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled frost-split fieldstones, rime mortar seams, wind-packed winter dirt and snow trails, detailed hardy winter grass tufts, gnarled winter pine bark, detailed painted evergreen foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across a wide, completely frozen glacial lakebed and snow-packed winter shore—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable solid-ice battleground floor and ONLY the top ~15% strip holds shoreline pines, peaks, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED FROZEN GLACIAL LAKES BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: thick, completely frozen solid milky-white and pale frost-blue glacier ice sheets spanning bank to bank with shallow hand-painted ice pressure cracks, frosted glaze, and firm windswept snowdrifts blended smoothly into flat snow-dusted shore flagstones—100% solid frozen walkable surface across the entire arena with ZERO unfrozen liquid water anywhere and NO tall boulders, snow mounds, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — FROZEN SHORE & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run snow-blanketed northern shoreline pines and distant ice-carved peaks catching bright warm golden-amber sunset rim light along the upper edge above deep cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 32: FROZEN GLACIAL LAKES (ICE / SHORE)) ---
+
+
+================================================================================
+BIOME 33 OF 41 (biome_33_charred_ash_plains) — CHARRED ASH PLAINS
+================================================================================
+# Zones / Section: Map 4 - Zone 19 (Lv 91-95), Map 4 - Zone 20 (Lv 96-99)
+# Monsters Spawning Here: Nalfeshnee, Purple Worm, Marilith, Adult Red Dragon, Balor, Ancient Black Dragon, Lich
+
+--- COPY PROMPT START (BIOME 33: CHARRED ASH PLAINS) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled fractured basalt fieldstones, heat-cracked mortar seams, compacted ash-and-cinder dirt trails, detailed scarred stone facets, gnarled charred bark, detailed painted crag textures, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Charred Ash Plains wasteland clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds obsidian mountains and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED CHARRED ASH PLAINS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compacted black-charcoal volcanic ash earth and dark cracked dirt dusted evenly with warm cinder earth and flush weathered stone patches—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — DREADWASTE CRAGS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run distant black volcanic Dreadwaste peaks and weathered obsidian ridges rimmed warmly with bright warm golden-amber sunset rim light along the upper edge against deep cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 33: CHARRED ASH PLAINS) ---
+
+
+================================================================================
+BIOME 34 OF 41 (biome_34_coastal_shore_frostbound_ocean) — COASTAL SHORE (FROSTBOUND OCEAN)
+================================================================================
+# Zones / Section: Map 4 - Zone 20 (Lv 96-99)
+# Monsters Spawning Here: Dragon Turtle
+
+--- COPY PROMPT START (BIOME 34: COASTAL SHORE (FROSTBOUND OCEAN)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled frost-split fieldstones, rime mortar seams, wind-packed winter dirt and snow trails, detailed hardy winter grass tufts, gnarled winter pine bark, detailed painted evergreen foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open northern Coastal Shore (Frostbound Ocean) shelf clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds northern ocean, cliffs, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED COASTAL SHORE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: firm dark frost-crusted coastal gravel and slate beach sand knit cleanly with small frost-rimmed pebbles flush in sand—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — FROSTBOUND SEA & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run deep navy-cobalt northern ocean swells scattered with sea ice below jagged frozen distant coastal bluffs catching bright warm golden-amber sunset rim light tightly along the upper edge and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 34: COASTAL SHORE (FROSTBOUND OCEAN)) ---
+
+
+================================================================================
+BIOME 35 OF 41 (biome_35_portal_1_ashen_gate) — PORTAL 1 - THE ASHEN GATE (LV 11-15)
+================================================================================
+# Zones / Section: Portal Bosses (Portals 1-7)
+# Monsters Spawning Here: Earth Elemental
+
+--- COPY PROMPT START (BIOME 35: PORTAL 1 - THE ASHEN GATE (LV 11-15)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled fractured basalt fieldstones, heat-cracked mortar seams, compacted ash-and-cinder dirt trails, detailed scarred stone facets, gnarled charred bark, detailed painted crag textures, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Elemental Plane of Earth & Forge sanctum terrace clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds basalt spires and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PORTAL 1 - THE ASHEN GATE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compacted warm dark forge-ash earth inlaid smoothly with worn dark basalt flagstones flush edge-to-edge in cinder soil—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — BASALT FORGE RIM & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run colossal ancient black basalt forge monoliths catching bright warm golden-amber sunset rim light tightly along the upper edge against deep cobalt-indigo shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 35: PORTAL 1 - THE ASHEN GATE (LV 11-15)) ---
+
+
+================================================================================
+BIOME 36 OF 41 (biome_36_portal_2_sunken_maw) — PORTAL 2 - THE SUNKEN MAW (LV 21-25)
+================================================================================
+# Zones / Section: Portal Bosses (Portals 1-7)
+# Monsters Spawning Here: Otyugh
+
+--- COPY PROMPT START (BIOME 36: PORTAL 2 - THE SUNKEN MAW (LV 21-25)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled fractured basalt fieldstones, heat-cracked mortar seams, compacted ash-and-cinder dirt trails, detailed scarred stone facets, gnarled charred bark, detailed painted crag textures, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Elemental Plane of Deep Trench tidal terrace clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds trench arches, sea, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PORTAL 2 - THE SUNKEN MAW BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: damp dark-slate tidal earth slicked cleanly with thin tide sheen and weathered moss-and-barnacle stones flush in mud—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — SUNKEN ARCHES & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run monumental submerged barnacle-crusted trench arches and distant coastal monoliths catching bright warm golden-amber sunset rim light along the upper edge against rich deep abyssal cobalt depths and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 36: PORTAL 2 - THE SUNKEN MAW (LV 21-25)) ---
+
+
+================================================================================
+BIOME 37 OF 41 (biome_37_portal_3_iron_rift) — PORTAL 3 - THE IRON RIFT (LV 36-40)
+================================================================================
+# Zones / Section: Portal Bosses (Portals 1-7)
+# Monsters Spawning Here: Fire Giant
+
+--- COPY PROMPT START (BIOME 37: PORTAL 3 - THE IRON RIFT (LV 36-40)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled fractured basalt fieldstones, heat-cracked mortar seams, compacted ash-and-cinder dirt trails, detailed scarred stone facets, gnarled charred bark, detailed painted crag textures, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Blood-Iron Warlands bastion courtyard clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds iron battlements and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PORTAL 3 - THE IRON RIFT BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compacted rust-red war-earth and worn iron-rimmed dark stone plates laid cleanly flush edge-to-edge across the floor—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — IRON BATTLEMENTS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run towering ancient forged-iron siege battlements catching bright warm golden-amber sunset rim light along the upper edge against deep steel-cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 37: PORTAL 3 - THE IRON RIFT (LV 36-40)) ---
+
+
+================================================================================
+BIOME 38 OF 41 (biome_38_portal_4_rotspire) — PORTAL 4 - THE ROTSPIRE (LV 46-50)
+================================================================================
+# Zones / Section: Portal Bosses (Portals 1-7)
+# Monsters Spawning Here: Aboleth
+
+--- COPY PROMPT START (BIOME 38: PORTAL 4 - THE ROTSPIRE (LV 46-50)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified fieldstones, mortar seams, worn wagon-rutted dirt trails, detailed layered grass tufts, gnarled oak bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Rotspire ancient elder root glade clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds elder roots, canopy, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PORTAL 4 - THE ROTSPIRE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: damp dark forest soil laced cleanly with weathered gnarled elder tree roots flush in earth, mossy soil seams, and rich emerald mire turf—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — ELDER ROOTS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run colossal twisted mossy elder roots and overarching ancient woodland boughs catching bright warm golden-amber sunset shafts tightly along the upper edge against deep cobalt-indigo shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 38: PORTAL 4 - THE ROTSPIRE (LV 46-50)) ---
+
+
+================================================================================
+BIOME 39 OF 41 (biome_39_portal_5_scorched_chasm) — PORTAL 5 - THE SCORCHED CHASM (LV 61-65)
+================================================================================
+# Zones / Section: Portal Bosses (Portals 1-7)
+# Monsters Spawning Here: Efreeti
+
+--- COPY PROMPT START (BIOME 39: PORTAL 5 - THE SCORCHED CHASM (LV 61-65)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled stratified sandstone, sun-cracked mortar seams, wind-rippled desert sand trails, detailed layered dry scrub tufts, gnarled desert timber bark, detailed painted foliage, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Elemental Plane of Fire brass-and-sandstone court clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds brass arches, spires, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PORTAL 5 - THE SCORCHED CHASM BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: fine golden desert sand meeting cleanly across weathered gilded sandstone earth and subtle tarnished brass floor joints flush in sand—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — BRASS SPIRES & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run ornate towering brass-trimmed sandstone desert arches and carved desert mesa spires catching bright warm golden-amber sunset rim light along the upper edge against rich deep cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 39: PORTAL 5 - THE SCORCHED CHASM (LV 61-65)) ---
+
+
+================================================================================
+BIOME 40 OF 41 (biome_40_portal_6_storm_crowned_spire) — PORTAL 6 - THE STORM-CROWNED SPIRE (LV 71-75)
+================================================================================
+# Zones / Section: Portal Bosses (Portals 1-7)
+# Monsters Spawning Here: Adult Blue Dragon
+
+--- COPY PROMPT START (BIOME 40: PORTAL 6 - THE STORM-CROWNED SPIRE (LV 71-75)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled fractured basalt fieldstones, heat-cracked mortar seams, compacted ash-and-cinder dirt trails, detailed scarred stone facets, gnarled charred bark, detailed painted crag textures, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Storm-Crowned Spire mountain summit clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds storm monoliths, clouds, and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PORTAL 6 - THE STORM-CROWNED SPIRE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: rain-glistened ancient dark granite terrace earth and worn mountain stone flush edge-to-edge across the floor—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STORM MONOLITHS & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run ancient storm-carved mountaintop granite monoliths catching bright warm golden-amber sunset rim light along the upper edge beneath and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 40: PORTAL 6 - THE STORM-CROWNED SPIRE (LV 71-75)) ---
+
+
+================================================================================
+BIOME 41 OF 41 (biome_41_portal_7_pale_abyss) — PORTAL 7 - THE PALE ABYSS (LV 86-90)
+================================================================================
+# Zones / Section: Portal Bosses (Portals 1-7)
+# Monsters Spawning Here: Pit Fiend
+
+--- COPY PROMPT START (BIOME 41: PORTAL 7 - THE PALE ABYSS (LV 86-90)) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted surface textures—chiseled fractured basalt fieldstones, heat-cracked mortar seams, compacted ash-and-cinder dirt trails, detailed scarred stone facets, gnarled charred bark, detailed painted crag textures, and subtle delicate dark contour definition matching high-detail character splash portraits, illuminated by bright warm golden-amber sunset rim light against rich deep cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people or characters).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive open Pale Abyss frost-rimmed obsidian sanctum clearing—push the horizon line HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds abyssal spires and sky.
+
+LOWER ~85% — EXPANSIVE CHISELED PORTAL 7 - THE PALE ABYSS BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat clearing painted with the exact sculpted texture clarity of high-detail Runeterra key art: compacted dark obsidian ash earth dusted evenly with white hoarfrost and weathered basalt stones flush in soil—strictly clear across both the left and right sides with NO tall boulders, bushes, fences, or tree trunks obstructing the combat ground.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — ABYSSAL SPIRES & GOLDEN-COBALT SKY:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame run menacing jagged black basalt abyssal citadel spires tipped with hoarfrost catching bright warm golden-amber sunset rim light tightly along the upper edge against deep abyssal cobalt shadows and a slim dramatic golden-sunset and swirling deep-cobalt cloud ribbon across the very top margin.
+--- COPY PROMPT END (BIOME 41: PORTAL 7 - THE PALE ABYSS (LV 86-90)) ---

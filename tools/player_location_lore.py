@@ -334,15 +334,15 @@ PLAYER_LORE_BY_ID: dict[str, dict] = {
     # ALL 20 ZONE OUTPOSTS
     # =========================================================================
     "outpost_z01_meadowgate": {
-        "playerKind": "Frontier Watch-Post",
+        "playerKind": "Meadow Palisade Fort",
         "playerRegion": "The Crownlands",
-        "playerDescription": "Sunlit Crownlands patrol camp with peaked canvas tents, hitching rails, and lantern-lit trophy racks where royal scouts post silver bounties on beasts prowling the meadows.",
+        "playerDescription": "Sunlit Crownlands oak-timber palisade hunting fort with a pointed gatehouse tower, hitching rails, and lantern-lit trophy arches where royal scouts post silver bounties on beasts prowling the meadows.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z02_oakwood": {
-        "playerKind": "Woodland Ranger Camp",
+        "playerKind": "Woodland Palisade Fort",
         "playerRegion": "The Crownlands",
-        "playerDescription": "Sun-dappled timber lean-to lodge fitted with drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols through the oak groves.",
+        "playerDescription": "Sun-dappled oak-log palisade stockade fort fitted with a bark-shingled gatehouse, drying frames, bow racks, and a stone fire-ring where Crownlands rangers coordinate patrols through the oak groves.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z03_slate_ridge": {
@@ -352,21 +352,21 @@ PLAYER_LORE_BY_ID: dict[str, dict] = {
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z04_brinefen": {
-        "playerKind": "Coastal Hunter Landing",
+        "playerKind": "Coastal Palisade Sea-Fort",
         "playerRegion": "Saltmarsh Coast",
-        "playerDescription": "Salt-weathered coastal timber landing stacked with crab traps, harpoon racks, and sun awnings where shoreline trackers post bounties on tide-pool creatures.",
+        "playerDescription": "Salt-weathered coastal stone-and-driftwood palisade sea-fort stacked with crab cages, harpoon racks, and watch lanterns where shoreline trackers post bounties on tide-pool creatures.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z05_bogwarden": {
-        "playerKind": "Saltmarsh Stilt-Post",
+        "playerKind": "Saltmarsh Palisade Fort",
         "playerRegion": "Saltmarsh Coast",
-        "playerDescription": "Elevated saltmarsh timber platform set on solid turf amidst cattail reeds, hung with netting and smoking smudge pots where mire wardens cull bog monsters.",
+        "playerDescription": "Elevated cypress-timber saltmarsh palisade fort anchored on thick wooden pilings amidst cattail reeds, hung with netting and smoking smudge pots where mire wardens cull bog monsters.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z06_ochre_downs": {
-        "playerKind": "Highland Tracker Camp",
+        "playerKind": "Highland Palisade Fort",
         "playerRegion": "Thornwall Warfronts",
-        "playerDescription": "Canvas patrol tents, a wooden horse corral, and crossbow bales pitched across golden-ochre grasslands where trackers post bounties on prowling pasture packs.",
+        "playerDescription": "Earth-and-oak frontier palisade fort with corner watchtowers, an enclosed horse paddock, and crossbow bales set across golden-ochre grasslands where trackers post bounties on prowling pasture packs.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z07_cragspire": {
@@ -382,9 +382,9 @@ PLAYER_LORE_BY_ID: dict[str, dict] = {
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z09_canopy_watch": {
-        "playerKind": "Canopy Lookout Post",
+        "playerKind": "Treetop Palisade Fort",
         "playerRegion": "The Verdant Weald",
-        "playerDescription": "Elevated archer platform lashed high around ancient oaks with rope ladders and brass signal horns keeping vigil beneath tangled forest boughs.",
+        "playerDescription": "Enclosed cedar palisade treetop fort wedged securely around ancient oaks with rope hoists, archer galleries, and brass signal horns keeping vigil beneath tangled forest boughs.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z10_mire_edge": {
@@ -394,15 +394,15 @@ PLAYER_LORE_BY_ID: dict[str, dict] = {
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z11_dune_runner": {
-        "playerKind": "Desert Patrol Post",
+        "playerKind": "Desert Palisade Fort",
         "playerRegion": "Sun-Scorched Isles",
-        "playerDescription": "Sun-bleached canvas camp pitched beside clay water amphorae and spear stands where desert outriders pay silver bounties for hunting sandstone beasts.",
+        "playerDescription": "Sun-baked sandstone-and-cedar desert palisade fort fitted with spiked stockade ramparts, clay water amphorae, and spear stands where desert outriders pay silver bounties for hunting sandstone beasts.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z12_palm_spring": {
-        "playerKind": "Oasis Hunter Pavilion",
+        "playerKind": "Oasis Palisade Fort",
         "playerRegion": "Sun-Scorched Isles",
-        "playerDescription": "Shaded palm-oasis wooden pavilion hung with bleached desert trophies and brass lanterns where caravan guards water mounts and post hunting contracts.",
+        "playerDescription": "Desert palm-oasis fortified sandstone-and-timber palisade outpost with corner watchtowers, bleached desert trophies, and brass lanterns where caravan guards water mounts and post hunting contracts.",
         "playerServices": ["Rest Camp", "Hunter Bounties"],
     },
     "outpost_z13_mesa_watch": {
@@ -482,22 +482,22 @@ PLAYER_LORE_BY_ID: dict[str, dict] = {
     },
     "tr_ferry_crossing": {
         "playerKind": "Strait Ferry Landing",
-        "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
+        "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
         "playerServices": ["Strait Ferry"],
     },
     "tr_ferry_crossing_inst_2": {
         "playerKind": "Strait Ferry Landing",
-        "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
+        "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
         "playerServices": ["Strait Ferry"],
     },
     "tr_ferry_crossing_inst_3": {
         "playerKind": "Strait Ferry Landing",
-        "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
+        "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
         "playerServices": ["Strait Ferry"],
     },
     "tr_ferry_crossing_inst_4": {
         "playerKind": "Strait Ferry Landing",
-        "playerDescription": "Weathered oak dock pilings and a rope-towed timber barge carrying travelers safely across narrow island sea straits.",
+        "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
         "playerServices": ["Strait Ferry"],
     },
     "tr_border_mountain_pass_gate": {

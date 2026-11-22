@@ -142,7 +142,7 @@ export const HEROES: HeroDefinition[] = [
     className: "Druid",
     shortTag: "Nature Magic · Thorns, Earth & Wind",
     worldBio:
-      "Purchased out of childhood servitude and freed by Queen Ellowyn, Mera repaid that mercy with fierce loyalty—smuggling keys and letters through Highcrown's dark halls to keep prisoners alive. Swift and unyielding, she scouts the frontier while searching Ethoria for the mother sold away from her years ago.",
+      "Purchased out of childhood servitude and freed by Queen Ellowyn, Mera repaid that mercy with fierce loyalty—tending Highcrown's palace gardens while quietly keeping old Druid grove-lore alive under Garrick's ban. Stepping beyond the gates, she wields earth, thorn, and storm magic while searching Ethoria for the mother sold away from her years ago.",
     classStyle:
       "A wild-magic Druid wielding quarterstaves, scimitars, or sickles—able to carry a shield alongside one-handed blades—clad in leather, widowsilk robes, or bone armor with nature crystals. Calls down earth, thorn, lightning, and mending spells as she levels.",
     gearSummary: "Quarterstaves, Scimitars, Sickles · Global Shields · Leather, Widowsilk & Bone · Crystals",

@@ -1,0 +1,1726 @@
+{
+  "totalSheets": 40,
+  "totalEffects": 240,
+  "sheets": [
+    {
+      "sheet": 1,
+      "slug": "vfx_sheet_01_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "valen_cross_slash",
+          "name": "Cross Slash",
+          "source": "hero:valen"
+        },
+        {
+          "row": 2,
+          "id": "ellowyn_ember_spark",
+          "name": "Ember Spark",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 3,
+          "id": "ellowyn_frost_shard",
+          "name": "Frost Shard",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 4,
+          "id": "harlan_stinging_salve",
+          "name": "Stinging Salve",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 5,
+          "id": "ellowyn_crown_ward",
+          "name": "Crown Ward",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 6,
+          "id": "harlan_bitterroot_vial",
+          "name": "Bitterroot Vial",
+          "source": "hero:harlan"
+        }
+      ]
+    },
+    {
+      "sheet": 2,
+      "slug": "vfx_sheet_02_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "valen_pommel_bash",
+          "name": "Pommel Bash",
+          "source": "hero:valen"
+        },
+        {
+          "row": 2,
+          "id": "valen_sandsweep",
+          "name": "Sandsweep",
+          "source": "hero:valen"
+        },
+        {
+          "row": 3,
+          "id": "valen_riposte_stance",
+          "name": "Riposte Stance",
+          "source": "hero:valen"
+        },
+        {
+          "row": 4,
+          "id": "valen_viper_lunge",
+          "name": "Viper Lunge",
+          "source": "hero:valen"
+        },
+        {
+          "row": 5,
+          "id": "valen_ragged_cut",
+          "name": "Ragged Cut",
+          "source": "hero:valen"
+        },
+        {
+          "row": 6,
+          "id": "valen_armor_feint",
+          "name": "Armor Feint",
+          "source": "hero:valen"
+        }
+      ]
+    },
+    {
+      "sheet": 3,
+      "slug": "vfx_sheet_03_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "valen_arena_challenge",
+          "name": "Arena Challenge",
+          "source": "hero:valen"
+        },
+        {
+          "row": 2,
+          "id": "valen_skewer_thrust",
+          "name": "Skewer Thrust",
+          "source": "hero:valen"
+        },
+        {
+          "row": 3,
+          "id": "valen_crescent_cleave",
+          "name": "Crescent Cleave",
+          "source": "hero:valen"
+        },
+        {
+          "row": 4,
+          "id": "valen_shield_splitter",
+          "name": "Shield-Splitter",
+          "source": "hero:valen"
+        },
+        {
+          "row": 5,
+          "id": "valen_bloodied_fury",
+          "name": "Bloodied Fury",
+          "source": "hero:valen"
+        },
+        {
+          "row": 6,
+          "id": "valen_dust_cloud_parry",
+          "name": "Dust-Cloud Parry",
+          "source": "hero:valen"
+        }
+      ]
+    },
+    {
+      "sheet": 4,
+      "slug": "vfx_sheet_04_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "valen_crimson_arc",
+          "name": "Crimson Arc",
+          "source": "hero:valen"
+        },
+        {
+          "row": 2,
+          "id": "valen_iron_steadfast",
+          "name": "Iron Steadfast",
+          "source": "hero:valen"
+        },
+        {
+          "row": 3,
+          "id": "valen_executioner_s_arc",
+          "name": "Executioner\u2019s Arc",
+          "source": "hero:valen"
+        },
+        {
+          "row": 4,
+          "id": "valen_tempest_edge",
+          "name": "Tempest Edge",
+          "source": "hero:valen"
+        },
+        {
+          "row": 5,
+          "id": "valen_heartseeker",
+          "name": "Heartseeker",
+          "source": "hero:valen"
+        },
+        {
+          "row": 6,
+          "id": "valen_breakneck_flurry",
+          "name": "Breakneck Flurry",
+          "source": "hero:valen"
+        }
+      ]
+    },
+    {
+      "sheet": 5,
+      "slug": "vfx_sheet_05_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "valen_titan_cracker",
+          "name": "Titan Cracker",
+          "source": "hero:valen"
+        },
+        {
+          "row": 2,
+          "id": "valen_scarred_gambit",
+          "name": "Scarred Gambit",
+          "source": "hero:valen"
+        },
+        {
+          "row": 3,
+          "id": "valen_fivefold_reckoning",
+          "name": "Fivefold Reckoning",
+          "source": "hero:valen"
+        },
+        {
+          "row": 4,
+          "id": "valen_shattered_crown",
+          "name": "Shattered Crown",
+          "source": "hero:valen"
+        },
+        {
+          "row": 5,
+          "id": "valen_koren_s_last_lesson",
+          "name": "Koren\u2019s Last Lesson",
+          "source": "hero:valen"
+        },
+        {
+          "row": 6,
+          "id": "ellowyn_arcane_fireball",
+          "name": "Arcane Fireball",
+          "source": "hero:ellowyn"
+        }
+      ]
+    },
+    {
+      "sheet": 6,
+      "slug": "vfx_sheet_06_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "ellowyn_chain_spark",
+          "name": "Chain Spark",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 2,
+          "id": "ellowyn_dawn_gleam",
+          "name": "Dawn Gleam",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 3,
+          "id": "ellowyn_rime_curtain",
+          "name": "Rime Curtain",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 4,
+          "id": "ellowyn_static_cage",
+          "name": "Static Cage",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 5,
+          "id": "ellowyn_sovereign_aegis",
+          "name": "Sovereign Aegis",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 6,
+          "id": "ellowyn_flame_wall",
+          "name": "Flame Wall",
+          "source": "hero:ellowyn"
+        }
+      ]
+    },
+    {
+      "sheet": 7,
+      "slug": "vfx_sheet_07_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "ellowyn_umbral_lance",
+          "name": "Umbral Lance",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 2,
+          "id": "ellowyn_arcane_conduit",
+          "name": "Arcane Conduit",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 3,
+          "id": "ellowyn_tempest_arc",
+          "name": "Tempest Arc",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 4,
+          "id": "ellowyn_glacial_prison",
+          "name": "Glacial Prison",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 5,
+          "id": "ellowyn_purifying_halo",
+          "name": "Purifying Halo",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 6,
+          "id": "ellowyn_solar_flare",
+          "name": "Solar Flare",
+          "source": "hero:ellowyn"
+        }
+      ]
+    },
+    {
+      "sheet": 8,
+      "slug": "vfx_sheet_08_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "ellowyn_void_pull",
+          "name": "Void Pull",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 2,
+          "id": "ellowyn_mirror_veil",
+          "name": "Mirror Veil",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 3,
+          "id": "ellowyn_blizzard_vortex",
+          "name": "Blizzard Vortex",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 4,
+          "id": "ellowyn_thunderhead_verdict",
+          "name": "Thunderhead Verdict",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 5,
+          "id": "ellowyn_queen_s_decree",
+          "name": "Queen\u2019s Decree",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 6,
+          "id": "ellowyn_meteor",
+          "name": "Meteor",
+          "source": "hero:ellowyn"
+        }
+      ]
+    },
+    {
+      "sheet": 9,
+      "slug": "vfx_sheet_09_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "ellowyn_astral_judgment",
+          "name": "Astral Judgment",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 2,
+          "id": "ellowyn_eclipse_singularity",
+          "name": "Eclipse Singularity",
+          "source": "hero:ellowyn"
+        },
+        {
+          "row": 3,
+          "id": "orin_shield_slam",
+          "name": "Shield Slam",
+          "source": "hero:orin"
+        },
+        {
+          "row": 4,
+          "id": "orin_hold_the_line",
+          "name": "Hold the Line",
+          "source": "hero:orin"
+        },
+        {
+          "row": 5,
+          "id": "orin_veteran_s_call",
+          "name": "Veteran's Call",
+          "source": "hero:orin"
+        },
+        {
+          "row": 6,
+          "id": "orin_crushing_blow",
+          "name": "Crushing Blow",
+          "source": "hero:orin"
+        }
+      ]
+    },
+    {
+      "sheet": 10,
+      "slug": "vfx_sheet_10_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "orin_intercept_stance",
+          "name": "Intercept Stance",
+          "source": "hero:orin"
+        },
+        {
+          "row": 2,
+          "id": "orin_iron_sweep",
+          "name": "Iron Sweep",
+          "source": "hero:orin"
+        },
+        {
+          "row": 3,
+          "id": "orin_concussive_bash",
+          "name": "Concussive Bash",
+          "source": "hero:orin"
+        },
+        {
+          "row": 4,
+          "id": "orin_phalanx_brace",
+          "name": "Phalanx Brace",
+          "source": "hero:orin"
+        },
+        {
+          "row": 5,
+          "id": "orin_spearhead_lunge",
+          "name": "Spearhead Lunge",
+          "source": "hero:orin"
+        },
+        {
+          "row": 6,
+          "id": "orin_shatterplate",
+          "name": "Shatterplate",
+          "source": "hero:orin"
+        }
+      ]
+    },
+    {
+      "sheet": 11,
+      "slug": "vfx_sheet_11_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "orin_battlefield_rally",
+          "name": "Battlefield Rally",
+          "source": "hero:orin"
+        },
+        {
+          "row": 2,
+          "id": "orin_retaliation_wall",
+          "name": "Retaliation Wall",
+          "source": "hero:orin"
+        },
+        {
+          "row": 3,
+          "id": "orin_earthshaker",
+          "name": "Earthshaker",
+          "source": "hero:orin"
+        },
+        {
+          "row": 4,
+          "id": "orin_vanguard_s_vow",
+          "name": "Vanguard's Vow",
+          "source": "hero:orin"
+        },
+        {
+          "row": 5,
+          "id": "orin_disciplined_strike",
+          "name": "Disciplined Strike",
+          "source": "hero:orin"
+        },
+        {
+          "row": 6,
+          "id": "orin_titan_breaker",
+          "name": "Titan Breaker",
+          "source": "hero:orin"
+        }
+      ]
+    },
+    {
+      "sheet": 12,
+      "slug": "vfx_sheet_12_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "orin_iron_banner",
+          "name": "Iron Banner",
+          "source": "hero:orin"
+        },
+        {
+          "row": 2,
+          "id": "orin_whirlwind_halberd",
+          "name": "Whirlwind Halberd",
+          "source": "hero:orin"
+        },
+        {
+          "row": 3,
+          "id": "orin_bulwark_fortress",
+          "name": "Bulwark Fortress",
+          "source": "hero:orin"
+        },
+        {
+          "row": 4,
+          "id": "orin_shockwave_decree",
+          "name": "Shockwave Decree",
+          "source": "hero:orin"
+        },
+        {
+          "row": 5,
+          "id": "orin_father_s_shield",
+          "name": "Father's Shield",
+          "source": "hero:orin"
+        },
+        {
+          "row": 6,
+          "id": "orin_siege_cataclysm",
+          "name": "Siege Cataclysm",
+          "source": "hero:orin"
+        }
+      ]
+    },
+    {
+      "sheet": 13,
+      "slug": "vfx_sheet_13_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "orin_unbreakable_formation",
+          "name": "Unbreakable Formation",
+          "source": "hero:orin"
+        },
+        {
+          "row": 2,
+          "id": "orin_last_bastion",
+          "name": "Last Bastion",
+          "source": "hero:orin"
+        },
+        {
+          "row": 3,
+          "id": "rowan_piercing_shot",
+          "name": "Piercing Shot",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 4,
+          "id": "rowan_pinning_arrow",
+          "name": "Pinning Arrow",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 5,
+          "id": "rowan_hunter_s_mark",
+          "name": "Hunter\u2019s Mark",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 6,
+          "id": "rowan_split_volley",
+          "name": "Split Volley",
+          "source": "hero:rowan"
+        }
+      ]
+    },
+    {
+      "sheet": 14,
+      "slug": "vfx_sheet_14_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "rowan_bodkin_bolt",
+          "name": "Bodkin Bolt",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 2,
+          "id": "rowan_crippling_sinew",
+          "name": "Crippling Sinew",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 3,
+          "id": "rowan_rain_of_arrows",
+          "name": "Rain of Arrows",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 4,
+          "id": "rowan_flare_arrow",
+          "name": "Flare Arrow",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 5,
+          "id": "rowan_watchtower_overwatch",
+          "name": "Watchtower Overwatch",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 6,
+          "id": "rowan_frost_tipped_snipe",
+          "name": "Frost-Tipped Snipe",
+          "source": "hero:rowan"
+        }
+      ]
+    },
+    {
+      "sheet": 15,
+      "slug": "vfx_sheet_15_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "rowan_thorn_barbed_shot",
+          "name": "Thorn-Barbed Shot",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 2,
+          "id": "rowan_rapid_draw",
+          "name": "Rapid Draw",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 3,
+          "id": "rowan_sun_glint_ricochet",
+          "name": "Sun-Glint Ricochet",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 4,
+          "id": "rowan_gale_piercer",
+          "name": "Gale Piercer",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 5,
+          "id": "rowan_tactical_retreat",
+          "name": "Tactical Retreat",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 6,
+          "id": "rowan_storm_feather_bolt",
+          "name": "Storm-Feather Bolt",
+          "source": "hero:rowan"
+        }
+      ]
+    },
+    {
+      "sheet": 16,
+      "slug": "vfx_sheet_16_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "rowan_arrow_tempest",
+          "name": "Arrow Tempest",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 2,
+          "id": "rowan_deadeye_focus",
+          "name": "Deadeye Focus",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 3,
+          "id": "rowan_glacier_heartseeker",
+          "name": "Glacier Heartseeker",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 4,
+          "id": "rowan_twin_string_barrage",
+          "name": "Twin-String Barrage",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 5,
+          "id": "rowan_sniper_s_vigil",
+          "name": "Sniper\u2019s Vigil",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 6,
+          "id": "rowan_horizon_obliteration",
+          "name": "Horizon Obliteration",
+          "source": "hero:rowan"
+        }
+      ]
+    },
+    {
+      "sheet": 17,
+      "slug": "vfx_sheet_17_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "rowan_skyfall_deluge",
+          "name": "Skyfall Deluge",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 2,
+          "id": "rowan_orin_s_watch",
+          "name": "Orin\u2019s Watch",
+          "source": "hero:rowan"
+        },
+        {
+          "row": 3,
+          "id": "mera_thorn_lash",
+          "name": "Thorn Lash",
+          "source": "hero:mera"
+        },
+        {
+          "row": 4,
+          "id": "mera_bramble_snare",
+          "name": "Bramble Snare",
+          "source": "hero:mera"
+        },
+        {
+          "row": 5,
+          "id": "mera_mossy_mend",
+          "name": "Mossy Mend",
+          "source": "hero:mera"
+        },
+        {
+          "row": 6,
+          "id": "mera_gale_gust",
+          "name": "Gale Gust",
+          "source": "hero:mera"
+        }
+      ]
+    },
+    {
+      "sheet": 18,
+      "slug": "vfx_sheet_18_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "mera_spore_cloud",
+          "name": "Spore Cloud",
+          "source": "hero:mera"
+        },
+        {
+          "row": 2,
+          "id": "mera_barkskin_call",
+          "name": "Barkskin Call",
+          "source": "hero:mera"
+        },
+        {
+          "row": 3,
+          "id": "mera_stone_lance",
+          "name": "Stone Lance",
+          "source": "hero:mera"
+        },
+        {
+          "row": 4,
+          "id": "mera_briar_wall",
+          "name": "Briar Wall",
+          "source": "hero:mera"
+        },
+        {
+          "row": 5,
+          "id": "mera_wildfire_burst",
+          "name": "Wildfire Burst",
+          "source": "hero:mera"
+        },
+        {
+          "row": 6,
+          "id": "mera_tremor_slam",
+          "name": "Tremor Slam",
+          "source": "hero:mera"
+        }
+      ]
+    },
+    {
+      "sheet": 19,
+      "slug": "vfx_sheet_19_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "mera_verdant_bloom",
+          "name": "Verdant Bloom",
+          "source": "hero:mera"
+        },
+        {
+          "row": 2,
+          "id": "mera_hawk_strike",
+          "name": "Hawk Strike",
+          "source": "hero:mera"
+        },
+        {
+          "row": 3,
+          "id": "mera_razor_vines",
+          "name": "Razor Vines",
+          "source": "hero:mera"
+        },
+        {
+          "row": 4,
+          "id": "mera_tempest_wing",
+          "name": "Tempest Wing",
+          "source": "hero:mera"
+        },
+        {
+          "row": 5,
+          "id": "mera_grove_sanctuary",
+          "name": "Grove Sanctuary",
+          "source": "hero:mera"
+        },
+        {
+          "row": 6,
+          "id": "mera_sunbeam_canopy",
+          "name": "Sunbeam Canopy",
+          "source": "hero:mera"
+        }
+      ]
+    },
+    {
+      "sheet": 20,
+      "slug": "vfx_sheet_20_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "mera_earthshatter",
+          "name": "Earthshatter",
+          "source": "hero:mera"
+        },
+        {
+          "row": 2,
+          "id": "mera_stags_vigor",
+          "name": "Stag's Vigor",
+          "source": "hero:mera"
+        },
+        {
+          "row": 3,
+          "id": "mera_elder_wrath",
+          "name": "Elder Wrath",
+          "source": "hero:mera"
+        },
+        {
+          "row": 4,
+          "id": "mera_moonlit_renewal",
+          "name": "Moonlit Renewal",
+          "source": "hero:mera"
+        },
+        {
+          "row": 5,
+          "id": "mera_dire_fang_spirit",
+          "name": "Dire Fang Spirit",
+          "source": "hero:mera"
+        },
+        {
+          "row": 6,
+          "id": "mera_cataclysm_quake",
+          "name": "Cataclysm Quake",
+          "source": "hero:mera"
+        }
+      ]
+    },
+    {
+      "sheet": 21,
+      "slug": "vfx_sheet_21_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "mera_heart_of_the_wild",
+          "name": "Heart of the Wild",
+          "source": "hero:mera"
+        },
+        {
+          "row": 2,
+          "id": "mera_primal_eclipse",
+          "name": "Primal Eclipse",
+          "source": "hero:mera"
+        },
+        {
+          "row": 3,
+          "id": "harlan_smelling_salts",
+          "name": "Smelling Salts",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 4,
+          "id": "harlan_soothing_poultice",
+          "name": "Soothing Poultice",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 5,
+          "id": "harlan_weakening_draught",
+          "name": "Weakening Draught",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 6,
+          "id": "harlan_barkskin_tonic",
+          "name": "Barkskin Tonic",
+          "source": "hero:harlan"
+        }
+      ]
+    },
+    {
+      "sheet": 22,
+      "slug": "vfx_sheet_22_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "harlan_venom_mist",
+          "name": "Venom Mist",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 2,
+          "id": "harlan_reviving_tincture",
+          "name": "Reviving Tincture",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 3,
+          "id": "harlan_adrenaline_brew",
+          "name": "Adrenaline Brew",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 4,
+          "id": "harlan_blightbane_remedy",
+          "name": "Blightbane Remedy",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 5,
+          "id": "harlan_acidic_flask",
+          "name": "Acidic Flask",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 6,
+          "id": "harlan_vitality_infusion",
+          "name": "Vitality Infusion",
+          "source": "hero:harlan"
+        }
+      ]
+    },
+    {
+      "sheet": 23,
+      "slug": "vfx_sheet_23_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "harlan_mending_rain",
+          "name": "Mending Rain",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 2,
+          "id": "harlan_plague_spore_burst",
+          "name": "Plague-Spore Burst",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 3,
+          "id": "harlan_iron_lung_elixir",
+          "name": "Iron-Lung Elixir",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 4,
+          "id": "harlan_miracle_balm",
+          "name": "Miracle Balm",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 5,
+          "id": "harlan_neurotoxin_dart",
+          "name": "Neurotoxin Dart",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 6,
+          "id": "harlan_mana_distillate",
+          "name": "Mana Distillate",
+          "source": "hero:harlan"
+        }
+      ]
+    },
+    {
+      "sheet": 24,
+      "slug": "vfx_sheet_24_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "harlan_phoenix_draught",
+          "name": "Phoenix Draught",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 2,
+          "id": "harlan_rot_cloud_catalyst",
+          "name": "Rot-Cloud Catalyst",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 3,
+          "id": "harlan_hero_s_panacea",
+          "name": "Hero\u2019s Panacea",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 4,
+          "id": "harlan_grand_elixir",
+          "name": "Grand Elixir",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 5,
+          "id": "harlan_oakhollow_requiem",
+          "name": "Oakhollow Requiem",
+          "source": "hero:harlan"
+        },
+        {
+          "row": 6,
+          "id": "harlan_undying_vow",
+          "name": "Undying Vow",
+          "source": "hero:harlan"
+        }
+      ]
+    },
+    {
+      "sheet": 25,
+      "slug": "vfx_sheet_25_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "weapon_longsword_quick_slash",
+          "name": "Longsword: Quick Slash",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 2,
+          "id": "weapon_longsword_heavy_cleave",
+          "name": "Longsword: Heavy Cleave",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 3,
+          "id": "weapon_greatsword_wide_sweep",
+          "name": "Greatsword: Wide Sweep",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 4,
+          "id": "weapon_greatsword_overhead_rend",
+          "name": "Greatsword: Overhead Rend",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 5,
+          "id": "weapon_rapier_needle_thrust",
+          "name": "Rapier: Needle Thrust",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 6,
+          "id": "weapon_rapier_heart_pierce",
+          "name": "Rapier: Heart Pierce",
+          "source": "weapon_mode"
+        }
+      ]
+    },
+    {
+      "sheet": 26,
+      "slug": "vfx_sheet_26_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "weapon_battleaxe_chopping_hack",
+          "name": "Battleaxe: Chopping Hack",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 2,
+          "id": "weapon_battleaxe_execution_chop",
+          "name": "Battleaxe: Execution Chop",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 3,
+          "id": "weapon_mace_heavy_bash",
+          "name": "Mace: Heavy Bash",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 4,
+          "id": "weapon_mace_armor_crush",
+          "name": "Mace: Armor Crush",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 5,
+          "id": "weapon_spear_long_thrust",
+          "name": "Spear: Long Thrust",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 6,
+          "id": "weapon_spear_brace_sweep",
+          "name": "Spear: Brace Sweep",
+          "source": "weapon_mode"
+        }
+      ]
+    },
+    {
+      "sheet": 27,
+      "slug": "vfx_sheet_27_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "weapon_longbow_snap_arrow",
+          "name": "Longbow: Snap Arrow",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 2,
+          "id": "weapon_longbow_aimed_piercer",
+          "name": "Longbow: Aimed Piercer",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 3,
+          "id": "weapon_shortbow_quick_volley",
+          "name": "Shortbow: Quick Volley",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 4,
+          "id": "weapon_shortbow_wing_clip",
+          "name": "Shortbow: Wing Clip",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 5,
+          "id": "weapon_dagger_quick_jab",
+          "name": "Dagger: Quick Jab",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 6,
+          "id": "weapon_dagger_vital_gouge",
+          "name": "Dagger: Vital Gouge",
+          "source": "weapon_mode"
+        }
+      ]
+    },
+    {
+      "sheet": 28,
+      "slug": "vfx_sheet_28_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "weapon_light_crossbow_bolt_snap",
+          "name": "Light Crossbow: Bolt Snap",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 2,
+          "id": "weapon_light_crossbow_siege_crank",
+          "name": "Light Crossbow: Siege Crank",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 3,
+          "id": "weapon_quarterstaff_staff_sweep",
+          "name": "Quarterstaff: Staff Sweep",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 4,
+          "id": "weapon_quarterstaff_crushing_vault",
+          "name": "Quarterstaff: Crushing Vault",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 5,
+          "id": "weapon_scimitar_crescent_cut",
+          "name": "Scimitar: Crescent Cut",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 6,
+          "id": "weapon_scimitar_whirling_slash",
+          "name": "Scimitar: Whirling Slash",
+          "source": "weapon_mode"
+        }
+      ]
+    },
+    {
+      "sheet": 29,
+      "slug": "vfx_sheet_29_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "weapon_sickle_reaping_hook",
+          "name": "Sickle: Reaping Hook",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 2,
+          "id": "weapon_sickle_thorn_slash",
+          "name": "Sickle: Thorn Slash",
+          "source": "weapon_mode"
+        },
+        {
+          "row": 3,
+          "id": "item_minor_healing_potion",
+          "name": "Minor Healing Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 4,
+          "id": "item_stout_healing_potion",
+          "name": "Stout Healing Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 5,
+          "id": "item_greater_healing_potion",
+          "name": "Greater Healing Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 6,
+          "id": "item_supreme_healing_potion",
+          "name": "Supreme Healing Potion",
+          "source": "consumable"
+        }
+      ]
+    },
+    {
+      "sheet": 30,
+      "slug": "vfx_sheet_30_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "item_minor_mana_potion",
+          "name": "Minor Mana Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 2,
+          "id": "item_greater_mana_potion",
+          "name": "Greater Mana Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 3,
+          "id": "item_supreme_mana_potion",
+          "name": "Supreme Mana Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 4,
+          "id": "item_reviving_potion",
+          "name": "Reviving Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 5,
+          "id": "item_phoenix_potion",
+          "name": "Phoenix Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 6,
+          "id": "item_antidote_potion",
+          "name": "Antidote Potion",
+          "source": "consumable"
+        }
+      ]
+    },
+    {
+      "sheet": 31,
+      "slug": "vfx_sheet_31_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "item_cooling_potion",
+          "name": "Cooling Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 2,
+          "id": "item_warming_potion",
+          "name": "Warming Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 3,
+          "id": "item_clarity_potion",
+          "name": "Clarity Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 4,
+          "id": "item_panacea_potion",
+          "name": "Panacea Potion",
+          "source": "consumable"
+        },
+        {
+          "row": 5,
+          "id": "boss_1_the_ashen_iron_golem_furnace_slam",
+          "name": "Furnace Slam",
+          "source": "boss:boss_1_the_ashen_iron_golem"
+        },
+        {
+          "row": 6,
+          "id": "boss_1_the_ashen_iron_golem_cinder_cloud",
+          "name": "Cinder Cloud",
+          "source": "boss:boss_1_the_ashen_iron_golem"
+        }
+      ]
+    },
+    {
+      "sheet": 32,
+      "slug": "vfx_sheet_32_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "boss_1_the_ashen_iron_golem_iron_phalanx",
+          "name": "Iron Phalanx",
+          "source": "boss:boss_1_the_ashen_iron_golem"
+        },
+        {
+          "row": 2,
+          "id": "boss_2_the_abyssal_aboleth_psychic_lance",
+          "name": "Psychic Lance",
+          "source": "boss:boss_2_the_abyssal_aboleth"
+        },
+        {
+          "row": 3,
+          "id": "boss_2_the_abyssal_aboleth_toxic_mucus_mist",
+          "name": "Toxic Mucus Mist",
+          "source": "boss:boss_2_the_abyssal_aboleth"
+        },
+        {
+          "row": 4,
+          "id": "boss_2_the_abyssal_aboleth_abyssal_lash",
+          "name": "Abyssal Lash",
+          "source": "boss:boss_2_the_abyssal_aboleth"
+        },
+        {
+          "row": 5,
+          "id": "boss_3_the_fire_giant_warlord_colossal_cleave",
+          "name": "Colossal Cleave",
+          "source": "boss:boss_3_the_fire_giant_warlord"
+        },
+        {
+          "row": 6,
+          "id": "boss_3_the_fire_giant_warlord_hurl_molten_boulder",
+          "name": "Hurl Molten Boulder",
+          "source": "boss:boss_3_the_fire_giant_warlord"
+        }
+      ]
+    },
+    {
+      "sheet": 33,
+      "slug": "vfx_sheet_33_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "boss_3_the_fire_giant_warlord_warlord_s_banner",
+          "name": "Warlord's Banner",
+          "source": "boss:boss_3_the_fire_giant_warlord"
+        },
+        {
+          "row": 2,
+          "id": "boss_4_the_elder_blight_treant_root_slam",
+          "name": "Root Slam",
+          "source": "boss:boss_4_the_elder_blight_treant"
+        },
+        {
+          "row": 3,
+          "id": "boss_4_the_elder_blight_treant_spore_rot_burst",
+          "name": "Spore-Rot Burst",
+          "source": "boss:boss_4_the_elder_blight_treant"
+        },
+        {
+          "row": 4,
+          "id": "boss_4_the_elder_blight_treant_living_bark",
+          "name": "Living Bark",
+          "source": "boss:boss_4_the_elder_blight_treant"
+        },
+        {
+          "row": 5,
+          "id": "boss_4_the_elder_blight_treant_acidic_sap",
+          "name": "Acidic Sap",
+          "source": "boss:boss_4_the_elder_blight_treant"
+        },
+        {
+          "row": 6,
+          "id": "boss_5_the_efreeti_pasha_heat_mirage_parry",
+          "name": "Heat-Mirage Parry",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        }
+      ]
+    },
+    {
+      "sheet": 34,
+      "slug": "vfx_sheet_34_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "boss_5_the_efreeti_pasha_hurl_flame_orb",
+          "name": "Hurl Flame Orb",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        },
+        {
+          "row": 2,
+          "id": "boss_5_the_efreeti_pasha_solar_flare",
+          "name": "Solar Flare",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        },
+        {
+          "row": 3,
+          "id": "boss_5_the_efreeti_pasha_scimitar_flurry",
+          "name": "Scimitar Flurry",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        },
+        {
+          "row": 4,
+          "id": "boss_5_the_efreeti_pasha_lightning_breath",
+          "name": "Lightning Breath",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        },
+        {
+          "row": 5,
+          "id": "boss_5_the_efreeti_pasha_gale_wing_sweep",
+          "name": "Gale Wing-Sweep",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        },
+        {
+          "row": 6,
+          "id": "boss_5_the_efreeti_pasha_skyward_ascent",
+          "name": "Skyward Ascent",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        }
+      ]
+    },
+    {
+      "sheet": 35,
+      "slug": "vfx_sheet_35_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "boss_5_the_efreeti_pasha_dragon_rend",
+          "name": "Dragon Rend",
+          "source": "boss:boss_5_the_efreeti_pasha"
+        },
+        {
+          "row": 2,
+          "id": "boss_7_the_pit_fiend_general_infernal_mace",
+          "name": "Infernal Mace",
+          "source": "boss:boss_7_the_pit_fiend_general"
+        },
+        {
+          "row": 3,
+          "id": "boss_7_the_pit_fiend_general_meteor_hellstorm",
+          "name": "Meteor Hellstorm",
+          "source": "boss:boss_7_the_pit_fiend_general"
+        },
+        {
+          "row": 4,
+          "id": "boss_7_the_pit_fiend_general_hellfire_curse",
+          "name": "Hellfire Curse",
+          "source": "boss:boss_7_the_pit_fiend_general"
+        },
+        {
+          "row": 5,
+          "id": "boss_7_the_pit_fiend_general_fiendish_command",
+          "name": "Fiendish Command",
+          "source": "boss:boss_7_the_pit_fiend_general"
+        },
+        {
+          "row": 6,
+          "id": "boss_8_king_garrick_sovereign_of_the_undead_eclipse_executioner_s_greatsword",
+          "name": "Executioner's Greatsword",
+          "source": "boss:boss_8_king_garrick_sovereign_of_the_undead_eclipse"
+        }
+      ]
+    },
+    {
+      "sheet": 36,
+      "slug": "vfx_sheet_36_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "boss_8_king_garrick_sovereign_of_the_undead_eclipse_risen_vanguard",
+          "name": "Risen Vanguard",
+          "source": "boss:boss_8_king_garrick_sovereign_of_the_undead_eclipse"
+        },
+        {
+          "row": 2,
+          "id": "boss_8_king_garrick_sovereign_of_the_undead_eclipse_necrotic_lance",
+          "name": "Necrotic Lance",
+          "source": "boss:boss_8_king_garrick_sovereign_of_the_undead_eclipse"
+        },
+        {
+          "row": 3,
+          "id": "boss_8_king_garrick_sovereign_of_the_undead_eclipse_eclipse_cataclysm",
+          "name": "Eclipse Cataclysm",
+          "source": "boss:boss_8_king_garrick_sovereign_of_the_undead_eclipse"
+        },
+        {
+          "row": 4,
+          "id": "boss_8_king_garrick_sovereign_of_the_undead_eclipse_timeless_chill",
+          "name": "Timeless Chill",
+          "source": "boss:boss_8_king_garrick_sovereign_of_the_undead_eclipse"
+        },
+        {
+          "row": 5,
+          "id": "boss_8_king_garrick_sovereign_of_the_undead_eclipse_undying_vow",
+          "name": "Undying Vow",
+          "source": "boss:boss_8_king_garrick_sovereign_of_the_undead_eclipse"
+        },
+        {
+          "row": 6,
+          "id": "status_burn_tick",
+          "name": "Status Tick: Burn",
+          "source": "system"
+        }
+      ]
+    },
+    {
+      "sheet": 37,
+      "slug": "vfx_sheet_37_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "status_chill_tick",
+          "name": "Status Tick: Chill",
+          "source": "system"
+        },
+        {
+          "row": 2,
+          "id": "status_shock_tick",
+          "name": "Status Tick: Shock",
+          "source": "system"
+        },
+        {
+          "row": 3,
+          "id": "status_poison_tick",
+          "name": "Status Tick: Poison",
+          "source": "system"
+        },
+        {
+          "row": 4,
+          "id": "status_curse_tick",
+          "name": "Status Tick: Curse",
+          "source": "system"
+        },
+        {
+          "row": 5,
+          "id": "status_bleed_tick",
+          "name": "Status Tick: Bleed",
+          "source": "system"
+        },
+        {
+          "row": 6,
+          "id": "status_stun_proc",
+          "name": "Status: Stunned",
+          "source": "system"
+        }
+      ]
+    },
+    {
+      "sheet": 38,
+      "slug": "vfx_sheet_38_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "action_guard_stance",
+          "name": "Combat Action: Guard",
+          "source": "system"
+        },
+        {
+          "row": 2,
+          "id": "action_momentum_gain",
+          "name": "Combat Gain: Momentum",
+          "source": "system"
+        },
+        {
+          "row": 3,
+          "id": "resolve_tier1_awakened",
+          "name": "Resolve Tier 1 (<50%)",
+          "source": "system"
+        },
+        {
+          "row": 4,
+          "id": "resolve_tier2_awakened",
+          "name": "Resolve Tier 2 (<25%)",
+          "source": "system"
+        },
+        {
+          "row": 5,
+          "id": "imbue_fire_strike",
+          "name": "Runestone: Fire Imbue",
+          "source": "runestone"
+        },
+        {
+          "row": 6,
+          "id": "imbue_frost_strike",
+          "name": "Runestone: Frost Imbue",
+          "source": "runestone"
+        }
+      ]
+    },
+    {
+      "sheet": 39,
+      "slug": "vfx_sheet_39_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "imbue_lightning_strike",
+          "name": "Runestone: Shock Imbue",
+          "source": "runestone"
+        },
+        {
+          "row": 2,
+          "id": "imbue_poison_strike",
+          "name": "Runestone: Venom Imbue",
+          "source": "runestone"
+        },
+        {
+          "row": 3,
+          "id": "imbue_shadow_strike",
+          "name": "Runestone: Shadow Imbue",
+          "source": "runestone"
+        },
+        {
+          "row": 4,
+          "id": "imbue_radiant_strike",
+          "name": "Runestone: Radiant Imbue",
+          "source": "runestone"
+        },
+        {
+          "row": 5,
+          "id": "imbue_lifesteal_pulse",
+          "name": "Runestone: Siphon Pulse",
+          "source": "runestone"
+        },
+        {
+          "row": 6,
+          "id": "enemy_basic_slash",
+          "name": "Mob Basic: Claw/Blade",
+          "source": "mob_basic"
+        }
+      ]
+    },
+    {
+      "sheet": 40,
+      "slug": "vfx_sheet_40_6x6",
+      "aspectRatio": "1:1",
+      "rows": [
+        {
+          "row": 1,
+          "id": "enemy_basic_pierce",
+          "name": "Mob Basic: Fang/Bolt",
+          "source": "mob_basic"
+        },
+        {
+          "row": 2,
+          "id": "enemy_basic_blunt",
+          "name": "Mob Basic: Slam/Club",
+          "source": "mob_basic"
+        },
+        {
+          "row": 3,
+          "id": "sys_crit_starburst",
+          "name": "Critical Hit Starburst",
+          "source": "bonus"
+        },
+        {
+          "row": 4,
+          "id": "sys_parry_deflect",
+          "name": "Parry / Block Deflect Spark",
+          "source": "bonus"
+        },
+        {
+          "row": 5,
+          "id": "sys_dodge_whoosh",
+          "name": "Miss / Evade Wind Whoosh",
+          "source": "bonus"
+        },
+        {
+          "row": 6,
+          "id": "sys_boss_telegraph_crest",
+          "name": "Boss Telegraph Warning Crest",
+          "source": "bonus"
+        }
+      ]
+    }
+  ]
+}

@@ -37,7 +37,7 @@ function buildOpeningCall(leader: HeroDefinition, defA: HeroDefinition, defB: He
     case "rowan":
       return `Gear is strapped and the road east is open. Feels strange walking out without you, ${addrA}—keep watch over these walls for us.`;
     case "mera":
-      return `The side gate is clear for us to slip out. Keep your eyes open in here, ${addrA}—Highcrown still has plenty of Garrick's old rats hiding in the dark.`;
+      return `The outer road is open, and even the stones here breathe easier with Garrick gone. Tend the city well, ${addrA}—we will break his Portals before they choke the land.`;
     case "harlan":
       return `My satchels are full and the road waits for no one. Look after the people left inside these walls, ${addrA}—we'll need a home worth coming back to.`;
   }
@@ -55,7 +55,7 @@ function buildKeepFirstPledge(defA: HeroDefinition, defB: HeroDefinition): strin
     case "rowan":
       return "You just watch the wilds—I'll take the high towers. Nothing walks down that northern road toward Highcrown without an arrow greeting it first.";
     case "mera":
-      return "Please—nobody slips past me in this city. I'll keep eyes on the alleys and run word out to the towns so you're never marching blind.";
+      return "Leave the courtyard to me. With Highcrown's overgrown palace gardens waking back to life, I'll weave living thorn-wards around the walls and keep watch until you return.";
     case "harlan":
       return "Somebody has to mend the folks who can't swing a sword. I'll keep the infirmary open and make sure sickness doesn't finish what Garrick started.";
   }
@@ -70,7 +70,7 @@ const SPLIT_PAIR_REACTIONS: Partial<Record<HeroId, Partial<Record<HeroId, string
     valen:
       "Don't carry the whole city on your shoulders alone, Valen. Trust the loyal captains inside these walls until we return.",
     mera:
-      "Be careful in those lower streets, Mera. You risked your neck enough for me in the dark—don't throw it away now.",
+      "Guard your own strength inside the Keep, Mera. You stood faithfully beside me through all those silent years under Garrick—do not spend yourself recklessly now.",
   },
   orin: {
     rowan:
@@ -82,7 +82,7 @@ const SPLIT_PAIR_REACTIONS: Partial<Record<HeroId, Partial<Record<HeroId, string
   },
   mera: {
     ellowyn:
-      "Stay behind thick stone walls, Your Grace. You saved me once—now let me help clear a path out there for you.",
+      "Hold fast behind thick stone walls, Your Grace. You broke my chains when I was just a child—now let my thorns and stormwinds clear the wild road ahead for you.",
   },
 };
 
@@ -96,7 +96,7 @@ const COMPANION_FALLBACK: Record<HeroId, string> = {
   rowan:
     "Fair enough. Keep the fires lit on the watchtowers, and we'll thin out whatever's prowling the Crownlands.",
   mera:
-    "Just leave a loose latch on the postern gate for our riders. You watch the city—we'll bring down the Portals.",
+    "Keep the palace courtyard green and standing until we return. Watch Highcrown's stones—we'll answer those Portals with earth, thorn, and storm.",
   harlan:
     "Try not to work yourselves to death while we're gone, either. Keep some broth warm for when we limp back in.",
 };
@@ -113,7 +113,7 @@ function buildKeepSecondPledge(defB: HeroDefinition, defA: HeroDefinition): stri
     case "rowan":
       return `With ${partner} watching the city and my bow on the battlements, you've got nothing to worry about. Just leave a few fights for us when you hit the final gate.`;
     case "mera":
-      return `With ${partner} keeping watch and my eyes in the streets, no spy gets through. When you're ready to strike Garrick himself, we'll be right at your flank.`;
+      return `Between ${partner}'s steel on the battlements and my storm-wards over the gardens, nothing hostile crosses these gates. Send word when you march on Garrick's keep, and we will strike beside you.`;
     case "harlan":
       return `I'll keep ${partner} standing and the town patched up until you're back. Just stay alive out there—all six of us are ending this together.`;
   }
@@ -130,7 +130,7 @@ function buildClosingCall(leader: HeroDefinition): string {
     case "rowan":
       return "All right, let's hit the road before we lose the daylight. See you soon.";
     case "mera":
-      return "Good. Let's slip out while the road's quiet—stay safe in here.";
+      return "Hold fast inside these walls, both of you. Nature answers us again—let's move out.";
     case "harlan":
       return "Take care of yourselves, then. Time we stepped outside these walls.";
   }

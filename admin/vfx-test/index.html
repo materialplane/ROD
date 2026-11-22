@@ -98,6 +98,36 @@
     border: 1px solid rgba(255,255,255,0.45);
     flex-shrink: 0;
   }
+  .sheet-nav {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .sheet-nav select {
+    flex: 1;
+    min-width: 0;
+    background: #171a23;
+    color: #ece6d8;
+    border: 1px solid #454b5c;
+    border-radius: 8px;
+    padding: 7px 8px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .sheet-nav button {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+  .sheet-meta {
+    font-size: 11px;
+    color: #a9b1c2;
+    margin-bottom: 10px;
+    padding: 6px 8px;
+    background: rgba(15, 18, 25, 0.7);
+    border: 1px solid #2e3340;
+    border-radius: 6px;
+  }
   .stage-wrap {
     display: flex;
     flex-direction: column;
@@ -188,7 +218,7 @@
     </div>
   </div>
   <h1>ROD — Token VFX &amp; Color-Shift Test Bench</h1>
-  <p class="subtitle">Tests 6-frame Sheet 2 animations + alpha-clipped avatar color scale simultaneously</p>
+  <p class="subtitle">Tests 6-frame 6&times;6 animations + alpha-clipped avatar color scale simultaneously</p>
 
   <div class="layout">
     <div class="panel">
@@ -222,23 +252,14 @@
     </div>
 
     <div class="panel">
-      <h2>3. Play Sheet 2 Animations</h2>
-      <button class="vfx-btn" data-vfx="1">
-        <span>Row 1: Cross Slash</span>
-        <span class="swatch" style="background:#f5b041"></span>
-      </button>
-      <button class="vfx-btn" data-vfx="2">
-        <span>Row 2: Ember Spark</span>
-        <span class="swatch" style="background:#ff5722"></span>
-      </button>
-      <button class="vfx-btn" data-vfx="3">
-        <span>Row 3: Frost Shard</span>
-        <span class="swatch" style="background:#4dd0e1"></span>
-      </button>
-      <button class="vfx-btn" data-vfx="4">
-        <span>Row 4: Stinging Salve</span>
-        <span class="swatch" style="background:#2ecc71"></span>
-      </button>
+      <h2>3. Sheet Selector (All 5 / 30 VFX)</h2>
+      <div class="sheet-nav">
+        <button id="prevSheetBtn" title="Previous Sheet">&larr;</button>
+        <select id="sheetSelect"></select>
+        <button id="nextSheetBtn" title="Next Sheet">&rarr;</button>
+      </div>
+      <div class="sheet-meta" id="sheetMeta">Loading 5 sheets...</div>
+      <div id="vfxList"></div>
 
       <h2 style="margin-top:14px;">Color-Shift &amp; Timing</h2>
       <div class="control-row">
@@ -249,8 +270,8 @@
         <input type="range" id="tintStrength" min="0" max="100" value="55" />
       </div>
       <div class="control-row">
-        <label>Duration <span id="durationVal">1.2s</span></label>
-        <input type="range" id="durationSlider" min="500" max="2200" step="100" value="1200" />
+        <label>Duration <span id="durationVal">0.9s</span></label>
+        <input type="range" id="durationSlider" min="300" max="2200" step="100" value="900" />
       </div>
       <div class="control-row">
         <label>Overlay Scale <span id="scaleVal">1.05x</span></label>
@@ -261,11 +282,13 @@
   </div>
 
 <script>
-const EFFECTS = {
-  1: { name: "Cross Slash", color: "#f5b041", shake: 7, defaultDuration: 900 },
-  2: { name: "Ember Spark", color: "#ff5722", shake: 6, defaultDuration: 1200 },
-  3: { name: "Frost Shard", color: "#4dd0e1", shake: 5, defaultDuration: 1200 },
-  4: { name: "Stinging Salve / Heal", color: "#2ecc71", shake: 0, defaultDuration: 1400 },
+let EFFECTS = {
+  1: { name: "Quick Diagonal Slash", color: "#e5e7eb", shake: 5, defaultDuration: 650 },
+  2: { name: "Heavy Greatblade Cleave", color: "#f59e0b", shake: 8, defaultDuration: 800 },
+  3: { name: "Twin X-Cross Slash", color: "#f5b041", shake: 7, defaultDuration: 700 },
+  4: { name: "Serrated Scarlet Cut", color: "#ef4444", shake: 7, defaultDuration: 750 },
+  5: { name: "Kinetic Blunt Smash", color: "#d97706", shake: 8, defaultDuration: 750 },
+  6: { name: "Shattering Armor Crush", color: "#fb923c", shake: 9, defaultDuration: 850 },
 };
 
 const canvas = document.getElementById("stage");
@@ -279,7 +302,8 @@ let selectedHero = "valen";
 let selectedHp = 1;
 let activeVfxRow = 1;
 let animStart = null;
-let lastFrameIdx = 0;
+let catalogSheets = [];
+let activeSheet = { sheet: 1, folder: "sheet_01", mode: "magenta_ff", empty: [], clipped: [], rows: [] };
 
 const imgCache = new Map();
 function loadImg(src) {
@@ -294,13 +318,62 @@ function loadImg(src) {
   return p;
 }
 
-// Preload all hero HP1 and VFX frames smoothly
+const CACHE_BUST = Date.now();
+const VFX_URL = (row, frame) => `/repo-assets/vfx/slices/${activeSheet.folder}/row${row}_f${frame}.webp?v=${CACHE_BUST}`;
+
+function renderSheetButtons() {
+  const list = document.getElementById("vfxList");
+  list.innerHTML = "";
+  EFFECTS = {};
+  const rows = activeSheet.rows && activeSheet.rows.length ? activeSheet.rows : [
+    { row: 1, name: "Quick Diagonal Slash", color: "#e5e7eb", shake: 5, defaultDuration: 650 },
+    { row: 2, name: "Heavy Greatblade Cleave", color: "#f59e0b", shake: 8, defaultDuration: 800 },
+    { row: 3, name: "Twin X-Cross Slash", color: "#f5b041", shake: 7, defaultDuration: 700 },
+    { row: 4, name: "Serrated Scarlet Cut", color: "#ef4444", shake: 7, defaultDuration: 750 },
+    { row: 5, name: "Kinetic Blunt Smash", color: "#d97706", shake: 8, defaultDuration: 750 },
+    { row: 6, name: "Shattering Armor Crush", color: "#fb923c", shake: 9, defaultDuration: 850 },
+  ];
+  rows.forEach((item) => {
+    EFFECTS[item.row] = {
+      name: item.name,
+      color: item.color,
+      shake: item.shake,
+      defaultDuration: item.defaultDuration || 800,
+    };
+    const btn = document.createElement("button");
+    btn.className = "vfx-btn" + (item.row === activeVfxRow ? " active" : "");
+    btn.dataset.vfx = String(item.row);
+    if (item.usage) btn.title = item.usage;
+    btn.innerHTML = `<span>Row ${item.row}: ${item.name}</span><span class="swatch" style="background:${item.color}"></span>`;
+    btn.addEventListener("click", () => playEffect(item.row));
+    list.appendChild(btn);
+  });
+
+  const clips = activeSheet.clipped ? activeSheet.clipped.length : 0;
+  const empties = activeSheet.empty ? activeSheet.empty.length : 0;
+  const totalSheets = catalogSheets.length || 5;
+  document.getElementById("sheetMeta").textContent =
+    `Sheet ${String(activeSheet.sheet).padStart(2, "0")}/${String(totalSheets).padStart(2, "0")} · Key: ${activeSheet.mode} · Clipped: ${clips}/36 · Empty: ${empties}/36`;
+}
+
+async function selectSheet(sheetNum) {
+  const found = catalogSheets.find((s) => s.sheet === Number(sheetNum));
+  if (!found) return;
+  activeSheet = found;
+  document.getElementById("sheetSelect").value = String(found.sheet);
+  activeVfxRow = 1;
+  animStart = null;
+  renderSheetButtons();
+  await preloadCurrent();
+}
+
+// Preload all hero HP1 and 6x6 VFX frames smoothly
 async function preloadCurrent() {
   await loadImg(`heroes/${selectedHero}_hp${selectedHp}.png`);
   const jobs = [];
-  for (let r = 1; r <= 4; r++) {
+  for (let r = 1; r <= 6; r++) {
     for (let f = 1; f <= 6; f++) {
-      jobs.push(loadImg(`vfx/row${r}_f${f}.png`));
+      jobs.push(loadImg(VFX_URL(r, f)));
     }
   }
   await Promise.all(jobs);
@@ -308,6 +381,9 @@ async function preloadCurrent() {
 
 function playEffect(row) {
   activeVfxRow = row;
+  document.querySelectorAll(".vfx-btn").forEach((b) => {
+    b.classList.toggle("active", Number(b.dataset.vfx) === row);
+  });
   const eff = EFFECTS[row];
   document.getElementById("tintColor").value = eff.color;
   document.getElementById("durationSlider").value = eff.defaultDuration;
@@ -359,7 +435,7 @@ async function renderLoop(now) {
 
       const fIdx = Math.min(6, Math.max(1, Math.floor(t * 6) + 1));
       try {
-        frameImg = await loadImg(`vfx/row${activeVfxRow}_f${fIdx}.png`);
+        frameImg = await loadImg(VFX_URL(activeVfxRow, fIdx));
       } catch (e) {}
 
       const effShake = EFFECTS[activeVfxRow].shake;
@@ -437,8 +513,14 @@ document.querySelectorAll("#hpButtons button").forEach((btn) => {
   });
 });
 
-document.querySelectorAll(".vfx-btn").forEach((btn) => {
-  btn.addEventListener("click", () => playEffect(Number(btn.dataset.vfx)));
+document.getElementById("sheetSelect").addEventListener("change", (e) => selectSheet(Number(e.target.value)));
+document.getElementById("prevSheetBtn").addEventListener("click", () => {
+  const n = activeSheet.sheet > 1 ? activeSheet.sheet - 1 : catalogSheets.length;
+  selectSheet(n);
+});
+document.getElementById("nextSheetBtn").addEventListener("click", () => {
+  const n = activeSheet.sheet < catalogSheets.length ? activeSheet.sheet + 1 : 1;
+  selectSheet(n);
 });
 
 document.getElementById("replayBtn").addEventListener("click", () => playEffect(activeVfxRow));
@@ -452,7 +534,34 @@ document.getElementById("scaleSlider").addEventListener("input", (e) => {
   document.getElementById("scaleVal").textContent = (Number(e.target.value) / 100).toFixed(2) + "x";
 });
 
-preloadCurrent().then(() => requestAnimationFrame(renderLoop));
+async function init() {
+  try {
+    const res = await fetch(`/repo-assets/vfx/slices/vfx_test_catalog.json?v=${CACHE_BUST}`, { cache: "no-store" });
+    const data = await res.json();
+    catalogSheets = data.sheets || [];
+    const sel = document.getElementById("sheetSelect");
+    sel.innerHTML = "";
+    catalogSheets.forEach((s) => {
+      const opt = document.createElement("option");
+      opt.value = String(s.sheet);
+      const tag = (s.mode === "magenta_ff" || s.mode === "magenta_hue") ? "clean" : s.mode;
+      const warn = (s.clipped && s.clipped.length > 0) ? ` · ${s.clipped.length} clip` : "";
+      const label = s.title || (s.rows[0] ? s.rows[0].name : "");
+      opt.textContent = `Sheet ${String(s.sheet).padStart(2, "0")} [${tag}${warn}] — ${label}`;
+      sel.appendChild(opt);
+    });
+    if (catalogSheets.length) {
+      activeSheet = catalogSheets[0];
+    }
+  } catch (err) {
+    document.getElementById("sheetMeta").textContent = "Failed to load VFX catalog.";
+  }
+  renderSheetButtons();
+  await preloadCurrent();
+  requestAnimationFrame(renderLoop);
+}
+
+init();
 </script>
 </body>
 </html>

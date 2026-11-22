@@ -2,6 +2,7 @@ import React from "react";
 import { assetUrl } from "../api";
 import { getHeroById } from "../heroes";
 import type { EquippedGearMap, HeroId, ItemEntry, SpellEntry } from "../types";
+import { itemTooltipHandlers } from "./itemTooltip";
 import { cleanDamageTypeLabel, computeHeroDelta, WEAPON_ATTACK_MODES, type ShopCatalogEntry, type StatDeltaRow } from "./shopLogic";
 
 interface CompareBoxProps {
@@ -89,8 +90,8 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
   } else if (isGear && delta.comparedItem && delta.comparedItem.sellSilver > 0 && item.priceSilver > 0) {
     const net = Math.max(0, item.priceSilver - delta.comparedItem.sellSilver);
     footNote = `Trade in old: +${delta.comparedItem.sellSilver}s · Net: ${net}s`;
-  } else if (item.step) {
-    footNote = `Gear Tier Step ${item.step}`;
+  } else if (isGear) {
+    footNote = `${delta.slotLabel} · ${item.subType}`;
   }
 
   const btnText = spell
@@ -127,7 +128,10 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
       <div className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-1.5 pr-0.5">
         {isGear && (
           <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
-            <div className="flex items-center gap-2.5 p-1.5 px-2 rounded border border-[#2b3448] bg-[#121723]/92 min-w-0">
+            <div
+              {...itemTooltipHandlers(delta.comparedItem, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+              className="flex items-center gap-2.5 p-1.5 px-2 rounded border border-[#2b3448] bg-[#121723]/92 min-w-0"
+            >
               {delta.comparedItem ? (
                 <img src={assetUrl(delta.comparedItem.iconPath)} alt="" className="w-11 h-11 sm:w-12 sm:h-12 p-0.5 rounded object-contain border border-[#59492d] bg-[#141822] shrink-0" />
               ) : (
@@ -137,17 +141,20 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
                 <div className="text-[10px] uppercase tracking-wider text-[#96a7c2] font-bold">Currently Wearing</div>
                 <div className="text-[13px] font-bold text-[#f6ebd5] truncate">{delta.comparedItem?.name ?? "Empty Slot"}</div>
                 <div className="text-[11px] text-[#a7b6ce] truncate">
-                  {delta.comparedItem ? `Step ${delta.comparedItem.step ?? 1} · Sell +${delta.comparedItem.sellSilver}s` : "No gear equipped"}
+                  {delta.comparedItem ? `Equipped · Sell +${delta.comparedItem.sellSilver}s` : "No gear equipped"}
                 </div>
               </div>
             </div>
             <span className={`text-[18px] font-extrabold ${delta.primaryDiff > 0 ? "text-[#7aeeb0]" : "text-[#c9a760]"}`}>→</span>
-            <div className={`flex items-center gap-2.5 p-1.5 px-2 rounded border min-w-0 ${sameEquipped ? "border-[#5b6985] bg-[#141925]/92" : "border-[#9e7f47] bg-gradient-to-br from-[#2c2211]/90 to-[#141926]/95"}`}>
+            <div
+              {...itemTooltipHandlers(item, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+              className={`flex items-center gap-2.5 p-1.5 px-2 rounded border min-w-0 ${sameEquipped ? "border-[#5b6985] bg-[#141925]/92" : "border-[#9e7f47] bg-gradient-to-br from-[#2c2211]/90 to-[#141926]/95"}`}
+            >
               <img src={assetUrl(item.iconPath)} alt="" className="w-11 h-11 sm:w-12 sm:h-12 p-0.5 rounded object-contain border border-[#8c703b] bg-[#141822] shrink-0" />
               <div className="min-w-0 flex-1">
                 <div className="text-[10px] uppercase tracking-wider text-[#e2be74] font-bold">{sameEquipped ? "Matching Stock" : "Shop Item"}</div>
                 <div className="text-[13px] font-bold text-[#f6ebd5] truncate">{item.name}</div>
-                <div className="text-[11px] text-[#a7b6ce] truncate">{`Step ${item.step ?? 1} · ${item.priceSilver.toLocaleString()}s`}</div>
+                <div className="text-[11px] text-[#a7b6ce] truncate">{`${gearItem?.handed ? `${gearItem.handed} · ` : item.subType ? `${item.subType} · ` : ""}${item.priceSilver.toLocaleString()}s`}</div>
               </div>
             </div>
           </div>
@@ -166,7 +173,10 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
 
         {spell ? (
           <div className="flex items-start gap-2.5">
-            <div className="w-16 h-16 rounded border border-[#a88644] bg-[#0b0e17] overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.55)]">
+            <div
+              {...itemTooltipHandlers(spell, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+              className="w-16 h-16 rounded border border-[#a88644] bg-[#0b0e17] overflow-hidden shrink-0 shadow-[0_4px_12px_rgba(0,0,0,0.55)]"
+            >
               <img src={assetUrl(spell.iconPath)} alt={spell.name} className="w-full h-full object-cover" draggable={false} />
             </div>
             <div className="flex-1 min-w-0 grid grid-cols-2 gap-1.5">
@@ -225,7 +235,10 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
             })}
           </div>
         ) : (
-          <div className="flex items-center gap-3.5 p-2.5 rounded border border-[#2b3448] bg-[#121723]/92">
+          <div
+            {...itemTooltipHandlers(item, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+            className="flex items-center gap-3.5 p-2.5 rounded border border-[#2b3448] bg-[#121723]/92"
+          >
             <img src={assetUrl(item.iconPath)} alt="" className="w-16 h-16 p-1 rounded object-contain border border-[#59492d] bg-[#141822] shrink-0" />
             <div>
               <div className="text-[10.5px] uppercase tracking-wider text-[#96a7c2] font-bold">Merchant Stock</div>

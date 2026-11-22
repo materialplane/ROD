@@ -106,7 +106,7 @@ export const SHOP_META: Record<ShopType, ShopMetaSpec> = {
   trade_goods: {
     id: "trade_goods",
     label: "Trade Goods Buyer",
-    quote: "Drop any monster spoils on the counter and I will weigh them out in Silver.",
+    quote: "Drop any trade goods on the counter and I will weigh them out in Silver.",
     pills: [],
   },
 };
@@ -208,6 +208,24 @@ export interface StatDeltaRow {
   curVal: number;
   newVal: number;
   diff: number;
+}
+
+export function tierAccentColor(step?: number): string {
+  if (!step) return "#7d653c";
+  if (step <= 6) return "#6b8e6b";
+  if (step <= 12) return "#4e86b8";
+  if (step <= 18) return "#9d68c4";
+  return "#e0a943";
+}
+
+export function itemOwnStatRows(entry: ShopCatalogEntry | null): StatDeltaRow[] {
+  if (!entry || entry.category === "spell" || !("stats" in entry) || !entry.stats) return [];
+  const rows: StatDeltaRow[] = [];
+  for (const [k, label] of Object.entries(STAT_LABELS)) {
+    const val = Number(entry.stats[k] ?? 0);
+    if (val !== 0) rows.push({ key: k, label, curVal: 0, newVal: val, diff: val });
+  }
+  return rows;
 }
 
 export interface HeroDeltaResult {

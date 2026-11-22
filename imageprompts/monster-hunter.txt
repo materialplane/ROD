@@ -1,0 +1,319 @@
+# ROD — 16:9 Monster Hunter Palisade Fort Interior Scene Prompts (20 Outposts: Z01–Z20)
+# Scope: All 20 Permanent Zone Outposts (5 Per Map · Hunt Quartermaster + Camp Warden Free Rest)
+# Design Rule: All 20 Zone Outposts are fortified Palisade Hunting Forts with strictly ENCLOSED INSIDE views (zero outdoor biome landscapes required — matching assets/maps/interiors/ hubs).
+# Style Reference: Attach assets/ui/menu_background_16x9_4k_v2.png (color & brushwork match) when generating.
+# Art Style Anchor: Exact League of Legends / Legends of Runeterra / Ruined King hand-painted splash style matching assets/maps/interiors/ hubs.
+# UI Layout Mandate: Keep the lower foreground (~25–30% height) calm darkly shadowed indoor floor (worn oak planks, dark slate flagstones, sandstone fort tiles, or dark volcanic basalt) so the bottom "People Here" column and Dialogue Plate sit cleanly without blocking key props.
+# Hard Rule: Uninhabited eye-level strictly-inside scene — zero people, zero readable writing/letters, zero outer map ring borders.
+
+SHARED STYLE HEADER — CONTINENTS 1–2 & HIGHLAND IRONCREST:
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+
+================================================================================
+MAP 1 — THE CROWNLANDS & SALTMARSH COAST (Z01–Z05 | 5 Scenes)
+================================================================================
+
+--------------------------------------------------------------------------------
+[01] ID: outpost_z01_meadowgate | Meadowgate Watch-Post (Zone 1 · Lv 1–5 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z01_meadowgate.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & OAK PALISADE GATEHOUSE HALL: Still, uninhabited eye-level scenic splash illustration standing deep inside the vaulted timber Watch-Hall of Meadowgate Watch-Post's Oak-Log Palisade Fort under dramatic golden-amber sunset shafts slanting cleanly through high shuttered timber arrow-slits. Calm darkly shadowed wide-plank worn oak floorboards stretch clean and uninterrupted across the entire lower 25–30% foreground.
+
+PALISADE WALLS & TROPHY BEAMS (LEFT & OVERHEAD): Thick peeled oak palisade wall logs braced by heavy iron straps and crooked cross-rafters cradle a roaring fieldstone wall fireplace beside a tall timber saddle-and-bridle rack, quiver pegs, and heavy forged iron gatehouse lanterns blazing fierce orange warmth.
+
+HORNED SKULL ARCH & HUNT RACKS (CENTER & RIGHT): Framing the back timber bastion wall rises a carved oak trophy lintel mounted with a horned stag-and-beast skull beneath crimson Highcrown watch banners, racked hunting longbows, coiled leather snares, and heavy iron-bound supply crates tucked cleanly into rich velvety shadows.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[02] ID: outpost_z02_oakwood | Oakwood Ranger Camp (Zone 2 · Lv 6–10 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z02_oakwood.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & WOODLAND TIMBER-STOCKADE HUNT HALL: Still, uninhabited eye-level scenic splash illustration deep inside the bark-shingled Timber Stockade Hall of Oakwood Ranger Camp's Woodland Palisade Fort lit warmly by blazing hearthlight and crisp golden twilight beams through narrow wood shutters. Dark oiled heavy timber floorboards scattered sparsely with crisp oak leaves span calm and open across the lower 25–30% foreground.
+
+WOLF-PELT STRETCHERS & BOW RACKS (LEFT & CENTER): Massive gnarled unbarked oak stockade pillars support thick timber loft joists and a raised guard catwalk glowing brightly from a round river-stone hearth-fire illuminating stretched cured gray wolf-pelts nailed neatly onto heavy oak drying frames beside tall racks of recurve and yew longbows.
+
+FLETCHING STATIONS & STOCKADE GATE (RIGHT): Lining the right inner palisade log wall sit leather arrow-barrel racks, stacked goose-feathered fletching bundles, iron wall lanterns, and thick iron-barred oak bastion double-doors sealed firmly inside deep espresso shadows.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[03] ID: outpost_z03_slate_ridge | Slate-Ridge Scout Outpost (Zone 3 · Lv 11–15 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z03_slate_ridge.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & GRAY-SLATE BUNKER GUARDROOM: Still, uninhabited eye-level scenic splash illustration standing deep inside the fortified stone-and-timber Guardroom of Slate-Ridge Scout Outpost's Gray-Slate Bunker & Palisade Fort pierced by golden sunset shafts through narrow splayed stone embrasures. Broad darkly shadowed flat gray-slate paving flagstones span unobstructed across the entire lower 25–30% foreground.
+
+SIGNAL HORN ARCH & TIMBER PALISADE WALLS (LEFT & CENTER): Squat layered gray-slate fort buttresses joined by sharpened inner oak palisade timbers blaze vividly under wall-mounted iron fire-torches lighting a tarnished brass scout signal horn rack, tattered crimson watch pennants, and tall steel-tipped hunting spear stands.
+
+SCOUT TABLE & WAR-MAP ARCHIVE (CENTER & RIGHT): Tucked cleanly against the shadowed rear slate alcove stands a heavy scarred oak trestle table topped with plain blank rolled leather-tied map tubes, a weathered brass compass, and stacked iron-strapped supply trunks beside rugged stone staircase steps.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[04] ID: outpost_z04_brinefen | Brinefen Hunter Landing (Zone 4 · Lv 16–20 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z04_brinefen.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & COASTAL PALISADE SEA-FORT HALL: Still, uninhabited eye-level scenic splash illustration inside the salt-seasoned enclosed Timber Hall of Brinefen Hunter Landing's Coastal Palisade Sea-Fort lit by amber twilight pouring through high shuttered seawatch windows. Broad darkly shadowed wet driftwood-oak deck planks stretch calm and bare across the entire lower 25–30% foreground.
+
+SAILCLOTH RAFTERS & HARPOON RACKS (LEFT & CENTER): Massive tarred pine palisade wall logs and salt-silvered ship-timber arches draped underneath with taut ochre-and-slate striped sailcloth glow richly from swinging brass storm-lanterns lighting heavy barbed iron harpoon racks, coiled tarred anchor cables, and netted glass buoys.
+
+CRAB CAGES & BEACON HEARTH (CENTER & RIGHT): Neatly stacked against the rear gray sea-stone bastion wall rest wooden slatted crab cages, salt-encrusted wooden diving chests, and a glowing forged iron hearth-brazier warming the weathered timber hall.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[05] ID: outpost_z05_bogwarden | Bogwarden Stilt-Post (Zone 5 · Lv 21–25 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z05_bogwarden.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & CYPRESS-TIMBER MARSH BASTION BLOCKHOUSE: Still, uninhabited eye-level scenic splash illustration deep inside the elevated Cypress Blockhouse Hall of Bogwarden Stilt-Post's Marsh Palisade Fort warmed by sunset slits along moss-chinked wooden shutters. Broad darkly shaded damp cedar floorboards span clean and uninterrupted across the entire lower 25–30% foreground.
+
+SMUDGE POTS & MIRE NETTING (LEFT & CENTER): Heavy rough-lashed cypress palisade interior timbers and crooked overhead loft beams glow intensely from smoking wrought-iron smudge pots and suspended amber oil lamps casting crisp highlights over hanging woven bog-toad nets, long iron-barbed marsh spears, and waterproof pitch buckets.
+
+BLEACHED BOG TROPHIES & FORTIFIED DOOR (CENTER & RIGHT): Mounted starkly along rear dark cypress palisade beams loom bleached crooked bog-beast jawbones and horned marsh skulls flanking a barred heavy oak sally door, cured leather slickers, and coiled hemp grappling lines.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 2 — THORNWALL WARFRONTS & VERDANT WEALD (Z06–Z10 | 5 Scenes)
+================================================================================
+
+--------------------------------------------------------------------------------
+[06] ID: outpost_z06_ochre_downs | Ochre-Downs Tracker Camp (Zone 6 · Lv 26–30 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z06_ochre_downs.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & FRONTIER TIMBER-AND-EARTH BLOCKHOUSE: Still, uninhabited eye-level scenic splash illustration inside the vaulted War-Blockhouse Hall of Ochre-Downs Tracker Camp's Frontier Palisade Fort bathed in warm golden-amber sunset shafts through narrow shuttered archer slits. Broad darkly shadowed swept oak planks and compacted earthen-tile slabs lie calm across the lower 25–30% foreground.
+
+CHINKED PALISADE LOGS & CROSSBOW RACKS (LEFT & CENTER): Heavy upright oak palisade wall timbers sealed between logs with warm weathered ochre clay plaster glow richly beneath suspended wrought-iron wheel chandeliers lighting racks of heavy steel windlass crossbows, leather bolt cases, and crimson Highcrown war pennants.
+
+STABLE TACK WALL & TROPHY BALES (CENTER & RIGHT): Framed along the rear timber gallery stand heavy riding saddles perched on oaken horses, stacked round woven straw archery targets pierced with training bolts, and trophy worg-fang collars hung neatly from iron wall spikes.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[07] ID: outpost_z07_cragspire | Cragspire Quarry Post (Zone 7 · Lv 31–35 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z07_cragspire.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & SLATE QUARRY BASTION ARMORY: Still, uninhabited eye-level scenic splash illustration deep inside the rough-hewn Slate Bastion Armory of Cragspire Quarry Post's Mountain Stone-and-Timber Fort lit dramatically by high amber light shafts. Dark scarred gray-slate paving flagstones stretch clean and unobstructed across the shaded lower 25–30% foreground.
+
+TRIPOD BRAZIER & PICKAXE WALLS (LEFT & CENTER): Stratified gray slate stone piers braced with heavy pine tie-beams gather tightly around a roaring wrought-iron tripod fire-brazier blazing fierce orange light across iron wall brackets holding heavy quarry pickaxes, sledge warhammers, and Highcrown sentinel lanterns.
+
+ROUND SHIELDS & FORTIFIED STAIR (CENTER & RIGHT): Bolted cleanly across rear iron-banded palisade doors hang row after row of dented iron round-shields and chained lantern standards flanking heavy iron-strapped ore chests and steps climbing toward upper bastion walkways.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[08] ID: outpost_z08_fernbrook | Fernbrook Ranger Station (Zone 8 · Lv 36–40 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z08_fernbrook.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & WEALD MOSS-BEAM FORT HALL: Still, uninhabited eye-level scenic splash illustration deep inside the heavy Timber Lodge-Hall of Fernbrook Ranger Station's Mossy Weald Palisade Fort lit softly by warm sunset shafts cutting through half-opened timber wall shutters. Dark worn oak floorboards lie calm and bare across the entire lower 25–30% foreground.
+
+MOSSY OAK BEAMS & HEARTH WALL (LEFT & CENTER): Hand-adzed crooked oak beams creeping with emerald forest moss hold hanging iron tallow chandeliers and deep-green Weald hunter pennants flanking a crackling wide fieldstone hearth fireplace stacked alongside seasoned split oak firewood.
+
+FLETCHING BENCH & TROPHY ARCH (CENTER & RIGHT): Along the back timber palisade wall stands a rugged wooden bowyer fletching workbench strewn cleanly with goose feathers, raw yew bow staves, carved antler mounts, and tallow-lantern niches deep inside warm espresso shadows.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[09] ID: outpost_z09_canopy_watch | Canopy-Watch Tree-Post (Zone 9 · Lv 41–45 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z09_canopy_watch.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & TREETOP LIVING-OAK PALISADE CITADEL: Still, uninhabited eye-level scenic splash illustration standing cleanly inside the enclosed octagonal Timber Ward-Chamber of Canopy-Watch Tree-Post's Treetop Palisade Fort lit by golden canopy sunbeams slicing through arched wood-shuttered lookout bays. Dark shadowed rough-hewn cedar floor planks extend flat and open across the entire lower 25–30% foreground.
+
+COLOSSAL LIVING OAK TRUNKS (LEFT & CENTER): Two gigantic moss-clad living oak trunks rise straight through the timber floor planks and lock tightly into soaring octagonal cedar roof rafters slung with heavy swinging brass storm lamps and taut hemp rope pulleys.
+
+HOIST WELL, BOW RACKS & SIGNAL HORN (CENTER & RIGHT): Around a timber-framed supply hoist shaft against the back palisade wall stand tall quiver racks brimming with arrows, coiled climbing lines, rope-ladder coils, and a gleaming polished brass lookout horn mounted by heavy shuttered battlements.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[10] ID: outpost_z10_mire_edge | Mire-Edge Quarantine Camp (Zone 10 · Lv 46–50 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z10_mire_edge.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & ALCHEMICAL OILED-TIMBER WARDROOM: Still, uninhabited eye-level scenic splash illustration deep inside the dark enclosed Quarantine Bastion Hall of Mire-Edge Quarantine Camp's Oiled-Timber Palisade Fort at tense twilight. Broad darkly shadowed wet slate flagstones span calmly unobstructed across the lower 25–30% foreground.
+
+LIME-FIRE BRAZIERS & TARRED PALISADE LOGS (LEFT & CENTER): Heavy pitch-dark oiled pine palisade logs banded in riveted iron glow eerily beneath suspended green alchemical lime-fire iron braziers paired beside warm orange oil lanterns burning steadily along soot-darkened timber columns.
+
+APOTHECARY RACKS & SPEAR WALL (CENTER & RIGHT): Lining rear stone-and-timber bays stand tall sturdy apothecary cabinets filled with corked emerald and amber antidote glass flasks beside iron-shod boar-spear racks and barred heavy sally doors.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 3 — SUN-SCORCHED ISLES & IRONCREST HIGHLANDS (Z11–Z15 | 5 Scenes)
+================================================================================
+
+SHARED STYLE HEADER — DESERT ZONES (Z11–Z13):
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+--------------------------------------------------------------------------------
+[11] ID: outpost_z11_dune_runner | Dune-Runner Nomad Post (Zone 11 · Lv 51–55 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z11_dune_runner.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & SANDSTONE & CEDAR STOCKADE HALL: Still, uninhabited eye-level scenic splash illustration deep inside the vaulted Desert Stockade Hall of Dune-Runner Nomad Post's Sandstone-and-Cedar Palisade Fort lit by blazing amber-gold light shafts filtering cleanly through narrow high clerestory slits. Calm deeply shadowed worn sandstone fort pavers and dark woven geometric rugs span smoothly across the lower 25–30% foreground.
+
+SHADED CEILING DRAPES & AMPHORAE ALCOVES (LEFT & CENTER): Battered wind-carved sandstone wall piers braced by knotted cedar beams and draped overhead with crimson-and-ochre woven sun-cloth glow warmly under hanging hammered copper lanterns illuminating stacked terracotta water amphorae in cool stone niches.
+
+DESERT TACK, SPEARS & BASTION ARCH (CENTER & RIGHT): Arranged cleanly along the opposite sandstone wall rest ornate leather desert camel saddlebags, coiled hemp ropes, tall bronze-headed spear stands, and massive cedar-spiked palisade gate timbers.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[12] ID: outpost_z12_palm_spring | Palm-Spring Hunter Pavilion (Zone 12 · Lv 56–60 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z12_palm_spring.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & OASIS SANDSTONE & PALM-TIMBER HUNT HALL: Still, uninhabited eye-level scenic splash illustration inside the vaulted Hunter Keep Hall of Palm-Spring Hunter Pavilion's Oasis Sandstone-and-Palisade Fort cooled beneath layered date-palm ceiling lattice and warm sunset shafts. Darkly shadowed damp cream sandstone floor pavers stretch calm and bare across the entire lower 25–30% foreground.
+
+CARVED PILLARS & WATER CASKS (LEFT & CENTER): Carved golden-limestone colonnade arches braced with sharpened cedar palisade balks glow richly beneath suspended brass oil lamps illuminating iron-hooped oak water casks, chilled stone cistern basins, and woven linen cooling drapes.
+
+SAND-DRAKE TROPHIES & BOW RACKS (CENTER & RIGHT): Anchoring the shadowed back fort wall loom massive mounted horned monster-skull trophies carved into limestone medallions above ornate ebony bow racks, gilded quiver tubes, and brass-studded garrison doors.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[13] ID: outpost_z13_mesa_watch | Mesa-Watch Ranger Outpost (Zone 13 · Lv 61–65 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z13_mesa_watch.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, sun-cracked limestone blocks, weathered cedar timber grain, knotted palm fronds, hammered tarnished bronze relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under brilliant warm amber-gold light shafts in crystal-clear air.
+
+COMPOSITION & TERRACOTTA STONE WATCH-CHAMBER: Still, uninhabited eye-level scenic splash illustration deep inside the vaulted Terracotta Watch-Chamber of Mesa-Watch Ranger Outpost's Canyon-Stone Palisade Fort illuminated sharply by bright golden light rays slicing through high sandstone embrasures. Darkly shadowed smooth terracotta sandstone paving stones span unobstructed across the lower 25–30% foreground.
+
+DESERT BANNERS & BRONZE BRAZIERS (LEFT & CENTER): Deeply carved stratified terracotta sandstone buttresses braced by cedar roof rafters flame warmly beside tall hammered bronze wall braziers lighting tattered crimson-and-gold watch banners, cool stone water barrel alcoves, and desert shield racks.
+
+BRASS SPYGLASS STAND & FORT GALLERY (CENTER & RIGHT): Positioned cleanly beside a heavy timber-shuttered high embrasure stands a tall polished brass optical spyglass on a heavy oak tripod alongside scroll-map racks, coiled grapple hooks, and carved limestone staircase arches.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[14] ID: outpost_z14_pine_valley | Pine-Valley Wardens' Post (Zone 14 · Lv 66–70 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z14_pine_valley.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & ALPINE PINE-LOG FORTRESS HALL: Still, uninhabited eye-level scenic splash illustration deep inside the steep-trussed Pine-Log Warden Hall of Pine-Valley Wardens' Post's Timber Palisade Fort bathed in warm amber sunset shafts through barred timber casements `(warm dry indoor timber & stone hearth glow, zero snow)`. Calm darkly shadowed worn pine planks and slate hearth slabs span bare across the lower 25–30% foreground.
+
+BEAR-PELT RACKS & RIVER-STONE HEARTH (LEFT & CENTER): Massive notched rough-hewn pine log walls framed by steep A-frame ceiling beams glow vibrantly around a roaring stacked river-stone fireplace hearth illuminating thick cured brown-bear hides stretched neatly on heavy timber drying frames.
+
+BOW RACKS & FIREWOOD ALCOVES (CENTER & RIGHT): Lining the right timber fort gallery rest tall mountain-ash longbow and arrow racks, heavy iron lantern standards, neatly stacked split pine firewood beneath slate benches, and wrought-iron banded bastion doors.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[15] ID: outpost_z15_highland_crag | Highland Crag-Watch Camp (Zone 15 · Lv 71–75 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z15_highland_crag.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled tree bark and twisted vine tendons, finely layered leaves and wildflowers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+
+COMPOSITION & GRANITE MOUNTAIN KEEP WARDROOM: Still, uninhabited eye-level scenic splash illustration standing deep inside the vaulted Gray-Granite Keep Wardroom of Highland Crag-Watch Camp's Mountain Stone-and-Palisade Fort under dramatic gold-rimmed twilight shafts `(crisp dry gray granite vaulting, zero snow)`. Smooth darkly shaded gray-granite flagstones stretch calm and open across the entire lower 25–30% foreground.
+
+DRAGON-SCALE WARD SHIELDS & BRAZIERS (LEFT & CENTER): Massive chiseled gray granite buttress ribs bolted with blackened iron tie-straps blaze under roaring iron fire-braziers casting bright amber flames across iridescent cerulean dragon-scale ward shields hung ceremonially along rear stone masonry.
+
+PIKE RACKS & IRON GATE ARCH (CENTER & RIGHT): Flanking the right granite fort arcade stand gleaming racks of copper-tipped iron pikes, heavy steel-bound armor chests, and rugged stone battlements pierced by bolted oak-and-iron shutter bays.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+MAP 4 — FROSTBOUND REACH & THE DREADWASTE (Z16–Z20 | 5 Scenes)
+================================================================================
+
+SHARED STYLE HEADER — NORTHERN HEARTH ZONES (Z16–Z17):
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—carved dark northern granite strata, deep mortar masonry fissures, storm-aged dry pine timber grain, hammered iron strapping, deeply carved Nordic knotwork relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in warm firelit indoor air.
+
+--------------------------------------------------------------------------------
+[16] ID: outpost_z16_snowdrift | Snowdrift Fur-Hunter Post (Zone 16 · Lv 76–80 · Northern Clans)
+# SAVE AS: assets/maps/interiors/outpost_z16_snowdrift.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—carved dark northern granite strata, deep mortar masonry fissures, storm-aged dry pine timber grain, hammered iron strapping, deeply carved Nordic knotwork relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in warm firelit indoor air.
+
+COMPOSITION & DRY NORDIC PINE PALISADE LONGHOUSE: Still, uninhabited eye-level scenic splash illustration standing deep inside the warm, completely enclosed Timber Longhouse Keep of the Fur-Hunter Post's Nordic Palisade Fort lit brightly by roaring hearthfire. Calm darkly shadowed dry swept pine floorboards and dark slate hearth slabs span unobstructed across the lower 25–30% foreground.
+
+FUR-DRAPED RAFTERS & CORNER HEARTH (LEFT & CENTER): Massive notched dry Nordic pine wall logs and carved dragon-prow roof beams draped richly in thick silver-wolf and cream bear pelts glow vivid golden-amber from suspended brass oil lamps and a crackling stacked-granite corner hearth fireplace.
+
+HUNTING SPEARS, HARNESSES & BASTION DOORS (CENTER & RIGHT): Resting cleanly against the dry timber palisade wall sit tall iron-shod hunting spears in oak racks, cured leather team harnesses hung neatly from antler pegs, fur-trimmed leather cloaks, and thick bolted oak gatehouse double doors sealed tight against the night.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[17] ID: outpost_z17_glacier_edge | Glacier-Edge Demon-Watch (Zone 17 · Lv 81–85 · Northern Clans)
+# SAVE AS: assets/maps/interiors/outpost_z17_glacier_edge.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—carved dark northern granite strata, deep mortar masonry fissures, storm-aged dry pine timber grain, hammered iron strapping, deeply carved Nordic knotwork relief, crisp golden-amber hearthlight rim highlights, and velvety dark espresso-and-indigo crevice shadows in warm firelit indoor air.
+
+COMPOSITION & NORTHERN DEMON-WATCH STONE REDOUBT: Still, uninhabited eye-level scenic splash illustration deep inside the warm, completely enclosed Stone-and-Timber Redoubt Hall of the Northern Demon-Watch's Palisade Fort glowing dramatically under roaring fireplace warmth and vivid azure ward flames. Smooth darkly shaded dry slate paving flagstones stretch cleanly across the lower 25–30% foreground.
+
+WARD BRAZIERS & SILVERED IRON STAKES (LEFT & CENTER): Heavy dry carved dark granite ribs and thick iron-bolted pine ceiling beams blaze richly under tall bronze hearth braziers glowing warm orange-amber beside consecrated pale-azure ward flames lighting silvered iron demon-ward stakes mounted cleanly in oak wall racks.
+
+HALBERD RACKS & CLAN STANDARDS (CENTER & RIGHT): Framing the dry back vaulted stone alcove hang deep cerulean-and-slate Northern Clan wool banners flanking tall racks of silvered demon-bane halberds, runed oak-and-iron shields, and thick bolted oak-and-iron shutter bays.
+--- COPY-PASTE PROMPT END ---
+
+SHARED STYLE HEADER — DREADWASTE ZONES (Z18–Z20):
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+--------------------------------------------------------------------------------
+[18] ID: outpost_z18_ashen_ridge | Ashen-Ridge Border Post (Zone 18 · Lv 86–90 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z18_ashen_ridge.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & IRON-SHUTTERED BASALT BORDER BUNKER: Still, uninhabited eye-level scenic splash illustration deep inside the fortified Iron-Shuttered Stone Bastion Hall of Ashen-Ridge Border Post's Border Palisade Fort lit fiercely by sunken ember light. Rugged dark ash-dusted slate flagstones stay calm and bare across the entire lower 25–30% foreground.
+
+SUNKEN COAL PIT & SHUTTERED WALLS (LEFT & CENTER): Heavy iron-strapped gray-stone and dark-basalt fort arches blaze around a sunken iron coal pit hearth casting vivid molten-orange highlights across thick bolted iron window shutters and charred oak palisade ceiling beams.
+
+SIGNAL HORN, BANNERS & STEEL RACKS (CENTER & RIGHT): Anchoring the back basalt wall hang a polished brass scout signal horn and crimson Highcrown watch pennants beside gleaming racks of silver-edged steel longswords, iron-rimmed pavises, and heavy bastion chain-winches.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[19] ID: outpost_z19_cinder_plain | Cinder-Plain Vanguard Camp (Zone 19 · Lv 91–95 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z19_cinder_plain.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & SPIKED IRON-PALISADE SLAYER STOCKADE HALL: Still, uninhabited eye-level scenic splash illustration deep inside the enclosed Vanguard Bastion Hall of Cinder-Plain Vanguard Camp's Spiked Iron-Palisade Stockade Fort bathed in roaring amber brazier glow. Smooth darkly shadowed black volcanic basalt flagstones lie calm and clear across the lower 25–30% foreground.
+
+OBSIDIAN WARD STONES & EMBER BRAZIERS (LEFT & CENTER): Riveted iron palisade wall plates bracing thick charred oak pillars blaze fiercely beneath roaring orange ember fire-braziers lighting tall carved obsidian ward monolith stones tucked crisply along shadowed vault recesses.
+
+SILVERED HALBERDS & ELIXIR CHESTS (CENTER & RIGHT): Lining the rear dark basalt fort gallery stand tall weapon racks brimming with consecrated silvered halberds, brass-bound apothecary elixir chests, tattered crimson war banners, and iron-spiked fort portal gates.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[20] ID: outpost_z20_black_crag | Black-Crag Slayer's Post (Zone 20 · Lv 96–99 · Highcrown Loyalists)
+# SAVE AS: assets/maps/interiors/outpost_z20_black_crag.jpg  (or .png)
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, charred heavy oak timber, wrought-iron strapping, deeply carved gothic stone relief, crisp molten ember rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dramatic twilight air.
+
+COMPOSITION & OBSIDIAN-BASALT SLAYER PALISADE SANCTUM: Still, uninhabited eye-level scenic splash illustration deep inside the vaulted Vanguard Sanctum Chamber of Black-Crag Slayer's Post's Obsidian-and-Iron Palisade Citadel lit defiantly by radiant consecrated hearthfire against deep violet twilight shafts. Calm deeply shadowed dark volcanic basalt flagstones span smoothly across the entire lower 25–30% foreground.
+
+CONSECRATED BRAZIERS & IRON PALISADE RIBS (LEFT & CENTER): Jagged black obsidian basalt walls braced by heavy spiked forged-iron palisade ribs blaze starkly under tall golden wall-braziers illuminating silver-trimmed crimson Highcrown ward banners hung down dark velvet shadow piers.
+
+SILVERED GREATSWORDS & RELIQUARY ALCOVE (CENTER & RIGHT): Against the back carved gothic stone arch rest tall racks of gleaming silvered slayer greatswords, heavy demon-hunter crossbows, and sacred golden chalice shelves beside massive spiked iron-and-basalt double doors.
+--- COPY-PASTE PROMPT END ---

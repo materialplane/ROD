@@ -42,7 +42,7 @@ function buildPartyTavernLine(heroId: HeroId, tavernName: string, townName: stri
     case "rowan":
       return `I already spotted both exits from the rafters when we stepped into ${tavernName}. Still, even a lookout knows when to loosen his bowstring, warm his hands, and hear the room out.`;
     case "mera":
-      return `Half the rumors worth catching across Ethoria come across tavern tables long before scouts write them in ink. ${tavernName}'s hearth smells like cedar smoke and honest stew—a welcome change from ash and mire.`;
+      return `Strange beasts in the wilds speak clearer than any town herald—you can feel it in the roots and wind the moment a Portal sours the land. Even so, ${tavernName}'s cedar smoke and warm hearth stew beat cold palace stone any night.`;
     case "harlan":
       return `Don't mind me checking the spice jars behind the bar—even clean spring ale beats bitter marsh water on a long campaign. Rest your shoulders a minute while the hearth fire burns warm.`;
   }

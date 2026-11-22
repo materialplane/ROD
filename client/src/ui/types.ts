@@ -81,6 +81,8 @@ export interface WorldLocation {
   y: number | null;
   scale?: number;
   triggerRadius?: number;
+  linkedFerryId?: string | null;
+  rotation?: number;
 }
 
 export interface NpcEntry {
@@ -113,6 +115,7 @@ export interface ItemEntry {
   stats?: Record<string, number | string>;
   effect?: string;
   sourceMob?: string;
+  sourceType?: string;
   regionsStocked?: string;
   iconPath: string;
 }

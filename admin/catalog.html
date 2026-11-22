@@ -120,7 +120,7 @@
         <button class="cat-btn active" data-cat="all">All 101 Markers</button>
         <button class="cat-btn" data-cat="permanent">40 Locations</button>
         <button class="cat-btn" data-cat="quest_field">Quest Sites (37)</button>
-        <button class="cat-btn" data-cat="travel">Travel (4)</button>
+        <button class="cat-btn" data-cat="travel">Travel (16)</button>
         <button class="cat-btn" data-cat="standby">Standby (12)</button>
         <button class="cat-btn" data-cat="dungeon_door">Dungeon Doors (4)</button>
       </div>
@@ -174,7 +174,7 @@
           const card = document.createElement("div");
           card.className = "tok-card";
           const img = document.createElement("img");
-          img.src = "/" + m.assetPath;
+          img.src = "/" + m.assetPath + "?v=" + Date.now();
           img.loading = "lazy";
           img.alt = m.name;
 
