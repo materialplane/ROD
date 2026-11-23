@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Party, Inventory &amp; Menu Management Mockup</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill active" href="/admin/party/">Party Menu</a>
+        <a class="nav-pill" href="/admin/disciplines/">Disciplines</a>
+        <a class="nav-pill" href="/admin/battles/">Battle Encounters</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+
+    <div class="studio-stats" id="studioStats">Loading party, bag, spells &amp; quests...</div>
+  </header>
+
+  <section class="studio-toolbar" id="studioToolbar">
+    <div class="ctrl-group">
+      <label for="selSquad">Squad Preset</label>
+      <select id="selSquad" class="ctrl-select">
+        <option value="valen,ellowyn,orin,harlan">Valen · Ellowyn · Orin · Harlan (Default)</option>
+        <option value="valen,ellowyn,orin,rowan">Valen · Ellowyn · Orin · Rowan</option>
+        <option value="valen,mera,orin,rowan">Valen · Mera · Orin · Rowan</option>
+        <option value="ellowyn,mera,harlan,valen">Ellowyn · Mera · Harlan · Valen</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="rngLevel">Test Level <strong id="lblTestLevel" style="color:#fae2aa;">1</strong></label>
+      <input type="range" id="rngLevel" min="1" max="99" step="1" value="1" class="ctrl-range" />
+    </div>
+
+    <div class="ctrl-group">
+      <label>Health Preview</label>
+      <div class="seg-group" id="segHpState">
+        <button class="seg-btn active" data-val="100">Full</button>
+        <button class="seg-btn" data-val="65">&lt;75%</button>
+        <button class="seg-btn" data-val="40">&lt;50%</button>
+        <button class="seg-btn" data-val="18">&lt;25%</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Screen Target</label>
+      <div class="seg-group" id="segViewport">
+        <button class="seg-btn active" data-val="full">Full Fit</button>
+        <button class="seg-btn" data-val="deck">1280&times;800 Deck</button>
+        <button class="seg-btn" data-val="desktop">1600&times;900</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Test Actions</label>
+      <div class="seg-group">
+        <button class="seg-btn" id="btnRefillDemo" title="Refill demo gear, potions, runestones, trade goods &amp; active quests">Refill Demo Pack</button>
+        <button class="seg-btn" id="btnRestInn" title="Simulate Free Inn Rest (0s) restoring full party HP/MP">Free Inn Rest</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="party-viewport-stage">
+    <div class="ledger-frame" id="ledgerFrame">
+      <img class="ledger-bg" src="/assets/ui/menu_background.webp" alt="" />
+      <div class="ledger-scrim"></div>
+
+      <div class="ledger-modal">
+        <!-- Top Header & Unified 6-Tab Strip -->
+        <header class="ledger-header">
+          <div class="ledger-title-wrap">
+            <h1 class="font-display">Party &amp; Adventure Menu <span class="hotkey-chip">P</span></h1>
+            <p id="ledgerSubtitle">Slot #1 leads on the World Map · Drag-free click order &amp; inventory</p>
+          </div>
+          <div class="ledger-purse-area">
+            <span class="purse-pill" id="pursePill">Silver: 480s</span>
+            <span class="lvl-pill" id="partyLvlPill">Party Lv 1</span>
+            <button type="button" class="close-btn" id="btnMockClose" title="Mock Close Button">&#10005;</button>
+          </div>
+        </header>
+
+        <nav class="ledger-tabs" id="ledgerTabs"></nav>
+
+        <!-- Dynamic Workspace -->
+        <div class="ledger-body" id="ledgerBody"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Socket Overwrite Confirmation / Action Modal -->
+  <div class="modal-backdrop hidden" id="confirmModalBackdrop">
+    <div class="confirm-dialog">
+      <h3 class="font-display" id="confirmTitle">Confirm Action</h3>
+      <p id="confirmMessage"></p>
+      <div class="confirm-actions">
+        <button type="button" class="rpg-btn secondary" id="btnConfirmCancel">Cancel</button>
+        <button type="button" class="rpg-btn danger" id="btnConfirmProceed">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Feedback -->
+  <div class="toast-banner hidden" id="toastBanner"></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

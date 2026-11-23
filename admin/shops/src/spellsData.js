@@ -10,7 +10,7 @@ const HERO_ICONS = {
 };
 
 const RAW_SPELLS = [
-  // Ellowyn (Mystic) — Tiers 1-8
+  // Ellowyn (Sorceress) — Tiers 1-8
   [1, "ellowyn", "Ember Spark", 5, "Fire", "1 Enemy", "Quick Fire snap; high accuracy with light Burn chance (2 turns)."],
   [1, "ellowyn", "Frost Shard", 6, "Frost", "1 Enemy", "Piercing Frost spike; applies Chill and delays enemy's next turn."],
   [1, "ellowyn", "Crown Ward", 7, "Radiant", "1 Ally", "Grants a protective Ward Shield and boosts Magic Defense for 2 turns."],
@@ -26,7 +26,7 @@ const RAW_SPELLS = [
   [5, "ellowyn", "Tempest Arc", 22, "Lightning", "All Enemies", "High-voltage storm hitting all foes and stripping evasion buffs."],
   [5, "ellowyn", "Glacial Prison", 21, "Frost", "1 Enemy", "Heavy Frost crystal impact with strong Stun chance or turn delay."],
   [5, "ellowyn", "Purifying Halo", 20, "Radiant", "Up to 3 Enemies", "Radiant strike cleansing 1 Curse/Shadow ailment from the party."],
-  [6, "ellowyn", "Solar Flare", 26, "Fire + Radiant", "1 Enemy + Splash", "Blinding eruption breaking 2 Guard pips on Fire/Radiant weaknesses."],
+  [6, "ellowyn", "Solar Flare", 26, "Fire + Radiant", "1 Enemy + Splash", "Blinding eruption breaking 2 Guard points on Fire/Radiant weaknesses."],
   [6, "ellowyn", "Void Pull", 25, "Shadow", "All Enemies", "Shadow gravity rift damaging all enemies and scrambling turn order."],
   [6, "ellowyn", "Mirror Veil", 24, "Arcane", "1 Ally", "Refractive ward reflecting 30% of incoming magic damage for 2 turns."],
   [7, "ellowyn", "Blizzard Vortex", 31, "Frost", "All Enemies", "Swirling Frost storm battering all enemies and applying Chill."],
@@ -38,7 +38,7 @@ const RAW_SPELLS = [
 
   // Mera (Druid) — Tiers 1-8
   [1, "mera", "Thorn Lash", 5, "Piercing", "1 Enemy", "Whips thorny vines across 1 enemy for Piercing damage + light Bleed."],
-  [1, "mera", "Bramble Snare", 6, "Nature", "1 Enemy", "Hardened roots chip 1 Guard pip and delay target's next turn."],
+  [1, "mera", "Bramble Snare", 6, "Nature", "1 Enemy", "Hardened roots chip 1 Guard point and delay target's next turn."],
   [1, "mera", "Mossy Mend", 6, "Nature", "1 Ally", "Restores light HP immediately plus a 3-turn Regeneration trickle."],
   [2, "mera", "Gale Gust", 10, "Lightning", "Up to 3 Enemies", "Sweeps wind-storm force pushing enemy turns back on the timeline."],
   [2, "mera", "Spore Cloud", 9, "Poison", "All Enemies", "Sprays choking Poison spores cutting enemy Accuracy for 2 turns."],
@@ -46,7 +46,7 @@ const RAW_SPELLS = [
   [3, "mera", "Stone Lance", 13, "Bludgeoning", "1 Enemy", "Jagged stone spire ignoring 25% of target's Physical Defense."],
   [3, "mera", "Briar Wall", 14, "Piercing", "2 Allies", "Thorns reflect 25% of incoming melee damage for 3 turns."],
   [3, "mera", "Wildfire Burst", 14, "Fire", "Up to 3 Enemies", "Ignites dry brush Fire across 3 targets with strong Burn chance."],
-  [4, "mera", "Tremor Slam", 18, "Bludgeoning", "All Enemies", "Earth shockwave hitting all enemies and chipping 1 Guard pip."],
+  [4, "mera", "Tremor Slam", 18, "Bludgeoning", "All Enemies", "Earth shockwave hitting all enemies and chipping 1 Guard point."],
   [4, "mera", "Verdant Bloom", 16, "Nature", "2 Allies", "Restores solid HP and grants 3-turn Regeneration across 2 allies."],
   [4, "mera", "Hawk Strike", 15, "Piercing", "1 Enemy", "Wind-spirit strike pulling Mera's next turn earlier on the timeline."],
   [5, "mera", "Razor Vines", 21, "Piercing", "Up to 3 Enemies", "Thorny steel-roots dealing heavy Piercing damage + strong Bleed."],
@@ -58,11 +58,11 @@ const RAW_SPELLS = [
   [7, "mera", "Elder Wrath", 31, "Lightning + Nature", "All Enemies", "Calls lightning and crushing roots applying Shock and heavy Guard break."],
   [7, "mera", "Moonlit Renewal", 29, "Radiant", "All Allies", "Party-wide HP heal, 3-turn Regeneration, and cleanses 1 ailment."],
   [7, "mera", "Dire Fang Spirit", 30, "Piercing", "1 Enemy", "Summons ghostly white wolf bite with +35% Critical Chance."],
-  [8, "mera", "Cataclysm Quake", 41, "Bludgeoning + Fire", "All Enemies", "Volcanic fissure across all foes breaking 2 Guard pips."],
+  [8, "mera", "Cataclysm Quake", 41, "Bludgeoning + Fire", "All Enemies", "Volcanic fissure across all foes breaking 2 Guard points."],
   [8, "mera", "Heart of the Wild", 38, "Nature", "All Allies", "Massive party heal + strong Regeneration + immediate Momentum."],
   [8, "mera", "Primal Eclipse", 40, "Lightning + Radiant", "1 Enemy", "Apex wild storm focusing surging elemental fury onto 1 boss/elite."],
 
-  // Harlan (Herbalist) — Tiers 1-8
+  // Harlan (Sage) — Tiers 1-8
   [1, "harlan", "Stinging Salve", 4, "Restorative", "1 Ally", "Restores burst HP to 1 ally and removes 1 Bleed or Burn."],
   [1, "harlan", "Bitterroot Vial", 5, "Poison", "1 Enemy", "Corrosive Poison flask inflicting Poison for 3 turns."],
   [1, "harlan", "Smelling Salts", 5, "Restorative", "1 Ally", "Cures Stun, Chill, or Curse and nudges ally turn forward."],
@@ -73,7 +73,7 @@ const RAW_SPELLS = [
   [3, "harlan", "Reviving Tincture", 14, "Restorative", "1 KO Ally", "Revives a fallen ally at 35% HP with 1-turn Bleed/Poison immunity."],
   [3, "harlan", "Adrenaline Brew", 11, "Restorative", "1 Ally", "Grants immediate Momentum (+25% next hit) and +10 Speed for 2 turns."],
   [4, "harlan", "Blightbane Remedy", 15, "Radiant", "All Allies", "Removes all active ailments from every ally and restores modest HP."],
-  [4, "harlan", "Acidic Flask", 15, "Poison + Bludgeon", "1 Enemy", "Melts armor (-25% Phys & Magic Def, 3 turns) and chips 1 Guard pip."],
+  [4, "harlan", "Acidic Flask", 15, "Poison + Bludgeon", "1 Enemy", "Melts armor (-25% Phys & Magic Def, 3 turns) and chips 1 Guard point."],
   [4, "harlan", "Vitality Infusion", 14, "Restorative", "1 Ally", "Strong 3-turn Regeneration healing at the start of every turn."],
   [5, "harlan", "Mending Rain", 20, "Restorative", "All Allies", "Restores solid HP across all 4 party members."],
   [5, "harlan", "Plague-Spore Burst", 19, "Poison", "All Enemies", "Detonates toxic cloud dealing bonus damage per active ailment."],

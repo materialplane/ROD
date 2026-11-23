@@ -3,7 +3,7 @@ Source: data/spells-catalog.json (3 Spellcasters x 8 Tiers x 3 Spells per Tier =
 Shops: Sold across Town Magic Shops in Regions 1-8 (Hero-filtered by Caster)
 
 ========================================================================================
-Queen Ellowyn — Mystic (24 Spells · Fire, Frost, Lightning, Radiant, Shadow, Arcane & Wards)
+Queen Ellowyn — Sorceress (24 Spells · Fire, Frost, Lightning, Radiant, Shadow, Arcane & Wards)
 ========================================================================================
 
 Tier 1 — Region 1: The Crownlands (Lv 1-12)
@@ -91,7 +91,7 @@ Tier 8 — Region 8: The Dreadwaste & Black Keep (Lv 86-99)
   3. Primal Eclipse (40 MP | Lightning + Radiant | 1 Enemy | 7,400s) — Apex wild storm focusing surging elemental fury onto 1 boss/elite.
 
 ========================================================================================
-Harlan — Herbalist (24 Spells · Restorative Healing, Revivals, Cleanse, Poison & Buffs)
+Harlan — Sage (24 Spells · Restorative Healing, Revivals, Cleanse, Poison & Buffs)
 ========================================================================================
 
 Tier 1 — Region 1: The Crownlands (Lv 1-12)

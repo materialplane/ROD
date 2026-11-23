@@ -57,7 +57,33 @@ export const WEAPON_ATTACK_MODES: Record<string, [string, string]> = {
   Quarterstaff: ["Staff Sweep", "Crushing Vault"],
   Scimitar: ["Crescent Cut", "Whirling Slash"],
   Sickle: ["Reaping Hook", "Thorn Slash"],
+  Unarmed: ["Quick Strike", "Heavy Blow"],
 };
+
+export const WEAPON_SKILL_ICON_MAP: Record<string, [string, string]> = {
+  Longsword: ["wpn_skill_longsword_quick_slash", "wpn_skill_longsword_heavy_cleave"],
+  Greatsword: ["wpn_skill_greatsword_wide_sweep", "wpn_skill_greatsword_overhead_rend"],
+  Rapier: ["wpn_skill_rapier_needle_thrust", "wpn_skill_rapier_heart_pierce"],
+  Battleaxe: ["wpn_skill_battleaxe_chopping_hack", "wpn_skill_battleaxe_execution_chop"],
+  Mace: ["wpn_skill_mace_heavy_bash", "wpn_skill_mace_armor_crush"],
+  Spear: ["wpn_skill_spear_long_thrust", "wpn_skill_spear_brace_sweep"],
+  Longbow: ["wpn_skill_longbow_snap_arrow", "wpn_skill_longbow_aimed_piercer"],
+  Shortbow: ["wpn_skill_shortbow_quick_volley", "wpn_skill_shortbow_wing_clip"],
+  Dagger: ["wpn_skill_dagger_quick_jab", "wpn_skill_dagger_vital_gouge"],
+  "Light Crossbow": ["wpn_skill_crossbow_bolt_snap", "wpn_skill_crossbow_siege_crank"],
+  Quarterstaff: ["wpn_skill_staff_sweep", "wpn_skill_staff_crushing_vault"],
+  Scimitar: ["wpn_skill_scimitar_crescent_cut", "wpn_skill_scimitar_whirling_slash"],
+  Sickle: ["wpn_skill_sickle_reaping_hook", "wpn_skill_sickle_thorn_slash"],
+};
+
+export function getWeaponAbilityIconPath(subType: string | undefined, slot: 0 | 1): string {
+  if (!subType || subType === "Unarmed") {
+    return "assets/icons/ui/ui_01_weapon_slot_glyph.webp";
+  }
+  const pair = WEAPON_SKILL_ICON_MAP[subType];
+  const id = pair ? pair[slot] : slot === 0 ? "wpn_skill_longsword_quick_slash" : "wpn_skill_longsword_heavy_cleave";
+  return `assets/icons/weapon_abilities/${id}.webp`;
+}
 
 export interface ShopMetaSpec {
   id: ShopType;
@@ -94,8 +120,15 @@ export const SHOP_META: Record<ShopType, ShopMetaSpec> = {
   arcanist: {
     id: "arcanist",
     label: "Arcanist",
-    quote: "Every restorative draught alongside true orbs, crystals, and arcane tomes.",
-    pills: [["all", "Potions & Magic Items"], ["consumable", "All Potions"], ["orb", "Orbs"], ["crystal", "Crystals"], ["tome", "Tomes"]],
+    quote: "Every restorative draught alongside true orbs, crystals, arcane tomes, and discipline training.",
+    pills: [
+      ["all", "Potions & Magic Items"],
+      ["consumable", "All Potions"],
+      ["orb", "Orbs"],
+      ["crystal", "Crystals"],
+      ["tome", "Tomes"],
+      ["disciplines", "Disciplines (Lv 1–90)"],
+    ],
   },
   adventurer: {
     id: "adventurer",
@@ -110,6 +143,20 @@ export const SHOP_META: Record<ShopType, ShopMetaSpec> = {
     pills: [],
   },
 };
+
+export const MAX_SPELLS_PER_REGION = 2;
+
+export function countRegionSpellsForHero(
+  learnedSpellIds: string[],
+  spells: SpellEntry[],
+  heroId: HeroId,
+  region: number
+): number {
+  const learnedSet = new Set(learnedSpellIds);
+  return spells.filter(
+    (sp) => sp.region === region && (sp.usableBy ?? []).includes(heroId) && learnedSet.has(sp.id)
+  ).length;
+}
 
 export type ShopCatalogEntry = (ItemEntry | SpellEntry) & { isSpell?: boolean };
 

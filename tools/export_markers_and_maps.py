@@ -21,29 +21,29 @@ MAPS_CONFIG = [
     {
         "id": "map_01",
         "src": "map_01_crownlands_saltmarsh_4k.png",
-        "name": "The Crownlands & Saltmarsh",
-        "regionLabel": "Regions 1–2 · Crownlands & Saltmarsh",
+        "name": "King's Reach",
+        "regionLabel": "King's Reach",
         "spawn": {"x": 5808, "y": 6665},
     },
     {
         "id": "map_02",
         "src": "map_02_thornwall_weald_4k.png",
-        "name": "Thornwall & Verdant Weald",
-        "regionLabel": "Regions 3–4 · Thornwall & Plague Woods",
+        "name": "Westmarch",
+        "regionLabel": "Westmarch",
         "spawn": {"x": 4096, "y": 4096},
     },
     {
         "id": "map_03",
         "src": "map_03_isles_ironcrest_4k.png",
-        "name": "Sun-Scorched Isles & Ironcrest Peaks",
-        "regionLabel": "Regions 5–6 · Sun-Scorched Isles & Ironcrest",
+        "name": "Suncrest Isles",
+        "regionLabel": "Suncrest Isles",
         "spawn": {"x": 4096, "y": 4096},
     },
     {
         "id": "map_04",
         "src": "map_04_frostbound_dreadwaste_4k.png",
-        "name": "Frostbound Reach & The Dreadwaste",
-        "regionLabel": "Regions 7–8 · Frostbound Reach & Dreadwaste",
+        "name": "Northhold",
+        "regionLabel": "Northhold",
         "spawn": {"x": 4096, "y": 4096},
     },
 ]
@@ -194,18 +194,28 @@ TOKEN_DEFS.extend(
 def export_all_overworld_maps() -> None:
     full_size = 8192
     tile_size = 512
+    atlas_size = 1536
     cols = full_size // tile_size
     rows = full_size // tile_size
 
     for m in MAPS_CONFIG:
         out_dir = CLIENT_MAPS_DIR / m["id"]
         meta_path = out_dir / "meta.json"
+        atlas_path = out_dir / "atlas.webp"
+        src = ROOT / "assets" / "maps" / "overworld" / m["src"]
+
+        if not atlas_path.exists() and src.exists():
+            out_dir.mkdir(parents=True, exist_ok=True)
+            with Image.open(src) as im:
+                atlas_im = im.convert("RGB").resize((atlas_size, atlas_size), Image.Resampling.LANCZOS)
+                atlas_im.save(atlas_path, "WEBP", quality=88, method=6)
+            print(f"  Exported {atlas_size}x{atlas_size} World Atlas -> {atlas_path.relative_to(ROOT)} ({atlas_path.stat().st_size // 1024} KB)")
+
         existing_tiles = list(out_dir.glob("tile_*.webp")) if out_dir.exists() else []
         if meta_path.exists() and len(existing_tiles) == cols * rows:
             print(f"[SKIP] {m['id']} already tiled ({len(existing_tiles)} WebP tiles)")
             continue
 
-        src = ROOT / "assets" / "maps" / "overworld" / m["src"]
         if not src.exists():
             print(f"[WARN] Missing source map: {src}")
             continue
@@ -629,6 +639,8 @@ def export_markers(json_only: bool = False, only_sheets: set[str] | None = None)
                 **({"tavernAssetPath": prev["tavernAssetPath"]} if prev.get("tavernAssetPath") else {}),
                 **({"tavernName": prev["tavernName"]} if prev.get("tavernName") else {}),
                 **({"linkedFerryId": prev["linkedFerryId"]} if "linkedFerryId" in prev else {}),
+                **({"passExitX": prev["passExitX"]} if prev.get("passExitX") is not None else {}),
+                **({"passExitY": prev["passExitY"]} if prev.get("passExitY") is not None else {}),
                 **({"rotation": prev["rotation"]} if prev.get("rotation") else {}),
             }
         )
@@ -660,9 +672,13 @@ def export_markers(json_only: bool = False, only_sheets: set[str] | None = None)
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--json-only", action="store_true", help="Only update JSON metadata/schemas without re-encoding images.")
+    parser.add_argument("--atlas-only", action="store_true", help="Only export single-file World Atlas overview WebPs.")
     parser.add_argument("--sheet", nargs="+", default=None, help="Only load and export specific sheet key(s), e.g. --sheet loc_d.")
     args = parser.parse_args()
     only_sheets = {s.strip() for s in args.sheet} if args.sheet else None
-    if not args.json_only and only_sheets is None:
+    if args.atlas_only:
         export_all_overworld_maps()
-    export_markers(json_only=args.json_only, only_sheets=only_sheets)
+    else:
+        if not args.json_only and only_sheets is None:
+            export_all_overworld_maps()
+        export_markers(json_only=args.json_only, only_sheets=only_sheets)

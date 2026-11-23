@@ -2,8 +2,27 @@ import React, { useEffect, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { ATTRIBUTE_META, DEFAULT_PARTY_ORDER, getHeroById, HEROES } from "../heroes";
-import type { EquippedGearMap, HeroId, ItemEntry, SpellEntry } from "../types";
-import { PartyGearPanel } from "./PartyGearPanel";
+import { hideClientItemTooltip } from "../shops/itemTooltip";
+import type {
+  EquippedGearMap,
+  GearSlot,
+  HeroAttrKey,
+  HeroAttrMap,
+  HeroId,
+  HeroSocketsMap,
+  ItemEntry,
+  QuestEntry,
+  RunestoneItem,
+  SpellEntry,
+  WorldLocation,
+} from "../types";
+import { GearRunestonesTab } from "../party/GearRunestonesTab";
+import { InventoryBagTab } from "../party/InventoryBagTab";
+import { computeHeroVitals, getHeroLevel, LEDGER_TABS, type LedgerTabId } from "../party/partyLogic";
+import { PartyRail } from "../party/PartyRail";
+import { PartyStatsTab } from "../party/PartyStatsTab";
+import { QuestJournalTab, WorldAtlasTab } from "../party/QuestAtlasTabs";
+import { WeaponsSpellsTab } from "../party/WeaponsSpellsTab";
 
 interface CharacterSelectModalProps {
   open: boolean;
@@ -345,13 +364,40 @@ interface PartyMenuModalProps {
   partyOrder: HeroId[];
   level: number;
   silver: number;
+  currentMapId: string;
+  playerX: number;
+  playerY: number;
   equippedByHero: EquippedGearMap;
   itemsById: Record<string, ItemEntry>;
   bagCounts: Record<string, number>;
+  tradeGoodCounts: Record<string, number>;
   learnedSpellIds: string[];
   spells: SpellEntry[];
-  onEquipFromBag: (heroId: HeroId, item: ItemEntry) => void;
+  heroSpentAttrs: Partial<Record<HeroId, HeroAttrMap>>;
+  socketsByHero: HeroSocketsMap;
+  runestonesBag: RunestoneItem[];
+  heroHpPct: Partial<Record<HeroId, number>>;
+  heroMpPct?: Partial<Record<HeroId, number>>;
+  partyXp?: number;
+  heroLevels?: Partial<Record<HeroId, number>>;
+  heroXp?: Partial<Record<HeroId, number>>;
+  disciplinesByHero?: Partial<Record<HeroId, import("../types").HeroDisciplinesEntry>>;
+  chosenDisciplinesByHero?: import("../types").ChosenDisciplinesMap;
+  acceptedQuestIds: string[];
+  questsCatalog: QuestEntry[];
+  worldLocations: WorldLocation[];
+  discoveredLocations: string[];
+  sealedPortalIds: string[];
+  onEquipFromBag: (heroId: HeroId, itemId: string) => void;
+  onUnequipSlot: (heroId: HeroId, slot: GearSlot) => void;
+  onSocketRunestone: (heroId: HeroId, stone: RunestoneItem) => void;
+  onUseConsumable: (sourceIds: string[], targetHeroId: HeroId, item: ItemEntry) => void;
+  onAdjustHeroStat: (heroId: HeroId, stat: HeroAttrKey, delta: number) => void;
+  onResetHeroStats: (heroId: HeroId) => void;
   onChangeOrder: (nextOrder: HeroId[]) => void;
+  onAbandonQuest: (questId: string) => void;
+  onSaveGame: () => void;
+  onOpenSettings: () => void;
   onClose: () => void;
 }
 
@@ -360,251 +406,320 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
   partyOrder,
   level,
   silver,
+  currentMapId,
+  playerX,
+  playerY,
   equippedByHero,
   itemsById,
   bagCounts,
+  tradeGoodCounts,
   learnedSpellIds,
   spells,
+  heroSpentAttrs,
+  socketsByHero,
+  runestonesBag,
+  heroHpPct,
+  heroMpPct,
+  partyXp = 0,
+  heroLevels,
+  heroXp,
+  disciplinesByHero,
+  chosenDisciplinesByHero,
+  acceptedQuestIds,
+  questsCatalog,
+  worldLocations,
+  discoveredLocations,
+  sealedPortalIds,
   onEquipFromBag,
+  onUnequipSlot,
+  onSocketRunestone,
+  onUseConsumable,
+  onAdjustHeroStat,
+  onResetHeroStats,
   onChangeOrder,
+  onAbandonQuest,
+  onSaveGame,
+  onOpenSettings,
   onClose,
 }) => {
-  const [inspectIdx, setInspectIdx] = useState(0);
-  const [sheetTab, setSheetTab] = useState<"stats" | "gear" | "bag_spells">("stats");
+  const [activeTab, setActiveTab] = useState<LedgerTabId>("party");
+  const [selectedHeroId, setSelectedHeroId] = useState<HeroId>(partyOrder[0] ?? "valen");
+  const [pendingOverwrite, setPendingOverwrite] = useState<{
+    heroId: HeroId;
+    stone: RunestoneItem;
+    existing: RunestoneItem;
+  } | null>(null);
 
   useEffect(() => {
-    if (open) setInspectIdx(0);
-  }, [open]);
+    if (open) {
+      setSelectedHeroId((prev) => (partyOrder.includes(prev) ? prev : partyOrder[0] ?? "valen"));
+      setPendingOverwrite(null);
+    } else {
+      hideClientItemTooltip();
+    }
+  }, [open, partyOrder]);
+
+  useEffect(() => {
+    if (!partyOrder.includes(selectedHeroId) && partyOrder[0]) {
+      setSelectedHeroId(partyOrder[0]);
+    }
+  }, [partyOrder, selectedHeroId]);
 
   if (!open) return null;
 
-  const activeSet = new Set(partyOrder);
-  const keepDefenders = HEROES.filter((h) => !activeSet.has(h.id));
-  const inspectedHero = getHeroById(partyOrder[inspectIdx] ?? partyOrder[0]);
-
-  const moveSlot = (idx: number, delta: -1 | 1) => {
-    const nextIdx = idx + delta;
-    if (nextIdx < 0 || nextIdx >= partyOrder.length) return;
-    const copy = [...partyOrder];
-    const tmp = copy[idx];
-    copy[idx] = copy[nextIdx];
-    copy[nextIdx] = tmp;
-    onChangeOrder(copy);
-    setInspectIdx(nextIdx);
+  const requestSocketRunestone = (heroId: HeroId, stone: RunestoneItem) => {
+    const existing = socketsByHero[heroId]?.[stone.target];
+    if (existing) {
+      setPendingOverwrite({ heroId, stone, existing });
+      return;
+    }
+    onSocketRunestone(heroId, stone);
   };
 
-  const makeLeader = (idx: number) => {
-    if (idx <= 0 || idx >= partyOrder.length) return;
-    const copy = [...partyOrder];
-    const [picked] = copy.splice(idx, 1);
-    copy.unshift(picked);
-    onChangeOrder(copy);
-    setInspectIdx(0);
-  };
+  const leaderId = partyOrder[0] ?? "valen";
+  const leaderHero = getHeroById(leaderId);
+  const leaderLv = getHeroLevel(heroLevels, leaderId, level);
+  const leaderVitals = computeHeroVitals(leaderId, leaderLv, heroSpentAttrs, equippedByHero, itemsById, socketsByHero, heroHpPct);
+  const leaderTokenPath = `assets/tokens/heroes/${leaderId}_hp${leaderVitals.hpTokenState}.webp`;
 
   return (
     <div
-      className="fixed inset-0 z-30 bg-[#06070b]/80 backdrop-blur-sm flex items-center justify-center p-4"
+      className="fixed inset-0 z-30 bg-[#06070b]/82 backdrop-blur-sm flex items-center justify-center p-2 md:p-4"
       role="dialog"
       aria-modal="true"
     >
-      <div className="rpg-modal-panel w-[940px] max-w-[95vw] max-h-[92vh] rounded p-5 md:p-6 flex flex-col overflow-hidden">
-        <header className="flex items-center justify-between border-b border-[#353b4a] pb-3 mb-4 shrink-0">
+      <div className="rpg-modal-panel w-[1180px] max-w-[96vw] h-[min(760px,92vh)] rounded p-4 md:p-5 flex flex-col overflow-hidden relative">
+        {/* Top Ledger Header */}
+        <header className="flex flex-wrap items-center justify-between gap-3 border-b border-[#353b4a] pb-2.5 mb-2.5 shrink-0">
           <div>
-            <h2 className="font-display m-0 text-[18px] tracking-[0.14em] uppercase text-[#f0d79d]">
-              Party Order, Gear &amp; Stats (P)
+            <h2 className="font-display m-0 text-[18px] tracking-[0.12em] uppercase text-[#f0d79d]">
+              Party, Gear &amp; Journey (P)
             </h2>
-            <p className="m-0 mt-0.5 text-[12px] text-[#a7b1c2]">
-              Ordered top-to-bottom (Slots 1–4). <strong className="text-[#f2c96c]">Slot #1</strong> leads your party on the World Map · Purse: <strong className="text-[#ffe49e]">{silver.toLocaleString()}s</strong>
+            <p className="m-0 mt-0.5 text-[11.5px] text-[#a7b1c2]">
+              Active 4 Companions · <strong className="text-[#f2c96c]">Slot #1</strong> leads on the World Map
             </p>
           </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="w-[30px] h-[30px] rounded border border-[#484f60] hover:border-[#d7b267] text-[#c8c0af] hover:text-white cursor-pointer"
-          >
-            ✕
-          </button>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="px-2.5 py-1 rounded border border-[#5f4d2e] bg-[#1b160e] text-[12px] font-bold text-[#fae2aa]">
+              Purse: {silver.toLocaleString()}s
+            </span>
+            <span className="px-2.5 py-1 rounded border border-[#364156] bg-[#141925] text-[12px] font-bold text-[#cfe0f5]">
+              Party Lv {level}
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                audioEngine.playUiClick(0.35);
+                onSaveGame();
+              }}
+              className="px-2.5 py-1 rounded border border-[#735e37] hover:border-[#d7b267] bg-[#211b11] text-[11.5px] font-semibold text-[#fae2aa] cursor-pointer"
+              title="Save Game"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                audioEngine.playUiClick(0.32);
+                onOpenSettings();
+              }}
+              className="px-2.5 py-1 rounded border border-[#3a4256] hover:border-[#d7b267] bg-[#161c28] text-[11.5px] font-semibold text-[#d3ddec] cursor-pointer"
+              title="Audio & Controls"
+            >
+              Settings
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                hideClientItemTooltip();
+                audioEngine.playUiClick(0.32);
+                onClose();
+              }}
+              className="w-[32px] h-[32px] rounded border border-[#484f60] hover:border-[#d7b267] text-[#c8c0af] hover:text-white cursor-pointer"
+              title="Close (Esc / P)"
+            >
+              ✕
+            </button>
+          </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.15fr] gap-4 flex-1 min-h-0 overflow-y-auto">
-          {/* Top-to-Bottom Active Party Stack */}
-          <div className="flex flex-col gap-2">
-            {partyOrder.map((hid, idx) => {
-              const hero = getHeroById(hid);
-              const isSelected = idx === inspectIdx;
-              return (
-                <div
-                  key={hid}
-                  onClick={() => setInspectIdx(idx)}
-                  className={[
-                    "rounded border p-2.5 flex items-center gap-3 cursor-pointer transition-all",
-                    isSelected
-                      ? "bg-[#221d14]/95 border-[#d7b267]"
-                      : "bg-[#151923]/95 border-[#353c4c] hover:border-[#6e5a36]",
-                  ].join(" ")}
+        {/* 6 Main Navigation Tabs */}
+        <nav className="flex flex-wrap gap-1.5 pb-2.5 mb-2.5 border-b border-[#293040] shrink-0">
+          {LEDGER_TABS.map((t) => {
+            const isActive = activeTab === t.id;
+            return (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => {
+                  hideClientItemTooltip();
+                  audioEngine.playUiClick(0.32);
+                  setActiveTab(t.id);
+                }}
+                className={[
+                  "flex items-center gap-2 px-3 py-1.5 rounded border text-[12px] font-semibold cursor-pointer transition",
+                  isActive
+                    ? "border-[#d7b267] bg-gradient-to-b from-[#2c2315] to-[#1a160f] text-[#fff1cb]"
+                    : "border-[#2e3547] bg-[#141925] text-[#aab6ca] hover:border-[#6a5b3e] hover:text-[#e5ecf8]",
+                ].join(" ")}
+              >
+                <img src={assetUrl(t.icon)} alt="" className="w-[17px] h-[17px] object-contain shrink-0" draggable={false} />
+                <span>{t.label}</span>
+              </button>
+            );
+          })}
+        </nav>
+
+        {/* Tab Workspace Body */}
+        <div className="flex-1 min-h-0 flex gap-3 overflow-hidden">
+          {(activeTab === "party" || activeTab === "gear" || activeTab === "skills") && (
+            <PartyRail
+              partyOrder={partyOrder}
+              selectedHeroId={selectedHeroId}
+              level={level}
+              heroLevels={heroLevels}
+              heroSpentAttrs={heroSpentAttrs}
+              equippedByHero={equippedByHero}
+              itemsById={itemsById}
+              socketsByHero={socketsByHero}
+              heroHpPct={heroHpPct}
+              heroMpPct={heroMpPct}
+              onSelectHero={setSelectedHeroId}
+              onChangeOrder={onChangeOrder}
+            />
+          )}
+
+          {activeTab === "party" && (
+            <PartyStatsTab
+              heroId={selectedHeroId}
+              partyOrder={partyOrder}
+              level={level}
+              partyXp={partyXp}
+              heroLevels={heroLevels}
+              heroXp={heroXp}
+              heroSpentAttrs={heroSpentAttrs}
+              equippedByHero={equippedByHero}
+              itemsById={itemsById}
+              socketsByHero={socketsByHero}
+              heroHpPct={heroHpPct}
+              heroMpPct={heroMpPct}
+              disciplinesByHero={disciplinesByHero}
+              chosenDisciplinesByHero={chosenDisciplinesByHero}
+              onAdjustStat={onAdjustHeroStat}
+              onResetStats={onResetHeroStats}
+            />
+          )}
+
+          {activeTab === "gear" && (
+            <GearRunestonesTab
+              heroId={selectedHeroId}
+              equippedByHero={equippedByHero}
+              itemsById={itemsById}
+              bagCounts={bagCounts}
+              socketsByHero={socketsByHero}
+              runestonesBag={runestonesBag}
+              onEquipFromBag={onEquipFromBag}
+              onUnequipSlot={onUnequipSlot}
+              onRequestSocketRunestone={requestSocketRunestone}
+            />
+          )}
+
+          {activeTab === "skills" && (
+            <WeaponsSpellsTab
+              heroId={selectedHeroId}
+              equippedByHero={equippedByHero}
+              itemsById={itemsById}
+              spells={spells}
+              learnedSpellIds={learnedSpellIds}
+            />
+          )}
+
+          {activeTab === "bag" && (
+            <InventoryBagTab
+              partyOrder={partyOrder}
+              selectedHeroId={selectedHeroId}
+              bagCounts={bagCounts}
+              tradeGoodCounts={tradeGoodCounts}
+              itemsById={itemsById}
+              equippedByHero={equippedByHero}
+              runestonesBag={runestonesBag}
+              onEquipFromBag={onEquipFromBag}
+              onUseConsumable={onUseConsumable}
+              onRequestSocketRunestone={requestSocketRunestone}
+            />
+          )}
+
+          {activeTab === "journal" && (
+            <QuestJournalTab
+              acceptedQuestIds={acceptedQuestIds}
+              questsCatalog={questsCatalog}
+              worldLocations={worldLocations}
+              sealedPortalIds={sealedPortalIds}
+              onAbandonQuest={onAbandonQuest}
+            />
+          )}
+
+          {activeTab === "atlas" && (
+            <WorldAtlasTab
+              currentMapId={currentMapId}
+              playerX={playerX}
+              playerY={playerY}
+              leaderName={leaderHero.name}
+              leaderTokenPath={leaderTokenPath}
+              worldLocations={worldLocations}
+              discoveredLocations={discoveredLocations}
+              acceptedQuestIds={acceptedQuestIds}
+              questsCatalog={questsCatalog}
+              sealedPortalIds={sealedPortalIds}
+            />
+          )}
+        </div>
+
+        {/* Permanent Runestone Overwrite Confirmation Overlay */}
+        {pendingOverwrite && (
+          <div
+            className="fixed inset-0 z-50 bg-[#05060a]/80 flex items-center justify-center p-4"
+            onClick={() => setPendingOverwrite(null)}
+          >
+            <div
+              className="rpg-modal-panel w-[440px] max-w-[92vw] rounded border border-[#8e6e3e] p-5 flex flex-col gap-3"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="font-display m-0 text-[16.5px] text-[#fae2aa]">Overwrite Socketed Runestone?</h3>
+              <p className="m-0 text-[12.5px] text-[#d5deed] leading-relaxed">
+                {getHeroById(pendingOverwrite.heroId).name}&apos;s{" "}
+                <strong>{pendingOverwrite.stone.target === "weapon" ? "Weapon" : "Body Armor"}</strong> already holds{" "}
+                <strong className="text-[#e7dcff]">&ldquo;{pendingOverwrite.existing.name}&rdquo;</strong>. Socketing{" "}
+                <strong className="text-[#fae2aa]">&ldquo;{pendingOverwrite.stone.name}&rdquo;</strong> will permanently
+                destroy the previous Runestone.
+              </p>
+              <div className="flex justify-end gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    audioEngine.playUiClick(0.32);
+                    setPendingOverwrite(null);
+                  }}
+                  className="px-3.5 py-1.5 rounded border border-[#454d60] hover:border-[#d7b267] bg-[#1a202d] text-[12px] font-semibold text-[#dfe7f4] cursor-pointer"
                 >
-                  <div className="flex flex-col items-center w-7 shrink-0">
-                    <span className={idx === 0 ? "text-[12px] font-bold text-[#f2c96c]" : "text-[12px] font-bold text-[#8e98ab]"}>
-                      {idx === 0 ? "★1" : `#${idx + 1}`}
-                    </span>
-                  </div>
-
-                  <img
-                    src={assetUrl(hero.avatarPath)}
-                    alt={hero.name}
-                    className="w-[50px] h-[50px] rounded-sm object-cover shrink-0 border border-[#6e5a36]/70"
-                    draggable={false}
-                  />
-
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[14.5px] font-bold text-[#f4dfb3]">{hero.name}</span>
-                      {idx === 0 && (
-                        <span className="px-1.5 py-0.5 rounded bg-[#d7b267]/20 border border-[#d7b267]/60 text-[#f5d896] text-[10px] font-semibold uppercase tracking-wider">
-                          Party Leader
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-[11.5px] text-[#aeb7c7]">
-                      {hero.className} · Lv {level}
-                    </div>
-                    <div className="mt-1 flex items-center gap-2 text-[10.5px] text-[#b9c4d6]">
-                      <span className="text-[#78e09e]">
-                        HP {hero.baseHp}/{hero.baseHp}
-                      </span>
-                      {hero.baseMp > 0 && (
-                        <span className="text-[#79b8ff]">
-                          MP {hero.baseMp}/{hero.baseMp}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Reorder Buttons */}
-                  <div className="flex flex-col gap-1 shrink-0" onClick={(e) => e.stopPropagation()}>
-                    <div className="flex gap-1">
-                      <button
-                        type="button"
-                        disabled={idx === 0}
-                        onClick={() => moveSlot(idx, -1)}
-                        title="Move Up"
-                        className="px-2 py-0.5 rounded border border-[#454d60] hover:border-[#d7b267] bg-[#1b202d] disabled:opacity-30 text-[11px] text-[#e2e7f0] cursor-pointer"
-                      >
-                        ▲
-                      </button>
-                      <button
-                        type="button"
-                        disabled={idx === partyOrder.length - 1}
-                        onClick={() => moveSlot(idx, 1)}
-                        title="Move Down"
-                        className="px-2 py-0.5 rounded border border-[#454d60] hover:border-[#d7b267] bg-[#1b202d] disabled:opacity-30 text-[11px] text-[#e2e7f0] cursor-pointer"
-                      >
-                        ▼
-                      </button>
-                    </div>
-                    {idx > 0 && (
-                      <button
-                        type="button"
-                        onClick={() => makeLeader(idx)}
-                        className="px-2 py-0.5 rounded border border-[#735e37] hover:border-[#d7b267] bg-[#241e14] text-[10px] text-[#f0d79d] uppercase tracking-wider cursor-pointer"
-                      >
-                        Set #1
-                      </button>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Right Companion Sheet */}
-          <div className="rounded border border-[#353c4c] bg-[#131720]/95 p-4 flex flex-col gap-3">
-            <div className="flex items-center gap-3 border-b border-[#2b3140] pb-2.5">
-              <img
-                src={assetUrl(inspectedHero.avatarPath)}
-                alt={inspectedHero.name}
-                className="w-[62px] h-[62px] rounded border border-[#6e5a36]/70 object-cover shrink-0"
-                draggable={false}
-              />
-              <div className="min-w-0 flex-1">
-                <h3 className="font-display m-0 text-[17px] text-[#f3dfb1] tracking-wide">{inspectedHero.fullName}</h3>
-                <div className="text-[12.5px] text-[#d9b86c] font-semibold">
-                  {inspectedHero.className} · Level {level}
-                </div>
-                <div className="text-[11px] text-[#98a3b6] mt-0.5 truncate">{inspectedHero.shortTag}</div>
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    audioEngine.playUiClick(0.45);
+                    onSocketRunestone(pendingOverwrite.heroId, pendingOverwrite.stone);
+                    setPendingOverwrite(null);
+                  }}
+                  className="px-4 py-1.5 rounded border border-[#c95c68] bg-[#78242e] hover:bg-[#962e3b] text-[12px] font-bold text-[#ffecee] cursor-pointer"
+                >
+                  Overwrite &amp; Destroy Old Stone
+                </button>
               </div>
             </div>
-
-            <div className="flex gap-1.5">
-              {(
-                [
-                  ["stats", "Stats & Bio"],
-                  ["gear", "Equipped Gear"],
-                  ["bag_spells", "Spells & Bag"],
-                ] as const
-              ).map(([tid, label]) => (
-                <button
-                  key={tid}
-                  type="button"
-                  onClick={() => setSheetTab(tid)}
-                  className={`px-2.5 py-1 rounded border text-[11.5px] font-bold cursor-pointer ${
-                    sheetTab === tid
-                      ? "border-[#e0ba6c] bg-[#292112] text-[#fae4b0]"
-                      : "border-[#323a4d] bg-[#161b26] text-[#9eb0ca] hover:border-[#7d653c]"
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-
-            {sheetTab === "stats" ? (
-              <>
-                <p className="m-0 text-[12px] leading-relaxed text-[#cfd7e6] md:min-h-[42px]">{inspectedHero.roleSummary}</p>
-                <div>
-                  <div className="text-[11px] uppercase tracking-wider text-[#9ba6b8] font-semibold mb-1.5">
-                    Stats (0 Points to Spend)
-                  </div>
-                  <div className="grid grid-cols-5 gap-1.5 text-center">
-                    {ATTRIBUTE_META.map((stat) => (
-                      <div
-                        key={stat.key}
-                        title={`${stat.label}: ${stat.hint}`}
-                        className="rounded bg-[#1a202c] border border-[#2f3747] py-1.5 px-1"
-                      >
-                        <div className="text-[10px] text-[#9aa5b8]">{stat.shortLabel}</div>
-                        <div className="text-[14px] font-bold text-[#f3dfb1]">{inspectedHero.startingAttributes[stat.key]}</div>
-                        <div className="text-[8.5px] text-[#7c879b] leading-tight mt-0.5">{stat.hint}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="pt-2 border-t border-[#2b3140] text-[11.5px] text-[#aeb8c9] flex flex-col gap-1 md:min-h-[84px]">
-                  <div className="text-[11px] uppercase tracking-wider text-[#d9b86c] font-semibold">Wounded Bonuses</div>
-                  <div>{inspectedHero.wounded50}</div>
-                  <div>{inspectedHero.wounded25}</div>
-                </div>
-              </>
-            ) : (
-              <PartyGearPanel
-                tab={sheetTab}
-                heroId={inspectedHero.id}
-                equippedByHero={equippedByHero}
-                itemsById={itemsById}
-                bagCounts={bagCounts}
-                learnedSpellIds={learnedSpellIds}
-                spells={spells}
-                onEquipFromBag={onEquipFromBag}
-              />
-            )}
-
-            <div className="mt-auto pt-2.5 border-t border-[#2b3140] text-[11.5px] text-[#98a3b6]">
-              <strong className="text-[#dbe2ee]">Holding Highcrown Keep:</strong>{" "}
-              {keepDefenders.map((h) => `${h.name} (${h.className})`).join(" & ")}
-            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

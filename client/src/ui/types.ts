@@ -3,6 +3,128 @@ export type ShopType = "weapon" | "armor" | "tailor" | "magic" | "arcanist" | "a
 export type GearSlot = "right_hand" | "left_hand" | "body" | "head" | "accessory";
 export type EquippedGearMap = Partial<Record<HeroId, Partial<Record<GearSlot, string>>>>;
 
+export type HeroAttrKey = "force" | "finesse" | "grit" | "arcana" | "presence";
+export type HeroAttrMap = Partial<Record<HeroAttrKey, number>>;
+
+export interface RunestoneItem {
+  id: string;
+  name: string;
+  tier: string;
+  target: "weapon" | "armor";
+  affix: string;
+  iconPath: string;
+  sellSilver?: number;
+}
+
+export interface HeroRunestoneSockets {
+  weapon?: RunestoneItem | null;
+  armor?: RunestoneItem | null;
+}
+
+export type HeroSocketsMap = Partial<Record<HeroId, HeroRunestoneSockets>>;
+
+export type DisciplinePillar = "body" | "mind" | "spirit";
+
+export interface DisciplineOption {
+  id: string;
+  name: string;
+  pillar: DisciplinePillar;
+  tag: string;
+  effect: string;
+  iconPath: string;
+}
+
+export interface DisciplineTier {
+  level: number;
+  silver: number;
+  optionA: DisciplineOption;
+  optionB: DisciplineOption;
+}
+
+export interface HeroDisciplinesEntry {
+  heroId: HeroId;
+  name: string;
+  className: string;
+  roleTag: string;
+  tiers: DisciplineTier[];
+}
+
+/** Maps heroId -> { [tierLevelStr]: chosenOptionId } */
+export type ChosenDisciplinesMap = Partial<Record<HeroId, Record<string, string>>>;
+
+export interface BattleEnemyDef {
+  id: string;
+  name: string;
+  slug?: string;
+  cr?: string;
+  level?: number;
+  role?: string;
+  hp: number;
+  atk: number;
+  mag?: number;
+  pDef?: number;
+  mDef?: number;
+  xp?: number;
+  silver?: number;
+  weak?: string;
+  resist?: string;
+  guard?: number;
+  isBoss?: boolean;
+  portalNum?: number | null;
+  zone?: string;
+  homeBiome?: string;
+  gridW: number;
+  gridH: number;
+  spriteW?: number;
+  spriteH?: number;
+  sizePreset?: string;
+  visualScale?: number;
+  flipX?: boolean;
+  iconPath: string;
+  actions?: Array<{
+    name: string;
+    damageType?: string;
+    target?: string;
+    effect?: string;
+    power?: number;
+  }>;
+}
+
+export interface BattleStageZoneRect {
+  xPct: number;
+  yPct: number;
+  wPct: number;
+  hPct: number;
+  staggerPct?: number;
+  backScale?: number;
+  frontScale?: number;
+  cols?: number;
+  rows?: number;
+  backRowScale?: number;
+  frontRowScale?: number;
+  flipRight?: boolean;
+}
+
+export interface BattleStageConfig {
+  order: number;
+  id: string;
+  name: string;
+  zones?: string;
+  spawnNames?: string[];
+  imagePath: string;
+  isPortal?: boolean;
+  heroZone: BattleStageZoneRect;
+  enemyGrid: BattleStageZoneRect;
+}
+
+export interface BattleConfigData {
+  version?: number;
+  heroZoneDefault: BattleStageZoneRect;
+  enemyGridDefault: BattleStageZoneRect;
+  stages: BattleStageConfig[];
+  monsters: BattleEnemyDef[];
+}
+
 export interface SaveSlotData {
   slotId: string;
   label: string;
@@ -13,11 +135,21 @@ export interface SaveSlotData {
   partyOrder?: HeroId[];
   discoveredLocations?: string[];
   acceptedQuestIds?: string[];
+  sealedPortalIds?: string[];
   silver?: number;
   equippedByHero?: EquippedGearMap;
   bagCounts?: Record<string, number>;
   learnedSpellIds?: string[];
   tradeGoodCounts?: Record<string, number>;
+  heroSpentAttrs?: Partial<Record<HeroId, HeroAttrMap>>;
+  socketsByHero?: HeroSocketsMap;
+  runestonesBag?: RunestoneItem[];
+  heroHpPct?: Partial<Record<HeroId, number>>;
+  heroMpPct?: Partial<Record<HeroId, number>>;
+  chosenDisciplinesByHero?: ChosenDisciplinesMap;
+  heroLevels?: Partial<Record<HeroId, number>>;
+  heroXp?: Partial<Record<HeroId, number>>;
+  partyXp?: number;
   level: number;
   x: number;
   y: number;
@@ -82,7 +214,15 @@ export interface WorldLocation {
   scale?: number;
   triggerRadius?: number;
   linkedFerryId?: string | null;
+  passExitX?: number | null;
+  passExitY?: number | null;
   rotation?: number;
+  bossInfo?: {
+    boss: string;
+    plane: string;
+    weaknesses?: string;
+    guardPips?: number;
+  };
 }
 
 export interface NpcEntry {
@@ -167,7 +307,9 @@ export interface QuestEntry {
   miniBoss?: string;
   reward: string;
   description: string;
+  markerId?: string;
   markerName?: string;
+  assetPath?: string;
 }
 
 export interface AudioSettings {

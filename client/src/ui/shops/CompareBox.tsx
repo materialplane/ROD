@@ -3,7 +3,15 @@ import { assetUrl } from "../api";
 import { getHeroById } from "../heroes";
 import type { EquippedGearMap, HeroId, ItemEntry, SpellEntry } from "../types";
 import { itemTooltipHandlers } from "./itemTooltip";
-import { cleanDamageTypeLabel, computeHeroDelta, WEAPON_ATTACK_MODES, type ShopCatalogEntry, type StatDeltaRow } from "./shopLogic";
+import {
+  cleanDamageTypeLabel,
+  computeHeroDelta,
+  countRegionSpellsForHero,
+  MAX_SPELLS_PER_REGION,
+  WEAPON_ATTACK_MODES,
+  type ShopCatalogEntry,
+  type StatDeltaRow,
+} from "./shopLogic";
 
 interface CompareBoxProps {
   item: ShopCatalogEntry | null;
@@ -11,6 +19,7 @@ interface CompareBoxProps {
   silver: number;
   equippedByHero: EquippedGearMap;
   itemsById: Record<string, ItemEntry>;
+  spells?: SpellEntry[];
   learnedSpellIds: string[];
   onAction: (entry: ShopCatalogEntry) => void;
 }
@@ -34,6 +43,7 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
   silver,
   equippedByHero,
   itemsById,
+  spells = [],
   learnedSpellIds,
   onAction,
 }) => {
@@ -54,13 +64,25 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
   const isGear = Boolean(delta.slot);
   const sameEquipped = Boolean(isGear && delta.comparedItem?.id === item.id);
   const alreadyLearned = Boolean(isSpell && learnedSpellIds.includes(item.id));
+  const regionLearnedCount = spell
+    ? countRegionSpellsForHero(learnedSpellIds, spells, activeHeroId, spell.region)
+    : 0;
+  const regionCapped = Boolean(spell && !alreadyLearned && regionLearnedCount >= MAX_SPELLS_PER_REGION);
   const canAfford = silver >= item.priceSilver;
 
   let badgeTxt = delta.headline;
   let badgeCls = "border-[#3f4a62] bg-[#171d2c] text-[#dce5f4]";
   if (isSpell && spell) {
-    badgeCls = alreadyLearned ? "border-[#8c703b] bg-[#2c2313] text-[#f6dca0]" : "border-[#4aa376] bg-[#143324] text-[#84f2b8]";
-    badgeTxt = alreadyLearned ? "✓ Already Learned" : `Can Learn (${spell.mpCost} MP)`;
+    if (alreadyLearned) {
+      badgeCls = "border-[#8c703b] bg-[#2c2313] text-[#f6dca0]";
+      badgeTxt = "✓ Already Learned";
+    } else if (regionCapped) {
+      badgeCls = "border-[#a84955] bg-[#31151b] text-[#f79aa3]";
+      badgeTxt = `Tier ${spell.region} Full (${regionLearnedCount}/${MAX_SPELLS_PER_REGION})`;
+    } else {
+      badgeCls = "border-[#4aa376] bg-[#143324] text-[#84f2b8]";
+      badgeTxt = `Can Learn (${spell.mpCost} MP · ${regionLearnedCount}/${MAX_SPELLS_PER_REGION})`;
+    }
   } else if (!isGear) {
     badgeTxt = item.subType;
   } else if (sameEquipped) {
@@ -84,7 +106,11 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
 
   let footNote = item.subType;
   if (spell) {
-    footNote = alreadyLearned ? `${focusHero.name} knows this spell` : `Teaches ${focusHero.name} (Tier ${spell.region})`;
+    footNote = alreadyLearned
+      ? `${focusHero.name} knows this spell`
+      : regionCapped
+        ? `Tier ${spell.region} limit reached (2 of 3 per Region)`
+        : `Teaches ${focusHero.name} (Tier ${spell.region} · ${regionLearnedCount}/${MAX_SPELLS_PER_REGION})`;
   } else if (sameEquipped) {
     footNote = `${focusHero.name} already wears this item`;
   } else if (isGear && delta.comparedItem && delta.comparedItem.sellSilver > 0 && item.priceSilver > 0) {
@@ -97,7 +123,9 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
   const btnText = spell
     ? alreadyLearned
       ? "✓ Learned"
-      : `Learn Spell (${item.priceSilver.toLocaleString()}s) →`
+      : regionCapped
+        ? `Tier ${spell.region} Full (${MAX_SPELLS_PER_REGION}/2)`
+        : `Learn Spell (${item.priceSilver.toLocaleString()}s) →`
     : isGear
       ? `Buy for ${focusHero.name} (${item.priceSilver.toLocaleString()}s) →`
       : `Buy (${item.priceSilver.toLocaleString()}s) →`;
@@ -281,11 +309,11 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
         <span className="text-[13.5px] font-semibold text-[#b7c5db] truncate">{footNote}</span>
         <button
           type="button"
-          disabled={alreadyLearned || !canAfford}
+          disabled={alreadyLearned || regionCapped || !canAfford}
           onClick={() => onAction(item)}
           className="px-4 py-2 rounded border border-[#e6c170] bg-gradient-to-b from-[#b88a38] to-[#845e1e] hover:brightness-110 disabled:opacity-45 disabled:cursor-default text-[#fff6dc] text-[14px] font-bold cursor-pointer shrink-0"
         >
-          {!canAfford && !alreadyLearned ? `Need ${item.priceSilver.toLocaleString()}s` : btnText}
+          {!canAfford && !alreadyLearned && !regionCapped ? `Need ${item.priceSilver.toLocaleString()}s` : btnText}
         </button>
       </div>
     </div>

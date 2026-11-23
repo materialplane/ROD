@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "count": 32,
+  "dimensions": "512x512",
+  "cards": {
+    "wpn_skill_longsword_quick_slash": "assets/icons/weapon_abilities/wpn_skill_longsword_quick_slash.webp",
+    "wpn_skill_longsword_heavy_cleave": "assets/icons/weapon_abilities/wpn_skill_longsword_heavy_cleave.webp",
+    "wpn_skill_greatsword_wide_sweep": "assets/icons/weapon_abilities/wpn_skill_greatsword_wide_sweep.webp",
+    "wpn_skill_greatsword_overhead_rend": "assets/icons/weapon_abilities/wpn_skill_greatsword_overhead_rend.webp",
+    "wpn_skill_rapier_needle_thrust": "assets/icons/weapon_abilities/wpn_skill_rapier_needle_thrust.webp",
+    "wpn_skill_rapier_heart_pierce": "assets/icons/weapon_abilities/wpn_skill_rapier_heart_pierce.webp",
+    "wpn_skill_battleaxe_chopping_hack": "assets/icons/weapon_abilities/wpn_skill_battleaxe_chopping_hack.webp",
+    "wpn_skill_battleaxe_execution_chop": "assets/icons/weapon_abilities/wpn_skill_battleaxe_execution_chop.webp",
+    "wpn_skill_mace_heavy_bash": "assets/icons/weapon_abilities/wpn_skill_mace_heavy_bash.webp",
+    "wpn_skill_mace_armor_crush": "assets/icons/weapon_abilities/wpn_skill_mace_armor_crush.webp",
+    "wpn_skill_spear_long_thrust": "assets/icons/weapon_abilities/wpn_skill_spear_long_thrust.webp",
+    "wpn_skill_spear_brace_sweep": "assets/icons/weapon_abilities/wpn_skill_spear_brace_sweep.webp",
+    "wpn_skill_longbow_snap_arrow": "assets/icons/weapon_abilities/wpn_skill_longbow_snap_arrow.webp",
+    "wpn_skill_longbow_aimed_piercer": "assets/icons/weapon_abilities/wpn_skill_longbow_aimed_piercer.webp",
+    "wpn_skill_shortbow_quick_volley": "assets/icons/weapon_abilities/wpn_skill_shortbow_quick_volley.webp",
+    "wpn_skill_shortbow_wing_clip": "assets/icons/weapon_abilities/wpn_skill_shortbow_wing_clip.webp",
+    "wpn_skill_dagger_quick_jab": "assets/icons/weapon_abilities/wpn_skill_dagger_quick_jab.webp",
+    "wpn_skill_dagger_vital_gouge": "assets/icons/weapon_abilities/wpn_skill_dagger_vital_gouge.webp",
+    "wpn_skill_crossbow_bolt_snap": "assets/icons/weapon_abilities/wpn_skill_crossbow_bolt_snap.webp",
+    "wpn_skill_crossbow_siege_crank": "assets/icons/weapon_abilities/wpn_skill_crossbow_siege_crank.webp",
+    "wpn_skill_staff_sweep": "assets/icons/weapon_abilities/wpn_skill_staff_sweep.webp",
+    "wpn_skill_staff_crushing_vault": "assets/icons/weapon_abilities/wpn_skill_staff_crushing_vault.webp",
+    "wpn_skill_scimitar_crescent_cut": "assets/icons/weapon_abilities/wpn_skill_scimitar_crescent_cut.webp",
+    "wpn_skill_scimitar_whirling_slash": "assets/icons/weapon_abilities/wpn_skill_scimitar_whirling_slash.webp",
+    "wpn_skill_sickle_reaping_hook": "assets/icons/weapon_abilities/wpn_skill_sickle_reaping_hook.webp",
+    "wpn_skill_sickle_thorn_slash": "assets/icons/weapon_abilities/wpn_skill_sickle_thorn_slash.webp",
+    "wpn_skill_shield_bash": "assets/icons/weapon_abilities/wpn_skill_shield_bash.webp",
+    "wpn_skill_parry_stance": "assets/icons/weapon_abilities/wpn_skill_parry_stance.webp",
+    "wpn_skill_inspect_foe": "assets/icons/weapon_abilities/wpn_skill_inspect_foe.webp",
+    "wpn_skill_wait_delay": "assets/icons/weapon_abilities/wpn_skill_wait_delay.webp",
+    "wpn_skill_potion_toss": "assets/icons/weapon_abilities/wpn_skill_potion_toss.webp",
+    "wpn_skill_runestone_surge": "assets/icons/weapon_abilities/wpn_skill_runestone_surge.webp"
+  },
+  "slots": [
+    {
+      "id": "wpn_skill_longsword_quick_slash",
+      "name": "Quick Slash",
+      "detail": "Longsword · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_longsword_quick_slash.webp"
+    },
+    {
+      "id": "wpn_skill_longsword_heavy_cleave",
+      "name": "Heavy Cleave",
+      "detail": "Longsword · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_longsword_heavy_cleave.webp"
+    },
+    {
+      "id": "wpn_skill_greatsword_wide_sweep",
+      "name": "Wide Sweep",
+      "detail": "Greatsword · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_greatsword_wide_sweep.webp"
+    },
+    {
+      "id": "wpn_skill_greatsword_overhead_rend",
+      "name": "Overhead Rend",
+      "detail": "Greatsword · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_greatsword_overhead_rend.webp"
+    },
+    {
+      "id": "wpn_skill_rapier_needle_thrust",
+      "name": "Needle Thrust",
+      "detail": "Rapier · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_rapier_needle_thrust.webp"
+    },
+    {
+      "id": "wpn_skill_rapier_heart_pierce",
+      "name": "Heart Pierce",
+      "detail": "Rapier · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_rapier_heart_pierce.webp"
+    },
+    {
+      "id": "wpn_skill_battleaxe_chopping_hack",
+      "name": "Chopping Hack",
+      "detail": "Battleaxe · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_battleaxe_chopping_hack.webp"
+    },
+    {
+      "id": "wpn_skill_battleaxe_execution_chop",
+      "name": "Execution Chop",
+      "detail": "Battleaxe · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_battleaxe_execution_chop.webp"
+    },
+    {
+      "id": "wpn_skill_mace_heavy_bash",
+      "name": "Heavy Bash",
+      "detail": "Mace · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_mace_heavy_bash.webp"
+    },
+    {
+      "id": "wpn_skill_mace_armor_crush",
+      "name": "Armor Crush",
+      "detail": "Mace · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_mace_armor_crush.webp"
+    },
+    {
+      "id": "wpn_skill_spear_long_thrust",
+      "name": "Long Thrust",
+      "detail": "Spear · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_spear_long_thrust.webp"
+    },
+    {
+      "id": "wpn_skill_spear_brace_sweep",
+      "name": "Brace Sweep",
+      "detail": "Spear · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_spear_brace_sweep.webp"
+    },
+    {
+      "id": "wpn_skill_longbow_snap_arrow",
+      "name": "Snap Arrow",
+      "detail": "Longbow · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_longbow_snap_arrow.webp"
+    },
+    {
+      "id": "wpn_skill_longbow_aimed_piercer",
+      "name": "Aimed Piercer",
+      "detail": "Longbow · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_longbow_aimed_piercer.webp"
+    },
+    {
+      "id": "wpn_skill_shortbow_quick_volley",
+      "name": "Quick Volley",
+      "detail": "Shortbow · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_shortbow_quick_volley.webp"
+    },
+    {
+      "id": "wpn_skill_shortbow_wing_clip",
+      "name": "Wing Clip",
+      "detail": "Shortbow · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_shortbow_wing_clip.webp"
+    },
+    {
+      "id": "wpn_skill_dagger_quick_jab",
+      "name": "Quick Jab",
+      "detail": "Dagger · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_dagger_quick_jab.webp"
+    },
+    {
+      "id": "wpn_skill_dagger_vital_gouge",
+      "name": "Vital Gouge",
+      "detail": "Dagger · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_dagger_vital_gouge.webp"
+    },
+    {
+      "id": "wpn_skill_crossbow_bolt_snap",
+      "name": "Bolt Snap",
+      "detail": "Light Crossbow · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_crossbow_bolt_snap.webp"
+    },
+    {
+      "id": "wpn_skill_crossbow_siege_crank",
+      "name": "Siege Crank",
+      "detail": "Light Crossbow · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_crossbow_siege_crank.webp"
+    },
+    {
+      "id": "wpn_skill_staff_sweep",
+      "name": "Staff Sweep",
+      "detail": "Quarterstaff · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_staff_sweep.webp"
+    },
+    {
+      "id": "wpn_skill_staff_crushing_vault",
+      "name": "Crushing Vault",
+      "detail": "Quarterstaff · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_staff_crushing_vault.webp"
+    },
+    {
+      "id": "wpn_skill_scimitar_crescent_cut",
+      "name": "Crescent Cut",
+      "detail": "Scimitar · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_scimitar_crescent_cut.webp"
+    },
+    {
+      "id": "wpn_skill_scimitar_whirling_slash",
+      "name": "Whirling Slash",
+      "detail": "Scimitar · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_scimitar_whirling_slash.webp"
+    },
+    {
+      "id": "wpn_skill_sickle_reaping_hook",
+      "name": "Reaping Hook",
+      "detail": "Sickle · Fast",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_sickle_reaping_hook.webp"
+    },
+    {
+      "id": "wpn_skill_sickle_thorn_slash",
+      "name": "Thorn Slash",
+      "detail": "Sickle · Heavy",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_sickle_thorn_slash.webp"
+    },
+    {
+      "id": "wpn_skill_shield_bash",
+      "name": "Shield Bash",
+      "detail": "Off-Hand 1H Action",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_shield_bash.webp"
+    },
+    {
+      "id": "wpn_skill_parry_stance",
+      "name": "Riposte Parry",
+      "detail": "Combat Stance Action",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_parry_stance.webp"
+    },
+    {
+      "id": "wpn_skill_inspect_foe",
+      "name": "Inspect Foe",
+      "detail": "Enemy Scan Action",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_inspect_foe.webp"
+    },
+    {
+      "id": "wpn_skill_wait_delay",
+      "name": "Bide Time",
+      "detail": "Turn Wait Action",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_wait_delay.webp"
+    },
+    {
+      "id": "wpn_skill_potion_toss",
+      "name": "Quick Draught",
+      "detail": "Belt Consumable Action",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_potion_toss.webp"
+    },
+    {
+      "id": "wpn_skill_runestone_surge",
+      "name": "Runestone Hit",
+      "detail": "Carved Runestone Surge",
+      "iconPath": "assets/icons/weapon_abilities/wpn_skill_runestone_surge.webp"
+    }
+  ]
+}

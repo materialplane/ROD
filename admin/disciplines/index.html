@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Hero Disciplines Reviewer</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill" href="/admin/party/">Party Menu</a>
+        <a class="nav-pill active" href="/admin/disciplines/">Disciplines</a>
+        <a class="nav-pill" href="/admin/battles/">Battle Encounters</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+    <div class="studio-stats" id="studioStats">Loading 60 Discipline pairs (120 choices)...</div>
+  </header>
+
+  <section class="studio-toolbar">
+    <div class="ctrl-group">
+      <label for="inpSearch">Search</label>
+      <input type="text" id="inpSearch" class="ctrl-input" placeholder="Search name, mind/body/spirit, or effect..." />
+    </div>
+
+    <div class="ctrl-group">
+      <label>Approval Filter</label>
+      <div class="seg-group" id="segFilter">
+        <button class="seg-btn active" data-val="all">All</button>
+        <button class="seg-btn" data-val="pending">Pending</button>
+        <button class="seg-btn" data-val="approved">Approved</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group" style="margin-left:auto;">
+      <button type="button" class="rpg-btn secondary" id="btnApproveHero">Approve Selected Hero</button>
+      <button type="button" class="rpg-btn secondary" id="btnApproveAll">Approve All 60 Pairs</button>
+      <button type="button" class="rpg-btn primary" id="btnSaveCatalog">Save Catalog</button>
+    </div>
+  </section>
+
+  <main class="disc-workspace">
+    <aside class="hero-sidebar" id="heroSidebar"></aside>
+    <section class="tiers-pane" id="tiersPane"></section>
+  </main>
+
+  <div class="card-modal hidden" id="cardModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="card-modal-backdrop" id="modalBackdrop"></div>
+    <div class="card-modal-panel">
+      <div class="card-modal-head">
+        <div>
+          <div class="card-modal-eyebrow" id="modalEyebrow">Discipline Card</div>
+          <h3 class="card-modal-title" id="modalTitle">Card Name</h3>
+        </div>
+        <button type="button" class="rpg-btn secondary" id="btnCloseModal" aria-label="Close">Close (Esc)</button>
+      </div>
+      <div class="card-modal-body">
+        <div class="card-modal-art-wrap">
+          <img id="modalImg" src="" alt="" />
+        </div>
+        <div class="card-modal-info">
+          <div class="card-modal-badges" id="modalBadges"></div>
+          <p class="card-modal-effect" id="modalEffect"></p>
+          <div class="card-modal-id" id="modalId"></div>
+        </div>
+      </div>
+      <div class="card-modal-foot">
+        <button type="button" class="rpg-btn secondary" id="btnPrevCard">&larr; Previous</button>
+        <span class="card-modal-counter" id="modalCounter">1 / 128</span>
+        <button type="button" class="rpg-btn secondary" id="btnNextCard">Next &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-banner hidden" id="toastBanner">Saved</div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

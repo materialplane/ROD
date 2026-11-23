@@ -525,7 +525,7 @@ class RodAudioEngine {
     if (norm.includes("dagger") || norm.includes("knife")) return "dagger";
     if (norm.includes("flail")) return "flail";
     if (norm.includes("katana") || norm.includes("saber") || norm.includes("scimitar")) return "katana";
-    if (norm.includes("mace") || norm.includes("club")) return "mace";
+    if (norm.includes("mace") || norm.includes("club") || norm.includes("unarmed") || norm.includes("bludgeon")) return "mace";
     if (norm.includes("spear") || norm.includes("pike") || norm.includes("lance")) return "spear";
     if (norm.includes("staff") || norm.includes("rod")) return "staff";
     if (norm.includes("hammer") || norm.includes("maul")) return "warhammer";

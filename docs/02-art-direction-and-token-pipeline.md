@@ -63,7 +63,7 @@ Baking decorative frames directly around all 4 portraits in a `2×2` sheet cause
 
 ## 4. Reusing This Pipeline Across All 6 Heroes
 
-1. **`FRAME` construction:** Shape the circular ring itself out of that class's signature gear/material (curved tarnished-steel sabers for Duelist, forged steel battlements for Bulwark, beveled brass & yew wood for Archer, forged weathered bronze & iron etched with metallic herb stems and sage leaves for Herbalist).
+1. **`FRAME` construction:** Shape the circular ring itself out of that class's signature gear/material (curved tarnished-steel sabers for Duelist, forged steel battlements for Knight, beveled brass & yew wood for Ranger, forged weathered bronze & iron etched with metallic herb stems and sage leaves for Sage).
 2. **`PORTRAIT` generation:** Keep the same unified **League of Legends / Runeterra** chiseled portrait formula with `~18%` headroom and calm viewer's-left three-quarter orientation across all 6 heroes.
 3. For complete copy-ready Frame + Portrait prompts for all 6 heroes, see `imageprompts/class-avatar-tokens.txt`.
 

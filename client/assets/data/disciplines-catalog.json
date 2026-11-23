@@ -1,0 +1,1386 @@
+{
+  "version": 1,
+  "shopTiedTo": "arcanist",
+  "intervals": [
+    1,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90
+  ],
+  "heroes": [
+    {
+      "heroId": "valen",
+      "name": "Prince Valen",
+      "className": "Duelist",
+      "roleTag": "Precision Striker · Swords, Greatswords & Rapiers",
+      "tiers": [
+        {
+          "level": 1,
+          "silver": 60,
+          "approved": false,
+          "tradeoff": "Blade Precision (Mind) vs. Armor Toughness (Body)",
+          "optionA": {
+            "id": "disc_valen_01_a",
+            "name": "Critical Edge",
+            "pillar": "mind",
+            "tag": "Crit Chance",
+            "effect": "Disciplined timing and weak-point aim grant +8% Critical Strike Chance on all weapon attacks.",
+            "iconPath": "assets/icons/disciplines/disc_valen_01_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_01_b",
+            "name": "Iron Conditioning",
+            "pillar": "body",
+            "tag": "Defense",
+            "effect": "Physical conditioning grants +12% permanent Physical Defense and reduces incoming melee damage.",
+            "iconPath": "assets/icons/disciplines/disc_valen_01_b.webp"
+          }
+        },
+        {
+          "level": 10,
+          "silver": 150,
+          "approved": false,
+          "tradeoff": "Reflex Counter (Body) vs. Guard-Seam Reading (Mind)",
+          "optionA": {
+            "id": "disc_valen_10_a",
+            "name": "Duelist's Riposte",
+            "pillar": "body",
+            "tag": "Counterattack",
+            "effect": "First enemy melee hit taken each round triggers an automatic half-power counter slash.",
+            "iconPath": "assets/icons/disciplines/disc_valen_10_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_10_b",
+            "name": "Armor-Splitter Stance",
+            "pillar": "mind",
+            "tag": "Guard Break",
+            "effect": "Reading Guard stances chips +1 extra Guard point whenever striking Guarded foes.",
+            "iconPath": "assets/icons/disciplines/disc_valen_10_b.webp"
+          }
+        },
+        {
+          "level": 20,
+          "silver": 300,
+          "approved": false,
+          "tradeoff": "Shield Precision (Mind) vs. Heavy Greatsword Might (Body)",
+          "optionA": {
+            "id": "disc_valen_20_a",
+            "name": "Buckler & Blade",
+            "pillar": "mind",
+            "tag": "Sword & Shield",
+            "effect": "Measured footwork while holding a Shield grants +12% Accuracy and +15% Critical Damage.",
+            "iconPath": "assets/icons/disciplines/disc_valen_20_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_20_b",
+            "name": "Greatsword Heavy Grip",
+            "pillar": "body",
+            "tag": "Two-Handed",
+            "effect": "Heavy two-handed Greatsword force deals +16% damage to Stunned or Staggered foes.",
+            "iconPath": "assets/icons/disciplines/disc_valen_20_b.webp"
+          }
+        },
+        {
+          "level": 30,
+          "silver": 500,
+          "approved": false,
+          "tradeoff": "Physical Bleed (Body) vs. Deceptive Feint (Mind)",
+          "optionA": {
+            "id": "disc_valen_30_a",
+            "name": "Arterial Cuts",
+            "pillar": "body",
+            "tag": "Bleed Damage",
+            "effect": "Deep physical slashes cause Critical hits to inflict Bleed lasting 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_valen_30_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_30_b",
+            "name": "Blinding Feint",
+            "pillar": "mind",
+            "tag": "Accuracy Debuff",
+            "effect": "Cunning light weapon feints rattle the hit foe, lowering its Accuracy by 15% for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_valen_30_b.webp"
+          }
+        },
+        {
+          "level": 40,
+          "silver": 800,
+          "approved": false,
+          "tradeoff": "1v1 Duelist Focus (Mind) vs. Wide Cleave (Body)",
+          "optionA": {
+            "id": "disc_valen_40_a",
+            "name": "Lone Duelist",
+            "pillar": "mind",
+            "tag": "Solo Focus",
+            "effect": "Single-minded duel focus deals +14% bonus weapon damage when only 1 enemy remains on the field.",
+            "iconPath": "assets/icons/disciplines/disc_valen_40_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_40_b",
+            "name": "Sweeping Cleave",
+            "pillar": "body",
+            "tag": "Multi-Slash",
+            "effect": "Broad physical sword arcs also deal 25% Slashing damage to a second random enemy.",
+            "iconPath": "assets/icons/disciplines/disc_valen_40_b.webp"
+          }
+        },
+        {
+          "level": 50,
+          "silver": 1200,
+          "approved": false,
+          "tradeoff": "Guard Endurance (Body) vs. Opportunist Follow-Up (Mind)",
+          "optionA": {
+            "id": "disc_valen_50_a",
+            "name": "Steady Breath",
+            "pillar": "body",
+            "tag": "Guard Recovery",
+            "effect": "Physical Guard recovery restores 10% Max HP and clears 1 Bleed or Burn.",
+            "iconPath": "assets/icons/disciplines/disc_valen_50_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_50_b",
+            "name": "Seize the Opening",
+            "pillar": "mind",
+            "tag": "Follow-Up Strike",
+            "effect": "Defeating an enemy triggers an instant tactical read for a 50% power strike on another foe — or strikes a lone enemy twice for 50% damage (once per battle).",
+            "iconPath": "assets/icons/disciplines/disc_valen_50_b.webp"
+          }
+        },
+        {
+          "level": 60,
+          "silver": 1800,
+          "approved": false,
+          "tradeoff": "Arrow Dodge (Body) vs. Weak-Point Knowledge (Mind)",
+          "optionA": {
+            "id": "disc_valen_60_a",
+            "name": "Arrow Deflection",
+            "pillar": "body",
+            "tag": "Ranged Defense",
+            "effect": "Sharp physical reflexes grant +15% Dodge Chance against incoming arrows and thrown attacks.",
+            "iconPath": "assets/icons/disciplines/disc_valen_60_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_60_b",
+            "name": "Heavy-Plate Slayer",
+            "pillar": "mind",
+            "tag": "Anti-Armor",
+            "effect": "Studying joint seams deals +15% bonus damage against Heavy Armor foes and Elite/Boss threats.",
+            "iconPath": "assets/icons/disciplines/disc_valen_60_b.webp"
+          }
+        },
+        {
+          "level": 70,
+          "silver": 2600,
+          "approved": false,
+          "tradeoff": "Physical Body-Block (Body) vs. Armor-Gap Aim (Mind)",
+          "optionA": {
+            "id": "disc_valen_70_a",
+            "name": "Royal Intercept",
+            "pillar": "body",
+            "tag": "Protect Ally",
+            "effect": "Physically steps in to absorb 25% of single-target damage aimed at the lowest-HP companion.",
+            "iconPath": "assets/icons/disciplines/disc_valen_70_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_70_b",
+            "name": "Cold Steel Edge",
+            "pillar": "mind",
+            "tag": "Armor Pierce",
+            "effect": "Pinpoint targeting guides strikes through gaps, ignoring 15% of an enemy's Physical Defense.",
+            "iconPath": "assets/icons/disciplines/disc_valen_70_b.webp"
+          }
+        },
+        {
+          "level": 80,
+          "silver": 3800,
+          "approved": false,
+          "tradeoff": "Physical Momentum (Body) vs. Iron Nerve (Mind)",
+          "optionA": {
+            "id": "disc_valen_80_a",
+            "name": "Relentless Cadence",
+            "pillar": "body",
+            "tag": "Damage Ramp",
+            "effect": "Physical battle momentum grants +3% Attack Power at the end of each round (stacks up to +15%).",
+            "iconPath": "assets/icons/disciplines/disc_valen_80_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_80_b",
+            "name": "Iron Nerve",
+            "pillar": "mind",
+            "tag": "Status Resist",
+            "effect": "Disciplined mental composure grants +45% resistance to Stun and Curse for the entire battle.",
+            "iconPath": "assets/icons/disciplines/disc_valen_80_b.webp"
+          }
+        },
+        {
+          "level": 90,
+          "silver": 5500,
+          "approved": false,
+          "tradeoff": "Tactical Duel Taunt (Mind) vs. Hardened Counter Stance (Body)",
+          "optionA": {
+            "id": "disc_valen_90_a",
+            "name": "Royal Challenge",
+            "pillar": "mind",
+            "tag": "Duel Taunt",
+            "effect": "Calculated challenge draws the strongest enemy's focus on Round 1 and grants +15% Critical Chance against it.",
+            "iconPath": "assets/icons/disciplines/disc_valen_90_a.webp"
+          },
+          "optionB": {
+            "id": "disc_valen_90_b",
+            "name": "Hardened Vanguard",
+            "pillar": "body",
+            "tag": "Counter Defense",
+            "effect": "Toughened stance halves damage taken from enemy counters and thorns, and adds +20% damage to Valen's first strike.",
+            "iconPath": "assets/icons/disciplines/disc_valen_90_b.webp"
+          }
+        }
+      ]
+    },
+    {
+      "heroId": "ellowyn",
+      "name": "Queen Ellowyn",
+      "className": "Sorceress",
+      "roleTag": "Elemental Caster & Warden · Quarterstaves, Daggers & Crossbows",
+      "tiers": [
+        {
+          "level": 1,
+          "silver": 60,
+          "approved": false,
+          "tradeoff": "Spell Efficiency (Spirit) vs. Physical Survival (Body)",
+          "optionA": {
+            "id": "disc_ellowyn_01_a",
+            "name": "Arcane Discipline",
+            "pillar": "spirit",
+            "tag": "MP Efficiency",
+            "effect": "Channeled spell flow reduces all spell MP costs by 15% (minimum 1 MP).",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_01_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_01_b",
+            "name": "Royal Endurance",
+            "pillar": "body",
+            "tag": "Survival Toughness",
+            "effect": "Physical stamina conditioning grants +12% Physical Defense and +8% Max HP.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_01_b.webp"
+          }
+        },
+        {
+          "level": 10,
+          "silver": 150,
+          "approved": false,
+          "tradeoff": "Mental Composure (Mind) vs. Elemental Spells (Spirit)",
+          "optionA": {
+            "id": "disc_ellowyn_10_a",
+            "name": "Unshaken Focus",
+            "pillar": "mind",
+            "tag": "Battle Poise",
+            "effect": "Royal composure grants +15% Accuracy on all actions and +40% resistance to Stun.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_10_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_10_b",
+            "name": "Elemental Resonance",
+            "pillar": "spirit",
+            "tag": "Elemental Magic",
+            "effect": "Fire spells pierce 18% Fire resistance, and Frost spells gain a 25% Stun chance (or cut Boss Attack by 15% for 1 round).",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_10_b.webp"
+          }
+        },
+        {
+          "level": 20,
+          "silver": 300,
+          "approved": false,
+          "tradeoff": "Ward Duration (Spirit) vs. Battlefield Command (Mind)",
+          "optionA": {
+            "id": "disc_ellowyn_20_a",
+            "name": "Queen's Bastion",
+            "pillar": "spirit",
+            "tag": "Ward Shield",
+            "effect": "Protective Ward spells last +1 extra round and grant +25% Status Ailment resistance while active.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_20_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_20_b",
+            "name": "Regal Command",
+            "pillar": "mind",
+            "tag": "Team Coordination",
+            "effect": "Sharp tactical callouts grant allies +10% weapon damage and Accuracy against the last foe Ellowyn attacked or Guarded against.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_20_b.webp"
+          }
+        },
+        {
+          "level": 30,
+          "silver": 500,
+          "approved": false,
+          "tradeoff": "Crossbow Marksmanship (Mind) vs. Dagger & Shield Agility (Body)",
+          "optionA": {
+            "id": "disc_ellowyn_30_a",
+            "name": "Sharpshot Crossbow",
+            "pillar": "mind",
+            "tag": "Crossbow Aim",
+            "effect": "Basic Light Crossbow bolts deal +22% damage and disrupt the hit enemy for -15% Accuracy for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_30_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_30_b",
+            "name": "Shielded Footwork",
+            "pillar": "body",
+            "tag": "Dagger & Shield",
+            "effect": "Physical parrying while holding a Dagger + Shield grants +15% Physical Defense and +10% Dodge Chance.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_30_b.webp"
+          }
+        },
+        {
+          "level": 40,
+          "silver": 800,
+          "approved": false,
+          "tradeoff": "Overcharged Magic (Spirit) vs. Tactical Expose (Mind)",
+          "optionA": {
+            "id": "disc_ellowyn_40_a",
+            "name": "Overcharged Arcana",
+            "pillar": "spirit",
+            "tag": "Spell Burst",
+            "effect": "Channeling extra spirit power boosts offensive spell damage by +14%, at the cost of +2 extra MP per cast.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_40_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_40_b",
+            "name": "Scholar's Critique",
+            "pillar": "mind",
+            "tag": "Expose Armor",
+            "effect": "Tactical weak-point observation on weapon attacks or Guard lowers the target's Defense by 12% for all allies for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_40_b.webp"
+          }
+        },
+        {
+          "level": 50,
+          "silver": 1200,
+          "approved": false,
+          "tradeoff": "Starting Ward (Spirit) vs. Quick-Step Evasion (Body)",
+          "optionA": {
+            "id": "disc_ellowyn_50_a",
+            "name": "Opening Aegis",
+            "pillar": "spirit",
+            "tag": "Starting Shield",
+            "effect": "Enter every battle protected by a magical Ward Shield worth 12% Max HP.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_50_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_50_b",
+            "name": "Quick-Step Evasion",
+            "pillar": "body",
+            "tag": "Evasion & Grit",
+            "effect": "Nimble physical conditioning grants +10% Dodge Chance and reduces incoming Bleed & Poison damage by 30%.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_50_b.webp"
+          }
+        },
+        {
+          "level": 60,
+          "silver": 1800,
+          "approved": false,
+          "tradeoff": "Ward Mana Flow (Spirit) vs. Monster Weakness Study (Mind)",
+          "optionA": {
+            "id": "disc_ellowyn_60_a",
+            "name": "Echoing Mana",
+            "pillar": "spirit",
+            "tag": "MP Recovery",
+            "effect": "Casting any Ward or Guard channels arcane flow, restoring 10% of Ellowyn's Max MP.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_60_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_60_b",
+            "name": "Studied Exploitation",
+            "pillar": "mind",
+            "tag": "Guard Break",
+            "effect": "Non-magical knowledge of enemy weak points chips +1 extra Guard point whenever hitting an enemy's weakness.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_60_b.webp"
+          }
+        },
+        {
+          "level": 70,
+          "silver": 2600,
+          "approved": false,
+          "tradeoff": "Radiant & Curse Magic (Spirit) vs. Physical Guard Brace (Body)",
+          "optionA": {
+            "id": "disc_ellowyn_70_a",
+            "name": "Purifying Arcana",
+            "pillar": "spirit",
+            "tag": "Radiant & Curse",
+            "effect": "Radiant spells have a 65% chance to strip 1 active Buff off hit enemies, while Chill and Curse linger for elemental damage.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_70_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_70_b",
+            "name": "Hardened Guard",
+            "pillar": "body",
+            "tag": "Guard Brace",
+            "effect": "Physical bracing with Guard cuts incoming melee damage by an extra 20% and restores 8% Max HP.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_70_b.webp"
+          }
+        },
+        {
+          "level": 80,
+          "silver": 3800,
+          "approved": false,
+          "tradeoff": "Party Magic Ward Aura (Spirit) vs. Tactical Pattern Read (Mind)",
+          "optionA": {
+            "id": "disc_ellowyn_80_a",
+            "name": "Courtly Ward Aura",
+            "pillar": "spirit",
+            "tag": "Party Magic Def",
+            "effect": "Protective magic aura grants all active allies +10% Magic Defense while Ellowyn stands.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_80_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_80_b",
+            "name": "Tactical Read",
+            "pillar": "mind",
+            "tag": "Foresight & Grit",
+            "effect": "Reading enemy tells grants +12% Dodge Chance against heavy strikes and +45% Curse resistance.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_80_b.webp"
+          }
+        },
+        {
+          "level": 90,
+          "silver": 5500,
+          "approved": false,
+          "tradeoff": "Grand Arcanum (Spirit) vs. Unbroken Royal Stance (Body)",
+          "optionA": {
+            "id": "disc_ellowyn_90_a",
+            "name": "Grand Arcanum",
+            "pillar": "spirit",
+            "tag": "Master Spellcraft",
+            "effect": "Multi-target spells refund 20% MP, and single-target attack spells unleash a bonus 20% Radiant echo strike.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_90_a.webp"
+          },
+          "optionB": {
+            "id": "disc_ellowyn_90_b",
+            "name": "Unbroken Stance",
+            "pillar": "body",
+            "tag": "Physical Anchor",
+            "effect": "Disciplined physical stance grants +15% Physical Defense and halves Guard-point loss while above 50% HP.",
+            "iconPath": "assets/icons/disciplines/disc_ellowyn_90_b.webp"
+          }
+        }
+      ]
+    },
+    {
+      "heroId": "orin",
+      "name": "Commander Orin",
+      "className": "Knight",
+      "roleTag": "Armored Guardian · Battleaxes, Maces, Spears & Heavy Plate",
+      "tiers": [
+        {
+          "level": 1,
+          "silver": 60,
+          "approved": false,
+          "tradeoff": "Physical Shield Cover (Body) vs. Armor-Seam Reading (Mind)",
+          "optionA": {
+            "id": "disc_orin_01_a",
+            "name": "Shield-Wall Form",
+            "pillar": "body",
+            "tag": "Team Guard",
+            "effect": "Physically interposing a shield while Guarding reduces incoming damage on the lowest-HP ally by 25%.",
+            "iconPath": "assets/icons/disciplines/disc_orin_01_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_01_b",
+            "name": "Siege-Breaker Grip",
+            "pillar": "mind",
+            "tag": "Armor Attack",
+            "effect": "Spotting Guard seams grants +15% weapon damage against Guarded or armored foes.",
+            "iconPath": "assets/icons/disciplines/disc_orin_01_b.webp"
+          }
+        },
+        {
+          "level": 10,
+          "silver": 150,
+          "approved": false,
+          "tradeoff": "Rallying Command (Mind) vs. Physical Anchor Stance (Body)",
+          "optionA": {
+            "id": "disc_orin_10_a",
+            "name": "Rallying Horn",
+            "pillar": "mind",
+            "tag": "Team Command",
+            "effect": "Start every battle commanding allies for +10% Accuracy and Attack Power for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_orin_10_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_10_b",
+            "name": "Immovable Stance",
+            "pillar": "body",
+            "tag": "Anchor Tank",
+            "effect": "Braced physical footing cuts Critical Hit damage taken by 20% and grants +50% Stun resistance.",
+            "iconPath": "assets/icons/disciplines/disc_orin_10_b.webp"
+          }
+        },
+        {
+          "level": 20,
+          "silver": 300,
+          "approved": false,
+          "tradeoff": "Frontline Barricade (Body) vs. Weapon-Disrupting Strike (Mind)",
+          "optionA": {
+            "id": "disc_orin_20_a",
+            "name": "Living Barricade",
+            "pillar": "body",
+            "tag": "Taunt Cover",
+            "effect": "Guarding draws enemy focus physically and gives allies room for +8% Dodge Chance.",
+            "iconPath": "assets/icons/disciplines/disc_orin_20_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_20_b",
+            "name": "Blunting Impact",
+            "pillar": "mind",
+            "tag": "Attacker Debuff",
+            "effect": "Aimed weapon parries knock attackers off balance, cutting their Attack Power by 12% for 1 round.",
+            "iconPath": "assets/icons/disciplines/disc_orin_20_b.webp"
+          }
+        },
+        {
+          "level": 30,
+          "silver": 500,
+          "approved": false,
+          "tradeoff": "Spear Spacing Technique (Mind) vs. Physical Shield Bash (Body)",
+          "optionA": {
+            "id": "disc_orin_30_a",
+            "name": "Spear Reach Training",
+            "pillar": "mind",
+            "tag": "Two-Handed Spear",
+            "effect": "Disciplined 2H Spear spacing grants +12% Critical Chance and halves damage taken from enemy counters.",
+            "iconPath": "assets/icons/disciplines/disc_orin_30_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_30_b",
+            "name": "Shield Slam Discipline",
+            "pillar": "body",
+            "tag": "Shield Bash",
+            "effect": "While holding a Shield, Guarding forcefully slams the nearest enemy for 1 Guard point.",
+            "iconPath": "assets/icons/disciplines/disc_orin_30_b.webp"
+          }
+        },
+        {
+          "level": 40,
+          "silver": 800,
+          "approved": false,
+          "tradeoff": "Physical Scar Toughness (Body) vs. Finisher Target-Read (Mind)",
+          "optionA": {
+            "id": "disc_orin_40_a",
+            "name": "Hardened Veteran",
+            "pillar": "body",
+            "tag": "DoT Defense",
+            "effect": "Physical endurance reduces incoming Burn, Poison, and Bleed damage over time by 40%.",
+            "iconPath": "assets/icons/disciplines/disc_orin_40_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_40_b",
+            "name": "Line Executioner",
+            "pillar": "mind",
+            "tag": "Execution Aim",
+            "effect": "Reading faltering footing deals +18% weapon damage and +20% Accuracy against enemies below 35% HP.",
+            "iconPath": "assets/icons/disciplines/disc_orin_40_b.webp"
+          }
+        },
+        {
+          "level": 50,
+          "silver": 1200,
+          "approved": false,
+          "tradeoff": "Sacred Field Ward (Spirit) vs. Heavy Battering Smash (Body)",
+          "optionA": {
+            "id": "disc_orin_50_a",
+            "name": "Sacred Resilience",
+            "pillar": "spirit",
+            "tag": "Clutch Ward",
+            "effect": "Once per battle when dropping below 35% HP, Orin's protective blessing clears 1 ailment, heals 15%, and grants a 12% Ward Shield.",
+            "iconPath": "assets/icons/disciplines/disc_orin_50_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_50_b",
+            "name": "Battering Ram",
+            "pillar": "body",
+            "tag": "Armor Shred",
+            "effect": "Crushing physical slams ignore 18% Physical Defense and break +1 extra Guard point on Staggered foes.",
+            "iconPath": "assets/icons/disciplines/disc_orin_50_b.webp"
+          }
+        },
+        {
+          "level": 60,
+          "silver": 1800,
+          "approved": false,
+          "tradeoff": "Physical Ally Dive (Body) vs. Controlled Battle Focus (Mind)",
+          "optionA": {
+            "id": "disc_orin_60_a",
+            "name": "Vow of Protection",
+            "pillar": "body",
+            "tag": "Ally Intercept",
+            "effect": "Once per round while above 25% HP, Orin physically dives to intercept a single-target strike on the weakest ally, taking 80% of its damage.",
+            "iconPath": "assets/icons/disciplines/disc_orin_60_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_60_b",
+            "name": "Battle Wrath",
+            "pillar": "mind",
+            "tag": "Focused Counter",
+            "effect": "Sharpened battle focus turns incoming pressure into +4% Attack Power (up to +16%) each time Orin is struck.",
+            "iconPath": "assets/icons/disciplines/disc_orin_60_b.webp"
+          }
+        },
+        {
+          "level": 70,
+          "silver": 2600,
+          "approved": false,
+          "tradeoff": "Runed Heavy Plate (Spirit) vs. Coordinated Focus Mark (Mind)",
+          "optionA": {
+            "id": "disc_orin_70_a",
+            "name": "Warded Armor Fit",
+            "pillar": "spirit",
+            "tag": "Plate & Ward",
+            "effect": "Protective ward-etching on Heavy Armor grants +12% Physical Defense and +12% Magic Defense.",
+            "iconPath": "assets/icons/disciplines/disc_orin_70_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_70_b",
+            "name": "Crushing Follow-Through",
+            "pillar": "mind",
+            "tag": "Team Opening",
+            "effect": "Tactical follow-up openings let allies deal +8% bonus physical damage to any foe Orin struck this round.",
+            "iconPath": "assets/icons/disciplines/disc_orin_70_b.webp"
+          }
+        },
+        {
+          "level": 80,
+          "silver": 3800,
+          "approved": false,
+          "tradeoff": "Protective Resolve Aura (Spirit) vs. Heavy Stun Swing (Body)",
+          "optionA": {
+            "id": "disc_orin_80_a",
+            "name": "Hold the Line Aura",
+            "pillar": "spirit",
+            "tag": "Party Ward",
+            "effect": "Steadfast ward aura reduces incoming enemy area-of-effect damage across the party by 12%.",
+            "iconPath": "assets/icons/disciplines/disc_orin_80_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_80_b",
+            "name": "Concussive Blows",
+            "pillar": "body",
+            "tag": "Heavy Stun",
+            "effect": "Raw physical Mode-B swings carry a 20% Stun chance (or cut Boss Attack by 15% for 1 round).",
+            "iconPath": "assets/icons/disciplines/disc_orin_80_b.webp"
+          }
+        },
+        {
+          "level": 90,
+          "silver": 5500,
+          "approved": false,
+          "tradeoff": "Last-Stand Miracle Ward (Spirit) vs. Broken-Guard Command (Mind)",
+          "optionA": {
+            "id": "disc_orin_90_a",
+            "name": "Unbreakable Bulwark",
+            "pillar": "spirit",
+            "tag": "Last Stand Ward",
+            "effect": "Once per battle, a fatal hit instead leaves Orin at 1 HP and raises a 15% Max HP magical Ward Shield over all allies.",
+            "iconPath": "assets/icons/disciplines/disc_orin_90_a.webp"
+          },
+          "optionB": {
+            "id": "disc_orin_90_b",
+            "name": "Commanding Breach",
+            "pillar": "mind",
+            "tag": "Team Tactics",
+            "effect": "Coordinated assault commands grant allies +15% bonus damage for 2 rounds against enemies whose Guard Orin broke.",
+            "iconPath": "assets/icons/disciplines/disc_orin_90_b.webp"
+          }
+        }
+      ]
+    },
+    {
+      "heroId": "rowan",
+      "name": "Rowan",
+      "className": "Ranger",
+      "roleTag": "Marksman & Scout · Longbows, Shortbows & Daggers",
+      "tiers": [
+        {
+          "level": 1,
+          "silver": 60,
+          "approved": false,
+          "tradeoff": "Opening Scouting Aim (Mind) vs. Limb-Crippling Shot (Body)",
+          "optionA": {
+            "id": "disc_rowan_01_a",
+            "name": "Ambush Eye",
+            "pillar": "mind",
+            "tag": "Opening Aim",
+            "effect": "Sharp scouting focus grants +20% Accuracy and +20% Critical Chance on Rowan's first shot.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_01_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_01_b",
+            "name": "Hamstring Shot",
+            "pillar": "body",
+            "tag": "Limb Strike",
+            "effect": "Forceful physical limb shots lower the target's Accuracy and Dodge by 12% for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_01_b.webp"
+          }
+        },
+        {
+          "level": 10,
+          "silver": 150,
+          "approved": false,
+          "tradeoff": "Trajectory Calculation (Mind) vs. Close-Quarters Evasion (Body)",
+          "optionA": {
+            "id": "disc_rowan_10_a",
+            "name": "Sky-Hunter Sight",
+            "pillar": "mind",
+            "tag": "Ranged Snipe",
+            "effect": "Measured trajectory focus deals +15% bonus damage against Ranged, Spellcasting, and Airborne enemies.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_10_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_10_b",
+            "name": "Blade & Buckler",
+            "pillar": "body",
+            "tag": "Dagger Evasion",
+            "effect": "Agile physical footwork with Dagger + Shield grants +8% Dodge Chance and adds Bleed chance on hit.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_10_b.webp"
+          }
+        },
+        {
+          "level": 20,
+          "silver": 300,
+          "approved": false,
+          "tradeoff": "Disruptive Trick Shot (Mind) vs. Heavy Broadhead Draw (Body)",
+          "optionA": {
+            "id": "disc_rowan_20_a",
+            "name": "Disrupting Draw",
+            "pillar": "mind",
+            "tag": "Blind & Strip",
+            "effect": "Clever Heavy Mode-B shots inflict Blind (-18% Accuracy) and have a 60% chance to strip 1 enemy buff.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_20_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_20_b",
+            "name": "Bodkin Broadheads",
+            "pillar": "body",
+            "tag": "Armor Pierce",
+            "effect": "Heavy bow draw drives bodkin steel straight through 15% of enemy Physical Defense.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_20_b.webp"
+          }
+        },
+        {
+          "level": 30,
+          "silver": 500,
+          "approved": false,
+          "tradeoff": "Acrobatic Dodge (Body) vs. Ally-Strike Watch (Mind)",
+          "optionA": {
+            "id": "disc_rowan_30_a",
+            "name": "Evading Smoke-Step",
+            "pillar": "body",
+            "tag": "Dodge Guard",
+            "effect": "Acrobatic physical footwork on Guard grants +18% Dodge Chance until Rowan's next round.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_30_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_30_b",
+            "name": "Covering Volley",
+            "pillar": "mind",
+            "tag": "Assist Shot",
+            "effect": "Constant battlefield watch fires a free aimed snap arrow (60% power) once per round when an ally lands a Crit.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_30_b.webp"
+          }
+        },
+        {
+          "level": 40,
+          "silver": 800,
+          "approved": false,
+          "tradeoff": "Spotter Weak-Point Mark (Mind) vs. High-Impact Ricochet (Body)",
+          "optionA": {
+            "id": "disc_rowan_40_a",
+            "name": "Spotter's Mark",
+            "pillar": "mind",
+            "tag": "Target Expose",
+            "effect": "Calling out openings on repeated hits lowers the foe's Defense by 12% for all allies for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_40_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_40_b",
+            "name": "Splinter Ricochet",
+            "pillar": "body",
+            "tag": "Crit Bounce",
+            "effect": "High-impact physical Crits shatter bone and steel, bouncing 25% Piercing damage to a second random enemy.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_40_b.webp"
+          }
+        },
+        {
+          "level": 50,
+          "silver": 1200,
+          "approved": false,
+          "tradeoff": "Cold Lethal Aim (Mind) vs. Agile Stamina Recovery (Body)",
+          "optionA": {
+            "id": "disc_rowan_50_a",
+            "name": "Heart-Seeker Focus",
+            "pillar": "mind",
+            "tag": "Crit Power",
+            "effect": "Steady breathing and lethal aim increase Critical Hit damage by +20%.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_50_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_50_b",
+            "name": "Scout's Recovery",
+            "pillar": "body",
+            "tag": "Dodge Heal",
+            "effect": "Once per round, physically evading an enemy attack restores 8% of Rowan's Max HP.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_50_b.webp"
+          }
+        },
+        {
+          "level": 60,
+          "silver": 1800,
+          "approved": false,
+          "tradeoff": "Surgical Strap-Cut Aim (Mind) vs. Heavy Monster-Hunting Shafts (Body)",
+          "optionA": {
+            "id": "disc_rowan_60_a",
+            "name": "Severing Arrow",
+            "pillar": "mind",
+            "tag": "Buff Strip",
+            "effect": "Surgical aim gives Bow shots a 60% chance to slice away 1 positive Attack or Defense buff.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_60_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_60_b",
+            "name": "Monster-Slayer Arrows",
+            "pillar": "body",
+            "tag": "Beast & Monster",
+            "effect": "Full-draw heavy hunting shafts deal +15% bonus damage against Wild Beasts, Dragons, and Monstrous foes.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_60_b.webp"
+          }
+        },
+        {
+          "level": 70,
+          "silver": 2600,
+          "approved": false,
+          "tradeoff": "Quick-Sight Snap Precision (Mind) vs. Full-Strength Overdraw (Body)",
+          "optionA": {
+            "id": "disc_rowan_70_a",
+            "name": "Twin-Feather Precision",
+            "pillar": "mind",
+            "tag": "Light Criticals",
+            "effect": "Quick target acquisition grants Light Mode-A shots +12% Critical Chance and higher Bleed chance.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_70_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_70_b",
+            "name": "Siege Overdraw",
+            "pillar": "body",
+            "tag": "Guard Break",
+            "effect": "Full-strength bow draw shatters +1 additional Guard point on shielded enemies with Heavy Mode-B shots.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_70_b.webp"
+          }
+        },
+        {
+          "level": 80,
+          "silver": 3800,
+          "approved": false,
+          "tradeoff": "Rapid Physical Double-Draw (Body) vs. Clear-Minded Ranger Focus (Mind)",
+          "optionA": {
+            "id": "disc_rowan_80_a",
+            "name": "Twin-Nock Draw",
+            "pillar": "body",
+            "tag": "Multi-Shot",
+            "effect": "Swift physical fingerwork grants a 22% chance on any Bow attack to loose a second arrow at 50% damage.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_80_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_80_b",
+            "name": "Clear-Minded Focus",
+            "pillar": "mind",
+            "tag": "Visual Grit",
+            "effect": "Trained scout focus halves incoming Blindness & Accuracy penalties and grants +40% Stun resistance.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_80_b.webp"
+          }
+        },
+        {
+          "level": 90,
+          "silver": 5500,
+          "approved": false,
+          "tradeoff": "Deadeye Finisher Aim (Mind) vs. Quiver-Emptying Volley (Body)",
+          "optionA": {
+            "id": "disc_rowan_90_a",
+            "name": "Deadeye Execution",
+            "pillar": "mind",
+            "tag": "Finisher Aim",
+            "effect": "Clinical weak-spot focus inflicts +25% Critical Chance and 18% Defense penetration on targets under 35% HP.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_90_a.webp"
+          },
+          "optionB": {
+            "id": "disc_rowan_90_b",
+            "name": "Arrow Storm",
+            "pillar": "body",
+            "tag": "Mass Volley",
+            "effect": "Relentless physical draw speed lets Rowan rain arrows hitting ALL enemies every 3rd round for 70% Piercing damage.",
+            "iconPath": "assets/icons/disciplines/disc_rowan_90_b.webp"
+          }
+        }
+      ]
+    },
+    {
+      "heroId": "mera",
+      "name": "Mera",
+      "className": "Druid",
+      "roleTag": "Nature Caster · Quarterstaves, Scimitars & Sickles",
+      "tiers": [
+        {
+          "level": 1,
+          "silver": 60,
+          "approved": false,
+          "tradeoff": "Physical Oak Toughness (Body) vs. Nature Spell Opener (Spirit)",
+          "optionA": {
+            "id": "disc_mera_01_a",
+            "name": "Oak-Hardened Body",
+            "pillar": "body",
+            "tag": "Defense",
+            "effect": "Physical highland conditioning grants +12% permanent Physical Defense.",
+            "iconPath": "assets/icons/disciplines/disc_mera_01_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_01_b",
+            "name": "Tempest Opening",
+            "pillar": "spirit",
+            "tag": "Spell Opener",
+            "effect": "Mera's first offensive Nature spell in battle costs half MP and deals +15% damage.",
+            "iconPath": "assets/icons/disciplines/disc_mera_01_b.webp"
+          }
+        },
+        {
+          "level": 10,
+          "silver": 150,
+          "approved": false,
+          "tradeoff": "Physical Briar Guard (Body) vs. Healing Spell Flow (Spirit)",
+          "optionA": {
+            "id": "disc_mera_10_a",
+            "name": "Bramble Retaliation",
+            "pillar": "body",
+            "tag": "Thorn Armor",
+            "effect": "Barbed physical gear reflects 15% Piercing thorn damage back onto melee attackers.",
+            "iconPath": "assets/icons/disciplines/disc_mera_10_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_10_b",
+            "name": "Lingering Sap",
+            "pillar": "spirit",
+            "tag": "Healing Duration",
+            "effect": "Mera's Regeneration and Healing over time spells last +1 extra round.",
+            "iconPath": "assets/icons/disciplines/disc_mera_10_b.webp"
+          }
+        },
+        {
+          "level": 20,
+          "silver": 300,
+          "approved": false,
+          "tradeoff": "Scimitar Melee Power (Body) vs. Elder-Wood Staff Magic (Spirit)",
+          "optionA": {
+            "id": "disc_mera_20_a",
+            "name": "Reaping Blade Focus",
+            "pillar": "body",
+            "tag": "Melee Mastery",
+            "effect": "Scimitar and Sickle weapon strikes deal +14% bonus physical damage and add strong Bleed chance.",
+            "iconPath": "assets/icons/disciplines/disc_mera_20_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_20_b",
+            "name": "Elder-Wood Staff Focus",
+            "pillar": "spirit",
+            "tag": "Staff Spell Power",
+            "effect": "Wielding a 2H Quarterstaff channels Nature and Lightning spell power for +12% damage.",
+            "iconPath": "assets/icons/disciplines/disc_mera_20_b.webp"
+          }
+        },
+        {
+          "level": 30,
+          "silver": 500,
+          "approved": false,
+          "tradeoff": "Physical Bleeding Wounds (Body) vs. Wind & Storm Magic (Spirit)",
+          "optionA": {
+            "id": "disc_mera_30_a",
+            "name": "Corrosive Thorns",
+            "pillar": "body",
+            "tag": "Armor Melt",
+            "effect": "Jagged bleeding wounds inflicted by Mera weaken enemies for -10% Physical Defense.",
+            "iconPath": "assets/icons/disciplines/disc_mera_30_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_30_b",
+            "name": "Gale Canopy",
+            "pillar": "spirit",
+            "tag": "Party Dodge Wind",
+            "effect": "Casting Wind or Lightning spells surrounds allies with rushing air for +6% Dodge Chance for 1 round.",
+            "iconPath": "assets/icons/disciplines/disc_mera_30_b.webp"
+          }
+        },
+        {
+          "level": 40,
+          "silver": 800,
+          "approved": false,
+          "tradeoff": "Heavy Staff Guard-Break (Body) vs. Cleansing Dew Magic (Spirit)",
+          "optionA": {
+            "id": "disc_mera_40_a",
+            "name": "Quake Impact",
+            "pillar": "body",
+            "tag": "Guard Break",
+            "effect": "Heavy physical Quarterstaff and Mace strikes chip +1 extra Guard point off shielded foes.",
+            "iconPath": "assets/icons/disciplines/disc_mera_40_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_40_b",
+            "name": "Purifying Dew",
+            "pillar": "spirit",
+            "tag": "Cleanse Magic",
+            "effect": "Casting Regeneration magic on an ally also cleanses 1 Bleed or Poison.",
+            "iconPath": "assets/icons/disciplines/disc_mera_40_b.webp"
+          }
+        },
+        {
+          "level": 50,
+          "silver": 1200,
+          "approved": false,
+          "tradeoff": "Predator Focus (Mind) vs. Emergency Nature Heal (Spirit)",
+          "optionA": {
+            "id": "disc_mera_50_a",
+            "name": "Highland Instinct",
+            "pillar": "mind",
+            "tag": "Hunter Focus",
+            "effect": "While above 75% HP, sharp predator focus grants +15% Accuracy and +12% Critical Chance on attacks.",
+            "iconPath": "assets/icons/disciplines/disc_mera_50_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_50_b",
+            "name": "Grove Guardian",
+            "pillar": "spirit",
+            "tag": "Emergency Heal",
+            "effect": "When an ally drops below 30% HP, Mera's next healing spell costs half MP and restores +20% more HP.",
+            "iconPath": "assets/icons/disciplines/disc_mera_50_b.webp"
+          }
+        },
+        {
+          "level": 60,
+          "silver": 1800,
+          "approved": false,
+          "tradeoff": "Spreading Physical Bleeds (Body) vs. Deep-Root Mental Calm (Mind)",
+          "optionA": {
+            "id": "disc_mera_60_a",
+            "name": "Creeping Briars",
+            "pillar": "body",
+            "tag": "Multi-Bleed",
+            "effect": "Single-target Bleed strikes have a 40% chance to tear and spread Bleed to another foe.",
+            "iconPath": "assets/icons/disciplines/disc_mera_60_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_60_b",
+            "name": "Deep Root Poise",
+            "pillar": "mind",
+            "tag": "Mental Stillness",
+            "effect": "Mountain-calm mental stillness grants +45% resistance against Stun and Curse effects.",
+            "iconPath": "assets/icons/disciplines/disc_mera_60_b.webp"
+          }
+        },
+        {
+          "level": 70,
+          "silver": 2600,
+          "approved": false,
+          "tradeoff": "Shock Opening Exploit (Mind) vs. Healing Moss Ward (Spirit)",
+          "optionA": {
+            "id": "disc_mera_70_a",
+            "name": "Storm Opportunist",
+            "pillar": "mind",
+            "tag": "Shock Exploit",
+            "effect": "Spotting jolted enemies lets allies' weapon strikes deal +12% bonus damage against Shocked foes.",
+            "iconPath": "assets/icons/disciplines/disc_mera_70_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_70_b",
+            "name": "Moss Ward",
+            "pillar": "spirit",
+            "tag": "Ally Magic Def",
+            "effect": "Allies touched by Mera's healing spells gain +12% Magic Defense for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_mera_70_b.webp"
+          }
+        },
+        {
+          "level": 80,
+          "silver": 3800,
+          "approved": false,
+          "tradeoff": "Storm Spell Setup (Spirit) vs. Pack Hunting Tactics (Mind)",
+          "optionA": {
+            "id": "disc_mera_80_a",
+            "name": "Coiled Tempest",
+            "pillar": "spirit",
+            "tag": "Spell Setup",
+            "effect": "Using Guard gathers storm energy, empowering Mera's next Nature spell for +18% Spell Power.",
+            "iconPath": "assets/icons/disciplines/disc_mera_80_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_80_b",
+            "name": "Pack Instinct",
+            "pillar": "mind",
+            "tag": "Team Tactics",
+            "effect": "Coordinated highland hunting signals grant active allies +10% Accuracy and +8% Critical Chance.",
+            "iconPath": "assets/icons/disciplines/disc_mera_80_b.webp"
+          }
+        },
+        {
+          "level": 90,
+          "silver": 5500,
+          "approved": false,
+          "tradeoff": "Apex Predator Coordination (Mind) vs. Party Lifebloom Miracle (Spirit)",
+          "optionA": {
+            "id": "disc_mera_90_a",
+            "name": "Apex Hunt",
+            "pillar": "mind",
+            "tag": "Team Precision",
+            "effect": "Allies gain +12% Critical Chance and 15% Defense penetration against enemies suffering Bleed or Shock.",
+            "iconPath": "assets/icons/disciplines/disc_mera_90_a.webp"
+          },
+          "optionB": {
+            "id": "disc_mera_90_b",
+            "name": "Lifebloom Surge",
+            "pillar": "spirit",
+            "tag": "Party Miracle",
+            "effect": "Once per battle, a single-target healing spell spreads 40% healing and Regen to all allies.",
+            "iconPath": "assets/icons/disciplines/disc_mera_90_b.webp"
+          }
+        }
+      ]
+    },
+    {
+      "heroId": "harlan",
+      "name": "Harlan",
+      "className": "Sage",
+      "roleTag": "Field Surgeon & Alchemist · Staves, Maces & Daggers",
+      "tiers": [
+        {
+          "level": 1,
+          "silver": 60,
+          "approved": false,
+          "tradeoff": "Emergency Triage Magic (Spirit) vs. Caustic Toxin Formula (Mind)",
+          "optionA": {
+            "id": "disc_harlan_01_a",
+            "name": "Triage Mercy",
+            "pillar": "spirit",
+            "tag": "Emergency Heal",
+            "effect": "Healing spells channel deeper relief, restoring +18% more HP to allies below 50% HP.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_01_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_01_b",
+            "name": "Caustic Formula",
+            "pillar": "mind",
+            "tag": "Defense Melt",
+            "effect": "Corrosive herbal recipes cause enemies suffering Harlan's Poison to lose 10% Physical & Magic Defense.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_01_b.webp"
+          }
+        },
+        {
+          "level": 10,
+          "silver": 150,
+          "approved": false,
+          "tradeoff": "Physical Shield Brace (Body) vs. Blended Toxin Edge (Mind)",
+          "optionA": {
+            "id": "disc_harlan_10_a",
+            "name": "Physician's Shield",
+            "pillar": "body",
+            "tag": "Medic Tank",
+            "effect": "Physical Shield stance with Mace or Dagger grants +12% Physical Defense and +35% Stun resistance.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_10_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_10_b",
+            "name": "Coated Edge",
+            "pillar": "mind",
+            "tag": "Toxin Prep",
+            "effect": "Carefully prepared blade oils give basic weapon attacks a 30% chance to inflict Poison.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_10_b.webp"
+          }
+        },
+        {
+          "level": 20,
+          "silver": 300,
+          "approved": false,
+          "tradeoff": "Physical Potion Vitality (Body) vs. Concentrated Poison Chemistry (Mind)",
+          "optionA": {
+            "id": "disc_harlan_20_a",
+            "name": "Refined Apothecary",
+            "pillar": "body",
+            "tag": "Potion Vitality",
+            "effect": "Toughened metabolic uptake makes Potions used by Harlan restore 30% more HP and MP.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_20_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_20_b",
+            "name": "Blighted Concentrates",
+            "pillar": "mind",
+            "tag": "Toxin Chemistry",
+            "effect": "Precision herbal distillation boosts Harlan's Poison damage-over-time ticks by +25% each round.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_20_b.webp"
+          }
+        },
+        {
+          "level": 30,
+          "silver": 500,
+          "approved": false,
+          "tradeoff": "Protective Heal Ward (Spirit) vs. Nerve-Numbing Formula (Mind)",
+          "optionA": {
+            "id": "disc_harlan_30_a",
+            "name": "Protective Salve",
+            "pillar": "spirit",
+            "tag": "Triage Ward",
+            "effect": "Healing spells cast on allies below 50% HP surround them with a 10% Max HP magic Ward Shield.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_30_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_30_b",
+            "name": "Numbing Venom",
+            "pillar": "mind",
+            "tag": "Enemy Weaken",
+            "effect": "Alchemical nerve-suppressants cause Poisoned enemies to deal 10% less physical and magic damage.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_30_b.webp"
+          }
+        },
+        {
+          "level": 40,
+          "silver": 800,
+          "approved": false,
+          "tradeoff": "Cleansing Spell Boost (Spirit) vs. Guard-Melting Acid Formula (Mind)",
+          "optionA": {
+            "id": "disc_harlan_40_a",
+            "name": "Smelling-Salt Rush",
+            "pillar": "spirit",
+            "tag": "Cleanse Boost",
+            "effect": "Casting Cleanse or Remedy spells refunds 5 MP and empowers the ally with +10% Attack & Accuracy for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_40_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_40_b",
+            "name": "Acidic Breach",
+            "pillar": "mind",
+            "tag": "Acid Chemistry",
+            "effect": "Etching Acid and Poison flasks break +1 extra Guard point off shielded enemies.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_40_b.webp"
+          }
+        },
+        {
+          "level": 50,
+          "silver": 1200,
+          "approved": false,
+          "tradeoff": "Physical Plague Toughness (Body) vs. Volatile Poison Reaction (Mind)",
+          "optionA": {
+            "id": "disc_harlan_50_a",
+            "name": "Plague Hardening",
+            "pillar": "body",
+            "tag": "Physical Grit",
+            "effect": "Years of exposure harden Harlan's body to take 25% less damage from Poison, Burn, and Shadow effects.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_50_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_50_b",
+            "name": "Toxic Rupture",
+            "pillar": "mind",
+            "tag": "Volatile Formula",
+            "effect": "Layering fresh toxin formulas onto an already-Poisoned foe triggers a moderate chemical burst.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_50_b.webp"
+          }
+        },
+        {
+          "level": 60,
+          "silver": 1800,
+          "approved": false,
+          "tradeoff": "Revival Magic Shield (Spirit) vs. Paralytic Toxin Study (Mind)",
+          "optionA": {
+            "id": "disc_harlan_60_a",
+            "name": "Quickening Balm",
+            "pillar": "spirit",
+            "tag": "Revival Ward",
+            "effect": "Reviving spells return allies with +20% extra HP and a 12% Max HP magical Ward Shield.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_60_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_60_b",
+            "name": "Nerve-Lock Toxin",
+            "pillar": "mind",
+            "tag": "Toxin Control",
+            "effect": "Measured paralytic compounds give foes suffering 2+ ailments an 18% chance to stumble and miss a turn.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_60_b.webp"
+          }
+        },
+        {
+          "level": 70,
+          "silver": 2600,
+          "approved": false,
+          "tradeoff": "Healing Spell Efficiency (Spirit) vs. Shattering Vapor Flasks (Mind)",
+          "optionA": {
+            "id": "disc_harlan_70_a",
+            "name": "Thrifty Satchel",
+            "pillar": "spirit",
+            "tag": "Spell Efficiency",
+            "effect": "Focused healing spirit cuts MP costs on all Healing and Remedy spells by 15% (minimum 1 MP).",
+            "iconPath": "assets/icons/disciplines/disc_harlan_70_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_70_b",
+            "name": "Vapor Shatter",
+            "pillar": "mind",
+            "tag": "Flask Splash",
+            "effect": "Single-target Poison throws shatter flasks on impact, splashing 35% toxin damage onto a second random foe.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_70_b.webp"
+          }
+        },
+        {
+          "level": 80,
+          "silver": 3800,
+          "approved": false,
+          "tradeoff": "Fortified Body Tonic Aura (Body) vs. Poison-Siphon Magic (Spirit)",
+          "optionA": {
+            "id": "disc_harlan_80_a",
+            "name": "Ward-Root Tonic",
+            "pillar": "body",
+            "tag": "Body Resilience",
+            "effect": "Conditioning herbal tonics grant allies +18% resistance to Stun, Burn, Bleed, and Curse while Harlan stands.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_80_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_80_b",
+            "name": "Blight Siphon",
+            "pillar": "spirit",
+            "tag": "Mana Siphon",
+            "effect": "Spirit siphon draws +4 MP each round per Poisoned enemy on the field (up to +12 MP per round).",
+            "iconPath": "assets/icons/disciplines/disc_harlan_80_b.webp"
+          }
+        },
+        {
+          "level": 90,
+          "silver": 5500,
+          "approved": false,
+          "tradeoff": "Panacea Ward Magic (Spirit) vs. Master Toxin Penetration (Mind)",
+          "optionA": {
+            "id": "disc_harlan_90_a",
+            "name": "Master Panacea",
+            "pillar": "spirit",
+            "tag": "Team Ward",
+            "effect": "Party-wide healing spells wrap allies in protective magic for +45% Status Ailment resistance for 2 rounds.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_90_a.webp"
+          },
+          "optionB": {
+            "id": "disc_harlan_90_b",
+            "name": "Universal Blight",
+            "pillar": "mind",
+            "tag": "Master Formula",
+            "effect": "Master non-magical toxins bypass 50% of enemy Poison resistance and deal half potency vs. highly Poison-resistant foes.",
+            "iconPath": "assets/icons/disciplines/disc_harlan_90_b.webp"
+          }
+        }
+      ]
+    }
+  ]
+}

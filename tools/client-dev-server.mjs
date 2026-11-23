@@ -17,6 +17,10 @@ const WORLD_DATA_PATH = path.join(DATA_DIR, "world-locations.json");
 const CLIENT_WORLD_DATA_PATH = path.join(CLIENT_ASSETS_DIR, "data", "world-locations.json");
 const WORLD_PAINT_PATH = path.join(DATA_DIR, "world-paint.json");
 const CLIENT_WORLD_PAINT_PATH = path.join(CLIENT_ASSETS_DIR, "data", "world-paint.json");
+const DISCIPLINES_DATA_PATH = path.join(DATA_DIR, "disciplines-catalog.json");
+const CLIENT_DISCIPLINES_DATA_PATH = path.join(CLIENT_ASSETS_DIR, "data", "disciplines-catalog.json");
+const BATTLE_CONFIG_PATH = path.join(DATA_DIR, "battle-config.json");
+const CLIENT_BATTLE_CONFIG_PATH = path.join(CLIENT_ASSETS_DIR, "data", "battle-config.json");
 
 const SAVES_DIR = path.join(
   process.env.APPDATA || path.join(os.homedir(), "AppData", "Roaming"),
@@ -218,6 +222,12 @@ const server = http.createServer((req, res) => {
                 scale: inc.scale ?? prev.scale ?? 1.0,
                 triggerRadius: inc.triggerRadius ?? prev.triggerRadius ?? 88,
                 linkedFerryId: "linkedFerryId" in inc ? inc.linkedFerryId : prev.linkedFerryId ?? null,
+                passExitX: "passExitX" in inc
+                  ? (inc.passExitX !== null && inc.passExitX !== "" && Number.isFinite(Number(inc.passExitX)) ? Math.round(Number(inc.passExitX)) : null)
+                  : prev.passExitX ?? null,
+                passExitY: "passExitY" in inc
+                  ? (inc.passExitY !== null && inc.passExitY !== "" && Number.isFinite(Number(inc.passExitY)) ? Math.round(Number(inc.passExitY)) : null)
+                  : prev.passExitY ?? null,
                 rotation: "rotation" in inc ? Number(inc.rotation) || 0 : prev.rotation ?? 0,
                 locked: "locked" in inc ? Boolean(inc.locked) : Boolean(prev.locked),
               };
@@ -313,8 +323,84 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // --- Hero Disciplines Catalog API for Admin Reviewer ---
+  if (urlPath === "/api/disciplines" && req.method === "GET") {
+    if (!fs.existsSync(DISCIPLINES_DATA_PATH)) {
+      return sendJson(res, 404, { error: "disciplines-catalog.json not found" });
+    }
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+    res.end(fs.readFileSync(DISCIPLINES_DATA_PATH, "utf-8"));
+    return;
+  }
+  if (urlPath === "/api/disciplines" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 5_000_000) req.destroy();
+    });
+    req.on("end", () => {
+      try {
+        const parsed = JSON.parse(body);
+        if (!parsed || !Array.isArray(parsed.heroes)) {
+          return sendJson(res, 400, { error: "Invalid disciplines catalog payload" });
+        }
+        const formatted = JSON.stringify(parsed, null, 2) + "\n";
+        fs.mkdirSync(path.dirname(DISCIPLINES_DATA_PATH), { recursive: true });
+        fs.mkdirSync(path.dirname(CLIENT_DISCIPLINES_DATA_PATH), { recursive: true });
+        fs.writeFileSync(DISCIPLINES_DATA_PATH, formatted, "utf-8");
+        fs.writeFileSync(CLIENT_DISCIPLINES_DATA_PATH, formatted, "utf-8");
+        return sendJson(res, 200, { ok: true, savedAt: new Date().toISOString() });
+      } catch (err) {
+        return sendJson(res, 400, { error: String(err) });
+      }
+    });
+    return;
+  }
+
+  // --- Battle Encounters & Stage Layout API for Admin Studio ---
+  if (urlPath === "/api/battles" && req.method === "GET") {
+    if (!fs.existsSync(BATTLE_CONFIG_PATH)) {
+      return sendJson(res, 404, { error: "battle-config.json not found" });
+    }
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+    res.end(fs.readFileSync(BATTLE_CONFIG_PATH, "utf-8"));
+    return;
+  }
+  if (urlPath === "/api/battles" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 10_000_000) req.destroy();
+    });
+    req.on("end", () => {
+      try {
+        const parsed = JSON.parse(body);
+        if (!parsed || !Array.isArray(parsed.stages) || !Array.isArray(parsed.monsters)) {
+          return sendJson(res, 400, { error: "Invalid battle-config payload" });
+        }
+        const formatted = JSON.stringify(parsed, null, 2) + "\n";
+        fs.mkdirSync(path.dirname(BATTLE_CONFIG_PATH), { recursive: true });
+        fs.mkdirSync(path.dirname(CLIENT_BATTLE_CONFIG_PATH), { recursive: true });
+        fs.writeFileSync(BATTLE_CONFIG_PATH, formatted, "utf-8");
+        fs.writeFileSync(CLIENT_BATTLE_CONFIG_PATH, formatted, "utf-8");
+        return sendJson(res, 200, { ok: true, savedAt: new Date().toISOString() });
+      } catch (err) {
+        return sendJson(res, 400, { error: String(err) });
+      }
+    });
+    return;
+  }
+
   // --- Clean Trailing-Slash Redirects ---
-  if (urlPath === "/client" || urlPath === "/admin" || urlPath === "/admin/vfx-test" || urlPath === "/admin/shops") {
+  if (
+    urlPath === "/client" ||
+    urlPath === "/admin" ||
+    urlPath === "/admin/vfx-test" ||
+    urlPath === "/admin/shops" ||
+    urlPath === "/admin/party" ||
+    urlPath === "/admin/disciplines" ||
+    urlPath === "/admin/battles"
+  ) {
     res.writeHead(302, { Location: `${urlPath}/` });
     res.end();
     return;

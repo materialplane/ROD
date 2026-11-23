@@ -2,10 +2,30 @@ import React, { useEffect, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById } from "../heroes";
-import type { EquippedGearMap, HeroId, ItemEntry, NpcEntry, ShopType, SpellEntry, WorldLocation } from "../types";
+import type {
+  ChosenDisciplinesMap,
+  DisciplineOption,
+  EquippedGearMap,
+  HeroDisciplinesEntry,
+  HeroId,
+  ItemEntry,
+  NpcEntry,
+  ShopType,
+  SpellEntry,
+  WorldLocation,
+} from "../types";
 import { CompareBox } from "./CompareBox";
+import { DisciplinesShopView } from "./DisciplinesShopView";
 import { hideClientItemTooltip, itemTooltipHandlers } from "./itemTooltip";
-import { computeHeroDelta, getStockForHero, itemSlotFor, SHOP_META, type ShopCatalogEntry } from "./shopLogic";
+import {
+  computeHeroDelta,
+  countRegionSpellsForHero,
+  getStockForHero,
+  itemSlotFor,
+  MAX_SPELLS_PER_REGION,
+  SHOP_META,
+  type ShopCatalogEntry,
+} from "./shopLogic";
 
 export interface BuyConfirmChoice {
   entry: ShopCatalogEntry;
@@ -19,12 +39,17 @@ interface ShopCounterPanelProps {
   npc: NpcEntry;
   shopType: ShopType;
   partyOrder: HeroId[];
+  partyLevel?: number;
+  heroLevels?: Partial<Record<HeroId, number>>;
   silver: number;
   items: ItemEntry[];
   itemsById: Record<string, ItemEntry>;
   spells: SpellEntry[];
   equippedByHero: EquippedGearMap;
   learnedSpellIds: string[];
+  disciplinesByHero?: Partial<Record<HeroId, HeroDisciplinesEntry>>;
+  chosenDisciplinesByHero?: ChosenDisciplinesMap;
+  onSelectDiscipline?: (heroId: HeroId, tierLevel: number, opt: DisciplineOption, silverCost: number) => void;
   onBuy: (choice: BuyConfirmChoice) => void;
   onReturnDialogue: () => void;
 }
@@ -34,12 +59,17 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
   npc,
   shopType,
   partyOrder,
+  partyLevel = 1,
+  heroLevels,
   silver,
   items,
   itemsById,
   spells,
   equippedByHero,
   learnedSpellIds,
+  disciplinesByHero,
+  chosenDisciplinesByHero,
+  onSelectDiscipline,
   onBuy,
   onReturnDialogue,
 }) => {
@@ -66,10 +96,14 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
     return () => hideClientItemTooltip();
   }, [hub.id, shopType, npc.id]);
 
-  const heroStock = getStockForHero(items, spells, hub, shopType, catFilter, activeHeroId);
+  const isDisciplinesTab = shopType === "arcanist" && catFilter === "disciplines";
+  const heroStock = getStockForHero(items, spells, hub, shopType, isDisciplinesTab ? "all" : catFilter, activeHeroId);
   const selected = heroStock.find((x) => x.id === selectedId) ?? heroStock[0] ?? null;
 
   const activeHero = getHeroById(activeHeroId);
+  const activeHeroLevel = heroLevels?.[activeHeroId] ?? partyLevel;
+  const activeChosenDiscs = chosenDisciplinesByHero?.[activeHeroId] ?? {};
+  const activeHeroDiscTiers = disciplinesByHero?.[activeHeroId]?.tiers ?? [];
   const handleHeroPick = (hid: HeroId) => {
     audioEngine.playUiClick(0.28);
     setActiveHeroId(hid);
@@ -152,7 +186,17 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.08fr)_minmax(350px,1fr)] gap-2.5 flex-1 min-h-0">
         {/* Stock List */}
         <div className="rounded border border-[#59492d] bg-[#0b0f19]/92 p-2 overflow-y-auto min-h-0">
-          {heroStock.length === 0 ? (
+          {isDisciplinesTab ? (
+            <DisciplinesShopView
+              heroId={activeHeroId}
+              heroName={activeHero.name}
+              tiers={activeHeroDiscTiers}
+              partyLevel={activeHeroLevel}
+              silver={silver}
+              chosenByTier={activeChosenDiscs}
+              onSelectDiscipline={onSelectDiscipline ?? (() => {})}
+            />
+          ) : heroStock.length === 0 ? (
             <div className="h-full min-h-[200px] flex flex-col items-center justify-center text-center p-4 gap-2.5">
               <div className="text-[16px] font-bold text-[#fae2aa]">No {activeHero.name} Stock Here</div>
               <div className="text-[13px] text-[#b7c6dd] max-w-[340px]">
@@ -184,6 +228,9 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                 const isSpell = it.category === "spell";
                 const sp = isSpell ? (it as SpellEntry) : null;
                 const learned = isSpell && learnedSpellIds.includes(it.id);
+                const regFull = Boolean(
+                  sp && !learned && countRegionSpellsForHero(learnedSpellIds, spells, activeHeroId, sp.region) >= MAX_SPELLS_PER_REGION
+                );
                 const gear = !isSpell ? (it as ItemEntry) : null;
                 const subLine = sp
                   ? `${sp.mpCost} MP · ${sp.damageType}`
@@ -216,8 +263,12 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                       </span>
                       <div className="flex items-center justify-between gap-2 text-[11.5px]">
                         <span className="text-[#96a7c2] truncate">{subLine}</span>
-                        <span className={`font-extrabold shrink-0 ${learned ? "text-[#84f2b8]" : "text-[#f4cf81]"}`}>
-                          {learned ? "Learned ✓" : `${it.priceSilver.toLocaleString()}s`}
+                        <span
+                          className={`font-extrabold shrink-0 ${
+                            learned ? "text-[#84f2b8]" : regFull ? "text-[#f28b95]" : "text-[#f4cf81]"
+                          }`}
+                        >
+                          {learned ? "Learned ✓" : regFull ? `Tier ${sp!.region} Full` : `${it.priceSilver.toLocaleString()}s`}
                         </span>
                       </div>
                     </div>
@@ -239,17 +290,28 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                 const hero = getHeroById(hid);
                 const isSel = hid === activeHeroId;
                 const heroCount = anyHeroStock.filter((x) => !x.usableBy || x.usableBy.includes(hid)).length;
-                let badge = heroCount > 0 ? hero.className : "No Stock";
+                const heroDiscCount = Object.keys(chosenDisciplinesByHero?.[hid] ?? {}).length;
+                let badge = isDisciplinesTab ? `${heroDiscCount}/10 Trained` : heroCount > 0 ? hero.className : "No Stock";
                 let badgeColor = "text-[#9eb0ca]";
-                let cardCls = heroCount > 0 ? "border-[#364056] opacity-75 hover:opacity-100" : "border-[#262d3d] opacity-35 grayscale";
+                let cardCls =
+                  isDisciplinesTab || heroCount > 0
+                    ? "border-[#364056] opacity-75 hover:opacity-100"
+                    : "border-[#262d3d] opacity-35 grayscale";
 
                 if (isSel) {
                   cardCls = "border-[#f4d182] bg-[#19231d] outline outline-2 outline-[#f4d182]";
-                  if (selected) {
+                  if (isDisciplinesTab) {
+                    badge = `${heroDiscCount}/10 Bound`;
+                    badgeColor = "text-[#f2d084] font-extrabold";
+                  } else if (selected) {
                     const d = computeHeroDelta(selected, equippedByHero, itemsById, hid);
                     if (selected.category === "spell") {
-                      badge = learnedSpellIds.includes(selected.id) ? "✓ Learned" : "Can Learn";
-                      badgeColor = "text-[#79f0b0] font-extrabold";
+                      const sp = selected as SpellEntry;
+                      const isKnown = learnedSpellIds.includes(selected.id);
+                      const capReached =
+                        !isKnown && countRegionSpellsForHero(learnedSpellIds, spells, hid, sp.region) >= MAX_SPELLS_PER_REGION;
+                      badge = isKnown ? "✓ Learned" : capReached ? `Tier ${sp.region} Full` : "Can Learn";
+                      badgeColor = capReached ? "text-[#f28b95] font-extrabold" : "text-[#79f0b0] font-extrabold";
                     } else if (!itemSlotFor(selected)) {
                       badge = "Usable";
                       badgeColor = "text-[#f1d99d] font-extrabold";
@@ -282,15 +344,68 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
             </div>
           </div>
 
-          <CompareBox
-            item={selected}
-            activeHeroId={activeHeroId}
-            silver={silver}
-            equippedByHero={equippedByHero}
-            itemsById={itemsById}
-            learnedSpellIds={learnedSpellIds}
-            onAction={handleAction}
-          />
+          {isDisciplinesTab ? (
+            <div className="flex-1 min-h-0 rounded border border-[#59492d] bg-[#0b0f19]/95 p-3 flex flex-col gap-2 overflow-y-auto shadow-[inset_0_0_0_1px_rgba(242,210,139,0.1)]">
+              <div className="flex items-center justify-between gap-2 pb-2 border-b border-[#2b3346]">
+                <div className="flex items-center gap-2.5">
+                  <img
+                    src={assetUrl(activeHero.avatarPath)}
+                    alt={activeHero.name}
+                    className="w-9 h-9 rounded object-cover border border-[#8a6e3b]"
+                  />
+                  <div>
+                    <div className="font-display text-[17px] font-bold text-[#fae2aa] leading-tight">
+                      {activeHero.name} · {activeHero.className}
+                    </div>
+                    <div className="text-[11.5px] text-[#9fb0c9]">
+                      Arcanist Discipline Mastery ({Object.keys(activeChosenDiscs).length}/10 Bound)
+                    </div>
+                  </div>
+                </div>
+                <span className="px-2 py-0.5 rounded border border-[#8c703b] bg-[#241c0f] text-[11px] font-bold text-[#f6dca0]">
+                  {activeHero.name} Lv {activeHeroLevel}
+                </span>
+              </div>
+              <div className="text-[12.5px] leading-relaxed text-[#cfd9ea]">
+                At <strong className="text-[#f5dfa9]">Level 1</strong> and every <strong className="text-[#f5dfa9]">10 levels</strong>{" "}
+                (10–90), each hero may train <strong className="text-[#f5dfa9]">1 of 2</strong> permanent Disciplines per tier. Bound
+                Disciplines remain active in battle and appear on {activeHero.name}’s battle plaque.
+              </div>
+              <div className="flex flex-col gap-1.5 mt-1">
+                {activeHeroDiscTiers.filter((t) => Boolean(activeChosenDiscs[String(t.level)])).length === 0 ? (
+                  <div className="rounded border border-dashed border-[#343d52] bg-[#101521] p-3 text-[12px] text-[#8d9eb8]">
+                    No Disciplines bound for {activeHero.name} yet. Pick an unlocked option on the left to bind it.
+                  </div>
+                ) : (
+                  activeHeroDiscTiers.map((t) => {
+                    const optId = activeChosenDiscs[String(t.level)];
+                    const opt = optId ? [t.optionA, t.optionB].find((o) => o.id === optId) : undefined;
+                    if (!opt) return null;
+                    return (
+                      <div key={t.level} className="rounded border border-[#5b7444] bg-[#131d19] px-2.5 py-1.5 flex items-start gap-2">
+                        <span className="text-[10.5px] font-bold text-[#9de6bc] shrink-0 mt-0.5">Lv {t.level}</span>
+                        <div className="min-w-0">
+                          <div className="text-[12.5px] font-bold text-[#fae4b0] leading-tight">{opt.name}</div>
+                          <div className="text-[11px] text-[#bfd2c9] leading-snug">{opt.effect}</div>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
+              </div>
+            </div>
+          ) : (
+            <CompareBox
+              item={selected}
+              activeHeroId={activeHeroId}
+              silver={silver}
+              equippedByHero={equippedByHero}
+              itemsById={itemsById}
+              spells={spells}
+              learnedSpellIds={learnedSpellIds}
+              onAction={handleAction}
+            />
+          )}
         </div>
       </div>
 

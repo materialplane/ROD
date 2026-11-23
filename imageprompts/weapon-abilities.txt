@@ -1,0 +1,118 @@
+# ROD — Illustrated Weapon Attack & Battle Action Card Sheets (2 x 4x4 Sheets = 26 Weapon Abilities + 6 Hotbar Utility Cards)
+# Source: docs/06-gear-and-runestones.md Section 1 (13 D&D Weapon Categories x 2 Attack Modes = 26 Modes + 6 Bonus Hotbar Cards)
+# Target Model: gemini-3-pro-image (Pro 4K, 1:1)
+# Art Style Anchor: Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy action & ability card art — bold focal weapon silhouette, dynamic slash/pierce/impact light ribbons, clean dark contour separation, and moody dark atmospheric vignette edges matching spell-cards.txt and disciplines.txt, zero pixel art, zero sketchiness, zero 3D plastic CGI, zero #FF00FF, zero card frames, zero human faces, and zero text or labels.
+# Export Pipeline: Slice strict 4x4 into 16 equal 1024x1024 lossless PNGs (assets/weapon_abilities/slices/) -> export 512x512 .webp in client/assets/icons/weapon_abilities/
+
+================================================================================
+SHEET 01 OF 02 — Weapon Abilities #01–#16 (Longsword, Greatsword, Rapier, Battleaxe, Mace, Spear, Longbow, Shortbow)
+================================================================================
+# SLOT MANIFEST (Row,Col -> abilityId | Name | Weapon & Mode):
+#   R1C1 -> wpn_skill_longsword_quick_slash    | Quick Slash    | Longsword · Fast
+#   R1C2 -> wpn_skill_longsword_heavy_cleave   | Heavy Cleave   | Longsword · Heavy
+#   R1C3 -> wpn_skill_greatsword_wide_sweep    | Wide Sweep     | Greatsword · Fast
+#   R1C4 -> wpn_skill_greatsword_overhead_rend | Overhead Rend  | Greatsword · Heavy
+#   R2C1 -> wpn_skill_rapier_needle_thrust     | Needle Thrust  | Rapier · Fast
+#   R2C2 -> wpn_skill_rapier_heart_pierce      | Heart Pierce   | Rapier · Heavy
+#   R2C3 -> wpn_skill_battleaxe_chopping_hack  | Chopping Hack  | Battleaxe · Fast
+#   R2C4 -> wpn_skill_battleaxe_execution_chop | Execution Chop | Battleaxe · Heavy
+#   R3C1 -> wpn_skill_mace_heavy_bash          | Heavy Bash     | Mace · Fast
+#   R3C2 -> wpn_skill_mace_armor_crush         | Armor Crush    | Mace · Heavy
+#   R3C3 -> wpn_skill_spear_long_thrust        | Long Thrust    | Spear · Fast
+#   R3C4 -> wpn_skill_spear_brace_sweep        | Brace Sweep    | Spear · Heavy
+#   R4C1 -> wpn_skill_longbow_snap_arrow       | Snap Arrow     | Longbow · Fast
+#   R4C2 -> wpn_skill_longbow_aimed_piercer    | Aimed Piercer  | Longbow · Heavy
+#   R4C3 -> wpn_skill_shortbow_quick_volley    | Quick Volley   | Shortbow · Fast
+#   R4C4 -> wpn_skill_shortbow_wing_clip       | Wing Clip      | Shortbow · Heavy
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG weapon attack ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA COMBAT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy weapon ability icon illustration — bold central readable weapon silhouette per cell, dramatic directional lighting, crisp forged steel edges, glowing motion slash ribbons, kinetic impact shockwaves, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, or dark iron soot) so every weapon blade, arrow streak, and glowing cleave arc pops cleanly inside its own square.
+- FRAMING: Keep every weapon skill's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct weapon attack ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Sleek gleaming medieval steel longsword slicing swiftly in a crisp diagonal silver-and-ice-blue crescent slash trail with quick light sparks against dark slate.
+- Row 1 Col 2: Heavy royal steel longsword crashing downward through a fierce blazing gold-and-crimson vertical cleave arc shedding fiery steel embers and cracked stone sparks.
+- Row 1 Col 3: Massive two-handed greatsword sweeping broadly horizontally in a wide rushing gale-white and silver blade-wind crescent across shadowed battle dust.
+- Row 1 Col 4: Colossal heavy two-handed greatsword slamming straight downward with molten amber-orange shockwaves splintering dark armored iron plates below.
+
+- Row 2 Col 1: Fine tapered steel dueling rapier lunging swiftly straight forward along razor-thin pale sapphire-silver speed streak lines against midnight navy.
+- Row 2 Col 2: Polished steel rapier point driving cleanly through a cracked glowing crimson-and-sapphire target core with a blinding diamond flash at the tip.
+- Row 2 Col 3: Rugged bearded iron battleaxe hewing diagonally forward in a sharp silver-and-amber steel chop arc kicking up glowing metallic sparks in dark shadow.
+- Row 2 Col 4: Heavy broad-headed executioner battleaxe sweeping down in a ferocious scarlet-crimson finishing cleave arc burning brightly against pitch soot.
+
+- Row 3 Col 1: Sturdy flanged forged-iron mace slamming sideways into a translucent shield glow, snapping bright golden impact rings and amber stun sparks outward.
+- Row 3 Col 2: Massive spiked steel war-mace crushing downward into thick dark plate armor seams, cracking glowing molten orange fault fractures across steel.
+- Row 3 Col 3: Long ash-shafted war spear with gleaming leaf-shaped steel head thrusting cleanly forward trailing bright sky-blue reach-wind spirals in twilight dark.
+- Row 3 Col 4: Broad steel-headed halberd spear sweeping briskly sideways behind a bright curved amber-gold knockback shock barrier arc over dark flagstones.
+
+- Row 4 Col 1: Gleaming silver-tipped hunting arrow bursting straight forward from a taut yew longbow grip arc trailing swift warm gold wind streaks in darkness.
+- Row 4 Col 2: Heavy armor-piercing steel bodkin longbow arrow glowing icy blue-gold inside crisp concentric glowing sapphire targeting rings over midnight slate.
+- Row 4 Col 3: Three nimble green-and-ivory fletched shortbow arrows flying together in tight rapid fanned diagonal motion trails against deep woodland dusk.
+- Row 4 Col 4: Hook-barbed hunter's shortbow arrow whistling swiftly downward trailing spiraling crimson-amber wind eddies that knock glowing feathers sideways.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square weapon ability icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 02 OF 02 — Weapon Abilities #17–#26 (Dagger, Crossbow, Quarterstaff, Scimitar, Sickle) + 6 Bonus Battle Action Cards
+================================================================================
+# SLOT MANIFEST (Row,Col -> abilityId | Name | Weapon & Mode):
+#   R1C1 -> wpn_skill_dagger_quick_jab        | Quick Jab       | Dagger · Fast
+#   R1C2 -> wpn_skill_dagger_vital_gouge      | Vital Gouge     | Dagger · Heavy
+#   R1C3 -> wpn_skill_crossbow_bolt_snap      | Bolt Snap       | Light Crossbow · Fast
+#   R1C4 -> wpn_skill_crossbow_siege_crank    | Siege Crank     | Light Crossbow · Heavy
+#   R2C1 -> wpn_skill_staff_sweep             | Staff Sweep     | Quarterstaff · Fast
+#   R2C2 -> wpn_skill_staff_crushing_vault    | Crushing Vault  | Quarterstaff · Heavy
+#   R2C3 -> wpn_skill_scimitar_crescent_cut   | Crescent Cut    | Scimitar · Fast
+#   R2C4 -> wpn_skill_scimitar_whirling_slash | Whirling Slash  | Scimitar · Heavy
+#   R3C1 -> wpn_skill_sickle_reaping_hook     | Reaping Hook    | Sickle · Fast
+#   R3C2 -> wpn_skill_sickle_thorn_slash      | Thorn Slash     | Sickle · Heavy
+#   R3C3 -> wpn_skill_shield_bash             | Shield Bash     | Off-Hand 1H Action
+#   R3C4 -> wpn_skill_parry_stance            | Riposte Parry   | Combat Stance Action
+#   R4C1 -> wpn_skill_inspect_foe             | Inspect Foe     | Enemy Scan Action
+#   R4C2 -> wpn_skill_wait_delay              | Bide Time       | Turn Wait Action
+#   R4C3 -> wpn_skill_potion_toss             | Quick Draught   | Belt Consumable Action
+#   R4C4 -> wpn_skill_runestone_surge         | Runestone Hit   | Carved Runestone Surge
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG weapon attack and battle action icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO bottle labels, and ZERO readable alphabet letters anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA COMBAT ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy battle ability icon illustration — bold central readable silhouette per cell, dramatic high-contrast directional lighting, forged daggers, steel crossbows, rune-shod staves, curved druid sickles & scimitars, shields, hourglasses, and glowing runes. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO bottle labels, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian slate, forest night indigo, or forged-iron shadow) so every blade arc, bolt flare, and emblem pops cleanly inside each square.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal subject.
+
+Render these exact 16 distinct weapon attack and battle action icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Razor-sleek forged steel stiletto dagger darting rapidly diagonally forward in twin crisp ice-silver motion slash lines over midnight slate.
+- Row 1 Col 2: Curved dark-hilted assassin dirk twisting sharply into a blazing crimson-and-gold pinpoint critical flare shedding deep red blood droplets.
+- Row 1 Col 3: Sturdy dark walnut and brass light crossbow snapping a gleaming iron bolt straight forward in sharp golden velocity wind lines over slate.
+- Row 1 Col 4: Heavy wound steel-prod arbalest siege bolt bursting forward inside bright sapphire-and-orange shock compression rings cracking dark iron plates.
+
+- Row 2 Col 1: Carved elderwood quarterstaff ferruled in burnished iron sweeping cleanly sideways in a fluid luminous cyan-aqua mana ripple arc over dark twilight.
+- Row 2 Col 2: Heavy bronze-shod hardwood quarterstaff slamming forcibly overhead straight down onto fractured dark stone, shattering fiery orange guard sparks.
+- Row 2 Col 3: Gleaming curved forest-steel scimitar gliding through a graceful luminous pale-emerald and silver crescent slash trail against dark woods shadow.
+- Row 2 Col 4: Curved scimitar blade spinning dynamically through twin bright emerald-and-gold whirling hurricane slash rings in deep pine twilight.
+
+- Row 3 Col 1: Curved bronze-and-steel druid reaping sickle pulling crisply through a sharp silver-emerald hook slice trailing three crimson bleed droplets.
+- Row 3 Col 2: Briar-wrapped curved iron field sickle slashing forcefully across darkness, scattering sharp glowing green thorn sparks and amber weakening embers.
+- Row 3 Col 3: Heavy riveted steel kite shield thrust violently forward into impact, detonating concentric blazing gold-amber bash shockwaves against charcoal dust.
+- Row 3 Col 4: Crossed royal steel blade braced defensively behind a shimmering serene sapphire diamond deflection shimmer over dark midnight flagstones.
+
+- Row 4 Col 1: Carved antique brass-and-sapphire tactical spyglass lens focusing a bright icy blue scanning beam onto a glowing cracked diamond weak point in shadow.
+- Row 4 Col 2: Poised antique bronze battle hourglass glowing calmly gold in its upper sand chamber inside silver temporal waiting rings against deep slate.
+- Row 4 Col 3: Unlabeled clear emerald-and-gold faceted belt flask catching urgent sunlit turquoise restorative swirls ready to toss cleanly in battle.
+- Row 4 Col 4: Honed steel broadsword blade ablaze with an inset glowing iridescent prismatic crystal runestone surging with fire, ice, and lightning sparks.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square weapon ability and battle action icon cards), ZERO bottle labels, ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---

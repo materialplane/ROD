@@ -31,12 +31,25 @@ const CLEAR_RING_DIRS: ReadonlyArray<readonly [number, number]> = Array.from({ l
 });
 
 interface RawBiomeEntry {
+  id?: string;
   code?: number;
+  name?: string;
+  kind?: string;
   impassable?: boolean;
+}
+
+interface RawLevelZoneEntry {
+  code?: number;
+  mapId?: string;
+  id?: string;
+  name?: string;
+  min?: number;
+  max?: number;
 }
 
 interface RawWorldPaintMap {
   terrainRle?: number[];
+  zoneRle?: number[];
 }
 
 interface RawWorldPaintPayload {
@@ -44,7 +57,38 @@ interface RawWorldPaintPayload {
   cols?: number;
   rows?: number;
   biomesByMap?: Record<string, RawBiomeEntry[]>;
+  levelZones?: RawLevelZoneEntry[];
   maps?: Record<string, RawWorldPaintMap>;
+}
+
+export interface WorldBiomeMeta {
+  id: string;
+  code: number;
+  name: string;
+  kind: string;
+  impassable: boolean;
+}
+
+export interface WorldZoneMeta {
+  code: number;
+  mapId: string;
+  id: string;
+  name: string;
+  min: number;
+  max: number;
+}
+
+export interface WorldTerritorySample {
+  biomeId: string;
+  biomeName: string;
+  biomeKind: string;
+  zoneCode: number;
+  zoneId: string;
+  zoneName: string;
+  zoneMin: number;
+  zoneMax: number;
+  nearWaterKind: "ocean" | "inland_water" | null;
+  nearWaterBiomeName: string | null;
 }
 
 export interface WorldCollisionIndex {
@@ -53,30 +97,42 @@ export interface WorldCollisionIndex {
   rows: number;
   mapSize: number;
   impassableByMap: Record<string, Uint8Array>;
+  terrainCodesByMap: Record<string, Uint8Array>;
+  zoneCodesByMap: Record<string, Uint8Array>;
+  biomeByMapCode: Record<string, Record<number, WorldBiomeMeta>>;
+  zoneByCode: Record<number, WorldZoneMeta>;
 }
 
-function decodeTerrainToImpassableMask(
-  rle: number[] | undefined,
-  cellCount: number,
-  impassableCodes: Set<number>
-): Uint8Array {
-  const mask = new Uint8Array(cellCount);
-  if (!Array.isArray(rle) || impassableCodes.size === 0) return mask;
+const COAST_SAMPLE_DIRS: ReadonlyArray<readonly [number, number]> = Array.from({ length: 8 }, (_, i) => {
+  const a = (i * Math.PI * 2) / 8;
+  return [Math.cos(a), Math.sin(a)] as const;
+});
+
+function decodeRleGrid(rle: number[] | undefined, cellCount: number): Uint8Array {
+  const grid = new Uint8Array(cellCount);
+  if (!Array.isArray(rle)) return grid;
   let pos = 0;
   for (let i = 0; i + 1 < rle.length; i += 2) {
-    const val = rle[i] | 0;
+    const val = rle[i] & 0xff;
     const count = rle[i + 1] | 0;
     const end = Math.min(cellCount, pos + count);
-    if (val !== 0 && impassableCodes.has(val)) {
-      mask.fill(1, pos, end);
-    }
+    if (val !== 0) grid.fill(val, pos, end);
     pos = end;
     if (pos >= cellCount) break;
+  }
+  return grid;
+}
+
+function buildImpassableFromCodes(codes: Uint8Array, impassableCodes: Set<number>): Uint8Array {
+  const mask = new Uint8Array(codes.length);
+  if (impassableCodes.size === 0) return mask;
+  for (let i = 0; i < codes.length; i++) {
+    if (codes[i] !== 0 && impassableCodes.has(codes[i])) mask[i] = 1;
   }
   return mask;
 }
 
-/** Builds a fast O(1) per-hex collision mask per map from `world-paint.json`. */
+/** Builds fast O(1) per-hex collision, biome, and zone lookups from `world-paint.json`. */
 export function buildWorldCollisionIndex(
   payload: unknown,
   mapSize = DEFAULT_MAP_SIZE
@@ -92,22 +148,63 @@ export function buildWorldCollisionIndex(
   const rows = typeof raw.rows === "number" && raw.rows > 0 ? raw.rows : Math.ceil(mapSize / hexRowH) + 1;
   const cellCount = cols * rows;
 
-  const impassableByMap: Record<string, Uint8Array> = {};
-  for (const [mapId, mapData] of Object.entries(raw.maps)) {
-    const biomes = raw.biomesByMap[mapId] ?? [];
-    const blockedCodes = new Set<number>();
-    for (const b of biomes) {
-      if (b.impassable && typeof b.code === "number" && b.code !== 0) {
-        blockedCodes.add(b.code | 0);
-      }
+  const zoneByCode: Record<number, WorldZoneMeta> = {};
+  for (const z of raw.levelZones ?? []) {
+    if (typeof z.code === "number" && z.code > 0) {
+      zoneByCode[z.code] = {
+        code: z.code,
+        mapId: z.mapId ?? "map_01",
+        id: z.id ?? `zone_${z.code}`,
+        name: z.name ?? `Zone ${z.code}`,
+        min: z.min ?? 1,
+        max: z.max ?? 5,
+      };
     }
-    impassableByMap[mapId] = decodeTerrainToImpassableMask(mapData?.terrainRle, cellCount, blockedCodes);
   }
 
-  return { hexRadius, cols, rows, mapSize, impassableByMap };
+  const impassableByMap: Record<string, Uint8Array> = {};
+  const terrainCodesByMap: Record<string, Uint8Array> = {};
+  const zoneCodesByMap: Record<string, Uint8Array> = {};
+  const biomeByMapCode: Record<string, Record<number, WorldBiomeMeta>> = {};
+
+  for (const [mapId, mapData] of Object.entries(raw.maps)) {
+    const biomes: RawBiomeEntry[] = (raw.biomesByMap as Record<string, RawBiomeEntry[]>)[mapId] ?? [];
+    const blockedCodes = new Set<number>();
+    const mapBiomes: Record<number, WorldBiomeMeta> = {};
+    for (const biome of biomes) {
+      if (typeof biome.code === "number" && biome.code !== 0) {
+        const code = biome.code | 0;
+        mapBiomes[code] = {
+          id: biome.id ?? `biome_${code}`,
+          code,
+          name: biome.name ?? `Biome ${code}`,
+          kind: biome.kind ?? "land",
+          impassable: Boolean(biome.impassable),
+        };
+        if (biome.impassable) blockedCodes.add(code);
+      }
+    }
+    biomeByMapCode[mapId] = mapBiomes;
+    const tCodes = decodeRleGrid(mapData?.terrainRle, cellCount);
+    terrainCodesByMap[mapId] = tCodes;
+    zoneCodesByMap[mapId] = decodeRleGrid(mapData?.zoneRle, cellCount);
+    impassableByMap[mapId] = buildImpassableFromCodes(tCodes, blockedCodes);
+  }
+
+  return {
+    hexRadius,
+    cols,
+    rows,
+    mapSize,
+    impassableByMap,
+    terrainCodesByMap,
+    zoneCodesByMap,
+    biomeByMapCode,
+    zoneByCode,
+  };
 }
 
-function isWorldPointImpassable(index: WorldCollisionIndex, mask: Uint8Array, wx: number, wy: number): boolean {
+function worldPointToCellIdx(index: WorldCollisionIndex, wx: number, wy: number): number {
   const hr = index.hexRadius;
   const q = ((SQRT3 / 3) * wx - (1 / 3) * wy) / hr;
   const r = ((2 / 3) * wy) / hr;
@@ -123,8 +220,86 @@ function isWorldPointImpassable(index: WorldCollisionIndex, mask: Uint8Array, wx
 
   const row = rr;
   const col = rq + ((rr - (rr & 1)) >> 1);
-  if (col < 0 || row < 0 || col >= index.cols || row >= index.rows) return true;
-  return mask[row * index.cols + col] === 1;
+  if (col < 0 || row < 0 || col >= index.cols || row >= index.rows) return -1;
+  return row * index.cols + col;
+}
+
+function isWorldPointImpassable(index: WorldCollisionIndex, mask: Uint8Array, wx: number, wy: number): boolean {
+  const idx = worldPointToCellIdx(index, wx, wy);
+  return idx < 0 || mask[idx] === 1;
+}
+
+/** Samples exact painted biome, danger level zone, and 4-hex shoreline proximity at world coordinates `(wx, wy)`. */
+export function sampleWorldTerritory(
+  index: WorldCollisionIndex | null,
+  mapId: string,
+  wx: number,
+  wy: number
+): WorldTerritorySample | null {
+  if (!index) return null;
+  const tCodes = index.terrainCodesByMap[mapId];
+  const zCodes = index.zoneCodesByMap[mapId];
+  const mapBiomes = index.biomeByMapCode[mapId];
+  if (!tCodes || !zCodes || !mapBiomes) return null;
+
+  const centerIdx = worldPointToCellIdx(index, wx, wy);
+  let tCode = centerIdx >= 0 ? tCodes[centerIdx] : 0;
+  let bMeta = mapBiomes[tCode];
+  if (!bMeta || bMeta.impassable) {
+    // When center touches boundary edge, sample tight ring for nearest walkable land biome
+    const r = index.hexRadius * 1.4;
+    for (let i = 0; i < COAST_SAMPLE_DIRS.length; i++) {
+      const [dx, dy] = COAST_SAMPLE_DIRS[i];
+      const probeIdx = worldPointToCellIdx(index, wx + dx * r, wy + dy * r);
+      if (probeIdx >= 0) {
+        const candidate = mapBiomes[tCodes[probeIdx]];
+        if (candidate && !candidate.impassable) {
+          tCode = tCodes[probeIdx];
+          bMeta = candidate;
+          break;
+        }
+      }
+    }
+  }
+
+  const zCode = centerIdx >= 0 ? zCodes[centerIdx] : 0;
+  let zMeta = index.zoneByCode[zCode];
+  if (!zMeta) {
+    const fallbackZone = Object.values(index.zoneByCode).find((z) => z.mapId === mapId);
+    zMeta = fallbackZone ?? { code: 1, mapId, id: "zone_1_5", name: "Lv 1–5", min: 1, max: 5 };
+  }
+
+  // Check 4-hex ring (~4 * hexRadius * sqrt(3)) for Ocean or Inland Water coastal staging
+  let nearWaterKind: "ocean" | "inland_water" | null = null;
+  let nearWaterBiomeName: string | null = null;
+  const hexStep = index.hexRadius * SQRT3;
+  for (let ring = 2; ring <= 4 && !nearWaterKind; ring++) {
+    const dist = ring * hexStep;
+    for (let i = 0; i < COAST_SAMPLE_DIRS.length; i++) {
+      const [dx, dy] = COAST_SAMPLE_DIRS[i];
+      const probeIdx = worldPointToCellIdx(index, wx + dx * dist, wy + dy * dist);
+      if (probeIdx < 0) continue;
+      const nb = mapBiomes[tCodes[probeIdx]];
+      if (nb && (nb.kind === "ocean" || nb.kind === "inland_water")) {
+        nearWaterKind = nb.kind;
+        nearWaterBiomeName = nb.name;
+        break;
+      }
+    }
+  }
+
+  return {
+    biomeId: bMeta?.id ?? "wilds",
+    biomeName: bMeta?.name ?? "Wilderness",
+    biomeKind: bMeta?.kind ?? "land",
+    zoneCode: zMeta.code,
+    zoneId: zMeta.id,
+    zoneName: zMeta.name,
+    zoneMin: zMeta.min,
+    zoneMax: zMeta.max,
+    nearWaterKind,
+    nearWaterBiomeName,
+  };
 }
 
 /** Returns true when the entire circular token footprint sits cleanly on walkable terrain inside bounds. */

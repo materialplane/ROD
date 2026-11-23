@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "count": 32,
+  "dimensions": "512x512",
+  "cards": {
+    "tier_ellowyn_1": "assets/icons/magic_tiers/tier_ellowyn_1.webp",
+    "tier_ellowyn_2": "assets/icons/magic_tiers/tier_ellowyn_2.webp",
+    "tier_ellowyn_3": "assets/icons/magic_tiers/tier_ellowyn_3.webp",
+    "tier_ellowyn_4": "assets/icons/magic_tiers/tier_ellowyn_4.webp",
+    "tier_ellowyn_5": "assets/icons/magic_tiers/tier_ellowyn_5.webp",
+    "tier_ellowyn_6": "assets/icons/magic_tiers/tier_ellowyn_6.webp",
+    "tier_ellowyn_7": "assets/icons/magic_tiers/tier_ellowyn_7.webp",
+    "tier_ellowyn_8": "assets/icons/magic_tiers/tier_ellowyn_8.webp",
+    "tier_mera_1": "assets/icons/magic_tiers/tier_mera_1.webp",
+    "tier_mera_2": "assets/icons/magic_tiers/tier_mera_2.webp",
+    "tier_mera_3": "assets/icons/magic_tiers/tier_mera_3.webp",
+    "tier_mera_4": "assets/icons/magic_tiers/tier_mera_4.webp",
+    "tier_mera_5": "assets/icons/magic_tiers/tier_mera_5.webp",
+    "tier_mera_6": "assets/icons/magic_tiers/tier_mera_6.webp",
+    "tier_mera_7": "assets/icons/magic_tiers/tier_mera_7.webp",
+    "tier_mera_8": "assets/icons/magic_tiers/tier_mera_8.webp",
+    "tier_harlan_1": "assets/icons/magic_tiers/tier_harlan_1.webp",
+    "tier_harlan_2": "assets/icons/magic_tiers/tier_harlan_2.webp",
+    "tier_harlan_3": "assets/icons/magic_tiers/tier_harlan_3.webp",
+    "tier_harlan_4": "assets/icons/magic_tiers/tier_harlan_4.webp",
+    "tier_harlan_5": "assets/icons/magic_tiers/tier_harlan_5.webp",
+    "tier_harlan_6": "assets/icons/magic_tiers/tier_harlan_6.webp",
+    "tier_harlan_7": "assets/icons/magic_tiers/tier_harlan_7.webp",
+    "tier_harlan_8": "assets/icons/magic_tiers/tier_harlan_8.webp",
+    "tier_res_lock_seal": "assets/icons/magic_tiers/tier_res_lock_seal.webp",
+    "tier_res_out_of_mp": "assets/icons/magic_tiers/tier_res_out_of_mp.webp",
+    "tier_res_guard_pip": "assets/icons/magic_tiers/tier_res_guard_pip.webp",
+    "tier_res_weakness_brk": "assets/icons/magic_tiers/tier_res_weakness_brk.webp",
+    "tier_res_resisted_wrd": "assets/icons/magic_tiers/tier_res_resisted_wrd.webp",
+    "tier_res_turn_haste": "assets/icons/magic_tiers/tier_res_turn_haste.webp",
+    "tier_res_flee_retreat": "assets/icons/magic_tiers/tier_res_flee_retreat.webp",
+    "tier_res_victory_seal": "assets/icons/magic_tiers/tier_res_victory_seal.webp"
+  },
+  "slots": [
+    {
+      "id": "tier_ellowyn_1",
+      "name": "Initiate Sparks",
+      "detail": "Ellowyn · Tier 1",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_1.webp"
+    },
+    {
+      "id": "tier_ellowyn_2",
+      "name": "Stormfire Adept",
+      "detail": "Ellowyn · Tier 2",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_2.webp"
+    },
+    {
+      "id": "tier_ellowyn_3",
+      "name": "Sovereign Ward",
+      "detail": "Ellowyn · Tier 3",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_3.webp"
+    },
+    {
+      "id": "tier_ellowyn_4",
+      "name": "High Conduit",
+      "detail": "Ellowyn · Tier 4",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_4.webp"
+    },
+    {
+      "id": "tier_ellowyn_5",
+      "name": "Halo & Tempest",
+      "detail": "Ellowyn · Tier 5",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_5.webp"
+    },
+    {
+      "id": "tier_ellowyn_6",
+      "name": "Solar & Void",
+      "detail": "Ellowyn · Tier 6",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_6.webp"
+    },
+    {
+      "id": "tier_ellowyn_7",
+      "name": "Queen's Verdict",
+      "detail": "Ellowyn · Tier 7",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_7.webp"
+    },
+    {
+      "id": "tier_ellowyn_8",
+      "name": "Astral Cataclysm",
+      "detail": "Ellowyn · Tier 8",
+      "iconPath": "assets/icons/magic_tiers/tier_ellowyn_8.webp"
+    },
+    {
+      "id": "tier_mera_1",
+      "name": "Briar Awakening",
+      "detail": "Mera · Tier 1",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_1.webp"
+    },
+    {
+      "id": "tier_mera_2",
+      "name": "Spore & Gale",
+      "detail": "Mera · Tier 2",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_2.webp"
+    },
+    {
+      "id": "tier_mera_3",
+      "name": "Stone & Brambles",
+      "detail": "Mera · Tier 3",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_3.webp"
+    },
+    {
+      "id": "tier_mera_4",
+      "name": "Earth & Talon",
+      "detail": "Mera · Tier 4",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_4.webp"
+    },
+    {
+      "id": "tier_mera_5",
+      "name": "Grove Tempest",
+      "detail": "Mera · Tier 5",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_5.webp"
+    },
+    {
+      "id": "tier_mera_6",
+      "name": "Sunbeam Stag",
+      "detail": "Mera · Tier 6",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_6.webp"
+    },
+    {
+      "id": "tier_mera_7",
+      "name": "Elder Fang",
+      "detail": "Mera · Tier 7",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_7.webp"
+    },
+    {
+      "id": "tier_mera_8",
+      "name": "Primal Heart",
+      "detail": "Mera · Tier 8",
+      "iconPath": "assets/icons/magic_tiers/tier_mera_8.webp"
+    },
+    {
+      "id": "tier_harlan_1",
+      "name": "Field Satchel",
+      "detail": "Harlan · Tier 1",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_1.webp"
+    },
+    {
+      "id": "tier_harlan_2",
+      "name": "Woodland Brewhouse",
+      "detail": "Harlan · Tier 2",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_2.webp"
+    },
+    {
+      "id": "tier_harlan_3",
+      "name": "Combat Tinctures",
+      "detail": "Harlan · Tier 3",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_3.webp"
+    },
+    {
+      "id": "tier_harlan_4",
+      "name": "Purge & Acid",
+      "detail": "Harlan · Tier 4",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_4.webp"
+    },
+    {
+      "id": "tier_harlan_5",
+      "name": "Mist & Elixir",
+      "detail": "Harlan · Tier 5",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_5.webp"
+    },
+    {
+      "id": "tier_harlan_6",
+      "name": "Master Alembic",
+      "detail": "Harlan · Tier 6",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_6.webp"
+    },
+    {
+      "id": "tier_harlan_7",
+      "name": "Phoenix Panacea",
+      "detail": "Harlan · Tier 7",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_7.webp"
+    },
+    {
+      "id": "tier_harlan_8",
+      "name": "Grand Opus",
+      "detail": "Harlan · Tier 8",
+      "iconPath": "assets/icons/magic_tiers/tier_harlan_8.webp"
+    },
+    {
+      "id": "tier_res_lock_seal",
+      "name": "Locked Tier Seal",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_lock_seal.webp"
+    },
+    {
+      "id": "tier_res_out_of_mp",
+      "name": "Depleted Vessel",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_out_of_mp.webp"
+    },
+    {
+      "id": "tier_res_guard_pip",
+      "name": "Guard Barrier Pip",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_guard_pip.webp"
+    },
+    {
+      "id": "tier_res_weakness_brk",
+      "name": "Weakness Break",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_weakness_brk.webp"
+    },
+    {
+      "id": "tier_res_resisted_wrd",
+      "name": "Resisted Ward",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_resisted_wrd.webp"
+    },
+    {
+      "id": "tier_res_turn_haste",
+      "name": "Swift Turn Crest",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_turn_haste.webp"
+    },
+    {
+      "id": "tier_res_flee_retreat",
+      "name": "Tactical Retreat",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_flee_retreat.webp"
+    },
+    {
+      "id": "tier_res_victory_seal",
+      "name": "Skirmish Victory",
+      "detail": "Battle Utility Seal",
+      "iconPath": "assets/icons/magic_tiers/tier_res_victory_seal.webp"
+    }
+  ]
+}

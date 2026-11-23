@@ -1,0 +1,120 @@
+# ROD — Illustrated Class-Themed Magic Tier Seals & Battle Utility Icons (2 x 4x4 Sheets = 24 Hero Magic Tiers + 8 Battle Status/Utility Seals)
+# Source: docs/05-cast-and-skills.md & data/spells-catalog.json (3 Casters x 8 Regional Tiers + 8 Battle Utility Seals)
+# Target Model: gemini-3-pro-image (Pro 4K, 1:1)
+# Art Style Anchor: Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy spell & emblem card art — bold unmistakable central class motif (sapphire-gold royal arcane foci for Ellowyn, carved oak-and-emerald druidic totems for Mera, brass-and-crystal alchemical vessels for Harlan), crisp directional rim lighting, rich dark atmospheric vignette edges matching spell-cards.txt and weapon-abilities.txt, zero pixel art, zero sketchiness, zero 3D plastic CGI, zero #FF00FF, zero baked frames, zero human faces, and ZERO numbers, Roman numerals, or readable text anywhere.
+# Export Pipeline: Slice strict 4x4 into 16 equal 1024x1024 lossless PNGs (assets/magic_tiers/slices/) -> export 512x512 .webp + magic-tiers-manifest.json in assets/icons/magic_tiers/ (do NOT submit until Creative Director approves prompts!)
+
+================================================================================
+SHEET 01 OF 02 — Magic Tier Seals #01–#16 (Ellowyn Arcane Tiers 1–8 + Mera Druidic Tiers 1–8)
+================================================================================
+# SLOT MANIFEST (Row,Col -> tierId | Name | Hero & Tier):
+#   R1C1 -> tier_ellowyn_1 | Initiate Sparks   | Ellowyn · Tier 1
+#   R1C2 -> tier_ellowyn_2 | Stormfire Adept   | Ellowyn · Tier 2
+#   R1C3 -> tier_ellowyn_3 | Sovereign Ward    | Ellowyn · Tier 3
+#   R1C4 -> tier_ellowyn_4 | High Conduit      | Ellowyn · Tier 4
+#   R2C1 -> tier_ellowyn_5 | Halo & Tempest    | Ellowyn · Tier 5
+#   R2C2 -> tier_ellowyn_6 | Solar & Void      | Ellowyn · Tier 6
+#   R2C3 -> tier_ellowyn_7 | Queen's Verdict   | Ellowyn · Tier 7
+#   R2C4 -> tier_ellowyn_8 | Astral Cataclysm  | Ellowyn · Tier 8
+#   R3C1 -> tier_mera_1    | Briar Awakening   | Mera · Tier 1
+#   R3C2 -> tier_mera_2    | Spore & Gale      | Mera · Tier 2
+#   R3C3 -> tier_mera_3    | Stone & Brambles  | Mera · Tier 3
+#   R3C4 -> tier_mera_4    | Earth & Talon     | Mera · Tier 4
+#   R4C1 -> tier_mera_5    | Grove Tempest     | Mera · Tier 5
+#   R4C2 -> tier_mera_6    | Sunbeam Stag      | Mera · Tier 6
+#   R4C3 -> tier_mera_7    | Elder Fang        | Mera · Tier 7
+#   R4C4 -> tier_mera_8    | Primal Heart      | Mera · Tier 8
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG magic tier emblem illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental metallic borders or card frames baked around cells, ZERO numbers, ZERO Roman numerals, ZERO text, and ZERO readable alphabet letters anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY SEALS & LEGENDS OF RUNETERRA SPELL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy magic emblem icon illustration — bold luminous focal relic or arcane crest per cell, clear complexity progression across rows from modest Tier 1 focus to awe-inspiring Tier 8 mythic relic, crisp painted light trails, smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, ZERO numbers, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- ROWS 1–2 (Royal Battlemage Arcane Palette): Deep midnight royal-indigo and sapphire dusk atmospheric background with crisp filigreed gold and sapphire-azure energy escalating from left to right.
+- ROWS 3–4 (Wildlands Druid Totem Palette): Deep moonlit pine-shadow and twilight moss background with carved living heartwood, amber stone, and luminous emerald nature energy escalating from left to right.
+- FRAMING: Keep every emblem's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct magic tier emblem icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Modest gold-rimmed sapphire mage clasp sparking with one tiny twin-flame orange ember beside a sharp miniature ice shard against deep navy shadow.
+- Row 1 Col 2: Ornate silver-and-gold astrolabe ring cradling a bright swirling arcane fireball laced with crisp blue forked lightning threads in twilight indigo.
+- Row 1 Col 3: Regal triple-pointed royal gold shield crest hovered inside a shimmering translucent diamond-blue arcane barrier woven from frost crystals and crackling static arcs.
+- Row 1 Col 4: Gleaming royal gold tuning-fork spell conduit channeling opposing ribbons of roaring orange flame and sleek violet-black shadow energy into one blazing core.
+
+- Row 2 Col 1: Ascending radiant golden sun-halo spinning above three jagged glacial crystal spikes crackling with fierce bright-cyan tempest lightning bolts in dark blue mist.
+- Row 2 Col 2: Twin interlocking celestial rings balancing a blinding golden solar flare orb on one side against a swirling obsidian-violet gravity void sphere on the other.
+- Row 2 Col 3: Winged royal gold scepter crowned with a radiant white-gold diamond star calling down forked storm-lightning through spiraling blizzard frost winds over midnight sky.
+- Row 2 Col 4: Shattering celestial eclipse core crowned with royal gold astral rays detonating crashing fiery meteor rocks and white-hot lightning-halo beams across deep cosmos.
+
+- Row 3 Col 1: Simple braided briarwood druid charm wrapping one glowing soft-green moss bud and three sharp natural rose-thorns over dark forest soil.
+- Row 3 Col 2: Carved wooden wind-chime talisman releasing golden luminous pollen spores carried inside swift pale-emerald gale spiral ribbons over forest dusk.
+- Row 3 Col 3: Rough mossy basalt menhir spire bound in thick living bramble vines bursting faintly with warm amber-orange wildland ember sparks in shadows.
+- Row 3 Col 4: Carved green-oak totem splitting clean cracked earthstone below a soaring emerald falcon silhouette outlined in bright golden sunlight dust.
+
+- Row 4 Col 1: Spinning emerald hurricane wreath of razor-sharp thorny emerald vines and silver wind-feather blades roaring around a tranquil luminous green sanctuary seed.
+- Row 4 Col 2: Proud majestic golden stag antler crest woven from flowering sun-canopy leaves pouring twin rays of warm pure amber-gold sunlight downward.
+- Row 4 Col 3: Ancient gnarled oakwood mask crest crowned with glowing pale-silver crescent moonstone and primal spectral wolf-fang light streaming emerald storm sparks.
+- Row 4 Col 4: Colossal luminous heart-of-the-forest jewel cradled inside interlocking ancient world-oak roots blazing with emerald light, molten earth-fire, and sky-gold eclipse beams.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square magic tier emblem cards), ZERO divider lines, ZERO borders/frames, ZERO numbers, ZERO human faces, ZERO #FF00FF pink, ZERO text or letters anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 02 OF 02 — Magic Tier Seals #17–#24 (Harlan Alchemical Tiers 1–8) + 8 Battle Status & Utility Seals
+================================================================================
+# SLOT MANIFEST (Row,Col -> tierId | Name | Category):
+#   R1C1 -> tier_harlan_1         | Field Satchel      | Harlan · Tier 1
+#   R1C2 -> tier_harlan_2         | Woodland Brewhouse | Harlan · Tier 2
+#   R1C3 -> tier_harlan_3         | Combat Tinctures   | Harlan · Tier 3
+#   R1C4 -> tier_harlan_4         | Purge & Acid       | Harlan · Tier 4
+#   R2C1 -> tier_harlan_5         | Mist & Elixir      | Harlan · Tier 5
+#   R2C2 -> tier_harlan_6         | Master Alembic     | Harlan · Tier 6
+#   R2C3 -> tier_harlan_7         | Phoenix Panacea    | Harlan · Tier 7
+#   R2C4 -> tier_harlan_8         | Grand Opus         | Harlan · Tier 8
+#   R3C1 -> tier_res_lock_seal    | Locked Tier Seal   | Battle Utility Seal
+#   R3C2 -> tier_res_out_of_mp    | Depleted Vessel    | Battle Utility Seal
+#   R3C3 -> tier_res_guard_pip    | Guard Barrier Pip  | Battle Utility Seal
+#   R3C4 -> tier_res_weakness_brk | Weakness Break     | Battle Utility Seal
+#   R4C1 -> tier_res_resisted_wrd | Resisted Ward      | Battle Utility Seal
+#   R4C2 -> tier_res_turn_haste   | Swift Turn Crest   | Battle Utility Seal
+#   R4C3 -> tier_res_flee_retreat | Tactical Retreat   | Battle Utility Seal
+#   R4C4 -> tier_res_victory_seal | Skirmish Victory   | Battle Utility Seal
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG alchemy tier and battle utility emblem illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental metallic borders or card frames baked around cells, ZERO glass bottle labels, ZERO numbers, ZERO Roman numerals, ZERO text, and ZERO readable alphabet letters anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY SEALS & LEGENDS OF RUNETERRA SPELL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy emblem icon illustration — bold luminous focal silhouette per cell, forged antique brass and blown crystal apothecary gear escalating across Rows 1–2, unmistakable medieval battle-status medallions in Rows 3–4, crisp directional rim lighting, and smooth dark atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO bottle labels, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, ZERO numbers, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- ROWS 1–2 (Field Apothecary Alchemical Palette): Deep warm walnut-soot and apothecary-emerald shadow background with burnished brass, cut crystal phials, and glowing emerald/amber/radiant liquids escalating from Row 1 Col 1 through Row 2 Col 4.
+- ROWS 3–4 (Battle Status & Utility Medallion Palette): Deep obsidian iron and twilight charcoal background with bold instantly readable medieval metal, crystal, and banner silhouettes.
+- FRAMING: Keep every emblem's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct alchemy tier and battle utility emblem icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Humble corked unlabeled glass field salve jar tied with brown leather cord beside a dark stone herb mortar and tiny fresh green leaf sprig over warm soot.
+- Row 1 Col 2: Brass-bound woodland apothecary bottle swirling with soothing bright sage-green restorative broth beside one drooping bitter purple root sprig in dusk shadow.
+- Row 1 Col 3: Twin crossed brass-capped unlabeled glass tincture vials emitting sharp emerald healing vapor mist and tiny glowing gold vitality bubbles against dark oak shadow.
+- Row 1 Col 4: Fluted crystal purification decanter glowing pale golden radiant light pouring beside a smoking green acidic emerald flask sizzling cleanly onto dark stone.
+
+- Row 2 Col 1: Ornate suspended brass burner censer drifting luminous turquoise healing mist droplets above swirling virulent purple-green alchemical spore vapors in midnight air.
+- Row 2 Col 2: Precision antique brass and spiral-glass master alembic distilling pure sapphire mana light into one crystal orb beside three sleek emerald toxin darts.
+- Row 2 Col 3: Radiant golden chalice flask swirling with living crimson-and-gold phoenix feather fire flames restoring shining alabaster crystal shards in warm darkness.
+- Row 2 Col 4: Crowned celestial golden philosopher's alembic orb suspended inside interlocking brass astrolabe rings radiating pure blinding white-gold regenerative light beams.
+
+- Row 3 Col 1: Heavy forged black-iron medieval padlock wrapped around crossed dark steel chains gleaming faintly with a muted dormant frost-blue arcane keyhole rune.
+- Row 3 Col 2: Fractured empty transparent sapphire mana phial resting tilted over fading faint blue dust embers inside deep charcoal shadow, unmistakably spent and dry.
+- Row 3 Col 3: Gleaming polished silver-and-gold heater shield crest wrapped in a translucent hexagonal golden protective barrier dome deflecting incoming sparks.
+- Row 3 Col 4: Shattering jagged prismatic ruby-and-gold target crystal exploding cleanly outward in sharp bright golden star fractures over midnight slate.
+
+- Row 4 Col 1: Solid dull-bronze braced iron buckler plate glowing steadily dull grey-amber as faint hostile blue magic sparks bounce harmlessly off its angled surface.
+- Row 4 Col 2: Sleek silver-winged golden turn-order hourglass spinning inside swift pale-cyan circular tailwind ribbons against twilight indigo shadow.
+- Row 4 Col 3: Furled warm burgundy traveler's cloak brooch pinned beside an antique brass compass needle pointing away along a quiet moonlit mountain trail.
+- Row 4 Col 4: Twin crossed gleaming steel longswords raised behind an ornate hammered silver victory medallion wreathed cleanly in sunlit golden olive laurels.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square alchemy tier and battle utility emblem cards), ZERO bottle labels, ZERO divider lines, ZERO borders/frames, ZERO numbers, ZERO human faces, ZERO #FF00FF pink, ZERO text or letters anywhere.
+--- COPY-PASTE PROMPT END ---

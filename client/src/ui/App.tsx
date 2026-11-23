@@ -13,13 +13,47 @@ import {
 } from "./components/LocationInteriorModal";
 import { ConfirmNewCampaignModal, LoadCampaignModal, PauseMenuModal, SettingsModal } from "./components/Modals";
 import { OpeningCutsceneModal } from "./components/OpeningCutsceneModal";
-import { OverworldCanvas, type PlayerRuntimeRef } from "./components/OverworldCanvas";
+import { OverworldCanvas, type OverworldEncounterTrigger, type PlayerRuntimeRef } from "./components/OverworldCanvas";
 import { CharacterSelectModal, PartyMenuModal } from "./components/PartyModals";
 import { TitleScreen } from "./components/TitleScreen";
+import { BattleOverlay, type BattleOutcomeResult } from "./battle/BattleOverlay";
+import { createBattleState } from "./battle/battleLogic";
+import type { BattleState } from "./battle/battleTypes";
 import { DEFAULT_PARTY_ORDER, getHeroById, normalizePartyOrder } from "./heroes";
+import {
+  applyHeroXpGain,
+  getAveragePartyLevel,
+  getHeroAttributes,
+  getHeroLevel,
+  getHeroXp,
+  normalizeHeroLevelsMap,
+  normalizeHeroXpMap,
+  resolveEquipFromBag,
+  resolveUnequipSlot,
+} from "./party/partyLogic";
 import type { BuyConfirmChoice } from "./shops/ShopCounterPanel";
-import { buildStarterEquipment, itemSlotFor } from "./shops/shopLogic";
-import type { AudioSettings, EquippedGearMap, HeroId, ItemEntry, MapMeta, NpcLocationGroup, QuestEntry, SaveSlotData, SpellEntry, WorldLocation } from "./types";
+import { countRegionSpellsForHero, itemSlotFor, MAX_SPELLS_PER_REGION } from "./shops/shopLogic";
+import type {
+  AudioSettings,
+  BattleConfigData,
+  ChosenDisciplinesMap,
+  DisciplineOption,
+  EquippedGearMap,
+  GearSlot,
+  HeroAttrKey,
+  HeroAttrMap,
+  HeroDisciplinesEntry,
+  HeroId,
+  HeroSocketsMap,
+  ItemEntry,
+  MapMeta,
+  NpcLocationGroup,
+  QuestEntry,
+  RunestoneItem,
+  SaveSlotData,
+  SpellEntry,
+  WorldLocation,
+} from "./types";
 import { buildWorldCollisionIndex, type WorldCollisionIndex } from "./worldCollision";
 
 const SESSION_ACTIVE_KEY = "rod_active_game";
@@ -48,6 +82,8 @@ function computeHighcrownSpawn(
   };
 }
 
+export const STARTING_CAMPAIGN_SILVER = 250;
+
 export const App: React.FC = () => {
   const [screen, setScreen] = useState<"title" | "game">("title");
   const [restoringSession, setRestoringSession] = useState<boolean>(() => {
@@ -71,7 +107,10 @@ export const App: React.FC = () => {
   const launchingWorldRef = useRef(false);
 
   const [partyOrder, setPartyOrder] = useState<HeroId[]>(DEFAULT_PARTY_ORDER);
-  const [partyLevel, setPartyLevel] = useState(1);
+  const [heroLevels, setHeroLevels] = useState<Partial<Record<HeroId, number>>>(() => normalizeHeroLevelsMap(undefined, 1));
+  const [heroXp, setHeroXp] = useState<Partial<Record<HeroId, number>>>(() => normalizeHeroXpMap(undefined, 0));
+  const partyLevel = useMemo(() => getAveragePartyLevel(heroLevels, partyOrder, 1), [heroLevels, partyOrder]);
+  const leaderXp = getHeroXp(heroXp, partyOrder[0] ?? "valen");
 
   const [audio, setAudio] = useState<AudioSettings>(() => loadAudioSettings());
   const [toastMsg, setToastMsg] = useState<string | null>(null);
@@ -80,14 +119,25 @@ export const App: React.FC = () => {
   const [worldLocations, setWorldLocations] = useState<WorldLocation[]>([]);
   const [worldCollision, setWorldCollision] = useState<WorldCollisionIndex | null>(null);
   const [npcsByLocation, setNpcsByLocation] = useState<Record<string, NpcLocationGroup>>({});
+  const [questsCatalog, setQuestsCatalog] = useState<QuestEntry[]>([]);
   const [questsByKey, setQuestsByKey] = useState<Record<string, QuestEntry>>({});
   const [itemsCatalog, setItemsCatalog] = useState<ItemEntry[]>([]);
   const [spellsCatalog, setSpellsCatalog] = useState<SpellEntry[]>([]);
-  const [silver, setSilver] = useState<number>(200);
+  const [disciplinesByHero, setDisciplinesByHero] = useState<Partial<Record<HeroId, HeroDisciplinesEntry>>>({});
+  const [battleConfig, setBattleConfig] = useState<BattleConfigData | null>(null);
+  const [silver, setSilver] = useState<number>(STARTING_CAMPAIGN_SILVER);
   const [equippedByHero, setEquippedByHero] = useState<EquippedGearMap>({});
   const [bagCounts, setBagCounts] = useState<Record<string, number>>({});
   const [learnedSpellIds, setLearnedSpellIds] = useState<string[]>([]);
+  const [chosenDisciplinesByHero, setChosenDisciplinesByHero] = useState<ChosenDisciplinesMap>({});
   const [tradeGoodCounts, setTradeGoodCounts] = useState<Record<string, number>>({});
+  const [heroSpentAttrs, setHeroSpentAttrs] = useState<Partial<Record<HeroId, HeroAttrMap>>>({});
+  const [socketsByHero, setSocketsByHero] = useState<HeroSocketsMap>({});
+  const [runestonesBag, setRunestonesBag] = useState<RunestoneItem[]>([]);
+  const [heroHpPct, setHeroHpPct] = useState<Partial<Record<HeroId, number>>>({});
+  const [heroMpPct, setHeroMpPct] = useState<Partial<Record<HeroId, number>>>({});
+  const [sealedPortalIds, setSealedPortalIds] = useState<string[]>([]);
+  const [activeBattle, setActiveBattle] = useState<BattleState | null>(null);
   const [activeLocationId, setActiveLocationId] = useState<string | null>(null);
   const [interiorTrail, setInteriorTrail] = useState<string[]>([]);
   const [innResting, setInnResting] = useState(false);
@@ -104,7 +154,7 @@ export const App: React.FC = () => {
     y: 5730,
     playtime: 0,
     mapId: "map_01",
-    regionLabel: "Region 1 · The Crownlands",
+    regionLabel: "King's Reach",
     discoveredLocations: [],
   });
 
@@ -140,25 +190,41 @@ export const App: React.FC = () => {
     [itemsCatalog]
   );
 
-  const loadWorldAssets = useCallback(async (): Promise<{ meta: MapMeta; locations: WorldLocation[]; items: ItemEntry[] }> => {
-    let meta = mapMeta;
-    if (!meta) {
-      const resp = await fetch(assetUrl("assets/maps/map_01/meta.json"));
-      meta = (await resp.json()) as MapMeta;
-      setMapMeta(meta);
-    }
+  const loadWorldAssets = useCallback(
+    async (targetMapId?: string): Promise<{ meta: MapMeta; locations: WorldLocation[]; items: ItemEntry[] }> => {
+      const desiredMap = targetMapId || mapMeta?.id || "map_01";
+      let meta = mapMeta && mapMeta.id === desiredMap ? mapMeta : null;
+      if (!meta) {
+        const resp = await fetch(assetUrl(`assets/maps/${desiredMap}/meta.json?t=${Date.now()}`));
+        meta = (await resp.json()) as MapMeta;
+        setMapMeta(meta);
+      }
     const bust = Date.now();
     let loadedLocations: WorldLocation[] = [];
     let loadedItems: ItemEntry[] = itemsCatalog;
     try {
-      const [wResp, nResp, qResp, iResp, sResp, pResp] = await Promise.all([
+      const [wResp, nResp, qResp, iResp, sResp, pResp, dResp, bResp] = await Promise.all([
         fetch(assetUrl(`assets/data/world-locations.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/npcs-catalog.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/quests-catalog.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/items-catalog.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/spells-catalog.json?t=${bust}`)),
         fetch(assetUrl(`assets/data/world-paint.json?t=${bust}`)),
+        fetch(assetUrl(`assets/data/disciplines-catalog.json?t=${bust}`)),
+        fetch(assetUrl(`assets/data/battle-config.json?t=${bust}`)),
       ]);
+      if (dResp.ok) {
+        const parsed = (await dResp.json()) as { heroes?: HeroDisciplinesEntry[] };
+        const dMap: Partial<Record<HeroId, HeroDisciplinesEntry>> = {};
+        for (const hEntry of parsed.heroes ?? []) {
+          dMap[hEntry.heroId] = hEntry;
+        }
+        setDisciplinesByHero(dMap);
+      }
+      if (bResp.ok) {
+        const parsed = (await bResp.json()) as BattleConfigData;
+        setBattleConfig(parsed);
+      }
       if (wResp.ok) {
         const parsed = (await wResp.json()) as { locations?: WorldLocation[] };
         loadedLocations = parsed.locations ?? [];
@@ -178,8 +244,10 @@ export const App: React.FC = () => {
       }
       if (qResp.ok) {
         const parsed = (await qResp.json()) as { quests?: QuestEntry[] };
+        const loadedQuests = parsed.quests ?? [];
+        setQuestsCatalog(loadedQuests);
         const qMap: Record<string, QuestEntry> = {};
-        for (const q of parsed.quests ?? []) {
+        for (const q of loadedQuests) {
           qMap[`${q.hubId}::${q.title}`] = q;
           if (!qMap[q.title]) qMap[q.title] = q;
         }
@@ -223,17 +291,29 @@ export const App: React.FC = () => {
         lvl?: number;
         discovered?: string[];
         acceptedQuests?: string[];
+        sealedPortalIds?: string[];
         silver?: number;
         equippedByHero?: EquippedGearMap;
         bagCounts?: Record<string, number>;
         learnedSpellIds?: string[];
         tradeGoodCounts?: Record<string, number>;
+        heroSpentAttrs?: Partial<Record<HeroId, HeroAttrMap>>;
+        socketsByHero?: HeroSocketsMap;
+        runestonesBag?: RunestoneItem[];
+        heroHpPct?: Partial<Record<HeroId, number>>;
+        heroMpPct?: Partial<Record<HeroId, number>>;
+        chosenDisciplinesByHero?: ChosenDisciplinesMap;
+        heroLevels?: Partial<Record<HeroId, number>>;
+        heroXp?: Partial<Record<HeroId, number>>;
+        partyXp?: number;
       }
     ): SaveSlotData | null => {
       const meta = override?.meta ?? mapMeta;
       if (!meta) return null;
       const order = override?.order ?? partyOrder;
-      const lvl = override?.lvl ?? partyLevel;
+      const nextLevels = override?.heroLevels ?? heroLevels;
+      const nextXp = override?.heroXp ?? heroXp;
+      const lvl = override?.lvl ?? getAveragePartyLevel(nextLevels, order, partyLevel);
       const leader = getHeroById(order[0]);
       const x = override ? override.x : runtimeRef.current.x;
       const y = override ? override.y : runtimeRef.current.y;
@@ -250,11 +330,21 @@ export const App: React.FC = () => {
         partyOrder: order,
         discoveredLocations: discovered,
         acceptedQuestIds: quests,
+        sealedPortalIds: override?.sealedPortalIds ?? sealedPortalIds,
         silver: override?.silver ?? silver,
         equippedByHero: override?.equippedByHero ?? equippedByHero,
         bagCounts: override?.bagCounts ?? bagCounts,
         learnedSpellIds: override?.learnedSpellIds ?? learnedSpellIds,
+        chosenDisciplinesByHero: override?.chosenDisciplinesByHero ?? chosenDisciplinesByHero,
+        heroLevels: nextLevels,
+        heroXp: nextXp,
+        partyXp: override?.partyXp ?? getHeroXp(nextXp, leader.id),
         tradeGoodCounts: override?.tradeGoodCounts ?? tradeGoodCounts,
+        heroSpentAttrs: override?.heroSpentAttrs ?? heroSpentAttrs,
+        socketsByHero: override?.socketsByHero ?? socketsByHero,
+        runestonesBag: override?.runestonesBag ?? runestonesBag,
+        heroHpPct: override?.heroHpPct ?? heroHpPct,
+        heroMpPct: override?.heroMpPct ?? heroMpPct,
         level: lvl,
         x: Math.round(x),
         y: Math.round(y),
@@ -262,7 +352,26 @@ export const App: React.FC = () => {
         savedAt: new Date().toISOString(),
       };
     },
-    [mapMeta, partyOrder, partyLevel, acceptedQuestIds, silver, equippedByHero, bagCounts, learnedSpellIds, tradeGoodCounts]
+    [
+      mapMeta,
+      partyOrder,
+      partyLevel,
+      heroLevels,
+      heroXp,
+      acceptedQuestIds,
+      sealedPortalIds,
+      silver,
+      equippedByHero,
+      bagCounts,
+      learnedSpellIds,
+      chosenDisciplinesByHero,
+      tradeGoodCounts,
+      heroSpentAttrs,
+      socketsByHero,
+      runestonesBag,
+      heroHpPct,
+      heroMpPct,
+    ]
   );
 
   const persistSave = useCallback(
@@ -278,11 +387,21 @@ export const App: React.FC = () => {
         lvl?: number;
         discovered?: string[];
         acceptedQuests?: string[];
+        sealedPortalIds?: string[];
         silver?: number;
         equippedByHero?: EquippedGearMap;
         bagCounts?: Record<string, number>;
         learnedSpellIds?: string[];
+        chosenDisciplinesByHero?: ChosenDisciplinesMap;
+        heroLevels?: Partial<Record<HeroId, number>>;
+        heroXp?: Partial<Record<HeroId, number>>;
+        partyXp?: number;
         tradeGoodCounts?: Record<string, number>;
+        heroSpentAttrs?: Partial<Record<HeroId, HeroAttrMap>>;
+        socketsByHero?: HeroSocketsMap;
+        runestonesBag?: RunestoneItem[];
+        heroHpPct?: Partial<Record<HeroId, number>>;
+        heroMpPct?: Partial<Record<HeroId, number>>;
       }
     ) => {
       const payload = buildSavePayload(slotId, label, override);
@@ -310,28 +429,55 @@ export const App: React.FC = () => {
         bagCounts?: Record<string, number>;
         learnedSpellIds?: string[];
         tradeGoodCounts?: Record<string, number>;
+        heroSpentAttrs?: Partial<Record<HeroId, HeroAttrMap>>;
+        socketsByHero?: HeroSocketsMap;
+        runestonesBag?: RunestoneItem[];
+        heroHpPct?: Partial<Record<HeroId, number>>;
+        heroMpPct?: Partial<Record<HeroId, number>>;
+        chosenDisciplinesByHero?: ChosenDisciplinesMap;
+        heroLevels?: Partial<Record<HeroId, number>>;
+        heroXp?: Partial<Record<HeroId, number>>;
+        partyXp?: number;
+        sealedPortalIds?: string[];
+        mapId?: string;
       }
     ) => {
       const applyEnter = async () => {
-        const { meta, items } = await loadWorldAssets();
+        const { meta } = await loadWorldAssets(inventoryOverride?.mapId ?? "map_01");
         const nextOrder = orderOverride ?? partyOrder;
-        const initSilver = inventoryOverride?.silver ?? 200;
-        const initEquip = inventoryOverride?.equippedByHero && Object.keys(inventoryOverride.equippedByHero).length > 0
-          ? inventoryOverride.equippedByHero
-          : buildStarterEquipment(items);
-        const initBag = inventoryOverride?.bagCounts ?? { cons_minor_healing_potion: 2 };
+        const initSilver = inventoryOverride?.silver ?? STARTING_CAMPAIGN_SILVER;
+        const initEquip = inventoryOverride?.equippedByHero ?? {};
+        const initBag = inventoryOverride?.bagCounts ?? {};
         const initSpells = inventoryOverride?.learnedSpellIds ?? [];
+        const initChosenDiscs = inventoryOverride?.chosenDisciplinesByHero ?? {};
+        const initLevels = normalizeHeroLevelsMap(inventoryOverride?.heroLevels, levelOverride || 1);
+        const initXpMap = normalizeHeroXpMap(inventoryOverride?.heroXp, inventoryOverride?.partyXp ?? 0);
         const initTrade = inventoryOverride?.tradeGoodCounts ?? {};
+        const initSpent = inventoryOverride?.heroSpentAttrs ?? {};
+        const initSockets = inventoryOverride?.socketsByHero ?? {};
+        const initRunestonesBag = inventoryOverride?.runestonesBag ?? [];
+        const initHpPct = inventoryOverride?.heroHpPct ?? {};
+        const initMpPct = inventoryOverride?.heroMpPct ?? {};
+        const initSealedPortals = inventoryOverride?.sealedPortalIds ?? [];
 
         setPartyOrder(nextOrder);
-        setPartyLevel(levelOverride);
+        setHeroLevels(initLevels);
+        setHeroXp(initXpMap);
         setInitialDiscovered(discoveredOverride);
         setAcceptedQuestIds(acceptedQuestsOverride);
+        setSealedPortalIds(initSealedPortals);
         setSilver(initSilver);
         setEquippedByHero(initEquip);
         setBagCounts(initBag);
         setLearnedSpellIds(initSpells);
+        setChosenDisciplinesByHero(initChosenDiscs);
         setTradeGoodCounts(initTrade);
+        setHeroSpentAttrs(initSpent);
+        setSocketsByHero(initSockets);
+        setRunestonesBag(initRunestonesBag);
+        setHeroHpPct(initHpPct);
+        setHeroMpPct(initMpPct);
+        setActiveBattle(null);
         setActiveLocationId(null);
         setInnResting(false);
         setSpawnState({ x, y, playtime });
@@ -354,14 +500,23 @@ export const App: React.FC = () => {
             playtime,
             meta,
             order: nextOrder,
-            lvl: levelOverride,
+            lvl: getAveragePartyLevel(initLevels, nextOrder, levelOverride || 1),
+            heroLevels: initLevels,
+            heroXp: initXpMap,
             discovered: discoveredOverride,
             acceptedQuests: acceptedQuestsOverride,
+            sealedPortalIds: initSealedPortals,
             silver: initSilver,
             equippedByHero: initEquip,
             bagCounts: initBag,
             learnedSpellIds: initSpells,
+            chosenDisciplinesByHero: initChosenDiscs,
             tradeGoodCounts: initTrade,
+            heroSpentAttrs: initSpent,
+            socketsByHero: initSockets,
+            runestonesBag: initRunestonesBag,
+            heroHpPct: initHpPct,
+            heroMpPct: initMpPct,
           });
         }
       };
@@ -404,6 +559,17 @@ export const App: React.FC = () => {
             bagCounts: latest.bagCounts,
             learnedSpellIds: latest.learnedSpellIds,
             tradeGoodCounts: latest.tradeGoodCounts,
+            heroSpentAttrs: latest.heroSpentAttrs,
+            socketsByHero: latest.socketsByHero,
+            runestonesBag: latest.runestonesBag,
+            heroHpPct: latest.heroHpPct,
+            heroMpPct: latest.heroMpPct,
+            chosenDisciplinesByHero: latest.chosenDisciplinesByHero,
+            heroLevels: latest.heroLevels,
+            heroXp: latest.heroXp,
+            partyXp: latest.partyXp,
+            sealedPortalIds: latest.sealedPortalIds,
+            mapId: latest.mapId,
           }
         );
       } else if (shouldRestore) {
@@ -522,7 +688,7 @@ export const App: React.FC = () => {
   // Global keyboard shortcuts (Esc + Party Menu P)
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (openingCutsceneOpen) return;
+      if (openingCutsceneOpen || activeBattle) return;
       if (e.code === "KeyP" && !e.ctrlKey && !e.metaKey && !e.altKey) {
         if (screen === "game" && !loadOpen && !settingsOpen && !charSelectOpen && !confirmNewOpen) {
           e.preventDefault();
@@ -563,7 +729,7 @@ export const App: React.FC = () => {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [confirmNewOpen, charSelectOpen, openingCutsceneOpen, partyOpen, loadOpen, settingsOpen, screen, activeLocationId, handleLeaveLocation]);
+  }, [confirmNewOpen, charSelectOpen, openingCutsceneOpen, partyOpen, loadOpen, settingsOpen, screen, activeLocationId, activeBattle, handleLeaveLocation]);
 
   useEffect(() => {
     audioEngine.applySettings(audio);
@@ -618,6 +784,8 @@ export const App: React.FC = () => {
       audioEngine.setMusicContext("cutscene");
     } else if (screen === "title") {
       audioEngine.setMusicContext("title");
+    } else if (activeBattle) {
+      audioEngine.setMusicContext(activeBattle.isBossBattle ? "boss" : "combat");
     } else if (partyOpen || paused) {
       audioEngine.setMusicContext("world_map");
     } else if (activeLocationId) {
@@ -630,10 +798,10 @@ export const App: React.FC = () => {
       audioEngine.setMusicContext("exploration");
     }
 
-    if (screen !== "game" || paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId) {
+    if (screen !== "game" || paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId || activeBattle) {
       audioEngine.setMovementLoop("none");
     }
-  }, [restoringSession, charSelectOpen, openingCutsceneOpen, screen, partyOpen, paused, loadOpen, settingsOpen, activeLocationId, activeLocation?.mapId, innResting]);
+  }, [restoringSession, charSelectOpen, openingCutsceneOpen, screen, partyOpen, paused, loadOpen, settingsOpen, activeLocationId, activeLocation?.mapId, innResting, activeBattle]);
 
   const handleAudioChange = useCallback(<K extends keyof AudioSettings>(key: K, val: AudioSettings[K]) => {
     setAudio((prev) => ({ ...prev, [key]: val }));
@@ -670,6 +838,34 @@ export const App: React.FC = () => {
     setCharSelectOpen(true);
   }, []);
 
+  const handleSailToPort = useCallback(
+    async (destPort: WorldLocation) => {
+      if (destPort.x === null || destPort.y === null) return;
+      await fadeTransition(async () => {
+        const { meta } = await loadWorldAssets(destPort.mapId);
+        const mergedDiscovered = Array.from(
+          new Set([...initialDiscovered, ...runtimeRef.current.discoveredLocations, destPort.id])
+        );
+        const nextPlaytime = runtimeRef.current.playtime;
+        setActiveLocationId(null);
+        setInteriorTrail([]);
+        setInnResting(false);
+        setInitialDiscovered(mergedDiscovered);
+        setSpawnState({ x: destPort.x!, y: destPort.y!, playtime: nextPlaytime });
+        await persistSave("autosave", "Auto-Save", {
+          x: destPort.x!,
+          y: destPort.y!,
+          playtime: nextPlaytime,
+          meta,
+          discovered: mergedDiscovered,
+        });
+      });
+      audioEngine.playDiscovery();
+      showToast(`Arrived at ${destPort.name}`);
+    },
+    [fadeTransition, initialDiscovered, loadWorldAssets, persistSave, showToast]
+  );
+
   const handleAcceptQuest = useCallback(
     (quest: QuestEntry) => {
       setAcceptedQuestIds((prev) => {
@@ -694,14 +890,64 @@ export const App: React.FC = () => {
 
   const handleFreeRest = useCallback(
     (hubName: string) => {
+      const fullPct: Partial<Record<HeroId, number>> = {};
+      setHeroHpPct(fullPct);
+      setHeroMpPct(fullPct);
       setInnResting(true);
       audioEngine.playDiscovery();
       showToast(`Rested at ${hubName} — Party Restored`);
       if (mapMeta) {
-        void persistSave("autosave", "Auto-Save");
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          heroHpPct: fullPct,
+          heroMpPct: fullPct,
+        });
       }
     },
     [mapMeta, persistSave, showToast]
+  );
+
+  const handleSelectDiscipline = useCallback(
+    (heroId: HeroId, tierLevel: number, opt: DisciplineOption, silverCost: number) => {
+      const existing = chosenDisciplinesByHero[heroId] ?? {};
+      if (existing[String(tierLevel)]) return;
+      const hLvl = getHeroLevel(heroLevels, heroId, 1);
+      if (hLvl < tierLevel) {
+        showToast(`${getHeroById(heroId).name} must reach Level ${tierLevel}`);
+        return;
+      }
+      if (silver < silverCost) {
+        showToast(`Need ${silverCost.toLocaleString()}s Silver`);
+        return;
+      }
+
+      const nextSilver = silver - silverCost;
+      const nextChosen: ChosenDisciplinesMap = {
+        ...chosenDisciplinesByHero,
+        [heroId]: {
+          ...existing,
+          [String(tierLevel)]: opt.id,
+        },
+      };
+      setSilver(nextSilver);
+      setChosenDisciplinesByHero(nextChosen);
+      audioEngine.playSave();
+      showToast(`${getHeroById(heroId).name} bound Discipline: ${opt.name}`);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          silver: nextSilver,
+          chosenDisciplinesByHero: nextChosen,
+        });
+      }
+    },
+    [chosenDisciplinesByHero, heroLevels, mapMeta, persistSave, showToast, silver]
   );
 
   const handleBuyShopEntry = useCallback(
@@ -719,6 +965,12 @@ export const App: React.FC = () => {
 
       if (choice.mode === "spell") {
         if (learnedSpellIds.includes(choice.entry.id)) return;
+        const spellObj = choice.entry as SpellEntry;
+        const capUsed = countRegionSpellsForHero(learnedSpellIds, spellsCatalog, choice.heroId, spellObj.region);
+        if (capUsed >= MAX_SPELLS_PER_REGION) {
+          showToast(`${getHeroById(choice.heroId).name} already knows ${MAX_SPELLS_PER_REGION}/3 Tier ${spellObj.region} spells`);
+          return;
+        }
         nextSpells = [...learnedSpellIds, choice.entry.id];
         showToast(`${getHeroById(choice.heroId).name} learned ${choice.entry.name}`);
       } else if (choice.mode === "bag") {
@@ -793,29 +1045,14 @@ export const App: React.FC = () => {
   }, [tradeGoodCounts, itemsById, silver, mapMeta, persistSave, showToast]);
 
   const handleEquipFromBag = useCallback(
-    (heroId: HeroId, item: ItemEntry) => {
-      const slot = itemSlotFor(item);
-      if (!slot || (bagCounts[item.id] ?? 0) <= 0) return;
-      const nextBag = { ...bagCounts };
-      nextBag[item.id] -= 1;
-      if (nextBag[item.id] <= 0) delete nextBag[item.id];
+    (heroId: HeroId, itemId: string) => {
+      const item = itemsById[itemId];
+      if (!item) return;
+      const res = resolveEquipFromBag(heroId, item, equippedByHero, bagCounts, itemsById);
+      if (!res.changed) return;
 
-      const nextEquip: EquippedGearMap = { ...equippedByHero };
-      const heroGear = { ...(nextEquip[heroId] ?? {}) };
-      const prevId = heroGear[slot];
-      if (prevId) nextBag[prevId] = (nextBag[prevId] ?? 0) + 1;
-      if (slot === "right_hand" && item.handed === "2H" && heroGear.left_hand) {
-        nextBag[heroGear.left_hand] = (nextBag[heroGear.left_hand] ?? 0) + 1;
-        delete heroGear.left_hand;
-      } else if (slot === "left_hand" && heroGear.right_hand && itemsById[heroGear.right_hand]?.handed === "2H") {
-        nextBag[heroGear.right_hand] = (nextBag[heroGear.right_hand] ?? 0) + 1;
-        delete heroGear.right_hand;
-      }
-      heroGear[slot] = item.id;
-      nextEquip[heroId] = heroGear;
-
-      setBagCounts(nextBag);
-      setEquippedByHero(nextEquip);
+      setBagCounts(res.bagCounts);
+      setEquippedByHero(res.equippedByHero);
       audioEngine.playUiClick(0.38);
       showToast(`${getHeroById(heroId).name} equipped ${item.name}`);
       if (mapMeta) {
@@ -824,12 +1061,336 @@ export const App: React.FC = () => {
           y: runtimeRef.current.y,
           playtime: runtimeRef.current.playtime,
           meta: mapMeta,
-          bagCounts: nextBag,
-          equippedByHero: nextEquip,
+          bagCounts: res.bagCounts,
+          equippedByHero: res.equippedByHero,
         });
       }
     },
     [bagCounts, equippedByHero, itemsById, mapMeta, persistSave, showToast]
+  );
+
+  const handleUnequipSlot = useCallback(
+    (heroId: HeroId, slot: GearSlot) => {
+      const res = resolveUnequipSlot(heroId, slot, equippedByHero, bagCounts);
+      if (!res.removedItemId) return;
+      setBagCounts(res.bagCounts);
+      setEquippedByHero(res.equippedByHero);
+      audioEngine.playUiClick(0.34);
+      const removed = itemsById[res.removedItemId];
+      if (removed) {
+        showToast(`${getHeroById(heroId).name} removed ${removed.name}`);
+      }
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          bagCounts: res.bagCounts,
+          equippedByHero: res.equippedByHero,
+        });
+      }
+    },
+    [bagCounts, equippedByHero, itemsById, mapMeta, persistSave, showToast]
+  );
+
+  const handleAdjustHeroStat = useCallback(
+    (heroId: HeroId, stat: HeroAttrKey, delta: number) => {
+      const attrs = getHeroAttributes(heroId, getHeroLevel(heroLevels, heroId, 1), heroSpentAttrs);
+      if (delta > 0 && attrs.unspent < delta) return;
+      if (delta < 0 && attrs.spent[stat] < Math.abs(delta)) return;
+      const nextHeroSpent: HeroAttrMap = {
+        ...attrs.spent,
+        [stat]: Math.max(0, attrs.spent[stat] + delta),
+      };
+      const nextAll: Partial<Record<HeroId, HeroAttrMap>> = {
+        ...heroSpentAttrs,
+        [heroId]: nextHeroSpent,
+      };
+      setHeroSpentAttrs(nextAll);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          heroSpentAttrs: nextAll,
+        });
+      }
+    },
+    [heroLevels, heroSpentAttrs, mapMeta, persistSave]
+  );
+
+  const handleResetHeroStats = useCallback(
+    (heroId: HeroId) => {
+      const nextAll: Partial<Record<HeroId, HeroAttrMap>> = {
+        ...heroSpentAttrs,
+        [heroId]: { force: 0, finesse: 0, grit: 0, arcana: 0, presence: 0 },
+      };
+      setHeroSpentAttrs(nextAll);
+      showToast(`Reset attribute points for ${getHeroById(heroId).name}`);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          heroSpentAttrs: nextAll,
+        });
+      }
+    },
+    [heroSpentAttrs, mapMeta, persistSave, showToast]
+  );
+
+  const handleSocketRunestone = useCallback(
+    (heroId: HeroId, stone: RunestoneItem) => {
+      const nextSockets: HeroSocketsMap = {
+        ...socketsByHero,
+        [heroId]: {
+          weapon: socketsByHero[heroId]?.weapon ?? null,
+          armor: socketsByHero[heroId]?.armor ?? null,
+          [stone.target]: stone,
+        },
+      };
+      const nextRunestones = runestonesBag.filter((r) => r.id !== stone.id);
+      setSocketsByHero(nextSockets);
+      setRunestonesBag(nextRunestones);
+      audioEngine.playSave();
+      showToast(
+        `Socketed ${stone.name} into ${getHeroById(heroId).name}'s ${
+          stone.target === "weapon" ? "Weapon" : "Body Armor"
+        }`
+      );
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          socketsByHero: nextSockets,
+          runestonesBag: nextRunestones,
+        });
+      }
+    },
+    [mapMeta, persistSave, runestonesBag, showToast, socketsByHero]
+  );
+
+  const handleUseConsumable = useCallback(
+    (sourceIds: string[], targetHeroId: HeroId, item: ItemEntry) => {
+      const sid = sourceIds.find((id) => (bagCounts[id] ?? 0) > 0) ?? item.id;
+      if ((bagCounts[sid] ?? 0) <= 0) return;
+
+      const nextBag = { ...bagCounts };
+      nextBag[sid] = Math.max(0, (nextBag[sid] ?? 1) - 1);
+      if (nextBag[sid] <= 0) delete nextBag[sid];
+
+      const curPct = heroHpPct[targetHeroId] ?? 100;
+      const curMp = heroMpPct[targetHeroId] ?? 100;
+      const isMpPotion = /mana|mp/i.test(item.name) && !/elixir|phoenix/i.test(item.name);
+      const healPct = /greater|full|elixir|supreme/i.test(item.name) ? 100 : 40;
+      const nextHp: Partial<Record<HeroId, number>> = isMpPotion
+        ? heroHpPct
+        : {
+            ...heroHpPct,
+            [targetHeroId]: Math.min(100, curPct + healPct),
+          };
+      const nextMp: Partial<Record<HeroId, number>> =
+        isMpPotion || /elixir|supreme/i.test(item.name)
+          ? {
+              ...heroMpPct,
+              [targetHeroId]: Math.min(100, curMp + healPct),
+            }
+          : heroMpPct;
+
+      setBagCounts(nextBag);
+      setHeroHpPct(nextHp);
+      setHeroMpPct(nextMp);
+      audioEngine.playDiscovery();
+      showToast(`Used ${item.name} on ${getHeroById(targetHeroId).name}`);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          bagCounts: nextBag,
+          heroHpPct: nextHp,
+          heroMpPct: nextMp,
+        });
+      }
+    },
+    [bagCounts, heroHpPct, heroMpPct, mapMeta, persistSave, showToast]
+  );
+
+  const handleTriggerEncounter = useCallback(
+    (trigger: OverworldEncounterTrigger) => {
+      if (!battleConfig || activeBattle || activeLocationId) return;
+      const bState = createBattleState({
+        config: battleConfig,
+        partyOrder,
+        level: partyLevel,
+        heroLevels,
+        heroSpentAttrs,
+        equippedByHero,
+        itemsById,
+        socketsByHero,
+        heroHpPct,
+        heroMpPct,
+        disciplinesByHero,
+        chosenDisciplinesByHero,
+        mapId: trigger.mapId,
+        biomeName: trigger.biomeName,
+        zoneName: trigger.zoneName,
+        zoneCode: trigger.zoneCode,
+        zoneMin: trigger.zoneMin,
+        zoneMax: trigger.zoneMax,
+        nearWaterKind: trigger.nearWaterKind,
+        portalLoc: trigger.portalLoc,
+      });
+      setActiveBattle(bState);
+    },
+    [
+      activeBattle,
+      activeLocationId,
+      battleConfig,
+      chosenDisciplinesByHero,
+      disciplinesByHero,
+      equippedByHero,
+      heroHpPct,
+      heroLevels,
+      heroMpPct,
+      heroSpentAttrs,
+      itemsById,
+      partyLevel,
+      partyOrder,
+      socketsByHero,
+    ]
+  );
+
+  const handleBattleComplete = useCallback(
+    (outcome: BattleOutcomeResult) => {
+      setActiveBattle(null);
+
+      // Consume any potions spent during battle
+      const nextBag = { ...bagCounts };
+      for (const [pid, qtyUsed] of Object.entries(outcome.consumedPotions)) {
+        const rem = Math.max(0, (nextBag[pid] ?? 0) - qtyUsed);
+        if (rem <= 0) delete nextBag[pid];
+        else nextBag[pid] = rem;
+      }
+
+      if (outcome.result === "fled") {
+        setBagCounts(nextBag);
+        setHeroHpPct(outcome.heroHpPct);
+        setHeroMpPct(outcome.heroMpPct);
+        showToast("Escaped back to Ethoria");
+        return;
+      }
+
+      if (outcome.result === "defeat") {
+        const fullPct: Partial<Record<HeroId, number>> = {};
+        setBagCounts(nextBag);
+        setHeroHpPct(fullPct);
+        setHeroMpPct(fullPct);
+        if (mapMeta) {
+          const fallbackHub =
+            worldLocations.find(
+              (l) => l.placed && l.mapId === mapMeta.id && l.x !== null && l.y !== null && l.category !== "portal" && l.category !== "quest_field" && l.interiorAssetPath
+            ) ?? null;
+          if (fallbackHub && fallbackHub.x !== null && fallbackHub.y !== null) {
+            runtimeRef.current.x = fallbackHub.x;
+            runtimeRef.current.y = fallbackHub.y;
+            setSpawnState((prev) => ({ ...prev, x: fallbackHub.x as number, y: fallbackHub.y as number }));
+          }
+          void persistSave("autosave", "Auto-Save", {
+            x: runtimeRef.current.x,
+            y: runtimeRef.current.y,
+            playtime: runtimeRef.current.playtime,
+            meta: mapMeta,
+            bagCounts: nextBag,
+            heroHpPct: fullPct,
+            heroMpPct: fullPct,
+          });
+        }
+        showToast("Recovered at nearest Town Inn");
+        return;
+      }
+
+      // Victory: apply individual Hero XP/Level-Ups, HP/MP, Silver, Trade Goods drops, and Portal seal
+      const nextLevels: Partial<Record<HeroId, number>> = { ...heroLevels };
+      const nextXpMap: Partial<Record<HeroId, number>> = { ...heroXp };
+      const leveledNames: string[] = [];
+      for (const hid of partyOrder) {
+        const prevLv = getHeroLevel(heroLevels, hid, 1);
+        const prevXp = getHeroXp(heroXp, hid);
+        const gained = outcome.heroXpEarned[hid] ?? 0;
+        const res = applyHeroXpGain(prevLv, prevXp, gained);
+        nextLevels[hid] = res.level;
+        nextXpMap[hid] = res.xp;
+        if (res.leveledUp) leveledNames.push(`${getHeroById(hid).name} Lv ${res.level}`);
+      }
+      const nextAvgLv = getAveragePartyLevel(nextLevels, partyOrder, 1);
+      const nextSilver = silver + outcome.silverEarned;
+      const nextTrade = { ...tradeGoodCounts };
+      for (const [gid, qty] of Object.entries(outcome.droppedTradeGoods)) {
+        nextTrade[gid] = (nextTrade[gid] ?? 0) + qty;
+      }
+      const nextSealed =
+        outcome.sealedPortalId && !sealedPortalIds.includes(outcome.sealedPortalId)
+          ? [...sealedPortalIds, outcome.sealedPortalId]
+          : sealedPortalIds;
+
+      setBagCounts(nextBag);
+      setHeroHpPct(outcome.heroHpPct);
+      setHeroMpPct(outcome.heroMpPct);
+      setHeroLevels(nextLevels);
+      setHeroXp(nextXpMap);
+      setSilver(nextSilver);
+      setTradeGoodCounts(nextTrade);
+      setSealedPortalIds(nextSealed);
+      audioEngine.playSave();
+      showToast(
+        leveledNames.length > 0
+          ? `Level Up: ${leveledNames.join(", ")}! (+${outcome.silverEarned}s)`
+          : `Victory! +${outcome.xpEarned} XP · +${outcome.silverEarned}s`
+      );
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          lvl: nextAvgLv,
+          heroLevels: nextLevels,
+          heroXp: nextXpMap,
+          silver: nextSilver,
+          bagCounts: nextBag,
+          tradeGoodCounts: nextTrade,
+          sealedPortalIds: nextSealed,
+          heroHpPct: outcome.heroHpPct,
+          heroMpPct: outcome.heroMpPct,
+        });
+      }
+    },
+    [bagCounts, heroLevels, heroXp, mapMeta, partyOrder, persistSave, sealedPortalIds, showToast, silver, tradeGoodCounts, worldLocations]
+  );
+
+  const handleAbandonQuest = useCallback(
+    (questId: string) => {
+      const nextQuests = acceptedQuestIds.filter((q) => q !== questId);
+      setAcceptedQuestIds(nextQuests);
+      showToast("Quest removed from journal");
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          acceptedQuests: nextQuests,
+        });
+      }
+    },
+    [acceptedQuestIds, mapMeta, persistSave, showToast]
   );
 
   return (
@@ -857,6 +1418,17 @@ export const App: React.FC = () => {
                 bagCounts: latestSave.bagCounts,
                 learnedSpellIds: latestSave.learnedSpellIds,
                 tradeGoodCounts: latestSave.tradeGoodCounts,
+                heroSpentAttrs: latestSave.heroSpentAttrs,
+                socketsByHero: latestSave.socketsByHero,
+                runestonesBag: latestSave.runestonesBag,
+                heroHpPct: latestSave.heroHpPct,
+                heroMpPct: latestSave.heroMpPct,
+                chosenDisciplinesByHero: latestSave.chosenDisciplinesByHero,
+                heroLevels: latestSave.heroLevels,
+                heroXp: latestSave.heroXp,
+                partyXp: latestSave.partyXp,
+                sealedPortalIds: latestSave.sealedPortalIds,
+                mapId: latestSave.mapId,
               }
             );
           }
@@ -870,13 +1442,17 @@ export const App: React.FC = () => {
       {mapMeta && (
         <OverworldCanvas
           active={screen === "game"}
-          paused={paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId !== null}
+          paused={paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId !== null || activeBattle !== null}
           insideLocationId={overworldRootLocationId}
           mapMeta={mapMeta}
           worldLocations={worldLocations}
           worldCollision={worldCollision}
           partyOrder={partyOrder}
           level={partyLevel}
+          heroLevels={heroLevels}
+          heroHpPct={heroHpPct}
+          heroMpPct={heroMpPct}
+          sealedPortalIds={sealedPortalIds}
           startX={spawnState.x}
           startY={spawnState.y}
           startPlaytime={spawnState.playtime}
@@ -884,6 +1460,7 @@ export const App: React.FC = () => {
           runtimeRef={runtimeRef}
           onAutoSaveNeeded={handleAutoSaveNeeded}
           onEnterLocation={(loc) => handleEnterLocationById(loc.id, true)}
+          onTriggerEncounter={handleTriggerEncounter}
           onOpenParty={() => {
             setPaused(false);
             setPartyOpen(true);
@@ -897,10 +1474,13 @@ export const App: React.FC = () => {
         <LocationInteriorModal
           location={activeLocation}
           parentLocation={parentLocation}
+          worldLocations={worldLocations}
+          sealedPortalIds={sealedPortalIds}
           npcsByLocation={npcsByLocation}
           questsByKey={questsByKey}
           partyOrder={partyOrder}
           partyLevel={partyLevel}
+          heroLevels={heroLevels}
           acceptedQuestIds={acceptedQuestIds}
           silver={silver}
           items={itemsCatalog}
@@ -909,10 +1489,14 @@ export const App: React.FC = () => {
           equippedByHero={equippedByHero}
           learnedSpellIds={learnedSpellIds}
           tradeGoodCounts={tradeGoodCounts}
+          disciplinesByHero={disciplinesByHero}
+          chosenDisciplinesByHero={chosenDisciplinesByHero}
+          onSelectDiscipline={handleSelectDiscipline}
           onBuyShopEntry={handleBuyShopEntry}
           onSellAllTradeGoods={handleSellAllTradeGoods}
           onAcceptQuest={handleAcceptQuest}
           onFreeRest={handleFreeRest}
+          onSailToPort={(dest) => void handleSailToPort(dest)}
           onOpenParty={() => {
             setPaused(false);
             setPartyOpen(true);
@@ -947,7 +1531,7 @@ export const App: React.FC = () => {
             try {
               const { meta, locations } = await loadWorldAssets();
               const startSpawn = computeHighcrownSpawn(locations, meta.spawn, meta.width, meta.height);
-              await enterWorld(startSpawn.x, startSpawn.y, 0, true, partyOrder, 1, []);
+              await enterWorld(startSpawn.x, startSpawn.y, 0, true, partyOrder, 1, [HIGHCROWN_ID]);
             } finally {
               launchingWorldRef.current = false;
             }
@@ -956,16 +1540,40 @@ export const App: React.FC = () => {
       />
 
       <PartyMenuModal
-        open={screen === "game" && partyOpen && !loadOpen && !settingsOpen}
+        open={screen === "game" && partyOpen && !loadOpen && !settingsOpen && !activeBattle}
         partyOrder={partyOrder}
         level={partyLevel}
+        partyXp={leaderXp}
+        heroLevels={heroLevels}
+        heroXp={heroXp}
         silver={silver}
+        currentMapId={mapMeta?.id ?? "map_01"}
+        playerX={runtimeRef.current.x}
+        playerY={runtimeRef.current.y}
         equippedByHero={equippedByHero}
         itemsById={itemsById}
         bagCounts={bagCounts}
+        tradeGoodCounts={tradeGoodCounts}
         learnedSpellIds={learnedSpellIds}
         spells={spellsCatalog}
+        heroSpentAttrs={heroSpentAttrs}
+        socketsByHero={socketsByHero}
+        runestonesBag={runestonesBag}
+        heroHpPct={heroHpPct}
+        heroMpPct={heroMpPct}
+        disciplinesByHero={disciplinesByHero}
+        chosenDisciplinesByHero={chosenDisciplinesByHero}
+        acceptedQuestIds={acceptedQuestIds}
+        questsCatalog={questsCatalog}
+        worldLocations={worldLocations}
+        discoveredLocations={Array.from(new Set([...initialDiscovered, ...runtimeRef.current.discoveredLocations]))}
+        sealedPortalIds={sealedPortalIds}
         onEquipFromBag={handleEquipFromBag}
+        onUnequipSlot={handleUnequipSlot}
+        onSocketRunestone={handleSocketRunestone}
+        onUseConsumable={handleUseConsumable}
+        onAdjustHeroStat={handleAdjustHeroStat}
+        onResetHeroStats={handleResetHeroStats}
         onChangeOrder={(nextOrder) => {
           audioEngine.playUiClick(0.42);
           setPartyOrder(nextOrder);
@@ -979,6 +1587,13 @@ export const App: React.FC = () => {
             });
           }
         }}
+        onAbandonQuest={handleAbandonQuest}
+        onSaveGame={async () => {
+          await persistSave("manual_1", "Manual Save");
+          audioEngine.playSave();
+          showToast("Game Saved");
+        }}
+        onOpenSettings={() => setSettingsOpen(true)}
         onClose={() => {
           audioEngine.playUiClick();
           setPartyOpen(false);
@@ -986,7 +1601,7 @@ export const App: React.FC = () => {
       />
 
       <PauseMenuModal
-        open={screen === "game" && paused && !partyOpen && !loadOpen && !settingsOpen}
+        open={screen === "game" && paused && !partyOpen && !loadOpen && !settingsOpen && !activeBattle}
         onResume={() => setPaused(false)}
         onOpenParty={() => {
           setPaused(false);
@@ -1027,11 +1642,39 @@ export const App: React.FC = () => {
               bagCounts: slot.bagCounts,
               learnedSpellIds: slot.learnedSpellIds,
               tradeGoodCounts: slot.tradeGoodCounts,
+              heroSpentAttrs: slot.heroSpentAttrs,
+              socketsByHero: slot.socketsByHero,
+              runestonesBag: slot.runestonesBag,
+              heroHpPct: slot.heroHpPct,
+              heroMpPct: slot.heroMpPct,
+              chosenDisciplinesByHero: slot.chosenDisciplinesByHero,
+              heroLevels: slot.heroLevels,
+              heroXp: slot.heroXp,
+              partyXp: slot.partyXp,
+              sealedPortalIds: slot.sealedPortalIds,
+              mapId: slot.mapId,
             }
           );
         }}
         onClose={() => setLoadOpen(false)}
       />
+
+      {screen === "game" && activeBattle && (
+        <BattleOverlay
+          open={true}
+          initialBattle={activeBattle}
+          partyLevel={partyLevel}
+          partyXp={leaderXp}
+          heroLevels={heroLevels}
+          heroXp={heroXp}
+          spells={spellsCatalog}
+          learnedSpellIds={learnedSpellIds}
+          bagCounts={bagCounts}
+          itemsById={itemsById}
+          itemsCatalog={itemsCatalog}
+          onComplete={handleBattleComplete}
+        />
+      )}
 
       <SettingsModal
         open={settingsOpen}

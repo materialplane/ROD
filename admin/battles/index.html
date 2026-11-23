@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Battle Encounters &amp; Arena Stage Studio</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill" href="/admin/party/">Party Menu</a>
+        <a class="nav-pill" href="/admin/disciplines/">Disciplines</a>
+        <a class="nav-pill active" href="/admin/battles/">Battle Encounters</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+    <div class="studio-stats" id="studioStats">Loading 41 battle arenas &amp; 128 monsters...</div>
+  </header>
+
+  <section class="studio-toolbar">
+    <div class="ctrl-group">
+      <label>View</label>
+      <div class="seg-group" id="segViewMode">
+        <button type="button" class="seg-btn active" data-val="player">FF Battle Preview</button>
+        <button type="button" class="seg-btn" data-val="editor">Stage Editor</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selSquad">Squad</label>
+      <select id="selSquad" class="ctrl-select">
+        <option value="valen,ellowyn,orin,rowan">Valen · Ellowyn · Orin · Rowan</option>
+        <option value="valen,ellowyn,mera,harlan">Valen · Ellowyn · Mera · Harlan (3 Casters)</option>
+        <option value="orin,rowan,mera,harlan">Orin · Rowan · Mera · Harlan</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selHeroWeapon">Weapon</label>
+      <select id="selHeroWeapon" class="ctrl-select" title="Active Hero's Equipped Weapon (updates slots 1-2)"></select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selSpellTier">Tiers</label>
+      <select id="selSpellTier" class="ctrl-select" title="Unlocked Magic Tiers (2/3 learned spells per tier)">
+        <option value="0">0 Tiers (Weapon Only)</option>
+        <option value="2">Tiers 1–2 (4 Spells)</option>
+        <option value="4">Tiers 1–4 (8 Spells)</option>
+        <option value="8" selected>Tiers 1–8 (16 Spells)</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selPerkCount">Perks</label>
+      <select id="selPerkCount" class="ctrl-select" title="Unlocked Arcanist Discipline Perks displayed inside each Hero panel">
+        <option value="0">0 Perks</option>
+        <option value="1">1 Perk (Lv 1)</option>
+        <option value="3">3 Perks (Lv 20)</option>
+        <option value="5">5 Perks (Lv 40)</option>
+        <option value="10" selected>10 Perks (Lv 90+)</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selMobFacing">Mobs</label>
+      <div class="seg-group" id="segMobFacing">
+        <button type="button" class="seg-btn active" data-val="normal">Normal</button>
+        <button type="button" class="seg-btn" data-val="flip_all">Flip All</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selHpState">HP</label>
+      <select id="selHpState" class="ctrl-select">
+        <option value="1">100%</option>
+        <option value="2">&lt;75%</option>
+        <option value="3">&lt;50%</option>
+        <option value="4">&lt;25%</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group" style="margin-left:auto;">
+      <button type="button" class="rpg-btn secondary" id="btnRestockPotions" title="Restock test potions on hotbar">Refill Potions</button>
+      <button type="button" class="rpg-btn secondary" id="btnRollEncounter">Roll Pack</button>
+      <button type="button" class="rpg-btn secondary" id="btnEnemyTurn">Enemy Turn</button>
+      <button type="button" class="rpg-btn secondary" id="btnClearMobs">Clear</button>
+      <button type="button" class="rpg-btn secondary" id="btnFullscreen" title="Toggle Fullscreen Battle Stage">&#x26F6; Fullscreen</button>
+      <button type="button" class="rpg-btn primary" id="btnSaveConfig">Save Battle Config</button>
+    </div>
+  </section>
+
+  <main class="battle-workspace">
+    <!-- Left Sidebar: 41 Battle Stages -->
+    <aside class="stage-sidebar">
+      <div class="sidebar-filters">
+        <input type="text" id="inpStageSearch" class="ctrl-input full" placeholder="Filter 41 biomes &amp; portals..." />
+        <div class="seg-group full" id="segStageFilter">
+          <button type="button" class="seg-btn active" data-val="all">All (41)</button>
+          <button type="button" class="seg-btn" data-val="biomes">Biomes (34)</button>
+          <button type="button" class="seg-btn" data-val="portals">Portals (7)</button>
+        </div>
+      </div>
+      <div class="stage-list" id="stageList"></div>
+    </aside>
+
+    <!-- Center: Live 16:9 Battle Stage + Bestiary Drawer -->
+    <section class="stage-center">
+      <div class="stage-frame-wrap" id="stageFrameWrap">
+        <div class="fs-toolbar" id="fsToolbar">
+          <button type="button" class="rpg-btn secondary sm" id="btnFsPrev">&larr; Prev Arena</button>
+          <button type="button" class="rpg-btn secondary sm" id="btnFsNext">Next Arena &rarr;</button>
+          <button type="button" class="rpg-btn secondary sm" id="btnFsToggleView">Toggle Editor / FF View</button>
+          <button type="button" class="rpg-btn secondary sm" id="btnFsRoll">Roll Pack</button>
+          <button type="button" class="rpg-btn secondary sm" id="btnFsEnemyTurn">Enemy Turn</button>
+          <button type="button" class="rpg-btn primary sm" id="btnFsExit">&#x2715; Exit Fullscreen (Esc)</button>
+        </div>
+        <div class="stage-viewport player-view" id="stageViewport">
+          <!-- Full 16:9 Scenic Battlefield Backdrop -->
+          <div class="arena-backdrop-frame" id="arenaBackdropFrame">
+            <img id="imgBackdrop" class="stage-backdrop" alt="Battle Stage" />
+            <div class="stage-vignette"></div>
+          </div>
+
+          <!-- Left Multi-Cell Enemy Grid -->
+          <div class="zone-box enemy-zone" id="enemyZoneBox">
+            <div class="zone-label">Enemy Spawn Grid (<span id="lblGridDims">4×3</span> · Drag / Resize)</div>
+            <div class="zone-resize-handle" data-target="enemyGrid"></div>
+            <div class="enemy-grid-cells" id="enemyGridCells"></div>
+            <div class="enemy-sprites-layer" id="enemySpritesLayer"></div>
+          </div>
+
+          <!-- Right Hero Zone (Clean Aligned 4-Hero Column) -->
+          <div class="zone-box hero-zone" id="heroZoneBox">
+            <div class="zone-label">Hero Zone (Drag / Resize)</div>
+            <div class="zone-resize-handle" data-target="heroZone"></div>
+            <div class="hero-slots-layer" id="heroSlotsLayer"></div>
+          </div>
+
+          <!-- Top-Center Turn Timeline Bar -->
+          <div class="ff-turn-bar" id="ffTurnBar"></div>
+
+          <!-- Battle Action Toast / Prompt Hint -->
+          <div class="battle-action-banner" id="battleActionBanner">Select a 1:1 action slot below, then click a Target!</div>
+
+          <!-- Animated 6-Frame VFX & Floating Damage Layer -->
+          <div class="vfx-overlay-layer" id="vfxOverlayLayer"></div>
+
+          <!-- Styled RPG Tooltips & Vertical Tier Spell Stack Floating Over Hotbar -->
+          <div class="tier-menu-popup hidden" id="tierMenuPopup" role="menu"></div>
+          <div class="hotbar-tooltip hidden" id="hotbarTooltip" role="tooltip"></div>
+          <div class="perk-tooltip hidden" id="perkTooltip" role="tooltip"></div>
+          <div class="enemy-tooltip hidden" id="enemyTooltip" role="tooltip"></div>
+
+          <!-- Dynamic 1:1 Horizontal Action Hotbar (Grows & Shrinks per Hero & Inventory) -->
+          <div class="battle-hotbar" id="battleHotbar">
+            <div class="hotbar-slots" id="hotbarSlots"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Native Biome Mobs & All 128 Monster Spawner -->
+      <div class="spawner-bar">
+        <div class="spawner-head">
+          <div>
+            <strong id="lblStageTitle" style="color:#fae2aa;">Stage</strong>
+            <span id="lblStageZones" style="color:#8f9eb8;font-size:11.5px;margin-left:8px;"></span>
+          </div>
+          <input type="text" id="inpMobSearch" class="ctrl-input" placeholder="Search all 128 monsters &amp; bosses..." />
+        </div>
+        <div class="spawner-section-label">Native Biome Spawns (Click to Add to Grid)</div>
+        <div class="mob-chips-row" id="nativeMobChips"></div>
+        <div class="spawner-section-label" id="lblAllMobsHeader">Bestiary Palette (All 128 Exported Mobs)</div>
+        <div class="mob-chips-row all-mobs" id="allMobChips"></div>
+      </div>
+    </section>
+
+    <!-- Right Sidebar: Container Geometry & Monster Size Tuner -->
+    <aside class="inspector-sidebar">
+      <div class="insp-card">
+        <h3>Enemy Spawn Grid (Left Box)</h3>
+        <div class="grid-2">
+          <label class="num-field">Columns
+            <input type="number" id="inpGridCols" min="2" max="5" step="1" />
+          </label>
+          <label class="num-field">Rows (Depth)
+            <input type="number" id="inpGridRows" min="2" max="3" step="1" />
+          </label>
+          <label class="num-field">Back Scale %
+            <input type="number" id="inpEnemyBackScale" min="50" max="110" step="2" />
+          </label>
+          <label class="num-field">Front Scale %
+            <input type="number" id="inpEnemyFrontScale" min="70" max="140" step="2" />
+          </label>
+        </div>
+        <div class="coords-readout" id="lblEnemyCoords"></div>
+        <div class="btn-row">
+          <button type="button" class="rpg-btn secondary sm" id="btnResetStage">Reset Default 45°</button>
+          <button type="button" class="rpg-btn secondary sm" id="btnApplyEnemyAll">Apply Box to All 41</button>
+        </div>
+      </div>
+
+      <div class="insp-card">
+        <h3>Hero Zone (Right Side)</h3>
+        <div class="grid-2">
+          <label class="num-field">Diagonal Stagger %
+            <input type="number" id="inpHeroStagger" min="0" max="18" step="1" />
+          </label>
+          <label class="num-field">Hero Scale %
+            <input type="number" id="inpHeroScale" min="65" max="130" step="2" />
+          </label>
+        </div>
+        <div class="coords-readout" id="lblHeroCoords"></div>
+        <div class="btn-row">
+          <button type="button" class="rpg-btn secondary sm" id="btnApplyHeroAll">Apply Hero Box to All 41</button>
+        </div>
+      </div>
+
+      <div class="insp-card flex-grow">
+        <h3>Active Encounter &amp; Mob Cell Sizing</h3>
+        <div id="selectedMobEditor" class="selected-mob-box">
+          <div class="empty-note">Click any monster in the arena or below to tune how many grid cells (<code>1×1</code>, <code>2×1</code>, <code>1×2</code>, <code>3×1</code>, <code>2×2</code>, <code>3×2</code>) and visual scale it uses.</div>
+        </div>
+        <div class="spawner-section-label" style="margin-top:8px;">Spawned on Arena (<span id="lblSpawnCount">0</span>)</div>
+        <div class="spawned-list" id="spawnedList"></div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="toast-banner hidden" id="toastBanner">Saved</div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

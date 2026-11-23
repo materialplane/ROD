@@ -4,11 +4,11 @@ import { applyShopCatFilter, buildTownNpcsForHub, itemBelongsToShop } from "./sh
 
 export const HERO_ROSTER = [
   { id: "valen", name: "Valen", className: "Duelist", avatar: "/assets/portraits/heroes/valen_avatar.webp" },
-  { id: "ellowyn", name: "Ellowyn", className: "Mystic", avatar: "/assets/portraits/heroes/ellowyn_avatar.webp" },
-  { id: "orin", name: "Orin", className: "Bulwark", avatar: "/assets/portraits/heroes/orin_avatar.webp" },
-  { id: "rowan", name: "Rowan", className: "Archer", avatar: "/assets/portraits/heroes/rowan_avatar.webp" },
+  { id: "ellowyn", name: "Ellowyn", className: "Sorceress", avatar: "/assets/portraits/heroes/ellowyn_avatar.webp" },
+  { id: "orin", name: "Orin", className: "Knight", avatar: "/assets/portraits/heroes/orin_avatar.webp" },
+  { id: "rowan", name: "Rowan", className: "Ranger", avatar: "/assets/portraits/heroes/rowan_avatar.webp" },
   { id: "mera", name: "Mera", className: "Druid", avatar: "/assets/portraits/heroes/mera_avatar.webp" },
-  { id: "harlan", name: "Harlan", className: "Herbalist", avatar: "/assets/portraits/heroes/harlan_avatar.webp" },
+  { id: "harlan", name: "Harlan", className: "Sage", avatar: "/assets/portraits/heroes/harlan_avatar.webp" },
 ];
 
 export async function loadStudioData() {

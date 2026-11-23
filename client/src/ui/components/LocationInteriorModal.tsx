@@ -2,7 +2,20 @@ import React, { useEffect, useMemo, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { HEROES, getHeroById } from "../heroes";
-import type { EquippedGearMap, HeroId, ItemEntry, NpcEntry, NpcLocationGroup, QuestEntry, ShopType, SpellEntry, WorldLocation } from "../types";
+import type {
+  ChosenDisciplinesMap,
+  DisciplineOption,
+  EquippedGearMap,
+  HeroDisciplinesEntry,
+  HeroId,
+  ItemEntry,
+  NpcEntry,
+  NpcLocationGroup,
+  QuestEntry,
+  ShopType,
+  SpellEntry,
+  WorldLocation,
+} from "../types";
 import { ShopCounterPanel, type BuyConfirmChoice } from "../shops/ShopCounterPanel";
 import { TradeGoodsCounter } from "../shops/TradeGoodsCounter";
 import { TavernView } from "./TavernView";
@@ -27,10 +40,13 @@ export const INTERNAL_LOCATION_PARENTS: Record<string, string> = {
 interface LocationInteriorModalProps {
   location: WorldLocation | null;
   parentLocation?: WorldLocation | null;
+  worldLocations?: WorldLocation[];
+  sealedPortalIds?: string[];
   npcsByLocation: Record<string, NpcLocationGroup>;
   questsByKey: Record<string, QuestEntry>;
   partyOrder: HeroId[];
   partyLevel: number;
+  heroLevels?: Partial<Record<HeroId, number>>;
   acceptedQuestIds: string[];
   silver: number;
   items: ItemEntry[];
@@ -39,10 +55,14 @@ interface LocationInteriorModalProps {
   equippedByHero: EquippedGearMap;
   learnedSpellIds: string[];
   tradeGoodCounts: Record<string, number>;
+  disciplinesByHero?: Partial<Record<HeroId, HeroDisciplinesEntry>>;
+  chosenDisciplinesByHero?: ChosenDisciplinesMap;
+  onSelectDiscipline?: (heroId: HeroId, tierLevel: number, opt: DisciplineOption, silverCost: number) => void;
   onBuyShopEntry: (choice: BuyConfirmChoice) => void;
   onSellAllTradeGoods: () => void;
   onAcceptQuest: (quest: QuestEntry) => void;
   onFreeRest: (hubName: string) => void;
+  onSailToPort?: (destPort: WorldLocation) => void;
   onOpenParty: () => void;
   onEnterLocationById: (locationId: string) => void;
   onReturnToParent?: () => void;
@@ -140,8 +160,13 @@ function buildNpcDialogue(npc: NpcEntry, role: string, locName: string, quest: Q
   }
 
   const r = role.toLowerCase();
+  if (r.includes("captain") || r.includes("vessel")) {
+    return `Our hull is provisioned and the crew stands ready along ${locName}'s quay. Check the Sea Voyages manifest whenever your party is prepared to sail across Ethoria's waters.`;
+  }
   if (r.includes("inn") || r.includes("rest")) {
-    return `Step away from the road and warm yourselves by the hearth. Any ally passing through ${locName} is welcome to rest beneath this roof.`;
+    return locName.toLowerCase().includes("port")
+      ? `Step off the salt pier and catch your breath at ${locName}. Fresh supplies, warm bunks, and fair Trade Goods appraisal wait beside the docks.`
+      : `Step away from the road and warm yourselves by the hearth. Any ally passing through ${locName} is welcome to rest beneath this roof.`;
   }
   if (r.includes("chamberlain")) {
     return `Welcome back within the Council Hall of Highcrown Keep. Dispatches are current, quiet quarters await upstairs, and your fellow defenders stand ready at your call.`;
@@ -272,14 +297,14 @@ function buildHubServices(loc: WorldLocation, parentLocation?: WorldLocation | n
       highlights: ["4-hero turn-based exhibition bouts", "Test elemental & weapon weaknesses safely", "Earn Silver rewards from ranked matches"],
     });
   }
-  if (tags.some((t) => t.includes("ship"))) {
+  if (tags.some((t) => t.includes("ship") || t.includes("sea") || t.includes("voyage"))) {
     out.push({
       id: "port",
       title: "Ship Port",
       subtitle: "Sea lanes across Ethoria's coastlines",
       accent: "cyan",
-      summary: `Charter seafaring merchant vessels linking ${loc.name} to distant coastal harbors once ports are charted.`,
-      highlights: ["Direct sea travel between discovered Port Towns", "Bypasses dangerous overland wild zones", "Auto-saves upon safe harbor arrival"],
+      summary: `Charter seafaring merchant vessels linking ${loc.name} to distant coastal harbors once regional Portals fall.`,
+      highlights: ["Direct sea travel between charted continent harbors", "Unlocks deep-sea lanes when local Portals are sealed", "Auto-saves cleanly upon safe harbor arrival"],
     });
   }
   if (loc.id === HIGHCROWN_ID) {
@@ -324,17 +349,33 @@ function inferNpcServiceId(role: string): Exclude<ServicePanelSpec["id"], "keep"
   if (r.includes("armorer") || r.includes("smith") || r.includes("forgemaster") || r.includes("quartermaster")) return "armory";
   if (r.includes("mystic") || r.includes("tome") || r.includes("archive") || r.includes("apothecary") || r.includes("scholar")) return "mystic";
   if (r.includes("arena") || r.includes("pit-master")) return "arena";
-  if (r.includes("harbor") || r.includes("shipping") || r.includes("sailor") || r.includes("ferry") || r.includes("dock")) return "port";
+  if (r.includes("captain") || r.includes("vessel") || r.includes("shipping") || r.includes("sailor") || r.includes("ferry") || r.includes("dock")) return "port";
   return null;
 }
+
+const PORT_ROUTES: Array<{ id: string; title: string; realm: string; mapId: string; order: number }> = [
+  { id: "tr_port_map01_royal_trade", title: "Royal Trade Port Town", realm: "King's Reach", mapId: "map_01", order: 1 },
+  { id: "tr_port_map02_highland_cove", title: "Highland Cove Port Town", realm: "Westmarch", mapId: "map_02", order: 2 },
+  { id: "tr_port_map03_desert_harbor", title: "Desert Harbor Port Town", realm: "Suncrest Isles", mapId: "map_03", order: 3 },
+  { id: "tr_port_map04_arctic_seaport", title: "Arctic Sea-Port Town", realm: "Northhold", mapId: "map_04", order: 4 },
+];
+
+const OUTBOUND_PORTAL_GATE: Record<string, { portalId: string; portalName: string }> = {
+  map_01: { portalId: "loc_10_the_sunken_maw", portalName: "The Sunken Maw" },
+  map_02: { portalId: "loc_20_the_rotspire", portalName: "The Rotspire" },
+  map_03: { portalId: "loc_30_storm_crowned_spire", portalName: "The Storm-Crowned Spire" },
+};
 
 export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   location,
   parentLocation = null,
+  worldLocations = [],
+  sealedPortalIds = [],
   npcsByLocation,
   questsByKey,
   partyOrder,
   partyLevel,
+  heroLevels,
   acceptedQuestIds,
   silver,
   items,
@@ -343,10 +384,14 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   equippedByHero,
   learnedSpellIds,
   tradeGoodCounts,
+  disciplinesByHero,
+  chosenDisciplinesByHero,
+  onSelectDiscipline,
   onBuyShopEntry,
   onSellAllTradeGoods,
   onAcceptQuest,
   onFreeRest,
+  onSailToPort,
   onOpenParty,
   onEnterLocationById,
   onReturnToParent,
@@ -355,13 +400,15 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [activeService, setActiveService] = useState<ServicePanelSpec | null>(null);
   const [openShopNpcId, setOpenShopNpcId] = useState<string | null>(null);
+  const [harborShopMode, setHarborShopMode] = useState<"trade_goods" | "arcanist" | null>(null);
   const [showLore, setShowLore] = useState(false);
 
   const isTavern = isTavernLocationId(location?.id);
 
   const resolvedNpcs = useMemo<ResolvedNpc[]>(() => {
     if (!location || isTavern) return [];
-    const group = npcsByLocation[location.id];
+    const basePortId = location.id.replace(/_south$/, "");
+    const group = npcsByLocation[location.id] ?? npcsByLocation[basePortId];
     const hasOrin = partyOrder.includes("orin");
     const keepDefenders = HEROES.filter((h) => !partyOrder.includes(h.id));
     const list: ResolvedNpc[] = [];
@@ -431,6 +478,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
     setSelectedIdx(0);
     setActiveService(null);
     setOpenShopNpcId(null);
+    setHarborShopMode(null);
     setShowLore(false);
   }, [location?.id]);
 
@@ -439,6 +487,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
     audioEngine.playUiClick(0.24);
     setActiveService(null);
     setOpenShopNpcId(null);
+    setHarborShopMode(null);
     setShowLore(false);
     setSelectedIdx((i) => (i + delta + resolvedNpcs.length) % resolvedNpcs.length);
   };
@@ -528,7 +577,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
       armory: ["armorer", "smith", "forgemaster", "quartermaster"],
       mystic: ["mystic", "tome", "archive", "apothecary", "scholar"],
       arena: ["arena", "pit-master"],
-      port: ["harbor", "shipping", "sailor", "ferry", "dock"],
+      port: ["captain", "vessel", "shipping", "sailor", "ferry", "dock"],
     };
     const keys = roleKeywordMap[svc.id];
     const matchIdx = resolvedNpcs.findIndex((n) => keys.some((k) => n.displayRole.toLowerCase().includes(k)));
@@ -725,6 +774,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                     audioEngine.playUiClick(0.32);
                     setActiveService(null);
                     setOpenShopNpcId(null);
+                    setHarborShopMode(null);
                     setShowLore(false);
                     setSelectedIdx(idx);
                   }}
@@ -790,13 +840,13 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
             {/* Speaker / Active Shop / Town Lore Showcase Band */}
             <div
               className={
-                !showLore && selectedNpc && openShopNpcId === selectedNpc.id && selectedNpc.shopType
+                !showLore && selectedNpc && ((openShopNpcId === selectedNpc.id && selectedNpc.shopType) || harborShopMode)
                   ? "p-3 md:p-3.5 flex flex-col items-stretch h-[78vh] min-h-[500px] max-h-[740px]"
                   : "px-5 pt-4 pb-3.5 md:px-6 md:pt-4 md:pb-4 xl:px-7 xl:pt-5 xl:pb-4 flex flex-col md:flex-row items-center md:items-end gap-5 md:gap-7"
               }
             >
-              {!showLore && selectedNpc && openShopNpcId === selectedNpc.id && selectedNpc.shopType ? (
-                selectedNpc.shopType === "trade_goods" ? (
+              {!showLore && selectedNpc && ((openShopNpcId === selectedNpc.id && selectedNpc.shopType) || harborShopMode) ? (
+                (harborShopMode ?? selectedNpc.shopType) === "trade_goods" ? (
                   <TradeGoodsCounter
                     npc={{
                       id: selectedNpc.id,
@@ -808,30 +858,48 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                     tradeGoodCounts={tradeGoodCounts}
                     itemsById={itemsById}
                     onSellAll={onSellAllTradeGoods}
-                    onReturnDialogue={() => setOpenShopNpcId(null)}
+                    onReturnDialogue={() => {
+                      setOpenShopNpcId(null);
+                      setHarborShopMode(null);
+                    }}
                   />
                 ) : (
                   <ShopCounterPanel
-                    hub={location}
+                    hub={
+                      harborShopMode === "arcanist" && location.region == null
+                        ? {
+                            ...location,
+                            region: location.mapId === "map_02" ? 3 : location.mapId === "map_03" ? 5 : location.mapId === "map_04" ? 7 : 1,
+                          }
+                        : location
+                    }
                     npc={{
                       id: selectedNpc.id,
                       name: selectedNpc.displayName,
                       roleTitle: selectedNpc.displayRole,
                       category: selectedNpc.category,
                       portraitPath: selectedNpc.portraitPath,
-                      shopType: selectedNpc.shopType,
-                      shopLabel: selectedNpc.shopLabel,
+                      shopType: harborShopMode ?? selectedNpc.shopType,
+                      shopLabel: harborShopMode === "arcanist" ? "Harbor Field Supplies" : selectedNpc.shopLabel,
                     }}
-                    shopType={selectedNpc.shopType}
+                    shopType={(harborShopMode ?? selectedNpc.shopType)!}
                     partyOrder={partyOrder}
+                    partyLevel={partyLevel}
+                    heroLevels={heroLevels}
                     silver={silver}
                     items={items}
                     itemsById={itemsById}
                     spells={spells}
                     equippedByHero={equippedByHero}
                     learnedSpellIds={learnedSpellIds}
+                    disciplinesByHero={disciplinesByHero}
+                    chosenDisciplinesByHero={chosenDisciplinesByHero}
+                    onSelectDiscipline={onSelectDiscipline}
                     onBuy={onBuyShopEntry}
-                    onReturnDialogue={() => setOpenShopNpcId(null)}
+                    onReturnDialogue={() => {
+                      setOpenShopNpcId(null);
+                      setHarborShopMode(null);
+                    }}
                   />
                 )
               ) : showLore ? (
@@ -933,15 +1001,66 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                           </div>
                         </div>
 
-                        <p className="m-0 text-[15px] md:text-[15.5px] lg:text-[16.5px] leading-[1.62] text-[#e7edf7] border-l-2 border-[#c8a256] pl-4">
-                          {activeService.summary}
-                        </p>
+                        {activeService.id === "port" ? (
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            {PORT_ROUTES.filter((r) => r.mapId !== location.mapId).map((route) => {
+                              const destLoc =
+                                worldLocations.find((w) => w.id === route.id && w.placed && w.x !== null && w.y !== null) ??
+                                worldLocations.find((w) => w.id === `${route.id}_south` && w.placed && w.x !== null && w.y !== null);
+                              const curOrder = PORT_ROUTES.find((x) => x.mapId === location.mapId)?.order ?? 1;
+                              const isOutbound = route.order > curOrder;
+                              const gate = isOutbound ? OUTBOUND_PORTAL_GATE[location.mapId] : undefined;
+                              const portalSealed = gate ? sealedPortalIds.includes(gate.portalId) : true;
+                              const canSail = Boolean(destLoc && portalSealed && onSailToPort);
 
-                        <ul className="m-0 pl-4 list-disc marker:text-[#d7b267] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1.5 text-[13px] text-[#f3dfb1]">
-                          {activeService.highlights.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
+                              return (
+                                <div
+                                  key={route.id}
+                                  className="rounded border border-[#324056] bg-[#0e131d]/95 p-3 flex flex-col justify-between gap-2"
+                                >
+                                  <div>
+                                    <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#6ce0e8]">
+                                      {route.realm}
+                                    </div>
+                                    <div className="text-[13.5px] font-bold text-[#fae2aa] mt-0.5 leading-snug">
+                                      {route.title}
+                                    </div>
+                                  </div>
+                                  {canSail && destLoc ? (
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        audioEngine.playDoorOpen();
+                                        onSailToPort!(destLoc);
+                                      }}
+                                      className="px-3 py-1.5 rounded border border-[#5ac4d6] bg-[#163a47] hover:bg-[#1e5062] text-[#d6f8ff] text-[11.5px] font-bold uppercase tracking-wider cursor-pointer"
+                                    >
+                                      Set Sail (Free)
+                                    </button>
+                                  ) : (
+                                    <div className="text-[11px] font-semibold text-[#9aa8be]">
+                                      {!portalSealed && gate
+                                        ? `Seas Closed · Defeat ${gate.portalName}`
+                                        : "Harbor Route Uncharted"}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <>
+                            <p className="m-0 text-[15px] md:text-[15.5px] lg:text-[16.5px] leading-[1.62] text-[#e7edf7] border-l-2 border-[#c8a256] pl-4">
+                              {activeService.summary}
+                            </p>
+
+                            <ul className="m-0 pl-4 list-disc marker:text-[#d7b267] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1.5 text-[13px] text-[#f3dfb1]">
+                              {activeService.highlights.map((item) => (
+                                <li key={item}>{item}</li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
                       </>
                     ) : (
                       <>
@@ -1032,26 +1151,52 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                               <div className="text-[14.5px] font-bold text-[#f3dfb1]">{visibleService.title}</div>
                               <div className="text-[12.5px] text-[#adbed6] mt-0.5">{visibleService.subtitle}</div>
                             </div>
-                            {visibleService.id === "rest" ? (
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  onFreeRest(location.name);
-                                  setActiveService(visibleService);
-                                }}
-                                className="px-5 py-2.5 rounded border border-[#4eb987] bg-[#153526] hover:bg-[#1e4b36] text-[#b4f5d2] text-[13px] font-bold shrink-0 cursor-pointer transition-colors"
-                              >
-                                Rest Party
-                              </button>
-                            ) : (
-                              <button
-                                type="button"
-                                onClick={() => focusServiceNpc(visibleService)}
-                                className="px-4 py-2 rounded border border-[#8e7445] bg-[#1f1a11] hover:bg-[#2d2518] text-[#fae2a8] text-[12.5px] font-semibold shrink-0 cursor-pointer transition-colors"
-                              >
-                                Inspect {visibleService.title}
-                              </button>
-                            )}
+                            <div className="flex flex-wrap items-center gap-2 shrink-0">
+                              {visibleService.id === "rest" ? (
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    onFreeRest(location.name);
+                                    setActiveService(visibleService);
+                                  }}
+                                  className="px-5 py-2.5 rounded border border-[#4eb987] bg-[#153526] hover:bg-[#1e4b36] text-[#b4f5d2] text-[13px] font-bold shrink-0 cursor-pointer transition-colors"
+                                >
+                                  Rest Party
+                                </button>
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() => focusServiceNpc(visibleService)}
+                                  className="px-4 py-2 rounded border border-[#8e7445] bg-[#1f1a11] hover:bg-[#2d2518] text-[#fae2a8] text-[12.5px] font-semibold shrink-0 cursor-pointer transition-colors"
+                                >
+                                  Inspect {visibleService.title}
+                                </button>
+                              )}
+                              {selectedNpc.services.some((s) => /field supplies/i.test(s)) && (
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    audioEngine.playUiClick();
+                                    setHarborShopMode("arcanist");
+                                  }}
+                                  className="px-4 py-2.5 rounded border border-[#d7b267] bg-[#2a2112] hover:bg-[#3c2f18] text-[#fae4b0] text-[12.5px] font-bold uppercase tracking-wider shrink-0 cursor-pointer transition-colors"
+                                >
+                                  Field Supplies
+                                </button>
+                              )}
+                              {selectedNpc.services.some((s) => /trade goods/i.test(s)) && (
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    audioEngine.playUiClick();
+                                    setHarborShopMode("trade_goods");
+                                  }}
+                                  className="px-4 py-2.5 rounded border border-[#b89248] bg-[#211a0f] hover:bg-[#332716] text-[#f4d799] text-[12.5px] font-bold uppercase tracking-wider shrink-0 cursor-pointer transition-colors"
+                                >
+                                  Sell Trade Goods
+                                </button>
+                              )}
+                            </div>
                           </div>
                         ) : null}
                       </>

@@ -30,11 +30,11 @@
 
 ### The 6 Selectable Classes (Pick 4 for Your Journey — Pure Combat Roles)
 1. **Prince Valen** — *Duelist* (Versatile swordsman, high single-target pressure & speed)
-2. **Queen Ellowyn** — *Mystic* (Offensive elemental/arcane caster & protective wards)
-3. **Commander Orin** — *Bulwark* (Heavy shield protector & battlefield tactician)
-4. **Rowan *(Orin's Son)*** — *Archer* (Long-range sniper & critical hitter)
+2. **Queen Ellowyn** — *Sorceress* (Offensive elemental/arcane caster & protective wards)
+3. **Commander Orin** — *Knight* (Heavy shield protector & battlefield commander)
+4. **Rowan *(Orin's Son)*** — *Ranger* (Long-range sniper & critical hitter)
 5. **Mera *(The Queen's Handmaid)*** — *Druid* (Nature & wild-spirit caster — earth, wind, thorns & beast magic)
-6. **Harlan *(The Herbalist)*** — *Herbalist* (Healer, ailment cleanser & poison alchemist)
+6. **Harlan *(The Infirmary Herbalist)*** — *Sage* (Healer, ailment cleanser & poison/remedy caster)
 
 *(Every 4-class combination is viable across the game through Town Inns, potions, and Runestones/Accessories—no single class is mandatory.)*
 
@@ -63,7 +63,7 @@ Every playable space fits into one of three illustrated layers:
 ### Continent & Half-Map Sandbox + 8-Portal Progression
 * The `4` connected overworld maps span **8 Regions** covering Levels **1–99** (roughly **12 levels per Region**, culminating in **8 Major Portal Bosses**, with **King Garrick as Boss #8** guarding The Eclipse Gate).
 * **Open Half-Continent Sandbox + Fear-Gated Water Crossings:** Inside every unlocked landmass *(for example, Zones `1–3` across Map 1's eastern Crownlands continent at start)*, exploration is **free and open** across all local Hubs, Outposts, Quests, and danger sub-zones without linear side-story gates. Rather than artificial magic barriers or letting Level 3 parties wander into late-game oceans to die immediately, travel across water follows a grounded, believable danger rule based on **fear of unsafe waters**:
-  * **Inland Waterways (`Ferry Crossings`):** Nobody dares ferry travelers across the inland straits while monsters surge out of the first local rift—**ferrymen refuse to cross until that map's 1st Portal (`#1, #3, #5, #7` in Zones `3, 8, 13, 18`) is destroyed**. Once cleared, ferries carry you safely across to the second half (`Zones 4–5`, e.g., Crownlands $\to$ Saltmarsh on Map 1).
+  * **Inland Waterways (`Ferry Crossings`) & Map 4 Mountain Passes:** Nobody dares ferry travelers across the inland straits on **Maps 1–3** while monsters surge out of the first local rift—**ferrymen refuse to cross until that map's 1st Portal (`#1, #3, #5`) is destroyed**. On **Map 4**, **Dreadwaste & Black Keep (`Zones 19–20`)** sit completely enclosed behind volcanic mountain ridges rather than an open sea channel, so guarded **Border Mountain Pass Gates** open once **Portal #7 (`The Pale Abyss`, Zone 18)** is destroyed and place the party at each pass's exit spawn inside Dreadwaste.
   * **Open Ocean Voyages (`Sea-Port Towns` on Maps `1–3`):** No sea captain will weigh anchor into open ocean while the outer coast Portal still churns up sea-horrors—**captains refuse deep-water voyages until that map's last Portal (`#2, #4, #6` in Zones `5, 10, 15`) is destroyed**. Once destroyed, ships sail onward to the next continent (`Maps 2–4`) as well as back to any earlier unlocked harbor.
   * **Map 4 Return Port Logic (`Arctic Sea-Port Town`):** Map 4 is the final continent culminating at **Portal #8: The Eclipse Gate** in Dreadwaste (`Zone 20`)—no onward Map 5 exists past Map 4. Instead, arriving at **Arctic Sea-Port Town** opens return sea voyages back to **Map 1, Map 2, or Map 3** whenever you want to revisit earlier shops, arenas, or hunts. Opening each Portal always requires its local **Portal Catalyst Key Item** earned in that Portal's zone tier.
 * **Soft Danger Gating:** Each continent half is painted into escalating **5-Level Danger Zones (`20` total)**—venturing ahead within your half means facing tougher monsters until you earn silver, level up, and buy stronger town gear.
@@ -72,7 +72,7 @@ Every playable space fits into one of three illustrated layers:
 ### Exploration & Avatar Presentation
 * **Player & NPC Tokens:** Characters move **freely and smoothly** *(no hex or tile-snapping)* across gridless top-down D&D-style tactical maps as **circular VTT portrait tokens** with stylized rings, smooth glide motion, and interactive proximity triggers.
 * **Full-Token Terrain & Water Collision:** Impassable terrain (`Ocean`, `Inland Water`, `Impassable cliffs`) checks the **entire circular token footprint**—never just the token center—with smooth coastline sliding and shoreline-safe landing spots so token rims never overlap painted water. Linked **Ferry Crossings** omit separate riding-raft sprites and glide smoothly pier-to-pier, emerging cleanly on dry shore beside the destination dock.
-* **Encounter Danger Indicator:** A subtle UI meter shifts color as steps accumulate toward a triggered random battle, letting players anticipate fights instead of being blindsided right outside town gates.
+* **Classic Random Encounters *(Unannounced Wilds Hazard)*:** Outside safe Towns and Sanctuaries, hidden step-based encounters trigger unpredictably like classic Final Fantasy—zero warning bars or threat percentages on screen—while safe Towns and Sanctuaries keep exploration completely peaceful.
 
 ---
 
@@ -106,7 +106,7 @@ Combat balances classic RPG accessibility with tactical decisions so battles nev
   * **Grit:** Max HP, physical defense, and resistance to ailments/knockouts.
   * **Arcana:** Magic damage, mana pool, and elemental potency.
   * **Presence:** Healing & shielding potency, party aura/buff strength, Magic Defense, and Shadow/Curse resistance.
-* **Leveling Up:** Every level grants automatic baseline HP/MP growth plus **Stat Points** for the player to invest freely, alongside **Stat Mastery Perks** (`20/40/60/80/100`). All underlying combat and enemy scaling math is balanced centrally so Level 1 battles feel fair while Level 99 power feels earned.
+* **Leveling Up:** Every level grants automatic baseline HP/MP growth plus **Stat Points** for the player to invest freely, while **Arcanist Disciplines** unlock **`1` perk choice (`1`-of-`2` Body, Mind, or Spirit) every 10 levels** (**Lv `1, 10, 20… 90`** = `10` perks per hero). All underlying combat and enemy scaling math is balanced centrally so Level 1 battles feel fair while Level 99 power feels earned.
 
 ---
 
@@ -124,7 +124,7 @@ This loop ensures **silver, grinding, quests, and exploration** all feed into ea
    * **Left Hand** (**Global Shields** — `6` shield types across `24` steps usable by any class wielding a `1H` weapon; locked when wielding a `2H` weapon)
    * **Body** (**`23` shared Armor types** across Light, Medium, Heavy — `6` types per class × `4` upgrades each = `24` steps)
    * **Helmet** (**Matching Helmets** paired `4`-for-`4` with each Armor type)
-   * **1 Accessory Slot** (`24`-step class accessory: `Cloaks` Duelist, `Orbs` Mystic, `Horns` Bulwark, `Quivers` Archer, `Crystals` Druid, `Tomes` Herbalist)
+   * **1 Accessory Slot** (`24`-step class accessory: `Cloaks` Duelist, `Orbs` Sorceress, `Horns` Knight, `Quivers` Ranger, `Crystals` Druid, `Tomes` Sage)
 4. **Quests Reward "Pick 1 of 3" Randomized Runestones:**
    * Weapons and Body Armor each carry **1 Runestone Socket**.
    * Completing a quest presents **3 randomized Carved Runestones** scaled to that Region—and the player drafts **1 of the 3** to keep.

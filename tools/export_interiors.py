@@ -37,7 +37,7 @@ def parse_tavern_names() -> dict[str, str]:
 
 
 def export_interior_webps() -> dict[str, str]:
-    """Convert all 4K interior masters (41 Hubs + 20 Outposts = 61) in assets/maps/interiors/ to 2560x1440 WebPs."""
+    """Convert all 4K interior masters (41 Hubs + 20 Outposts + 4 Sea-Ports = 65) in assets/maps/interiors/ to 2560x1440 WebPs."""
     if not SRC_DIR.exists():
         raise FileNotFoundError(f"Missing interior masters directory: {SRC_DIR}")
 
@@ -49,8 +49,8 @@ def export_interior_webps() -> dict[str, str]:
         p for p in SRC_DIR.iterdir()
         if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png"} and not p.name.startswith("_rejected")
     )
-    if len(src_files) != 61:
-        raise ValueError(f"Expected 61 interior masters in {SRC_DIR}, found {len(src_files)}.")
+    if len(src_files) != 65:
+        raise ValueError(f"Expected 65 interior masters in {SRC_DIR}, found {len(src_files)}.")
 
     for src in src_files:
         dst = DST_DIR / f"{src.stem}.webp"
@@ -115,8 +115,9 @@ def wire_world_locations(
     wired_taverns = 0
     for loc in world.get("locations", []):
         lid = loc.get("id")
-        if exported_interiors and lid in exported_interiors:
-            loc["interiorAssetPath"] = exported_interiors[lid]
+        base_lid = re.sub(r"_south$", "", str(lid or ""))
+        if exported_interiors and (lid in exported_interiors or base_lid in exported_interiors):
+            loc["interiorAssetPath"] = exported_interiors.get(lid) or exported_interiors[base_lid]
             wired_interiors += 1
         if exported_taverns and lid in exported_taverns:
             t_path, t_name = exported_taverns[lid]

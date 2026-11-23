@@ -23,9 +23,9 @@ Damage types govern **armor mitigation, enemy weaknesses, and Runestone synergie
 | **Fire** | Pyromancy, fire weapons/runestones | High burst damage and **Burn** pressure; strong vs. beasts, flora, and frost foes. |
 | **Frost** | Cryomancy, cold weapons/runestones | Chills enemies, **pushing their turns back** on the timeline. |
 | **Lightning** | Storm spells, shock weapons/runestones | Fast precision strikes; disrupts casting/guards and punishes heavy metal armor. |
-| **Poison** | Herbalist brews, venom weapons, beasts | Lingering **Poison** damage-over-time and weakens enemy physical output. |
+| **Poison** | Sage brews & toxins, venom weapons, beasts | Lingering **Poison** damage-over-time and weakens enemy physical output. |
 | **Shadow** | Dark magic, Garrick's undead & portal foes | Saps vitality, applies **Curse**, and bypasses conventional armor. |
-| **Radiant** | Mystic wards, light/spirit skills | Counters **Shadow** and deals bonus damage to **undead & portal horrors**. |
+| **Radiant** | Sorceress & Sage wards, light/spirit skills | Counters **Shadow** and deals bonus damage to **undead & portal horrors**. |
 
 ### Weakness & Resistance Multipliers
 * **Weakness (`1.5×` damage):** Also chips **1 Guard point** off armored/elite enemies and reveals that weakness permanently on the enemy's info card.
@@ -38,54 +38,24 @@ Damage types govern **armor mitigation, enemy weaknesses, and Runestone synergie
 ## 2. The 5 Core Attributes (`1` to `99+`)
 
 All 6 selectable heroes start at **Level 1** with **`1` point in every attribute**.  
-Every single `+1` point you invest gives an immediate combat improvement (zero "dead" points), **and** hitting **`20 / 40 / 60 / 80 / 100`** in any attribute unlocks a permanent **Mastery Perk**.
+Every single `+1` point you invest gives an immediate combat improvement (zero "dead" points)—all hero perks come cleanly from **Arcanist Disciplines** (`1` Body, Mind, or Spirit choice at **Lv `1, 10, 20, 30, 40, 50, 60, 70, 80, 90`** = `10` total perks per hero), innate **Resolve** thresholds, and equipped **Runestones**.
 
 *(Balance Safeguard: Percentage perks like Dodge, Crit Chance, and Resistance use smooth caps so Level 99 heroes feel legendary without becoming invincible, while raw damage, HP, MP, speed, defense, and healing keep climbing.)*
 
 ### 1. Force *(Physical Power & Posture)*
-* **Every `+1` Point Gives:** `+1.5%` physical weapon & skill damage (especially **Slashing** and **Bludgeoning** weapons) + stronger knockback/Guard pressure.
-* **Attribute Mastery Intervals:**
-  * **`20 Force`:** Heavy melee strikes deal `+10%` bonus damage to Guarded/Shielded foes.
-  * **`40 Force`:** Standard Attacks have a `20%` chance to knock an enemy back or chip an extra Guard pip.
-  * **`60 Force`:** Ignore `15%` of enemy Physical Defense.
-  * **`80 Force`:** Breaking an enemy's Guard grants the hero an immediate **Momentum** charge (`+25%` next hit).
-  * **`100 Force`:** Melee critical hits cleave `25%` of damage onto an adjacent enemy.
+* **Every `+1` Point Gives:** `+1.5%` physical weapon & skill damage (especially **Slashing** and **Bludgeoning** weapons) + stronger Guard pressure.
 
 ### 2. Finesse *(Speed, Precision & Criticals)*
 * **Every `+1` Point Gives:** `+1` Turn Timeline Speed, `+0.5%` Accuracy, `+0.3%` Dodge *(capped at `+25%` from Finesse)*, `+0.4%` Crit Chance *(capped at `+35%` from Finesse)*, and `+1.2%` **Piercing** weapon damage (bows/daggers).
-* **Attribute Mastery Intervals:**
-  * **`20 Finesse`:** Always act earlier in the opening turn of normal ambushes/battles (`+15` opening initiative).
-  * **`40 Finesse`:** Critical hits deal `+20%` bonus damage.
-  * **`60 Finesse`:** Dodging an attack immediately shifts your next turn forward on the timeline.
-  * **`80 Finesse`:** First Attack or Skill in every battle gains `+25%` Critical Chance.
-  * **`100 Finesse`:** Critical hits trigger a free follow-up pierce/bleed strike (or refund `10%` of spell MP cost for casters).
 
 ### 3. Grit *(Health, Armor & Survival)*
 * **Every `+1` Point Gives:** `+12` Max HP, `+1` Physical Defense, and `+0.5%` resistance to **Poison, Burn, Chill, and Stun** *(capped at `+50%` from Grit)*.
-* **Attribute Mastery Intervals:**
-  * **`20 Grit`:** Guarding reduces incoming damage by `60%` instead of `50%`.
-  * **`40 Grit`:** Recover `5%` Max HP automatically at the end of every victorious battle.
-  * **`60 Grit`:** **Last Stand** — Once per battle, survive a lethal hit with `1 HP` instead of being Knocked Out *(synergizes with Critical Resolve!)*.
-  * **`80 Grit`:** Poison and Burn damage taken each turn is cut by `35%`.
-  * **`100 Grit`:** Reduce all incoming physical damage by a flat `15%`.
 
 ### 4. Arcana *(Magic Power & Mana Pool)*
 * **Every `+1` Point Gives:** `+4` Max MP and `+1.6%` offensive magic damage across all 6 elemental/magic types (**Fire, Frost, Lightning, Poison, Shadow, Radiant**).
-* **Attribute Mastery Intervals:**
-  * **`20 Arcana`:** Recover `3` MP every time you use **Guard**.
-  * **`40 Arcana`:** Offensive spells can now land **Critical Hits** (`1.5×` damage).
-  * **`60 Arcana`:** Hitting an enemy's Elemental Weakness restores `5%` Max MP.
-  * **`80 Arcana`:** Status effects applied by your spells (**Burn, Chill, Shock, Poison, Curse**) last `+1` extra turn.
-  * **`100 Arcana`:** Once per battle, your first spell while Battered (`<50% HP`) costs `0 MP`.
 
 ### 5. Presence *(Healing, Buffs & Magic Defense)*
 * **Every `+1` Point Gives:** `+1.5%` Healing & Shielding potency, `+1%` Aura/Buff strength, `+1` **Magic Defense**, and `+0.5%` **Shadow/Curse** resistance *(capped at `+50%` from Presence)*.
-* **Attribute Mastery Intervals:**
-  * **`20 Presence`:** Healing and shielding skills used on allies Battered (`<50% HP`) gain `+20%` bonus potency.
-  * **`40 Presence`:** Healing skills/items used by this hero also cleanse `1` minor ailment when the target is below `50%` HP.
-  * **`60 Presence`:** Party-wide buffs applied by this hero last `+1` extra turn.
-  * **`80 Presence`:** Active allies gain `+10%` resistance to Stun & Curse.
-  * **`100 Presence`:** Reviving a Knocked Out ally restores them to `50% HP` instead of low HP and grants them immediate Momentum.
 
 ---
 
@@ -109,19 +79,19 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 
 | Level | Earned Points | Total Stat Budget | Base HP *(+Grit)* | Base MP *(+Arcana)* | Unlocks / Milestones |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | `0` | `5` *(all `1`s)* | `35` *(~47 total)* | `15` *(casters ~19 total)* | **1 Accessory Slot**; equipped weapon attack modes *(Casters learn their Tier 1 spells naturally — zero shop Tomes)* |
-| **10** | `20` | `25` | `197` | `42` | First `20`-pt Mastery perk reachable |
-| **20** | `42` | `47` | `377` | `72` | Region 2–3 shop gear milestone |
-| **30** | `64` | `69` | `557` | `102` | First `40`-pt Mastery perk reachable |
-| **40** | `86` | `91` | `737` | `132` | Mid-game shop gear & spell tier milestone |
-| **50** | `108` | `113` | `917` | `162` | `60`-pt Mastery reachable; Region 5 shop gear milestone |
-| **60** | `130` | `135` | `1,097` | `192` | High-tier shop gear & spell upgrades |
-| **70** | `152` | `157` | `1,277` | `222` | `80`-pt Mastery perk reachable |
-| **80** | `174` | `179` | `1,457` | `252` | Endgame gear & Region 8 spell tier |
-| **90** | `196` | `201` | `1,637` | `282` | `100`-pt Capstone Mastery reachable |
+| **1** | `0` | `5` *(all `1`s)* | `35` *(~47 total)* | `15` *(casters ~19 total)* | **Discipline Tier `1`**; **1 Accessory Slot**; equipped weapon attack modes |
+| **10** | `20` | `25` | `197` | `42` | **Discipline Tier `2`** (`1`-of-`2` Arcanist choice) |
+| **20** | `42` | `47` | `377` | `72` | **Discipline Tier `3`**; Region 2–3 shop gear milestone |
+| **30** | `64` | `69` | `557` | `102` | **Discipline Tier `4`** |
+| **40** | `86` | `91` | `737` | `132` | **Discipline Tier `5`**; Mid-game shop gear & spell tier milestone |
+| **50** | `108` | `113` | `917` | `162` | **Discipline Tier `6`**; Region 5 shop gear milestone |
+| **60** | `130` | `135` | `1,097` | `192` | **Discipline Tier `7`**; High-tier shop gear & spell upgrades |
+| **70** | `152` | `157` | `1,277` | `222` | **Discipline Tier `8`** |
+| **80** | `174` | `179` | `1,457` | `252` | **Discipline Tier `9`**; Endgame gear & Region 8 spell tier |
+| **90** | `196` | `201` | `1,637` | `282` | **Discipline Tier `10`** *(Final Arcanist Capstone Perk)* |
 | **99** | `215` | `220` | `1,799` *(~2,500–3,200+)* | `309` *(~450–700+)* | **Max Level Cap** |
 
-* **Weapon Styles & Caster Spell Unlocks:** Martial heroes (**Valen, Orin, Rowan**) fight with their **equipped weapon's 2 unique `0 MP` Attack Modes** plus Stat Mastery Perks, Runestones, and Accessories; **Ellowyn (`Mystic`), Mera (`Druid`), and Harlan (`Herbalist`)** each unlock their own unique 8-tier spell pool naturally as they level across the 8 Regions (zero shop-bought spells — detailed in `docs/05-cast-and-skills.md`).
+* **Weapon Styles & Caster Spell Unlocks:** Martial heroes (**Valen, Orin, Rowan**) fight with their **equipped weapon's 2 unique `0 MP` Attack Modes** plus **10 Arcanist Discipline Perks** (`Lv 1, 10… 90`), Runestones, and Accessories; **Ellowyn (`Sorceress`), Mera (`Druid`), and Harlan (`Sage`)** also wield their own 8-tier spell pool across the 8 Regions (detailed in `docs/05-cast-and-skills.md`).
 
 ---
 
@@ -140,7 +110,7 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 ### Telegraphed Attacks, Guarding & Guard Break
 * **Telegraphed Boss Moves:** Dangerous enemy attacks display a warning marker on the turn timeline one turn before firing.
 * **Meaningful Guard:** Selecting **Guard** halves incoming damage (plus extra mitigation from `Grit`), resists timeline knockback, and grants **Momentum** (acts slightly faster next turn with `+25%` damage on the hero's next Weapon Attack or Spell).
-* **Enemy Guard Gauge & Stagger:** Elite foes and Portal Bosses carry **2–5 Guard pips**. Hitting their **Weaknesses** breaks a pip; breaking all pips **Staggers** the enemy for 1 full turn (**skips their next action** and increases all damage they take by **`1.5×`**).
+* **Enemy Guard Gauge & Stagger:** Elite foes and Portal Bosses carry **2–5 Guard points**. Hitting their **Weaknesses** breaks a point; breaking all points **Staggers** the enemy for 1 full turn (**skips their next action** and increases all damage they take by **`1.5×`**).
 
 ---
 
@@ -154,9 +124,9 @@ Every hero's active `2×2` token cell tracks their current HP percentage—and c
 | **74% – 50% HP** | Cell 2 (Lightly Hurt) | First cuts & grime visible; warning indicator. |
 | **49% – 25% HP** | Cell 3 (Battered) | **Resolve Tier 1 Activates:** Class-specific passive awakens. |
 | **24% – 1% HP** | Cell 4 (Critical) | **Resolve Tier 2 Activates:** Stronger comeback bonus triggers. |
-| **0 HP** | Dimmed / Grayscale Cell 4 | **Knocked Out:** Cannot act until revived via Herbalist skill or Revival Item. |
+| **0 HP** | Dimmed / Grayscale Cell 4 | **Knocked Out:** Cannot act until revived via Sage skill or Revival Item. |
 
-*(Each of the 6 classes gets a unique Resolve theme defined in `docs/05-cast-and-skills.md`—for example, heavy counter-damage for Valen, cheaper/stronger spells for Ellowyn, desperate healing surges for the Herbalist.)*
+*(Each of the 6 classes gets a unique Resolve theme defined in `docs/05-cast-and-skills.md`—for example, heavy counter-damage for Valen, cheaper/stronger spells for Ellowyn, desperate healing surges for Harlan.)*
 
 ---
 
@@ -179,7 +149,7 @@ Status ailments stay clean, readable, and impactful (never bloated):
 
 * **Shop Gear Sets Your Baseline Power:** Weapons provide the core **Attack Power** and Attire provides the core **Armor Defense** expected for that Realm's Danger Sub-Zones. Walking into Realm 2's Deep Frontier wearing Realm 1 Tier-2 gear will hurt—forcing players to earn silver and upgrade in town.
 * **Your 5 Stats Multiply & Shape Your Build:** `Force`, `Finesse`, `Grit`, `Arcana`, and `Presence` determine *who* excels with *which* gear, how fast you move, how hard you crit, and how well you survive.
-* **Quest Runestones Shape Builds:** With roughly 180–200 Runestones earned across the world's 40 Hubs, socketing a Runestone is a committed build choice—inserting a Runestone is permanent (and slotting a new one overwrites and destroys the old Runestone), adding special combat mechanics (lifesteal, elemental infusion, Resolve synergy, Guard-pip breaking) onto whatever gear you choose to invest in.
+* **Quest Runestones Shape Builds:** With roughly 180–200 Runestones earned across the world's 40 Hubs, socketing a Runestone is a committed build choice—inserting a Runestone is permanent (and slotting a new one overwrites and destroys the old Runestone), adding special combat mechanics (lifesteal, elemental infusion, Resolve synergy, Guard-point breaking) onto whatever gear you choose to invest in.
 
 ---
 
@@ -195,7 +165,7 @@ Status ailments stay clean, readable, and impactful (never bloated):
   * **Active Quest / Hunt Bypass:** Whenever the player has an active **Hub Quest** or **Zone Outpost Hunt** for that Zone, Zone Stealth is ignored (`100%` normal encounter buildup) so questing and repeatable hunts never slow down. *(Instanced `1:1` Dungeons & Portals are unaffected.)*
 * **Coastal Encounter Buffer *(4-Hex Ocean Adjacency — No Beach Tracking Needed)*:**
   * Painted **Beach** biomes (`Sandy Cove Beaches`, `Veridian Coast Beaches`, `Frost-Shore Beaches`) remain intact for map clarity and the live HUD **Biome** readout (`see docs/09`), but encounter spawning does **not** track or multiply spawns specifically on Beach tiles (`zero special Beach-only triggers or cooldowns`).
-  * **Within `4` Hexes of Ocean:** Any walkable terrain within **`4` painted hexes of Ocean water (`kind: "ocean"`)** is treated as coastal range and can spawn that Zone's **coastal mobs** *(when the Zone/Region includes coastal species)* alongside its current land biome pool under normal **Encounter Danger Indicator** buildup and **Zone Stealth** pacing.
+  * **Within `4` Hexes of Ocean:** Any walkable terrain within **`4` painted hexes of Ocean water (`kind: "ocean"`)** is treated as coastal range and can spawn that Zone's **coastal mobs** *(when the Zone/Region includes coastal species)* alongside its current land biome pool under classic invisible step-based random encounters and **Zone Stealth** pacing.
   * **No Map `4` Beach-Only Pool Required:** Regions without distinct coastal beasts (such as **Map `4`'s** tiny frost-shore slivers) simply pull from their Zone's normal adjacent biome tables.
 
 | Level Step | XP Required for Next Level | Avg Natural Fights per Level | Region Context |
@@ -237,6 +207,6 @@ Status ailments stay clean, readable, and impactful (never bloated):
 * **Healing Raw:** `(Weapon_Heal + 6 + Hero_Level × 1.4) × (1 + Presence × 0.015) × Heal_Multiplier`
 * **Mitigation:** `Final_Damage = Raw × (100 / (100 + Target_Defense × 0.5)) × Weakness_Multiplier`
   * *Target_Defense* = `Body_Def + Helmet_Def + Shield_Def + Grit` *(Physical)* or `Body_MDef + Helmet_MDef + Presence` *(Magic)*.
-  * *Critical Hit:* `1.5×` *(raised by Finesse 40 mastery, Runestones, and Quivers)*.
+  * *Critical Hit:* `1.5×` *(raised by Discipline Perks, Runestones, and Quivers)*.
   * *Staggered Bonus:* `1.5×` damage while enemy Guard is broken.
   * *Skill Multipliers (Standard Baseline):* Basic Attack Mode A `1.0×` | Basic Mode B `1.35×` | Single-Target Skills `1.3× – 2.2×` | Multi-Target Group AoE `0.95× – 1.35×` | Full-Field AoE `0.85× – 1.25×`.

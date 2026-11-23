@@ -1,0 +1,147 @@
+import React, { useEffect } from "react";
+import { assetUrl } from "../api";
+import { getHeroById } from "../heroes";
+import { hideClientItemTooltip, itemTooltipHandlers } from "../shops/itemTooltip";
+import { cleanDamageTypeLabel, getWeaponAbilityIconPath, MAX_SPELLS_PER_REGION, WEAPON_ATTACK_MODES } from "../shops/shopLogic";
+import type { EquippedGearMap, HeroId, ItemEntry, SpellEntry } from "../types";
+
+interface WeaponsSpellsTabProps {
+  heroId: HeroId;
+  equippedByHero: EquippedGearMap;
+  itemsById: Record<string, ItemEntry>;
+  spells: SpellEntry[];
+  learnedSpellIds: string[];
+}
+
+export const WeaponsSpellsTab: React.FC<WeaponsSpellsTabProps> = ({
+  heroId,
+  equippedByHero,
+  itemsById,
+  spells,
+  learnedSpellIds,
+}) => {
+  useEffect(() => () => hideClientItemTooltip(), []);
+
+  const hero = getHeroById(heroId);
+  const wpnId = equippedByHero[heroId]?.right_hand;
+  const wpn = wpnId ? itemsById[wpnId] : undefined;
+  const modes = (wpn && WEAPON_ATTACK_MODES[wpn.subType]) ?? WEAPON_ATTACK_MODES.Unarmed;
+  const dmgLabel = cleanDamageTypeLabel(wpn?.damageType ?? "Bludgeoning");
+  const canCast = hero.baseMp > 0 || heroId === "ellowyn" || heroId === "mera" || heroId === "harlan";
+
+  // Strictly show ONLY spells already learned — never preview unlearned/future spells
+  const learnedSet = new Set(learnedSpellIds);
+  const heroSpells = spells.filter((sp) => (sp.usableBy ?? []).includes(heroId) && learnedSet.has(sp.id));
+
+  return (
+    <section className="flex-1 min-w-0 rounded border border-[#323a4b] bg-[#11151f]/95 p-4 flex flex-col gap-3 overflow-y-auto">
+      {/* Header */}
+      <div className="flex items-center gap-3 border-b border-[#293040] pb-2.5 shrink-0">
+        <img
+          src={assetUrl(hero.avatarPath)}
+          alt={hero.name}
+          className="w-[50px] h-[50px] rounded border border-[#8a703e] object-cover shrink-0 bg-[#0b0e14]"
+          draggable={false}
+        />
+        <div className="min-w-0">
+          <h3 className="font-display m-0 text-[17px] text-[#fae2aa] tracking-wide truncate">
+            {hero.name}&apos;s Weapon Attacks &amp; Spells
+          </h3>
+          <div className="text-[12px] text-[#aebad0]">
+            Active Weapon: <strong className="text-[#fae2aa]">{wpn ? wpn.name : "None Equipped (Unarmed)"}</strong> ({dmgLabel})
+          </div>
+        </div>
+      </div>
+
+      {/* 0 MP Weapon Attack Modes */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+        <div className="rounded border border-[#343c4e] bg-[#141925] p-3 flex items-center gap-3">
+          <div className="w-[44px] h-[44px] rounded border border-[#5d4c30] bg-[#0b0e14] overflow-hidden flex items-center justify-center shrink-0">
+            <img
+              src={assetUrl(wpn ? getWeaponAbilityIconPath(wpn.subType, 0) : "assets/icons/ui/ui_01_weapon_slot_glyph.webp")}
+              alt=""
+              className={wpn ? "w-full h-full object-cover" : "w-[34px] h-[34px] object-contain"}
+              draggable={false}
+            />
+          </div>
+          <div className="min-w-0">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-[#d9b86c]">Weapon Attack · Fast</div>
+            <div className="text-[14px] font-bold text-[#fae2aa] truncate">{modes[0]}</div>
+            <div className="text-[11px] text-[#9fb0c8]">Quick {dmgLabel} strike that keeps turn speed high.</div>
+          </div>
+        </div>
+
+        <div className="rounded border border-[#343c4e] bg-[#141925] p-3 flex items-center gap-3">
+          <div className="w-[44px] h-[44px] rounded border border-[#5d4c30] bg-[#0b0e14] overflow-hidden flex items-center justify-center shrink-0">
+            <img
+              src={assetUrl(wpn ? getWeaponAbilityIconPath(wpn.subType, 1) : "assets/icons/ui/ui_01_weapon_slot_glyph.webp")}
+              alt=""
+              className={wpn ? "w-full h-full object-cover" : "w-[34px] h-[34px] object-contain"}
+              draggable={false}
+            />
+          </div>
+          <div className="min-w-0">
+            <div className="text-[10px] font-bold uppercase tracking-wider text-[#d9b86c]">Weapon Attack · Heavy</div>
+            <div className="text-[14px] font-bold text-[#fae2aa] truncate">{modes[1]}</div>
+            <div className="text-[11px] text-[#9fb0c8]">Forceful {dmgLabel} strike with stronger Guard break.</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Spells Section (Only Learned Spells) */}
+      {!canCast ? (
+        <div className="rounded border border-[#2c3344] bg-[#0e121a] p-3.5 text-[12px] text-[#c5d0e2] leading-relaxed">
+          <strong className="text-[#fae2aa]">Martial Fighter ({hero.className})</strong>
+          <div className="mt-1">
+            {hero.name} fights without MP—relying on equipped weapon attacks, Carved Runestones, and Wounded Resolve bonuses.
+          </div>
+        </div>
+      ) : heroSpells.length === 0 ? (
+        <div className="rounded border border-[#2c3344] bg-[#0e121a] p-3.5 text-[12px] text-[#c5d0e2] leading-relaxed">
+          <strong className="text-[#fae2aa]">Learned Spells (0)</strong>
+          <div className="mt-1">No spells learned yet. Visit a Town Magic Shop to learn spells for {hero.name}.</div>
+        </div>
+      ) : (
+        <div className="flex flex-col gap-2 min-h-0 flex-1">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="text-[11.5px] font-bold uppercase tracking-[0.12em] text-[#fae2aa]">
+              Learned Spells ({heroSpells.length} / 16)
+            </span>
+            <span className="text-[10.5px] text-[#9eb0c9]">Up to {MAX_SPELLS_PER_REGION} spells learned per Region Tier (T1–T8)</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 overflow-y-auto pr-1">
+            {heroSpells.map((sp) => (
+              <div
+                key={sp.id}
+                className="rounded border border-[#2c364d] bg-[#141925] p-2.5 flex items-center gap-2.5"
+                {...itemTooltipHandlers(
+                  { ...sp, isSpell: true },
+                  { learnedSpellIds }
+                )}
+              >
+                <img
+                  src={assetUrl(sp.iconPath)}
+                  alt={sp.name}
+                  className="w-[40px] h-[40px] rounded border border-[#3a4a6e] bg-[#0b0e14] object-cover shrink-0"
+                  draggable={false}
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[13px] font-bold text-[#f3e2b7] truncate">{sp.name}</span>
+                    <span className="text-[10.5px] font-bold text-[#82bdff] shrink-0">
+                      T{sp.region} · {sp.mpCost} MP
+                    </span>
+                  </div>
+                  <div className="text-[10.5px] text-[#9eb0c9]">
+                    {sp.subType} · {cleanDamageTypeLabel(sp.damageType)}
+                  </div>
+                  <div className="text-[11px] text-[#c6d1e3] mt-0.5 line-clamp-2">{sp.effect}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};

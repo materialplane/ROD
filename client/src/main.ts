@@ -2,6 +2,16 @@ import { app, BrowserWindow, ipcMain, Menu, IpcMainInvokeEvent } from "electron"
 import * as fs from "fs";
 import * as path from "path";
 
+export interface RunestoneSaveData {
+  id: string;
+  name: string;
+  tier: string;
+  target: "weapon" | "armor";
+  affix: string;
+  iconPath: string;
+  sellSilver?: number;
+}
+
 export interface SaveSlotData {
   slotId: string;
   label: string;
@@ -12,11 +22,21 @@ export interface SaveSlotData {
   partyOrder?: string[];
   discoveredLocations?: string[];
   acceptedQuestIds?: string[];
+  sealedPortalIds?: string[];
   silver?: number;
   equippedByHero?: Record<string, Record<string, string>>;
   bagCounts?: Record<string, number>;
   learnedSpellIds?: string[];
   tradeGoodCounts?: Record<string, number>;
+  heroSpentAttrs?: Record<string, Record<string, number>>;
+  socketsByHero?: Record<string, { weapon?: RunestoneSaveData | null; armor?: RunestoneSaveData | null }>;
+  runestonesBag?: RunestoneSaveData[];
+  heroHpPct?: Record<string, number>;
+  heroMpPct?: Record<string, number>;
+  chosenDisciplinesByHero?: Record<string, Record<string, string>>;
+  heroLevels?: Record<string, number>;
+  heroXp?: Record<string, number>;
+  partyXp?: number;
   level: number;
   x: number;
   y: number;

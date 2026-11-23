@@ -1,69 +1,70 @@
 # ROD — 16:9 Sea-Port Travel Interior Scenes (4 Dedicated Harbor Quays)
 # Target Pipeline: Gemini Batch API (50% off, models/gemini-3-pro-image, Pro 4K, 16:9) AFTER explicit Creative Director approval
 # Reference Anchor: Attach assets/ui/menu_background_16x9_4k_v2.png for consistent Runeterra brushwork, chiaroscuro, and sunset warmth.
-# UI Layout Mandate: Keep the lower ~25% foreground calm, broad, darkly shadowed stone quay slabs or weathered wharf planks so the Sea Captain & Port Clerk avatar cards and voyage menu sit cleanly without visual clutter.
+# Token Continuity: Each 16:9 harbor interior strictly matches the architecture, roofs, piers, ground material, and landmarks visible on its Overworld token (.webp).
+# UI Layout Mandate: Keep the lower ~25% foreground calm and darkly shadowed so the Sea Captain & Port Clerk avatar cards and voyage menu sit cleanly without visual clutter.
 # Strictly Uninhabited: Zero sailors, guards, or crowds inside the scene; zero painted text, signs, or readable lettering.
 
 SHARED STYLE HEADER (Pure positive high-contrast League of Legends / Runeterra splash key art):
-16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled oak pilings and twisted hemp rope fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, weathered timber grain and hemp rigging fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden sunset shafts in crystal-clear air.
 
 
 ================================================================================
-MAP 1 -> MAP 2 | ROYAL TRADE PORT TOWN QUAY (Saltmarsh Deepwater Pier)
+MAP 1 -> MAP 2 | ROYAL TRADE PORT TOWN (Matches tr_port_map01_royal_trade.webp)
 ================================================================================
 
 --------------------------------------------------------------------------------
 [01] ID: tr_port_map01_royal_trade | Royal Trade Port Town (Saltmarsh Coast · Map 1 Departure Quay)
 --------------------------------------------------------------------------------
 --- COPY-PASTE PROMPT START ---
-16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled oak pilings and twisted hemp rope fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, weathered timber grain and hemp rigging fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden sunset shafts in crystal-clear air.
 
-COMPOSITION & HARBOR QUAY FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing on the stone Royal Trade harbor quay at dramatic golden sunset. Broad, calm, darkly shadowed chiseled limestone quay flagstones, heavy iron mooring rings, and neatly coiled thick hemp hawsers anchor an uncluttered lower foreground leading toward the open deepwater channel.
+COMPOSITION & COBBLESTONE QUAY FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing inside Royal Trade Port Town beside the harbor seawall at golden twilight. Calm, darkly shadowed worn gray cobblestone terrace pavers bordered by lush green coastal grass anchor an uncluttered lower foreground looking straight out toward the water.
 
-CUSTOMHOUSE & SIGNAL BEACON (LEFT FOREGROUND): Framing the left side stands a fortified Crownlands trade customhouse built from weathered gray-ochre limestone ashlar and steep indigo-slate gable roofs beside a cylindrical stone harbor signal tower burning a warm amber beacon lantern. Beneath heavy arched oak warehouse doorways glow warm wrought-iron wall sconces casting golden highlights across strapped oak sea-chests, iron-bound spice barrels, and carved royal crest stonework devoid of any painted lettering.
+GREEN-ROOFED TIMBER PORT HOUSES (LEFT FOREGROUND): Framing the left sit cozy dark-timber-and-white-plaster Crownlands port cottages topped with steeply pitched deep forest-green shingled roofs, warm amber windowpanes, and neat stone foundation sills nestled beside rounded leafy green coastal trees.
 
-MOORED MERCHANT CARRACK & OPEN SEA (CENTER & RIGHT): Tied cleanly along tarred oak pier pilings at right-center floats a sturdy twin-masted wooden Crownlands trade carrack with furled cream canvas sails, taut tarred rigging lines, and lantern-lit quarterdeck galleries catching fierce sunset rim fire over calm glassy indigo-slate harbor waters stretching toward distant coastal silhouettes on the horizon.
+LOW STONE SEAWALL, TWIN WOODEN PIERS & LIGHTHOUSE (CENTER & RIGHT): Running across center stands a low carved gray-stone harbor seawall opening onto two sturdy parallel brown-oak wooden piers stretching cleanly over deep calm blue sea water. Rising heroically on the grassy right headland stands a tall cylindrical gray-stone lighthouse with narrow arched slits, a pointed slate cap, and a brightly glowing warm-amber beacon lantern shining over open blue harbor waters against warm twilight clouds.
 --- COPY-PASTE PROMPT END ---
 
 
 ================================================================================
-MAP 2 -> MAP 3 | HIGHLAND COVE PORT TOWN QUAY (Cliffside Deepwater Pier)
+MAP 2 -> MAP 3 | HIGHLAND COVE PORT TOWN (Matches tr_port_map02_highland_cove.webp)
 ================================================================================
 
 --------------------------------------------------------------------------------
 [02] ID: tr_port_map02_highland_cove | Highland Cove Port Town (Verdant Weald Coast · Map 2 Departure Quay)
 --------------------------------------------------------------------------------
 --- COPY-PASTE PROMPT START ---
-16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled oak pilings and twisted hemp rope fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, weathered timber grain and hemp rigging fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden sunset shafts in crystal-clear air.
 
-COMPOSITION & CLIFFSIDE JETTY FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing at the edge of Highland Cove's sheltered stone-and-timber sea jetty carved beneath steep coastal highlands at blazing late afternoon sunset. Calm, darkly shadowed rough slate slabs, iron-banded timber wharf beams, and coiled mooring lines fill a quiet uncluttered lower foreground beside still dark cove water.
+COMPOSITION & SANDY HARBOR YARD FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing in the sheltered dirt harbor courtyard of Highland Cove at warm late golden sunset. Calm, darkly shadowed packed ochre-sand earth scattered with subtle wheel ruts anchors a wide, quiet lower foreground leading up toward the low cut-stone seawall.
 
-ROCK-CUT BOATHOUSE & HARBOR DERRICK (LEFT FOREGROUND): Anchoring the left rises a rugged stratified slate-and-moss cliff face hollowed with deeply vaulted stone harbor storehouses framed in crooked aged highland oak beams, hanging iron chain lanterns, stacked salted supply casks, and a sturdy timber-and-iron cargo pulley crane silhouetted crisply against glowing amber cave mouths and lush emerald cliffside ferns overhead.
+CHIMNEYED STONE STOREHOUSES & WORKSHOPS (LEFT & RIGHT FOREGROUND): Flanking the left and right edges stand warm weathered plaster-and-stone highland port houses crowned with rough gray-slate shingled roofs, one sun-bleached plank roof on the right, heavy timber double doors, and sturdy pale-stone square chimneys glowing gently along sunlit eaves while casting deep shadows across stacked oak crates and coiled mooring ropes beside the seawall.
 
-NORTHERN BRIGANTINE & HEADLANDS (CENTER & RIGHT): Moored cleanly along weather-beaten iron-capped pilings on the right rests a stout double-masted northern trade brigantine built of dark tarred pine and riveted bronze trim, its gangplank lowered firmly toward the pier against sweeping golden-lit coastal bluffs and calm reflective twilight channel water fading into purple distance.
+WOODEN HARBOR CRANE & SINGLE PIER (CENTER & COVE WATER): Jutting cleanly from the center stone quay edge stretches a weathered wooden plank pier into calm deep-blue cove water, towered on its left corner by a tall sturdy timber harbor pulley crane with braced wooden struts and an iron cargo hook suspended over peaceful sunlit waves and distant violet highland twilight skies.
 --- COPY-PASTE PROMPT END ---
 
 
 ================================================================================
-MAP 3 -> MAP 4 | DESERT HARBOR PORT TOWN QUAY (Sun-Scorched Spice Pier)
+MAP 3 -> MAP 4 | DESERT HARBOR PORT TOWN (Matches tr_port_map03_desert_harbor.webp)
 ================================================================================
 
 --------------------------------------------------------------------------------
 [03] ID: tr_port_map03_desert_harbor | Desert Harbor Port Town (Sun-Scorched Isles · Map 3 Departure Quay)
 --------------------------------------------------------------------------------
 --- COPY-PASTE PROMPT START ---
-16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled oak pilings and twisted hemp rope fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, weathered timber grain and hemp rigging fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden sunset shafts in crystal-clear air.
 
-COMPOSITION & SANDSTONE QUAY FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing along Desert Harbor's sun-warmed coastal spice quay beneath burning amber-crimson dusk skies. Calm, deeply shadowed broad dressed sandstone blocks, bronze mooring bollards, and scattered dry palm fronds create a quiet, clear lower foreground beside glassy deep-teal twilight water.
+COMPOSITION & GOLDEN SAND SHORELINE FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing along Desert Harbor's warm sandy shoreline under rich amber sunset light. Calm, gently shadowed smooth golden beach sand accented only by faint footprint impressions anchors a clean, wide lower foreground beside lapping turquoise harbor shallows.
 
-DOMED SANDSTONE CUSTOMS COLONNADE (LEFT FOREGROUND): Rising along the left stands a grand keyhole-arched desert harbor customs house of wind-worn terracotta and pale ochre sandstone crowned with weathered turquoise glazed domes, carved stone geometric relief, tattered crimson-ochre sun awnings, glowing perforated brass hanging lamps, and neatly stacked sealed clay amphorae and cedar spice crates bathed in warm sunset shadow pockets.
+STRIPED MARKET STALL & DOMED SANDSTONE CUSTOMHOUSE (LEFT & RIGHT): Tucked along the left foreground rests a low timber stall shaded by a weathered red-and-teal striped canvas awning beside canvas supply tarps, while rising heroically on the right stands a pale cream-sandstone harbor customs house crowned with a smooth round sandstone dome, small arched clerestory windows, and a vibrant red-and-cream striped market awning shading wooden trade counters, oak casks, and large sealed spice barrels.
 
-LATEEN GALLEON & SUNSET STRAIT (CENTER & RIGHT): Berthed cleanly along carved stone harbor steps to the right floats an ornate high-sterned southern spice galleon with triangular lateen spars, billowing furled saffron canvas, oiled mahogany planking, and burning stern lanterns catching molten copper-gold sky reflections over calm open southern seas.
+THREE WOODEN HARBOR PIERS & TURQUOISE SURF (CENTER SEA): Extending cleanly outward from the golden sand beach across translucent turquoise shallows into deep indigo-blue harbor waters stretch three dark-oak wooden harbor piers capped with timber bollards catching warm golden sunset highlights across the peaceful desert sea.
 --- COPY-PASTE PROMPT END ---
 
 
 ================================================================================
-MAP 4 RETURN QUAY | ARCTIC SEA-PORT TOWN QUAY (Frostbound Deepwater Pier)
+MAP 4 RETURN QUAY | ARCTIC SEA-PORT TOWN (Matches tr_port_map04_arctic_seaport.webp)
 ================================================================================
 
 --------------------------------------------------------------------------------
@@ -72,9 +73,9 @@ MAP 4 RETURN QUAY | ARCTIC SEA-PORT TOWN QUAY (Frostbound Deepwater Pier)
 --- COPY-PASTE PROMPT START ---
 16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked stratified stone blocks, mossy masonry fissures, crooked gnarled oak pilings and twisted hemp rope fibers, deeply carved architectural relief, crisp sunlit rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic warm golden-amber sunset shafts in crystal-clear air.
 
-COMPOSITION & FROST-RIMMED WHARF FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing upon Arctic Sea-Port's ice-cleared dark timber and granite deepwater quay at bitter indigo twilight. Calm, flat, darkly shadowed tarred oak dock planks and chiseled dark granite pier slabs brushed with dry frost anchor a completely clear, walkable lower foreground overlooking dark still Arctic harbor water drifting gently with pale sea ice pans farther offshore.
+COMPOSITION & SNOW-PACKED COVE APPROACH FOREGROUND: Still, uninhabited eye-level scenic splash illustration standing along Arctic Sea-Port's sheltered coastal landing path at crisp midnight-indigo twilight. Calm, darkly shadowed snow-dusted gravel and packed stone landing ground between wooden cargo chests and barrels anchors an uncluttered lower foreground leading directly toward the water's edge.
 
-FORTIFIED HARBOR LODGE & IRON BRAZIERS (LEFT FOREGROUND): Anchoring the left stands a steep-gabled Nordic stone-and-dark-timber harbor master lodge thick with frosted slate shingles, icicles hanging cleanly along carved eaves, amber-glowing diamond-leaded windows, and heavy wrought-iron coal braziers roaring with warm orange ember light across dry salted cargo crates, stacked furs, and iron grappling hooks.
+GLOWING NORTHERN DOCK LODGES (LEFT & RIGHT FOREGROUND): Framing both left and right edges stand steep-gabled dark-timber and stone northern harbor lodges roofed in snow-draped dark blue-gray slate shingles with sturdy stone chimneys, arched dormer gables, and cozy glowing warm-amber multi-pane windows casting soft golden light across frosty timber walls and stacked crates.
 
-ICE-PROWED NORTHERN CARAVEL & AURORA SKY (CENTER & RIGHT): Moored beside heavy frost-rimmed oak pilings on the right rises an iron-prowed northern expedition caravel with dark storm-stained sails furled aloft, rigging dusted faintly in pale rime, and glowing amber stern lanterns silhouetted starkly against crisp indigo sky ribbons shimmering softly with pale green aurora light and a thin blazing amber twilight band over distant glacial peaks.
+SINGLE POST LANTERN & TWIN STONE BREAKWATERS (CENTER & DARK SEA): Standing right beside the rocky cove edge glows a lone wooden post lantern shining warm orange firelight over still midnight-blue basin water framed symmetrically by two massive snow-capped cut-stone harbor breakwaters stretching straight out into dark northern Arctic twilight seas.
 --- COPY-PASTE PROMPT END ---

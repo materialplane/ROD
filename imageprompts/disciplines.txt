@@ -1,0 +1,460 @@
+# ROD — Illustrated Hero Discipline Card Sheets (8 x 4x4 Sheets = 120 Disciplines + 8 Pillar & Arcanist Reserve Icons)
+# Source: data/disciplines-catalog.json (Valen 20 + Ellowyn 20 + Orin 20 + Rowan 20 + Mera 20 + Harlan 20 + 8 Pillar/Reserve Cards)
+# Target Model: gemini-3-pro-image (Pro 4K, 1:1)
+# Art Style Anchor: Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy ability & passive icon art — bold focal silhouette, dynamic directional lighting, clean sculpted steel, crystalline precision, and glowing arcane/nature energy fading cleanly into moody dark vignette edges, zero pixel art, zero sketchiness, zero 3D plastic CGI, zero #FF00FF, zero card frames, zero human faces, and zero text or labels.
+# Export Pipeline: Slice strict 4x4 into 16 equal 1024x1024 lossless PNGs (assets/disciplines/slices/) -> export 512x512 .webp in client/assets/icons/disciplines/
+
+================================================================================
+SHEET 01 OF 08 — Disciplines #01–#16 (Prince Valen Levels 1–70)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_valen_01_a | Critical Edge         | of the Mind · Crit Chance
+#   R1C2 -> disc_valen_01_b | Iron Conditioning     | of the Body · Defense
+#   R1C3 -> disc_valen_10_a | Duelist's Riposte     | of the Body · Counterattack
+#   R1C4 -> disc_valen_10_b | Armor-Splitter Stance | of the Mind · Guard Break
+#   R2C1 -> disc_valen_20_a | Buckler & Blade       | of the Mind · Sword & Shield
+#   R2C2 -> disc_valen_20_b | Greatsword Heavy Grip | of the Body · Two-Handed
+#   R2C3 -> disc_valen_30_a | Arterial Cuts         | of the Body · Bleed Damage
+#   R2C4 -> disc_valen_30_b | Blinding Feint        | of the Mind · Accuracy Debuff
+#   R3C1 -> disc_valen_40_a | Lone Duelist          | of the Mind · Solo Focus
+#   R3C2 -> disc_valen_40_b | Sweeping Cleave       | of the Body · Multi-Slash
+#   R3C3 -> disc_valen_50_a | Steady Breath         | of the Body · Guard Recovery
+#   R3C4 -> disc_valen_50_b | Seize the Opening     | of the Mind · Follow-Up Strike
+#   R4C1 -> disc_valen_60_a | Arrow Deflection      | of the Body · Ranged Defense
+#   R4C2 -> disc_valen_60_b | Heavy-Plate Slayer    | of the Mind · Anti-Armor
+#   R4C3 -> disc_valen_70_a | Royal Intercept       | of the Body · Protect Ally
+#   R4C4 -> disc_valen_70_b | Cold Steel Edge       | of the Mind · Armor Pierce
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG passive discipline ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, dramatic high-contrast directional lighting, gleaming forged steel blades, shields, crystalline targeting glints, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight sapphire slate, or warm forged-iron shadow) so each weapon emblem, spark, or gleam pops cleanly inside its own square.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal emblem.
+
+Render these exact 16 distinct discipline ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Razor-thin silver sword blade edge catching a blinding diamond-blue and pale-gold starburst pinpoint spark right along its honed tip inside dark midnight-slate shadow.
+- Row 1 Col 2: Heavy layered dark forged-iron chestplate and shoulder pauldron studded cleanly with bronze rivets glowing warmly crimson-amber along riveted armor seams over charcoal gloom.
+- Row 1 Col 3: Two crossed gleaming steel saber blades sparking violently at mid-clash, snapping a fierce fiery golden-crimson counter-arc diagonally forward across dark iron soot.
+- Row 1 Col 4: Heavy broadsword point driving cleanly into a cracked translucent iron shield crest along glowing sapphire-white fault seams, splitting the barrier apart with bright blue-silver sparks.
+
+- Row 2 Col 1: Crisp circular forged-steel and blue-trimmed royal buckler shield paired cleanly beside an upright poised rapier aligned behind a glowing silver geometric aiming diamond over midnight stone.
+- Row 2 Col 2: Massive double-edged two-handed royal steel greatsword wrapped in heavy bronze-studded leather grip slamming downward with fierce orange-crimson kinetic shock rings over dark stone.
+- Row 2 Col 3: Curved bright silver steel longsword slicing smoothly upward through the dark air, trailing three vivid deep-crimson liquid droplet arcs and sharp scarlet steel gleams.
+- Row 2 Col 4: Sleek silver dagger tip flicking diagonally across a sudden blinding pale-gold and cool mist-white flash ribbon swirling across shadowed enemy slate.
+
+- Row 3 Col 1: Single upright gleaming silver dueling sword centered cleanly inside a calm glowing sapphire-blue circular halo ring framed by quiet dark navy shadow.
+- Row 3 Col 2: Broad sweeping horizontal crescent arc of blazing forged-steel and amber-crimson blade wind slicing cleanly across two shadowed splintered target silhouettes.
+- Row 3 Col 3: Poised iron kite shield surrounded gently by rhythmic rising warm crimson-gold breath-like vitality wisps knitting cracked steel seams cleanly over deep charcoal.
+- Row 3 Col 4: Sharp silver longsword darting rapidly through a glowing azure-cyan geometric timing prism toward a bright sapphire strike point in dark midnight slate.
+
+- Row 4 Col 1: Tilted burnished steel-and-bronze arm shield cleanly slicing and deflecting three snapped flying iron-tipped arrows away in bright warm amber deflection sparks.
+- Row 4 Col 2: Piercing needle-point steel estoc blade glowing icy sapphire along its tip sliding cleanly between interlocking dark heavy knight-plate armor gaps with bright blue insight sparks.
+- Row 4 Col 3: Sturdy royal steel tower shield leaping forward in a bright warm bronze-gold impact wave absorbing sharp incoming crimson spear thrusts over dark battle dust.
+- Row 4 Col 4: Sleek mirror-polished cold blue-silver stiletto blade slicing straight through thick dark iron armor shadows with razor-crisp frost-blue precision lines.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 02 OF 08 — Disciplines #17–#32 (Valen Lv 80–90 + Ellowyn Lv 1–50)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_valen_80_a   | Relentless Cadence  | of the Body · Damage Ramp
+#   R1C2 -> disc_valen_80_b   | Iron Nerve          | of the Mind · Status Resist
+#   R1C3 -> disc_valen_90_a   | Royal Challenge     | of the Mind · Duel Taunt
+#   R1C4 -> disc_valen_90_b   | Hardened Vanguard   | of the Body · Counter Defense
+#   R2C1 -> disc_ellowyn_01_a | Arcane Discipline   | of the Spirit · MP Efficiency
+#   R2C2 -> disc_ellowyn_01_b | Royal Endurance     | of the Body · Survival Toughness
+#   R2C3 -> disc_ellowyn_10_a | Unshaken Focus      | of the Mind · Battle Poise
+#   R2C4 -> disc_ellowyn_10_b | Elemental Resonance | of the Spirit · Elemental Magic
+#   R3C1 -> disc_ellowyn_20_a | Queen's Bastion     | of the Spirit · Ward Shield
+#   R3C2 -> disc_ellowyn_20_b | Regal Command       | of the Mind · Team Coordination
+#   R3C3 -> disc_ellowyn_30_a | Sharpshot Crossbow  | of the Mind · Crossbow Aim
+#   R3C4 -> disc_ellowyn_30_b | Shielded Footwork   | of the Body · Dagger & Shield
+#   R4C1 -> disc_ellowyn_40_a | Overcharged Arcana  | of the Spirit · Spell Burst
+#   R4C2 -> disc_ellowyn_40_b | Scholar's Critique  | of the Mind · Expose Armor
+#   R4C3 -> disc_ellowyn_50_a | Opening Aegis       | of the Spirit · Starting Shield
+#   R4C4 -> disc_ellowyn_50_b | Quick-Step Evasion  | of the Body · Evasion & Grit
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG passive discipline ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, dramatic high-contrast directional lighting, forged royal steel, sapphire crown ornaments, arcane crystals, and swirling wind/spell trails fading into dark depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (charcoal slate, deep royal indigo, or shadowed obsidian gloom) so glowing blue, gold, crimson, and violet focal silhouettes pop inside each square.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal emblem.
+
+Render these exact 16 distinct discipline ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Three escalating overlapping crimson-gold sword slash arcs stacking forward in rising size and fierce kinetic heat waves across dark battle charcoal.
+- Row 1 Col 2: Calm gleaming silver steel crown circlet suspended upright inside a serene pale-sapphire geometric ring deflecting jagged shadow wisps cleanly away.
+- Row 1 Col 3: Heavy royal gold-trimmed battle gauntlet pointing forward with an ornate silver longsword flanked by sharp azure-blue duel challenge flare ribbons over dark slate.
+- Row 1 Col 4: Solid heavy spiked bronze-and-iron bracer slamming calmly through shattered dark thorn brambles and orange spark shards without cracking.
+
+- Row 2 Col 1: Faceted clear sapphire arcane crystal orb wrapped smoothly in coiled golden-blue mana rings dripping luminous azure light droplets down into twilight gloom.
+- Row 2 Col 2: Noble gilded silver-and-amber filigree breastplate reinforced smoothly with warm crimson vitality light seams glowing beneath heavy armor over dark iron slate.
+- Row 2 Col 3: Crisp serene pale-sapphire crystalline lotus emblem suspended calmly inside an unbroken cool silver diamond reticle deflecting dark purple shockwaves.
+- Row 2 Col 4: Split dual orb combining bright sculpted blazing orange fire flames on one half and razor crystalline cyan-blue ice shards on the other inside dark indigo night.
+
+- Row 3 Col 1: Tall luminous golden-ivory domed royal ward barrier etched with crisp crown-shaped geometric facets shielding darkness behind warm radiant light.
+- Row 3 Col 2: Ornate gilded silver commander spyglass crest beaming crisp sapphire-gold directional arrow pointers cleanly outward over shadowed stone.
+- Row 3 Col 3: Compact carved dark-walnut and gleaming brass light crossbow loaded cleanly with a sharp glowing silver bolt aligned inside a subtle blue aiming reticle.
+- Row 3 Col 4: Agile pair of crossed silver court dagger and tilted curved iron buckler trailing dynamic bright amber dodge-wind ribbons over dark flagstones.
+
+- Row 4 Col 1: Volatile glowing violet-and-gold raw arcane mana core bursting outward in sharp sculpted bright amethyst lightning flares and sparkling gold dust against dark dusk.
+- Row 4 Col 2: Open gilded dark-leather tome crest projecting a sharp cool-sapphire beam of light illuminating a cracked glowing weak point along dark iron armor plates.
+- Row 4 Col 3: Radiant spherical bubble barrier woven from interlocking translucent pale-gold and aqua-cyan arcane hex facets gleaming smoothly before battle against dark stone.
+- Row 4 Col 4: Sleek silver-buckled dark leather boot heel kicking sharply away from swirling crimson poison fog with bright warm gold wind-dash ribbons.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 03 OF 08 — Disciplines #33–#48 (Ellowyn Lv 60–90 + Orin Lv 1–30)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_ellowyn_60_a | Echoing Mana            | of the Spirit · MP Recovery
+#   R1C2 -> disc_ellowyn_60_b | Studied Exploitation    | of the Mind · Guard Break
+#   R1C3 -> disc_ellowyn_70_a | Purifying Arcana        | of the Spirit · Radiant & Curse
+#   R1C4 -> disc_ellowyn_70_b | Hardened Guard          | of the Body · Guard Brace
+#   R2C1 -> disc_ellowyn_80_a | Courtly Ward Aura       | of the Spirit · Party Magic Def
+#   R2C2 -> disc_ellowyn_80_b | Tactical Read           | of the Mind · Foresight & Grit
+#   R2C3 -> disc_ellowyn_90_a | Grand Arcanum           | of the Spirit · Master Spellcraft
+#   R2C4 -> disc_ellowyn_90_b | Unbroken Stance         | of the Body · Physical Anchor
+#   R3C1 -> disc_orin_01_a    | Shield-Wall Form        | of the Body · Team Guard
+#   R3C2 -> disc_orin_01_b    | Siege-Breaker Grip      | of the Mind · Armor Attack
+#   R3C3 -> disc_orin_10_a    | Rallying Horn           | of the Mind · Team Command
+#   R3C4 -> disc_orin_10_b    | Immovable Stance        | of the Body · Anchor Tank
+#   R4C1 -> disc_orin_20_a    | Living Barricade        | of the Body · Taunt Cover
+#   R4C2 -> disc_orin_20_b    | Blunting Impact         | of the Mind · Attacker Debuff
+#   R4C3 -> disc_orin_30_a    | Spear Reach Training    | of the Mind · Two-Handed Spear
+#   R4C4 -> disc_orin_30_b    | Shield Slam Discipline  | of the Body · Shield Bash
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG passive discipline ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, dramatic high-contrast lighting, shimmering arcane mana, royal tower shields, heavy forged halberds and spears, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (twilight royal indigo, midnight navy slate, or dark iron charcoal) so bright shields, spears, radiant bursts, and sparks pop cleanly inside each panel.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal emblem.
+
+Render these exact 16 distinct discipline ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Concentric shimmering turquoise-blue ripple rings expanding gently inward toward a glowing sapphire mana pearl suspended above dark twilight stone.
+- Row 1 Col 2: Brass-and-sapphire compass divider gleaming beside a cracked translucent stone prism revealing sharp geometric fracture lines against deep slate.
+- Row 1 Col 3: Bright sunlit gold radiant crescent purifying swirling amethyst shadow tendrils into glowing golden sparks over dark violet haze.
+- Row 1 Col 4: Heavy crossed royal steel arm-vambraces braced squarely behind a warm bronze-amber physical impact flash shedding steel sparks over charcoal earth.
+
+- Row 2 Col 1: Broad floating arched canopy of warm lavender-gold and serene pale-cyan magical protection rippling calmly above four shadowed knight-crests.
+- Row 2 Col 2: Keen carved silver owl-crest silhouette framed inside clean pale-blue concentric foresight rings turning aside dark purple claw trails in night shadow.
+- Row 2 Col 3: Grand hovering triple-ringed arcane gyroscope of gleaming molten gold, violet starlight, and blazing sapphire fire orbiting an incandescent magic core.
+- Row 2 Col 4: Upright gold-and-steel royal kite shield planted firmly into solid dark granite bedrock surrounded by steady warm bronze grounding embers.
+
+- Row 3 Col 1: Two massive heavy iron tower shields locked side by side in an impenetrable overlapping phalanx wall gleaming bronze along scarred steel rims.
+- Row 3 Col 2: Sharp silver halberd spearhead angled smoothly downward into a bright glowing sapphire weak-seam crack between heavy armored stone plates.
+- Row 3 Col 3: Polished silver-and-bronze curved commander war-horn blasting outward crisp glowing sky-blue concentric command shockwaves over shadowed banner dust.
+- Row 3 Col 4: Massive riveted iron-greave boot anchored deep into cracked basalt rock while golden shock rings bounce cleanly off the unyielding bronze knee-plate.
+
+- Row 4 Col 1: Huge battle-scarred iron barricade shield towering forward with bright glowing bronze-orange guard rings guarding lighter pale silhouettes behind it.
+- Row 4 Col 2: Heavy iron morning-star parry colliding cleanly against an enemy bronze blade shaft, snapping bright blue-white disarming angle sparks across midnight slate.
+- Row 4 Col 3: Gleaming long ash-shafted war spear tipped in razor blue-silver steel slicing cleanly forward with cool sapphire range rings along its tip.
+- Row 4 Col 4: Heavy spiked steel boss shield thrust violently forward into impact, exploding bright fiery amber shockwave cracks across dark charcoal air.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 04 OF 08 — Disciplines #49–#64 (Orin Lv 40–90 + Rowan Lv 1–10)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_orin_40_a    | Hardened Veteran        | of the Body · DoT Defense
+#   R1C2 -> disc_orin_40_b    | Line Executioner        | of the Mind · Execution Aim
+#   R1C3 -> disc_orin_50_a    | Sacred Resilience       | of the Spirit · Clutch Ward
+#   R1C4 -> disc_orin_50_b    | Battering Ram           | of the Body · Armor Shred
+#   R2C1 -> disc_orin_60_a    | Vow of Protection       | of the Body · Ally Intercept
+#   R2C2 -> disc_orin_60_b    | Battle Wrath            | of the Mind · Focused Counter
+#   R2C3 -> disc_orin_70_a    | Warded Armor Fit        | of the Spirit · Plate & Ward
+#   R2C4 -> disc_orin_70_b    | Crushing Follow-Through | of the Mind · Team Opening
+#   R3C1 -> disc_orin_80_a    | Hold the Line Aura      | of the Spirit · Party Ward
+#   R3C2 -> disc_orin_80_b    | Concussive Blows        | of the Body · Heavy Stun
+#   R3C3 -> disc_orin_90_a    | Unbreakable Bulwark     | of the Spirit · Last Stand Ward
+#   R3C4 -> disc_orin_90_b    | Commanding Breach       | of the Mind · Team Tactics
+#   R4C1 -> disc_rowan_01_a   | Ambush Eye              | of the Mind · Opening Aim
+#   R4C2 -> disc_rowan_01_b   | Hamstring Shot          | of the Body · Limb Strike
+#   R4C3 -> disc_rowan_10_a   | Sky-Hunter Sight        | of the Mind · Ranged Snipe
+#   R4C4 -> disc_rowan_10_b   | Blade & Buckler         | of the Body · Dagger Evasion
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG passive discipline ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, dramatic high-contrast lighting, forged knight plate, golden magic shields, swift green-fletched ranger arrows, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (iron charcoal, twilight indigo, or deep shadowed forest slate) so golden wards, steel impacts, and gleaming arrows stand out sharply.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal emblem.
+
+Render these exact 16 distinct discipline ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Battle-dented heavy bronze ironwood shoulder shield shedding sizzling green venom droplets and blazing orange embers safely off scarred metal over dark soot.
+- Row 1 Col 2: Gleaming silver spear point piercing straight toward a glowing cyan-sapphire execution triangle centered cleanly inside cracked low iron armor over midnight slate.
+- Row 1 Col 3: Radiant golden-white angelic feather barrier bursting gently around a heavily cracked iron chestplate crest, knitting glowing warm light back over twilight stone.
+- Row 1 Col 4: Massive iron-shod oak battering-ram head exploding violently straight through shattered dark steel plate and orange amber sparks across battle soot.
+
+- Row 2 Col 1: Empty articulated steel-gauntleted shield arm sweeping bravely downward into a fiery bronze impact arc blocking incoming dark crimson darts cleanly.
+- Row 2 Col 2: Coiled gleaming silver war-axe blade wrapped tightly in icy blue-white controlled lightning-like focus lines without spilling rage blindly against navy dark.
+- Row 2 Col 3: Sculpted heavy knight torso armor etched smoothly with luminous pale-gold geometric magic ward lines glowing warmly along heavy dark steel plates.
+- Row 2 Col 4: Glowing azure-sapphire chevron pointer converging sharply onto a battered golden target crack opened across heavy shadowed steel.
+
+- Row 3 Col 1: Wide unbroken horizontal golden-ivory ward ribbon glowing like a calm protective dawn bridge across dark storm clouds and falling fiery ash.
+- Row 3 Col 2: Heavy steel war-hammer crashing forcefully downward, blasting bright crimson-amber star-shaped stun shockwaves outward over dark cracked stone.
+- Row 3 Col 3: Indestructible glowing golden-white sun shield silhouette standing upright amidst shattered dark weapons, radiating a wide tranquil dawn barrier dome over deep indigo.
+- Row 3 Col 4: Cracked golden shield fragments illuminated brightly by converging crisp pale-sapphire tactical spear aim beams across dark slate.
+
+- Row 4 Col 1: Ornate silver-and-sapphire crystalline optical aiming crest centered cleanly behind an arrow fletching gleaming bright ice-blue in midnight shadow.
+- Row 4 Col 2: Sharp barbed hunting arrow driving forcefully downward, snapping bright crimson-orange shock rings around a severed dark shadow tether.
+- Row 4 Col 3: Upright silver ranger arrow crest pointed sharply skyward inside crisp sapphire geometric wind-elevation arcs against deep starry twilight.
+- Row 4 Col 4: Curved bright silver hunting dagger crossed cleanly over a compact forest-green leather-rimmed buckler trailing dynamic amber evasion air swirls.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 05 OF 08 — Disciplines #65–#80 (Rowan Levels 20–90)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_rowan_20_a | Disrupting Draw        | of the Mind · Blind & Strip
+#   R1C2 -> disc_rowan_20_b | Bodkin Broadheads      | of the Body · Armor Pierce
+#   R1C3 -> disc_rowan_30_a | Evading Smoke-Step     | of the Body · Dodge Guard
+#   R1C4 -> disc_rowan_30_b | Covering Volley        | of the Mind · Assist Shot
+#   R2C1 -> disc_rowan_40_a | Spotter's Mark         | of the Mind · Target Expose
+#   R2C2 -> disc_rowan_40_b | Splinter Ricochet      | of the Body · Crit Bounce
+#   R2C3 -> disc_rowan_50_a | Heart-Seeker Focus     | of the Mind · Crit Power
+#   R2C4 -> disc_rowan_50_b | Scout's Recovery       | of the Body · Dodge Heal
+#   R3C1 -> disc_rowan_60_a | Severing Arrow         | of the Mind · Buff Strip
+#   R3C2 -> disc_rowan_60_b | Monster-Slayer Arrows  | of the Body · Beast & Monster
+#   R3C3 -> disc_rowan_70_a | Twin-Feather Precision | of the Mind · Light Criticals
+#   R3C4 -> disc_rowan_70_b | Siege Overdraw         | of the Body · Guard Break
+#   R4C1 -> disc_rowan_80_a | Twin-Nock Draw         | of the Body · Multi-Shot
+#   R4C2 -> disc_rowan_80_b | Clear-Minded Focus     | of the Mind · Visual Grit
+#   R4C3 -> disc_rowan_90_a | Deadeye Execution      | of the Mind · Finisher Aim
+#   R4C4 -> disc_rowan_90_b | Arrow Storm            | of the Body · Mass Volley
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG passive discipline ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, crisp fletched longbows, razor steel broadheads, swift forest wind swirls, sapphire sniper reticles, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep midnight pine slate, cool navy shadow, or dark charcoal gloom) so sleek arrows, bow silhouettes, and silver gleams pop cleanly inside each panel.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal emblem.
+
+Render these exact 16 distinct discipline ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Sleek whistling broadhead arrow bursting a bright blinding flash of pale cyan-gold vapor tearing straight through a dark glowing ward halo.
+- Row 1 Col 2: Heavy square-spiked steel bodkin arrow point punching cleanly right through thick riveted dark iron plate with fierce amber friction sparks.
+- Row 1 Col 3: Swirl of agile hooded-cloak silver-gray smoke ribbons spinning smoothly past three grazing orange crimson arrow trails in dark shadows.
+- Row 1 Col 4: Sleek blue-fletched rapid snap arrow streaking diagonally downward right behind a bright glowing silver-sapphire partner strike spark.
+
+- Row 2 Col 1: Glowing geometric sapphire diamond spotter reticle hovering sharply over cracked darkened armor seams inside midnight forest gloom.
+- Row 2 Col 2: Crisp steel arrow tip shattering on impact into two fierce bright crimson-orange jagged splinter shards ricocheting sideways across dark slate.
+- Row 2 Col 3: Fine gold-and-sapphire precision crosshair ring locking tightly onto a vivid glowing ruby-crimson crystal heart target silhouette in deep shadow.
+- Row 2 Col 4: Nimble curved hunter feather gliding calmly through warm emerald-amber wind wisps while dark incoming arrow tips harmlessly miss past.
+
+- Row 3 Col 1: Razor-edged crescent-bladed broadhead arrow slicing cleanly sideways to sever a glowing braided golden enchantment ring in mid-air.
+- Row 3 Col 2: Oversized heavy ash-wood hunting arrow tipped with serrated steel barbs piercing boldly through tough scaled dark hide texture with warm amber sparks.
+- Row 3 Col 3: Twin sleek bright turquoise-fletched light arrows streaking side by side in razor-tight pale-sapphire precision lines over midnight pine.
+- Row 3 Col 4: Massive curved yew warbow bent taut to maximum draw strain, glowing fierce amber-bronze along the string ready to shatter stone.
+
+- Row 4 Col 1: Two silver-tipped fletched arrows nocked simultaneously on a taut dark bowstring glowing bright warm golden-amber against charcoal dusk.
+- Row 4 Col 2: Calm radiant sapphire prism lens piercing cleanly through thick blinding ash-smoke haze with crisp bright azure sight rays.
+- Row 4 Col 3: Gleaming platinum-blue long arrow head aligned inside concentric glowing sapphire sniper rings piercing straight toward darkness.
+- Row 4 Col 4: Dense roaring descending volley of fifteen gleaming silver-and-amber arrows raining steeply downward through stormy wind trails against night clouds.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 06 OF 08 — Disciplines #81–#96 (Mera Levels 1–70)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_mera_01_a | Oak-Hardened Body       | of the Body · Defense
+#   R1C2 -> disc_mera_01_b | Tempest Opening         | of the Spirit · Spell Opener
+#   R1C3 -> disc_mera_10_a | Bramble Retaliation     | of the Body · Thorn Armor
+#   R1C4 -> disc_mera_10_b | Lingering Sap           | of the Spirit · Healing Duration
+#   R2C1 -> disc_mera_20_a | Reaping Blade Focus     | of the Body · Melee Mastery
+#   R2C2 -> disc_mera_20_b | Elder-Wood Staff Focus  | of the Spirit · Staff Spell Power
+#   R2C3 -> disc_mera_30_a | Corrosive Thorns        | of the Body · Armor Melt
+#   R2C4 -> disc_mera_30_b | Gale Canopy             | of the Spirit · Party Dodge Wind
+#   R3C1 -> disc_mera_40_a | Quake Impact            | of the Body · Guard Break
+#   R3C2 -> disc_mera_40_b | Purifying Dew           | of the Spirit · Cleanse Magic
+#   R3C3 -> disc_mera_50_a | Highland Instinct       | of the Mind · Hunter Focus
+#   R3C4 -> disc_mera_50_b | Grove Guardian          | of the Spirit · Emergency Heal
+#   R4C1 -> disc_mera_60_a | Creeping Briars         | of the Body · Multi-Bleed
+#   R4C2 -> disc_mera_60_b | Deep Root Poise         | of the Mind · Mental Stillness
+#   R4C3 -> disc_mera_70_a | Storm Opportunist       | of the Mind · Shock Exploit
+#   R4C4 -> disc_mera_70_b | Moss Ward               | of the Spirit · Ally Magic Def
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG passive discipline ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, and ZERO readable alphabet letters or rune words anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, dramatic high-contrast natural light, ironwood bark armor, curved bronze druid sickles, carved quarterstaves, storm lightning, and emerald healing blossoms. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep highland moss charcoal, stormy pine slate, or dark midnight twilight) so vibrant emerald, amber-gold, storm cyan, and crimson thorns pop inside each panel.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal emblem.
+
+Render these exact 16 distinct discipline ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Thick interlocking dark ironwood oak bark plates forming a rugged sturdy shield-crest gleaming warmly bronze along heavy knot grains over forest black.
+- Row 1 Col 2: Swirling vibrant turquoise lightning cloud bursting rapidly downward around a glowing emerald nature seed over dark storm granite.
+- Row 1 Col 3: Coiled dark armored vambrace covered in sharp forward-pointing crimson-tipped steel briar thorns shedding amber deflection sparks.
+- Row 1 Col 4: Rich glowing warm amber-gold and vibrant emerald tree sap droplets floating steadily skyward from cupped curled green leaves in twilight forest.
+
+- Row 2 Col 1: Curved gleaming steel scimitar crossed sharply with a crescent druid sickle, catching fierce warm crimson blood-steel edge gleams over dark moss.
+- Row 2 Col 2: Gnarled upright elderwood quarterstaff crown cradling a brilliant orbiting storm-cyan lightning sphere and emerald leaf light swirls against night slate.
+- Row 2 Col 3: Jagged dark forest thorn spikes tipped with dripping sizzling bright crimson-amber sap corroding cracked heavy iron armor plates.
+- Row 2 Col 4: Sweeping soaring emerald-and-silver tempest wind canopy billowing gracefully overhead in tranquil shimmering turquoise protective gusts.
+
+- Row 3 Col 1: Heavy gnarled ironwood quarterstaff butt slamming violently straight down onto dark fractured stone bedrock, shattering bronze armor dust outward.
+- Row 3 Col 2: Pure luminous droplet of translucent sunlit emerald-aqua forest dew splashing gently outward to wash away clinging dark purple thorns cleanly.
+- Row 3 Col 3: Sleek carved bronze highland falcon wing-crest framed inside crisp glowing pale-gold and cool sapphire targeting rings against deep pine shadow.
+- Row 3 Col 4: Gentle protective emerald-and-gold living root hands-free cradle blooming suddenly upward with warm radiant healing light over dark earth.
+
+- Row 4 Col 1: Branching creeping tangle of thick crimson-spiked dark bramble vines snaking outward in two fierce tearing thorns across forest shadow.
+- Row 4 Col 2: Deep tangled immovable oak roots grasping calmly onto a still cool sapphire stone core resisting dark purple curse smoke swirling outside.
+- Row 4 Col 3: Sharp bronze-tipped druid spear point darting along crisp pale-sapphire geometric targeting lines through jagged yellow lightning sparks.
+- Row 4 Col 4: Soft layered cushion of vibrant glowing moss and pale luminous aqua leaf-light petals curling protectively upward over dark twilight bark.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 07 OF 08 — Disciplines #97–#112 (Mera Lv 80–90 + Harlan Lv 1–50)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_mera_80_a   | Coiled Tempest        | of the Spirit · Spell Setup
+#   R1C2 -> disc_mera_80_b   | Pack Instinct         | of the Mind · Team Tactics
+#   R1C3 -> disc_mera_90_a   | Apex Hunt             | of the Mind · Team Precision
+#   R1C4 -> disc_mera_90_b   | Lifebloom Surge       | of the Spirit · Party Miracle
+#   R2C1 -> disc_harlan_01_a | Triage Mercy          | of the Spirit · Emergency Heal
+#   R2C2 -> disc_harlan_01_b | Caustic Formula       | of the Mind · Defense Melt
+#   R2C3 -> disc_harlan_10_a | Physician's Shield    | of the Body · Medic Tank
+#   R2C4 -> disc_harlan_10_b | Coated Edge           | of the Mind · Toxin Prep
+#   R3C1 -> disc_harlan_20_a | Refined Apothecary    | of the Body · Potion Vitality
+#   R3C2 -> disc_harlan_20_b | Blighted Concentrates | of the Mind · Toxin Chemistry
+#   R3C3 -> disc_harlan_30_a | Protective Salve      | of the Spirit · Triage Ward
+#   R3C4 -> disc_harlan_30_b | Numbing Venom         | of the Mind · Enemy Weaken
+#   R4C1 -> disc_harlan_40_a | Smelling-Salt Rush    | of the Spirit · Cleanse Boost
+#   R4C2 -> disc_harlan_40_b | Acidic Breach         | of the Mind · Acid Chemistry
+#   R4C3 -> disc_harlan_50_a | Plague Hardening      | of the Body · Physical Grit
+#   R4C4 -> disc_harlan_50_b | Toxic Rupture         | of the Mind · Volatile Formula
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG passive discipline ability icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO bottle paper labels, ZERO numbers, and ZERO readable alphabet letters anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, dramatic high-contrast directional lighting, glowing unlabeled glass apothecary vials, vibrant toxic lime splashes, serene emerald healing radiance, storm coils, and heavy iron shields. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO paper bottle labels, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (charcoal apothecary gloom, forest night indigo, or shadowed slate) so each flask, venom splash, storm arc, or shield crest pops cleanly inside each square.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges; keep every flask completely UNLABELED without tags or text.
+
+Render these exact 16 distinct discipline ability icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Tight spiraling storm coil of bright electric turquoise wind and crackling lightning condensed warmly around a golden nature orb over dark storm granite.
+- Row 1 Col 2: Three sleek overlapping silver-tipped wolf-fang emblems aligned sharply along converging pale-sapphire tactical lines across midnight woodland slate.
+- Row 1 Col 3: Piercing luminous sapphire geometric stag-antler targeting crown pulsing cleanly above dark forest shadow with razor-thin blue strike rays.
+- Row 1 Col 4: Blinding blooming golden-emerald lotus chalice erupting smoothly into four gentle arching rivers of warm healing light over forest dusk.
+
+- Row 2 Col 1: Radiant emerald-gold glass healing tear flask pulsing smoothly with urgent warm golden restorative mist rising into dark twilight slate.
+- Row 2 Col 2: Heavy unlabeled dark glass alembic spilling bright sizzling lime-green corrosive drops eating cleanly down into cracked dark iron armor plate.
+- Row 2 Col 3: Sturdy leather-and-iron physician buckler shield crossed neatly behind a solid forged bronze war-mace gleaming warmly against charcoal stone.
+- Row 2 Col 4: Sleek curved steel dagger blade glistening evenly with an oily translucent venomous bright lime-green toxin bead sliding along its sharp edge.
+
+- Row 3 Col 1: Twin richly glowing unlabeled ruby-red and azure-blue potion flasks brimming brightly inside warm rising crimson stamina wisps over dark wood.
+- Row 3 Col 2: Sleek dark bronze mortar and pestle crushing luminous bright neon-chartreuse toxic roots emitting concentrated glowing green poison vapor wisps.
+- Row 3 Col 3: Carved wooden salve jar floating inside a peaceful pale-emerald and sunlit ivory translucent dome shield protecting wounded golden sparks.
+- Row 3 Col 4: Coiling dark glass vial dripping slow heavy olive-violet paralyzing venom onto a dim cracked enemy sword crest over shadowed slate.
+
+- Row 4 Col 1: Crisp faceted crystal smelling-salt flask erupting cleanly in pure mint-white and golden radiant sparks shattering dark purple curse haze.
+- Row 4 Col 2: Unlabeled heavy round acid flask sizzling violently in neon chartreuse-yellow across a cracked translucent bronze shield barrier.
+- Row 4 Col 3: Toughened dark leather-and-iron apothecary chest-guard wrapped cleanly in glowing amber resilience seams shrugging off dark green spores.
+- Row 4 Col 4: Two dark toxic chartreuse poison droplets colliding mid-air and detonating outward in a sharp neon green-gold chemical burst shockwave.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline icon cards), ZERO bottle labels, ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 08 OF 08 — Disciplines #113–#128 (Harlan Lv 60–90 + 8 Pillar & Arcanist Reserve Icons)
+================================================================================
+# SLOT MANIFEST (Row,Col -> disciplineId | Name | Pillar & Tag):
+#   R1C1 -> disc_harlan_60_a         | Quickening Balm        | of the Spirit · Revival Ward
+#   R1C2 -> disc_harlan_60_b         | Nerve-Lock Toxin       | of the Mind · Toxin Control
+#   R1C3 -> disc_harlan_70_a         | Thrifty Satchel        | of the Spirit · Spell Efficiency
+#   R1C4 -> disc_harlan_70_b         | Vapor Shatter          | of the Mind · Flask Splash
+#   R2C1 -> disc_harlan_80_a         | Ward-Root Tonic        | of the Body · Body Resilience
+#   R2C2 -> disc_harlan_80_b         | Blight Siphon          | of the Spirit · Mana Siphon
+#   R2C3 -> disc_harlan_90_a         | Master Panacea         | of the Spirit · Team Ward
+#   R2C4 -> disc_harlan_90_b         | Universal Blight       | of the Mind · Master Formula
+#   R3C1 -> disc_pillar_body         | Way of the Body        | Pillar Emblem · Physical
+#   R3C2 -> disc_pillar_mind         | Way of the Mind        | Pillar Emblem · Tactical Skill
+#   R3C3 -> disc_pillar_spirit       | Way of the Spirit      | Pillar Emblem · Magic & Ward
+#   R3C4 -> disc_res_arcanist_seal   | Arcanist Training Seal | Shop Crest · Reserve
+#   R4C1 -> disc_res_combat_resolve  | Steadfast Resolve      | Reserve Mastery · Grit
+#   R4C2 -> disc_res_twin_stance     | Balanced Discipline    | Reserve Mastery · Harmony
+#   R4C3 -> disc_res_vital_surge     | Vitality Conditioning  | Reserve Mastery · Endurance
+#   R4C4 -> disc_res_arcane_ward     | Sanctified Aegis       | Reserve Mastery · Protection
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG discipline, pillar emblem, and reserve mastery icon illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO bottle labels, ZERO numbers, and ZERO readable alphabet letters anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY ICONS & LEGENDS OF RUNETERRA SKILL ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy ability icon illustration — bold central readable silhouette per cell, crisp sculpted glass vials, serene sunlit revival chalices, noble brass scales and forged iron emblems, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO paper bottle labels, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (dark charcoal apothecary slate, twilight royal indigo, or shadowed stone) so every flask, pillar crest, and emblem pops cleanly inside its square.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges; keep all flasks completely UNLABELED without tags or text.
+
+Render these exact 16 distinct discipline and emblem icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Luminous crimson-and-gold phoenix-shaped crystal balm bottle raising bright sunlit golden wing-like light wisps inside a calm glowing ward halo.
+- Row 1 Col 2: Slender faceted dark violet glass syringe-needle vial dripping glowing green paralytic venom beads entwining jagged gray target chains.
+- Row 1 Col 3: Sturdy dark stitched apothecary leather herb-satchel glowing calmly from within with serene pale-emerald and clear sapphire healing light motes.
+- Row 1 Col 4: Bursting thin-walled emerald green toxin vial shattering cleanly mid-air, fanning razor lime acid splash droplets sideways toward dark slate.
+
+- Row 2 Col 1: Solid corked amber stoneware root-tonic flask encircled firmly by healthy warm crimson-gold vitality armor rings glowing brightly against charcoal.
+- Row 2 Col 2: Swirling ghostly chartreuse-green poison wisps spiraling swiftly back into a dark indigo-trimmed sapphire glass siphon decanter.
+- Row 2 Col 3: Ornate tall sunlit ivory-and-gold sanctuary chalice brimming smoothly with radiant pure emerald panacea mist arching upward in a protective canopy.
+- Row 2 Col 4: Blinding radiant violet-gold master alchemy retort vessel releasing razor-bright emerald-lime toxin darts piercing effortlessly through a cracked obsidian shield.
+
+- Row 3 Col 1: Bold sculpted emblematic forged bronze-and-crimson iron lion-pauldron crest crossed cleanly by a steel sword hilt radiating warm physical strength over dark charcoal.
+- Row 3 Col 2: Gleaming carved cool sapphire-and-silver astrolabe compass prism balanced cleanly atop a poised feathered quill-and-dagger emblem against deep navy slate.
+- Row 3 Col 3: Luminous iridescent violet-gold swirling arcane chalice flame crowned cleanly with rising emerald and azure spirit wisps against deep twilight indigo.
+- Row 3 Col 4: Ornate sculpted antique gold-and-sapphire Arcanist guild wax-stamp medallion crest ringed cleanly in subtle glowing astral triangles (no text, no letters).
+
+- Row 4 Col 1: Heavy unbroken forged bronze shield heart anchored solidly atop cracked charcoal basalt, glowing fiercely warm gold through battle scars.
+- Row 4 Col 2: Symmetrical forged gold balance-scale emblem holding a glowing crimson steel blade crest on one tray and a cool sapphire crystal prism on the other.
+- Row 4 Col 3: Warm glowing ruby-amber vitality heart core wrapped securely inside heavy interlocked iron-and-leather conditioning straps over charcoal stone.
+- Row 4 Col 4: High radiant ivory-gold and cool aqua domed tower ward halo shining serenely above dark midnight cloud strata with pure protective motes.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square discipline & emblem icon cards), ZERO bottle labels, ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---

@@ -11,7 +11,7 @@ To keep combat 100% consistent and balanced across the entire game:
 * **Shared 5 Attributes & 9 Damage Types:** Every enemy and boss uses the exact same `Force, Finesse, Grit, Arcana, Presence` attributes, timeline speed, and 9 damage-type rules as the 6 player classes.
 * **Enemy Move Pool (`2–3` Max Abilities per Mob):** Enemies keep lean, readable move lists alongside their basic attacks (`reusing caster spell mechanics or clean monster actions without custom one-off rule bloat`):
   * **Normal Mobs & Elites:** Have basic `0 MP` attacks plus **2–3 signature monster abilities max**.
-  * **Portal Bosses:** Have basic attacks plus **3–4 signature boss abilities**, paired with **Guard Pips** and **Telegraphed** boss moves.
+  * **Portal Bosses:** Have basic attacks plus **3–4 signature boss abilities**, paired with **Guard Points** and **Telegraphed** boss moves.
 
 ---
 
@@ -33,7 +33,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ### Boss #1 — **The Ashen Iron Golem** *(SRD 5.2: `Construct`)*
 * **Location:** Region 1 (Zone 3) — *The Ashen Gate* *(Portal #1 · Requires `Ashen Forge Keystone` from `Q025`)* | **Target Level:** `11–15` | **Reward:** `1,200 XP` | `650s`
 * **What It Is:** A towering 12-foot **animated iron statue** built inside a lifeless volcanic forge dimension—solid blackened iron plates, glowing furnace seams, and no soul or mind.
-* **Guard Pips:** `3` | **Weaknesses:** **Bludgeoning, Frost, Radiant** | **Resists:** Fire, Poison *(Immune to Poison ticks)*
+* **Guard Points:** `3` | **Weaknesses:** **Bludgeoning, Frost, Radiant** | **Resists:** Fire, Poison *(Immune to Poison ticks)*
 * **Boss Kit *(3 Boss Abilities)*:**
   1. **Furnace Slam** — Heavy **Bludgeoning** strike that chips hero Physical Defense.
   2. **Cinder Cloud *(Telegraphed)*** *(uses Ellowyn's **Flame Wall** mechanic)* — Sweeps **Fire** across the party with **Burn** pressure.
@@ -44,7 +44,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ### Boss #2 — **The Abyssal Aboleth** *(SRD 5.2: `Aberration`)*
 * **Location:** Region 2 (Zone 5) — *The Sunken Maw* *(Portal #2 · Requires `Abyssal Brine-Pearl` from `Q044`)* | **Target Level:** `21–25` | **Reward:** `4,200 XP` | `2,400s`
 * **What It Is:** A massive **three-eyed amphibious tentacle-eel aberration** from a pitch-black ocean dimension—slick grey-green hide, trailing slime tendrils, and ancient psychic malice.
-* **Guard Pips:** `3` | **Weaknesses:** **Lightning, Piercing, Fire** | **Resists:** Frost, Poison
+* **Guard Points:** `3` | **Weaknesses:** **Lightning, Piercing, Fire** | **Resists:** Frost, Poison
 * **Boss Kit *(3 Boss Abilities)*:**
   1. **Psychic Lance** *(uses Ellowyn's **Umbral Lance** mechanic)* — Piercing mind-bolt striking 1 hero with **Shadow** + **Curse**.
   2. **Toxic Mucus Mist** *(uses Harlan's **Venom Mist** mechanic)* — Hits adjacent party slots (`or full party`) with **Poison** damage and stacks Poison.
@@ -55,7 +55,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ### Boss #3 — **The Fire Giant Warlord** *(SRD 5.2: `Giant`)*
 * **Location:** Region 3 (Zone 8) — *The Iron Rift* *(Portal #3 · Requires `Blood-Iron Keystone` from `Q067`)* | **Target Level:** `36–40` | **Reward:** `9,500 XP` | `6,500s`
 * **What It Is:** A colossal **20-foot flame-bearded giant blacksmith-king** clad in blackened forged plate and wielding a greatsword taller than a wagon, flanked by **2 Giant-kin Ettin/Ogre guards**.
-* **Guard Pips:** `4` | **Weaknesses:** **Frost, Piercing, Bludgeoning** | **Resists:** Fire, Slashing
+* **Guard Points:** `4` | **Weaknesses:** **Frost, Piercing, Bludgeoning** | **Resists:** Fire, Slashing
 * **Boss Kit *(3 Boss Abilities)*:**
   1. **Colossal Cleave *(Telegraphed)*** — Massive **Slashing + Fire** sweep across the party.
   2. **Hurl Molten Boulder** — Crushing boulder throw slamming 1 hero with heavy **Bludgeoning** and armor pierce.
@@ -66,7 +66,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ### Boss #4 — **The Elder Blight-Treant** *(SRD 5.2: `Plant & Ooze`)*
 * **Location:** Region 4 (Zone 10) — *The Rotspire* *(Portal #4 · Requires `Spore-Heart Amber` from `Q089`)* | **Target Level:** `46–50` | **Reward:** `16,500 XP` | `14,000s`
 * **What It Is:** An **immense walking corrupted tree-titan** from an overgrown spore-and-slime dimension—gnarled iron-hard bark, glowing fungal veins, and oozing sap tentacles.
-* **Guard Pips:** `4` | **Weaknesses:** **Fire, Slashing, Radiant** | **Resists:** Bludgeoning, Poison
+* **Guard Points:** `4` | **Weaknesses:** **Fire, Slashing, Radiant** | **Resists:** Bludgeoning, Poison
 * **Boss Kit *(4 Boss Abilities)*:**
   1. **Root Slam** — Heavy **Bludgeoning** blow that knocks the hero back on the turn timeline.
   2. **Spore-Rot Burst *(Telegraphed)*** *(uses Harlan's **Plague-Spore Burst** mechanic)* — Party-wide **Poison** eruption dealing bonus damage to already poisoned heroes.
@@ -78,7 +78,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ### Boss #5 — **The Efreeti Pasha** *(SRD 5.2: `Elemental`)*
 * **Location:** Region 5 (Zone 13) — *The Scorched Chasm* *(Portal #5 · Requires `Brass Cinder-Seal` from `Q111`)* | **Target Level:** `61–65` | **Reward:** `26,000 XP` | `27,000s`
 * **What It Is:** A **towering horned genie of living fire and brass** from the Elemental Plane of Fire—clad in scorched desert silks and floating bronze shackles, wielding a flaming scimitar.
-* **Guard Pips:** `4` | **Weaknesses:** **Frost, Piercing, Bludgeoning** | **Resists:** Fire, Lightning
+* **Guard Points:** `4` | **Weaknesses:** **Frost, Piercing, Bludgeoning** | **Resists:** Fire, Lightning
 * **Boss Kit *(4 Boss Abilities)*:**
   1. **Heat-Mirage Parry** — Counters standard melee strikes for 1 round unless broken with **Frost** or **Guard-breaks**.
   2. **Hurl Flame Orb** *(uses Ellowyn's **Arcane Fireball** mechanic)* — **Fire** blast splashing onto adjacent hero slots.
@@ -90,11 +90,11 @@ To keep combat 100% consistent and balanced across the entire game:
 ### Boss #6 — **The Ancient Storm Dragon *(Blue Dragon)*** *(SRD 5.2: `Dragon`)*
 * **Location:** Region 6 (Zone 15) — *The Storm-Crowned Spire* *(Portal #6 · Requires `Storm-Crown Lodestone` from `Q133`)* | **Target Level:** `71–75` | **Reward:** `38,000 XP` | `48,000s`
 * **What It Is:** A **gargantuan winged dragon** from a jagged lightning-dragon dimension—armored in storm-blue scales with a single massive rhino-like horn crackling with pure electricity.
-* **Guard Pips:** `5` | **Weaknesses:** **Frost, Piercing, Shadow** | **Resists:** Lightning, Slashing
+* **Guard Points:** `5` | **Weaknesses:** **Frost, Piercing, Shadow** | **Resists:** Lightning, Slashing
 * **Boss Kit *(4 Boss Abilities)*:**
   1. **Lightning Breath *(Telegraphed)*** *(uses Ellowyn's **Tempest Arc** mechanic)* — Colossal **Lightning** storm hitting **all 4 heroes** and applying **Shock**.
   2. **Gale Wing-Sweep** *(uses Ellowyn's **Void Pull** mechanic)* — Heavy **Bludgeoning** gust that scrambles heroes' timeline order.
-  3. **Skyward Ascent** — Shifts airborne with high evasion until its Guard pips break or precision/magic strikes hit it.
+  3. **Skyward Ascent** — Shifts airborne with high evasion until its Guard points break or precision/magic strikes hit it.
   4. **Dragon Rend** — Massive **Slashing + Piercing** bite on 1 hero.
 
 ---
@@ -102,7 +102,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ### Boss #7 — **The Pit Fiend General** *(SRD 5.2: `Fiend`)*
 * **Location:** Region 7 (Zone 18) — *The Pale Abyss* *(Portal #7 · Requires `Pale-Abyss Ice-Seal` from `Q155`)* | **Target Level:** `86–90` | **Reward:** `52,000 XP` | `80,000s`
 * **What It Is:** A **14-foot winged arch-devil** from an infernal war-dimension—crimson armored scales, wicked horns, bat-like wings, and a jagged burning mace-halberd. *(Strongest non-human apex monster before Garrick himself!)*
-* **Guard Pips:** `5` | **Weaknesses:** **Radiant, Frost, Bludgeoning** | **Resists:** Fire, Poison, Shadow
+* **Guard Points:** `5` | **Weaknesses:** **Radiant, Frost, Bludgeoning** | **Resists:** Fire, Poison, Shadow
 * **Boss Kit *(4 Boss Abilities)*:**
   1. **Infernal Mace** — Crushing **Bludgeoning + Fire** strike with **Stun** pressure.
   2. **Meteor Hellstorm *(Telegraphed)*** *(uses Ellowyn's **Meteor** mechanic)* — Cataclysmic **Fire + Shadow** rain hitting all 4 heroes.
@@ -117,14 +117,14 @@ To keep combat 100% consistent and balanced across the entire game:
 * **Party Structure:** All **6 surviving heroes converge** at Black Keep; the player fights the entire battle with their chosen **4-hero squad intact**.
 
 #### Phase 1 — *The Iron Tyrant*
-* **Guard Pips:** `5` | **Weaknesses:** **Radiant, Piercing, Lightning** | **Resists:** Slashing, Shadow
+* **Guard Points:** `5` | **Weaknesses:** **Radiant, Piercing, Lightning** | **Resists:** Slashing, Shadow
 * **Boss Abilities:**
   1. **Executioner's Greatsword** — Relentless multi-hit **Slashing** combo on 1 hero.
   2. **Risen Vanguard** — Calls 2 **Wight/Skeleton** guards onto the field and raises Physical Defense.
   3. **Necrotic Lance** *(uses Ellowyn's **Umbral Lance** mechanic)* — Dark spear piercing 1 hero with **Shadow + Curse**.
 
 #### Phase 2 — *Vessel of the Undead Eclipse* *(Triggered at `<55% HP`)*
-* **Guard Pips:** `6` | **Weaknesses:** **Radiant, Fire, Bludgeoning** | **Resists:** Shadow, Frost, Poison
+* **Guard Points:** `6` | **Weaknesses:** **Radiant, Fire, Bludgeoning** | **Resists:** Shadow, Frost, Poison
 * **Boss Abilities:**
   1. **Eclipse Cataclysm *(Telegraphed)*** *(uses Ellowyn's **Astral Judgment** / **Eclipse Singularity** mechanic)* — Massive party-wide **Shadow + Fire** devastation.
   2. **Timeless Chill** *(uses Ellowyn's **Blizzard Vortex** mechanic)* — Inflicts **Chill** across the party, pushing turns back.

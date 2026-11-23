@@ -288,7 +288,7 @@
       "target": "1 Enemy + Splash",
       "priceSilver": 2350,
       "sellSilver": 940,
-      "effect": "Blinding eruption breaking 2 Guard pips on Fire/Radiant weaknesses.",
+      "effect": "Blinding eruption breaking 2 Guard points on Fire/Radiant weaknesses.",
       "iconPath": "assets/icons/spells/spell_6_ellowyn_16.webp"
     },
     {
@@ -468,7 +468,7 @@
       "target": "1 Enemy",
       "priceSilver": 55,
       "sellSilver": 22,
-      "effect": "Hardened roots chip 1 Guard pip and delay target's next turn.",
+      "effect": "Hardened roots chip 1 Guard point and delay target's next turn.",
       "iconPath": "assets/icons/spells/spell_1_mera_26.webp"
     },
     {
@@ -612,7 +612,7 @@
       "target": "All Enemies",
       "priceSilver": 680,
       "sellSilver": 272,
-      "effect": "Earth shockwave hitting all enemies and chipping 1 Guard pip.",
+      "effect": "Earth shockwave hitting all enemies and chipping 1 Guard point.",
       "iconPath": "assets/icons/spells/spell_4_mera_34.webp"
     },
     {
@@ -828,7 +828,7 @@
       "target": "All Enemies",
       "priceSilver": 7400,
       "sellSilver": 2960,
-      "effect": "Volcanic fissure across all foes breaking 2 Guard pips.",
+      "effect": "Volcanic fissure across all foes breaking 2 Guard points.",
       "iconPath": "assets/icons/spells/spell_8_mera_46.webp"
     },
     {
@@ -1062,7 +1062,7 @@
       "target": "1 Enemy",
       "priceSilver": 680,
       "sellSilver": 272,
-      "effect": "Melts armor (-25% Phys & Magic Def, 3 turns) and chips 1 Guard pip.",
+      "effect": "Melts armor (-25% Phys & Magic Def, 3 turns) and chips 1 Guard point.",
       "iconPath": "assets/icons/spells/spell_4_harlan_59.webp"
     },
     {

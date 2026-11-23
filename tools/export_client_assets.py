@@ -9,6 +9,15 @@ ROOT = Path(r"C:\Users\drew0\Documents\ROD")
 CLIENT_ASSETS = ROOT / "client" / "assets"
 SCRATCH_VALEN = ROOT / "admin" / "vfx-test" / "heroes" / "valen_hp1.png"
 VFX_HERO_TOKENS_DIR = ROOT / "admin" / "vfx-test" / "heroes"
+HERO_HURT_SHEETS = {
+    "valen": "valen_duelist_portrait_1b_2x2.png",
+    "ellowyn": "ellowyn_mystic_portrait_1b_2x2.png",
+    "orin": "orin_bulwark_portrait_1b_2x2.png",
+    "rowan": "rowan_archer_portrait_1b_2x2.png",
+    "mera": "mera_druid_portrait_1b_2x2.jpg",
+    "harlan": "harlan_herbalist_portrait_1b_2x2.png",
+}
+
 HERO_AVATAR_SOURCES = {
     "valen": "valen_duelist_portrait_1a.png",
     "ellowyn": "ellowyn_mystic_portrait_1a.png",
@@ -158,6 +167,64 @@ def export_hero_tokens():
     print(f"Exported {exported} crisp 512x512 WebP hero tokens -> {out_dir.relative_to(ROOT)}")
 
 
+def export_hero_hurt_portraits():
+    """Slice all 6 master frameless 2x2 health portrait sheets into hp1-hp4 512x512 WebPs for battle UI."""
+    src_dir = ROOT / "assets" / "tokens" / "heroes"
+    out_dir = CLIENT_ASSETS / "portraits" / "heroes"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    exported = 0
+    inset = 8
+    for hero_id, filename in HERO_HURT_SHEETS.items():
+        src = src_dir / filename
+        if not src.exists():
+            raise FileNotFoundError(f"Missing 2x2 hurt portrait sheet: {src}")
+        with Image.open(src) as raw:
+            im = raw.convert("RGB")
+            qw, qh = im.width // 2, im.height // 2
+            boxes = [
+                (1, (inset, inset, qw - inset, qh - inset)),
+                (2, (qw + inset, inset, im.width - inset, qh - inset)),
+                (3, (inset, qh + inset, qw - inset, im.height - inset)),
+                (4, (qw + inset, qh + inset, im.width - inset, im.height - inset)),
+            ]
+            for hp_idx, box in boxes:
+                tile = im.crop(box)
+                side = min(tile.width, tile.height)
+                cx = (tile.width - side) // 2
+                cy = (tile.height - side) // 2
+                sq = tile.crop((cx, cy, cx + side, cy + side)).resize((512, 512), Image.Resampling.LANCZOS)
+                dst = out_dir / f"{hero_id}_hp{hp_idx}.webp"
+                sq.save(dst, "WEBP", quality=90, method=6)
+                exported += 1
+    print(f"Exported {exported} frameless 512x512 hero battle hurt portraits -> {out_dir.relative_to(ROOT)}")
+
+
+def export_battle_vfx():
+    """Sync battle VFX WebP strips (sheet_01..sheet_05) and vfx-effects.json into client/assets/."""
+    src_slices = ROOT / "assets" / "vfx" / "slices"
+    dst_vfx = CLIENT_ASSETS / "vfx"
+    dst_vfx.mkdir(parents=True, exist_ok=True)
+    copied = 0
+    for sheet_idx in range(1, 6):
+        src_sheet = src_slices / f"sheet_{sheet_idx:02d}"
+        if not src_sheet.exists():
+            continue
+        dst_sheet = dst_vfx / f"sheet_{sheet_idx:02d}"
+        dst_sheet.mkdir(parents=True, exist_ok=True)
+        for src in sorted(src_sheet.glob("*.webp")):
+            dst = dst_sheet / src.name
+            if not dst.exists() or dst.stat().st_size != src.stat().st_size:
+                shutil.copy2(src, dst)
+            copied += 1
+
+    src_vfx_json = ROOT / "data" / "vfx-effects.json"
+    if src_vfx_json.exists():
+        dst_vfx_json = CLIENT_ASSETS / "data" / "vfx-effects.json"
+        dst_vfx_json.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src_vfx_json, dst_vfx_json)
+    print(f"Synced {copied} battle VFX WebP frames + vfx-effects.json -> client/assets/vfx/")
+
+
 def export_hero_avatars():
     """Export the 6 frameless 1:1 hero bust portraits to crisp 512x512 WebP avatars."""
     src_dir = ROOT / "assets" / "tokens" / "heroes"
@@ -291,11 +358,16 @@ if __name__ == "__main__":
         export_hero_tokens()
     elif "--audio-only" in sys.argv:
         export_audio()
+    elif "--battle-only" in sys.argv:
+        export_hero_hurt_portraits()
+        export_battle_vfx()
     else:
         export_menu_background()
         composite_mera_druid_tokens()
         export_hero_tokens()
         export_hero_avatars()
+        export_hero_hurt_portraits()
         export_hero_fullbody()
+        export_battle_vfx()
         export_map_01_tiles()
         export_audio()

@@ -13,19 +13,19 @@ Every class uses **3 distinct D&D weapon types** (`1H` or `2H`, shared cleanly a
 
 | # | Weapon Type | Handed | Damage Type | Usable By | Attack Mode A *(Fast / Accurate)* | Attack Mode B *(Slow / Heavy / Special)* |
 | :---: | :--- | :---: | :--- | :--- | :--- | :--- |
-| **1** | **Longsword** | 1H | Slashing | Duelist (`Valen`) | **Quick Slash** — High hit rate, faster turn recovery | **Heavy Cleave** — High damage, double crit, extra Guard break |
-| **2** | **Greatsword** | 2H | Slashing | Duelist (`Valen`) | **Wide Sweep** — Reliable arc with light knockback pressure | **Overhead Rend** — Massive heavy strike, breaks extra Guard pip |
-| **3** | **Rapier** | 1H | Piercing | Duelist (`Valen`) | **Needle Thrust** — Ultra-fast turn recovery, `98%` base hit | **Heart Pierce** — High crit multiplier, ignores part of armor |
-| **4** | **Battleaxe** | 1H | Slashing | Bulwark (`Orin`) | **Chopping Hack** — Solid hit rate, reliable raw chop | **Execution Chop** — High crit damage vs. enemies below `50%` HP |
-| **5** | **Mace** | 1H | Bludgeoning | Bulwark (`Orin`), Herbalist (`Harlan`) | **Heavy Bash** — Fast blunt hit, chips 1 Guard pip | **Armor Crush** — Heavy slam, lowers enemy Physical Defense 1 turn |
-| **6** | **Spear** | 2H | Piercing | Bulwark (`Orin`) | **Long Thrust** — Precision high-reach thrust, extra accuracy & Crit | **Brace Sweep** — Heavy thrust that pushes enemies back on timeline |
-| **7** | **Longbow** | 2H | Piercing | Archer (`Rowan`) | **Snap Arrow** — Fast long-range shot, high accuracy | **Aimed Piercer** — Slow drawn shot, double crit & high range pierce |
-| **8** | **Shortbow** | 2H | Piercing | Archer (`Rowan`) | **Quick Volley** — Fastest ranged attack, quick turn cycle | **Wing Clip** — Pushes target slightly back on the turn timeline |
-| **9** | **Dagger** | 1H | Piercing | Mystic (`Ellowyn`), Archer (`Rowan`), Herbalist (`Harlan`) | **Quick Jab** — Fast accurate cut, quick turn cycle | **Vital Gouge** — Risky thrust with high crit & Bleed chance |
-| **10** | **Light Crossbow** | 2H | Piercing | Mystic (`Ellowyn`) | **Bolt Snap** — Steady armor-piercing bolt | **Siege Crank** — Heavy drawn shot + Guard pip break |
-| **11** | **Quarterstaff** | 2H | Bludgeoning *(+Caster)* | Mystic (`Ellowyn`), Druid (`Mera`), Herbalist (`Harlan`) | **Staff Sweep** — Quick two-handed strike, restores a sliver of MP | **Crushing Vault** — Heavy iron-shod overhead slam, chips 1 Guard pip |
-| **12** | **Scimitar** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Crescent Cut** — Fluid high-hit curved slash | **Whirling Slash** — Crit-weighted sweep granting slight turn speed |
-| **13** | **Sickle** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Reaping Hook** — Fast curving slice with Bleed chance | **Thorn Slash** — Sharp cut that lowers target Attack 1 turn |
+| **1** | **Longsword** | 1H | Slashing | Duelist (`Valen`) | **Quick Slash** — Fast slash with high accuracy; keeps next turn sooner | **Heavy Cleave** — High damage, `+15%` Crit Chance, breaks 1 Guard point |
+| **2** | **Greatsword** | 2H | Slashing | Duelist (`Valen`) | **Wide Sweep** — Broad arc that pushes target back on the turn bar | **Overhead Rend** — Massive heavy strike, breaks 1 extra Guard point |
+| **3** | **Rapier** | 1H | Piercing | Duelist (`Valen`) | **Needle Thrust** — Ultra-fast lunge (`98%` hit); keeps next turn sooner | **Heart Pierce** — Focused thrust (`+20%` Crit Chance), ignores `25%` Physical Defense |
+| **4** | **Battleaxe** | 1H | Slashing | Knight (`Orin`) | **Chopping Hack** — Dependable axe chop with reliable accuracy | **Execution Chop** — Heavy chop (`+25%` Crit Chance vs. enemies below `50%` HP) |
+| **5** | **Mace** | 1H | Bludgeoning | Knight (`Orin`), Sage (`Harlan`) | **Heavy Bash** — Fast blunt hit, chips 1 Guard point | **Armor Crush** — Heavy slam, lowers enemy Physical Defense 1 turn |
+| **6** | **Spear** | 2H | Piercing | Knight (`Orin`) | **Long Thrust** — High-reach thrust with bonus accuracy & `+12%` Crit Chance | **Brace Sweep** — Heavy thrust that pushes enemies back on the turn bar |
+| **7** | **Longbow** | 2H | Piercing | Ranger (`Rowan`) | **Snap Arrow** — Fast long-range arrow, high accuracy | **Aimed Piercer** — Slow, aimed shot (`+25%` Crit Chance), ignores `25%` Physical Defense |
+| **8** | **Shortbow** | 2H | Piercing | Ranger (`Rowan`) | **Quick Volley** — Fastest bow attack; keeps next turn early | **Wing Clip** — Pinning arrow that pushes target back on the turn bar |
+| **9** | **Dagger** | 1H | Piercing | Sorceress (`Ellowyn`), Ranger (`Rowan`), Sage (`Harlan`) | **Quick Jab** — Rapid stab with high accuracy and fast recovery | **Vital Gouge** — Deep stab (`+15%` Crit Chance) with chance for 2-turn Bleed |
+| **10** | **Light Crossbow** | 2H | Piercing | Sorceress (`Ellowyn`) | **Bolt Snap** — Steady shot ignoring `15%` of Physical Defense | **Siege Crank** — Heavy cranked bolt + breaks 1 Guard point |
+| **11** | **Quarterstaff** | 2H | Bludgeoning *(+Caster)* | Sorceress (`Ellowyn`), Druid (`Mera`), Sage (`Harlan`) | **Staff Sweep** — Quick two-handed strike, restores a sliver of MP | **Crushing Vault** — Heavy overhead slam, chips 1 Guard point |
+| **12** | **Scimitar** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Crescent Cut** — Smooth curved slash with reliable accuracy | **Whirling Slash** — Spinning slash (`+15%` Crit Chance) bringing next turn sooner |
+| **13** | **Sickle** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Reaping Hook** — Fast hooked slice with 2-turn Bleed chance | **Thorn Slash** — Barbed cut that lowers target Attack 1 turn |
 
 ---
 
@@ -37,9 +37,11 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 * **2H Weapons (`Greatsword, Spear, Longbow, Shortbow, Light Crossbow, Quarterstaff`):** `+25%` higher Attack Power, `+20%` Silver Cost *(uses both hands—locks Left Hand slot)*.
 * **Caster Weapon Scaling (`Quarterstaff, Scimitar, Sickle`, plus `Dagger / Mace / Light Crossbow` on Casters):** Casters (**Ellowyn, Mera, Harlan**) get matching **Magic / Heal Power** from **`Quarterstaff, Scimitar, Sickle`** (`2H Quarterstaff` gives `+20%` more Magic/Heal Power than `1H`) and additional Spell Power from their Class Accessories (`Orbs`, `Crystals`, `Tomes`).
 
+* **New Campaign Starting State:** Heroes begin unequipped with an empty pack (`no free weapons, armor, spells, or potions`) and **`250s` Silver**—enough to arm the party and make strategic early choices at **Highcrown**'s shops, but far short of outfitting every hero in all `5` slots (`~466s–500s` for base Step 1 gear alone).
+
 | Step | Region | Target Levels | Base 1H Attack | Base 2H Attack | Caster Magic/Heal Power | Typical 1H Price (Silver) | Where Stocked |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | Region 1 | `1–4` | `6` | `8` | `+5` (`2H +6`) | `40s` *(or Starter)* | Highcrown / Oakhaven |
+| **1** | Region 1 | `1–4` | `6` | `8` | `+5` (`2H +6`) | `40s` | Highcrown / Oakhaven |
 | **2** | Region 1 | `5–8` | `10` | `13` | `+9` (`2H +11`) | `120s` | Oakhaven / Meadowbrook Hamlet |
 | **3** | Region 1 | `9–12` | `15` | `19` | `+14` (`2H +17`) | `260s` | Millbrook Crossing / Crownlands Hill-Fort |
 | **4** | Region 2 | `12–15` | `21` | `26` | `+20` (`2H +24`) | `450s` | Saltwind Harbor |
@@ -221,11 +223,11 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | Accessory Type | Usable By | Combat Profile |
 | :--- | :--- | :--- |
 | **Cloaks** | Duelist (`Valen`) | Boosts Turn Timeline Speed, Dodge Chance & Critical Chance. |
-| **Orbs** | Mystic (`Ellowyn`) | Boosts Magic Power, Spell Crit Chance & Turn Timeline Speed. |
-| **Horns** | Bulwark (`Orin`) | Boosts Grit, Physical Defense & Guard mitigation bonus. |
-| **Quivers** | Archer (`Rowan`) | Boosts Piercing Attack Power & Critical Damage. |
+| **Orbs** | Sorceress (`Ellowyn`) | Boosts Magic Power, Spell Crit Chance & Turn Timeline Speed. |
+| **Horns** | Knight (`Orin`) | Boosts Grit, Physical Defense & Guard mitigation bonus. |
+| **Quivers** | Ranger (`Rowan`) | Boosts Piercing Attack Power & Critical Damage. |
 | **Crystals** | Druid (`Mera`) | Boosts Magic Power, Max MP & Nature/Status potency. |
-| **Tomes** | Herbalist (`Harlan`) | Boosts Healing Power, Max MP & Status Ailment Resistance. |
+| **Tomes** | Sage (`Harlan`) | Boosts Healing Power, Max MP & Status Ailment Resistance. |
 
 ### C. Combined Defense & Price Curve (Steps `1`–`24`)
 * **Armor Split Across Both Slots:** Values below show the **combined** Step total (`Body + Helmet`)—in town shops, **Body Armor** provides ~`65%` of the stats & price and **Helmets** provide ~`35%`, so equipping a matching pair hits the exact balanced baseline.
@@ -440,7 +442,7 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Detonating** | Hitting an enemy suffering **Burn, Bleed, or Poison** detonates `25%–50%` of remaining over-time damage immediately. |
 | **Vampiric** | Attacks & skills heal the user for `8%–18%` of damage dealt. |
 | **Siphoning** | Attacks & skills restore `2–7 MP` per hit *(doubled on Weakness or Critical hits)*. |
-| **Crushing** | `0 MP` Attack Modes chip **+1 extra Guard pip** and lower enemy Defense by `10%–22%` for 2 turns. |
+| **Crushing** | `0 MP` Attack Modes chip **+1 extra Guard point** and lower enemy Defense by `10%–22%` for 2 turns. |
 | **Rending** | Weapon Critical Hits inflict heavy **Bleed** (`3 turns`) and deal `+15%–32%` bonus damage vs. Bleeding foes. |
 | **Executioner's** | Deal `+20%–42%` bonus weapon damage to enemies below `40% HP` or **Staggered**. |
 | **Echoing** | `15%–32%` chance for single-target `0 MP` attacks to strike a second time at `50%` power. |
@@ -451,7 +453,7 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | Prefix Name | Combat Effect *(Scales Lesser $\to$ Mythic)* |
 | :--- | :--- |
 | **Bastion's** | Enter every battle with a protective **Ward Shield** (`12%–30%` Max HP). |
-| **Retaliating** | Reflect `18%–38%` of incoming melee damage back onto attackers and chip `1` Guard pip when hit while Battered. |
+| **Retaliating** | Reflect `18%–38%` of incoming melee damage back onto attackers and chip `1` Guard point when hit while Battered. |
 | **Resolve-Heart** | Gain `+18%–38%` damage & healing potency whenever HP is below `50%` (**Battered**). |
 | **Sanctified** | Gain `25%–60%` resistance to **all Status Ailments & Stun**, and heal `3%–6%` HP when an ailment fails or expires. |
 | **Vanguard's** | Taking the **Guard** action restores `6%–15%` Max HP + `4–10 MP` and pushes your next turn forward on the timeline. |
@@ -483,7 +485,7 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 
 ## 6. Town Potions
 
-Because players can pick **any 4 of the 6 heroes** (even a squad without **Harlan** or **Mera**), Town **Arcanist** shops stock healing, mana, revival, and status-cure supplies strictly as **Potions** across the 8 Regions:
+Because players can pick **any 4 of the 6 heroes** (even a squad without **Harlan** or **Mera**), Town **Arcanist** shops stock healing, mana, revival, and status-cure supplies strictly as **Potions** across the 8 Regions. **Unlimited Stacking:** Any consumables sharing the exact same stats and effect merge together into a single unlimited stack in your bag (`no 99-item limit`).
 
 ### A. Healing & Mana Potions *(Usable In or Out of Combat)*
 | Item | Regions Stocked | Effect | Price *(Silver)* |

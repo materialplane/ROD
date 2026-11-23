@@ -681,6 +681,47 @@ html, body {
   color: #0b161c;
 }
 
+.insp-ferry.pass-box {
+  background: rgba(242, 201, 120, 0.1);
+  border-color: rgba(242, 201, 120, 0.42);
+}
+
+.btn.pass-pick {
+  background: rgba(242, 201, 120, 0.16);
+  border-color: #f2c978;
+  color: #fae4b0;
+}
+
+.btn.pass-pick.active {
+  background: #f2c978;
+  color: #161108;
+}
+
+.pass-coord-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.pass-coord-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 10.5px;
+  color: #b7c3d6;
+}
+
+.pass-coord-grid input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #101520;
+  color: #eef2f8;
+  border: 1px solid #353f54;
+  border-radius: 5px;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
 .rot-step-row {
   display: flex;
   gap: 4px;

@@ -31,21 +31,21 @@ Minimal corner/side overlays keep the `4` connected `8192×8192` overworld maps,
 * **Top-Right Corner Mini-Map / Status:**
   * *Overworld:* Current **Region**, **Danger Sub-Zone (`Level Band`)**, and live **Biome** name (`updating directly from the painted terrain hex under the player token—such as Oakleaf Groves, Sandy Cove Beaches, or Black Lava Mountain—so players can track matching monster habitats for Zone Outpost Hunts`), plus compass orientation and nearby discovered markers.
   * *Procedural Dungeon / Portal (`1:1` Room View):* Flanking HUD beside the `1:1` square room displays the **auto-filling Zelda-style room grid minimap** (sparse carved corridors & dead ends contained inside `2×2` up to `10×10+` bounding grids), visited rooms, locked gates & keys, Mini-Boss / Boss Seal *(once revealed)*, and **Rift / Area Chart** full-grid reveal when found.
-* **Encounter Danger Indicator *(Overworld & Dungeons only)*:** Clean edge gauge shifting smoothly from cool slate $\to$ amber $\to$ crimson as steps build toward a triggered encounter, giving players clear warning before fights start *(automatically hidden inside safe Towns and Sanctuaries; internal Zone Stealth in outleveled Zones slows step buildup up to `30%` behind the scenes with zero Stealth UI shown—see `docs/03`)*.
+* **Classic Invisible Random Encounters *(No Warning Gauge)*:** Wilderness travel on the Overworld and inside Dungeons uses classic hidden step-based random encounter rolls with zero on-screen warning meters or encounter percentages *(exploration stays 100% peaceful inside safe Towns and Sanctuaries; internal Zone Stealth in outleveled Zones reduces hidden step risk by up to `30%` behind the scenes with zero Stealth UI shown—see `docs/03`)*.
 * **Top-Left Vertical Party Bar *(Overworld Leader = Slot #1)*:** Your **4 active Hero `1:1` avatars** *(clean frameless UI portraits—no circular map token rings)* stacked **top-to-bottom (`Slot 1 → Slot 4`)**, displaying compact HP/MP bars, active status badges, current silver purse (`s`), while whichever hero occupies **Slot 1** walks across the Overworld & Dungeon maps as their circular VTT map token.
 * **Bottom-Right Quick Menu Bar *(or `Esc` / Start, plus `P` for Party Menu)*:** **Party (`P`)**, **Gear**, **Bag**, **Journal**, **World Map**, **Save**, **System**.
 
-### C. Turn-Based Battle Screen (`16:9` Arena)
-* **Top Center — Visible Turn-Order Timeline:** Horizontal strip of upcoming hero and enemy turns ordered by **Finesse** + action speed, clearly pulsing **Telegraphed Heavy Attack** warnings on enemy portraits so players know when to **Guard** or interrupt.
-* **Center Stage (`16:9` Biome Backdrop):**
-  * *Right/Upper Field:* **Full-body enemy & boss illustrations** *(with wounded art variants on major bosses)*, HP bars, status icons, and **Weakness Badges** *(auto-revealed permanently per enemy family once struck by matching weapon/elemental types)*.
-  * *Left Column Formation:* Your **4 Hero `1:1` Portraits** lined up cleanly **top-to-bottom (`Slot 1 → Slot 4`)** matching the **Party Menu (`P`)** *(clean `1:1` UI portraits without the circular map token ring)*—zero Frontline/Backline row logic. Incoming hits play each individual weapon or spell's custom VFX animation and swap the struck hero's portrait cleanly to its matching frameless **`2×2` Health** state (`<75% / <50% / <25%`), and **Resolve** glows along the portrait frame below `<50%` and `<25%`.
-* **Bottom Action Deck *(Active Hero)*:**
-  * **Attack:** Displays the equipped weapon's **2 unique `0 MP` Attack Modes** *(showing Damage Type & effect)*
-  * **Spells (`Ellowyn`, `Mera` & `Harlan`):** Opens the caster's naturally unlocked `MP` Spells (`MP` cost + AoE/status preview)
-  * **Item:** Quick-use Potions *(Healing, Mana, Revival & Status Cures)*
-  * **Guard:** Damage mitigation + counter/posture readiness
-  * **Flee:** Party escape attempt *(disabled in Portal Boss & story boss fights)*
+### C. Turn-Based Battle Screen (`85%` Centered `16:9` Arena Over Blurred World)
+* **Blurred World Frame:** Triggering an encounter freezes and softly blurs the live Overworld/Dungeon backdrop behind a crisp framed **`~85%` `16:9` Battle Stage**.
+* **Top Center — Visible Turn-Order Timeline & Prompt Pill:** Horizontal strip of upcoming hero and enemy turns ordered by **Finesse** + action speed, plus a subtle target action prompt pill below it.
+* **Center Stage (`16:9` Biome / Portal Art):**
+  * *Left Multi-Cell Formation (`4×3` Grid):* **Full-body enemy & boss illustrations** packed cleanly by footprint (`1×1` up to `3×3`) with thin HP bars and Guard/Status pips—keeping enemy sprites completely clean with **zero bulky hover tooltips** *(discovered monsters & weaknesses belong in the **Bestiary / Mob Codex**)*.
+  * *Right 4-Row Hero Panels (`Slots 1–4`):* Framed `1:1` frameless hurt-state portraits (**`100% / <75% / <50% / <25%`** matching `hp1–hp4`), chunky beveled HP gauges *(plus MP bars shown **only** on casters **Ellowyn, Mera, Harlan**—never fake MP bars on warriors)*, active hero slide-out with gold rim & pulsing arrow (`no loud TURN box`), and a compact crest strip showing **only that hero's unlocked Discipline perks** (`zero empty placeholder slots`, with hover tooltips).
+* **Bottom Action Hotbar *(Single Compact Centered `1:1` Row)*:**
+  * **Attack (`2` Icons):** Equipped weapon's **2 unique Attack Modes** (`Fast` & `Heavy`).
+  * **Magic (`T1`–`T8` Class-Themed Seals — `Ellowyn`, `Mera`, `Harlan`):** Shows **only Tiers with learned spells**—clicking a Tier opens a tight vertical stack of that Tier's `2/3` learned `1:1` spell icons (`with hover tooltips above the stack`).
+  * **Potions:** Dynamically shows owned **Potions** (`qty > 0` — Healing, Mana, Revival & Cure).
+  * **Guard & Flee:** Defend + `+1` Guard / `+25%` Momentum, or attempt party escape *(disabled in Boss fights)*.
 
 ---
 
@@ -56,15 +56,15 @@ Opening the Party Menu (`Hotkey P`) or ledger pauses exploration cleanly across 
 1. **Party & Stats (`Hotkey P`):**
    * View and **reorder your 4 active party slots (`Slots 1–4` top-to-bottom)** anytime outside combat—putting any hero in **Slot 1** immediately swaps your visible Overworld walking VTT token, and also inspect the 2 companions holding **Highcrown Keep**.
    * Inspect each hero's HP/MP, Level, XP to next level, stats, and equipment summary, and view active **Resolve** passive thresholds (`<50%` & `<25%`).
-   * Spend **Stat Points** freely across **Force, Finesse, Grit, Arcana, Presence**, with clear milestone markers at **`20 / 40 / 60 / 80 / 100`** showing earned **Mastery Perks**.
+   * Spend **Stat Points** freely across **Force, Finesse, Grit, Arcana, Presence**, and view each hero's **`10` Arcanist Discipline Perks** (unlocked `1`-of-`2` at Levels **`1, 10, 20, 30, 40, 50, 60, 70, 80, 90`**).
 2. **Weapons & Spells:**
-   * Inspect each hero's equipped weapon's **2 `0 MP` Attack Modes**; for our 3 casters (**Ellowyn, Mera, Harlan**), view Tiers `1–8` unlocked naturally by leveling up and swap active slotted spells anytime outside combat.
+   * Inspect each hero's equipped weapon's **2 `0 MP` Attack Modes**; for our 3 casters (**Ellowyn, Mera, Harlan**), view learned spells across Tiers `1–8` (`2 of 3` chosen per Region Tier at Town Magic Shops).
 3. **Equipment, Runestones & Accessories:**
    * Equip **Right Hand**, **Left Hand** *(Global Shields when wielding a 1H weapon)*, **Helmet**, **Body**, **1 Weapon/Body Runestone**, and **1 Class Accessory Slot**.
    * Shows clear green/red combat stat deltas before confirming swaps.
    * **Permanent Runestone Socketing:** Empty sockets accept Runestones anywhere for free; slotting a new Runestone over an occupied socket shows a clear warning that the previous Runestone will be **permanently destroyed** before confirming.
 4. **Inventory:**
-   * Tabbed categories: **Potions** *(Healing, Mana, Revival & Cure Potions — usable in battle or on the overworld)*, **Runestones**, **Trade Goods** *(sell-only items showing total Silver value)*, and **Key Items / Portal Catalysts / Dungeon Keys**.
+   * Tabbed categories: **Potions** *(Healing, Mana, Revival & Cure Potions — usable in battle or on the overworld, stacking cleanly with **no limit** whenever they share the exact same stats)*, **Runestones**, **Trade Goods** *(sell-only items showing total Silver value)*, and **Key Items / Portal Catalysts / Dungeon Keys**.
 5. **Quest Journal & Bestiary:**
    * Clean filters matching all 4 sandbox quest layers (tracked under one **Global Active Quest Limit**, e.g. `15` active quests total): **Main Portals (`X/8`) & Home Front**, **Story Chains (`4`)**, **Hub Quests (`178`)**, and **Zone Outpost Hunts (`20` Outposts)**.
    * Bestiary sub-tab logs every seen SRD 5.2 realm mob, boss, and Ethoria native along with discovered **Weaknesses** and Trade Good drops.
@@ -109,5 +109,5 @@ Because music tracks and SFX are **already provided by the Creative Director**, 
   * Completing each of the **4 Story Chains** (`Orin/Garrick`, `Ellowyn/Valen`, `Rowan/Mera`, `Harlan`)
   * Completing `40`, `100`, and all `178` **Hub Quests**
   * Completing **`25`**, **`100`**, **`200`**, and **`500` Zone Outpost Hunts** *(cumulative global count across all `20` Outposts; individual Outposts remain unlimited)*
-  * Reaching **Level `50`** and **Level `99`**, unlocking a **`100` Stat Mastery Perk**, winning a battle via **Critical `<25%` Resolve**, and discovering all **40 Hubs** / **Bestiary entries**.
+  * Reaching **Level `50`** and **Level `99`**, completing all **`10` Discipline Perks (`Lv 90`)**, winning a battle via **Critical `<25%` Resolve**, and discovering all **40 Hubs** / **Bestiary entries**.
 * **Strict Client / Admin Separation:** Only the Electron **Game Client** + game data/assets bundle into the Steam depot—the **Internal Admin Suite** never ships in public builds.

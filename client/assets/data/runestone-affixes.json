@@ -84,7 +84,7 @@
       "id": "pfx_wpn_crushing",
       "name": "Crushing",
       "socket": "weapon",
-      "effect": "0 MP Attack Modes chip +1 extra Guard pip and lower enemy Defense by 10%–22% for 2 turns."
+      "effect": "0 MP Attack Modes chip +1 extra Guard point and lower enemy Defense by 10%–22% for 2 turns."
     },
     {
       "id": "pfx_wpn_rending",
@@ -116,7 +116,7 @@
       "id": "pfx_arm_retaliating",
       "name": "Retaliating",
       "socket": "armor",
-      "effect": "Reflect 18%–38% of incoming melee damage back onto attackers and chip 1 Guard pip when hit while Battered."
+      "effect": "Reflect 18%–38% of incoming melee damage back onto attackers and chip 1 Guard point when hit while Battered."
     },
     {
       "id": "pfx_arm_resolve_heart",

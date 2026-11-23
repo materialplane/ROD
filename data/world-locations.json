@@ -27,7 +27,7 @@
       "locked": false,
       "x": 5521,
       "y": 5638,
-      "scale": 2.0,
+      "scale": 2,
       "triggerRadius": 176,
       "interiorAssetPath": "assets/maps/interiors/loc_01_overgrown_garden_sanctuary.webp",
       "tavernAssetPath": "assets/maps/taverns/loc_01_overgrown_garden_sanctuary_tavern.webp",
@@ -130,7 +130,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_02_oakhaven",
@@ -278,7 +281,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_04_millbrook_crossing",
@@ -299,7 +305,7 @@
       "locked": false,
       "x": 7261,
       "y": 4752,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/loc_04_millbrook_crossing.webp",
       "tavernAssetPath": "assets/maps/taverns/loc_04_millbrook_crossing_tavern.webp",
@@ -427,7 +433,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_05_the_ashen_gate",
@@ -479,7 +488,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A towering arch of scorched basalt humming with furnace heat from Earth and Forge. Ancient smith-wards bar the way; sailors whisper its lost keystone sank near Saltwind's reefs.",
       "playerServices": [],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_06_saltwind_harbor",
@@ -626,7 +638,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_09_mirewatch_post",
@@ -647,7 +662,7 @@
       "locked": false,
       "x": 2009,
       "y": 4920,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/loc_09_mirewatch_post.webp",
       "linkedFerryId": null,
@@ -776,7 +791,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_10_the_sunken_maw",
@@ -828,7 +846,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Barnacle-crusted tidal monoliths form a drowned sea-arch pulsing with cold abyssal light from the Plane of Water. Sea captains speak of a luminous brine-pearl guarded by beasts near Tidewater's outer cliffs.",
       "playerServices": [],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_11_redmarch_bastion",
@@ -967,7 +988,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_13_hollowstone_keep",
@@ -1107,7 +1131,10 @@
         "Stronghold",
         "Fighting Arena"
       ],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_15_the_iron_rift",
@@ -1159,7 +1186,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Riveted iron girders and scarred granite jambs frame a blistering gateway roaring with war-drums from the Blood-Iron Warlands. Rumors among captured quarrymen trace its molten seal to stone-giant pickets guarding the high crags.",
       "playerServices": [],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_16_briarstead",
@@ -1298,7 +1328,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_20_the_rotspire",
@@ -1350,7 +1383,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Gnarled roots and luminous lichen coil around a sunken forest arch choking the surrounding canopy with sickly emerald spores. Quarantine chaplains believe only hardened amber plucked from the quarantine gate can pierce its seal.",
       "playerServices": [],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_21_port_veridia",
@@ -1491,7 +1527,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_23_dunespire_oasis",
@@ -1512,7 +1551,7 @@
       "locked": false,
       "x": 2065,
       "y": 5880,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/loc_23_dunespire_oasis.webp",
       "tavernAssetPath": "assets/maps/taverns/loc_23_dunespire_oasis_tavern.webp",
@@ -1628,7 +1667,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_24_gilded_auction_manor",
@@ -1751,7 +1793,10 @@
         "Stronghold",
         "Fighting Arena"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_25_the_scorched_chasm",
@@ -1803,7 +1848,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A towering sun-blistered arch of sandstone and tarnished brass radiating furnace gusts from the Elemental Plane of Fire. Caravan elders tell of a brass cinder-seal carried off by fire-born raiders prowling near the gilded cliffs.",
       "playerServices": [],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_26_highpass_refuge",
@@ -1942,7 +1990,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_27_anvilhall_forge",
@@ -2079,7 +2130,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_30_storm_crowned_spire",
@@ -2131,7 +2185,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "Crackling sky-bolts dance across a carved granite gateway opening toward the windswept Elemental Plane of Air and Dragon Crags. Rangers below Stormhold's walls tell of storm-giants hoarding the gate's crackling lodestone.",
       "playerServices": [],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_31_rimeport",
@@ -2272,7 +2329,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_34_bleakwatch_citadel",
@@ -2412,7 +2472,10 @@
         "Stronghold",
         "Fighting Arena"
       ],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_35_the_pale_abyss",
@@ -2464,7 +2527,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A frost-choked arch of black basalt breathing freezing hellfire from the deepest pits of the Abyss. Defectors from Bleakwatch whisper of an ice-locked seal held behind the warlord's bridgehead bastions.",
       "playerServices": [],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_36_ashenford_war_camp",
@@ -2599,7 +2665,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_39_the_eclipse_gate",
@@ -2651,7 +2720,10 @@
       "playerKind": "Dimensional Rift Gate",
       "playerDescription": "A colossal temple archway of blackened silver and volcanic stone tearing open toward the Shadowfell itself. Heavy eclipse-wards lock the threshold; only breaking the inner throne seals will force the final gate wide.",
       "playerServices": [],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_40_garricks_black_keep",
@@ -2790,7 +2862,10 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_crownlands_hill_fort",
@@ -2814,7 +2889,7 @@
       "locked": false,
       "x": 4891,
       "y": 3576,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_crownlands_hill_fort.webp",
       "linkedFerryId": null,
@@ -2919,7 +2994,10 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_meadowbrook_hamlet",
@@ -2940,7 +3018,7 @@
       "locked": false,
       "x": 6887,
       "y": 3624,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_meadowbrook_hamlet.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_meadowbrook_hamlet_tavern.webp",
@@ -3039,7 +3117,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_brinecliff_watch_fort",
@@ -3060,7 +3141,7 @@
       "locked": false,
       "x": 1663,
       "y": 3744,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_brinecliff_watch_fort.webp",
       "linkedFerryId": null,
@@ -3157,7 +3238,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_reedfen_village",
@@ -3178,7 +3262,7 @@
       "locked": false,
       "x": 1053,
       "y": 2784,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_reedfen_village.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_reedfen_village_tavern.webp",
@@ -3287,7 +3371,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_tidewater_keep",
@@ -3412,7 +3499,10 @@
         "Armory & Provisions",
         "Fighting Arena"
       ],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_goldmoor_village",
@@ -3433,7 +3523,7 @@
       "locked": false,
       "x": 2369,
       "y": 5496,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_goldmoor_village.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_goldmoor_village_tavern.webp",
@@ -3530,7 +3620,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_slatepeak_mining_fort",
@@ -3551,7 +3644,7 @@
       "locked": false,
       "x": 2785,
       "y": 3336,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_slatepeak_mining_fort.webp",
       "linkedFerryId": null,
@@ -3663,7 +3756,10 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_thornwall_border_castle",
@@ -3780,7 +3876,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_timberfall_village",
@@ -3801,7 +3900,7 @@
       "locked": false,
       "x": 7302,
       "y": 2616,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_timberfall_village.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_timberfall_village_tavern.webp",
@@ -3898,7 +3997,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_mosswood_hamlet",
@@ -3919,7 +4021,7 @@
       "locked": false,
       "x": 7482,
       "y": 4464,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_mosswood_hamlet.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_mosswood_hamlet_tavern.webp",
@@ -4016,7 +4118,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_greenwarden_fort",
@@ -4037,7 +4142,7 @@
       "locked": false,
       "x": 6291,
       "y": 3216,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_greenwarden_fort.webp",
       "linkedFerryId": null,
@@ -4152,7 +4257,10 @@
         "Mystic & Herbalist",
         "Fighting Arena"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_blightwatch_keep",
@@ -4268,7 +4376,10 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_sunstone_caravan_post",
@@ -4289,7 +4400,7 @@
       "locked": false,
       "x": 6083,
       "y": 6648,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_sunstone_caravan_post.webp",
       "linkedFerryId": null,
@@ -4384,7 +4495,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_sandwall_citadel",
@@ -4502,7 +4616,10 @@
         "Armory & Provisions",
         "Fighting Arena"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_clearwater_lake_village",
@@ -4523,7 +4640,7 @@
       "locked": false,
       "x": 3783,
       "y": 1080,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_clearwater_lake_village.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_clearwater_lake_village_tavern.webp",
@@ -4620,7 +4737,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_cragwatch_fort",
@@ -4641,7 +4761,7 @@
       "locked": false,
       "x": 4434,
       "y": 1584,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_cragwatch_fort.webp",
       "linkedFerryId": null,
@@ -4736,7 +4856,10 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_stormhold_citadel",
@@ -4854,7 +4977,10 @@
         "Armory & Provisions",
         "Fighting Arena"
       ],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_frostmere_village",
@@ -4875,7 +5001,7 @@
       "locked": false,
       "x": 2369,
       "y": 4872,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_frostmere_village.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_frostmere_village_tavern.webp",
@@ -4972,7 +5098,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_glacierwatch_fort",
@@ -4993,7 +5122,7 @@
       "locked": false,
       "x": 3145,
       "y": 5640,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_glacierwatch_fort.webp",
       "linkedFerryId": null,
@@ -5088,7 +5217,10 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_icecrest_holdfast",
@@ -5205,7 +5337,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_cinderwatch_bastion",
@@ -5321,7 +5456,10 @@
         "Rest Barracks",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_ashvale_village",
@@ -5342,7 +5480,7 @@
       "locked": false,
       "x": 4916,
       "y": 4575,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_ashvale_village.webp",
       "tavernAssetPath": "assets/maps/taverns/hub_ashvale_village_tavern.webp",
@@ -5456,7 +5594,10 @@
         "Free Inn",
         "Armory & Provisions"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "hub_scorchwall_fort",
@@ -5477,7 +5618,7 @@
       "locked": false,
       "x": 5709,
       "y": 6912,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/hub_scorchwall_fort.webp",
       "linkedFerryId": null,
@@ -5573,7 +5714,10 @@
         "Armory & Provisions",
         "Mystic & Herbalist"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z01_meadowgate",
@@ -5594,7 +5738,7 @@
       "locked": false,
       "x": 5974,
       "y": 6608,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z01_meadowgate.webp",
       "linkedFerryId": null,
@@ -5616,7 +5760,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z02_oakwood",
@@ -5637,7 +5784,7 @@
       "locked": false,
       "x": 6610,
       "y": 4344,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z02_oakwood.webp",
       "linkedFerryId": null,
@@ -5659,7 +5806,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z03_slate_ridge",
@@ -5680,7 +5830,7 @@
       "locked": false,
       "x": 5224,
       "y": 1176,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z03_slate_ridge.webp",
       "linkedFerryId": null,
@@ -5702,7 +5852,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Crownlands"
+      "playerRegion": "The Crownlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z04_brinefen",
@@ -5723,7 +5876,7 @@
       "locked": false,
       "x": 1815,
       "y": 1800,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z04_brinefen.webp",
       "linkedFerryId": null,
@@ -5745,7 +5898,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z05_bogwarden",
@@ -5766,7 +5922,7 @@
       "locked": false,
       "x": 2938,
       "y": 7152,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z05_bogwarden.webp",
       "linkedFerryId": null,
@@ -5788,7 +5944,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Saltmarsh Coast"
+      "playerRegion": "Saltmarsh Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z06_ochre_downs",
@@ -5809,7 +5968,7 @@
       "locked": false,
       "x": 2397,
       "y": 6696,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z06_ochre_downs.webp",
       "linkedFerryId": null,
@@ -5831,7 +5990,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z07_cragspire",
@@ -5852,7 +6014,7 @@
       "locked": false,
       "x": 3617,
       "y": 2856,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z07_cragspire.webp",
       "linkedFerryId": null,
@@ -5874,7 +6036,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Thornwall Warfronts"
+      "playerRegion": "Thornwall Warfronts",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z08_fernbrook",
@@ -5895,7 +6060,7 @@
       "locked": false,
       "x": 5141,
       "y": 2040,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z08_fernbrook.webp",
       "linkedFerryId": null,
@@ -5917,7 +6082,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z09_canopy_watch",
@@ -5938,7 +6106,7 @@
       "locked": false,
       "x": 5418,
       "y": 4104,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z09_canopy_watch.webp",
       "linkedFerryId": null,
@@ -5960,7 +6128,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z10_mire_edge",
@@ -5981,7 +6152,7 @@
       "locked": false,
       "x": 5376,
       "y": 6432,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z10_mire_edge.webp",
       "linkedFerryId": null,
@@ -6003,7 +6174,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Verdant Weald"
+      "playerRegion": "The Verdant Weald",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z11_dune_runner",
@@ -6024,7 +6198,7 @@
       "locked": false,
       "x": 4670,
       "y": 5880,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z11_dune_runner.webp",
       "linkedFerryId": null,
@@ -6046,7 +6220,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z12_palm_spring",
@@ -6067,7 +6244,7 @@
       "locked": false,
       "x": 3312,
       "y": 5832,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z12_palm_spring.webp",
       "linkedFerryId": null,
@@ -6089,7 +6266,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z13_mesa_watch",
@@ -6110,7 +6290,7 @@
       "locked": false,
       "x": 3769,
       "y": 2832,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z13_mesa_watch.webp",
       "linkedFerryId": null,
@@ -6132,7 +6312,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Sun-Scorched Isles"
+      "playerRegion": "Sun-Scorched Isles",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z14_pine_valley",
@@ -6153,7 +6336,7 @@
       "locked": false,
       "x": 4836,
       "y": 648,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z14_pine_valley.webp",
       "linkedFerryId": null,
@@ -6175,7 +6358,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z15_highland_crag",
@@ -6196,7 +6382,7 @@
       "locked": false,
       "x": 6803,
       "y": 1800,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z15_highland_crag.webp",
       "linkedFerryId": null,
@@ -6218,7 +6404,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Ironcrest Highlands"
+      "playerRegion": "Ironcrest Highlands",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z16_snowdrift",
@@ -6239,7 +6428,7 @@
       "locked": false,
       "x": 1718,
       "y": 6768,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z16_snowdrift.webp",
       "linkedFerryId": null,
@@ -6261,7 +6450,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z17_glacier_edge",
@@ -6282,7 +6474,7 @@
       "locked": false,
       "x": 1150,
       "y": 2952,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z17_glacier_edge.webp",
       "linkedFerryId": null,
@@ -6304,7 +6496,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "Frostbound Reach"
+      "playerRegion": "Frostbound Reach",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z18_ashen_ridge",
@@ -6325,7 +6520,7 @@
       "locked": false,
       "x": 6679,
       "y": 2304,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z18_ashen_ridge.webp",
       "linkedFerryId": null,
@@ -6347,7 +6542,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z19_cinder_plain",
@@ -6368,7 +6566,7 @@
       "locked": false,
       "x": 6803,
       "y": 3599,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z19_cinder_plain.webp",
       "linkedFerryId": null,
@@ -6390,7 +6588,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "outpost_z20_black_crag",
@@ -6411,7 +6612,7 @@
       "locked": false,
       "x": 4326,
       "y": 5163,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "interiorAssetPath": "assets/maps/interiors/outpost_z20_black_crag.webp",
       "linkedFerryId": null,
@@ -6433,7 +6634,10 @@
         "Rest Camp",
         "Hunter Bounties"
       ],
-      "playerRegion": "The Dreadwaste"
+      "playerRegion": "The Dreadwaste",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q001_aqueduct_grate",
@@ -6460,7 +6664,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "During the months of unrest after Garrick abandoned Highcrown, rogue kennel trackers pried open the neglected dry aqueduct grate behind Highcrown's overgrown palace gardens, letting war-hounds prowl beneath the Coliseum undercroft. Descend through the garden grate, defeat the Garrick Houndmaster and his wolves guarding the culvert control chamber, and pull the gate lever to seal the breach shut.",
@@ -6487,7 +6691,10 @@
       "linkedQuestMarkerIds": [
         "loc_01_overgrown_garden_sanctuary"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q002_brushwood_cache",
@@ -6514,7 +6721,7 @@
       "locked": false,
       "x": 6156,
       "y": 5938,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "During the succession riots that rocked Highcrown before Garrick fled north, Coliseum armorers stashed heavy repair trunks—including tools forged for Koren—along the brushwood hollow just beyond the outer capital road. Clear the opportunistic bandits looting the wreck and bring the steel back to Highcrown.",
@@ -6541,7 +6748,10 @@
       "linkedQuestMarkerIds": [
         "loc_01_overgrown_garden_sanctuary"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q003_garden_picket_wall",
@@ -6568,7 +6778,7 @@
       "locked": false,
       "x": 5304,
       "y": 5057,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Capital scouts spotted smoke rising behind a crumbling ivy-covered limestone wall just outside Highcrown, where deserters in Garrick's gray war-cloaks have stacked spears and crossbows around a hidden campfire to plot their next move. Ambush the forward camp and break up the plot before they act.",
@@ -6595,7 +6805,10 @@
       "linkedQuestMarkerIds": [
         "loc_01_overgrown_garden_sanctuary"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "bf_rival_house_patrol_barricade",
@@ -6622,7 +6835,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Carry Highcrown's wax-sealed royal dispatch up the Crownlands trade road to Oakhaven's elder. Poachers and turncoat deserters have thrown up shield barricades along the bend to intercept every courier riding north from the capital.",
@@ -6649,7 +6862,10 @@
       "linkedQuestMarkerIds": [
         "loc_01_overgrown_garden_sanctuary"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_overturned_grain_wagons",
@@ -6676,7 +6892,7 @@
       "locked": false,
       "x": 5508,
       "y": 5007,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Loaded grain wagons bound for Oakhaven vanished before dawn along the fenced dirt lanes outside town. Track the spilled wheat sacks to the ambushed bend and defeat the bandit wagon-boss's crew to recover the grain.",
@@ -6703,7 +6919,10 @@
       "linkedQuestMarkerIds": [
         "loc_02_oakhaven"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_alpha_wolf_hollow",
@@ -6733,7 +6952,7 @@
       "locked": false,
       "x": 5020,
       "y": 4470,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A young shepherd boy chased a stray lamb into the deep woods after wolves scattered his flock. Track the pawprints to the pack's mossy wolf den among the trees and bring the boy home alive.",
@@ -6760,7 +6979,10 @@
       "linkedQuestMarkerIds": [
         "loc_02_oakhaven"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_rift_construct_road_ambush",
@@ -6787,7 +7009,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Haul crates of hardened iron gate-rivets toward Millbrook Crossing's western palisade. Halfway up the lane, rogue animated armor drawn by stray Portal sparks has smashed the lead handcart across the oak road.",
@@ -6814,7 +7036,10 @@
       "linkedQuestMarkerIds": [
         "loc_02_oakhaven"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q008_orchard_bandit_camp",
@@ -6845,7 +7070,7 @@
       "locked": false,
       "x": 5546,
       "y": 4281,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Armed highwaymen have turned the abandoned apple orchard outside Oakhaven into a toll hideout and cider-cellar ambush. Clear their orchard camp under the fruit trees so harvest wagons can pass unmolested.",
@@ -6872,7 +7097,10 @@
       "linkedQuestMarkerIds": [
         "loc_02_oakhaven"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "bf_wild_beast_hunting_territory",
@@ -6902,7 +7130,7 @@
       "locked": false,
       "x": 6325,
       "y": 5274,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Snare-wires and mauled deer carcasses line the game trails outside Oakhaven. Track the scarred trail into the deep oak grove where an enraged dire boar has gored both poachers and travelers alike.",
@@ -6929,7 +7157,10 @@
       "linkedQuestMarkerIds": [
         "loc_02_oakhaven"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_raided_shepherd_barn",
@@ -6956,7 +7187,7 @@
       "locked": false,
       "x": 7219,
       "y": 3192,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Hungry timber wolves driven down from the eastern hills have broken through the split-rail fences of the hamlet's outlying sheep barn. Hold the timber barn door until the herders drive the last flocks inside.",
@@ -6983,7 +7214,10 @@
       "linkedQuestMarkerIds": [
         "hub_meadowbrook_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q011_spider_plough_burrow",
@@ -7010,7 +7244,7 @@
       "locked": false,
       "x": 6623,
       "y": 4032,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Iron-thieving thugs hid Meadowbrook's spring ploughshares inside a stony hillside burrow only to get webbed up by nesting giant spiders. Cut open the silk-choked burrow and haul the town's metalwork back.",
@@ -7037,7 +7271,10 @@
       "linkedQuestMarkerIds": [
         "hub_meadowbrook_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q012_charred_stash_clearing",
@@ -7064,7 +7301,7 @@
       "locked": false,
       "x": 6402,
       "y": 3264,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Someone torched Meadowbrook's tax barn right after stealing the village tithe box, hoping fire would hide the theft. Follow soot-stained wagon ruts into the brush clearing and recover the bailiff's ledger from the bandit lieutenant.",
@@ -7091,7 +7328,10 @@
       "linkedQuestMarkerIds": [
         "hub_meadowbrook_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q013_southern_seed_lane",
@@ -7118,7 +7358,7 @@
       "locked": false,
       "x": 7178,
       "y": 4128,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Wild blades animated by rogue Ashen Gate magic have pinned down the spring seed caravan halfway along the sunny wheat lane to Oakhaven. Smash the floating steel ambushers and clear the wagon turn.",
@@ -7145,7 +7385,10 @@
       "linkedQuestMarkerIds": [
         "hub_meadowbrook_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_millbrook_west_timber_span",
@@ -7175,7 +7418,7 @@
       "locked": false,
       "x": 6887,
       "y": 4344,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Arsonists wearing turncoat garrison colors are gathering oil flasks outside Millbrook's wooden western gatehouse. Stand at the sharpened timber palisade stakes and break the sergeant's night assault.",
@@ -7202,7 +7445,10 @@
       "linkedQuestMarkerIds": [
         "loc_04_millbrook_crossing"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_shattered_mill_tower",
@@ -7229,7 +7475,7 @@
       "locked": false,
       "x": 7372,
       "y": 4992,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Winged stone gargoyles shaken loose from eastern shrines have nested atop the cracked ridge windmill spire overlooking Millbrook. Head up to the bluff ruins and defeat the alpha stone gargoyle roosting above the broken sails.",
@@ -7256,7 +7502,10 @@
       "linkedQuestMarkerIds": [
         "loc_04_millbrook_crossing"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_bandit_bounty_camp",
@@ -7286,7 +7535,7 @@
       "locked": false,
       "x": 7011,
       "y": 4848,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A loud-mouthed bounty hunter bragging about sealed papers tracing Koren's earliest transfer from the northern border war-pits to Highcrown's Great Coliseum made camp along the muddy woodland road outside Millbrook. Raid the campfire stockade and seize the transfer dossier.",
@@ -7313,7 +7562,10 @@
       "linkedQuestMarkerIds": [
         "loc_04_millbrook_crossing"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q017_mephit_ash_vent",
@@ -7343,7 +7595,7 @@
       "locked": false,
       "x": 6997,
       "y": 3240,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Billowing ash vents have choked the old limestone quarry shaft north of Millbrook with giggling dust mephits. Seal the quarry vent and sweep the blinding swarm out of the timber shoring.",
@@ -7370,7 +7622,10 @@
       "linkedQuestMarkerIds": [
         "loc_04_millbrook_crossing"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q018_ankheg_sinkhole",
@@ -7400,7 +7655,7 @@
       "locked": false,
       "x": 6610,
       "y": 3288,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "The hill-fort dispatch rider's horse galloped back into Millbrook alone with chitin gashes down its flank. Follow the ridge trail to the ankheg burrows and defeat the beast to bring the wounded rider home.",
@@ -7427,7 +7682,10 @@
       "linkedQuestMarkerIds": [
         "loc_04_millbrook_crossing"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_03_bramblewatch_cave",
@@ -7454,7 +7712,7 @@
       "locked": false,
       "x": 5667,
       "y": 3576,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Cutthroats holding a captured hill-fort courier—and Valen's prized crimson arena keepsake—fortified a thorn-choked limestone cave in the eastern hills. Fight past the spiked barricade and free the courier.",
@@ -7481,7 +7739,10 @@
       "linkedQuestMarkerIds": [
         "hub_crownlands_hill_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q020_sentinel_knoll",
@@ -7511,7 +7772,7 @@
       "locked": false,
       "x": 4767,
       "y": 3120,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Residual Earth-Plane tremors spilling from The Ashen Gate have awakened derelict stone-and-iron war prototypes atop the grassy western knoll. Smash the towering Shield Guardian before it marches on the hill-fort gates.",
@@ -7538,7 +7799,10 @@
       "linkedQuestMarkerIds": [
         "hub_crownlands_hill_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "bf_portal_rift_monster_nest",
@@ -7568,7 +7832,7 @@
       "locked": false,
       "x": 5917,
       "y": 3384,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Chittering rift creatures that melt forged steel on touch have burrowed under the fort's forward munitions depot cave. Exterminate the chitinous nest and save the remaining halberd crates before everything turns to red powder.",
@@ -7595,7 +7859,10 @@
       "linkedQuestMarkerIds": [
         "hub_crownlands_hill_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r1_q022_eastern_beacon_ridge",
@@ -7626,7 +7893,7 @@
       "locked": false,
       "x": 5265,
       "y": 3216,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Dusk patrols of rock-camouflaged gricks and swooping gargoyles keep snuffing out the hill-fort's early warning brazier near Portal #1. Defend the rocky beacon ledge until the watch signal burns clear across the Crownlands.",
@@ -7653,7 +7920,10 @@
       "linkedQuestMarkerIds": [
         "hub_crownlands_hill_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_08_drowned_belltower",
@@ -7680,7 +7950,7 @@
       "locked": false,
       "x": 7094,
       "y": 1488,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Black-market slavers hid Mera's mother's shipping manifest inside a ruined tidal belltower chapel perched along the muddy coastal tidal flats. Best the massive chuul haunting the sunken steps and claim the waterproof ledger.",
@@ -7707,7 +7977,10 @@
       "linkedQuestMarkerIds": [
         "loc_06_saltwind_harbor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_saltwind_drydock_pier",
@@ -7734,7 +8007,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Hired thugs trying to cripple Saltwind's continent-sailing fleet have barricaded the stone-and-timber drydock slipway. Guard the harbor carpenters while they finish rigging the sea-hull for open-water voyages.",
@@ -7761,7 +8034,10 @@
       "linkedQuestMarkerIds": [
         "loc_06_saltwind_harbor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_cracked_lighthouse",
@@ -7788,7 +8064,7 @@
       "locked": false,
       "x": 6402,
       "y": 816,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Thermal fissures linked to The Ashen Gate drew boiling steam mephits and harpoon-armed merrow into Saltwind's northern cliffside lighthouse, where they hoard the glowing Ashen Forge Keystone needed to open Portal #1. Clear the lighthouse tower, reclaim the catalyst, and restore the harbor beam.",
@@ -7815,7 +8091,10 @@
       "linkedQuestMarkerIds": [
         "loc_06_saltwind_harbor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_tide_cargo_sandbars",
@@ -7845,7 +8124,7 @@
       "locked": false,
       "x": 6152,
       "y": 960,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Waterproof ironbound crates stamped with merchant guild seals washed onto the beach flats south of Saltwind. Slay the acid-spitting black dragon wyrmling nesting over the stranded rowboat and recover the guild cargo.",
@@ -7872,7 +8151,10 @@
       "linkedQuestMarkerIds": [
         "loc_06_saltwind_harbor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_coastal_sand_bar_shipwreck",
@@ -7902,7 +8184,7 @@
       "locked": false,
       "x": 7011,
       "y": 1200,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A storm-broken merchant vessel lies wedged high upon the outer golden sandbar holding crucial sea charts for Map 2's coast. Fend off coastal scavengers and retrieve the captain's brass chart cylinder.",
@@ -7929,7 +8211,10 @@
       "linkedQuestMarkerIds": [
         "loc_06_saltwind_harbor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_07_smugglers_cove",
@@ -7956,7 +8241,7 @@
       "locked": false,
       "x": 1053,
       "y": 3696,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Smugglers hid the navy's missing brass compass chest inside a dry sandstone cave mouth overlooking the Brinecliff headland. Slip inside, defeat the abyssal water weird coiled around the chest, and reclaim the relic.",
@@ -7983,7 +8268,10 @@
       "linkedQuestMarkerIds": [
         "hub_brinecliff_watch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q029_cliff_breakwater",
@@ -8010,7 +8298,7 @@
       "locked": false,
       "x": 1857,
       "y": 4224,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Scaly merrow war-bands have been hauling themselves up the lower limestone headland steps under cover of sea spray. Hold the rocky breakwater wall before they breach the fort's seaward stair.",
@@ -8037,7 +8325,10 @@
       "linkedQuestMarkerIds": [
         "hub_brinecliff_watch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_reef_shattered_corsair_wreck",
@@ -8064,7 +8355,7 @@
       "locked": false,
       "x": 1025,
       "y": 3120,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A shattered corsair wreck wedged upon coastal reef stones still holds watertight powder kegs and brass spyglasses. Defeat the sea hag coven haunting the splintered hull to recover the naval stores.",
@@ -8091,7 +8382,10 @@
       "linkedQuestMarkerIds": [
         "hub_brinecliff_watch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q031_hag_cliff_hollow",
@@ -8118,7 +8412,7 @@
       "locked": false,
       "x": 928,
       "y": 3384,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Every misty evening a coven hangs driftwood bone chimes from a cliff hollow north of the fort, hexing the watch sentries asleep. Smash their caustic cauldron and banish the sea hag into the surf.",
@@ -8145,7 +8439,10 @@
       "linkedQuestMarkerIds": [
         "hub_brinecliff_watch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_marsh_signal_lanterns",
@@ -8176,7 +8473,7 @@
       "locked": false,
       "x": 1621,
       "y": 2712,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Fog rolled deep through the Reedfen marshes, swallowing a relief patrol whose lantern posts went dark. Slay the multi-headed marsh hydra stalking the flooded reed track so scouts can relight the route safely.",
@@ -8203,7 +8500,10 @@
       "linkedQuestMarkerIds": [
         "hub_reedfen_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_sunken_harbor_watchtower",
@@ -8233,7 +8533,7 @@
       "locked": false,
       "x": 1219,
       "y": 3504,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Marsh raiders overran the old coastal sandstone watchtower so Reedfen fishermen lose sight of safe shoals at nightfall. Defeat the beasts lurking around the tower yard so village wardens can restore the beacon.",
@@ -8260,7 +8560,10 @@
       "linkedQuestMarkerIds": [
         "hub_reedfen_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q034_reed_poacher_mound",
@@ -8291,7 +8594,7 @@
       "locked": false,
       "x": 1607,
       "y": 3168,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Reedfen's fishermen keep waking to slashed net lines and missing skiffs along the southern reed hummocks. Corner the smuggler boss stockpiling stolen village gear on the dry mud knoll.",
@@ -8318,7 +8621,10 @@
       "linkedQuestMarkerIds": [
         "hub_reedfen_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q035_marsh_pack_trail",
@@ -8348,7 +8654,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Mirewatch's garrison is down to moldy biscuit after storms blocked supply wagons. Haul sealed salt-cured barrels along the wet mud track and fight off the monstrous coastal cephalopod ambushing baggage carts near shore.",
@@ -8375,7 +8681,10 @@
       "linkedQuestMarkerIds": [
         "hub_reedfen_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_marsh_causeway_ambush",
@@ -8405,7 +8714,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Fever is spreading fast through Saltwind's wounded watchmen, and an armored chuul snapped the apothecary wagon's axle on the dry cobble trail mid-fen. Clear the monster from the road and get the remaining antitoxin moving.",
@@ -8432,7 +8741,10 @@
       "linkedQuestMarkerIds": [
         "loc_09_mirewatch_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q037_mire_stone_cistern",
@@ -8462,7 +8774,7 @@
       "locked": false,
       "x": 2356,
       "y": 5376,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Portal energy seeping through groundwater has animated the garrison's main stone drinking cistern outside the wooden palisade. Banish the surging elemental so Mirewatch's garrison can draw clean water again.",
@@ -8489,7 +8801,10 @@
       "linkedQuestMarkerIds": [
         "loc_09_mirewatch_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q038_chuul_shell_hollow",
@@ -8519,7 +8834,7 @@
       "locked": false,
       "x": 1538,
       "y": 5016,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Missing fen trackers never vanish without leaving half-eaten steel helmets behind. Trace deep pincer furrows across the peat mound to slay the breeding chuul pair before their clutch hatches.",
@@ -8546,7 +8861,10 @@
       "linkedQuestMarkerIds": [
         "loc_09_mirewatch_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q039_west_ferry_shore",
@@ -8577,7 +8895,7 @@
       "locked": false,
       "x": 1704,
       "y": 4776,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A screeching gibbering mouther crawled up onto the western strait ferry shore, trapping the boat crew behind coiled timber crates. Break the aberrant horror before it drags the ferrymen into the surf.",
@@ -8604,7 +8922,10 @@
       "linkedQuestMarkerIds": [
         "loc_09_mirewatch_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q040_admiralty_bank_ruins",
@@ -8634,7 +8955,7 @@
       "locked": false,
       "x": 2272,
       "y": 6624,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "When coastal patrols abandoned the outer stone excise bank, they buried a locked payroll chest beneath the foundation flagstones. Drive off the beasts guarding the ruined wall and recover the admiralty silver.",
@@ -8661,7 +8982,10 @@
       "linkedQuestMarkerIds": [
         "loc_09_mirewatch_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q041_seawall_approach",
@@ -8692,7 +9016,7 @@
       "locked": false,
       "x": 998,
       "y": 4752,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Surging water elementals rolling straight out of the coastal surf have begun battering the stone outer causeway below Tidewater Keep. Hold the spiked barricades along the coastal road until the castle sappers reinforce the gate.",
@@ -8719,7 +9043,10 @@
       "linkedQuestMarkerIds": [
         "hub_tidewater_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q042_vault_drain_crypt",
@@ -8746,7 +9073,7 @@
       "locked": false,
       "x": 1039,
       "y": 5736,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Mad whispers drifting up from an old dry stone drainage cellar outside Tidewater Keep have driven scouts away from their patrol routes. Descend the mossy stone stairs toward the faint violet glow below and silence the bloated alpha mouther lurking inside.",
@@ -8773,7 +9100,10 @@
       "linkedQuestMarkerIds": [
         "hub_tidewater_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_sunk_warship_wreck",
@@ -8800,7 +9130,7 @@
       "locked": false,
       "x": 1261,
       "y": 4968,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Renegade pirates allied with merrow raiders have been running gunpowder off a grounded warship hidden along the western headland cove. Defeat the smugglers guarding the wreck to end their coastal supply drops.",
@@ -8827,7 +9157,10 @@
       "linkedQuestMarkerIds": [
         "hub_tidewater_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r2_q044_shellback_shore_bluff",
@@ -8857,7 +9190,7 @@
       "locked": false,
       "x": 818,
       "y": 4872,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "An ancient armored dragon turtle drawn out through The Sunken Maw claimed a rocky sandy cove outside Tidewater Keep, guarding the gleaming Abyssal Brine-Pearl catalyst required to open Portal #2. Break the sea-beast's steam-belching shell and claim the catalyst.",
@@ -8884,7 +9217,10 @@
       "linkedQuestMarkerIds": [
         "hub_tidewater_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_deserters_canyon_depot",
@@ -8911,7 +9247,7 @@
       "locked": false,
       "x": 1247,
       "y": 5568,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Deserters who bolted during the border skirmishes hauled away three racks of garrison halberds and shields into a jagged slate canyon outside Redmarch. Best the towering minotaur mercenary guarding their canyon camp.",
@@ -8938,7 +9274,10 @@
       "linkedQuestMarkerIds": [
         "loc_11_redmarch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_forward_border_watch_picket",
@@ -8965,7 +9304,7 @@
       "locked": false,
       "x": 1247,
       "y": 6480,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Carry Redmarch's sealed troop-rotation cipher up the golden-grass highland track to the ridge relay picket. Hungry iron-furred worgs have pinned the signalmen inside the cliffside timber shelter.",
@@ -8992,7 +9331,10 @@
       "linkedQuestMarkerIds": [
         "loc_11_redmarch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q047_worg_moor_bones",
@@ -9019,7 +9361,7 @@
       "locked": false,
       "x": 1787,
       "y": 6120,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Cunning highland worgs speaking broken commands have been herding pack horses off Redmarch's supply road at dusk. Hunt down the scarred alpha along the golden ochre boulder field.",
@@ -9046,7 +9388,10 @@
       "linkedQuestMarkerIds": [
         "loc_11_redmarch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_wrecked_merchant_galleon",
@@ -9073,7 +9418,7 @@
       "locked": false,
       "x": 748,
       "y": 5856,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A heavy supply galleon unloading war crates along Thornwall's cove shore ran hard aground while deserters moved in to loot the hold. Break the deserter platoon swarming the beached spice-and-iron cargo.",
@@ -9100,7 +9445,10 @@
       "linkedQuestMarkerIds": [
         "loc_11_redmarch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_ruined_barricade_watchpost",
@@ -9127,7 +9475,7 @@
       "locked": false,
       "x": 1635,
       "y": 6480,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Ogre mercenaries smashed a siege train along the broken low stone road-wall near Redmarch, claiming the wagons as club wood. Topple the two ogres and recover the intact iron siege axles.",
@@ -9154,7 +9502,10 @@
       "linkedQuestMarkerIds": [
         "loc_11_redmarch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_torched_border_farmstead",
@@ -9181,7 +9532,7 @@
       "locked": false,
       "x": 2466,
       "y": 6048,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "House Hollowstone's men disguised themselves as Redmarch raiders to burn outlying golden-ochre wheat farms and blame the Crownlands rebels. Expose the pikeman commander amid the smoldering barn timbers.",
@@ -9208,7 +9559,10 @@
       "linkedQuestMarkerIds": [
         "hub_goldmoor_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q051_petrified_pasture",
@@ -9235,7 +9589,7 @@
       "locked": false,
       "x": 2231,
       "y": 4872,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Spiteful feathered beasts slipped through a rift crack and began turning Goldmoor's prized sheep and shepherds into silent limestone statues. Clear the cackling cockatrice flock out of the highland pasture.",
@@ -9262,7 +9616,10 @@
       "linkedQuestMarkerIds": [
         "hub_goldmoor_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q052_herder_stockade_ridge",
@@ -9289,7 +9646,7 @@
       "locked": false,
       "x": 1787,
       "y": 5592,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Turncoat soldiers working for Lord Hollowstone rounded up four Goldmoor shepherds out on the pastures, locking them inside a hillside log pen for silver ransom alongside plundered wool-bales. Storm their camp and march the villagers safely home.",
@@ -9316,7 +9673,10 @@
       "linkedQuestMarkerIds": [
         "hub_goldmoor_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q053_harvest_threshing_yard",
@@ -9343,7 +9703,7 @@
       "locked": false,
       "x": 2896,
       "y": 5400,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Crossbow poachers riding hungry dire wolves plan to burn Goldmoor's autumn wheat stacks before harvest carts roll into town. Hold the open threshing yard until the last sheaves are hauled inside.",
@@ -9370,7 +9730,10 @@
       "linkedQuestMarkerIds": [
         "hub_goldmoor_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_14_cinderpit_mines",
@@ -9397,7 +9760,7 @@
       "locked": false,
       "x": 2813,
       "y": 2760,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A stone-breathing iron gorgon rammed the main support beams of Shaft Four, sealing a dozen slate miners underground behind rubble. Charge down the ore-cart tracks, shatter the beast, and clear the exit.",
@@ -9424,7 +9787,10 @@
       "linkedQuestMarkerIds": [
         "hub_slatepeak_mining_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_slate_crag_pass_blockade",
@@ -9451,7 +9817,7 @@
       "locked": false,
       "x": 2730,
       "y": 3624,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A bickering two-headed ettin staked out a stony ambush toll-camp beside the wagon pass to demand silver and roast oxen from passing supply trains. Topple the giant brute to secure the trade road between highland forts.",
@@ -9478,7 +9844,10 @@
       "linkedQuestMarkerIds": [
         "hub_slatepeak_mining_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_abandoned_mine_watch_shack",
@@ -9505,7 +9874,7 @@
       "locked": false,
       "x": 3367,
       "y": 3192,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Giantkin strayed far down from the iron hills and squatted inside the boarded miner's watch-shack overlooking Slatepeak's lower adit. Evict the club-swinging hill giant before it caves in the roof timbers.",
@@ -9532,7 +9901,10 @@
       "linkedQuestMarkerIds": [
         "hub_slatepeak_mining_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q057_cyclops_ingot_hollow",
@@ -9559,7 +9931,7 @@
       "locked": false,
       "x": 2439,
       "y": 3216,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A marauding Frost Giant smashed open the fort's smelter cart and carried twenty bars of tempered highland steel into its mountain cleft. Reclaim the iron ingots before the giant melts them into war-mauls.",
@@ -9586,7 +9958,10 @@
       "linkedQuestMarkerIds": [
         "hub_slatepeak_mining_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q058_upper_adit_ledge",
@@ -9613,7 +9988,7 @@
       "locked": false,
       "x": 2466,
       "y": 2880,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Lured by sweet rations left inside the upper quarry lunch shed, an enormous brown bear matriarch and her cubs claimed the upper mining ledge. Drive the ferocious beasts back up into the high wilds.",
@@ -9640,7 +10015,10 @@
       "linkedQuestMarkerIds": [
         "hub_slatepeak_mining_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_12_widows_watchtower",
@@ -9667,7 +10045,7 @@
       "locked": false,
       "x": 1233,
       "y": 2040,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "House Hollowstone desecrated Rowan's childhood borderland lookout post after slaughtering Orin's forward garrison. Storm Widow's Watchtower, defeat their knight-captain, and reclaim the loyalist wolf-fang banner.",
@@ -9694,7 +10072,10 @@
       "linkedQuestMarkerIds": [
         "hub_thornwall_border_castle"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_cliffside_signal_battery",
@@ -9721,7 +10102,7 @@
       "locked": false,
       "x": 1926,
       "y": 2904,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Tail-spined manticores roosted right behind the castle's heavy bronze hilltop catapult terrace, skewering every sapper sent to clear the sandbags. Retake the cliffside artillery platform.",
@@ -9748,7 +10129,10 @@
       "linkedQuestMarkerIds": [
         "hub_thornwall_border_castle"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q061_griffon_crag_eyrie",
@@ -9775,7 +10159,7 @@
       "locked": false,
       "x": 2300,
       "y": 2400,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Swooping hippogriffs and griffons nesting atop the jagged slate spire rising near Thornwall have carried off four cavalry chargers in a week. Raid their windswept stone eyrie and scatter the winged predators.",
@@ -9802,7 +10186,10 @@
       "linkedQuestMarkerIds": [
         "hub_thornwall_border_castle"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q062_moor_fletching_convoy",
@@ -9829,7 +10216,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Run a fresh armored wagon of heavy iron-tipped ballista bolts across the highland moors toward Redmarch Bastion. Lanky green-skinned trolls wait along the boulder bends to tip the cart for scrap metal.",
@@ -9856,7 +10243,10 @@
       "linkedQuestMarkerIds": [
         "hub_thornwall_border_castle"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q063_hollowstone_throne_courtyard",
@@ -9883,7 +10273,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "With Thornwall behind you, storm the great war-hall inside Hollowstone Keep's outer curtain wall. Defeat the scheming traitor Lord Hollowstone and his chained ettin bodyguard to claim the usurper's family signet.",
@@ -9910,7 +10300,10 @@
       "linkedQuestMarkerIds": [
         "loc_13_hollowstone_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q064_bailey_cell_stairs",
@@ -9937,7 +10330,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A repentant warden leaked word that loyalist Border Guard knights are trapped beneath Hollowstone's lower outer bailey cells. Defeat the rival knights guarding the prison stair to free the captives.",
@@ -9964,7 +10357,10 @@
       "linkedQuestMarkerIds": [
         "loc_13_hollowstone_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q065_tower_archive_scriptorium",
@@ -9991,7 +10387,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Twenty years of black-wax quarantine orders—dated back to King Garrick's first frontier campaign—lie sealed inside the high archive tower under an oni assassin's watch. Slay the fiendish scribe and seize the ledgers proving Garrick's 'border wars' quietly fought encroaching non-human forces while suppressing word of magic inside Highcrown.",
@@ -10018,7 +10414,10 @@
       "linkedQuestMarkerIds": [
         "loc_13_hollowstone_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q066_troll_rock_ravine",
@@ -10045,7 +10444,7 @@
       "locked": false,
       "x": 6831,
       "y": 2088,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Wild highland trolls hired by House Hollowstone refused to stand down after the keep changed hands, raiding supply carts from a nearby slate gully. Defeat the troll pack guarding their camp to secure the warfront hills.",
@@ -10072,7 +10471,10 @@
       "linkedQuestMarkerIds": [
         "loc_13_hollowstone_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r3_q067_giant_boulder_picket",
@@ -10099,7 +10501,7 @@
       "locked": false,
       "x": 6332,
       "y": 600,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A massive stone giant champion loyal to the Blood-Iron Warlands fortified a granite hillside redoubt overlooking the warfront, guarding the forged Blood-Iron Keystone needed to open Portal #3. Topple the champion and claim the catalyst for The Iron Rift.",
@@ -10126,7 +10528,10 @@
       "linkedQuestMarkerIds": [
         "loc_13_hollowstone_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_infected_road_shrine",
@@ -10153,7 +10558,7 @@
       "locked": false,
       "x": 7108,
       "y": 984,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Dark purple fungal tendrils erupting out of the stone well beside an old roadside chapel beyond Briarstead are choking travelers with spores. Defeat the violet spore-colony at the shrine so Harlan can trace the blight's origin.",
@@ -10180,7 +10585,10 @@
       "linkedQuestMarkerIds": [
         "loc_16_briarstead"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_blighted_logging_camp",
@@ -10207,7 +10615,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Carry fever-breaking herb poultices through the pine woods toward Timberfall Village. Along the way, corrosive black puddings and sprawling violet fungus have overrun an outer logging clearing.",
@@ -10234,7 +10642,10 @@
       "linkedQuestMarkerIds": [
         "loc_16_briarstead"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q070_herb_wagon_glade",
@@ -10261,7 +10672,7 @@
       "locked": false,
       "x": 6859,
       "y": 1704,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Maddened teleporting blink dogs frightened out of the corrupted deeper woods keep vanishing in flashes of mist to raid herbalist wagons leaving Briarstead. Hold the trail and scatter the erratic pack.",
@@ -10288,7 +10699,10 @@
       "linkedQuestMarkerIds": [
         "loc_16_briarstead"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q071_ancient_root_grove",
@@ -10315,7 +10729,7 @@
       "locked": false,
       "x": 6762,
       "y": 1248,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Every healing draught in Briarstead relies on rare white briar-roots pulled from sunlit moss-ringed oak hollows. Clear away the towering awakened dread-tree guarding the grove and fill the apothecary's baskets.",
@@ -10342,7 +10756,10 @@
       "linkedQuestMarkerIds": [
         "loc_16_briarstead"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q072_woodland_apiary_hives",
@@ -10369,7 +10786,7 @@
       "locked": false,
       "x": 7025,
       "y": 1272,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Predators fleeing creeping blight spores have broken open the woodland honey-yards outside Briarstead, scattering the town's skeps. Drive out the rabid wolf and tusked boar pack trampling the hives.",
@@ -10396,7 +10813,10 @@
       "linkedQuestMarkerIds": [
         "loc_16_briarstead"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_briarwood_timber_palisade",
@@ -10423,7 +10843,7 @@
       "locked": false,
       "x": 6887,
       "y": 3048,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A ferocious mated pair of towering owlbears has battered down half the sawyer yard's outer log gate after loggers felled near their nesting ridge. Hold the lantern-lit timber palisade while crews clear the stacks.",
@@ -10450,7 +10870,10 @@
       "linkedQuestMarkerIds": [
         "hub_timberfall_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_webbed_spider_grove",
@@ -10477,7 +10900,7 @@
       "locked": false,
       "x": 7510,
       "y": 3168,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Three Timberfall fellers walked straight into a dark pine hollow draped floor-to-canopy in thick giant webs. Defeat the bloated ettercap and flickering phase spiders guarding the silk grove to rescue the trapped loggers.",
@@ -10504,7 +10927,10 @@
       "linkedQuestMarkerIds": [
         "hub_timberfall_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_woodland_beast_den",
@@ -10531,7 +10957,7 @@
       "locked": false,
       "x": 7191,
       "y": 2376,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Gnarled oak roots arch over a dark earthen cavern heaped with gnawed deer bones just off the upper lumber cut. Clean out the towering alpha owlbear before logging carts grind to a halt.",
@@ -10558,7 +10984,10 @@
       "linkedQuestMarkerIds": [
         "hub_timberfall_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_forest_outlaw_stockade",
@@ -10585,7 +11014,7 @@
       "locked": false,
       "x": 7191,
       "y": 3192,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Someone has been hijacking seasoned oak planks right off Timberfall's skidways to fortify a hidden outlaw ringwall deeper inside the green canopy. Tear down their stolen palisade and scatter the gang.",
@@ -10612,7 +11041,10 @@
       "linkedQuestMarkerIds": [
         "hub_timberfall_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_19_elderwood_shrine",
@@ -10639,7 +11071,7 @@
       "locked": false,
       "x": 5834,
       "y": 4152,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Plague-born rot has twisted the spirit dwelling inside the ancient moss-clad standing monolith deep in Mosswood's glade. Cleanse the circular forest altar and free the seed-stone relic bound within its roots.",
@@ -10666,7 +11098,10 @@
       "linkedQuestMarkerIds": [
         "hub_mosswood_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_shrine_road_ooze_clearing",
@@ -10693,7 +11128,7 @@
       "locked": false,
       "x": 5515,
       "y": 3792,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A heavy consecrated abbey bell vanished along the leafy cobblestone trail, only for scouts to spot its gleaming brass rim floating inside creeping chartreuse forest slime. Dissolve the cube and haul the relic back.",
@@ -10720,7 +11155,10 @@
       "linkedQuestMarkerIds": [
         "hub_mosswood_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q079_fey_ring_meadow",
@@ -10747,7 +11185,7 @@
       "locked": false,
       "x": 7524,
       "y": 4776,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "At twilight, eerie voices and bone-chilling howls drift out of a haunted toadstool ring outside Mosswood, luring travelers straight toward Rotspire's borders. Break the Night Hag's cursed glade.",
@@ -10774,7 +11212,10 @@
       "linkedQuestMarkerIds": [
         "hub_mosswood_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q080_unspoiled_moss_spring",
@@ -10801,7 +11242,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Run wicker hampers of uncorrupted clear spring water along the winding mossy road toward Greenwarden Fort's quarantine medics before creeping gray oozes dissolve the wagon wheels.",
@@ -10828,7 +11269,10 @@
       "linkedQuestMarkerIds": [
         "hub_mosswood_hamlet"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_17_oakhollow_ruins",
@@ -10855,7 +11299,7 @@
       "locked": false,
       "x": 5792,
       "y": 3984,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Harlan's burned home hamlet still lies silent beneath mossy ash and dead twisted oak roots. Delve into the sunken cottage foundations to claim his family's brass amulet bell from the ochre plague-slime.",
@@ -10882,7 +11326,10 @@
       "linkedQuestMarkerIds": [
         "hub_greenwarden_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q082_wasp_nest_copse",
@@ -10909,7 +11356,7 @@
       "locked": false,
       "x": 6485,
       "y": 2784,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A three-ranger patrol surveying the blighted border trees was cornered beneath pulsing resinous hive-sacs suspended across dead pines. Defeat the phase spiders and ettercap handler haunting the copse to rescue the scouts.",
@@ -10936,7 +11383,10 @@
       "linkedQuestMarkerIds": [
         "hub_greenwarden_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q083_shrieker_fungal_thicket",
@@ -10963,7 +11413,7 @@
       "locked": false,
       "x": 5071,
       "y": 3792,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Whenever Greenwarden sentries approach the blighted treeline, toxic spore clouds drift through hollow fungal stalks while corrosive oozes ambush the patrol. Purge the black pudding and violet fungus infesting the clearing.",
@@ -10990,7 +11440,10 @@
       "linkedQuestMarkerIds": [
         "hub_greenwarden_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q084_south_timber_gap",
@@ -11017,7 +11470,7 @@
       "locked": false,
       "x": 5667,
       "y": 4248,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Creeping heaps of rotting forest mulch animated by plague spores are pushing straight toward Greenwarden's incomplete outer log wall. Hold the timber breach-line until rangers sink the final oak stakes.",
@@ -11044,7 +11497,10 @@
       "linkedQuestMarkerIds": [
         "hub_greenwarden_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q085_acid_sinkhole_hollow",
@@ -11071,7 +11527,7 @@
       "locked": false,
       "x": 5695,
       "y": 2856,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Ambulance porters dropped Greenwarden's sealed antitoxin chests while fleeing acid-spitting ochre jellies near the limestone sinks. Defeat the slime pair guarding the clearing so medics can recover the chests.",
@@ -11098,7 +11554,10 @@
       "linkedQuestMarkerIds": [
         "hub_greenwarden_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_18_thornroot_cavern",
@@ -11125,7 +11584,7 @@
       "locked": false,
       "x": 5820,
       "y": 4992,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Every root choked with chartreuse plague mist traces back to the deep root-chamber beneath Thornroot Cavern. Confront and slay the colossal shambling blight-mound at its heart to avenge Harlan's lost family.",
@@ -11152,7 +11611,10 @@
       "linkedQuestMarkerIds": [
         "hub_blightwatch_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q087_hag_root_cottage",
@@ -11179,7 +11641,7 @@
       "locked": false,
       "x": 6997,
       "y": 5640,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Night sentries swear they hear familiar loved ones whispering out from the dead gnarled trees near Blightwatch. Expose the cunning green hag weaving vocal illusions from her hollow-tree hutch.",
@@ -11206,7 +11668,10 @@
       "linkedQuestMarkerIds": [
         "hub_blightwatch_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q088_quarantine_spore_pits",
@@ -11233,7 +11698,7 @@
       "locked": false,
       "x": 5972,
       "y": 4776,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Toxic ooze creeps outward from shallow forest sink-fissures circling Blightwatch's outer wall. Defeat the gelatinous cube and gray ooze festering in the clearing to secure the quarantine perimeter.",
@@ -11260,7 +11725,10 @@
       "linkedQuestMarkerIds": [
         "hub_blightwatch_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r4_q089_rotspire_quarantine_gate",
@@ -11287,7 +11755,7 @@
       "locked": false,
       "x": 5681,
       "y": 4752,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Corrupted dryads and creeping plant-horrors are assaulting Blightwatch's outer stone quarantine archway, bearing the pulsing Spore-Heart Amber catalyst required to unlock Portal #4. Break their vanguard at the gate and seize the catalyst for The Rotspire.",
@@ -11314,7 +11782,10 @@
       "linkedQuestMarkerIds": [
         "hub_blightwatch_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_corsair_trading_quay",
@@ -11341,7 +11812,7 @@
       "locked": false,
       "x": 7178,
       "y": 5952,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "The shipping ledgers recovered back in Saltwind Harbor point to an illicit night-pier along the coast near Port Veridia. Ambush the Gilded Slaver Quartermaster on the sandstone quay and force the location of Mera's mother.",
@@ -11368,7 +11839,10 @@
       "linkedQuestMarkerIds": [
         "loc_21_port_veridia"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_volcanic_spice_warehouse",
@@ -11395,7 +11869,7 @@
       "locked": false,
       "x": 6499,
       "y": 5256,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Elemental magma fissures split wide beneath the spice guild's seaside stone depot, spilling fiery salamanders among priceless silk bales. Purge the fire-born invaders and seal the glowing floor crack.",
@@ -11422,7 +11896,10 @@
       "linkedQuestMarkerIds": [
         "loc_21_port_veridia"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_petrified_sea_cliff_shelter",
@@ -11449,7 +11926,7 @@
       "locked": false,
       "x": 6651,
       "y": 6336,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Missing net-crews along the amber sea-cliffs vanished at a coastal camp where a basking brood-mother basilisk petrifies unwary fishermen. Defeat the basilisk at the cliff shelter to break its hold over the surviving scouts.",
@@ -11476,7 +11953,10 @@
       "linkedQuestMarkerIds": [
         "loc_21_port_veridia"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_smuggler_brigantine_wreck",
@@ -11503,7 +11983,7 @@
       "locked": false,
       "x": 7316,
       "y": 5472,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Outfitted with black sails, the Gilded Commodore grounded his corsair brigantine on the golden cove outside Port Veridia to shell incoming relief merchants. Storm the beached hull and break the blockade.",
@@ -11530,7 +12010,10 @@
       "linkedQuestMarkerIds": [
         "loc_21_port_veridia"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q094_spice_yard_scorpion_nest",
@@ -11557,7 +12040,7 @@
       "locked": false,
       "x": 7330,
       "y": 5736,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Dockworkers unloading cinnamon shipments from overseas barges uncovered burrowing giant scorpions nesting underneath torn spice sacks. Crush the venomous brood-mother lurking inside the outer sandstone yard.",
@@ -11584,7 +12067,10 @@
       "linkedQuestMarkerIds": [
         "loc_21_port_veridia"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_water_caravan_crossing",
@@ -11611,7 +12097,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Dunespire's reserve cisterns are running dry under blistering winds. Escort iron-hooped water wagons across the golden sandstone defile where cursed lamia illusionists hunt with breathing hell hounds.",
@@ -11638,7 +12124,10 @@
       "linkedQuestMarkerIds": [
         "hub_sunstone_caravan_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_desert_nomad_raider_camp",
@@ -11665,7 +12154,7 @@
       "locked": false,
       "x": 5778,
       "y": 6168,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Whip-wielding slaver outriders pitch striped canvas awnings among the red-gold desert canyons beyond Sunstone to cage lone pilgrims. Smash their holding cages and scatter the outrider post.",
@@ -11692,7 +12181,10 @@
       "linkedQuestMarkerIds": [
         "hub_sunstone_caravan_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q097_scorched_dry_wash",
@@ -11719,7 +12211,7 @@
       "locked": false,
       "x": 6457,
       "y": 6864,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Sand turned into fused black glass along the scorched caravan trail beyond Sunstone where fire-elemental snakes erupt from scorched rock cracks to boil camel water-skins. Seal the heat-vented gully.",
@@ -11746,7 +12238,10 @@
       "linkedQuestMarkerIds": [
         "hub_sunstone_caravan_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q098_drifted_spice_carts",
@@ -11773,7 +12268,7 @@
       "locked": false,
       "x": 5653,
       "y": 7056,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A sudden haboob storm swallowed two spice-trade wagons half a league out from Sunstone, and cackling magma mephits now perch over the wreckage setting silk bales alight. Salvage the brass ledger chest before everything burns.",
@@ -11800,7 +12295,10 @@
       "linkedQuestMarkerIds": [
         "hub_sunstone_caravan_post"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_dry_desert_wellheads",
@@ -11827,7 +12325,7 @@
       "locked": false,
       "x": 2286,
       "y": 5352,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Tremors cracking the old sandstone outer wells herald a colossal purple worm churning beneath Dunespire's desert floor. Lure the subterranean titan to the wellhead rim and slay it before the oasis basin collapses.",
@@ -11854,7 +12352,10 @@
       "linkedQuestMarkerIds": [
         "loc_23_dunespire_oasis"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_22_glasswind_cavern",
@@ -11881,7 +12382,7 @@
       "locked": false,
       "x": 1122,
       "y": 5496,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Heat fused a jagged desert canyon cave into humming pillars of amber and ruby storm-glass around an ancient City-of-Brass anvil. Enter the crystal gallery, defeat the bronze-bearded azer smith, and recover the prism core.",
@@ -11908,7 +12409,10 @@
       "linkedQuestMarkerIds": [
         "loc_23_dunespire_oasis"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q101_oasis_palm_spring",
@@ -11935,7 +12439,7 @@
       "locked": false,
       "x": 2286,
       "y": 6264,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Blazing fire elementals marching out from The Scorched Chasm aim to boil dry the palm feeder spring that keeps every desert traveler alive. Stand beside the limestone spring walls and extinguish the flaming vanguard.",
@@ -11962,7 +12466,10 @@
       "linkedQuestMarkerIds": [
         "loc_23_dunespire_oasis"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q102_sand_buried_tomb",
@@ -11989,7 +12496,7 @@
       "locked": false,
       "x": 2619,
       "y": 5928,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Earthquakes split open a forgotten sandstone burial stair among the dunes near Dunespire, waking linen-wrapped desert mummies and their silver-tongued lamia guardian. Cleanse the sunken tomb before sand-plague sweeps the caravans.",
@@ -12016,7 +12523,10 @@
       "linkedQuestMarkerIds": [
         "loc_23_dunespire_oasis"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q103_mirage_arch_rock",
@@ -12043,7 +12553,7 @@
       "locked": false,
       "x": 1732,
       "y": 6264,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Three water-bearers lured out past the sandstone arch by desert mirages are pinned beneath overhanging rocks by a fire-breathing chimera. Slay the triple-headed stalker and escort the dehydrated travelers home.",
@@ -12070,7 +12580,10 @@
       "linkedQuestMarkerIds": [
         "loc_23_dunespire_oasis"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_scorched_dragon_lair",
@@ -12097,7 +12610,7 @@
       "locked": false,
       "x": 3450,
       "y": 4152,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A proud young red dragon roosts in a blistered black sandstone cavern overlooking Sandwall's outer patrol ridge, roasting cavalry squads that wander too close. Descend into the soot-stained cave and claim its silver hoard.",
@@ -12124,7 +12637,10 @@
       "linkedQuestMarkerIds": [
         "hub_sandwall_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q105_dune_mirror_tower",
@@ -12151,7 +12667,7 @@
       "locked": false,
       "x": 2425,
       "y": 4008,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Heat-forged azer shock-troops and salamanders seized the cliffside brass mirror-beacon overlooking Sandwall's dunes. Defeat the elemental squad holding the tower so garrison signalmen can restore desert warnings.",
@@ -12178,7 +12694,10 @@
       "linkedQuestMarkerIds": [
         "hub_sandwall_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q106_hellhound_cinder_crag",
@@ -12205,7 +12724,7 @@
       "locked": false,
       "x": 2938,
       "y": 4368,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Brimstone-breathing hell hounds slipped out of the basalt desert rim and began hunting courier mounts outside Sandwall Citadel's stables. Track the smoking pawprints to the alpha's rocky cleft.",
@@ -12232,7 +12751,10 @@
       "linkedQuestMarkerIds": [
         "hub_sandwall_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q107_gilded_approach_crates",
@@ -12259,7 +12781,7 @@
       "locked": false,
       "x": 3229,
       "y": 3672,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Haul armor-piercing scorpion bolts forward to the underground rebels hiding along the canyon road approaching The Gilded Auction Manor. Break through the prowling chimera guarding the pass.",
@@ -12286,7 +12808,10 @@
       "linkedQuestMarkerIds": [
         "hub_sandwall_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q108_vault_auction_dais",
@@ -12313,7 +12838,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Every ledger and whisper leads straight into the Slaver Baron's golden vault courtyard. Bring down the Baron and his prized chimera hound, shatter the iron cages, and finally reunite Mera with her mother.",
@@ -12340,7 +12865,10 @@
       "linkedQuestMarkerIds": [
         "loc_24_gilded_auction_manor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q109_clerk_record_wing",
@@ -12367,7 +12895,7 @@
       "locked": false,
       "x": 2078,
       "y": 3360,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Dozens of missing Ethorians were sold to distant buyers before you arrived. Storm the manor's outer colonnade clerk wing to capture the full buyer manifests so every captive can be traced.",
@@ -12394,7 +12922,10 @@
       "linkedQuestMarkerIds": [
         "loc_24_gilded_auction_manor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r5_q110_outer_iron_pens",
@@ -12421,7 +12952,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Even with the Baron cornered, his elemental brass azer jailer holds the key-ring to the heavy iron outer courtyard cages. Defeat the fiery overseer in battle to liberate the remaining captives.",
@@ -12448,7 +12979,10 @@
       "linkedQuestMarkerIds": [
         "loc_24_gilded_auction_manor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_scorched_scale_beast_nest",
@@ -12475,7 +13009,7 @@
       "locked": false,
       "x": 2508,
       "y": 2232,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Outraged that their gold-for-captives bargain collapsed, fire-Plane wyrmlings and elemental scouts pitched a desert ash-camp guarding the Brass Cinder-Seal catalyst needed to open Portal #5. Break their vanguard and reclaim the catalyst for The Scorched Chasm.",
@@ -12502,7 +13036,10 @@
       "linkedQuestMarkerIds": [
         "loc_24_gilded_auction_manor"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_granite_scree_pass",
@@ -12529,7 +13066,7 @@
       "locked": false,
       "x": 2425,
       "y": 1560,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Shrieking storm mephits and harpies have been loosing giant granite scree boulders down onto Highpass's lower trail. Clear the scree-strewn green alpine ridge before another slide cuts town off.",
@@ -12556,7 +13093,10 @@
       "linkedQuestMarkerIds": [
         "loc_26_highpass_refuge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_anvilhall_forge_approach",
@@ -12583,7 +13123,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Haul raw black meteoric ore along the sunny green highland road leading to Anvilhall Forge's great granite doors. A colossal sky-roc swooped out of the storm clouds and flipped the ore cart.",
@@ -12610,7 +13150,10 @@
       "linkedQuestMarkerIds": [
         "loc_26_highpass_refuge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q114_crimson_raptor_roost",
@@ -12637,7 +13180,7 @@
       "locked": false,
       "x": 1358,
       "y": 1296,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Giant crimson-feathered raptors nested atop the gray-granite outcrops directly above Highpass Refuge's goat folds, diving on shepherds at noon. Defeat the blood-hawk and giant eagle flock threatening the town pastures.",
@@ -12664,7 +13207,10 @@
       "linkedQuestMarkerIds": [
         "loc_26_highpass_refuge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q115_boulder_pinned_wagon",
@@ -12691,7 +13237,7 @@
       "locked": false,
       "x": 1538,
       "y": 1800,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Whirling tempest spirits hurled down gray boulders to pin a merchant's team below the sunny alpine pass. Shatter the howling air elementals circling the overturned wagon and pull the injured drivers free.",
@@ -12718,7 +13264,10 @@
       "linkedQuestMarkerIds": [
         "loc_26_highpass_refuge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q116_granite_granary_yard",
@@ -12745,7 +13294,7 @@
       "locked": false,
       "x": 1968,
       "y": 1152,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Screaming harpies and barbed manticores are swooping over Highpass's unfortified outer slate storage terrace to tear into winter salt beef crates. Defend the outer provision yards until doors are bolted.",
@@ -12772,7 +13321,10 @@
       "linkedQuestMarkerIds": [
         "loc_26_highpass_refuge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_cragwater_storm_stone",
@@ -12799,7 +13351,7 @@
       "locked": false,
       "x": 4323,
       "y": 960,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A twelve-legged sapphire behir coiled inside the carved ancient granite storm-stone circle along Clearwater's grassy shore, shooting arcs of lightning at fishermen. Slay the storm-fanged monster and calm the shrine.",
@@ -12826,7 +13378,10 @@
       "linkedQuestMarkerIds": [
         "hub_clearwater_lake_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_29_lakeside_temple_ruins",
@@ -12853,7 +13408,7 @@
       "locked": false,
       "x": 3506,
       "y": 1512,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A lightning-breathing young blue dragon descended onto the ancient weathered granite temple pillars resting beside Clearwater's meadows. Drive the dragon from the sacred stones to preserve pilgrims' shelter.",
@@ -12880,7 +13435,10 @@
       "linkedQuestMarkerIds": [
         "hub_clearwater_lake_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q119_wyvern_shore_dock",
@@ -12907,7 +13465,7 @@
       "locked": false,
       "x": 3339,
       "y": 1080,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Venomous cliff wyverns swoop out of green granite peaks every morning to pluck fishermen right off Clearwater's lakeshore wooden boat landing. Bring down the alpha stinger-wyvern haunting the shoreline.",
@@ -12934,7 +13492,10 @@
       "linkedQuestMarkerIds": [
         "hub_clearwater_lake_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q120_cove_granite_forage",
@@ -12961,7 +13522,7 @@
       "locked": false,
       "x": 4046,
       "y": 960,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Wild herb foragers hiking the walkable grassy cove along Clearwater's shore got boxed against gray granite boulders by an aggressive blue dragon wyrmling. Scatter the crackling wyrmling and lead them back along the bank.",
@@ -12988,7 +13549,10 @@
       "linkedQuestMarkerIds": [
         "hub_clearwater_lake_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_28_ironvein_cavern",
@@ -13015,7 +13579,7 @@
       "locked": false,
       "x": 5168,
       "y": 888,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Anvilhall's sealed weapons-treaty courier ducked into the star-iron tunnel of Ironvein Cavern during a storm and never walked back out. Hunt the unseen air stalker prowling the blue-veined granite galleries.",
@@ -13042,7 +13606,10 @@
       "linkedQuestMarkerIds": [
         "loc_27_anvilhall_forge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q122_meteoric_impact_crater",
@@ -13069,7 +13636,7 @@
       "locked": false,
       "x": 5931,
       "y": 1056,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A heavy fallen star-iron boulder punched a smoking pit across the granite highlands near Anvilhall and attracted an electricity-charged storm behir. Defeat the beast at the impact crater and recover the meteoric core slab.",
@@ -13096,7 +13663,10 @@
       "linkedQuestMarkerIds": [
         "loc_27_anvilhall_forge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q123_foundry_outer_stairs",
@@ -13123,7 +13693,7 @@
       "locked": false,
       "x": 5681,
       "y": 672,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Whirlwind-riding djinni raiders swooped down onto Anvilhall's carved exterior granite stairways to snuff the furnace bellows and loot master-forged blades. Hold the smithy terrace steps against their tempest assault.",
@@ -13150,7 +13720,10 @@
       "linkedQuestMarkerIds": [
         "loc_27_anvilhall_forge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q124_northern_ore_switchback",
@@ -13177,7 +13750,7 @@
       "locked": false,
       "x": 5556,
       "y": 1464,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Huge saber-toothed ridge tigers dragged draft mules straight out of harnesses along the sunny pine ore-track climbing out of Anvilhall. Hunt down the sleek mated pair blocking heavy charcoal deliveries.",
@@ -13204,7 +13777,10 @@
       "linkedQuestMarkerIds": [
         "loc_27_anvilhall_forge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q125_upper_chimney_vents",
@@ -13231,7 +13807,7 @@
       "locked": false,
       "x": 4988,
       "y": 1392,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Gale-force gusts spiraling down Anvilhall's upper stone mountain chimneys nearly suffocated three apprentices inside the smelting room. Hike up to the windy chimney flue vents and disperse the howling invisible stalkers.",
@@ -13258,7 +13834,10 @@
       "linkedQuestMarkerIds": [
         "loc_27_anvilhall_forge"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_crag_ledge_waystation",
@@ -13285,7 +13864,7 @@
       "locked": false,
       "x": 4545,
       "y": 2112,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Three high-trail mountain guides sent up to check beacon flags are trapped inside the sturdy timber cabin on Crag-Ledge by an aggressive horned wyvern. Drive off the winged terror and bring the guides down.",
@@ -13312,7 +13891,10 @@
       "linkedQuestMarkerIds": [
         "hub_cragwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_alpine_crag_bear_den",
@@ -13339,7 +13921,7 @@
       "locked": false,
       "x": 4365,
       "y": 1272,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A scarred giant bear drove off two fort hunting parties from its rocky granite fissure overhang, roaring whenever patrols march below. Clear the foul bone-strewn cave.",
@@ -13366,7 +13948,10 @@
       "linkedQuestMarkerIds": [
         "hub_cragwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_highland_marauder_camp",
@@ -13393,7 +13978,7 @@
       "locked": false,
       "x": 3963,
       "y": 1680,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Sellswords sworn to storm-spirits set up weapon racks and crimson war-banners in a hidden rocky canyon fold beyond Cragwatch. Raid their stone firepit camp before they hit Anvilhall ore wagons.",
@@ -13420,7 +14005,10 @@
       "linkedQuestMarkerIds": [
         "hub_cragwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q129_copper_lightning_wagon",
@@ -13447,7 +14035,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Haul grounded copper storm-ward poles along the wind-scoured granite ridge up to Stormhold Citadel's battlements. A lightning-drake waits above the hairpin cliffs to scatter your escort with thunderbolts.",
@@ -13474,7 +14062,10 @@
       "linkedQuestMarkerIds": [
         "hub_cragwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_storm_crag_dragon_roost",
@@ -13501,7 +14092,7 @@
       "locked": false,
       "x": 5432,
       "y": 3840,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "An adult blue dragon claiming the jagged granite ledge above Stormhold sits atop a massive woven timber roost strewn with iridescent azure scales and cracked giant shells. Slay the brood-guardian before she hatches fresh wyrmlings.",
@@ -13528,7 +14119,10 @@
       "linkedQuestMarkerIds": [
         "hub_stormhold_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q131_cellar_breach_sink",
@@ -13555,7 +14149,7 @@
       "locked": false,
       "x": 4282,
       "y": 3576,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "An ancient twelve-legged behir chewed straight through granite bedrock below Stormhold's cellar foundation. Charge down into the glowing fissure outside the lower curtain wall and kill the worm-dragon.",
@@ -13582,7 +14176,10 @@
       "linkedQuestMarkerIds": [
         "hub_stormhold_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q132_eastern_storm_bastion",
@@ -13609,7 +14206,7 @@
       "locked": false,
       "x": 5030,
       "y": 3048,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Fierce storm clouds gathered above Stormhold as djinni skirmishers and adult wyverns launch coordinated strikes against the outer copper-warded ramparts. Hold the outer bastion until the gale passes.",
@@ -13636,7 +14233,10 @@
       "linkedQuestMarkerIds": [
         "hub_stormhold_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r6_q133_storm_giant_terrace",
@@ -13663,7 +14263,7 @@
       "locked": false,
       "x": 4767,
       "y": 4128,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A towering storm-giant war-chief claimed the granite terrace outside Stormhold Citadel, clutching the crackling Storm-Crown Lodestone catalyst required to awaken Portal #6. Topple the colossus and claim the catalyst for The Storm-Crowned Spire.",
@@ -13690,7 +14290,10 @@
       "linkedQuestMarkerIds": [
         "hub_stormhold_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_rimeport_headland_beacon",
@@ -13717,7 +14320,7 @@
       "locked": false,
       "x": 2993,
       "y": 7008,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Winged spined devils drove keepers from Rimeport's snow-draped coastal headland tower so supply ships strike icebergs in the fog. Defeat the flying fiends atop the headland so harbor wardens can relight the signal.",
@@ -13744,7 +14347,10 @@
       "linkedQuestMarkerIds": [
         "loc_31_rimeport"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_rimeport_seawall_gatehouse",
@@ -13771,7 +14377,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Flaming infernal steeds and bearded devils are galloping straight across Rimeport's snow-packed cobbled approach to smash the harbor wall portcullis. Stand in the archway and shatter the fiendish cavalry charge.",
@@ -13798,7 +14404,10 @@
       "linkedQuestMarkerIds": [
         "loc_31_rimeport"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_northern_longship_wreck",
@@ -13825,7 +14434,7 @@
       "locked": false,
       "x": 3672,
       "y": 6456,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A royal northern flagship dashed itself onto the snowy granite beach shelf of Whispering Fjord with encrypted fleet cipher books locked in its stern cabin. Fight past the horned devil reaver scavenging the hull.",
@@ -13852,7 +14461,10 @@
       "linkedQuestMarkerIds": [
         "loc_31_rimeport"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q137_snow_sled_ambush",
@@ -13879,7 +14491,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Rimeport's winter supply sled carrying silver requisitions for Frostmere Village was overrun along the frozen pine road. Fight off the frost-breathing winter wolf pack and carry the courier satchel to Frostmere's gate.",
@@ -13906,7 +14518,10 @@
       "linkedQuestMarkerIds": [
         "loc_31_rimeport"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q138_frost_shipyard_keel",
@@ -13933,7 +14548,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Winged Erinyes executioners and creeping shadow demons slipped onto Rimeport's frozen timber slipway to slaughter night-watch shipwrights and burn hull-pitch stores. Sweep the drydock clean so repairs can resume.",
@@ -13960,7 +14575,10 @@
       "linkedQuestMarkerIds": [
         "loc_31_rimeport"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_northern_timber_picket",
@@ -13987,7 +14605,7 @@
       "locked": false,
       "x": 2716,
       "y": 4848,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Frostmere's logging pickets are nearly out of black stove-coal and cured wolf-pelts with gale-force frost closing in. Push past the alpha winter wolf ambush and deliver the warm cargo to the snowbound cabins.",
@@ -14014,7 +14632,10 @@
       "linkedQuestMarkerIds": [
         "hub_frostmere_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "sb_frost_bound_iceberg_wreck",
@@ -14041,7 +14662,7 @@
       "locked": false,
       "x": 1344,
       "y": 4728,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Crushed onto jagged shore-ice near Frostmere, an older cargo longship still holds crates of cured ermine pelts and stamped royal silver. Shatter the ice mephits and shadow demon lurking below deck.",
@@ -14068,7 +14689,10 @@
       "linkedQuestMarkerIds": [
         "hub_frostmere_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q141_frozen_pine_bank",
@@ -14095,7 +14719,7 @@
       "locked": false,
       "x": 1399,
       "y": 5784,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Two trapper brothers hauling ice-fish nets along the frozen pine shoreline got treed atop broken boulders by an enormous white polar bear and prowling snow cat. Clear the bank and guide them back to Frostmere.",
@@ -14122,7 +14746,10 @@
       "linkedQuestMarkerIds": [
         "hub_frostmere_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q142_tanner_curing_shed",
@@ -14149,7 +14776,7 @@
       "locked": false,
       "x": 2494,
       "y": 5424,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Hulking Hezrou horrors burst from an ice crack beneath the outer curing sheds, tainting Frostmere's fur stores with choking demonic vapors. Cut down the beasts and their barbed devil overseer before winter pelts rot.",
@@ -14176,7 +14803,10 @@
       "linkedQuestMarkerIds": [
         "hub_frostmere_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_33_glacier_vault",
@@ -14203,7 +14833,7 @@
       "locked": false,
       "x": 3062,
       "y": 5160,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Deep inside the gleaming cobalt cavern known as Glacier Vault, a towering insectoid ice devil guards an infernal freezing engine widening winter storms across the bay. Defeat the ice devil to shatter its power and claim the crystal heartstone.",
@@ -14230,7 +14860,10 @@
       "linkedQuestMarkerIds": [
         "hub_glacierwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q144_western_ice_ruins",
@@ -14257,7 +14890,7 @@
       "locked": false,
       "x": 3242,
       "y": 5952,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Glacierwatch's outlying signal outpost stopped flashing torches three nights ago after a veiled fiend infiltrated the watchroom. Storm the icy ruin, break the succubus's enchantment, and free any surviving sentries.",
@@ -14284,7 +14917,10 @@
       "linkedQuestMarkerIds": [
         "hub_glacierwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q145_vrock_glacier_ledge",
@@ -14311,7 +14947,7 @@
       "locked": false,
       "x": 2563,
       "y": 5784,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Feather-shedding vrocks shriek down from cobalt glacier ledges every dawn to stun fort archers with sonic wails. Defeat the winged fiends and their bone-devil handler along the ice crag.",
@@ -14338,7 +14974,10 @@
       "linkedQuestMarkerIds": [
         "hub_glacierwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q146_glacial_wall_approach",
@@ -14365,7 +15004,7 @@
       "locked": false,
       "x": 2910,
       "y": 6144,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A four-armed glabrezu demon leading horned shock-infantry is smashing straight through the snowy trench barricades outside Glacierwatch Fort. Hold the outer approach until sappers seal the ice breach.",
@@ -14392,7 +15031,10 @@
       "linkedQuestMarkerIds": [
         "hub_glacierwatch_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_frozen_labor_stockade",
@@ -14419,7 +15061,7 @@
       "locked": false,
       "x": 2799,
       "y": 3552,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Bleakwatch's allies force northern villagers captured in winter raids to mine iron inside a spiked snow stockade watched by a chain devil taskmaster. Defeat the fiend overseer in battle to liberate the prisoners.",
@@ -14446,7 +15088,10 @@
       "linkedQuestMarkerIds": [
         "hub_icecrest_holdfast"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q148_saber_snow_gorge",
@@ -14473,7 +15118,7 @@
       "locked": false,
       "x": 2771,
       "y": 4320,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Two colossal white-pelted saber-toothed cats have been picking off Icecrest timber sleighs right along the pine gorge. Hunt down the ambush pair so firewood can reach the clan hall again.",
@@ -14500,7 +15145,10 @@
       "linkedQuestMarkerIds": [
         "hub_icecrest_holdfast"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q149_iron_chain_sled_column",
@@ -14527,7 +15175,7 @@
       "locked": false,
       "x": 1704,
       "y": 3432,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Scouts spotted a heavy iron-barred prisoner sled creaking toward The Pale Abyss with shackled northern clan captives aboard. Ambush the bone-devil escort along the snowy pass and break every chain.",
@@ -14554,7 +15202,10 @@
       "linkedQuestMarkerIds": [
         "hub_icecrest_holdfast"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q150_stolen_clan_hearth_shrine",
@@ -14581,7 +15232,7 @@
       "locked": false,
       "x": 2314,
       "y": 3048,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Fiends tore the ancestral bronze hearth-bowls out of Icecrest's elder cairns to freeze out clan morale. Defeat the barbed devil standing watch at the desecrated stone ring and haul the sacred braziers back.",
@@ -14608,7 +15259,10 @@
       "linkedQuestMarkerIds": [
         "hub_icecrest_holdfast"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q151_bleakwatch_war_throne",
@@ -14635,7 +15289,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Marshal Bleakwatch—Garrick's frontier confidant who buried twenty years of battles against encroaching non-human forces under censored border dispatches—now allies with infernal powers to claim Ethoria's broken crown. Strike down the conspirator and his ice-devil bodyguard in the courtyard to reclaim the Crown-Shard.",
@@ -14662,7 +15316,10 @@
       "linkedQuestMarkerIds": [
         "loc_34_bleakwatch_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q152_drawbridge_hostage_gate",
@@ -14689,7 +15346,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Twenty northern jarl loyalists are trapped inside iron cells beneath Bleakwatch's frost-coated drawbridge gatehouse. Defeat the rival knights and barbed devil jailers guarding the gate to free the hostages.",
@@ -14716,7 +15373,10 @@
       "linkedQuestMarkerIds": [
         "loc_34_bleakwatch_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q153_infernal_horse_stables",
@@ -14743,7 +15403,7 @@
       "locked": false,
       "x": 2245,
       "y": 1248,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Infernal flaming steeds melt patches straight into Bleakwatch's outer snowbank stables whenever hell-knights ride out. Slay the winged horned grooms and put the terrifying nightmare herd down.",
@@ -14770,7 +15430,10 @@
       "linkedQuestMarkerIds": [
         "loc_34_bleakwatch_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q154_crimson_summon_braziers",
@@ -14797,7 +15460,7 @@
       "locked": false,
       "x": 3201,
       "y": 1176,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Bleakwatch's sorcerers maintain three crimson summoning braziers along the outer stone spur to summon reinforcements out of the Nine Hells. Defeat the glabrezu and succubus tending the ritual terrace to halt their summoning.",
@@ -14824,7 +15487,10 @@
       "linkedQuestMarkerIds": [
         "loc_34_bleakwatch_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r7_q155_abyss_bridgehead_bastion",
@@ -14851,7 +15517,7 @@
       "locked": false,
       "x": 2910,
       "y": 1968,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A hardened vanguard of horned and ice devils fortified a snow-choked stone redoubt guarding the Pale-Abyss Ice-Seal catalyst needed to open Portal #7. Smash their devilish garrison and seize the catalyst for The Pale Abyss.",
@@ -14878,7 +15544,10 @@
       "linkedQuestMarkerIds": [
         "loc_34_bleakwatch_citadel"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_ash_wall_forward_trench",
@@ -14905,7 +15574,7 @@
       "locked": false,
       "x": 4309,
       "y": 2520,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Garrick's armored wight legion and an ash-shrouded Lich commander are marching across volcanic wastes to overrun Ashenford's forward sandbag earthworks. Stand at the blackened steel pike trench and halt the undead advance.",
@@ -14932,7 +15601,10 @@
       "linkedQuestMarkerIds": [
         "loc_36_ashenford_war_camp"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_void_fog_watch_brazier",
@@ -14959,7 +15631,7 @@
       "locked": false,
       "x": 5640,
       "y": 1992,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Creeping pale violet mist rolling off the Dreadwaste darkened Ashenford's perimeter braziers, letting wraiths slip inside watch lines. Defeat the greater wraith and wisps haunting the sentry posts so chaplains can consecrate them anew.",
@@ -14986,7 +15658,10 @@
       "linkedQuestMarkerIds": [
         "loc_36_ashenford_war_camp"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_forward_siege_battery",
@@ -15013,7 +15688,7 @@
       "locked": false,
       "x": 4642,
       "y": 1896,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Escort ironbound black-powder wagons across black ash flatlands to the forward catapult battery before ravenous ghasts and undead wights tear through the escort shields.",
@@ -15040,7 +15715,10 @@
       "linkedQuestMarkerIds": [
         "loc_36_ashenford_war_camp"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q159_eclipse_powder_convoy",
@@ -15067,7 +15745,7 @@
       "locked": false,
       "x": 5376,
       "y": 2400,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Black-robed Eclipse acolytes haul ground bone-powder canisters under escort of ghouls down the scarred ash trail toward Black Keep. Ambush their supply convoy and scatter the cursed reagents.",
@@ -15094,7 +15772,10 @@
       "linkedQuestMarkerIds": [
         "loc_36_ashenford_war_camp"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q160_charred_bone_ridge",
@@ -15121,7 +15802,7 @@
       "locked": false,
       "x": 4545,
       "y": 2400,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Every fallen soldier buried along the scarred ash ridge is clawing back through soot under Garrick's Shadowfell pulse. Sweep the bone-strewn hillside and put the risen legion back to rest.",
@@ -15148,7 +15829,10 @@
       "linkedQuestMarkerIds": [
         "loc_36_ashenford_war_camp"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_eclipse_cultist_cliff_altar",
@@ -15175,7 +15859,7 @@
       "locked": false,
       "x": 5335,
       "y": 3746,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Atop scarred black obsidian cliffs overlooking Cinderwatch, Eclipse high-priests chant over a cracked violet altar slab feeding spectral mists across the valley. Shatter the ritual platform.",
@@ -15202,7 +15886,10 @@
       "linkedQuestMarkerIds": [
         "hub_cinderwatch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q162_obsidian_ambush_gate",
@@ -15229,7 +15916,7 @@
       "locked": false,
       "x": 6066,
       "y": 3299,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Turncoat border riders allied with winged shadow-cloakers seized the basalt saddle road beyond Cinderwatch to cut off supply wagons. Clear their spiked checkpoint and seize their orders.",
@@ -15256,7 +15943,10 @@
       "linkedQuestMarkerIds": [
         "hub_cinderwatch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q163_volcanic_ash_quarry",
@@ -15283,7 +15973,7 @@
       "locked": false,
       "x": 6573,
       "y": 5259,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Pack after pack of ravenous ghasts and ghouls burrowed into the stepped obsidian quarry pits below Cinderwatch, ambushing work gangs mining stone for bastion walls. Purge the ash pits clean.",
@@ -15310,7 +16000,10 @@
       "linkedQuestMarkerIds": [
         "hub_cinderwatch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q164_spectral_signal_turret",
@@ -15337,7 +16030,7 @@
       "locked": false,
       "x": 5714,
       "y": 3411,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Translucent wraiths and living shadows swarm nightly up the jagged basalt ridge to choke the warning beacon linking Cinderwatch with Ashvale. Guard the fire-basket turret till dawn breaks.",
@@ -15364,7 +16057,10 @@
       "linkedQuestMarkerIds": [
         "hub_cinderwatch_bastion"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q165_coliseum_banner_plinth",
@@ -15391,7 +16087,7 @@
       "locked": false,
       "x": 5535,
       "y": 5488,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Vampire spawn seized an obsidian garrison sparring pit and planted Koren's stolen crimson royal banner in the dirt as a trophy. Storm the torchlit bleachers, cut down the blood-pit captain, and reclaim the guard standard.",
@@ -15418,7 +16114,10 @@
       "linkedQuestMarkerIds": [
         "hub_ashvale_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_37_shattered_coliseum",
@@ -15445,7 +16144,7 @@
       "locked": false,
       "x": 4458,
       "y": 4484,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Bearing the transfer papers captured back near Millbrook, enter the ash-choked border war-pit where Koren fought in his youth before his transfer to Highcrown's Great Coliseum. Break his former warders' undead champions and claim the Coliseum Blood-Stone.",
@@ -15472,7 +16171,10 @@
       "linkedQuestMarkerIds": [
         "hub_ashvale_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q167_ash_wall_refugee_wagons",
@@ -15499,7 +16201,7 @@
       "locked": false,
       "x": 5312,
       "y": 4300,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Mounted wight lancers have pinned half a dozen Ashvale refugee carts behind a low black basalt road wall outside town. Scatter the undead riders and bring the survivors inside the palisade.",
@@ -15526,7 +16228,10 @@
       "linkedQuestMarkerIds": [
         "hub_ashvale_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q168_weeping_chapel_ashes",
@@ -15553,7 +16258,7 @@
       "locked": false,
       "x": 5873,
       "y": 4757,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Haunting shrieks drifting across from the charred stone chapel shells outside Ashvale freeze watch sentries stiff with terror. Consecrate the ashes and disperse the sorrowful ghost choir.",
@@ -15580,7 +16285,10 @@
       "linkedQuestMarkerIds": [
         "hub_ashvale_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q169_ash_knight_cairn_field",
@@ -15607,7 +16315,7 @@
       "locked": false,
       "x": 4475,
       "y": 4176,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Before King Garrick closed the Eclipse Gate, royalist knights died holding the ash cairns outside Ashvale. Gather their tarnished silver house medallions from under hunting shadows so their families know their fate.",
@@ -15634,7 +16342,10 @@
       "linkedQuestMarkerIds": [
         "hub_ashvale_village"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q170_oathbreaker_upper_ossuary",
@@ -15661,7 +16372,7 @@
       "locked": false,
       "x": 5861,
       "y": 6360,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Missing reconnaissance scouts dragged across the volcanic crags are trapped behind iron grates inside an ancient locked catacomb pavilion leading toward The Bone Reliquary. Silence the wailing ghosts haunting the blue-lit entrance and break open the grate to free the survivors.",
@@ -15688,7 +16399,10 @@
       "linkedQuestMarkerIds": [
         "hub_scorchwall_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "loc_38_the_bone_reliquary",
@@ -15715,7 +16429,7 @@
       "locked": false,
       "x": 5438,
       "y": 6367,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Beneath bleak basalt tomb pillars burns an ancient crimson covenant feeding undead hordes across the Dreadwaste. Descend to the deepest vault of The Bone Reliquary and stake the Elder Vampire Lord.",
@@ -15742,7 +16456,10 @@
       "linkedQuestMarkerIds": [
         "hub_scorchwall_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q172_shadowfleet_ash_wreck",
@@ -15769,7 +16486,7 @@
       "locked": false,
       "x": 6305,
       "y": 6840,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "A cursed black-timbered flagship hauling blackmail tribute ran hard ashore onto jagged obsidian reefs along the volcanic coast. Hike out to the stranded hull, slay its nocturnal vampire crew, and seize the treasury chest.",
@@ -15796,7 +16513,10 @@
       "linkedQuestMarkerIds": [
         "hub_scorchwall_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q173_basalt_bay_watchwall",
@@ -15823,7 +16543,7 @@
       "locked": false,
       "x": 4548,
       "y": 6125,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "An isolated coastal watch-wall perched out on the jagged sea-cliffs keeps spectral wraiths from drifting inland off the ash bay fog each night. Travel out to the lonely headland parapet, keep its consecrated signal braziers burning, and break the midnight wraith assault.",
@@ -15850,7 +16570,10 @@
       "linkedQuestMarkerIds": [
         "hub_scorchwall_fort"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q174_outer_obsidian_gatehouse",
@@ -15877,7 +16600,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Your two heroes holding Highcrown Keep arrive at the gates just as Garrick's elite armored Wight shield-wall slams the outer portcullis down. Smash the armored honor guard and unite all six companions inside the keep.",
@@ -15904,7 +16627,10 @@
       "linkedQuestMarkerIds": [
         "loc_40_garricks_black_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q175_necrotic_obelisk_courtyard",
@@ -15931,7 +16657,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Three crackling Shadowfell obelisks in the middle ward keep Garrick's throne doors sealed behind impervious violet wards. Defeat the Elder Vampire and wraith guards defending the plaza so Ellowyn can shatter their wards.",
@@ -15958,7 +16684,10 @@
       "linkedQuestMarkerIds": [
         "loc_40_garricks_black_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q176_inner_keep_barrack_yard",
@@ -15985,7 +16714,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Garrick's three most ruthless lieutenants—men who once broke bread beside Valen and Koren before twisting into undead knights—hold the inner parade ground. Duel all three captains before they flank your final push.",
@@ -16012,7 +16741,10 @@
       "linkedQuestMarkerIds": [
         "loc_40_garricks_black_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q177_trophy_battlement_gallery",
@@ -16039,7 +16771,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Along the upper rampart walk hang the captured blue-and-silver house banners of every regiment that fell fighting Garrick's betrayal. Cut down the Vampire Champions mocking those relics and bear the standards with honor.",
@@ -16066,7 +16798,10 @@
       "linkedQuestMarkerIds": [
         "loc_40_garricks_black_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "qf_r8_q178_throne_seal_threshold",
@@ -16093,7 +16828,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "After Koren's death in Highcrown's coliseum, King Garrick tore Valen's joined Interlocking Wolf Pendant from the boy's hand and later bound that silver heirloom to the Abyssal Eclipse Guard holding Black Keep's upper sanctum stairs. Smash the Eclipse Guard and reclaim the Interlocking Wolf Pendant to awaken Portal #8 and confront King Garrick inside The Eclipse Gate.",
@@ -16120,7 +16855,10 @@
       "linkedQuestMarkerIds": [
         "loc_40_garricks_black_keep"
       ],
-      "locationType": "Quest Site"
+      "locationType": "Quest Site",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_ferry_crossing",
@@ -16131,19 +16869,19 @@
       "visibility": "always_visible",
       "name": "Ferry Crossing",
       "category": "travel",
-      "mapId": "all",
+      "mapId": "map_03",
       "region": null,
       "kind": "Island Strait Ferry Crossing · Pier 1 (North Bank)",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/tr_ferry_crossing.webp",
-      "placed": false,
+      "placed": true,
       "locked": false,
-      "x": null,
-      "y": null,
-      "scale": 1.0,
+      "x": 5038,
+      "y": 4513,
+      "scale": 1,
       "triggerRadius": 88,
-      "linkedFerryId": null,
+      "linkedFerryId": "tr_ferry_crossing_south_bank",
       "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
         "Strait / Channel Ferry Crossing"
@@ -16153,7 +16891,10 @@
       "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
       "playerServices": [
         "Strait Ferry"
-      ]
+      ],
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_ferry_crossing_south_bank",
@@ -16164,19 +16905,19 @@
       "visibility": "always_visible",
       "name": "Ferry Crossing",
       "category": "travel",
-      "mapId": "all",
+      "mapId": "map_03",
       "region": null,
       "kind": "Island Strait Ferry Crossing · Pier 2 (South Bank)",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/tr_ferry_crossing_south_bank.webp",
-      "placed": false,
+      "placed": true,
       "locked": false,
-      "x": null,
-      "y": null,
-      "scale": 1.0,
+      "x": 5106,
+      "y": 4894,
+      "scale": 1,
       "triggerRadius": 88,
-      "linkedFerryId": null,
+      "linkedFerryId": "tr_ferry_crossing",
       "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
         "Strait / Channel Ferry Crossing"
@@ -16186,7 +16927,10 @@
       "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
       "playerServices": [
         "Strait Ferry"
-      ]
+      ],
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_ferry_crossing_west_bank",
@@ -16207,7 +16951,7 @@
       "locked": false,
       "x": 4996,
       "y": 7165,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": "tr_ferry_crossing_east_bank",
       "rotation": 323,
@@ -16220,7 +16964,9 @@
       "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
       "playerServices": [
         "Strait Ferry"
-      ]
+      ],
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_ferry_crossing_east_bank",
@@ -16241,7 +16987,7 @@
       "locked": false,
       "x": 5729,
       "y": 6687,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": "tr_ferry_crossing_west_bank",
       "rotation": 359,
@@ -16254,7 +17000,9 @@
       "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
       "playerServices": [
         "Strait Ferry"
-      ]
+      ],
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_border_mountain_pass_gate",
@@ -16275,7 +17023,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
@@ -16287,7 +17035,10 @@
       "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
       "playerServices": [
         "Highland Pass"
-      ]
+      ],
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_border_mountain_pass_gate_v2",
@@ -16308,7 +17059,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
@@ -16320,7 +17071,10 @@
       "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
       "playerServices": [
         "Highland Pass"
-      ]
+      ],
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_border_mountain_pass_gate_v3",
@@ -16341,7 +17095,7 @@
       "locked": false,
       "x": null,
       "y": null,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
@@ -16353,7 +17107,10 @@
       "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
       "playerServices": [
         "Highland Pass"
-      ]
+      ],
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_border_mountain_pass_gate_v4",
@@ -16364,17 +17121,17 @@
       "visibility": "always_visible",
       "name": "Border Mountain Pass Gate",
       "category": "travel",
-      "mapId": "all",
+      "mapId": "map_04",
       "region": null,
       "kind": "Internal Mountain Pass Gate · Timber Gatehouse",
       "isPortal": false,
       "portalNum": null,
       "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v4.webp",
-      "placed": false,
+      "placed": true,
       "locked": false,
-      "x": null,
-      "y": null,
-      "scale": 1.0,
+      "x": 6347,
+      "y": 3027,
+      "scale": 1,
       "triggerRadius": 88,
       "linkedFerryId": null,
       "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
@@ -16386,7 +17143,10 @@
       "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
       "playerServices": [
         "Highland Pass"
-      ]
+      ],
+      "rotation": 0,
+      "passExitX": 6054,
+      "passExitY": 3306
     },
     {
       "id": "tr_port_map01_royal_trade",
@@ -16428,7 +17188,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Southern Coast"
+      "playerRegion": "Southern Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map01_royal_trade.webp"
     },
     {
       "id": "tr_port_map02_highland_cove",
@@ -16470,7 +17234,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Thornwall Cove"
+      "playerRegion": "Thornwall Cove",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map02_highland_cove.webp"
     },
     {
       "id": "tr_port_map03_desert_harbor",
@@ -16512,7 +17280,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Sun-Scorched Bay"
+      "playerRegion": "Sun-Scorched Bay",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map03_desert_harbor.webp"
     },
     {
       "id": "tr_port_map04_arctic_seaport",
@@ -16554,7 +17326,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Frostbound Bay"
+      "playerRegion": "Frostbound Bay",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map04_arctic_seaport.webp"
     },
     {
       "id": "tr_port_map01_royal_trade_south",
@@ -16596,7 +17372,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Southern Coast"
+      "playerRegion": "Southern Coast",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map01_royal_trade.webp"
     },
     {
       "id": "tr_port_map02_highland_cove_south",
@@ -16638,7 +17418,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Thornwall Cove"
+      "playerRegion": "Thornwall Cove",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map02_highland_cove.webp"
     },
     {
       "id": "tr_port_map03_desert_harbor_south",
@@ -16680,7 +17464,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Sun-Scorched Bay"
+      "playerRegion": "Sun-Scorched Bay",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map03_desert_harbor.webp"
     },
     {
       "id": "tr_port_map04_arctic_seaport_south",
@@ -16722,7 +17510,11 @@
         "Sea Voyages",
         "Free Harbor Rest"
       ],
-      "playerRegion": "Frostbound Bay"
+      "playerRegion": "Frostbound Bay",
+      "rotation": 0,
+      "passExitX": null,
+      "passExitY": null,
+      "interiorAssetPath": "assets/maps/interiors/tr_port_map04_arctic_seaport.webp"
     },
     {
       "id": "tr_ferry_crossing_east_bank_inst_2",
@@ -16743,7 +17535,7 @@
       "locked": false,
       "x": 4151,
       "y": 3638,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
@@ -16756,7 +17548,9 @@
         "Strait Ferry"
       ],
       "linkedFerryId": "tr_ferry_crossing_west_bank_inst_2",
-      "rotation": 351
+      "rotation": 351,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_ferry_crossing_west_bank_inst_2",
@@ -16775,9 +17569,9 @@
       "assetPath": "assets/tokens/markers/tr_ferry_crossing_west_bank.webp",
       "placed": true,
       "locked": false,
-      "x": 3810,
-      "y": 3761,
-      "scale": 1.0,
+      "x": 4114,
+      "y": 4192,
+      "scale": 1,
       "triggerRadius": 88,
       "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
@@ -16790,7 +17584,9 @@
         "Strait Ferry"
       ],
       "linkedFerryId": "tr_ferry_crossing_east_bank_inst_2",
-      "rotation": 333
+      "rotation": 329,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_ferry_crossing_west_bank_inst_3",
@@ -16811,7 +17607,7 @@
       "locked": false,
       "x": 3314,
       "y": 1415,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
@@ -16824,7 +17620,9 @@
         "Strait Ferry"
       ],
       "linkedFerryId": "tr_ferry_crossing_east_bank_inst_3",
-      "rotation": 30
+      "rotation": 30,
+      "passExitX": null,
+      "passExitY": null
     },
     {
       "id": "tr_ferry_crossing_east_bank_inst_3",
@@ -16845,7 +17643,7 @@
       "locked": false,
       "x": 3578,
       "y": 1538,
-      "scale": 1.0,
+      "scale": 1,
       "triggerRadius": 88,
       "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
       "services": [
@@ -16858,7 +17656,189 @@
         "Strait Ferry"
       ],
       "linkedFerryId": "tr_ferry_crossing_west_bank_inst_3",
-      "rotation": 16
+      "rotation": 16,
+      "passExitX": null,
+      "passExitY": null
+    },
+    {
+      "id": "tr_border_mountain_pass_gate_v4_inst_2",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1262,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Border Mountain Pass Gate",
+      "category": "travel",
+      "mapId": "map_04",
+      "region": null,
+      "kind": "Internal Mountain Pass Gate · Timber Gatehouse",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_border_mountain_pass_gate_v4.webp",
+      "placed": true,
+      "locked": false,
+      "x": 3783,
+      "y": 4336,
+      "scale": 1,
+      "triggerRadius": 88,
+      "linkedFerryId": null,
+      "description": "Internal mountain-pass tollgate guarding cliff passes inside an island continent (continents connect by sea, not on foot).",
+      "services": [
+        "Internal Ridge / Pass Gate"
+      ],
+      "locationType": "Mountain Pass",
+      "playerKind": "Mountain Pass Gatehouse",
+      "playerDescription": "Heavy iron-bound timber doors set between high stone crags guarding the narrow highland crossing.",
+      "playerServices": [
+        "Highland Pass"
+      ],
+      "rotation": 0,
+      "passExitX": 4556,
+      "passExitY": 4767
+    },
+    {
+      "id": "tr_ferry_crossing_east_bank_inst_4",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1258,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_02",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 4",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_east_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 4754,
+      "y": 2269,
+      "scale": 1,
+      "triggerRadius": 88,
+      "linkedFerryId": "tr_ferry_crossing_west_bank_inst_4",
+      "rotation": 0,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "passExitX": null,
+      "passExitY": null
+    },
+    {
+      "id": "tr_ferry_crossing_west_bank_inst_4",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1257,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_02",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 3",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_west_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 4289,
+      "y": 2093,
+      "scale": 1,
+      "triggerRadius": 88,
+      "linkedFerryId": "tr_ferry_crossing_east_bank_inst_4",
+      "rotation": 324,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "passExitX": null,
+      "passExitY": null
+    },
+    {
+      "id": "tr_ferry_crossing_west_bank_inst_5",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1257,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_02",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 3",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_west_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 3876,
+      "y": 6786,
+      "scale": 1,
+      "triggerRadius": 88,
+      "linkedFerryId": "tr_ferry_crossing_east_bank_inst_5",
+      "rotation": 26,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "passExitX": null,
+      "passExitY": null
+    },
+    {
+      "id": "tr_ferry_crossing_east_bank_inst_5",
+      "locNum": null,
+      "zoneNum": null,
+      "progOrder": 1258,
+      "levelRange": "All Regions",
+      "visibility": "always_visible",
+      "name": "Ferry Crossing",
+      "category": "travel",
+      "mapId": "map_02",
+      "region": null,
+      "kind": "Island Strait Ferry Crossing · Pier 4",
+      "isPortal": false,
+      "portalNum": null,
+      "assetPath": "assets/tokens/markers/tr_ferry_crossing_east_bank.webp",
+      "placed": true,
+      "locked": false,
+      "x": 4411,
+      "y": 6884,
+      "scale": 1,
+      "triggerRadius": 88,
+      "linkedFerryId": "tr_ferry_crossing_west_bank_inst_5",
+      "rotation": 0,
+      "description": "Shoreline wooden ferry landing pier where regional ferrymen carry travelers across water straits.",
+      "services": [
+        "Strait / Channel Ferry Crossing"
+      ],
+      "locationType": "Ferry Crossing",
+      "playerKind": "Strait Ferry Landing",
+      "playerDescription": "Weathered oak dock pilings where regional ferrymen carry travelers safely across narrow island sea straits.",
+      "playerServices": [
+        "Strait Ferry"
+      ],
+      "passExitX": null,
+      "passExitY": null
     }
   ]
 }

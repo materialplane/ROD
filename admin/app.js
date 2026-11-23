@@ -92,6 +92,8 @@
   let selectedId = null;
   let stampTemplateId = null;
   let linkingFerryFromId = null;
+  let pickingPassSpawnForId = null;
+  let draggingPassSpawnFor = null;
 
   let paintTool = "brush"; // "brush" | "bucket" | "eraser"
   let activeTerrainCode = 1;
@@ -178,6 +180,8 @@
       worldData.locations = restored;
       selectedId = entry.selectedId;
       linkingFerryFromId = null;
+      pickingPassSpawnForId = null;
+      draggingPassSpawnFor = null;
       refreshUI();
       armedBanner.textContent = "Undid last unlocked location edit";
       if (chkAutoSave.checked) saveWorldData(true);
@@ -349,7 +353,7 @@
     const qs = loc.quests || [];
     const qNames = qs.map((q) => `• ${q.title}${q.giver ? ` (${q.giver})` : ""}`).join("<br>");
     const bossHtml = loc.bossInfo
-      ? `<div style="color:#ff9a9a;margin-top:4px;"><strong>Boss:</strong> ${loc.bossInfo.boss} (${loc.bossInfo.guardPips} pips · Weak: ${loc.bossInfo.weaknesses})</div>`
+      ? `<div style="color:#ff9a9a;margin-top:4px;"><strong>Boss:</strong> ${loc.bossInfo.boss} (${loc.bossInfo.guardPips} points · Weak: ${loc.bossInfo.weaknesses})</div>`
       : "";
     mapTooltip.innerHTML = `
       <strong>${loc.name} ${loc.levelRange ? `(${loc.levelRange})` : ""}</strong>
@@ -371,6 +375,28 @@
 
   function isFerryMarker(loc) {
     return Boolean(loc && loc.id && loc.id.startsWith("tr_ferry_crossing"));
+  }
+
+  function isMountainPassMarker(loc) {
+    return Boolean(loc && loc.id && loc.id.startsWith("tr_border_mountain_pass_gate"));
+  }
+
+  function hasPassExitPoint(loc) {
+    return Boolean(isMountainPassMarker(loc) && typeof loc.passExitX === "number" && typeof loc.passExitY === "number");
+  }
+
+  function findPassSpawnAtWorld(wx, wy) {
+    const candidates = worldData.locations.filter(
+      (l) => l.placed && l.mapId === activeMapId && hasPassExitPoint(l)
+    );
+    // Prioritize currently selected pass exit pin first
+    candidates.sort((a, b) => (b.id === selectedId ? 1 : 0) - (a.id === selectedId ? 1 : 0));
+    for (const loc of candidates) {
+      if (Math.hypot(wx - loc.passExitX, wy - loc.passExitY) <= 72) {
+        return loc;
+      }
+    }
+    return null;
   }
 
   function unlinkFerry(ferryId) {
@@ -587,6 +613,10 @@
     }
     if (linkingFerryFromId) {
       armedBanner.textContent = "Ferry Link Mode: Click the destination Ferry Crossing on the map to link (Esc to cancel)";
+      return;
+    }
+    if (pickingPassSpawnForId) {
+      armedBanner.textContent = "Pass Exit Spawn Mode: Click anywhere on the map where the hero token should appear after entering (Esc to cancel)";
       return;
     }
     if (stampTemplateId) {
@@ -814,14 +844,14 @@
 
     if (loc.bossInfo) {
       inspBoss.classList.remove("hidden");
-      inspBoss.innerHTML = `<strong>Boss:</strong> ${loc.bossInfo.boss}<br><strong>Plane:</strong> ${loc.bossInfo.plane}<br><strong>Guard Pips:</strong> ${loc.bossInfo.guardPips} &nbsp;|&nbsp; <strong>Weak:</strong> ${loc.bossInfo.weaknesses}`;
+      inspBoss.innerHTML = `<strong>Boss:</strong> ${loc.bossInfo.boss}<br><strong>Plane:</strong> ${loc.bossInfo.plane}<br><strong>Guard Points:</strong> ${loc.bossInfo.guardPips} &nbsp;|&nbsp; <strong>Weak:</strong> ${loc.bossInfo.weaknesses}`;
     } else {
       inspBoss.classList.add("hidden");
       inspBoss.innerHTML = "";
     }
 
     if (isFerryMarker(loc) && loc.placed) {
-      inspFerryBox.classList.remove("hidden");
+      inspFerryBox.className = "insp-ferry";
       const partner = loc.linkedFerryId
         ? worldData.locations.find((l) => l.id === loc.linkedFerryId && l.placed)
         : null;
@@ -859,11 +889,89 @@
       inspFerryBox.querySelector("#btnFerryPick").addEventListener("click", () => {
         if (isMarkerLocked(loc)) return;
         linkingFerryFromId = linkingFerryFromId === loc.id ? null : loc.id;
+        pickingPassSpawnForId = null;
         stampTemplateId = null;
         refreshUI();
       });
+    } else if (isMountainPassMarker(loc) && loc.placed) {
+      inspFerryBox.className = "insp-ferry pass-box";
+      const hasExit = hasPassExitPoint(loc);
+      const isPicking = pickingPassSpawnForId === loc.id;
+      const lockDis = markerLocked ? "disabled" : "";
+      let terrainStatus = "Not set yet — pick where the player token lands after entering this pass.";
+      if (hasExit) {
+        const info = window.RODWorldPaint.getHoverInfo(activeMapId, loc.passExitX, loc.passExitY);
+        const zoneLabel = info && info.zone ? info.zone.name : "Unpainted Zone";
+        const biomeLabel = info && info.biome ? info.biome.name : "Unpainted Ground";
+        const blocked = Boolean(info && info.biome && info.biome.impassable);
+        terrainStatus = blocked
+          ? `<span style="color:#ff8f8f;">Warning: ${biomeLabel} (${zoneLabel}) is blocked!</span>`
+          : `<span style="color:#a6e3a1;">${biomeLabel} · ${zoneLabel}</span>`;
+      }
+      inspFerryBox.innerHTML = `
+        <div>
+          <strong style="color:#f2c978;">Mountain Pass Exit Spawn</strong><br>
+          ${terrainStatus}
+        </div>
+        <div class="pass-coord-grid">
+          <label>
+            <span>Exit X (0–8192)</span>
+            <input type="number" id="inpPassExitX" min="0" max="8192" step="1" value="${hasExit ? Math.round(loc.passExitX) : ""}" ${lockDis} />
+          </label>
+          <label>
+            <span>Exit Y (0–8192)</span>
+            <input type="number" id="inpPassExitY" min="0" max="8192" step="1" value="${hasExit ? Math.round(loc.passExitY) : ""}" ${lockDis} />
+          </label>
+        </div>
+        <div class="ferry-actions">
+          <button type="button" class="btn pass-pick ${isPicking ? "active" : ""}" id="btnPassPickSpawn" ${lockDis}>${isPicking ? "Click Exit Point on Map..." : hasExit ? "Move Spawn Point" : "Set Spawn Point"}</button>
+          ${hasExit ? `<button type="button" class="btn" id="btnPassGoExit">Go to Spawn</button>` : ""}
+          ${hasExit ? `<button type="button" class="btn danger" id="btnPassClearSpawn" ${lockDis}>Clear</button>` : ""}
+        </div>
+      `;
+      inspFerryBox.querySelector("#btnPassPickSpawn").addEventListener("click", () => {
+        if (isMarkerLocked(loc)) return;
+        pickingPassSpawnForId = pickingPassSpawnForId === loc.id ? null : loc.id;
+        linkingFerryFromId = null;
+        stampTemplateId = null;
+        refreshUI();
+      });
+      const inpPX = inspFerryBox.querySelector("#inpPassExitX");
+      const inpPY = inspFerryBox.querySelector("#inpPassExitY");
+      const commitManualPassCoords = () => {
+        if (isMarkerLocked(loc)) return;
+        const nx = Math.round(Math.max(0, Math.min(MAP_SIZE, Number(inpPX.value) || 0)));
+        const ny = Math.round(Math.max(0, Math.min(MAP_SIZE, Number(inpPY.value) || 0)));
+        pushLocationsUndo();
+        loc.passExitX = nx;
+        loc.passExitY = ny;
+        refreshUI();
+        if (chkAutoSave.checked) saveWorldData(true);
+      };
+      inpPX.addEventListener("change", commitManualPassCoords);
+      inpPY.addEventListener("change", commitManualPassCoords);
+      const btnGo = inspFerryBox.querySelector("#btnPassGoExit");
+      if (btnGo) {
+        btnGo.addEventListener("click", () => {
+          if (!hasPassExitPoint(loc)) return;
+          camX = loc.passExitX;
+          camY = loc.passExitY;
+        });
+      }
+      const btnClr = inspFerryBox.querySelector("#btnPassClearSpawn");
+      if (btnClr) {
+        btnClr.addEventListener("click", () => {
+          if (isMarkerLocked(loc)) return;
+          pushLocationsUndo();
+          loc.passExitX = null;
+          loc.passExitY = null;
+          if (pickingPassSpawnForId === loc.id) pickingPassSpawnForId = null;
+          refreshUI();
+          if (chkAutoSave.checked) saveWorldData(true);
+        });
+      }
     } else {
-      inspFerryBox.classList.add("hidden");
+      inspFerryBox.className = "insp-ferry hidden";
       inspFerryBox.innerHTML = "";
     }
 
@@ -1049,6 +1157,8 @@
       tmpl.y = y;
       tmpl.locked = false;
       tmpl.linkedFerryId = null;
+      tmpl.passExitX = null;
+      tmpl.passExitY = null;
       tmpl.rotation = 0;
       selectedId = tmpl.id;
     } else {
@@ -1066,6 +1176,8 @@
         y,
         locked: false,
         linkedFerryId: null,
+        passExitX: null,
+        passExitY: null,
         rotation: 0,
       };
       worldData.locations.push(clone);
@@ -1290,6 +1402,8 @@
     pushLocationsUndo();
 
     linkingFerryFromId = null;
+    pickingPassSpawnForId = null;
+    draggingPassSpawnFor = null;
     stampTemplateId = null;
 
     // Remove unlocked cloned _inst_N markers in scope, and unplace remaining unlocked markers in scope
@@ -1299,6 +1413,8 @@
     for (const loc of worldData.locations) {
       if ((isAll || loc.mapId === scopeMapId) && !isMarkerLocked(loc) && !isMapLocked(loc.mapId)) {
         if (loc.linkedFerryId) unlinkFerry(loc.id);
+        loc.passExitX = null;
+        loc.passExitY = null;
         loc.placed = false;
         loc.x = null;
         loc.y = null;
@@ -1385,9 +1501,10 @@
       performUndo();
       return;
     }
-    if (e.key === "Escape" && (stampTemplateId || linkingFerryFromId)) {
+    if (e.key === "Escape" && (stampTemplateId || linkingFerryFromId || pickingPassSpawnForId)) {
       stampTemplateId = null;
       linkingFerryFromId = null;
+      pickingPassSpawnForId = null;
       refreshUI();
       return;
     }
@@ -1469,6 +1586,24 @@
         return;
       }
 
+      if (pickingPassSpawnForId) {
+        const passLoc = worldData.locations.find((l) => l.id === pickingPassSpawnForId);
+        if (passLoc && passLoc.placed && passLoc.mapId === activeMapId && !isMarkerLocked(passLoc) && w.x >= 0 && w.x <= MAP_SIZE && w.y >= 0 && w.y <= MAP_SIZE) {
+          pushLocationsUndo();
+          passLoc.passExitX = Math.round(Math.max(0, Math.min(MAP_SIZE, w.x)));
+          passLoc.passExitY = Math.round(Math.max(0, Math.min(MAP_SIZE, w.y)));
+          pickingPassSpawnForId = null;
+          selectedId = passLoc.id;
+          refreshUI();
+          if (chkAutoSave.checked) saveWorldData(true);
+        } else {
+          pickingPassSpawnForId = null;
+          refreshUI();
+        }
+        return;
+      }
+
+      const spawnPinLoc = findPassSpawnAtWorld(w.x, w.y);
       const hit = findMarkerAtWorld(w.x, w.y);
       if (linkingFerryFromId) {
         if (hit && isFerryMarker(hit) && hit.id !== linkingFerryFromId) {
@@ -1477,6 +1612,16 @@
           linkingFerryFromId = null;
           refreshUI();
         }
+        return;
+      }
+      if (spawnPinLoc && (!hit || spawnPinLoc.id === selectedId)) {
+        selectedId = spawnPinLoc.id;
+        stampTemplateId = null;
+        if (!isMarkerLocked(spawnPinLoc)) {
+          pendingDragUndo = { startX: spawnPinLoc.passExitX, startY: spawnPinLoc.passExitY, snap: snapshotLocationsState() };
+          draggingPassSpawnFor = spawnPinLoc;
+        }
+        refreshUI();
         return;
       }
       if (hit) {
@@ -1539,6 +1684,22 @@
       return;
     }
 
+    if (draggingPassSpawnFor) {
+      draggingPassSpawnFor.passExitX = Math.round(Math.max(0, Math.min(MAP_SIZE, w.x)));
+      draggingPassSpawnFor.passExitY = Math.round(Math.max(0, Math.min(MAP_SIZE, w.y)));
+      hideTooltip();
+      renderInspector();
+      return;
+    }
+
+    if (draggingPassSpawnFor) {
+      const moved = pendingDragUndo && (draggingPassSpawnFor.passExitX !== pendingDragUndo.startX || draggingPassSpawnFor.passExitY !== pendingDragUndo.startY);
+      if (moved) pushUndoEntry(pendingDragUndo.snap);
+      pendingDragUndo = null;
+      draggingPassSpawnFor = null;
+      refreshUI();
+      if (moved && chkAutoSave.checked) saveWorldData(true);
+    }
     if (draggingMarker) {
       draggingMarker.x = Math.round(Math.max(0, Math.min(MAP_SIZE, w.x)));
       draggingMarker.y = Math.round(Math.max(0, Math.min(MAP_SIZE, w.y)));
@@ -1573,6 +1734,22 @@
         if (chkAutoSave.checked) saveWorldPaint(true);
       }
       pendingPaintUndo = null;
+    }
+    if (draggingPassSpawnFor) {
+      draggingPassSpawnFor.passExitX = Math.round(Math.max(0, Math.min(MAP_SIZE, w.x)));
+      draggingPassSpawnFor.passExitY = Math.round(Math.max(0, Math.min(MAP_SIZE, w.y)));
+      hideTooltip();
+      renderInspector();
+      return;
+    }
+
+    if (draggingPassSpawnFor) {
+      const moved = pendingDragUndo && (draggingPassSpawnFor.passExitX !== pendingDragUndo.startX || draggingPassSpawnFor.passExitY !== pendingDragUndo.startY);
+      if (moved) pushUndoEntry(pendingDragUndo.snap);
+      pendingDragUndo = null;
+      draggingPassSpawnFor = null;
+      refreshUI();
+      if (moved && chkAutoSave.checked) saveWorldData(true);
     }
     if (draggingMarker) {
       const moved = pendingDragUndo && (draggingMarker.x !== pendingDragUndo.startX || draggingMarker.y !== pendingDragUndo.startY);
@@ -1696,12 +1873,15 @@
     pushLocationsUndo();
     unlinkFerry(loc.id);
     if (linkingFerryFromId === loc.id) linkingFerryFromId = null;
+    if (pickingPassSpawnForId === loc.id) pickingPassSpawnForId = null;
     if (/_inst_\d+$/.test(loc.id)) {
       const rootId = getTemplateRootId(loc.id);
       worldData.locations = worldData.locations.filter((l) => l.id !== loc.id);
       selectedId = rootId;
       stampTemplateId = rootId;
     } else {
+      loc.passExitX = null;
+      loc.passExitY = null;
       loc.placed = false;
       loc.x = null;
       loc.y = null;
@@ -1812,6 +1992,60 @@
       ctx.moveTo(loc.x, loc.y);
       ctx.lineTo(partner.x, partner.y);
       ctx.stroke();
+    }
+    ctx.restore();
+
+    // Draw Mountain Pass Gate exit spawn routes & full hero-token spawn rings
+    ctx.save();
+    for (const loc of worldData.locations) {
+      if (!loc.placed || loc.mapId !== activeMapId || !hasPassExitPoint(loc)) continue;
+      const ex = loc.passExitX;
+      const ey = loc.passExitY;
+      const isActivePass = selectedId === loc.id;
+      const ang = Math.atan2(ey - loc.y, ex - loc.x);
+
+      ctx.setLineDash([14 / zoom, 9 / zoom]);
+      ctx.lineWidth = Math.max(2.5, (isActivePass ? 4 : 2.8) / zoom);
+      ctx.strokeStyle = isActivePass ? "rgba(242, 201, 120, 0.96)" : "rgba(242, 201, 120, 0.65)";
+      ctx.beginPath();
+      ctx.moveTo(loc.x, loc.y);
+      ctx.lineTo(ex, ey);
+      ctx.stroke();
+
+      // Arrowhead pointing into exit spawn
+      ctx.setLineDash([]);
+      const arrLen = Math.max(18, 16 / zoom);
+      ctx.fillStyle = isActivePass ? "#fae4b0" : "#f2c978";
+      ctx.beginPath();
+      ctx.moveTo(ex, ey);
+      ctx.lineTo(ex - arrLen * Math.cos(ang - 0.42), ey - arrLen * Math.sin(ang - 0.42));
+      ctx.lineTo(ex - arrLen * Math.cos(ang + 0.42), ey - arrLen * Math.sin(ang + 0.42));
+      ctx.closePath();
+      ctx.fill();
+
+      // Hero token full footprint (142px diameter = radius 71px) so cliff/terrain clearance is immediately visible
+      if (valenImg) {
+        ctx.save();
+        ctx.globalAlpha = isActivePass ? 0.78 : 0.45;
+        ctx.drawImage(valenImg, ex - 71, ey - 71, 142, 142);
+        ctx.restore();
+      }
+      ctx.beginPath();
+      ctx.arc(ex, ey, 71, 0, Math.PI * 2);
+      ctx.strokeStyle = isActivePass ? "rgba(250, 228, 176, 0.96)" : "rgba(242, 201, 120, 0.7)";
+      ctx.lineWidth = Math.max(2.5, (isActivePass ? 3.5 : 2.2) / zoom);
+      ctx.stroke();
+
+      const lblFont = Math.max(16, Math.round(13 / Math.max(0.25, zoom)));
+      ctx.font = `700 ${lblFont}px "Segoe UI", sans-serif`;
+      ctx.textAlign = "center";
+      const lbl = "PASS EXIT SPAWN";
+      const tw = ctx.measureText(lbl).width + 14;
+      const ly = ey + 71 + lblFont + 6;
+      ctx.fillStyle = "rgba(18, 14, 8, 0.88)";
+      ctx.fillRect(ex - tw / 2, ly - lblFont, tw, lblFont + 6);
+      ctx.fillStyle = isActivePass ? "#fae4b0" : "#e5bf74";
+      ctx.fillText(lbl, ex, ly);
     }
     ctx.restore();
 

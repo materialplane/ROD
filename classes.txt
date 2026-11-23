@@ -25,7 +25,7 @@ Armor:
 Accessory:
 - Cloaks: Tattered Travel Cloak, Oakhaven Wool Cloak, Millbrook Duelist Cape, Waxed Mariner Cloak, Saltwind Storm-Cape, Mirewatch Oilskin Cloak, Ash-Dyed Border Cloak, Redmarch Crimson Cape, Thornwall Vanguard Mantle, Fern-Dyed Weald Cloak, Briar-Thorn Mantle, Elderwood Canopy Cloak, Sun-Bleached Sand Cloak, Gilded Veridia Cape, Mirage Silk Cloak, Wolf-Fur Travel Cloak, Storm-Weave Cape, Anvilhall Silver-Trim Cloak, Rime-Lined Wolf Cloak, Tundra Snow-Mantle, Boreal Starlight Cape, Ashen-Hide Cloak, Crimson-Oath Cape, Sovereign Duelist Cloak
 
-Mystic
+Sorceress
 Weapons:
 - Quarterstaff (2H): Oakwood Quarterstaff, Iron-Shod Quarterstaff, Millbrook Quarterstaff, Driftwood Quarterstaff, Saltwind Brass-Bound Staff, Mirewarden Ironwood Staff, Garrison Quarterstaff, Redmarch Steel-Cap Staff, Bastion War-Staff, Briarwood Quarterstaff, Heartwood Quarterstaff, Verdant Ironwood Staff, Sun-Hardened Quarterstaff, Gilded Oasis Staff, Desert Palm Quarterstaff, Highland Pine Quarterstaff, Star-Iron Quarterstaff, Storm-Iron Battle Staff, Frostpine Quarterstaff, Rime-Bound Quarterstaff, Boreal Warden Staff, Ashenwood Quarterstaff, Lifebinder's Ironwood Staff, Sovereign Dawn Quarterstaff
 - Dagger (1H): Chipped Iron Dagger, Balanced Steel Dagger, Millbrook Dirk, Gutting Dagger, Bilge-Rat Dirk, Salt-Stained Stiletto, Trench Dagger, Redmarch Poniard, Hollowstone Steel Dagger, Fang-Tipped Dagger, Nightshade Dirk, Briar-Thorn Stiletto, Curved Oasis Dagger, Obsidian Desert Dirk, Mirage Gilded Stiletto, Flint-Edge Dagger, Sky-Talon Dirk, Anvilhall Star-Steel Stiletto, Ice-Shard Dagger, Frost-Fang Dirk, Silent-Snow Stiletto, Shadow-Steel Dagger, Night-Viper Dirk, Eclipse Shadow Dagger
@@ -52,7 +52,7 @@ Armor:
 Accessory:
 - Orbs: Cracked Glass Orb, Amber Focus Orb, Crownland Star-Orb, Brine-Pearl Sphere, Sea-Glass Orb, Tidestone Crystal Orb, Smoke-Quartz Sphere, War-Chanter Orb, Redmarch Focus Orb, Amber-Sap Sphere, Dewdrop Crystal Orb, Elderwood Star-Orb, Sun-Glass Sphere, Topaz Mirage Orb, Solar Prism Orb, Thunder-Quartz Orb, Silver-Core Orb, Anvilhall Prism Orb, Frosted Glass Orb, Boreal Ice-Orb, Pale-Star Crystal Orb, Void-Glass Orb, Eclipse Rift Orb, Heart of the First Dawn
 
-Bulwark
+Knight
 Weapons:
 - Battleaxe (1H): Worn Camp Axe, Iron Bearded Battleaxe, Crownland Cleaver Axe, Boarding Battleaxe, Barnacle Cleaver Axe, Mire-Splitter Battleaxe, Trench Battleaxe, Redmarch War-Axe, Gatebreaker Battleaxe, Timberfall Battleaxe, Sap-Tempered Battleaxe, Weald-Reaper Axe, Crescent Dune Battleaxe, Brass-Edged War-Axe, Veridian Sun-Axe, Peak-Cleaver Battleaxe, Granite-Biter War-Axe, Anvilhall Runed Battleaxe, Ice-Carver Battleaxe, Northern Wolf-Axe, Rimefang Battleaxe, Ash-Forged Battleaxe, Skull-Splitter Battleaxe, Executioner's Judgment
 - Mace (1H): Oak Studded Mace, Iron Flanged Mace, Bridgewarden War-Mace, Belaying Iron Mace, Anchorhead Mace, Tidewater Flanged Mace, Siegebreaker Mace, Redmarch Spiked Mace, Bastion War-Mace, Ironwood Knobbed Mace, Root-Knotted Mace, Oakheart Morning-Mace, Sun-Disk Bronze Mace, Obsidian-Studded Mace, Sandwall Heavy Mace, Quarry Iron Mace, Crag-Breaker Mace, Anvilhall Forged Mace, Frost-Bound Mace, Glacial Crusher Mace, Permafrost War-Mace, Siege-Breaker Mace, Dread-Iron War-Mace, Citadel Shatterer
@@ -79,7 +79,7 @@ Armor:
 Accessory:
 - Horns: Wooden Watch-Horn, Brass Garrison Horn, Crownland Bugle-Horn, Conch Fog-Horn, Harbor Brass Horn, Mirewarden Iron Horn, Iron Signal-Horn, Redmarch War-Horn, Bastion Great-Horn, Carved Stag-Horn, Timberfall Oak Horn, Elderwood Ivory Horn, Sand-Bronze Hunting Horn, Sun-Gilded Battle Horn, Dunespire Ram-Horn, Ram-Horn Signal Trumpet, Highland Steel Horn, Anvilhall Thunder-Horn, Carved Mammoth-Horn, Frostguard War-Horn, Pale-Ice Great-Horn, Dread-Iron War-Horn, Crimson-Steel War-Horn, War-Horn of the Crown
 
-Archer
+Ranger
 Weapons:
 - Longbow (2H): Yew Hunting Longbow, Ashwood Longbow, Crownland Longbow, Driftwood Longbow, Horn-Tipped Longbow, Saltwind Composite Longbow, Border Longbow, Ironwood War-Longbow, Watchtower Longbow, Briarwood Longbow, Heartwood Recurve Longbow, Elderwood Greatbow, Palm-Horn Longbow, Dune-Wind Longbow, Sun-Crest Longbow, Ridge-Horn Longbow, Eagle-Eye Longbow, Storm-String Longbow, White-Pine Longbow, Glacial Horn-Longbow, Boreal Wind Longbow, Ashen-Yew Longbow, Shadow-Piercer Longbow, Horizon Starbow
 - Shortbow (2H): Scout's Shortbow, Sinew Shortbow, Ranger's Shortbow, Sea-Gull Shortbow, Reed-Bound Shortbow, Mire-Hunter Shortbow, Outrider Shortbow, Skirmisher Shortbow, Thornwall Captain's Shortbow, Leaf-Wrapped Shortbow, Willow Shortbow, Shadowbranch Shortbow, Nomad's Shortbow, Sand-Viper Shortbow, Sirocco Shortbow, Crag-Jumper Shortbow, Gale-Wing Shortbow, Falcon-Strike Shortbow, Snow-Stalker Shortbow, Tundra Shortbow, Winter-Fang Shortbow, Nightwatch Shortbow, Gale-Heart Shortbow, Phantom Shortbow
@@ -133,7 +133,7 @@ Armor:
 Accessory:
 - Crystals: Chipped Quartz Crystal, Moss-Lit Shard, Crownland Verdant Crystal, Sea-Salt Prism Crystal, Brine-Moss Crystal, Fen-Amber Crystal, Slate-Bound Crystal, Amber-Vein Crystal, Redmarch Storm-Crystal, Heartwood Sap Crystal, Emerald Weald Crystal, Ancient Grove Crystal, Sunstone Shard Crystal, Topaz Desert Crystal, Solar Hearth Crystal, Storm-Quartz Crystal, Silver-Peak Crystal, Sky-Heart Gem Crystal, Glacial Ice Crystal, Boreal Frost Crystal, Winter-Moon Crystal, Volcanic Obsidian Crystal, Wild-Eclipse Crystal, Seed-Heart Crystal
 
-Herbalist
+Sage
 Weapons:
 - Quarterstaff (2H): Oakwood Quarterstaff, Iron-Shod Quarterstaff, Millbrook Quarterstaff, Driftwood Quarterstaff, Saltwind Brass-Bound Staff, Mirewarden Ironwood Staff, Garrison Quarterstaff, Redmarch Steel-Cap Staff, Bastion War-Staff, Briarwood Quarterstaff, Heartwood Quarterstaff, Verdant Ironwood Staff, Sun-Hardened Quarterstaff, Gilded Oasis Staff, Desert Palm Quarterstaff, Highland Pine Quarterstaff, Star-Iron Quarterstaff, Storm-Iron Battle Staff, Frostpine Quarterstaff, Rime-Bound Quarterstaff, Boreal Warden Staff, Ashenwood Quarterstaff, Lifebinder's Ironwood Staff, Sovereign Dawn Quarterstaff
 - Mace (1H): Oak Studded Mace, Iron Flanged Mace, Bridgewarden War-Mace, Belaying Iron Mace, Anchorhead Mace, Tidewater Flanged Mace, Siegebreaker Mace, Redmarch Spiked Mace, Bastion War-Mace, Ironwood Knobbed Mace, Root-Knotted Mace, Oakheart Morning-Mace, Sun-Disk Bronze Mace, Obsidian-Studded Mace, Sandwall Heavy Mace, Quarry Iron Mace, Crag-Breaker Mace, Anvilhall Forged Mace, Frost-Bound Mace, Glacial Crusher Mace, Permafrost War-Mace, Siege-Breaker Mace, Dread-Iron War-Mace, Citadel Shatterer

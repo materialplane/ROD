@@ -73,7 +73,7 @@ export const HEROES: HeroDefinition[] = [
     id: "ellowyn",
     name: "Ellowyn",
     fullName: "Queen Ellowyn",
-    className: "Mystic",
+    className: "Sorceress",
     shortTag: "Arcane · Spells & Wards",
     worldBio:
       "Locked beneath Highcrown once her secret rebellion unraveled, Ellowyn no longer has to hide behind the silence of a captive queen. With the Portals torn open across Ethoria, she steps forward with arcane craft kept hidden for decades—fighting to protect her son and save the kingdom.",
@@ -95,7 +95,7 @@ export const HEROES: HeroDefinition[] = [
     id: "orin",
     name: "Orin",
     fullName: "Commander Orin",
-    className: "Bulwark",
+    className: "Knight",
     shortTag: "Heavy Arms · Protector",
     worldBio:
       "Once refusing Highcrown's marriage-forbidden Lead Commander post for love, Orin only swore the rank's vow—never to love again—after his wife died giving birth to Rowan. Now the veteran stands watch beside his boy to defend Ethoria.",
@@ -117,7 +117,7 @@ export const HEROES: HeroDefinition[] = [
     id: "rowan",
     name: "Rowan",
     fullName: "Rowan",
-    className: "Archer",
+    className: "Ranger",
     shortTag: "Bows · Precision Hunter",
     worldBio:
       "Commander Orin's sharp-eyed son, raised far from castle intrigue on Ethoria's rugged borderlands. Hardened by frontier patrols rather than court walls, he refuses to stand aside while the kingdom fractures—or let his father march into the wilds alone.",
@@ -161,8 +161,8 @@ export const HEROES: HeroDefinition[] = [
     id: "harlan",
     name: "Harlan",
     fullName: "Harlan",
-    className: "Herbalist",
-    shortTag: "Herbal Magic · Healer & Alchemist",
+    className: "Sage",
+    shortTag: "Herbal Magic · Healer & Remedies",
     worldBio:
       "After losing his wife and daughter to a merciless plague in his youth, Harlan spent decades tending battered fighters in the torch-lit infirmary beneath Highcrown's arena. Carrying pouches of remedies and bitter toxins, the elderly apothecary steps into the open world so others will not lose who they love.",
     classStyle:
