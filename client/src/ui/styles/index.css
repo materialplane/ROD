@@ -62,13 +62,13 @@
     0 24px 60px rgba(0, 0, 0, 0.85);
 }
 
-/* Rich Hover Item Tooltip (96x96 Icon + Full Stats) */
+/* Rich Hover Item Tooltip (96x96 Icon + Full Stats + Hoverable Attack Icons) */
 .rod-item-tooltip {
   position: fixed;
   z-index: 9999;
-  pointer-events: none;
-  width: 360px;
-  max-width: min(380px, calc(100vw - 24px));
+  pointer-events: auto;
+  width: 370px;
+  max-width: min(390px, calc(100vw - 24px));
   padding: 12px 13px;
   border-radius: 6px;
   background: linear-gradient(180deg, rgba(16, 21, 32, 0.98) 0%, rgba(9, 12, 19, 0.99) 100%);
@@ -80,6 +80,113 @@
   display: flex;
   flex-direction: column;
   gap: 9px;
+}
+
+.tip-sec-hdr-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.tip-atk-hint {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8295b2;
+  font-weight: 600;
+}
+
+.tip-attacks-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tip-atk-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border-radius: 5px;
+  border: 1.5px solid #8c703b;
+  background: #0b0e16;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.tip-atk-btn:hover {
+  border-color: #f4d182;
+  box-shadow: 0 0 12px rgba(244, 209, 130, 0.36);
+  transform: translateY(-1px);
+}
+
+.tip-atk-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Secondary Attack Skill Tooltip (appears cleanly when hovering attack icons) */
+.rod-attack-tooltip {
+  position: fixed;
+  z-index: 10010;
+  pointer-events: none;
+  width: 318px;
+  max-width: min(335px, calc(100vw - 24px));
+  padding: 11px 12px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(18, 24, 37, 0.99) 0%, rgba(10, 13, 21, 0.99) 100%);
+  border: 1px solid #bd9852;
+  box-shadow:
+    0 20px 46px rgba(0, 0, 0, 0.95),
+    inset 0 0 0 1px rgba(244, 214, 146, 0.2);
+  color: #efe7d6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.atk-tip-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.atk-tip-icon-frame {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 5px;
+  border: 1.5px solid #9e7f47;
+  background: #0b0e16;
+  overflow: hidden;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.72);
+}
+
+.atk-tip-icon-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.atk-tip-title {
+  margin-top: 2px;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #fae2aa;
+  line-height: 1.2;
+}
+
+.atk-tip-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .tip-head {
@@ -329,6 +436,7 @@
 }
 .battle-turn-pip.active { border-color: #fae2aa; background: #2d2415; color: #fff0c4; }
 .battle-turn-pip.foe { border-color: #6b3535; background: #261417; color: #ffc6c6; }
+.battle-turn-pip.round-break { border-color: #876c3d; background: #1e1810; color: #e8c784; font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase; }
 .battle-turn-pip img { width: 15px; height: 15px; border-radius: 3px; object-fit: cover; }
 
 .battle-action-banner {
@@ -502,6 +610,9 @@
 .battle-enemy-unit.is-lunging { transform: translateX(18px); }
 .battle-enemy-unit.is-targetable:hover img {
   filter: brightness(1.12) drop-shadow(0 0 10px rgba(255, 224, 130, 0.65)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.65));
+}
+.battle-enemy-unit.is-splash-hit img {
+  filter: brightness(1.08) drop-shadow(0 0 9px rgba(255, 168, 92, 0.7)) drop-shadow(0 5px 10px rgba(0, 0, 0, 0.65));
 }
 .battle-enemy-unit.face-right img { transform: scaleX(-1); }
 .battle-enemy-shadow {

@@ -1,7 +1,7 @@
 # ROD — Combat System & Stat Tuning Spec
 
 > **Status:** Locked Core Spec  
-> **Scope:** Damage types, the `1`–`99` stat system, turn-order timeline, top-to-bottom Party Order (`Slots 1–4`), Resolve hurt-state passives, and shop-gear scaling rules.
+> **Scope:** Damage types, the `1`–`99` stat system, round-based turn order (no initiative), top-to-bottom Party Order (`Slots 1–4`), Resolve hurt-state passives, and shop-gear scaling rules.
 
 ---
 
@@ -21,7 +21,7 @@ Damage types govern **armor mitigation, enemy weaknesses, and Runestone synergie
 | Type | Primary Sources | Tactical Role |
 | :--- | :--- | :--- |
 | **Fire** | Pyromancy, fire weapons/runestones | High burst damage and **Burn** pressure; strong vs. beasts, flora, and frost foes. |
-| **Frost** | Cryomancy, cold weapons/runestones | Chills enemies, **pushing their turns back** on the timeline. |
+| **Frost** | Cryomancy, cold weapons/runestones | Chills enemies, **lowering their Attack & Magic Power** by `15%`. |
 | **Lightning** | Storm spells, shock weapons/runestones | Fast precision strikes; disrupts casting/guards and punishes heavy metal armor. |
 | **Poison** | Sage brews & toxins, venom weapons, beasts | Lingering **Poison** damage-over-time and weakens enemy physical output. |
 | **Shadow** | Dark magic, Garrick's undead & portal foes | Saps vitality, applies **Curse**, and bypasses conventional armor. |
@@ -40,13 +40,13 @@ Damage types govern **armor mitigation, enemy weaknesses, and Runestone synergie
 All 6 selectable heroes start at **Level 1** with **`1` point in every attribute**.  
 Every single `+1` point you invest gives an immediate combat improvement (zero "dead" points)—all hero perks come cleanly from **Arcanist Disciplines** (`1` Body, Mind, or Spirit choice at **Lv `1, 10, 20, 30, 40, 50, 60, 70, 80, 90`** = `10` total perks per hero), innate **Resolve** thresholds, and equipped **Runestones**.
 
-*(Balance Safeguard: Percentage perks like Dodge, Crit Chance, and Resistance use smooth caps so Level 99 heroes feel legendary without becoming invincible, while raw damage, HP, MP, speed, defense, and healing keep climbing.)*
+*(Balance Safeguard: Percentage perks like Dodge, Crit Chance, and Resistance use smooth caps so Level 99 heroes feel legendary without becoming invincible, while raw damage, HP, MP, defense, and healing keep climbing.)*
 
 ### 1. Force *(Physical Power & Posture)*
 * **Every `+1` Point Gives:** `+1.5%` physical weapon & skill damage (especially **Slashing** and **Bludgeoning** weapons) + stronger Guard pressure.
 
-### 2. Finesse *(Speed, Precision & Criticals)*
-* **Every `+1` Point Gives:** `+1` Turn Timeline Speed, `+0.5%` Accuracy, `+0.3%` Dodge *(capped at `+25%` from Finesse)*, `+0.4%` Crit Chance *(capped at `+35%` from Finesse)*, and `+1.2%` **Piercing** weapon damage (bows/daggers).
+### 2. Finesse *(Precision, Dodge & Criticals)*
+* **Every `+1` Point Gives:** `+0.5%` Accuracy, `+0.3%` Dodge *(capped at `+35%` with gear)*, `+0.4%` Crit Chance *(capped at `+35%` from Finesse)*, and `+1.2%` **Piercing** weapon damage (bows/daggers).
 
 ### 3. Grit *(Health, Armor & Survival)*
 * **Every `+1` Point Gives:** `+12` Max HP, `+1` Physical Defense, and `+0.5%` resistance to **Poison, Burn, Chill, and Stun** *(capped at `+50%` from Grit)*.
@@ -61,17 +61,17 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 
 ## 3. Level `1`–`99` Progression & Pacing
 
-### Realm-by-Realm Level Targets
-| Realm | Target Level Range | Shop Gear Steps | Milestone |
-| :--- | :--- | :--- | :--- |
-| **Region 1** | Levels `1–12` | Steps `1–3` | Portal Boss #1 |
-| **Region 2** | Levels `13–24` | Steps `4–6` | Portal Boss #2 |
-| **Region 3** | Levels `25–36` | Steps `7–9` | Portal Boss #3 |
-| **Region 4** | Levels `37–48` | Steps `10–12` | Portal Boss #4 |
-| **Region 5** | Levels `49–60` | Steps `13–15` | Portal Boss #5 |
-| **Region 6** | Levels `61–72` | Steps `16–18` | Portal Boss #6 |
-| **Region 7** | Levels `73–85` | Steps `19–21` | Portal Boss #7 |
-| **Region 8** | Levels `86–99` | Steps `22–24` | Portal Boss #8: **King Garrick** *(Finale)* |
+### Zone-by-Zone Progression & Portal Targets *(`20` Level Zones · `24` Gear Tiers)*
+| Map · Continent Half | Level Zones *(`5` Lv Each)* | Shop Gear Tiers | Milestone |
+| :--- | :--- | :---: | :--- |
+| **Map 1 — First Half** *(Crownlands)* | **Zones `1–3`** (`Lv 1–15`) | Tiers `1–4` *(`Z02`: `2–3`)* | **Portal #1** *(`Z03`, unlocks Ferry)* |
+| **Map 1 — Second Half** *(Saltmarsh Coast)* | **Zones `4–5`** (`Lv 16–25`) | Tiers `5–6` | **Portal #2** *(`Z05`, Captain sails $\to$ Map 2)* |
+| **Map 2 — First Half** *(Thornwall Warfronts)* | **Zones `6–8`** (`Lv 26–40`) | Tiers `7–9` | **Portal #3** *(`Z08`, unlocks Ferry)* |
+| **Map 2 — Second Half** *(Verdant Weald)* | **Zones `9–10`** (`Lv 41–50`) | Tiers `10–12` *(`Z09`: `10–11`)* | **Portal #4** *(`Z10`, Captain sails $\to$ Map 3)* |
+| **Map 3 — First Half** *(Sun-Scorched Isles)* | **Zones `11–13`** (`Lv 51–65`) | Tiers `13–15` | **Portal #5** *(`Z13`, unlocks Ferry)* |
+| **Map 3 — Second Half** *(Ironcrest Highlands)* | **Zones `14–15`** (`Lv 66–75`) | Tiers `16–18` *(`Z14`: `16–17`)* | **Portal #6** *(`Z15`, Captain sails $\to$ Map 4)* |
+| **Map 4 — First Half** *(Frostbound Reach)* | **Zones `16–18`** (`Lv 76–90`) | Tiers `19–22` *(`Z16`: `19–20`)* | **Portal #7** *(`Z18`, opens Pass Gates)* |
+| **Map 4 — Second Half** *(The Dreadwaste)* | **Zones `19–20`** (`Lv 91–99`) | Tiers `23–24` | **Portal #8** *(`Z20`: **King Garrick** Finale)* |
 
 ### Exact Level `1`–`99` Interval Table
 * **Stat Points Earned:** `+2` per level, plus `+1` bonus point on every 5th level (`5, 10, 15... 95`). Total earned = **`215` points** (`220` total attribute points including the starting `1` in all 5 stats).
@@ -81,26 +81,26 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 | :---: | :---: | :---: | :---: | :---: | :--- |
 | **1** | `0` | `5` *(all `1`s)* | `35` *(~47 total)* | `15` *(casters ~19 total)* | **Discipline Tier `1`**; **1 Accessory Slot**; equipped weapon attack modes |
 | **10** | `20` | `25` | `197` | `42` | **Discipline Tier `2`** (`1`-of-`2` Arcanist choice) |
-| **20** | `42` | `47` | `377` | `72` | **Discipline Tier `3`**; Region 2–3 shop gear milestone |
+| **20** | `42` | `47` | `377` | `72` | **Discipline Tier `3`**; Map 1 second-half (`Zones 4–5`) gear milestone |
 | **30** | `64` | `69` | `557` | `102` | **Discipline Tier `4`** |
-| **40** | `86` | `91` | `737` | `132` | **Discipline Tier `5`**; Mid-game shop gear & spell tier milestone |
-| **50** | `108` | `113` | `917` | `162` | **Discipline Tier `6`**; Region 5 shop gear milestone |
+| **40** | `86` | `91` | `737` | `132` | **Discipline Tier `5`**; Mid-game shop gear & Spell Tier 4 milestone |
+| **50** | `108` | `113` | `917` | `162` | **Discipline Tier `6`**; Map 3 arrival (`Zone 11`) gear milestone |
 | **60** | `130` | `135` | `1,097` | `192` | **Discipline Tier `7`**; High-tier shop gear & spell upgrades |
 | **70** | `152` | `157` | `1,277` | `222` | **Discipline Tier `8`** |
-| **80** | `174` | `179` | `1,457` | `252` | **Discipline Tier `9`**; Endgame gear & Region 8 spell tier |
+| **80** | `174` | `179` | `1,457` | `252` | **Discipline Tier `9`**; Map 4 (`Gear Tier 20` / `Spell Tier 7`) milestone |
 | **90** | `196` | `201` | `1,637` | `282` | **Discipline Tier `10`** *(Final Arcanist Capstone Perk)* |
 | **99** | `215` | `220` | `1,799` *(~2,500–3,200+)* | `309` *(~450–700+)* | **Max Level Cap** |
 
-* **Weapon Styles & Caster Spell Unlocks:** Martial heroes (**Valen, Orin, Rowan**) fight with their **equipped weapon's 2 unique `0 MP` Attack Modes** plus **10 Arcanist Discipline Perks** (`Lv 1, 10… 90`), Runestones, and Accessories; **Ellowyn (`Sorceress`), Mera (`Druid`), and Harlan (`Sage`)** also wield their own 8-tier spell pool across the 8 Regions (detailed in `docs/05-cast-and-skills.md`).
+* **Weapon Styles & Caster Spell Unlocks:** Martial heroes (**Valen, Orin, Rowan**) fight with their **equipped weapon's 2 unique `0 MP` Attack Modes** plus **10 Arcanist Discipline Perks** (`Lv 1, 10… 90`), Runestones, and Accessories; **Ellowyn (`Sorceress`), Mera (`Druid`), and Harlan (`Sage`)** also wield their own 8-tier spell pool unlocked across Ethoria's `8` campaign progression bands (detailed in `docs/05-cast-and-skills.md`).
 
 ---
 
 ## 4. Battle Flow & Tactical Rules
 
-### Visible Turn-Order Timeline
-* A timeline bar shows the **next 8–10 upcoming turns** (heroes and monsters mixed by `Finesse`).
-* Fast actions keep your next turn closer; heavy skills or **Frost** chills push a target's next turn further down the bar.
-* When a hero's turn arrives, the player immediately chooses: **Attack (`Weapon Mode A or B`)**, **Magic / Remedies (`MP` — Ellowyn & Harlan)**, **Item**, **Guard**, or **Flee** *(disabled in Boss fights)*.
+### Straightforward Round Order *(No Initiative / No Speed Stats)*
+* Each Round moves cleanly in two phases shown at the top of battle: first all living **Party Heroes act top-to-bottom (`Slots 1 → 4`)**, then all living **Enemies take 1 turn each** before the next Round begins.
+* Light weapon attacks stay usable **every turn (`0` Cooldown)**; Heavy weapon skills pack higher damage and Guard/Armor breaks with a **`1-Turn Cooldown`** after use.
+* When a hero's turn arrives, the player immediately chooses: **Attack (`Weapon Mode A or B`)**, **Magic / Remedies (`MP` — Ellowyn, Mera & Harlan)**, **Item**, **Guard**, or **Flee** *(disabled in Boss fights)*.
 
 ### Top-to-Bottom Party Order (`Slots 1–4` — No Row Complexity)
 * **Single Clean Column (`Slots 1–4`):** Heroes stand in battle ordered **top-to-bottom (`Slot 1 → Slot 4`)** matching the **Top-Left Vertical Party Bar** and **Party Menu (`P`)**—zero Frontline/Backline row locks, zero Backline melee penalties, and zero `Swap Row` turns.
@@ -108,8 +108,8 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 * **Full Reach Everywhere:** Every weapon (`melee, ranged, and magic`) strikes enemies cleanly from any party slot, while enemy/ally skills target single targets, adjacent groups (`2–3` targets), or the full party/field.
 
 ### Telegraphed Attacks, Guarding & Guard Break
-* **Telegraphed Boss Moves:** Dangerous enemy attacks display a warning marker on the turn timeline one turn before firing.
-* **Meaningful Guard:** Selecting **Guard** halves incoming damage (plus extra mitigation from `Grit`), resists timeline knockback, and grants **Momentum** (acts slightly faster next turn with `+25%` damage on the hero's next Weapon Attack or Spell).
+* **Telegraphed Boss Moves:** Dangerous enemy attacks display a warning marker on the enemy & turn strip one round before firing.
+* **Meaningful Guard:** Selecting **Guard** halves incoming damage until that hero's next round (plus extra mitigation from `Grit`) and grants **Momentum** (`+25%` damage on the hero's next Weapon Attack or Spell).
 * **Enemy Guard Gauge & Stagger:** Elite foes and Portal Bosses carry **2–5 Guard points**. Hitting their **Weaknesses** breaks a point; breaking all points **Staggers** the enemy for 1 full turn (**skips their next action** and increases all damage they take by **`1.5×`**).
 
 ---
@@ -137,18 +137,18 @@ Status ailments stay clean, readable, and impactful (never bloated):
 | Status | Mechanical Effect |
 | :--- | :--- |
 | **Burn** | Deals Fire damage each turn; reduces incoming healing by `25%`. |
-| **Chill** | Slows turn speed (`Finesse` penalty) and pushes the next turn back on the timeline. |
+| **Chill** | Frostbite numbness; reduces outgoing Attack & Magic Power by `15%`. |
 | **Shock** | Next hit taken deals bonus burst damage; risks interrupting channeled/telegraphed moves. |
 | **Poison** | Deals scaling Poison damage each turn and lowers outgoing physical damage (`15%`). |
 | **Curse** | Shadow affliction; lowers outgoing damage and healing potency by `20%`. |
-| **Stun** | Target loses their next turn on the timeline (Bosses resist back-to-back Stuns). |
+| **Stun** | Target loses their next action in the round (Bosses resist back-to-back Stuns). |
 
 ---
 
 ## 7. Behind-the-Scenes Balance Rule (How Stats & Shop Gear Fit Together)
 
-* **Shop Gear Sets Your Baseline Power:** Weapons provide the core **Attack Power** and Attire provides the core **Armor Defense** expected for that Realm's Danger Sub-Zones. Walking into Realm 2's Deep Frontier wearing Realm 1 Tier-2 gear will hurt—forcing players to earn silver and upgrade in town.
-* **Your 5 Stats Multiply & Shape Your Build:** `Force`, `Finesse`, `Grit`, `Arcana`, and `Presence` determine *who* excels with *which* gear, how fast you move, how hard you crit, and how well you survive.
+* **Shop Gear Sets Your Baseline Power:** Weapons provide the core **Attack Power** and Attire provides the core **Armor Defense** expected for that Level Zone. Walking into **Zone 4** or **Map 2** wearing **Zone 1–2 (`Tier 1–2`)** gear will hurt—forcing players to earn silver and upgrade in town.
+* **Your 5 Stats Multiply & Shape Your Build:** `Force`, `Finesse`, `Grit`, `Arcana`, and `Presence` determine *who* excels with *which* gear, how often you dodge, how hard you crit, and how well you survive.
 * **Quest Runestones Shape Builds:** With roughly 180–200 Runestones earned across the world's 40 Hubs, socketing a Runestone is a committed build choice—inserting a Runestone is permanent (and slotting a new one overwrites and destroys the old Runestone), adding special combat mechanics (lifesteal, elemental infusion, Resolve synergy, Guard-point breaking) onto whatever gear you choose to invest in.
 
 ---
@@ -165,39 +165,39 @@ Status ailments stay clean, readable, and impactful (never bloated):
   * **Active Quest / Hunt Bypass:** Whenever the player has an active **Hub Quest** or **Zone Outpost Hunt** for that Zone, Zone Stealth is ignored (`100%` normal encounter buildup) so questing and repeatable hunts never slow down. *(Instanced `1:1` Dungeons & Portals are unaffected.)*
 * **Coastal Encounter Buffer *(4-Hex Ocean Adjacency — No Beach Tracking Needed)*:**
   * Painted **Beach** biomes (`Sandy Cove Beaches`, `Veridian Coast Beaches`, `Frost-Shore Beaches`) remain intact for map clarity and the live HUD **Biome** readout (`see docs/09`), but encounter spawning does **not** track or multiply spawns specifically on Beach tiles (`zero special Beach-only triggers or cooldowns`).
-  * **Within `4` Hexes of Ocean:** Any walkable terrain within **`4` painted hexes of Ocean water (`kind: "ocean"`)** is treated as coastal range and can spawn that Zone's **coastal mobs** *(when the Zone/Region includes coastal species)* alongside its current land biome pool under classic invisible step-based random encounters and **Zone Stealth** pacing.
-  * **No Map `4` Beach-Only Pool Required:** Regions without distinct coastal beasts (such as **Map `4`'s** tiny frost-shore slivers) simply pull from their Zone's normal adjacent biome tables.
+  * **Within `4` Hexes of Ocean:** Any walkable terrain within **`4` painted hexes of Ocean water (`kind: "ocean"`)** is treated as coastal range and can spawn that Zone's **coastal mobs** *(when that Zone includes coastal species)* alongside its current land biome pool under classic invisible step-based random encounters and **Zone Stealth** pacing.
+  * **No Map `4` Beach-Only Pool Required:** Zones without distinct coastal beasts (such as **Map `4`'s** tiny frost-shore slivers) simply pull from their Zone's normal adjacent biome tables.
 
-| Level Step | XP Required for Next Level | Avg Natural Fights per Level | Region Context |
+| Level Jump | XP Required for Next Level | Avg Natural Fights per Level | Zone & Portal Context |
 | :---: | :---: | :---: | :--- |
-| **1 $\to$ 2** | `112 XP` | `6–8` fights | Region 1 Outskirts *(Highcrown)* |
-| **5 $\to$ 6** | `800 XP` | `18–22` fights | Region 1 Mid-Wilds |
-| **12 $\to$ 13** | `2,928 XP` | `26–32` fights | Portal #1 / Early Region 2 |
-| **24 $\to$ 25** | `9,312 XP` | `28–34` fights | Portal #2 / Early Region 3 |
-| **36 $\to$ 37** | `19,152 XP` | `28–34` fights | Portal #3 / Early Region 4 |
-| **48 $\to$ 49** | `32,448 XP` | `28–34` fights | Portal #4 / Early Region 5 |
-| **60 $\to$ 61** | `49,200 XP` | `26–32` fights | Portal #5 / Early Region 6 |
-| **72 $\to$ 73** | `69,408 XP` | `26–32` fights | Portal #6 / Early Region 7 |
-| **85 $\to$ 86** | `95,200 XP` | `28–33` fights | Portal #7 / Early Region 8 |
+| **1 $\to$ 2** | `112 XP` | `6–8` fights | **Zone 1** Outskirts *(Highcrown)* |
+| **5 $\to$ 6** | `800 XP` | `18–22` fights | **Zone 2** Approaches *(Crownlands)* |
+| **12 $\to$ 13** | `2,928 XP` | `26–32` fights | **Zone 3** *(Saltwind / Portal #1)* |
+| **24 $\to$ 25** | `9,312 XP` | `28–34` fights | **Zone 5** *(Portal #2 / Map 2 Ship)* |
+| **36 $\to$ 37** | `19,152 XP` | `28–34` fights | **Zone 8** *(Portal #3)* |
+| **48 $\to$ 49** | `32,448 XP` | `28–34` fights | **Zone 10** *(Portal #4 / Map 3 Ship)* |
+| **60 $\to$ 61** | `49,200 XP` | `26–32` fights | **Zone 13** *(Portal #5)* |
+| **72 $\to$ 73** | `69,408 XP` | `26–32` fights | **Zone 15** *(Portal #6 / Map 4 Ship)* |
+| **85 $\to$ 86** | `95,200 XP` | `28–33` fights | **Zone 18** *(Portal #7)* |
 | **98 $\to$ 99** | `125,048 XP` | `28–34` fights | Endgame (*Bone Reliquary* / *Dreadwaste*) |
 
 ---
 
-### B. Region XP, Silver & Trade Goods Economy
+### B. Zone XP, Silver & Trade Goods Economy
 * **Trade Goods Loop:** Roughly **`1/3`** of wilderness fight value drops as direct Silver and **`2/3`** drops as **Trade Goods** sold to dedicated Town **Trade Goods Buyers** (`zero crafting clutter`).
 * **Gear Sell-Back:** Replaced shop gear sells back for **`40%`** of its purchase price.
 * **Potions & Magic Shop Spells:** Shop healing, mana recovery, revives, and status cures come as **Potions** sold at town **Arcanists**, while Casters (**Ellowyn, Mera, Harlan**) purchase their Tier `1–8` class **Spells** at Town **Magic Shops**.
 
-| Region | Lv Band | Avg Fight XP *(Per Hero)* | Avg Fight Value *(Silver + Trade Goods)* | One-Time Quest Silver | Zone Outpost Hunt Silver | Avg Normal Mob HP | Portal Boss HP *(Target)* |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Region 1** | `1–12` | `10 – 95 XP` | `4s – 21s` | `18s – 85s` | `45s – 140s` | `32 – 140 HP` | `~650 HP` |
-| **Region 2** | `13–24` | `80 – 375 XP` | `21s – 93s` | `260s – 520s` | `300s – 790s` | `160 – 450 HP` | `~2,400 HP` |
-| **Region 3** | `25–36` | `275 – 795 XP` | `72s – 235s` | `690s – 1,450s` | `1,300s – 2,700s` | `500 – 1,050 HP` | `~6,000 HP` |
-| **Region 4** | `37–48` | `555 – 1,425 XP` | `180s – 520s` | `1,500s – 2,600s` | `3,750s – 5,100s` | `1,150 – 1,950 HP` | `~12,500 HP` |
-| **Region 5** | `49–60` | `940 – 2,175 XP` | `380s – 1,005s` | `3,000s – 5,350s` | `7,200s – 9,500s` | `2,100 – 3,200 HP` | `~22,000 HP` |
-| **Region 6** | `61–72` | `1,395 – 3,090 XP` | `720s – 1,875s` | `5,800s – 9,500s` | `12,500s – 20,000s` | `3,400 – 4,900 HP` | `~36,000 HP` |
-| **Region 7** | `73–85` | `1,935 – 4,110 XP` | `1,300s – 3,240s` | `10,500s – 16,800s` | `26,000s – 33,000s` | `5,100 – 7,200 HP` | `~55,000 HP` |
-| **Region 8** | `86–99` | `2,505 – 5,130 XP` | `2,200s – 5,520s` | `18,000s – 30,000s` | `41,500s – 64,500s` | `7,500 – 10,500 HP` | `~90,000 HP` *(2-Phase Garrick)* |
+| Map · Level Zones | Lv Band | Avg Fight XP *(Per Hero)* | Avg Fight Value *(Silver + Trade Goods)* | One-Time Quest Silver | Zone Outpost Hunt Silver | Avg Normal Mob HP | Portal Boss HP *(Target)* |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Map 1 (`Z01–03`)** | `1–15` | `10 – 95 XP` | `4s – 21s` | `18s – 85s` | `45s – 140s` | `32 – 140 HP` | `~650 HP` |
+| **Map 1 (`Z04–05`)** | `16–25` | `80 – 375 XP` | `21s – 93s` | `260s – 520s` | `300s – 790s` | `160 – 450 HP` | `~2,400 HP` |
+| **Map 2 (`Z06–08`)** | `26–40` | `275 – 795 XP` | `72s – 235s` | `690s – 1,450s` | `1,300s – 2,700s` | `500 – 1,050 HP` | `~6,000 HP` |
+| **Map 2 (`Z09–10`)** | `41–50` | `555 – 1,425 XP` | `180s – 520s` | `1,500s – 2,600s` | `3,750s – 5,100s` | `1,150 – 1,950 HP` | `~12,500 HP` |
+| **Map 3 (`Z11–13`)** | `51–65` | `940 – 2,175 XP` | `380s – 1,005s` | `3,000s – 5,350s` | `7,200s – 9,500s` | `2,100 – 3,200 HP` | `~22,000 HP` |
+| **Map 3 (`Z14–15`)** | `66–75` | `1,395 – 3,090 XP` | `720s – 1,875s` | `5,800s – 9,500s` | `12,500s – 20,000s` | `3,400 – 4,900 HP` | `~36,000 HP` |
+| **Map 4 (`Z16–18`)** | `76–90` | `1,935 – 4,110 XP` | `1,300s – 3,240s` | `10,500s – 16,800s` | `26,000s – 33,000s` | `5,100 – 7,200 HP` | `~55,000 HP` |
+| **Map 4 (`Z19–20`)** | `91–99` | `2,505 – 5,130 XP` | `2,200s – 5,520s` | `18,000s – 30,000s` | `41,500s – 64,500s` | `7,500 – 10,500 HP` | `~90,000 HP` *(2-Phase Garrick)* |
 
 ---
 

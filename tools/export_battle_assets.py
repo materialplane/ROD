@@ -320,6 +320,18 @@ def export_battle_scenes() -> list[dict]:
     return stages
 
 
+PORTAL_BOSS_REWARDS = {
+    1: (1200, 650),
+    2: (4200, 2400),
+    3: (9500, 6500),
+    4: (16500, 14000),
+    5: (26000, 27000),
+    6: (38000, 48000),
+    7: (52000, 80000),
+    8: (75000, 120000),
+}
+
+
 def slice_and_export_monsters(stats_map: dict[str, dict]) -> list[dict]:
     MONSTER_SLICES_DIR.mkdir(parents=True, exist_ok=True)
     CLIENT_ENEMIES_DIR.mkdir(parents=True, exist_ok=True)
@@ -366,38 +378,41 @@ def slice_and_export_monsters(stats_map: dict[str, dict]) -> list[dict]:
                 cr_str = st.get("cr", "1")
                 cr_num = parse_cr_num(cr_str)
                 is_boss = bool(st.get("isBoss", False))
+                portal_num = st.get("portalNum")
+                boss_rewards = PORTAL_BOSS_REWARDS.get(int(portal_num)) if is_boss and portal_num else None
                 role = st.get("role", "Skirmisher")
                 gw, gh, size_label, vscale = suggest_footprint(item["name"], role, cr_num, is_boss, orig_w, orig_h)
 
-                monsters_out.append(
-                    {
-                        "id": f"mob_{item['slug']}",
-                        "slug": item["slug"],
-                        "name": item["name"],
-                        "pose": item["pose"],
-                        "sheet": sheet_num,
-                        "role": role,
-                        "level": int(st.get("level", 1)),
-                        "cr": cr_str,
-                        "hp": int(st.get("hp", 50)),
-                        "atk": int(st.get("atk", 6)),
-                        "mag": int(st.get("mag", 0)),
-                        "guard": int(st.get("guard", 0)),
-                        "weak": st.get("weak", "None"),
-                        "resist": st.get("resist", "None"),
-                        "zone": st.get("zone", ""),
-                        "homeBiome": st.get("homeBiome", ""),
-                        "isBoss": is_boss,
-                        "portalNum": st.get("portalNum"),
-                        "iconPath": f"assets/enemies/{dst_webp.name}",
-                        "spriteW": orig_w,
-                        "spriteH": orig_h,
-                        "gridW": gw,
-                        "gridH": gh,
-                        "sizePreset": size_label,
-                        "visualScale": vscale,
-                    }
-                )
+                mob_entry = {
+                    "id": f"mob_{item['slug']}",
+                    "slug": item["slug"],
+                    "name": item["name"],
+                    "pose": item["pose"],
+                    "sheet": sheet_num,
+                    "role": role,
+                    "level": int(st.get("level", 1)),
+                    "cr": cr_str,
+                    "hp": int(st.get("hp", 50)),
+                    "atk": int(st.get("atk", 6)),
+                    "mag": int(st.get("mag", 0)),
+                    "guard": int(st.get("guard", 0)),
+                    "weak": st.get("weak", "None"),
+                    "resist": st.get("resist", "None"),
+                    "zone": st.get("zone", ""),
+                    "homeBiome": st.get("homeBiome", ""),
+                    "isBoss": is_boss,
+                    "portalNum": portal_num,
+                    "iconPath": f"assets/enemies/{dst_webp.name}",
+                    "spriteW": orig_w,
+                    "spriteH": orig_h,
+                    "gridW": gw,
+                    "gridH": gh,
+                    "sizePreset": size_label,
+                    "visualScale": vscale,
+                }
+                if boss_rewards:
+                    mob_entry["xp"], mob_entry["silver"] = boss_rewards
+                monsters_out.append(mob_entry)
         print(f"  Sliced & Exported Monster Sheet {sheet_num:02d} (16 enemies)")
 
     print(f"Exported {len(monsters_out)} Enemy WebPs ({total_kb / 1024:.2f} MB) -> {CLIENT_ENEMIES_DIR.relative_to(ROOT)}")
@@ -430,12 +445,14 @@ def main() -> int:
                 st["heroZone"] = old["heroZone"]
             if isinstance(old.get("enemyGrid"), dict):
                 st["enemyGrid"] = old["enemyGrid"]
+            if isinstance(old.get("zoneSpawns"), dict):
+                st["zoneSpawns"] = old["zoneSpawns"]
 
     for mob in monsters:
         old = prev_mobs.get(mob["id"])
         if old:
-            for k in ("gridW", "gridH", "sizePreset", "visualScale"):
-                if k in old:
+            for k in ("gridW", "gridH", "sizePreset", "visualScale", "dropItemId", "xp", "silver"):
+                if k in old and k not in mob:
                     mob[k] = old[k]
 
     payload = {

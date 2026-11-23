@@ -28,7 +28,7 @@ export function renderInteriorViewport(viewport, data, state, handlers) {
   // 2. Interior Header
   const header = document.createElement("header");
   header.className = "interior-header";
-  const stepBadge = hub.steps.length > 1 ? `Steps ${hub.steps[0]}–${hub.steps[hub.steps.length - 1]}` : `Step ${hub.steps[0]}`;
+  const stepBadge = hub.steps.length > 1 ? `Gear Tiers ${hub.steps[0]}–${hub.steps[hub.steps.length - 1]}` : `Gear Tier ${hub.steps[0]}`;
   const crestHtml = hub.bannerAssetPath
     ? `<img class="hub-banner" src="/${esc(hub.bannerAssetPath)}" alt="" />`
     : `<img class="hub-pin" src="/${esc(hub.assetPath || "")}" alt="" />`;
@@ -100,7 +100,7 @@ export function renderInteriorViewport(viewport, data, state, handlers) {
       const vRole = state.vendorTab === "runestones"
         ? "Permanent Gear Socket Preview"
         : state.vendorTab === "magic"
-          ? `Magic Shop · Tier ${hub.region} Spells`
+          ? `Magic Shop · Tier ${hub.spellTier || hub.region} Spells`
           : state.vendorTab === "trade_goods"
             ? "Dedicated Trade Goods Exchange"
             : `${meta.label} · ${hub.name}`;

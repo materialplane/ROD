@@ -22,14 +22,14 @@ Every interface panel complements **Hand-Inked Painterly Fantasy** art without h
 * **Options:**
   1. **Continue** *(loads latest manual or auto-save immediately)*
   2. **New Campaign** *(opens **Highcrown Keep** `Pick 4 of 6 Heroes` selection screen $\to$ **Opening Council Dialogue Scene** showing the 4 riding out and the 2 remaining to hold the Keep before stepping onto the Overworld)*
-  3. **Load Game** *(shows saved party tokens, Level, current Region, Playtime, Silver, Portals Sealed `X/8`, and a **Cleared Crown** badge once beaten)*
+  3. **Load Game** *(shows saved party tokens, Level, current Level Zone & Region, Playtime, Silver, Portals Sealed `X/8`, and a **Cleared Crown** badge once beaten)*
   4. **Settings** *(Display, Audio sliders, Battle Speed, Controls)*
   5. **Quit**
 
 ### B. Overworld, Town & Dungeon Exploration HUD
 Minimal corner/side overlays keep the `4` connected `8192×8192` overworld maps, `16:9` Towns/Interiors, and centered **`1:1` Zelda-style Dungeon / Portal rooms** front and center:
 * **Top-Right Corner Mini-Map / Status:**
-  * *Overworld:* Current **Region**, **Danger Sub-Zone (`Level Band`)**, and live **Biome** name (`updating directly from the painted terrain hex under the player token—such as Oakleaf Groves, Sandy Cove Beaches, or Black Lava Mountain—so players can track matching monster habitats for Zone Outpost Hunts`), plus compass orientation and nearby discovered markers.
+  * *Overworld:* Current **Region plaque** and live **Biome** name alone (`e.g., Crownland Meadows — updating directly from the painted terrain hex under the player token so players can track matching monster habitats for Zone Outpost Hunts, without displaying Zone numbers or level ranges on-screen`), plus nearby discovered markers.
   * *Procedural Dungeon / Portal (`1:1` Room View):* Flanking HUD beside the `1:1` square room displays the **auto-filling Zelda-style room grid minimap** (sparse carved corridors & dead ends contained inside `2×2` up to `10×10+` bounding grids), visited rooms, locked gates & keys, Mini-Boss / Boss Seal *(once revealed)*, and **Rift / Area Chart** full-grid reveal when found.
 * **Classic Invisible Random Encounters *(No Warning Gauge)*:** Wilderness travel on the Overworld and inside Dungeons uses classic hidden step-based random encounter rolls with zero on-screen warning meters or encounter percentages *(exploration stays 100% peaceful inside safe Towns and Sanctuaries; internal Zone Stealth in outleveled Zones reduces hidden step risk by up to `30%` behind the scenes with zero Stealth UI shown—see `docs/03`)*.
 * **Top-Left Vertical Party Bar *(Overworld Leader = Slot #1)*:** Your **4 active Hero `1:1` avatars** *(clean frameless UI portraits—no circular map token rings)* stacked **top-to-bottom (`Slot 1 → Slot 4`)**, displaying compact HP/MP bars, active status badges, current silver purse (`s`), while whichever hero occupies **Slot 1** walks across the Overworld & Dungeon maps as their circular VTT map token.
@@ -37,7 +37,7 @@ Minimal corner/side overlays keep the `4` connected `8192×8192` overworld maps,
 
 ### C. Turn-Based Battle Screen (`85%` Centered `16:9` Arena Over Blurred World)
 * **Blurred World Frame:** Triggering an encounter freezes and softly blurs the live Overworld/Dungeon backdrop behind a crisp framed **`~85%` `16:9` Battle Stage**.
-* **Top Center — Visible Turn-Order Timeline & Prompt Pill:** Horizontal strip of upcoming hero and enemy turns ordered by **Finesse** + action speed, plus a subtle target action prompt pill below it.
+* **Top Center — Round Order Strip & Prompt Pill:** Horizontal strip showing the remaining hero turns (**Slots `1 → 4`**) and enemy turns in the **Current Round** (`plus Next Round`), alongside a subtle target action prompt pill below it.
 * **Center Stage (`16:9` Biome / Portal Art):**
   * *Left Multi-Cell Formation (`4×3` Grid):* **Full-body enemy & boss illustrations** packed cleanly by footprint (`1×1` up to `3×3`) with thin HP bars and Guard/Status pips—keeping enemy sprites completely clean with **zero bulky hover tooltips** *(discovered monsters & weaknesses belong in the **Bestiary / Mob Codex**)*.
   * *Right 4-Row Hero Panels (`Slots 1–4`):* Framed `1:1` frameless hurt-state portraits (**`100% / <75% / <50% / <25%`** matching `hp1–hp4`), chunky beveled HP gauges *(plus MP bars shown **only** on casters **Ellowyn, Mera, Harlan**—never fake MP bars on warriors)*, active hero slide-out with gold rim & pulsing arrow (`no loud TURN box`), and a compact crest strip showing **only that hero's unlocked Discipline perks** (`zero empty placeholder slots`, with hover tooltips).
@@ -58,7 +58,7 @@ Opening the Party Menu (`Hotkey P`) or ledger pauses exploration cleanly across 
    * Inspect each hero's HP/MP, Level, XP to next level, stats, and equipment summary, and view active **Resolve** passive thresholds (`<50%` & `<25%`).
    * Spend **Stat Points** freely across **Force, Finesse, Grit, Arcana, Presence**, and view each hero's **`10` Arcanist Discipline Perks** (unlocked `1`-of-`2` at Levels **`1, 10, 20, 30, 40, 50, 60, 70, 80, 90`**).
 2. **Weapons & Spells:**
-   * Inspect each hero's equipped weapon's **2 `0 MP` Attack Modes**; for our 3 casters (**Ellowyn, Mera, Harlan**), view learned spells across Tiers `1–8` (`2 of 3` chosen per Region Tier at Town Magic Shops).
+   * Inspect each hero's equipped weapon's **2 `0 MP` Attack Modes**; for our 3 casters (**Ellowyn, Mera, Harlan**), view learned spells across Tiers `1–8` (`2 of 3` chosen per Spell Tier at Town Magic Shops).
 3. **Equipment, Runestones & Accessories:**
    * Equip **Right Hand**, **Left Hand** *(Global Shields when wielding a 1H weapon)*, **Helmet**, **Body**, **1 Weapon/Body Runestone**, and **1 Class Accessory Slot**.
    * Shows clear green/red combat stat deltas before confirming swaps.
@@ -69,7 +69,7 @@ Opening the Party Menu (`Hotkey P`) or ledger pauses exploration cleanly across 
    * Clean filters matching all 4 sandbox quest layers (tracked under one **Global Active Quest Limit**, e.g. `15` active quests total): **Main Portals (`X/8`) & Home Front**, **Story Chains (`4`)**, **Hub Quests (`178`)**, and **Zone Outpost Hunts (`20` Outposts)**.
    * Bestiary sub-tab logs every seen SRD 5.2 realm mob, boss, and Ethoria native along with discovered **Weaknesses** and Trade Good drops.
 6. **World Atlas & System:**
-   * Interactive zoomed-out preview of explored Regions, discovered **Towns & Keeps**, **Ferry Crossings** *(unlocked once a map's 1st Portal is destroyed)*, **`4` Sea-Port Towns** *(captains sail onward from Maps `1–3` once that map's last Portal falls, while Map 4's **Arctic Sea-Port Town** returns cleanly to **Maps 1, 2, or 3**)*, and **Portal status** *(Sealed vs. Open)*.
+   * Interactive zoomed-out preview of explored **Maps & Level Zones**, discovered **Towns & Keeps**, **Ferry Crossings** *(unlocked once a map's 1st Portal is destroyed)*, **`4` Sea-Port Towns** *(captains sail onward from Maps `1–3` once that map's last Portal falls, while Map 4's **Arctic Sea-Port Town** returns cleanly to **Maps 1, 2, or 3**)*, and **Portal status** *(Sealed vs. Open)*.
    * Manual **Save Anywhere** button *(outside combat)*, Settings, and Return to Title.
 
 ---
@@ -80,7 +80,7 @@ Opening the Party Menu (`Hotkey P`) or ledger pauses exploration cleanly across 
 * **Town Inn:** Instant full party restore (`HP`, `MP`, status ailments) for **`0s` (Free)** with a warm rest transition.
 * **Equipment Socketing Confirmation *(Inventory / Equipment Menu)*:** Hovering or dropping a **Carved Runestone** onto gear previews the combat effect directly; if a Runestone is already socketed, a crisp warning modal confirms that the existing Runestone will be overwritten and destroyed *(no Reforging, no Extraction)*.
 * **Zone Outpost Hunt NPC (`20` Unique Zone Outposts — `1` per 5-Level Zone):** Talking to the Outpost's Quartermaster rolls a random monster from that Zone's natural spawn pool (`Kill X [Monster]`) with **zero map pins** and **zero boosted spawns**, paying **XP + Silver + Consumables** upon completion (or **Abandon / Roll Another** under the Global Active Quest Limit).
-* **Pick-1-of-3 Runestone Draft Modal:** Dramatic 3-card presentation upon completing quests, displaying each generated Runestone's icon, rarity/Region tier, and combat affix before choosing 1 to keep.
+* **Pick-1-of-3 Runestone Draft Modal:** Dramatic 3-card presentation upon completing quests, displaying each generated Runestone's icon, rarity tier (`Lesser` $\to$ `Mythic`), and combat affix before choosing 1 to keep.
 * **Dialogue & Home-Front Cutscenes:** Bottom dialogue plate anchored by crisp `1:1` hero avatars; **Highcrown Keep** scenes cover both the post-select departure dialogue and milestone B-plot updates *(triggered at `2/4/6/7` closed Portals)* with text-advance and skip on replays.
 
 ---
@@ -89,7 +89,7 @@ Opening the Party Menu (`Hotkey P`) or ledger pauses exploration cleanly across 
 
 Because music tracks and SFX are **already provided by the Creative Director**, the engine implements clean event-driven playback hooks and user sliders rather than generating or scoping placeholder audio:
 * **Audio Channels & Sliders:** **Master Volume**, **Music Volume**, **SFX Volume**, and **Unfocus Mute toggle** *(saved locally)*.
-* **Context Transitions (Crossfaded):** Overworld Region theme $\leftrightarrow$ Town / Interior theme $\leftrightarrow$ **Tavern (`Enter Tavern` inside our `18` settlements — shuffles a continent-assigned subset of the `11` Season 1 musical chapters across the `4` continents in chronological progression)** $\leftrightarrow$ Dungeon / Portal theme $\leftrightarrow$ Standard Battle $\leftrightarrow$ Portal / Mini-Boss Battle $\leftrightarrow$ `16:9` Cutscene *(with instant stingers for Level Up, Portal Sealed, Runestone Draft, Free Inn Rest, and Victory)*.
+* **Context Transitions (Crossfaded):** Overworld map theme $\leftrightarrow$ Town / Interior theme $\leftrightarrow$ **Tavern (`Enter Tavern` inside our `18` settlements — shuffles a continent-assigned subset of the `11` Season 1 musical chapters across the `4` continents in chronological progression)** $\leftrightarrow$ Dungeon / Portal theme $\leftrightarrow$ Standard Battle $\leftrightarrow$ Portal / Mini-Boss Battle $\leftrightarrow$ `16:9` Cutscene *(with instant stingers for Level Up, Portal Sealed, Runestone Draft, Free Inn Rest, and Victory)*.
 
 ---
 
@@ -103,7 +103,7 @@ Because music tracks and SFX are **already provided by the Creative Director**, 
 ### Steamworks & Build Rules
 * **Steam Cloud Saves:** Automatic sync across desktop PC and Steam Deck.
 * **Controller & Steam Deck Target:** Native `1280×800` scaling, readable text sizing, zero required typing after launch, and full gamepad control.
-* **Steam Rich Presence:** Displays live status such as *"Exploring Region 4: Briarwood — 3/8 Portals Sealed"*.
+* **Steam Rich Presence:** Displays live status such as *"Exploring Zone 8: Briarstead — 3/8 Portals Sealed"*.
 * **Steam Achievements *(25–30 Milestones)*:**
   * Closing each of the **8 Dimensional Portals** *(Garrick climax marked hidden)*
   * Completing each of the **4 Story Chains** (`Orin/Garrick`, `Ellowyn/Valen`, `Rowan/Mera`, `Harlan`)

@@ -68,7 +68,7 @@ const TOKEN_DISPLAY_SIZE = 142;
 const TOKEN_RADIUS = TOKEN_DISPLAY_SIZE / 2;
 const BASE_MARKER_DISPLAY_SIZE = 148;
 const NAMEPLATE_TRIGGER_PX = 600;
-const MOVE_SPEED = 190;
+const MOVE_SPEED = 140;
 const ENTER_ANIM_DURATION = 0.22;
 
 function clamp(val: number, min: number, max: number): number {
@@ -545,7 +545,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       y,
       biomeName: sample?.biomeName ?? mapMeta.regionLabel,
       zoneCode: sample?.zoneCode ?? 1,
-      zoneName: sample?.zoneName ?? "Lv 1–5",
+      zoneName: sample ? `Zone ${sample.zoneCode}` : "Zone 1",
       zoneMin: sample?.zoneMin ?? 1,
       zoneMax: sample?.zoneMax ?? 5,
       nearWaterKind: sample?.nearWaterKind ?? null,
@@ -677,12 +677,19 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     );
     st.suppressedLocId = spawnedAt?.id ?? null;
 
+    const initSample = sampleWorldTerritory(collisionRef.current, mapMeta.id, st.x, st.y);
+    if (initSample) {
+      st.lastHudBiome = initSample.biomeName;
+      st.lastHudZone = initSample.zoneCode;
+      setTerritoryHud(initSample);
+    }
+
     runtimeRef.current = {
       x: st.x,
       y: st.y,
       playtime: st.playtime,
       mapId: mapMeta.id,
-      regionLabel: mapMeta.regionLabel,
+      regionLabel: initSample?.regionName ?? mapMeta.regionLabel,
       discoveredLocations: [...st.discovered],
     };
   }, [mapMeta, startX, startY, startPlaytime, initialDiscovered, runtimeRef]);
@@ -708,6 +715,13 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       st.targetY = null;
       runtimeRef.current.x = st.x;
       runtimeRef.current.y = st.y;
+    }
+    const initSample = sampleWorldTerritory(worldCollision, mapMeta.id, st.x, st.y);
+    if (initSample) {
+      st.lastHudBiome = initSample.biomeName;
+      st.lastHudZone = initSample.zoneCode;
+      runtimeRef.current.regionLabel = initSample.regionName;
+      setTerritoryHud(initSample);
     }
   }, [worldCollision, mapMeta, runtimeRef]);
 
@@ -992,6 +1006,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         if (st.lastHudBiome !== bKey || st.lastHudZone !== zCode) {
           st.lastHudBiome = bKey;
           st.lastHudZone = zCode;
+          if (territory) runtimeRef.current.regionLabel = territory.regionName;
           setTerritoryHud(territory);
         }
       } else {
@@ -1373,18 +1388,18 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         ].join(" ")}
       />
 
-      {/* Top Right Region Plaque + Live Biome/Zone Badge */}
-      <div className="fixed top-[18px] right-5 z-[5] pointer-events-none flex flex-col items-end gap-1.5">
-        <div className="px-4 py-2 bg-[#10131a]/90 border border-[#6b5a3c] rounded text-[#e9d9b4] text-[13px] font-semibold tracking-[0.08em] uppercase shadow-lg">
-          {mapMeta.regionLabel}
-        </div>
-        {territoryHud && (
-          <div className="px-3 py-1.5 bg-[#0e121a]/88 border border-[#444b5e] rounded text-[11.5px] text-[#cfd9e8] flex items-center gap-2 shadow-lg">
-            <span className="font-semibold text-[#f1e1bc]">{territoryHud.biomeName}</span>
-            <span className="text-[#69768e]">·</span>
-            <span className="font-bold text-[#ffd989]">{territoryHud.zoneName}</span>
+      {/* Top Right Unified Region & Live Terrain Plaque */}
+      <div className="fixed top-[18px] right-5 z-[5] pointer-events-none">
+        <div className="px-4 py-2 bg-[#10141d]/92 border border-[#7c653e]/85 rounded-md shadow-xl text-right backdrop-blur-sm">
+          <div className="font-display text-[13.5px] font-bold tracking-[0.09em] uppercase text-[#f4dfae] leading-tight">
+            {territoryHud?.regionName ?? mapMeta.regionLabel}
           </div>
-        )}
+          {territoryHud?.biomeName && (
+            <div className="mt-0.5 text-[11.5px] font-medium tracking-[0.02em] text-[#b9c6da] leading-tight">
+              {territoryHud.biomeName}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Top Left Vertical Party Bar (Slots 1–4 top-to-bottom; Slot 1 = Overworld Leader) */}

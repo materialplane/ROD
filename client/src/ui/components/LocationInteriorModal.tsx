@@ -193,6 +193,10 @@ export function buildKeepMeta(highcrown: WorldLocation | null): WorldLocation {
   return {
     id: HIGHCROWN_KEEP_ID,
     name: "Highcrown Keep",
+    zoneNum: 1,
+    gearTiers: [1],
+    spellTier: 1,
+    levelRange: "Lv 1–5",
     category: "permanent",
     locationType: "Royal Keep",
     playerKind: "Royal Seat",
@@ -354,10 +358,10 @@ function inferNpcServiceId(role: string): Exclude<ServicePanelSpec["id"], "keep"
 }
 
 const PORT_ROUTES: Array<{ id: string; title: string; realm: string; mapId: string; order: number }> = [
-  { id: "tr_port_map01_royal_trade", title: "Royal Trade Port Town", realm: "King's Reach", mapId: "map_01", order: 1 },
-  { id: "tr_port_map02_highland_cove", title: "Highland Cove Port Town", realm: "Westmarch", mapId: "map_02", order: 2 },
-  { id: "tr_port_map03_desert_harbor", title: "Desert Harbor Port Town", realm: "Suncrest Isles", mapId: "map_03", order: 3 },
-  { id: "tr_port_map04_arctic_seaport", title: "Arctic Sea-Port Town", realm: "Northhold", mapId: "map_04", order: 4 },
+  { id: "tr_port_map01_royal_trade", title: "Royal Trade Port Town", realm: "The Crownlands", mapId: "map_01", order: 1 },
+  { id: "tr_port_map02_highland_cove", title: "Highland Cove Port Town", realm: "Thornwall Warfronts", mapId: "map_02", order: 2 },
+  { id: "tr_port_map03_desert_harbor", title: "Desert Harbor Port Town", realm: "Sun-Scorched Isles", mapId: "map_03", order: 3 },
+  { id: "tr_port_map04_arctic_seaport", title: "Arctic Sea-Port Town", realm: "Frostbound Reach", mapId: "map_04", order: 4 },
 ];
 
 const OUTBOUND_PORTAL_GATE: Record<string, { portalId: string; portalName: string }> = {
@@ -866,9 +870,11 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                 ) : (
                   <ShopCounterPanel
                     hub={
-                      harborShopMode === "arcanist" && location.region == null
+                      harborShopMode === "arcanist" && location.region == null && location.zoneNum == null
                         ? {
                             ...location,
+                            zoneNum: location.mapId === "map_02" ? 6 : location.mapId === "map_03" ? 11 : location.mapId === "map_04" ? 16 : 3,
+                            spellTier: location.mapId === "map_02" ? 3 : location.mapId === "map_03" ? 5 : location.mapId === "map_04" ? 7 : 1,
                             region: location.mapId === "map_02" ? 3 : location.mapId === "map_03" ? 5 : location.mapId === "map_04" ? 7 : 1,
                           }
                         : location
@@ -883,6 +889,9 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                       shopLabel: harborShopMode === "arcanist" ? "Harbor Field Supplies" : selectedNpc.shopLabel,
                     }}
                     shopType={(harborShopMode ?? selectedNpc.shopType)!}
+                    townShopTypes={resolvedNpcs
+                      .map((n) => n.shopType)
+                      .filter((s): s is ShopType => Boolean(s))}
                     partyOrder={partyOrder}
                     partyLevel={partyLevel}
                     heroLevels={heroLevels}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { formatSaveTime } from "../api";
 import { audioEngine } from "../audio";
 import type { AudioSettings, SaveSlotData } from "../types";
@@ -155,15 +155,21 @@ export const PauseMenuModal: React.FC<PauseModalProps> = ({
   onReturnTitle,
   onQuit,
 }) => {
+  const [savedFlash, setSavedFlash] = useState(false);
+
+  useEffect(() => {
+    if (!open) setSavedFlash(false);
+  }, [open]);
+
   if (!open) return null;
   const items = [
-    { label: "Resume", action: onResume, quit: false },
-    { label: "Party (P)", action: onOpenParty, quit: false },
-    { label: "Save Game", action: onSave, quit: false },
-    { label: "Load Game", action: onOpenLoad, quit: false },
-    { label: "Settings", action: onOpenSettings, quit: false },
-    { label: "Return to Title", action: onReturnTitle, quit: false },
-    { label: "Quit to Desktop", action: onQuit, quit: true },
+    { key: "resume", label: "Resume", action: onResume, quit: false },
+    { key: "party", label: "Party (P)", action: onOpenParty, quit: false },
+    { key: "save", label: savedFlash ? "✓ Game Saved" : "Save Game", action: onSave, quit: false },
+    { key: "load", label: "Load Game", action: onOpenLoad, quit: false },
+    { key: "settings", label: "Settings", action: onOpenSettings, quit: false },
+    { key: "title", label: "Return to Title", action: onReturnTitle, quit: false },
+    { key: "quit", label: "Quit to Desktop", action: onQuit, quit: true },
   ];
 
   return (
@@ -175,20 +181,27 @@ export const PauseMenuModal: React.FC<PauseModalProps> = ({
         <div className="flex flex-col gap-1.5">
           {items.map((it) => (
             <button
-              key={it.label}
+              key={it.key}
               type="button"
               onClick={() => {
-                if (it.label !== "Save Game") audioEngine.playUiClick();
+                if (it.key === "save") {
+                  setSavedFlash(true);
+                  window.setTimeout(() => setSavedFlash(false), 1800);
+                } else {
+                  audioEngine.playUiClick();
+                }
                 it.action();
               }}
               className={[
                 "flex items-center gap-3 w-full text-left py-2.5 px-3.5 rounded border cursor-pointer transition-all",
                 it.quit
                   ? "text-[#ffd7d2] border-[#c96358]/30 hover:bg-[#a8483e]/20 hover:border-[#c96358]/50"
-                  : "text-[#e9dec6] border-transparent hover:text-[#fff2cc] hover:bg-[#c49848]/20 hover:border-[#d7b267]/35",
+                  : it.key === "save" && savedFlash
+                    ? "text-[#9ce8ad] bg-[#3f8f54]/15 border-[#6fc784]/45"
+                    : "text-[#e9dec6] border-transparent hover:text-[#fff2cc] hover:bg-[#c49848]/20 hover:border-[#d7b267]/35",
               ].join(" ")}
             >
-              <span className={it.quit ? "text-[#e87a6e] text-[11px]" : "text-[#f2c96c] text-[11px]"}>◆</span>
+              <span className={it.quit ? "text-[#e87a6e] text-[11px]" : it.key === "save" && savedFlash ? "text-[#7ae292] text-[11px]" : "text-[#f2c96c] text-[11px]"}>◆</span>
               <span className="font-display text-[15px] font-semibold tracking-[0.12em] uppercase">{it.label}</span>
             </button>
           ))}

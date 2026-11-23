@@ -29,10 +29,11 @@ import {
   normalizeHeroLevelsMap,
   normalizeHeroXpMap,
   resolveEquipFromBag,
+  resolveSwapHands,
   resolveUnequipSlot,
 } from "./party/partyLogic";
 import type { BuyConfirmChoice } from "./shops/ShopCounterPanel";
-import { countRegionSpellsForHero, itemSlotFor, MAX_SPELLS_PER_REGION } from "./shops/shopLogic";
+import { countRegionSpellsForHero, itemSlotForHero, MAX_SPELLS_PER_REGION } from "./shops/shopLogic";
 import type {
   AudioSettings,
   BattleConfigData,
@@ -138,6 +139,7 @@ export const App: React.FC = () => {
   const [heroMpPct, setHeroMpPct] = useState<Partial<Record<HeroId, number>>>({});
   const [sealedPortalIds, setSealedPortalIds] = useState<string[]>([]);
   const [activeBattle, setActiveBattle] = useState<BattleState | null>(null);
+  const liveBattleRef = useRef<BattleState | null>(null);
   const [activeLocationId, setActiveLocationId] = useState<string | null>(null);
   const [interiorTrail, setInteriorTrail] = useState<string[]>([]);
   const [innResting, setInnResting] = useState(false);
@@ -154,7 +156,7 @@ export const App: React.FC = () => {
     y: 5730,
     playtime: 0,
     mapId: "map_01",
-    regionLabel: "King's Reach",
+    regionLabel: "The Crownlands",
     discoveredLocations: [],
   });
 
@@ -278,6 +280,26 @@ export const App: React.FC = () => {
     }
   }, []);
 
+  const saveToEnterInventoryOverride = (save: SaveSlotData) => ({
+    silver: save.silver,
+    equippedByHero: save.equippedByHero,
+    bagCounts: save.bagCounts,
+    learnedSpellIds: save.learnedSpellIds,
+    tradeGoodCounts: save.tradeGoodCounts,
+    heroSpentAttrs: save.heroSpentAttrs,
+    socketsByHero: save.socketsByHero,
+    runestonesBag: save.runestonesBag,
+    heroHpPct: save.heroHpPct,
+    heroMpPct: save.heroMpPct,
+    chosenDisciplinesByHero: save.chosenDisciplinesByHero,
+    heroLevels: save.heroLevels,
+    heroXp: save.heroXp,
+    partyXp: save.partyXp,
+    sealedPortalIds: save.sealedPortalIds,
+    mapId: save.mapId,
+    activeBattle: save.activeBattle ?? null,
+  });
+
   const buildSavePayload = useCallback(
     (
       slotId: string,
@@ -306,6 +328,7 @@ export const App: React.FC = () => {
         heroLevels?: Partial<Record<HeroId, number>>;
         heroXp?: Partial<Record<HeroId, number>>;
         partyXp?: number;
+        activeBattle?: BattleState | null;
       }
     ): SaveSlotData | null => {
       const meta = override?.meta ?? mapMeta;
@@ -320,11 +343,17 @@ export const App: React.FC = () => {
       const playtime = override ? override.playtime : runtimeRef.current.playtime;
       const discovered = override?.discovered ?? runtimeRef.current.discoveredLocations;
       const quests = override?.acceptedQuests ?? acceptedQuestIds;
+      const savedBattle =
+        override && "activeBattle" in override
+          ? override.activeBattle ?? null
+          : slotId === "autosave"
+            ? liveBattleRef.current
+            : null;
       return {
         slotId,
         label,
         mapId: meta.id,
-        regionLabel: meta.regionLabel,
+        regionLabel: runtimeRef.current.regionLabel || meta.regionLabel,
         heroId: leader.id,
         heroName: leader.name,
         partyOrder: order,
@@ -345,6 +374,7 @@ export const App: React.FC = () => {
         runestonesBag: override?.runestonesBag ?? runestonesBag,
         heroHpPct: override?.heroHpPct ?? heroHpPct,
         heroMpPct: override?.heroMpPct ?? heroMpPct,
+        activeBattle: savedBattle,
         level: lvl,
         x: Math.round(x),
         y: Math.round(y),
@@ -402,6 +432,7 @@ export const App: React.FC = () => {
         runestonesBag?: RunestoneItem[];
         heroHpPct?: Partial<Record<HeroId, number>>;
         heroMpPct?: Partial<Record<HeroId, number>>;
+        activeBattle?: BattleState | null;
       }
     ) => {
       const payload = buildSavePayload(slotId, label, override);
@@ -440,6 +471,7 @@ export const App: React.FC = () => {
         partyXp?: number;
         sealedPortalIds?: string[];
         mapId?: string;
+        activeBattle?: BattleState | null;
       }
     ) => {
       const applyEnter = async () => {
@@ -477,7 +509,9 @@ export const App: React.FC = () => {
         setRunestonesBag(initRunestonesBag);
         setHeroHpPct(initHpPct);
         setHeroMpPct(initMpPct);
-        setActiveBattle(null);
+        const nextBattle = inventoryOverride?.activeBattle ?? null;
+        liveBattleRef.current = nextBattle;
+        setActiveBattle(nextBattle);
         setActiveLocationId(null);
         setInnResting(false);
         setSpawnState({ x, y, playtime });
@@ -553,24 +587,7 @@ export const App: React.FC = () => {
           latest.discoveredLocations ?? [],
           true,
           latest.acceptedQuestIds ?? [],
-          {
-            silver: latest.silver,
-            equippedByHero: latest.equippedByHero,
-            bagCounts: latest.bagCounts,
-            learnedSpellIds: latest.learnedSpellIds,
-            tradeGoodCounts: latest.tradeGoodCounts,
-            heroSpentAttrs: latest.heroSpentAttrs,
-            socketsByHero: latest.socketsByHero,
-            runestonesBag: latest.runestonesBag,
-            heroHpPct: latest.heroHpPct,
-            heroMpPct: latest.heroMpPct,
-            chosenDisciplinesByHero: latest.chosenDisciplinesByHero,
-            heroLevels: latest.heroLevels,
-            heroXp: latest.heroXp,
-            partyXp: latest.partyXp,
-            sealedPortalIds: latest.sealedPortalIds,
-            mapId: latest.mapId,
-          }
+          saveToEnterInventoryOverride(latest)
         );
       } else if (shouldRestore) {
         try {
@@ -977,7 +994,7 @@ export const App: React.FC = () => {
         nextBag[choice.entry.id] = (nextBag[choice.entry.id] ?? 0) + 1;
         showToast(`Bought ${choice.entry.name} → Shared Party Bag`);
       } else {
-        const slot = itemSlotFor(choice.entry);
+        const slot = itemSlotForHero(choice.entry, choice.heroId, choice.targetSlot);
         const heroGear = { ...(nextEquip[choice.heroId] ?? {}) };
         if (slot) {
           if (choice.mode === "equip_sell_old" && choice.oldItem) {
@@ -1045,10 +1062,10 @@ export const App: React.FC = () => {
   }, [tradeGoodCounts, itemsById, silver, mapMeta, persistSave, showToast]);
 
   const handleEquipFromBag = useCallback(
-    (heroId: HeroId, itemId: string) => {
+    (heroId: HeroId, itemId: string, targetSlot?: GearSlot) => {
       const item = itemsById[itemId];
       if (!item) return;
-      const res = resolveEquipFromBag(heroId, item, equippedByHero, bagCounts, itemsById);
+      const res = resolveEquipFromBag(heroId, item, equippedByHero, bagCounts, itemsById, targetSlot);
       if (!res.changed) return;
 
       setBagCounts(res.bagCounts);
@@ -1247,7 +1264,17 @@ export const App: React.FC = () => {
         nearWaterKind: trigger.nearWaterKind,
         portalLoc: trigger.portalLoc,
       });
+      liveBattleRef.current = bState;
       setActiveBattle(bState);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          activeBattle: bState,
+        });
+      }
     },
     [
       activeBattle,
@@ -1261,14 +1288,35 @@ export const App: React.FC = () => {
       heroMpPct,
       heroSpentAttrs,
       itemsById,
+      mapMeta,
       partyLevel,
       partyOrder,
+      persistSave,
       socketsByHero,
     ]
   );
 
+  const handleBattleSnapshot = useCallback(
+    (snapshot: BattleState) => {
+      liveBattleRef.current = snapshot;
+      if (!mapMeta) return;
+      const payload = buildSavePayload("autosave", "Auto-Save", {
+        x: runtimeRef.current.x,
+        y: runtimeRef.current.y,
+        playtime: runtimeRef.current.playtime,
+        meta: mapMeta,
+        activeBattle: snapshot,
+      });
+      if (payload) {
+        void gameApi.writeSave(payload);
+      }
+    },
+    [buildSavePayload, mapMeta]
+  );
+
   const handleBattleComplete = useCallback(
     (outcome: BattleOutcomeResult) => {
+      liveBattleRef.current = null;
       setActiveBattle(null);
 
       // Consume any potions spent during battle
@@ -1283,6 +1331,18 @@ export const App: React.FC = () => {
         setBagCounts(nextBag);
         setHeroHpPct(outcome.heroHpPct);
         setHeroMpPct(outcome.heroMpPct);
+        if (mapMeta) {
+          void persistSave("autosave", "Auto-Save", {
+            x: runtimeRef.current.x,
+            y: runtimeRef.current.y,
+            playtime: runtimeRef.current.playtime,
+            meta: mapMeta,
+            bagCounts: nextBag,
+            heroHpPct: outcome.heroHpPct,
+            heroMpPct: outcome.heroMpPct,
+            activeBattle: null,
+          });
+        }
         showToast("Escaped back to Ethoria");
         return;
       }
@@ -1310,6 +1370,7 @@ export const App: React.FC = () => {
             bagCounts: nextBag,
             heroHpPct: fullPct,
             heroMpPct: fullPct,
+            activeBattle: null,
           });
         }
         showToast("Recovered at nearest Town Inn");
@@ -1369,6 +1430,7 @@ export const App: React.FC = () => {
           sealedPortalIds: nextSealed,
           heroHpPct: outcome.heroHpPct,
           heroMpPct: outcome.heroMpPct,
+          activeBattle: null,
         });
       }
     },
@@ -1412,24 +1474,7 @@ export const App: React.FC = () => {
               latestSave.discoveredLocations ?? [],
               false,
               latestSave.acceptedQuestIds ?? [],
-              {
-                silver: latestSave.silver,
-                equippedByHero: latestSave.equippedByHero,
-                bagCounts: latestSave.bagCounts,
-                learnedSpellIds: latestSave.learnedSpellIds,
-                tradeGoodCounts: latestSave.tradeGoodCounts,
-                heroSpentAttrs: latestSave.heroSpentAttrs,
-                socketsByHero: latestSave.socketsByHero,
-                runestonesBag: latestSave.runestonesBag,
-                heroHpPct: latestSave.heroHpPct,
-                heroMpPct: latestSave.heroMpPct,
-                chosenDisciplinesByHero: latestSave.chosenDisciplinesByHero,
-                heroLevels: latestSave.heroLevels,
-                heroXp: latestSave.heroXp,
-                partyXp: latestSave.partyXp,
-                sealedPortalIds: latestSave.sealedPortalIds,
-                mapId: latestSave.mapId,
-              }
+              saveToEnterInventoryOverride(latestSave)
             );
           }
         }}
@@ -1570,6 +1615,22 @@ export const App: React.FC = () => {
         sealedPortalIds={sealedPortalIds}
         onEquipFromBag={handleEquipFromBag}
         onUnequipSlot={handleUnequipSlot}
+        onSwapHands={(heroId) => {
+          const res = resolveSwapHands(heroId, equippedByHero, itemsById);
+          if (!res.swapped) return;
+          setEquippedByHero(res.equippedByHero);
+          audioEngine.playUiClick(0.36);
+          showToast(`${getHeroById(heroId).name} swapped Main & Off-Hand blades`);
+          if (mapMeta) {
+            void persistSave("autosave", "Auto-Save", {
+              x: runtimeRef.current.x,
+              y: runtimeRef.current.y,
+              playtime: runtimeRef.current.playtime,
+              meta: mapMeta,
+              equippedByHero: res.equippedByHero,
+            });
+          }
+        }}
         onSocketRunestone={handleSocketRunestone}
         onUseConsumable={handleUseConsumable}
         onAdjustHeroStat={handleAdjustHeroStat}
@@ -1636,24 +1697,7 @@ export const App: React.FC = () => {
             slot.discoveredLocations ?? [],
             false,
             slot.acceptedQuestIds ?? [],
-            {
-              silver: slot.silver,
-              equippedByHero: slot.equippedByHero,
-              bagCounts: slot.bagCounts,
-              learnedSpellIds: slot.learnedSpellIds,
-              tradeGoodCounts: slot.tradeGoodCounts,
-              heroSpentAttrs: slot.heroSpentAttrs,
-              socketsByHero: slot.socketsByHero,
-              runestonesBag: slot.runestonesBag,
-              heroHpPct: slot.heroHpPct,
-              heroMpPct: slot.heroMpPct,
-              chosenDisciplinesByHero: slot.chosenDisciplinesByHero,
-              heroLevels: slot.heroLevels,
-              heroXp: slot.heroXp,
-              partyXp: slot.partyXp,
-              sealedPortalIds: slot.sealedPortalIds,
-              mapId: slot.mapId,
-            }
+            saveToEnterInventoryOverride(slot)
           );
         }}
         onClose={() => setLoadOpen(false)}
@@ -1672,6 +1716,7 @@ export const App: React.FC = () => {
           bagCounts={bagCounts}
           itemsById={itemsById}
           itemsCatalog={itemsCatalog}
+          onBattleSnapshot={handleBattleSnapshot}
           onComplete={handleBattleComplete}
         />
       )}

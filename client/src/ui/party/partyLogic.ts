@@ -1,5 +1,5 @@
 import { getHeroById, HEROES } from "../heroes";
-import { itemSlotFor } from "../shops/shopLogic";
+import { canDualWieldItem, itemSlotFor, itemSlotForHero } from "../shops/shopLogic";
 import type {
   EquippedGearMap,
   GearSlot,
@@ -176,13 +176,25 @@ export interface ParsedStoneBonus {
   heal: number;
   pDef: number;
   mDef: number;
-  speed: number;
+  dodge: number;
+  crit: number;
+}
+
+export interface ParsedStoneBonus {
+  maxHp: number;
+  maxMp: number;
+  atk: number;
+  mag: number;
+  heal: number;
+  pDef: number;
+  mDef: number;
+  dodge: number;
   crit: number;
 }
 
 /** Extracts flat numeric bonuses written in a Carved Runestone affix description. */
 export function parseRunestoneStatBonuses(affix: string | undefined): ParsedStoneBonus {
-  const out: ParsedStoneBonus = { maxHp: 0, maxMp: 0, atk: 0, mag: 0, heal: 0, pDef: 0, mDef: 0, speed: 0, crit: 0 };
+  const out: ParsedStoneBonus = { maxHp: 0, maxMp: 0, atk: 0, mag: 0, heal: 0, pDef: 0, mDef: 0, dodge: 0, crit: 0 };
   if (!affix) return out;
   const pull = (re: RegExp): number => {
     const m = affix.match(re);
@@ -190,12 +202,31 @@ export function parseRunestoneStatBonuses(affix: string | undefined): ParsedSton
   };
   out.maxHp += pull(/([+-]?\d+)\s+Max\s+HP/i);
   out.maxMp += pull(/([+-]?\d+)\s+Max\s+MP/i);
-  out.speed += pull(/([+-]?\d+)\s+(?:Turn\s+)?Speed/i);
-  out.crit += pull(/([+-]?\d+)%\s+Crit(?:\s+Chance)?/i);
-  out.pDef += pull(/([+-]?\d+)\s+Phys(?:ical)?\s+Def/i);
-  out.mDef += pull(/([+-]?\d+)\s+Mag(?:ic)?\s+Def/i);
+  out.dodge += pull(/([+-]?\d+)%?\s+Dodge(?:\s+Chance)?/i);
+  out.crit += pull(/([+-]?\d+)%\s+Crit(?:ical)?(?:\s+Chance)?/i);
+  out.pDef += pull(/([+-]?\d+)\s+Phys(?:ical)?\s+Def(?:ense)?/i);
+  out.mDef += pull(/([+-]?\d+)\s+Mag(?:ic)?\s+Def(?:ense)?/i);
   out.atk += pull(/([+-]?\d+)\s+Attack(?:\s+Power)?/i);
   out.mag += pull(/([+-]?\d+)\s+(?:Spell|Magic)(?:\s+Power)?/i);
+  const force = pull(/([+-]?\d+)\s+Force/i);
+  const finesse = pull(/([+-]?\d+)\s+Finesse/i);
+  const grit = pull(/([+-]?\d+)\s+Grit/i);
+  const arcana = pull(/([+-]?\d+)\s+Arcana/i);
+  const presence = pull(/([+-]?\d+)\s+Presence/i);
+  if (force > 0) out.atk += Math.round(force * 1.6);
+  if (finesse > 0) {
+    out.dodge += finesse * 0.3;
+    out.crit += finesse * 0.4;
+  }
+  if (grit > 0) {
+    out.maxHp += grit * 12;
+    out.pDef += grit;
+  }
+  if (arcana > 0) out.mag += Math.round(arcana * 1.6);
+  if (presence > 0) {
+    out.mDef += presence;
+    out.heal += Math.round(presence * 1.2);
+  }
   return out;
 }
 
@@ -208,11 +239,13 @@ export interface ComputedHeroVitals {
   curMp: number;
   hasMp: boolean;
   atk: number;
+  offhandAtk: number;
+  dualWielding: boolean;
   mag: number;
   heal: number;
   pDef: number;
   mDef: number;
-  speed: number;
+  dodge: number;
   crit: number;
 }
 
@@ -233,11 +266,13 @@ export function computeHeroVitals(
   let bonusHp = 0;
   let bonusMp = 0;
   let atk = 0;
+  let rightWeaponAtk = 0;
+  let leftWeaponAtk = 0;
   let mag = 0;
   let heal = 0;
   let pDef = 0;
   let mDef = 0;
-  let speed = 0;
+  let dodge = 0;
   let crit = 0;
 
   for (const slot of ["right_hand", "left_hand", "body", "head", "accessory"] as GearSlot[]) {
@@ -246,12 +281,18 @@ export function computeHeroVitals(
     if (!it?.stats) continue;
     bonusHp += Number(it.stats.maxHp ?? 0);
     bonusMp += Number(it.stats.maxMp ?? 0);
-    atk += Number(it.stats.attackPower ?? 0);
+    if (slot === "left_hand" && canDualWieldItem(heroId, it)) {
+      leftWeaponAtk = Number(it.stats.attackPower ?? 0);
+    } else {
+      const aVal = Number(it.stats.attackPower ?? 0);
+      atk += aVal;
+      if (slot === "right_hand") rightWeaponAtk = aVal;
+    }
     mag += Number(it.stats.magicPower ?? 0);
     heal += Number(it.stats.healPower ?? 0);
     pDef += Number(it.stats.physDef ?? 0);
     mDef += Number(it.stats.magDef ?? 0);
-    speed += Number(it.stats.speedMod ?? 0);
+    dodge += Number(it.stats.dodgePct ?? 0);
     crit += Number(it.stats.critBonusPct ?? 0);
   }
 
@@ -266,7 +307,7 @@ export function computeHeroVitals(
     heal += sb.heal;
     pDef += sb.pDef;
     mDef += sb.mDef;
-    speed += sb.speed;
+    dodge += sb.dodge;
     crit += sb.crit;
   }
 
@@ -282,6 +323,10 @@ export function computeHeroVitals(
   const mpPctVal = Math.max(0, Math.min(100, Number(heroMpPct?.[heroId] ?? 100)));
   const curMp = hasMp ? Math.max(0, Math.min(maxMp, Math.round((maxMp * mpPctVal) / 100))) : 0;
 
+  const mainAtk = atk + Math.round((attrs.force - 1) * 1.5);
+  const dualWielding = leftWeaponAtk > 0;
+  const offhandAtk = dualWielding ? Math.max(1, Math.round((mainAtk - rightWeaponAtk + leftWeaponAtk) * 0.5)) : 0;
+
   return {
     maxHp,
     curHp,
@@ -290,12 +335,14 @@ export function computeHeroVitals(
     maxMp,
     curMp,
     hasMp,
-    atk: atk + Math.round((attrs.force - 1) * 1.5),
+    atk: mainAtk,
+    offhandAtk,
+    dualWielding,
     mag: mag + Math.round((attrs.arcana - 1) * 1.6),
     heal: heal + Math.round((attrs.presence - 1) * 1.5),
     pDef: pDef + (attrs.grit - 1),
     mDef: mDef + (attrs.presence - 1),
-    speed: 10 + speed + (attrs.finesse - 1),
+    dodge: Math.min(45, dodge + Math.round((attrs.finesse - 1) * 0.3)),
     crit: Math.min(45, 5 + crit + Math.round((attrs.finesse - 1) * 0.4)),
   };
 }
@@ -311,8 +358,7 @@ export function summarizeItemStats(it: ItemEntry | null | undefined): string {
   if (it.stats.magDef) parts.push(`Magic Def +${it.stats.magDef}`);
   if (it.stats.maxHp) parts.push(`Max HP +${it.stats.maxHp}`);
   if (it.stats.maxMp) parts.push(`Max MP +${it.stats.maxMp}`);
-  const speedMod = Number(it.stats.speedMod ?? 0);
-  if (speedMod) parts.push(`Speed ${speedMod > 0 ? "+" : ""}${speedMod}`);
+  if (it.stats.dodgePct) parts.push(`Dodge +${it.stats.dodgePct}%`);
   if (it.stats.critBonusPct) parts.push(`Crit +${it.stats.critBonusPct}%`);
   return parts.join(" · ") || it.effect || it.subType || "";
 }
@@ -438,15 +484,16 @@ export function mergeBagEntries(
   return entries;
 }
 
-/** Pure equip transition handling 2-Handed weapons <-> Left Hand shield swapping cleanly. */
+/** Pure equip transition handling 2-Handed weapons <-> Left Hand shield / Dual Wield swapping cleanly. */
 export function resolveEquipFromBag(
   heroId: HeroId,
   item: ItemEntry,
   equippedByHero: EquippedGearMap,
   bagCounts: Record<string, number>,
-  itemsById: Record<string, ItemEntry>
+  itemsById: Record<string, ItemEntry>,
+  targetSlot?: GearSlot
 ): { equippedByHero: EquippedGearMap; bagCounts: Record<string, number>; changed: boolean } {
-  const slot = itemSlotFor(item);
+  const slot = itemSlotForHero(item, heroId, targetSlot) ?? itemSlotFor(item);
   if (!slot || !(bagCounts[item.id] > 0)) {
     return { equippedByHero, bagCounts, changed: false };
   }
@@ -478,6 +525,25 @@ export function resolveEquipFromBag(
     equippedByHero: { ...equippedByHero, [heroId]: nextEq },
     bagCounts: nextBag,
     changed: true,
+  };
+}
+
+/** Swaps Right Hand and Left Hand weapons cleanly when Dual Wielding. */
+export function resolveSwapHands(
+  heroId: HeroId,
+  equippedByHero: EquippedGearMap,
+  itemsById: Record<string, ItemEntry>
+): { equippedByHero: EquippedGearMap; swapped: boolean } {
+  const heroEq = equippedByHero[heroId] ?? {};
+  const left = heroEq.left_hand ? itemsById[heroEq.left_hand] : undefined;
+  const right = heroEq.right_hand ? itemsById[heroEq.right_hand] : undefined;
+  if (!left || !right || !canDualWieldItem(heroId, left) || !canDualWieldItem(heroId, right)) {
+    return { equippedByHero, swapped: false };
+  }
+  const nextEq = { ...heroEq, right_hand: heroEq.left_hand, left_hand: heroEq.right_hand };
+  return {
+    equippedByHero: { ...equippedByHero, [heroId]: nextEq },
+    swapped: true,
   };
 }
 

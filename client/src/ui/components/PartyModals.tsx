@@ -73,8 +73,9 @@ export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({ open
               Highcrown Keep — Choose Your 4 Heroes
             </h2>
             <p className="m-0 mt-1 text-[12px] text-[#aeb7c7]">
-              Select any hero on the left to read their story, class style, and starting stats. Pick{" "}
-              <strong className="text-[#f3dfb1]">4 heroes</strong> to set out—the other 2 stay behind to defend Highcrown Keep.
+              Highcrown lies scarred by betrayal and Garrick&apos;s Portals. Select each survivor to read their burden,
+              fighting style, and stats—choose <strong className="text-[#f3dfb1]">4 heroes</strong> to march across Ethoria
+              while 2 hold the Keep.
             </p>
           </div>
           <button
@@ -234,11 +235,11 @@ export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({ open
             </div>
 
             {/* Who They Are in Our World (Fixed Height Slot) */}
-            <div className="md:h-[96px] shrink-0 overflow-y-auto pr-1">
+            <div className="md:h-[124px] shrink-0 overflow-y-auto pr-1">
               <div className="text-[11px] uppercase tracking-[0.12em] text-[#d9b86c] font-semibold mb-1">
                 Who They Are in Ethoria
               </div>
-              <p className="m-0 text-[12.5px] leading-[1.48] text-[#dce3f0]">{inspectedHero.worldBio}</p>
+              <p className="m-0 text-[12.5px] leading-[1.44] text-[#dce3f0]">{inspectedHero.worldBio}</p>
             </div>
 
             {/* Class Style & Gear (Fixed Height Slot) */}
@@ -388,8 +389,9 @@ interface PartyMenuModalProps {
   worldLocations: WorldLocation[];
   discoveredLocations: string[];
   sealedPortalIds: string[];
-  onEquipFromBag: (heroId: HeroId, itemId: string) => void;
+  onEquipFromBag: (heroId: HeroId, itemId: string, targetSlot?: GearSlot) => void;
   onUnequipSlot: (heroId: HeroId, slot: GearSlot) => void;
+  onSwapHands?: (heroId: HeroId) => void;
   onSocketRunestone: (heroId: HeroId, stone: RunestoneItem) => void;
   onUseConsumable: (sourceIds: string[], targetHeroId: HeroId, item: ItemEntry) => void;
   onAdjustHeroStat: (heroId: HeroId, stat: HeroAttrKey, delta: number) => void;
@@ -432,6 +434,7 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
   sealedPortalIds,
   onEquipFromBag,
   onUnequipSlot,
+  onSwapHands,
   onSocketRunestone,
   onUseConsumable,
   onAdjustHeroStat,
@@ -621,6 +624,7 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
               runestonesBag={runestonesBag}
               onEquipFromBag={onEquipFromBag}
               onUnequipSlot={onUnequipSlot}
+              onSwapHands={onSwapHands}
               onRequestSocketRunestone={requestSocketRunestone}
             />
           )}

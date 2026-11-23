@@ -78,7 +78,7 @@ const RESERVE_BY_HUB = {
       roleTitle: "Thornwall Armorer",
       category: "merchant_armor",
       shopType: "armor",
-      servicesOffered: ["Armor Shop (Metal Armor, Helms & Shields)"],
+      servicesOffered: ["Armor Shop (Armor, Helms & Shields)"],
       portraitPath: "assets/portraits/npcs/npc_res_ironcrest_smith.webp",
     },
     {
@@ -104,11 +104,11 @@ const ROLE_LABELS = {
 };
 
 const MATCHERS = {
-  weapon: /armorer|smith|forgemaster|quartermaster/i,
+  weapon: /(?!coliseum armorer)\b(armorer|blacksmith|smith|forgemaster|quartermaster)\b/i,
   armor: /coliseum armorer|constable|captain|guard|marshal|watch|warden/i,
   tailor: /shepherd|tanner|weaver|beekeeper|clothier|steward|tailor/i,
-  magic: /apothecary|scholar|runekeeper|pyromancer|archivist|chronicler|mystic/i,
-  arcanist: /herbalist|alchemist|medic|healer|surgeon|apothecary/i,
+  magic: /caster outfitter|mystic|scholar|runekeeper|pyromancer|archivist|chronicler/i,
+  arcanist: /apothecary|herbalist|alchemist|medic|healer|surgeon/i,
   adventurer: /trapper|scout|tracker|huntmaster|pathfinder|guide|explorer|navigator|driver/i,
   trade_goods: /grain merchant|coastal merchant|desert merchant|trade guild|appraiser|warehouse|quartermaster|merchant|shipping/i,
 };
@@ -134,7 +134,13 @@ const world = JSON.parse(readFileSync("data/world-locations.json", "utf8"));
 const npcsDoc = JSON.parse(readFileSync("data/npcs-catalog.json", "utf8"));
 const hubsById = Object.fromEntries(
   world.locations
-    .filter((l) => l.interiorAssetPath && !l.id.endsWith("::tavern"))
+    .filter(
+      (l) =>
+        l.interiorAssetPath &&
+        !l.id.endsWith("::tavern") &&
+        !l.id.startsWith("outpost_") &&
+        !l.id.startsWith("tr_port_")
+    )
     .map((l) => [l.id, l])
 );
 hubsById["loc_69_highcrown_keep"] = { id: "loc_69_highcrown_keep", name: "Highcrown Keep", playerKind: "Royal Keep", region: 1 };
@@ -146,6 +152,10 @@ for (const group of npcsDoc.locations) {
   const hub = hubsById[group.locationId];
   if (!hub) continue;
 
+  const tierList = Array.isArray(hub.gearTiers) && hub.gearTiers.length > 0 ? hub.gearTiers : [];
+  const tierLabel = tierList.length > 1 ? `Gear Tiers ${tierList[0]}–${tierList[tierList.length - 1]}` : tierList.length === 1 ? `Gear Tier ${tierList[0]}` : null;
+  const spTierLabel = hub.spellTier ? `Tier-${hub.spellTier} Spells` : null;
+
   // Strip any previously appended reserve entries so script is idempotent
   const existing = (group.npcs || [])
     .filter((n) => !n.id.startsWith("npc_res_"))
@@ -153,6 +163,22 @@ for (const group of npcsDoc.locations) {
       const copy = { ...n };
       delete copy.shopType;
       delete copy.shopLabel;
+      if (tierLabel && typeof copy.roleTitle === "string" && /Steps?\s*\d+/i.test(copy.roleTitle)) {
+        copy.roleTitle = copy.roleTitle.replace(/\(\s*(?:Gear\s+)?Steps?\s*\d+(?:\s*[–-]\s*\d+)?([^)]*)\)/gi, `(${tierLabel}$1)`);
+      }
+      if (tierLabel && Array.isArray(copy.servicesOffered)) {
+        copy.servicesOffered = copy.servicesOffered.map((s) =>
+          s.replace(/\(\s*(?:Gear\s+)?Steps?\s*\d+(?:\s*[–-]\s*\d+)?([^)]*)\)/gi, `(${tierLabel}$1)`)
+        );
+      }
+      if (spTierLabel && typeof copy.roleTitle === "string" && /Caster Outfitter/i.test(copy.roleTitle)) {
+        copy.roleTitle = copy.roleTitle.replace(/\(\s*(?:Remaining\s+)?Tier[-\s]*\d+\s*\)/gi, `(${spTierLabel})`);
+      }
+      if (spTierLabel && Array.isArray(copy.servicesOffered)) {
+        copy.servicesOffered = copy.servicesOffered.map((s) =>
+          /Caster Outfitter/i.test(s) ? s.replace(/\(\s*(?:Remaining\s+)?Tier[-\s]*\d+\s*\)/gi, `(${spTierLabel})`) : s
+        );
+      }
       return copy;
     });
 
@@ -166,17 +192,30 @@ for (const group of npcsDoc.locations) {
     .filter(({ npc }) => !NON_MERCHANT_RE.test(`${npc.roleTitle || ""} ${npc.name || ""}`));
 
   const takenIdx = new Set();
-  for (const sid of needed) {
+  const pickedBySid = new Map();
+  const priorityOrder = ["weapon", "armor", "arcanist", "magic", "tailor", "adventurer", "trade_goods"];
+  for (const sid of priorityOrder) {
+    if (!needed.includes(sid)) continue;
     let pick = eligibleIndices.find(({ npc, idx }) => !takenIdx.has(idx) && npc.shopType === sid);
     if (!pick) {
       pick = eligibleIndices.find(({ npc, idx }) =>
         !takenIdx.has(idx) && MATCHERS[sid].test(`${npc.roleTitle || ""} ${npc.name || ""} ${(npc.servicesOffered || []).join(" ")}`)
       );
     }
-    if (!pick) pick = eligibleIndices.find(({ idx }) => !takenIdx.has(idx));
+    if (pick) {
+      takenIdx.add(pick.idx);
+      pickedBySid.set(sid, pick);
+    }
+  }
+  for (const sid of needed) {
+    if (pickedBySid.has(sid)) continue;
+    const pick = eligibleIndices.find(({ idx }) => !takenIdx.has(idx));
     if (!pick) throw new Error(`Missing NPC slot in ${hub.name} for ${sid}`);
-
     takenIdx.add(pick.idx);
+    pickedBySid.set(sid, pick);
+  }
+  for (const sid of needed) {
+    const pick = pickedBySid.get(sid);
     pick.npc.shopType = sid;
     pick.npc.shopLabel = ROLE_LABELS[sid];
     totalShopNpcs++;

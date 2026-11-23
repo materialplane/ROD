@@ -159,37 +159,37 @@ def slugify(text: str) -> str:
 
 def parse_gear_step(services: list[str], lid: str) -> str | None:
     if lid == "loc_13_hollowstone_keep":
-        return "Step 9 (Unlocked Post-Liberation)"
+        return "Gear Tier 9 (Unlocked Post-Liberation)"
     if lid == "loc_24_gilded_auction_manor":
-        return "Step 15 (Unlocked Post-Liberation)"
+        return "Gear Tier 15 (Unlocked Post-Liberation)"
     if lid == "loc_34_bleakwatch_citadel":
-        return "Step 21 (Unlocked Post-Liberation)"
+        return "Gear Tier 22 (Unlocked Post-Liberation)"
     if lid == "loc_40_garricks_black_keep":
-        return "Step 24 (Outer Bailey Vanguard)"
+        return "Gear Tier 24 (Outer Bailey Vanguard)"
     for s in services:
         if "Chain " in s:
             continue
-        m = re.search(r"(?:Steps?|Gear Step)\s*([0-9]+(?:\s*[–\-]\s*[0-9]+)?)", s, re.IGNORECASE)
+        m = re.search(r"(?:Gear\s+Tiers?|Steps?|Gear\s+Step)\s*([0-9]+(?:\s*[–\-]\s*[0-9]+)?)", s, re.IGNORECASE)
         if m:
             span = m.group(1).replace(" ", "")
-            prefix = "Steps" if ("–" in span or "-" in span) else "Step"
+            prefix = "Gear Tiers" if ("–" in span or "-" in span) else "Gear Tier"
             return f"{prefix} {span}"
         if "Starter Gear" in s:
-            return "Step 1 (Starter Gear)"
+            return "Gear Tier 1"
     return None
 
 
 def parse_skill_tier(services: list[str], lid: str) -> str | None:
     if lid == "hub_thornwall_border_castle":
-        return "Remaining Tier-3 Skills"
+        return "Tier-3 Spells"
     if lid == "hub_greenwarden_fort":
-        return "Remaining Tier-4 Skills"
+        return "Tier-4 Spells"
     if lid == "hub_icecrest_holdfast":
-        return "Remaining Tier-7 Skills"
+        return "Tier-7 Spells"
     if lid == "hub_scorchwall_fort":
-        return "Remaining Tier-8 Skills"
+        return "Tier-8 Spells"
     for s in services:
-        if "Tier-" in s and "Skill" in s:
+        if "Tier-" in s and ("Spell" in s or "Skill" in s):
             return s
     return None
 
@@ -437,7 +437,7 @@ def build_npcs() -> tuple[list[dict], list[dict]]:
                     "name": "Lord Cedric Hollowstone",
                     "roleTitle": "Rival Noble Commander (Chain C2 Boss + Tamed Ettin)",
                     "category": "boss",
-                    "servicesOffered": ["Liberation Boss Encounter (Unlocks Step 9 Garrison & Free Rest When Beaten)"],
+                    "servicesOffered": ["Liberation Boss Encounter (Unlocks Gear Tier 9 Garrison & Free Rest When Beaten)"],
                     "questsOffered": [],
                 })
             elif lid == "loc_24_gilded_auction_manor":
@@ -446,7 +446,7 @@ def build_npcs() -> tuple[list[dict], list[dict]]:
                     "name": "Cartel Master Cassian Vex",
                     "roleTitle": "Slaver Syndicate Overseer (Chain A3 Boss)",
                     "category": "boss",
-                    "servicesOffered": ["Liberation Boss Encounter (Unlocks Step 15 Trade Armory & Free Rest When Beaten)"],
+                    "servicesOffered": ["Liberation Boss Encounter (Unlocks Gear Tier 15 Trade Armory & Free Rest When Beaten)"],
                     "questsOffered": [],
                 })
             elif lid == "loc_34_bleakwatch_citadel":
@@ -455,7 +455,7 @@ def build_npcs() -> tuple[list[dict], list[dict]]:
                     "name": "Marshal Vaelen Bleakwatch",
                     "roleTitle": "Warlord Pretender (Chain C3 Boss)",
                     "category": "boss",
-                    "servicesOffered": ["Liberation Boss Encounter (Unlocks Step 21 Clan Armory & Free Rest When Beaten)"],
+                    "servicesOffered": ["Liberation Boss Encounter (Unlocks Gear Tier 22 Clan Armory & Free Rest When Beaten)"],
                     "questsOffered": [],
                 })
             elif lid == "loc_40_garricks_black_keep":
@@ -563,7 +563,7 @@ def build_npcs() -> tuple[list[dict], list[dict]]:
                 "name": alloc.next_name(prefer_female=True),
                 "roleTitle": "Keep Palace Quartermaster",
                 "category": "service",
-                "servicesOffered": ["Starter Gear Replacements (Step 1)", "Potions"],
+                "servicesOffered": ["Starter Gear Replacements (Gear Tier 1)", "Potions"],
                 "questsOffered": [],
             },
         ],

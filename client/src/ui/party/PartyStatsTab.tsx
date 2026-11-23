@@ -70,11 +70,11 @@ export const PartyStatsTab: React.FC<PartyStatsTabProps> = ({
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
   const derivedStats = [
-    { label: "Attack", val: vitals.atk },
+    { label: "Attack", val: vitals.dualWielding ? `${vitals.atk} (+${vitals.offhandAtk} Off-Hand)` : vitals.atk },
     { label: "Spell Power", val: vitals.mag },
     { label: "Phys Defense", val: vitals.pDef },
     { label: "Magic Defense", val: vitals.mDef },
-    { label: "Turn Speed", val: vitals.speed },
+    { label: "Dodge Chance", val: `${vitals.dodge}%` },
     { label: "Crit Chance", val: `${vitals.crit}%` },
     { label: "Heal Power", val: vitals.heal },
     { label: "Party Position", val: slotIdx === 0 ? "Leader (#1)" : `Slot #${slotIdx + 1}` },

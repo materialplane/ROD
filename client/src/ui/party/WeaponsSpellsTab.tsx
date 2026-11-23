@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { assetUrl } from "../api";
 import { getHeroById } from "../heroes";
-import { hideClientItemTooltip, itemTooltipHandlers } from "../shops/itemTooltip";
-import { cleanDamageTypeLabel, getWeaponAbilityIconPath, MAX_SPELLS_PER_REGION, WEAPON_ATTACK_MODES } from "../shops/shopLogic";
+import { hideClientItemTooltip, itemTooltipHandlers, weaponAttackTooltipHandlers } from "../shops/itemTooltip";
+import { canDualWieldItem, cleanDamageTypeLabel, getWeaponAttackSpecs, MAX_SPELLS_PER_REGION } from "../shops/shopLogic";
 import type { EquippedGearMap, HeroId, ItemEntry, SpellEntry } from "../types";
 
 interface WeaponsSpellsTabProps {
@@ -25,7 +25,10 @@ export const WeaponsSpellsTab: React.FC<WeaponsSpellsTabProps> = ({
   const hero = getHeroById(heroId);
   const wpnId = equippedByHero[heroId]?.right_hand;
   const wpn = wpnId ? itemsById[wpnId] : undefined;
-  const modes = (wpn && WEAPON_ATTACK_MODES[wpn.subType]) ?? WEAPON_ATTACK_MODES.Unarmed;
+  const offhandId = equippedByHero[heroId]?.left_hand;
+  const rawOffhand = offhandId ? itemsById[offhandId] : undefined;
+  const offhandWpn = canDualWieldItem(heroId, rawOffhand) ? rawOffhand : undefined;
+  const attackModes = getWeaponAttackSpecs(wpn?.subType, wpn?.damageType);
   const dmgLabel = cleanDamageTypeLabel(wpn?.damageType ?? "Bludgeoning");
   const canCast = hero.baseMp > 0 || heroId === "ellowyn" || heroId === "mera" || heroId === "harlan";
 
@@ -49,44 +52,56 @@ export const WeaponsSpellsTab: React.FC<WeaponsSpellsTabProps> = ({
           </h3>
           <div className="text-[12px] text-[#aebad0]">
             Active Weapon: <strong className="text-[#fae2aa]">{wpn ? wpn.name : "None Equipped (Unarmed)"}</strong> ({dmgLabel})
+            {offhandWpn && (
+              <>
+                {" "}· Off-Hand: <strong className="text-[#fae2aa]">{offhandWpn.name}</strong> ({cleanDamageTypeLabel(offhandWpn.damageType ?? "Physical")})
+              </>
+            )}
           </div>
         </div>
       </div>
 
       {/* 0 MP Weapon Attack Modes */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-        <div className="rounded border border-[#343c4e] bg-[#141925] p-3 flex items-center gap-3">
-          <div className="w-[44px] h-[44px] rounded border border-[#5d4c30] bg-[#0b0e14] overflow-hidden flex items-center justify-center shrink-0">
-            <img
-              src={assetUrl(wpn ? getWeaponAbilityIconPath(wpn.subType, 0) : "assets/icons/ui/ui_01_weapon_slot_glyph.webp")}
-              alt=""
-              className={wpn ? "w-full h-full object-cover" : "w-[34px] h-[34px] object-contain"}
-              draggable={false}
-            />
+        {attackModes.map((mode) => (
+          <div key={mode.spec.id} className="rounded border border-[#343c4e] bg-[#141925] p-3 flex items-center gap-3">
+            <div
+              {...weaponAttackTooltipHandlers(wpn?.subType, mode.slot, wpn?.damageType)}
+              className="w-[46px] h-[46px] rounded border border-[#8c703b] hover:border-[#f4d182] bg-[#0b0e14] overflow-hidden flex items-center justify-center shrink-0 cursor-pointer transition-colors"
+            >
+              <img
+                src={assetUrl(mode.iconPath)}
+                alt={mode.spec.name}
+                className={wpn ? "w-full h-full object-cover" : "w-[34px] h-[34px] object-contain"}
+                draggable={false}
+              />
+            </div>
+            <div className="min-w-0">
+              <div className="text-[10px] font-bold uppercase tracking-wider text-[#d9b86c]">
+                Weapon Attack · {mode.spec.tag}
+              </div>
+              <div className="text-[14px] font-bold text-[#fae2aa] truncate">{mode.spec.name}</div>
+              <div className="text-[11px] text-[#9fb0c8]">{mode.spec.effect}</div>
+            </div>
           </div>
-          <div className="min-w-0">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-[#d9b86c]">Weapon Attack · Fast</div>
-            <div className="text-[14px] font-bold text-[#fae2aa] truncate">{modes[0]}</div>
-            <div className="text-[11px] text-[#9fb0c8]">Quick {dmgLabel} strike that keeps turn speed high.</div>
-          </div>
-        </div>
-
-        <div className="rounded border border-[#343c4e] bg-[#141925] p-3 flex items-center gap-3">
-          <div className="w-[44px] h-[44px] rounded border border-[#5d4c30] bg-[#0b0e14] overflow-hidden flex items-center justify-center shrink-0">
-            <img
-              src={assetUrl(wpn ? getWeaponAbilityIconPath(wpn.subType, 1) : "assets/icons/ui/ui_01_weapon_slot_glyph.webp")}
-              alt=""
-              className={wpn ? "w-full h-full object-cover" : "w-[34px] h-[34px] object-contain"}
-              draggable={false}
-            />
-          </div>
-          <div className="min-w-0">
-            <div className="text-[10px] font-bold uppercase tracking-wider text-[#d9b86c]">Weapon Attack · Heavy</div>
-            <div className="text-[14px] font-bold text-[#fae2aa] truncate">{modes[1]}</div>
-            <div className="text-[11px] text-[#9fb0c8]">Forceful {dmgLabel} strike with stronger Guard break.</div>
-          </div>
-        </div>
+        ))}
       </div>
+
+      {/* Dual Wielding Follow-Up Note */}
+      {offhandWpn && (
+        <div className="rounded border border-[#725b34] bg-[#211a0f]/90 p-2.5 px-3 flex items-center gap-3">
+          <img src={assetUrl(offhandWpn.iconPath)} alt={offhandWpn.name} className="w-9 h-9 object-contain rounded border border-[#5d4c30] bg-[#0b0e14] p-0.5 shrink-0" draggable={false} />
+          <div className="min-w-0">
+            <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#e5c273]">
+              Dual Wield · Automatic Follow-Up Hit
+            </div>
+            <div className="text-[12px] text-[#dce4f4]">
+              Every weapon attack with <strong className="text-[#fae2aa]">{wpn?.name ?? "Main Hand"}</strong> automatically strikes a second time with{" "}
+              <strong className="text-[#fae2aa]">{offhandWpn.name}</strong> at <strong className="text-[#84f3ba]">50% Attack Power</strong>.
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Spells Section (Only Learned Spells) */}
       {!canCast ? (

@@ -6,6 +6,7 @@ import type {
   ChosenDisciplinesMap,
   DisciplineOption,
   EquippedGearMap,
+  GearSlot,
   HeroDisciplinesEntry,
   HeroId,
   ItemEntry,
@@ -22,7 +23,9 @@ import {
   countRegionSpellsForHero,
   getStockForHero,
   itemSlotFor,
+  itemSlotForHero,
   MAX_SPELLS_PER_REGION,
+  parseHubSteps,
   SHOP_META,
   type ShopCatalogEntry,
 } from "./shopLogic";
@@ -32,12 +35,14 @@ export interface BuyConfirmChoice {
   mode: "equip" | "equip_sell_old" | "bag" | "spell";
   heroId: HeroId;
   oldItem?: ItemEntry | null;
+  targetSlot?: GearSlot;
 }
 
 interface ShopCounterPanelProps {
   hub: WorldLocation;
   npc: NpcEntry;
   shopType: ShopType;
+  townShopTypes?: ShopType[];
   partyOrder: HeroId[];
   partyLevel?: number;
   heroLevels?: Partial<Record<HeroId, number>>;
@@ -58,6 +63,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
   hub,
   npc,
   shopType,
+  townShopTypes,
   partyOrder,
   partyLevel = 1,
   heroLevels,
@@ -77,19 +83,22 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
   const [catFilter, setCatFilter] = useState("all");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [confirmEntry, setConfirmEntry] = useState<ShopCatalogEntry | null>(null);
+  const [preferredSlot, setPreferredSlot] = useState<GearSlot>("right_hand");
 
   const meta = SHOP_META[shopType];
-  const anyHeroStock = getStockForHero(items, spells, hub, shopType, catFilter, null);
+  const { zoneNum: hubZoneNum } = parseHubSteps(hub);
+  const anyHeroStock = getStockForHero(items, spells, hub, shopType, catFilter, null, townShopTypes);
 
   useEffect(() => {
     hideClientItemTooltip();
     setCatFilter("all");
     setSelectedId(null);
     setConfirmEntry(null);
-    const curHasStock = anyHeroStock.some((x) => !x.usableBy || x.usableBy.includes(activeHeroId));
+    const allCatStock = getStockForHero(items, spells, hub, shopType, "all", null, townShopTypes);
+    const curHasStock = allCatStock.some((x) => !x.usableBy || x.usableBy.includes(activeHeroId));
     if (!curHasStock) {
       const firstUsableHero = partyOrder.find((hid) =>
-        anyHeroStock.some((x) => !x.usableBy || x.usableBy.includes(hid))
+        allCatStock.some((x) => !x.usableBy || x.usableBy.includes(hid))
       );
       if (firstUsableHero) setActiveHeroId(firstUsableHero);
     }
@@ -97,7 +106,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
   }, [hub.id, shopType, npc.id]);
 
   const isDisciplinesTab = shopType === "arcanist" && catFilter === "disciplines";
-  const heroStock = getStockForHero(items, spells, hub, shopType, isDisciplinesTab ? "all" : catFilter, activeHeroId);
+  const heroStock = getStockForHero(items, spells, hub, shopType, isDisciplinesTab ? "all" : catFilter, activeHeroId, townShopTypes);
   const selected = heroStock.find((x) => x.id === selectedId) ?? heroStock[0] ?? null;
 
   const activeHero = getHeroById(activeHeroId);
@@ -109,15 +118,17 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
     setActiveHeroId(hid);
     setSelectedId(null);
     setConfirmEntry(null);
+    setPreferredSlot("right_hand");
   };
 
-  const handleAction = (entry: ShopCatalogEntry) => {
+  const handleAction = (entry: ShopCatalogEntry, chosenSlot?: GearSlot) => {
     audioEngine.playUiClick(0.38);
     if (entry.category === "spell") {
       onBuy({ entry, mode: "spell", heroId: activeHeroId });
       return;
     }
-    const slot = itemSlotFor(entry);
+    if (chosenSlot) setPreferredSlot(chosenSlot);
+    const slot = itemSlotForHero(entry, activeHeroId, chosenSlot ?? preferredSlot);
     if (!slot) {
       onBuy({ entry, mode: "bag", heroId: activeHeroId });
       return;
@@ -125,10 +136,10 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
     setConfirmEntry(entry);
   };
 
-  const confirmSlot = confirmEntry ? itemSlotFor(confirmEntry) : null;
+  const confirmSlot = confirmEntry ? itemSlotForHero(confirmEntry, activeHeroId, preferredSlot) : null;
   const confirmOldId = confirmSlot ? equippedByHero[activeHeroId]?.[confirmSlot] : undefined;
   const confirmOldItem = confirmOldId ? itemsById[confirmOldId] ?? null : null;
-  const confirmDelta = confirmEntry ? computeHeroDelta(confirmEntry, equippedByHero, itemsById, activeHeroId) : null;
+  const confirmDelta = confirmEntry ? computeHeroDelta(confirmEntry, equippedByHero, itemsById, activeHeroId, preferredSlot) : null;
 
   return (
     <div className="relative flex flex-col gap-2.5 flex-1 min-h-0">
@@ -191,6 +202,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
               heroId={activeHeroId}
               heroName={activeHero.name}
               tiers={activeHeroDiscTiers}
+              zoneNum={hubZoneNum}
               partyLevel={activeHeroLevel}
               silver={silver}
               chosenByTier={activeChosenDiscs}
@@ -243,6 +255,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                     onClick={() => {
                       audioEngine.playUiClick(0.22);
                       setSelectedId(it.id);
+                      setPreferredSlot("right_hand");
                     }}
                     className={`flex items-center gap-2.5 p-2 rounded border text-left cursor-pointer transition-colors ${
                       isSel
@@ -403,6 +416,8 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
               itemsById={itemsById}
               spells={spells}
               learnedSpellIds={learnedSpellIds}
+              preferredSlot={preferredSlot}
+              onChangePreferredSlot={setPreferredSlot}
               onAction={handleAction}
             />
           )}
@@ -440,13 +455,14 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                   <span className="text-[12px] text-[#84f3ba] ml-1">{confirmDelta?.headline ?? ""}</span>
                 </div>
                 <div className="text-[11.5px] text-[#9aa8be] truncate">
+                  {confirmSlot === "left_hand" && confirmEntry.category === "weapon" ? "Off-Hand (Dual Wield) · " : ""}
                   Replaces: {confirmOldItem?.name ?? "Empty Slot"}
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => {
-                  onBuy({ entry: confirmEntry, mode: "equip", heroId: activeHeroId, oldItem: confirmOldItem });
+                  onBuy({ entry: confirmEntry, mode: "equip", heroId: activeHeroId, oldItem: confirmOldItem, targetSlot: confirmSlot ?? undefined });
                   setConfirmEntry(null);
                 }}
                 className="px-3 py-1.5 rounded border border-[#e6c170] bg-[#7f5d22] hover:brightness-110 text-[#fff4d4] text-[12px] font-bold cursor-pointer"
@@ -457,7 +473,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                 <button
                   type="button"
                   onClick={() => {
-                    onBuy({ entry: confirmEntry, mode: "equip_sell_old", heroId: activeHeroId, oldItem: confirmOldItem });
+                    onBuy({ entry: confirmEntry, mode: "equip_sell_old", heroId: activeHeroId, oldItem: confirmOldItem, targetSlot: confirmSlot ?? undefined });
                     setConfirmEntry(null);
                   }}
                   className="px-3 py-1.5 rounded border border-[#4aa376] bg-[#153526] hover:brightness-110 text-[#b4f5d2] text-[12px] font-bold cursor-pointer"

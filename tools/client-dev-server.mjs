@@ -399,7 +399,8 @@ const server = http.createServer((req, res) => {
     urlPath === "/admin/shops" ||
     urlPath === "/admin/party" ||
     urlPath === "/admin/disciplines" ||
-    urlPath === "/admin/battles"
+    urlPath === "/admin/battles" ||
+    urlPath === "/admin/world-scale"
   ) {
     res.writeHead(302, { Location: `${urlPath}/` });
     res.end();

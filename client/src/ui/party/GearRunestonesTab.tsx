@@ -3,7 +3,8 @@ import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById } from "../heroes";
 import { hideClientItemTooltip, itemTooltipHandlers } from "../shops/itemTooltip";
-import { itemSlotFor } from "../shops/shopLogic";
+import { WeaponAttackIconsRow } from "../shops/WeaponAttackIconsRow";
+import { canDualWieldItem, itemSlotFor } from "../shops/shopLogic";
 import type { EquippedGearMap, GearSlot, HeroId, HeroSocketsMap, ItemEntry, RunestoneItem } from "../types";
 import { RUNESTONE_EMPTY_ICON, SLOT_CONFIG, summarizeItemStats } from "./partyLogic";
 
@@ -14,8 +15,9 @@ interface GearRunestonesTabProps {
   bagCounts: Record<string, number>;
   socketsByHero: HeroSocketsMap;
   runestonesBag: RunestoneItem[];
-  onEquipFromBag: (heroId: HeroId, itemId: string) => void;
+  onEquipFromBag: (heroId: HeroId, itemId: string, targetSlot?: GearSlot) => void;
   onUnequipSlot: (heroId: HeroId, slot: GearSlot) => void;
+  onSwapHands?: (heroId: HeroId) => void;
   onRequestSocketRunestone: (heroId: HeroId, stone: RunestoneItem) => void;
 }
 
@@ -28,6 +30,7 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
   runestonesBag,
   onEquipFromBag,
   onUnequipSlot,
+  onSwapHands,
   onRequestSocketRunestone,
 }) => {
   const [subTab, setSubTab] = useState<"gear" | "runestones">("gear");
@@ -77,6 +80,7 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
             const isSharedLeft2H = slot.key === "left_hand" && rightHandIs2H;
             const curId = isSharedLeft2H ? heroEq.right_hand : heroEq[slot.key];
             const equippedItem = curId ? itemsById[curId] : undefined;
+            const isDualWieldLeft = slot.key === "left_hand" && canDualWieldItem(heroId, equippedItem);
             const hasSocket = slot.key === "right_hand" || slot.key === "body";
             const socketKey = slot.key === "right_hand" ? "weapon" : "armor";
             const curStone = hasSocket ? sockets[socketKey] ?? null : null;
@@ -106,7 +110,7 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
                   <div className="min-w-0 flex-1">
                     <div className="text-[10px] font-bold uppercase tracking-wider text-[#d9b86c]">
                       {slot.label}
-                      {isSharedLeft2H ? " · 2-Handed (Both Hands)" : ""}
+                      {isSharedLeft2H ? " · 2-Handed (Both Hands)" : isDualWieldLeft ? " · Dual Wield (50% 2nd Hit)" : ""}
                     </div>
                     <div className="text-[13px] font-semibold text-[#f3e3bd] truncate">
                       {equippedItem ? equippedItem.name : "Empty Slot"}
@@ -114,11 +118,33 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
                     <div className="text-[11px] text-[#96a6bf] truncate">
                       {isSharedLeft2H
                         ? "Held in both Right & Left Hands"
-                        : equippedItem
-                          ? summarizeItemStats(equippedItem)
-                          : "Empty — pick an item from your bag"}
+                        : isDualWieldLeft && equippedItem
+                          ? `Off-Hand Follow-Up (50% Power) · ${summarizeItemStats(equippedItem)}`
+                          : equippedItem
+                            ? summarizeItemStats(equippedItem)
+                            : "Empty — pick an item from your bag"}
                     </div>
                   </div>
+                  {slot.key === "right_hand" && equippedItem?.category === "weapon" && (
+                    <WeaponAttackIconsRow
+                      subType={equippedItem.subType}
+                      damageType={equippedItem.damageType}
+                      size="sm"
+                      suppressParentItemTooltip
+                    />
+                  )}
+                  {isDualWieldLeft && onSwapHands && rightHandItem && canDualWieldItem(heroId, rightHandItem) && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        audioEngine.playUiClick(0.32);
+                        onSwapHands(heroId);
+                      }}
+                      className="px-2 py-1 rounded border border-[#725b34] hover:border-[#e6c170] bg-[#211b10] text-[11px] font-semibold text-[#f6dfa8] cursor-pointer shrink-0"
+                    >
+                      Swap Hands
+                    </button>
+                  )}
                   {equippedItem && (
                     <button
                       type="button"
@@ -233,16 +259,41 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
                         {item.handed === "2H" ? " · 2-Handed" : ""} · {summarizeItemStats(item)}
                       </div>
                     </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        audioEngine.playUiClick(0.38);
-                        onEquipFromBag(heroId, item.id);
-                      }}
-                      className="px-3 py-1 rounded border border-[#c7a052] bg-[#c49848]/25 hover:bg-[#c49848]/45 text-[11px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer shrink-0"
-                    >
-                      Equip
-                    </button>
+                    {canDualWieldItem(heroId, item) && rightHandItem && rightHandItem.handed === "1H" ? (
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            audioEngine.playUiClick(0.38);
+                            onEquipFromBag(heroId, item.id, "right_hand");
+                          }}
+                          className="px-2 py-1 rounded border border-[#c7a052] bg-[#c49848]/25 hover:bg-[#c49848]/45 text-[10.5px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
+                        >
+                          Main
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            audioEngine.playUiClick(0.38);
+                            onEquipFromBag(heroId, item.id, "left_hand");
+                          }}
+                          className="px-2 py-1 rounded border border-[#56a874] bg-[#21613d]/45 hover:bg-[#2a7d4e]/65 text-[10.5px] font-bold uppercase tracking-wider text-[#eafff2] cursor-pointer"
+                        >
+                          Off-Hand
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          audioEngine.playUiClick(0.38);
+                          onEquipFromBag(heroId, item.id);
+                        }}
+                        className="px-3 py-1 rounded border border-[#c7a052] bg-[#c49848]/25 hover:bg-[#c49848]/45 text-[11px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer shrink-0"
+                      >
+                        Equip
+                      </button>
+                    )}
                   </div>
                 ))
               )

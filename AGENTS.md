@@ -14,7 +14,8 @@
 
 ## 2. Working With the User
 * **Roles:** The user is the **Creative Director / Player Voice**; the AI acts as **Lead Developer & Systems Architect**.
-* **Plain Language:** Explain architectural decisions, trade-offs, and progress in clear, non-technical English—avoid heavy math dumps or unexplained developer jargon.
+* **Short, Non-Technical Updates Only:** Keep replies brief, like a clean **feature list or checklist** in everyday English—no long explanations of why something broke, no internal code/function names, no tile/hex data dumps, and no developer jargon unless explicitly asked.
+* **Lead With the Best Fix:** Give **one clear recommendation or go straight to implementing the best solution**—never overwhelm the user with a list of options. If the Creative Director wants deeper details, trade-offs, or alternatives, they will ask.
 * **Source of Truth:**
   * Never edit `backstory.txt` unless explicitly instructed.
   * Check the relevant `docs/01`–`docs/09` file before implementing any system, and keep matching docs updated if an approved change alters any rule, formula, or schema.

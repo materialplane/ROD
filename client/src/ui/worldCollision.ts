@@ -85,10 +85,22 @@ export interface WorldTerritorySample {
   zoneCode: number;
   zoneId: string;
   zoneName: string;
+  regionName: string;
   zoneMin: number;
   zoneMax: number;
   nearWaterKind: "ocean" | "inland_water" | null;
   nearWaterBiomeName: string | null;
+}
+
+export function getRegionNameForZone(zoneCode: number): string {
+  if (zoneCode <= 3) return "The Crownlands";
+  if (zoneCode <= 5) return "Saltmarsh Coast";
+  if (zoneCode <= 8) return "Thornwall Warfronts";
+  if (zoneCode <= 10) return "The Verdant Weald";
+  if (zoneCode <= 13) return "Sun-Scorched Isles";
+  if (zoneCode <= 15) return "Ironcrest Highlands";
+  if (zoneCode <= 18) return "Frostbound Reach";
+  return "The Dreadwaste";
 }
 
 export interface WorldCollisionIndex {
@@ -266,7 +278,7 @@ export function sampleWorldTerritory(
   let zMeta = index.zoneByCode[zCode];
   if (!zMeta) {
     const fallbackZone = Object.values(index.zoneByCode).find((z) => z.mapId === mapId);
-    zMeta = fallbackZone ?? { code: 1, mapId, id: "zone_1_5", name: "Lv 1–5", min: 1, max: 5 };
+    zMeta = fallbackZone ?? { code: 1, mapId, id: "zone_1_5", name: "Zone 1", min: 1, max: 5 };
   }
 
   // Check 4-hex ring (~4 * hexRadius * sqrt(3)) for Ocean or Inland Water coastal staging
@@ -295,6 +307,7 @@ export function sampleWorldTerritory(
     zoneCode: zMeta.code,
     zoneId: zMeta.id,
     zoneName: zMeta.name,
+    regionName: getRegionNameForZone(zMeta.code),
     zoneMin: zMeta.min,
     zoneMax: zMeta.max,
     nearWaterKind,

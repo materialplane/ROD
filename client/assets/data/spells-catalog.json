@@ -36,7 +36,7 @@
       "target": "1 Enemy",
       "priceSilver": 55,
       "sellSilver": 22,
-      "effect": "Piercing Frost spike; applies Chill and delays enemy's next turn.",
+      "effect": "Piercing Frost spike; applies Chill, lowering enemy Attack & Magic Power.",
       "iconPath": "assets/icons/spells/spell_1_ellowyn_2.webp"
     },
     {
@@ -126,7 +126,7 @@
       "target": "Up to 3 Enemies",
       "priceSilver": 340,
       "sellSilver": 136,
-      "effect": "Sweeping Frost wave pushing all hit enemies back on the turn timeline.",
+      "effect": "Sweeping Frost wave across up to 3 enemies, applying Chill to weaken their attacks.",
       "iconPath": "assets/icons/spells/spell_3_ellowyn_7.webp"
     },
     {
@@ -144,7 +144,7 @@
       "target": "1 Enemy",
       "priceSilver": 340,
       "sellSilver": 136,
-      "effect": "Inflicts Shock and delays telegraphed boss/enemy wind-ups.",
+      "effect": "Traps 1 enemy in crackling Lightning; inflicts Shock and disrupts telegraphed wind-ups.",
       "iconPath": "assets/icons/spells/spell_3_ellowyn_8.webp"
     },
     {
@@ -252,7 +252,7 @@
       "target": "1 Enemy",
       "priceSilver": 1280,
       "sellSilver": 512,
-      "effect": "Heavy Frost crystal impact with strong Stun chance or turn delay.",
+      "effect": "Heavy Frost crystal impact with strong Stun chance or Chill on bosses.",
       "iconPath": "assets/icons/spells/spell_5_ellowyn_14.webp"
     },
     {
@@ -306,7 +306,7 @@
       "target": "All Enemies",
       "priceSilver": 2350,
       "sellSilver": 940,
-      "effect": "Shadow gravity rift damaging all enemies and scrambling turn order.",
+      "effect": "Shadow gravity rift damaging all enemies, breaking 1 Guard point and cutting Defense.",
       "iconPath": "assets/icons/spells/spell_6_ellowyn_17.webp"
     },
     {
@@ -468,7 +468,7 @@
       "target": "1 Enemy",
       "priceSilver": 55,
       "sellSilver": 22,
-      "effect": "Hardened roots chip 1 Guard point and delay target's next turn.",
+      "effect": "Hardened roots chip 1 Guard point and lower the target's Attack.",
       "iconPath": "assets/icons/spells/spell_1_mera_26.webp"
     },
     {
@@ -504,7 +504,7 @@
       "target": "Up to 3 Enemies",
       "priceSilver": 150,
       "sellSilver": 60,
-      "effect": "Sweeps wind-storm force pushing enemy turns back on the timeline.",
+      "effect": "Sweeps Lightning/Wind force across up to 3 enemies, chipping 1 Guard and lowering Accuracy.",
       "iconPath": "assets/icons/spells/spell_2_mera_28.webp"
     },
     {
@@ -648,7 +648,7 @@
       "target": "1 Enemy",
       "priceSilver": 680,
       "sellSilver": 272,
-      "effect": "Wind-spirit strike pulling Mera's next turn earlier on the timeline.",
+      "effect": "Wind-spirit strike hitting 1 enemy and granting Mera a Bonus Turn once per battle.",
       "iconPath": "assets/icons/spells/spell_4_mera_36.webp"
     },
     {
@@ -918,7 +918,7 @@
       "target": "1 Ally",
       "priceSilver": 55,
       "sellSilver": 22,
-      "effect": "Cures Stun, Chill, or Curse and nudges ally turn forward.",
+      "effect": "Cures Stun, Chill, or Curse on 1 ally and grants Momentum (+25% next strike).",
       "iconPath": "assets/icons/spells/spell_1_harlan_51.webp"
     },
     {
@@ -1026,7 +1026,7 @@
       "target": "1 Ally",
       "priceSilver": 340,
       "sellSilver": 136,
-      "effect": "Grants immediate Momentum (+25% next hit) and +10 Speed for 2 turns.",
+      "effect": "Grants immediate Momentum (+25% next hit) and +15% Crit Chance for 2 turns.",
       "iconPath": "assets/icons/spells/spell_3_harlan_57.webp"
     },
     {
@@ -1170,7 +1170,7 @@
       "target": "1 Enemy",
       "priceSilver": 2350,
       "sellSilver": 940,
-      "effect": "Severe Poison toxin with strong chance to Stun or delay enemy.",
+      "effect": "Concentrated Poison toxin with strong chance to Stun non-bosses.",
       "iconPath": "assets/icons/spells/spell_6_harlan_65.webp"
     },
     {

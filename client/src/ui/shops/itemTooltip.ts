@@ -5,12 +5,13 @@ import type { EquippedGearMap, HeroId, ItemEntry, SpellEntry } from "../types";
 import {
   cleanDamageTypeLabel,
   computeHeroDelta,
+  getWeaponAttackSpecs,
   itemOwnStatRows,
   itemSlotFor,
   tierAccentColor,
-  WEAPON_ATTACK_MODES,
   type ShopCatalogEntry,
   type StatDeltaRow,
+  type WeaponAttackDisplayInfo,
 } from "./shopLogic";
 
 export interface TooltipContext {
@@ -22,6 +23,11 @@ export interface TooltipContext {
 }
 
 let tooltipEl: HTMLDivElement | null = null;
+let attackTooltipEl: HTMLDivElement | null = null;
+let hideTimer: number | null = null;
+let activeItemKey: string | null = null;
+let activeSourceEl: HTMLElement | null = null;
+let pointerInsideTooltip = false;
 
 function escHtml(raw: unknown): string {
   return String(raw ?? "")
@@ -29,6 +35,51 @@ function escHtml(raw: unknown): string {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function clearHideTimer(): void {
+  if (hideTimer !== null) {
+    window.clearTimeout(hideTimer);
+    hideTimer = null;
+  }
+}
+
+function hideAttackTooltip(): void {
+  if (attackTooltipEl) {
+    attackTooltipEl.style.display = "none";
+  }
+}
+
+export function hideClientItemTooltip(): void {
+  clearHideTimer();
+  pointerInsideTooltip = false;
+  activeItemKey = null;
+  activeSourceEl = null;
+  hideAttackTooltip();
+  if (tooltipEl) {
+    tooltipEl.style.display = "none";
+  }
+}
+
+function scheduleTooltipHide(delayMs = 175): void {
+  clearHideTimer();
+  hideTimer = window.setTimeout(() => {
+    if (!pointerInsideTooltip) {
+      hideClientItemTooltip();
+    }
+  }, delayMs);
+}
+
+function ensureAttackTooltipEl(): HTMLDivElement {
+  if (!attackTooltipEl) {
+    attackTooltipEl = document.createElement("div");
+    attackTooltipEl.id = "rodAttackSkillTooltip";
+    attackTooltipEl.className = "rod-attack-tooltip";
+    attackTooltipEl.setAttribute("role", "tooltip");
+    attackTooltipEl.style.display = "none";
+    document.body.appendChild(attackTooltipEl);
+  }
+  return attackTooltipEl;
 }
 
 function ensureTooltipEl(): HTMLDivElement {
@@ -39,36 +90,192 @@ function ensureTooltipEl(): HTMLDivElement {
     tooltipEl.setAttribute("role", "tooltip");
     tooltipEl.style.display = "none";
     document.body.appendChild(tooltipEl);
+
+    tooltipEl.addEventListener("mouseenter", () => {
+      pointerInsideTooltip = true;
+      clearHideTimer();
+    });
+    tooltipEl.addEventListener("mouseleave", () => {
+      pointerInsideTooltip = false;
+      hideAttackTooltip();
+      scheduleTooltipHide(150);
+    });
+    tooltipEl.addEventListener("mouseover", (e) => {
+      const btn = (e.target as HTMLElement | null)?.closest("[data-atk-subtype]") as HTMLElement | null;
+      if (!btn) {
+        hideAttackTooltip();
+        return;
+      }
+      const subType = btn.dataset.atkSubtype;
+      const slot = Number(btn.dataset.atkSlot) === 1 ? 1 : 0;
+      const dmg = btn.dataset.atkDmg;
+      showAttackSkillTooltip(subType, slot, dmg, btn.getBoundingClientRect());
+    });
+    tooltipEl.addEventListener("mouseout", (e) => {
+      const fromBtn = (e.target as HTMLElement | null)?.closest("[data-atk-subtype]");
+      const toBtn = (e.relatedTarget as HTMLElement | null)?.closest("[data-atk-subtype]");
+      if (fromBtn && fromBtn !== toBtn && !toBtn) {
+        hideAttackTooltip();
+      }
+    });
+
     window.addEventListener("scroll", hideClientItemTooltip, true);
     window.addEventListener("blur", hideClientItemTooltip);
   }
   return tooltipEl;
 }
 
-export function hideClientItemTooltip(): void {
-  if (tooltipEl) {
-    tooltipEl.style.display = "none";
+function buildAttackStatsChips(info: WeaponAttackDisplayInfo): Array<{ label: string; cls?: string }> {
+  const { spec, powerPct, cooldownLabel } = info;
+  const chips: Array<{ label: string; cls?: string }> = [
+    { label: `${powerPct}% Power`, cls: powerPct >= 130 ? "is-gold" : "" },
+    { label: cooldownLabel, cls: spec.cooldownTurns > 0 ? "is-gold" : "is-up" },
+  ];
+  if (spec.critBonus > 0) {
+    chips.push({ label: `+${Math.round(spec.critBonus * 100)}% Crit`, cls: "is-gold" });
   }
+  if (spec.splashPct && spec.splashPct > 0) {
+    chips.push({ label: `${Math.round(spec.splashPct * 100)}% Neighbor Splash`, cls: "is-mp" });
+  }
+  if (spec.execCritBonus && spec.execCritBonus > 0) {
+    chips.push({ label: `+${Math.round(spec.execCritBonus * 100)}% Execute Crit`, cls: "is-gold" });
+  }
+  if (spec.guardChip && spec.guardChip > 0) {
+    chips.push({ label: `Breaks ${spec.guardChip} Guard`, cls: "is-mp" });
+  }
+  if (spec.armorIgnore && spec.armorIgnore > 0) {
+    chips.push({ label: `Ignores ${Math.round(spec.armorIgnore * 100)}% DEF`, cls: "is-mp" });
+  }
+  if (spec.restoreMp && spec.restoreMp > 0) {
+    chips.push({ label: `+${spec.restoreMp} MP on Hit`, cls: "is-up" });
+  }
+  if (spec.debuff === "def_down") {
+    chips.push({ label: "Cracks Defense", cls: "is-socket" });
+  } else if (spec.debuff === "atk_down") {
+    chips.push({ label: "Lowers Enemy ATK", cls: "is-socket" });
+  } else if (spec.debuff === "blind") {
+    chips.push({ label: "Blinds Target", cls: "is-socket" });
+  } else if (spec.debuff === "poison") {
+    chips.push({ label: "Inflicts Poison", cls: "is-socket" });
+  }
+  return chips;
 }
 
-function positionTooltip(clientX: number, clientY: number): void {
-  const el = ensureTooltipEl();
+function buildAttackTooltipHtml(info: WeaponAttackDisplayInfo, subTypeLabel: string): string {
+  const chips = buildAttackStatsChips(info);
+  const iconSrc = assetUrl(info.iconPath);
+  const pillsHtml = chips
+    .map((c) => `<span class="tip-pill${c.cls ? ` ${c.cls}` : ""}">${escHtml(c.label)}</span>`)
+    .join("");
+
+  return `
+    <div class="atk-tip-head">
+      <div class="atk-tip-icon-frame">
+        <img src="${escHtml(iconSrc)}" alt="${escHtml(info.spec.name)}" width="56" height="56" />
+      </div>
+      <div class="tip-head-meta">
+        <div class="tip-eyebrow">${escHtml(subTypeLabel)} · 0 MP Attack · ${escHtml(info.damageTypeLabel)}</div>
+        <div class="atk-tip-title font-display">${escHtml(info.spec.name)}</div>
+        <div class="tip-badges" style="margin-top:4px">
+          <span class="tip-pill is-gold">${escHtml(info.spec.tag)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="tip-section">
+      <div class="tip-sec-hdr">Attack Traits</div>
+      <div class="atk-tip-pills">${pillsHtml}</div>
+    </div>
+    <div class="tip-effect">${escHtml(info.spec.effect)}</div>
+  `;
+}
+
+function positionPopupNearRect(el: HTMLDivElement, anchorRect: DOMRect, fallbackX: number, fallbackY: number): void {
   const pad = 12;
-  const offset = 16;
+  const gap = 4;
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   const rect = el.getBoundingClientRect();
 
-  let left = clientX + offset;
-  let top = clientY + offset;
+  // Prefer immediately right of anchor/cursor, flip left if offscreen, fallback near cursor
+  let left = anchorRect.width > 0 ? Math.min(fallbackX + gap + 6, anchorRect.right + gap) : fallbackX + gap;
+  if (anchorRect.width > 0 && anchorRect.width < 220) {
+    left = anchorRect.right + gap;
+  } else {
+    left = fallbackX + gap;
+  }
   if (left + rect.width > vw - pad) {
-    left = Math.max(pad, clientX - rect.width - offset);
+    const leftSide = anchorRect.width > 0 && anchorRect.width < 220 ? anchorRect.left - rect.width - gap : fallbackX - rect.width - gap;
+    left = leftSide >= pad ? leftSide : Math.max(pad, vw - rect.width - pad);
   }
+
+  let top = anchorRect.width > 0 && anchorRect.height < 140 ? anchorRect.top - 6 : fallbackY - 24;
   if (top + rect.height > vh - pad) {
-    top = Math.max(pad, clientY - rect.height - offset);
+    top = Math.max(pad, vh - rect.height - pad);
   }
+  if (top < pad) top = pad;
+
   el.style.left = `${Math.round(left)}px`;
   el.style.top = `${Math.round(top)}px`;
+}
+
+export function showAttackSkillTooltip(
+  subType: string | undefined,
+  slot: 0 | 1,
+  damageType: string | undefined,
+  anchorRect: DOMRect
+): void {
+  const pair = getWeaponAttackSpecs(subType, damageType);
+  const info = pair[slot];
+  const el = ensureAttackTooltipEl();
+  el.innerHTML = buildAttackTooltipHtml(info, subType || "Unarmed");
+  el.style.display = "flex";
+
+  const pad = 10;
+  const gap = 10;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const rect = el.getBoundingClientRect();
+
+  let left = anchorRect.right + gap;
+  if (left + rect.width > vw - pad) {
+    const altLeft = anchorRect.left - rect.width - gap;
+    left = altLeft >= pad ? altLeft : Math.max(pad, vw - rect.width - pad);
+  }
+  let top = anchorRect.top - 8;
+  if (top + rect.height > vh - pad) {
+    top = Math.max(pad, vh - rect.height - pad);
+  }
+  if (top < pad) top = pad;
+
+  el.style.left = `${Math.round(left)}px`;
+  el.style.top = `${Math.round(top)}px`;
+}
+
+export function weaponAttackTooltipHandlers(
+  subType: string | undefined,
+  slot: 0 | 1,
+  damageType?: string,
+  opts?: { suppressItemTooltip?: boolean }
+): {
+  onMouseEnter: (e: React.MouseEvent<HTMLElement>) => void;
+  onMouseLeave: (e: React.MouseEvent<HTMLElement>) => void;
+} {
+  return {
+    onMouseEnter: (e) => {
+      if (opts?.suppressItemTooltip) {
+        e.stopPropagation();
+        hideClientItemTooltip();
+      }
+      const rect = e.currentTarget.getBoundingClientRect();
+      showAttackSkillTooltip(subType, slot, damageType, rect);
+    },
+    onMouseLeave: (e) => {
+      if (opts?.suppressItemTooltip) {
+        e.stopPropagation();
+      }
+      hideAttackTooltip();
+    },
+  };
 }
 
 function fmtStatVal(row: StatDeltaRow, val: number): string {
@@ -151,9 +358,39 @@ function buildTooltipHtml(entry: ShopCatalogEntry, ctx: TooltipContext): string 
       `;
     }
 
-    const attacks = gearItem.category === "weapon" ? WEAPON_ATTACK_MODES[gearItem.subType] : undefined;
+    if (gearItem.category === "weapon") {
+      const atkPair = getWeaponAttackSpecs(gearItem.subType, gearItem.damageType);
+      const dmgRaw = escHtml(gearItem.damageType ?? "Physical");
+      const subRaw = escHtml(gearItem.subType);
+      const btnsHtml = atkPair
+        .map(
+          (info) => `
+          <button
+            type="button"
+            class="tip-atk-btn"
+            data-atk-subtype="${subRaw}"
+            data-atk-slot="${info.slot}"
+            data-atk-dmg="${dmgRaw}"
+            aria-label="${escHtml(info.spec.name)}"
+          >
+            <img src="${escHtml(assetUrl(info.iconPath))}" alt="${escHtml(info.spec.name)}" width="48" height="48" />
+          </button>
+        `
+        )
+        .join("");
+
+      bodyHtml += `
+        <div class="tip-section tip-attacks-sec">
+          <div class="tip-sec-hdr-row">
+            <span class="tip-sec-hdr" style="margin-bottom:0">Weapon Attacks</span>
+            <span class="tip-atk-hint">Hover icon for details</span>
+          </div>
+          <div class="tip-attacks-row">${btnsHtml}</div>
+        </div>
+      `;
+    }
+
     const notes: string[] = [];
-    if (attacks) notes.push(`<strong>Attacks:</strong> ${escHtml(attacks[0])} · ${escHtml(attacks[1])}`);
     if (gearItem.stats?.passiveBonus) {
       notes.push(`<strong>Passive:</strong> ${escHtml(gearItem.stats.passiveBonus)}`);
     }
@@ -188,8 +425,8 @@ function buildTooltipHtml(entry: ShopCatalogEntry, ctx: TooltipContext): string 
     if (gearItem.sourceMob) {
       extra.push(`<div><strong>Dropped By:</strong> ${escHtml(gearItem.sourceMob)}${gearItem.sourceType ? ` (${escHtml(gearItem.sourceType)})` : ""}</div>`);
     }
-    if (gearItem.regionsStocked) {
-      extra.push(`<div><strong>Stocked:</strong> ${escHtml(gearItem.regionsStocked)}</div>`);
+    if (gearItem.zonesStocked || gearItem.regionsStocked) {
+      extra.push(`<div><strong>Stocked:</strong> ${escHtml(gearItem.zonesStocked ?? gearItem.regionsStocked)}</div>`);
     }
     if (gearItem.effect) {
       bodyHtml += `<div class="tip-effect">${escHtml(gearItem.effect)}</div>`;
@@ -219,22 +456,28 @@ export function itemTooltipHandlers(
   ctx: TooltipContext = {}
 ): {
   onMouseEnter?: (e: React.MouseEvent<HTMLElement>) => void;
-  onMouseMove?: (e: React.MouseEvent<HTMLElement>) => void;
   onMouseLeave?: () => void;
 } {
   if (!entry) return {};
+  const ctxKey = `${entry.id}:${ctx.activeHeroId ?? ""}:${ctx.isSellMode ? "sell" : "buy"}`;
+
   return {
     onMouseEnter: (e) => {
+      clearHideTimer();
+      hideAttackTooltip();
       const el = ensureTooltipEl();
-      el.innerHTML = buildTooltipHtml(entry, ctx);
-      el.style.display = "block";
-      positionTooltip(e.clientX, e.clientY);
-    },
-    onMouseMove: (e) => {
-      if (tooltipEl && tooltipEl.style.display !== "none") {
-        positionTooltip(e.clientX, e.clientY);
+      const targetEl = e.currentTarget as HTMLElement;
+      const alreadySame = el.style.display !== "none" && activeItemKey === ctxKey && activeSourceEl === targetEl;
+      if (!alreadySame) {
+        activeItemKey = ctxKey;
+        activeSourceEl = targetEl;
+        el.innerHTML = buildTooltipHtml(entry, ctx);
+        el.style.display = "flex";
+        positionPopupNearRect(el, targetEl.getBoundingClientRect(), e.clientX, e.clientY);
       }
     },
-    onMouseLeave: hideClientItemTooltip,
+    onMouseLeave: () => {
+      scheduleTooltipHide(175);
+    },
   };
 }

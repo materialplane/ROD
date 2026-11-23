@@ -7,6 +7,7 @@ export interface SaveSlotData {
   regionLabel: string;
   heroId: string;
   heroName: string;
+  activeBattle?: unknown | null;
   level: number;
   x: number;
   y: number;

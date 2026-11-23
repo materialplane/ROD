@@ -72,56 +72,56 @@ const HERO_BASE = {
 // All 13 D&D weapon categories x 2 defined 0 MP attack modes (docs/06-gear-and-runestones.md)
 const WEAPON_ATTACK_MODES = {
   Longsword: [
-    { id: "wpn_skill_longsword_quick_slash", name: "Quick Slash", tag: "Fast", power: 1.0, critBonus: 0, effect: "Fast slash with high hit accuracy; keeps your next turn sooner." },
-    { id: "wpn_skill_longsword_heavy_cleave", name: "Heavy Cleave", tag: "Heavy", power: 1.4, critBonus: 0.15, effect: "Heavy slash dealing high damage (+15% Crit Chance) and breaking 1 Guard point." },
+    { id: "wpn_skill_longsword_quick_slash", name: "Quick Slash", tag: "Strike", power: 1.0, critBonus: 0, effect: "Clean slash with high hit accuracy; usable every turn." },
+    { id: "wpn_skill_longsword_heavy_cleave", name: "Heavy Cleave", tag: "Heavy", power: 1.4, critBonus: 0.15, effect: "Heavy slash dealing high damage (+15% Crit Chance) and breaking 1 Guard point. 1-Turn Cooldown." },
   ],
   Greatsword: [
-    { id: "wpn_skill_greatsword_wide_sweep", name: "Wide Sweep", tag: "Push", power: 1.05, critBonus: 0, effect: "Wide arc that deals solid damage and pushes the target back on the turn bar." },
-    { id: "wpn_skill_greatsword_overhead_rend", name: "Overhead Rend", tag: "Heavy", power: 1.45, critBonus: 0.08, effect: "Heavy overhead chop dealing huge damage and breaking 1 extra Guard point." },
+    { id: "wpn_skill_greatsword_wide_sweep", name: "Wide Sweep", tag: "Cleave", power: 0.95, critBonus: 0, effect: "Broad arc dealing 95% damage to your target and 50% splash damage to neighboring enemies." },
+    { id: "wpn_skill_greatsword_overhead_rend", name: "Overhead Rend", tag: "Heavy", power: 1.45, critBonus: 0.08, effect: "Heavy overhead chop dealing huge damage and breaking 1 extra Guard point. 1-Turn Cooldown." },
   ],
   Rapier: [
-    { id: "wpn_skill_rapier_needle_thrust", name: "Needle Thrust", tag: "Fast", power: 1.0, critBonus: 0.05, effect: "Ultra-fast lunge with 98% hit accuracy; keeps your next turn sooner." },
-    { id: "wpn_skill_rapier_heart_pierce", name: "Heart Pierce", tag: "Crit", power: 1.38, critBonus: 0.2, armorIgnore: 0.25, effect: "Focused thrust (+20% Crit Chance) that ignores 25% of enemy Physical Defense." },
+    { id: "wpn_skill_rapier_needle_thrust", name: "Needle Thrust", tag: "Strike", power: 1.0, critBonus: 0.05, effect: "Crisp lunge with 98% hit accuracy (+5% Crit Chance); usable every turn." },
+    { id: "wpn_skill_rapier_heart_pierce", name: "Heart Pierce", tag: "Crit", power: 1.38, critBonus: 0.2, armorIgnore: 0.25, effect: "Focused thrust (+20% Crit Chance) that ignores 25% of enemy Physical Defense. 1-Turn Cooldown." },
   ],
   Battleaxe: [
-    { id: "wpn_skill_battleaxe_chopping_hack", name: "Chopping Hack", tag: "Fast", power: 1.02, critBonus: 0, effect: "Dependable axe chop with reliable accuracy and steady Slashing damage." },
-    { id: "wpn_skill_battleaxe_execution_chop", name: "Execution Chop", tag: "Execute", power: 1.44, critBonus: 0.05, execCritBonus: 0.25, effect: "Heavy chop gaining +25% Crit Chance and bonus damage vs. enemies below 50% HP." },
+    { id: "wpn_skill_battleaxe_chopping_hack", name: "Chopping Hack", tag: "Strike", power: 1.02, critBonus: 0, effect: "Dependable axe chop with reliable accuracy and steady Slashing damage." },
+    { id: "wpn_skill_battleaxe_execution_chop", name: "Execution Chop", tag: "Execute", power: 1.44, critBonus: 0.05, execCritBonus: 0.25, effect: "Heavy chop gaining +25% Crit Chance vs. enemies below 50% HP. 1-Turn Cooldown." },
   ],
   Mace: [
-    { id: "wpn_skill_mace_heavy_bash", name: "Heavy Bash", tag: "Guard", power: 1.02, critBonus: 0, effect: "Fast blunt bash that chips 1 Guard point off guarded enemies." },
-    { id: "wpn_skill_mace_armor_crush", name: "Armor Crush", tag: "Break", power: 1.36, critBonus: 0, effect: "Heavy smash that lowers the target's Physical Defense for 1 turn." },
+    { id: "wpn_skill_mace_heavy_bash", name: "Heavy Bash", tag: "Guard", power: 1.02, critBonus: 0, effect: "Blunt bash that chips 1 Guard point off guarded enemies." },
+    { id: "wpn_skill_mace_armor_crush", name: "Armor Crush", tag: "Break", power: 1.36, critBonus: 0, effect: "Heavy smash that lowers the target's Physical Defense for 1 turn. 1-Turn Cooldown." },
   ],
   Spear: [
     { id: "wpn_skill_spear_long_thrust", name: "Long Thrust", tag: "Aim", power: 1.04, critBonus: 0.12, effect: "Long-reach thrust granting bonus hit accuracy and +12% Crit Chance." },
-    { id: "wpn_skill_spear_brace_sweep", name: "Brace Sweep", tag: "Delay", power: 1.34, critBonus: 0, effect: "Sweeping polearm hit that pushes the enemy back on the turn bar." },
+    { id: "wpn_skill_spear_brace_sweep", name: "Brace Sweep", tag: "Weaken", power: 1.34, critBonus: 0, effect: "Sweeping polearm hit that lowers the enemy's Attack for 1 turn. 1-Turn Cooldown." },
   ],
   Longbow: [
-    { id: "wpn_skill_longbow_snap_arrow", name: "Snap Arrow", tag: "Fast", power: 1.0, critBonus: 0, effect: "Quick long-range arrow with high accuracy and fast recovery." },
-    { id: "wpn_skill_longbow_aimed_piercer", name: "Aimed Piercer", tag: "Sniper", power: 1.42, critBonus: 0.25, armorIgnore: 0.25, effect: "Slow, aimed shot granting +25% Crit Chance and ignoring 25% of enemy Physical Defense." },
+    { id: "wpn_skill_longbow_snap_arrow", name: "Snap Arrow", tag: "Strike", power: 1.0, critBonus: 0, effect: "Clean long-range arrow with high accuracy; usable every turn." },
+    { id: "wpn_skill_longbow_aimed_piercer", name: "Aimed Piercer", tag: "Sniper", power: 1.42, critBonus: 0.25, armorIgnore: 0.25, effect: "Aimed sniper shot granting +25% Crit Chance and ignoring 25% of enemy Physical Defense. 1-Turn Cooldown." },
   ],
   Shortbow: [
-    { id: "wpn_skill_shortbow_quick_volley", name: "Quick Volley", tag: "Fast", power: 0.98, critBonus: 0.05, effect: "Fastest bow shot; keeps your next turn early on the turn bar." },
-    { id: "wpn_skill_shortbow_wing_clip", name: "Wing Clip", tag: "Delay", power: 1.3, critBonus: 0, effect: "Pinning arrow that pushes the enemy's next turn back on the turn bar." },
+    { id: "wpn_skill_shortbow_quick_volley", name: "Quick Volley", tag: "Aim", power: 0.98, critBonus: 0.05, effect: "Steady bow shot with +5% Crit Chance and high accuracy." },
+    { id: "wpn_skill_shortbow_wing_clip", name: "Wing Clip", tag: "Blind", power: 1.3, critBonus: 0, effect: "Pinning arrow that lowers the enemy's Accuracy for 1 turn. 1-Turn Cooldown." },
   ],
   Dagger: [
-    { id: "wpn_skill_dagger_quick_jab", name: "Quick Jab", tag: "Fast", power: 0.96, critBonus: 0.06, effect: "Rapid stab with high accuracy and fast turn recovery." },
-    { id: "wpn_skill_dagger_vital_gouge", name: "Vital Gouge", tag: "Bleed", power: 1.35, critBonus: 0.15, effect: "Deep stab (+15% Crit Chance) with a chance to inflict 2-turn Bleed." },
+    { id: "wpn_skill_dagger_quick_jab", name: "Quick Jab", tag: "Strike", power: 0.96, critBonus: 0.06, effect: "Crisp stab with high accuracy and +6% Crit Chance." },
+    { id: "wpn_skill_dagger_vital_gouge", name: "Vital Gouge", tag: "Bleed", power: 1.35, critBonus: 0.15, effect: "Deep stab (+15% Crit Chance) with a chance to inflict 2-turn Bleed. 1-Turn Cooldown." },
   ],
   "Light Crossbow": [
     { id: "wpn_skill_crossbow_bolt_snap", name: "Bolt Snap", tag: "Pierce", power: 1.02, critBonus: 0.05, armorIgnore: 0.15, effect: "Steady bolt shot that ignores 15% of enemy Physical Defense." },
-    { id: "wpn_skill_crossbow_siege_crank", name: "Siege Crank", tag: "Break", power: 1.38, critBonus: 0.08, effect: "Heavy cranked bolt dealing high damage and chipping 1 Guard point." },
+    { id: "wpn_skill_crossbow_siege_crank", name: "Siege Crank", tag: "Break", power: 1.38, critBonus: 0.08, effect: "Heavy cranked bolt dealing high damage and chipping 1 Guard point. 1-Turn Cooldown." },
   ],
   Quarterstaff: [
-    { id: "wpn_skill_staff_sweep", name: "Staff Sweep", tag: "MP+", power: 1.0, critBonus: 0, effect: "Quick two-handed strike that restores a small amount of MP on hit." },
-    { id: "wpn_skill_staff_crushing_vault", name: "Crushing Vault", tag: "Break", power: 1.36, critBonus: 0, effect: "Heavy overhead staff slam that chips 1 Guard point." },
+    { id: "wpn_skill_staff_sweep", name: "Staff Sweep", tag: "MP+", power: 1.0, critBonus: 0, effect: "Two-handed strike that restores a small amount of MP on hit." },
+    { id: "wpn_skill_staff_crushing_vault", name: "Crushing Vault", tag: "Break", power: 1.36, critBonus: 0, effect: "Heavy overhead staff slam that chips 1 Guard point. 1-Turn Cooldown." },
   ],
   Scimitar: [
-    { id: "wpn_skill_scimitar_crescent_cut", name: "Crescent Cut", tag: "Fast", power: 1.02, critBonus: 0.05, effect: "Smooth curved slash with high hit accuracy and fast recovery." },
-    { id: "wpn_skill_scimitar_whirling_slash", name: "Whirling Slash", tag: "Haste", power: 1.36, critBonus: 0.15, effect: "Spinning slash (+15% Crit Chance) that brings your next turn sooner." },
+    { id: "wpn_skill_scimitar_crescent_cut", name: "Crescent Cut", tag: "Strike", power: 1.02, critBonus: 0.05, effect: "Smooth curved slash with high accuracy and +5% Crit Chance." },
+    { id: "wpn_skill_scimitar_whirling_slash", name: "Whirling Slash", tag: "Crit", power: 1.36, critBonus: 0.15, effect: "Spinning slash dealing heavy damage with +15% Crit Chance. 1-Turn Cooldown." },
   ],
   Sickle: [
-    { id: "wpn_skill_sickle_reaping_hook", name: "Reaping Hook", tag: "Bleed", power: 1.0, critBonus: 0.05, effect: "Fast hooked slice with a chance to inflict 2-turn Bleed." },
-    { id: "wpn_skill_sickle_thorn_slash", name: "Thorn Slash", tag: "Weaken", power: 1.32, critBonus: 0, effect: "Barbed cut that lowers the enemy's Attack for 1 turn." },
+    { id: "wpn_skill_sickle_reaping_hook", name: "Reaping Hook", tag: "Bleed", power: 1.0, critBonus: 0.05, effect: "Hooked slice with a chance to inflict 2-turn Bleed." },
+    { id: "wpn_skill_sickle_thorn_slash", name: "Thorn Slash", tag: "Weaken", power: 1.32, critBonus: 0, effect: "Barbed cut that lowers the enemy's Attack for 1 turn. 1-Turn Cooldown." },
   ],
 };
 

@@ -32,6 +32,15 @@ SETS = {
         "rel_prefix": "assets/icons/magic_tiers",
         "manifest_name": "magic-tiers-manifest.json",
     },
+    "conditions": {
+        "sheets_txt": ROOT / "imageprompts" / "conditions.txt",
+        "batch_dir": ROOT / "assets" / "conditions" / "batch_sheets",
+        "sheet_prefix": "rod_conditions_sheet_",
+        "slices_dir": ROOT / "assets" / "conditions" / "slices",
+        "client_dir": ROOT / "client" / "assets" / "icons" / "conditions",
+        "rel_prefix": "assets/icons/conditions",
+        "manifest_name": "conditions-manifest.json",
+    },
 }
 
 

@@ -1,6 +1,6 @@
 // Fetches canonical JSON catalogs and resolves Hub vendors, town NPCs, stocked Gear Steps, and shop inventories.
 import { SPELLS_CATALOG } from "./spellsData.js";
-import { applyShopCatFilter, buildTownNpcsForHub, itemBelongsToShop } from "./shopTypes.js";
+import { applyShopCatFilter, buildTownNpcsForHub, itemBelongsToShop, stepToDefaultZone, zoneToProgressionTier } from "./shopTypes.js";
 
 export const HERO_ROSTER = [
   { id: "valen", name: "Valen", className: "Duelist", avatar: "/assets/portraits/heroes/valen_avatar.webp" },
@@ -31,7 +31,13 @@ export async function loadStudioData() {
   ]);
 
   const npcsByLoc = Object.fromEntries((npcsData.locations ?? []).map((g) => [g.locationId, g.npcs ?? []]));
-  const rawHubs = (world.locations ?? []).filter((l) => l.interiorAssetPath && !l.id.endsWith("::tavern"));
+  const rawHubs = (world.locations ?? []).filter(
+    (l) =>
+      l.interiorAssetPath &&
+      !l.id.endsWith("::tavern") &&
+      !l.id.startsWith("outpost_") &&
+      !l.id.startsWith("tr_port_")
+  );
   const highcrown = rawHubs.find((l) => l.id === "loc_01_overgrown_garden_sanctuary");
 
   // Match LocationInteriorModal's synthetic Keep (#69) right after Highcrown
@@ -39,6 +45,10 @@ export async function loadStudioData() {
     id: "loc_69_highcrown_keep",
     name: "Highcrown Keep",
     region: 1,
+    zoneNum: 1,
+    gearTiers: [1],
+    spellTier: 1,
+    levelRange: "Lv 1–5",
     mapId: "map_01",
     playerKind: "Royal Keep",
     playerRegion: highcrown?.playerRegion ?? "The Crownlands",
@@ -48,7 +58,7 @@ export async function loadStudioData() {
     bannerAssetPath: highcrown?.bannerAssetPath,
     interiorAssetPath: "assets/maps/interiors/loc_69_highcrown_keep.webp",
     playerServices: ["Royal Keep", "Free Inn", "Armory & Provisions"],
-    services: ["Starter Gear (Step 1)"],
+    services: ["Armory (Gear Tier 1)"],
   };
 
   const hubs = [];
@@ -79,13 +89,13 @@ export async function loadStudioData() {
 function parseStepNums(textBlob) {
   const clean = textBlob.replace(/Chain\s+[A-Z]\s+Step\s+\d+/gi, "");
   const steps = new Set();
-  const rangeRe = /Steps?\s*(\d+)\s*[–-]\s*(\d+)/gi;
+  const rangeRe = /(?:Gear\s+Tiers?|Steps?)\s*(\d+)\s*[–-]\s*(\d+)/gi;
   for (const m of clean.matchAll(rangeRe)) {
     const a = Number(m[1]), b = Number(m[2]);
     for (let s = a; s <= b; s++) steps.add(s);
   }
   if (steps.size === 0) {
-    for (const m of clean.matchAll(/Step\s*(\d+)/gi)) {
+    for (const m of clean.matchAll(/(?:Gear\s+Tier|Step)\s*(\d+)/gi)) {
       steps.add(Number(m[1]));
     }
   }
@@ -110,11 +120,16 @@ function enrichHub(loc, npcs) {
     ...(armoryNpc?.servicesOffered ?? []),
   ].join(" | ");
 
-  const steps = parseStepNums(blob);
+  const parsedSteps = Array.isArray(loc.gearTiers) && loc.gearTiers.length > 0 ? [...loc.gearTiers] : parseStepNums(blob);
+  const zoneNum = loc.zoneNum || (parsedSteps.length ? stepToDefaultZone(parsedSteps[0]) : 1);
+  const spellTier = loc.spellTier || zoneToProgressionTier(zoneNum);
+  const steps = parsedSteps.length ? parsedSteps : [Math.max(1, (spellTier - 1) * 3 + 1)];
   const enriched = {
     ...loc,
-    region: loc.region || Math.ceil((steps[0] || 1) / 3),
-    steps: steps.length ? steps : [Math.max(1, ((loc.region || 1) - 1) * 3 + 1)],
+    region: spellTier,
+    zoneNum,
+    spellTier,
+    steps,
     armoryNpc,
     mysticNpc,
     hasMystic: Boolean(mysticNpc),
@@ -124,18 +139,35 @@ function enrichHub(loc, npcs) {
   return enriched;
 }
 
+export function potionAvailableInZone(potion, zoneNum) {
+  if (typeof potion.minZone === "number" && typeof potion.maxZone === "number") {
+    return zoneNum >= potion.minZone && zoneNum <= potion.maxZone;
+  }
+  const stocked = String(potion.zonesStocked ?? potion.regionsStocked ?? "");
+  const zm = stocked.match(/Zones?\s*(\d+)\s*[–-]\s*(\d+)/i);
+  if (zm) return zoneNum >= Number(zm[1]) && zoneNum <= Number(zm[2]);
+  const rm = stocked.match(/(\d+)\s*[–-]\s*(\d+)/);
+  if (rm) {
+    const band = zoneToProgressionTier(zoneNum);
+    return band >= Number(rm[1]) && band <= Number(rm[2]);
+  }
+  return true;
+}
+
 export function potionAvailableInRegion(potion, region) {
-  const m = String(potion.regionsStocked ?? "").match(/(\d+)\s*[–-]\s*(\d+)/);
-  if (!m) return true;
-  return region >= Number(m[1]) && region <= Number(m[2]);
+  const regZones = [1, 4, 6, 9, 11, 14, 16, 19];
+  return potionAvailableInZone(potion, regZones[Math.max(0, Math.min(7, region - 1))]);
 }
 
 export function getShopStock(data, hub, shopType, catFilter, activeHeroId = null) {
   const stepSet = new Set(hub.steps);
+  const townShopTypes = (hub.townNpcs ?? []).filter((n) => n.isShop).map((n) => n.shopType);
+  const hubZone = hub.zoneNum || stepToDefaultZone(hub.steps[0] || 1);
+  const hubSpellTier = hub.spellTier || zoneToProgressionTier(hubZone);
 
   if (shopType === "trade_goods") {
     return data.items
-      .filter((it) => it.category === "trade_good" && (!it.region || Math.abs(it.region - hub.region) <= 1))
+      .filter((it) => it.category === "trade_good" && (!it.region || Math.abs(it.region - hubSpellTier) <= 1))
       .slice(0, 14);
   }
 
@@ -158,14 +190,14 @@ export function getShopStock(data, hub, shopType, catFilter, activeHeroId = null
   const usableFilter = (it) => !activeHeroId || !it.usableBy || it.usableBy.includes(activeHeroId);
 
   if (shopType === "magic") {
-    const spells = (data.spells ?? []).filter((sp) => sp.region === hub.region && usableFilter(sp));
+    const spells = (data.spells ?? []).filter((sp) => sp.region === hubSpellTier && usableFilter(sp));
     return applyShopCatFilter(spells, "magic", catFilter);
   }
 
   const pool = data.items.filter((it) => {
-    if (!itemBelongsToShop(it, shopType)) return false;
+    if (!itemBelongsToShop(it, shopType, townShopTypes)) return false;
     if (!usableFilter(it)) return false;
-    if (it.category === "consumable") return potionAvailableInRegion(it, hub.region);
+    if (it.category === "consumable") return potionAvailableInZone(it, hubZone);
     return stepSet.has(it.step);
   });
 

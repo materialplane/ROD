@@ -1,6 +1,6 @@
 import { getHeroById } from "../heroes";
 import { computeHeroVitals, getHeroAttributes, getHeroLevel } from "../party/partyLogic";
-import { getWeaponAbilityIconPath } from "../shops/shopLogic";
+import { canDualWieldItem, getWeaponAbilityIconPath, WEAPON_MODE_SPECS } from "../shops/shopLogic";
 import type {
   BattleConfigData,
   BattleEnemyDef,
@@ -31,6 +31,7 @@ import type {
   VfxSpec,
   WeaponModeSpec,
 } from "./battleTypes";
+import { buildFullDisciplineProfile, getPartyCombatAuras, grantWardShield } from "./combatEffects";
 
 export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   burn: {
@@ -63,7 +64,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
     label: "Chill",
     isBuff: false,
     pillCls: "border-[#4b9ed4] bg-[#102233] text-[#9edbff]",
-    desc: "Slowed turn speed on the timeline.",
+    desc: "Outgoing damage reduced by 15%; takes +15% Frost & Lightning damage.",
   },
   shock: {
     kind: "shock",
@@ -151,7 +152,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
     label: "Empowered",
     isBuff: true,
     pillCls: "border-[#d4a644] bg-[#2b2110] text-[#ffe199]",
-    desc: "+20% Attack, Magic Power, and Turn Speed.",
+    desc: "+20% Attack and Magic Power.",
   },
   undying: {
     kind: "undying",
@@ -333,306 +334,6 @@ export const HERO_MAGIC_THEMES: Record<string, MagicThemeSpec> = {
   },
 };
 
-export const WEAPON_MODE_SPECS: Record<string, [WeaponModeSpec, WeaponModeSpec]> = {
-  Longsword: [
-    {
-      id: "wpn_skill_longsword_quick_slash",
-      name: "Quick Slash",
-      tag: "Fast",
-      power: 1.0,
-      critBonus: 0,
-      delayPct: 0.78,
-      effect: "Fast slash with high accuracy; keeps your next turn sooner.",
-    },
-    {
-      id: "wpn_skill_longsword_heavy_cleave",
-      name: "Heavy Cleave",
-      tag: "Heavy",
-      power: 1.4,
-      critBonus: 0.15,
-      delayPct: 1.12,
-      guardChip: 1,
-      effect: "Heavy slash dealing high damage (+15% Crit) and chipping 1 Guard point.",
-    },
-  ],
-  Greatsword: [
-    {
-      id: "wpn_skill_greatsword_wide_sweep",
-      name: "Wide Sweep",
-      tag: "Push",
-      power: 1.05,
-      critBonus: 0,
-      delayPct: 0.92,
-      targetDelayPush: 18,
-      effect: "Wide arc that deals solid damage and pushes the target back on the timeline.",
-    },
-    {
-      id: "wpn_skill_greatsword_overhead_rend",
-      name: "Overhead Rend",
-      tag: "Heavy",
-      power: 1.45,
-      critBonus: 0.08,
-      delayPct: 1.18,
-      guardChip: 1,
-      effect: "Heavy chop dealing massive damage and breaking 1 Guard point.",
-    },
-  ],
-  Rapier: [
-    {
-      id: "wpn_skill_rapier_needle_thrust",
-      name: "Needle Thrust",
-      tag: "Fast",
-      power: 1.0,
-      critBonus: 0.05,
-      delayPct: 0.72,
-      effect: "Ultra-fast lunge; keeps your next turn early.",
-    },
-    {
-      id: "wpn_skill_rapier_heart_pierce",
-      name: "Heart Pierce",
-      tag: "Crit",
-      power: 1.38,
-      critBonus: 0.2,
-      armorIgnore: 0.25,
-      delayPct: 1.05,
-      effect: "Focused thrust (+20% Crit) ignoring 25% of enemy Physical Defense.",
-    },
-  ],
-  Battleaxe: [
-    {
-      id: "wpn_skill_battleaxe_chopping_hack",
-      name: "Chopping Hack",
-      tag: "Fast",
-      power: 1.02,
-      critBonus: 0,
-      delayPct: 0.88,
-      effect: "Dependable chop dealing steady Slashing damage.",
-    },
-    {
-      id: "wpn_skill_battleaxe_execution_chop",
-      name: "Execution Chop",
-      tag: "Execute",
-      power: 1.44,
-      critBonus: 0.05,
-      execCritBonus: 0.25,
-      delayPct: 1.16,
-      effect: "Heavy chop gaining +25% Crit and bonus execution damage vs. enemies below 50% HP.",
-    },
-  ],
-  Mace: [
-    {
-      id: "wpn_skill_mace_heavy_bash",
-      name: "Heavy Bash",
-      tag: "Guard",
-      power: 1.02,
-      critBonus: 0,
-      delayPct: 0.85,
-      guardChip: 1,
-      effect: "Fast blunt bash that chips 1 Guard point off guarded enemies.",
-    },
-    {
-      id: "wpn_skill_mace_armor_crush",
-      name: "Armor Crush",
-      tag: "Break",
-      power: 1.36,
-      critBonus: 0,
-      delayPct: 1.1,
-      debuff: "def_down",
-      effect: "Heavy smash that cracks enemy armor (-25% Defense for 2 turns).",
-    },
-  ],
-  Spear: [
-    {
-      id: "wpn_skill_spear_long_thrust",
-      name: "Long Thrust",
-      tag: "Aim",
-      power: 1.04,
-      critBonus: 0.12,
-      delayPct: 0.82,
-      effect: "Long-reach thrust granting +12% Crit Chance.",
-    },
-    {
-      id: "wpn_skill_spear_brace_sweep",
-      name: "Brace Sweep",
-      tag: "Delay",
-      power: 1.34,
-      critBonus: 0,
-      delayPct: 1.06,
-      targetDelayPush: 24,
-      effect: "Sweeping polearm hit that pushes the target back on the turn bar.",
-    },
-  ],
-  Longbow: [
-    {
-      id: "wpn_skill_longbow_snap_arrow",
-      name: "Snap Arrow",
-      tag: "Fast",
-      power: 1.0,
-      critBonus: 0,
-      delayPct: 0.78,
-      effect: "Quick long-range shot with fast recovery.",
-    },
-    {
-      id: "wpn_skill_longbow_aimed_piercer",
-      name: "Aimed Piercer",
-      tag: "Sniper",
-      power: 1.42,
-      critBonus: 0.25,
-      armorIgnore: 0.25,
-      delayPct: 1.15,
-      effect: "Aimed shot (+25% Crit) ignoring 25% of enemy Physical Defense.",
-    },
-  ],
-  Shortbow: [
-    {
-      id: "wpn_skill_shortbow_quick_volley",
-      name: "Quick Volley",
-      tag: "Fast",
-      power: 0.98,
-      critBonus: 0.05,
-      delayPct: 0.72,
-      effect: "Fastest bow shot; keeps your next turn early.",
-    },
-    {
-      id: "wpn_skill_shortbow_wing_clip",
-      name: "Wing Clip",
-      tag: "Delay",
-      power: 1.3,
-      critBonus: 0,
-      delayPct: 1.02,
-      targetDelayPush: 24,
-      effect: "Pinning shot that pushes the enemy's next turn back on the turn bar.",
-    },
-  ],
-  Dagger: [
-    {
-      id: "wpn_skill_dagger_quick_jab",
-      name: "Quick Jab",
-      tag: "Fast",
-      power: 0.96,
-      critBonus: 0.06,
-      delayPct: 0.68,
-      effect: "Rapid stab with high accuracy and fast recovery.",
-    },
-    {
-      id: "wpn_skill_dagger_vital_gouge",
-      name: "Vital Gouge",
-      tag: "Bleed",
-      power: 1.35,
-      critBonus: 0.15,
-      delayPct: 1.0,
-      debuff: "poison",
-      effect: "Deep stab (+15% Crit) inflicting lingering Poison pressure.",
-    },
-  ],
-  "Light Crossbow": [
-    {
-      id: "wpn_skill_crossbow_bolt_snap",
-      name: "Bolt Snap",
-      tag: "Pierce",
-      power: 1.02,
-      critBonus: 0.05,
-      armorIgnore: 0.15,
-      delayPct: 0.84,
-      effect: "Steady bolt shot ignoring 15% of enemy Physical Defense.",
-    },
-    {
-      id: "wpn_skill_crossbow_siege_crank",
-      name: "Siege Crank",
-      tag: "Break",
-      power: 1.38,
-      critBonus: 0.08,
-      delayPct: 1.14,
-      guardChip: 1,
-      effect: "Heavy cranked bolt dealing high damage and chipping 1 Guard point.",
-    },
-  ],
-  Quarterstaff: [
-    {
-      id: "wpn_skill_staff_sweep",
-      name: "Staff Sweep",
-      tag: "MP+",
-      power: 1.0,
-      critBonus: 0,
-      delayPct: 0.82,
-      restoreMp: 6,
-      effect: "Quick two-handed strike restoring 6 MP on hit.",
-    },
-    {
-      id: "wpn_skill_staff_crushing_vault",
-      name: "Crushing Vault",
-      tag: "Break",
-      power: 1.36,
-      critBonus: 0,
-      delayPct: 1.08,
-      guardChip: 1,
-      effect: "Heavy overhead slam chipping 1 Guard point.",
-    },
-  ],
-  Scimitar: [
-    {
-      id: "wpn_skill_scimitar_crescent_cut",
-      name: "Crescent Cut",
-      tag: "Fast",
-      power: 1.02,
-      critBonus: 0.05,
-      delayPct: 0.76,
-      effect: "Smooth curved slash with high accuracy and fast recovery.",
-    },
-    {
-      id: "wpn_skill_scimitar_whirling_slash",
-      name: "Whirling Slash",
-      tag: "Haste",
-      power: 1.36,
-      critBonus: 0.15,
-      delayPct: 0.88,
-      effect: "Spinning slash (+15% Crit) keeping your next turn early.",
-    },
-  ],
-  Sickle: [
-    {
-      id: "wpn_skill_sickle_reaping_hook",
-      name: "Reaping Hook",
-      tag: "Bleed",
-      power: 1.0,
-      critBonus: 0.05,
-      delayPct: 0.78,
-      debuff: "poison",
-      effect: "Fast hooked slice inflicting lingering Poison.",
-    },
-    {
-      id: "wpn_skill_sickle_thorn_slash",
-      name: "Thorn Slash",
-      tag: "Weaken",
-      power: 1.32,
-      critBonus: 0,
-      delayPct: 1.04,
-      debuff: "atk_down",
-      effect: "Barbed cut that lowers the enemy's Attack for 2 turns.",
-    },
-  ],
-  Unarmed: [
-    {
-      id: "unarmed_quick_strike",
-      name: "Quick Strike",
-      tag: "Unarmed",
-      power: 0.85,
-      critBonus: 0,
-      delayPct: 0.78,
-      effect: "Quick bare-handed strike with no weapon equipped.",
-    },
-    {
-      id: "unarmed_heavy_blow",
-      name: "Heavy Blow",
-      tag: "Unarmed",
-      power: 1.1,
-      critBonus: 0.05,
-      delayPct: 1.05,
-      effect: "Forceful bare-handed blow while fighting unarmed.",
-    },
-  ],
-};
-
 export function pickVfxKey(damageType = "", target = "", name = "", isHeavy = false): string {
   const dt = damageType.toLowerCase();
   const tg = target.toLowerCase();
@@ -693,79 +394,7 @@ export function buildHeroDisciplineModifiers(
   heroEntry: HeroDisciplinesEntry | undefined,
   chosenByTier: Record<string, string> | undefined
 ): { badges: BattleHeroDisciplineBadge[]; mods: HeroDisciplineModifiers } {
-  const mods: HeroDisciplineModifiers = {
-    critPct: 0,
-    spellCritPct: 0,
-    atkPct: 0,
-    magPct: 0,
-    healPct: 0,
-    pDefPct: 0,
-    mDefPct: 0,
-    maxHpPct: 0,
-    maxMpPct: 0,
-    dodgePct: 0,
-    guardMitigationPct: 0,
-    mpCostReductionPct: 0,
-    armorPiercePct: 0,
-    speedBonus: 0,
-    lifestealPct: 0,
-    hpRegenPct: 0,
-    ailmentPowerPct: 0,
-    statusResistPct: 0,
-  };
-  const badges: BattleHeroDisciplineBadge[] = [];
-  if (!heroEntry || !chosenByTier) return { badges, mods };
-
-  for (const tier of heroEntry.tiers) {
-    const pickedId = chosenByTier[String(tier.level)];
-    if (!pickedId) continue;
-    const opt = [tier.optionA, tier.optionB].find((o) => o.id === pickedId);
-    if (!opt) continue;
-    badges.push({
-      tier: tier.level,
-      id: opt.id,
-      name: opt.name,
-      pillar: opt.pillar,
-      tag: opt.tag,
-      effect: opt.effect,
-      iconPath: opt.iconPath,
-    });
-
-    const eff = opt.effect.toLowerCase();
-    const numMatch = opt.effect.match(/(\d+)\s*%/);
-    const pct = numMatch ? Number(numMatch[1]) : 10;
-
-    if (eff.includes("spell crit")) mods.spellCritPct += pct;
-    else if (eff.includes("crit")) mods.critPct += pct;
-    if (eff.includes("physical defense") || eff.includes("armor")) mods.pDefPct += Math.min(25, pct);
-    if (eff.includes("magic defense") || eff.includes("ward")) mods.mDefPct += Math.min(25, pct);
-    if (eff.includes("max hp") || eff.includes("maximum hp")) mods.maxHpPct += Math.min(25, pct);
-    if (eff.includes("max mp")) mods.maxMpPct += Math.min(25, pct);
-    if (eff.includes("dodge") || eff.includes("evasion")) mods.dodgePct += Math.min(18, pct);
-    if (eff.includes("mp cost")) mods.mpCostReductionPct += Math.min(20, pct);
-    if (eff.includes("ignore") || eff.includes("pierce")) mods.armorPiercePct += Math.min(25, pct);
-    if (eff.includes("lifesteal") || eff.includes("drain")) mods.lifestealPct += Math.min(15, pct);
-    if (eff.includes("regen")) mods.hpRegenPct += Math.min(8, pct);
-    if (eff.includes("resist")) mods.statusResistPct += Math.min(25, pct);
-    if (eff.includes("heal") || eff.includes("remed")) mods.healPct += Math.min(25, pct);
-    if (eff.includes("spell") || eff.includes("magic") || eff.includes("elemental")) mods.magPct += Math.min(20, pct);
-    if (eff.includes("attack") || eff.includes("weapon") || eff.includes("damage")) mods.atkPct += Math.min(18, pct);
-    if (eff.includes("guard")) mods.guardMitigationPct += 8;
-    if (eff.includes("speed") || eff.includes("turn")) mods.speedBonus += 3;
-
-    // Guarantee each Discipline pillar gives a steady Baseline boost matching its Discipline identity
-    if (opt.pillar === "body") {
-      mods.maxHpPct += 3;
-      mods.pDefPct += 3;
-    } else if (opt.pillar === "mind") {
-      mods.atkPct += 3;
-      mods.critPct += 2;
-    } else {
-      mods.magPct += 3;
-      mods.mDefPct += 3;
-    }
-  }
-
+  const { badges, mods } = buildFullDisciplineProfile(heroEntry, chosenByTier);
   return { badges, mods };
 }
 
@@ -811,14 +440,14 @@ const BIOME_TO_STAGE_ID: Record<string, string> = {
 };
 
 const PORTAL_STAGE_MAP: Array<{ keys: string[]; portalNum: number; stageId: string }> = [
-  { keys: ["ashen gate", "portal_1", "loc_09"], portalNum: 1, stageId: "biome_35_portal_1_ashen_gate" },
+  { keys: ["ashen gate", "portal_1", "loc_05"], portalNum: 1, stageId: "biome_35_portal_1_ashen_gate" },
   { keys: ["sunken maw", "portal_2", "loc_10"], portalNum: 2, stageId: "biome_36_portal_2_sunken_maw" },
-  { keys: ["iron rift", "portal_3", "loc_19"], portalNum: 3, stageId: "biome_37_portal_3_iron_rift" },
+  { keys: ["iron rift", "portal_3", "loc_15"], portalNum: 3, stageId: "biome_37_portal_3_iron_rift" },
   { keys: ["rotspire", "portal_4", "loc_20"], portalNum: 4, stageId: "biome_38_portal_4_rotspire" },
-  { keys: ["scorched chasm", "portal_5", "loc_29"], portalNum: 5, stageId: "biome_39_portal_5_scorched_chasm" },
-  { keys: ["storm-crowned", "storm crowned", "spire", "portal_6", "loc_30"], portalNum: 6, stageId: "biome_40_portal_6_storm_crowned_spire" },
-  { keys: ["pale abyss", "portal_7", "loc_39"], portalNum: 7, stageId: "biome_41_portal_7_pale_abyss" },
-  { keys: ["garrick", "demon", "citadel", "black keep", "portal_8", "loc_40"], portalNum: 8, stageId: "biome_33_charred_ash_plains" },
+  { keys: ["scorched chasm", "portal_5", "loc_25"], portalNum: 5, stageId: "biome_39_portal_5_scorched_chasm" },
+  { keys: ["storm-crowned", "storm crowned", "storm_crowned", "portal_6", "loc_30"], portalNum: 6, stageId: "biome_40_portal_6_storm_crowned_spire" },
+  { keys: ["pale abyss", "portal_7", "loc_35"], portalNum: 7, stageId: "biome_41_portal_7_pale_abyss" },
+  { keys: ["eclipse gate", "garrick", "demon", "citadel", "black keep", "portal_8", "loc_39", "loc_40"], portalNum: 8, stageId: "biome_33_charred_ash_plains" },
 ];
 
 export function resolveBattleStage(
@@ -833,6 +462,12 @@ export function resolveBattleStage(
   const byId = new Map(config.stages.map((s) => [s.id, s]));
 
   if (opts.portalLoc) {
+    if (typeof opts.portalLoc.portalNum === "number" && opts.portalLoc.portalNum >= 1 && opts.portalLoc.portalNum <= 8) {
+      const byNum = PORTAL_STAGE_MAP.find((p) => p.portalNum === opts.portalLoc!.portalNum);
+      if (byNum) {
+        return { stage: byId.get(byNum.stageId) ?? config.stages[0], portalNum: byNum.portalNum };
+      }
+    }
     const hay = `${opts.portalLoc.id} ${opts.portalLoc.name}`.toLowerCase();
     for (const p of PORTAL_STAGE_MAP) {
       if (p.keys.some((k) => hay.includes(k))) {
@@ -845,16 +480,14 @@ export function resolveBattleStage(
     return { stage: byId.get("biome_35_portal_1_ashen_gate") ?? config.stages[0], portalNum: 1 };
   }
 
-  // 4-Hex Ocean / Inland Water coastal buffer staging (~45% chance on generic shoreline tiles)
+  // 4-Hex Ocean / Inland Water coastal buffer staging (~45% chance on shoreline tiles)
   if (opts.nearWaterKind === "ocean" && Math.random() < 0.45) {
     const coastalStageId =
       opts.mapId === "map_01"
         ? "biome_03_coastal_shore_crown_sea"
-        : opts.mapId === "map_02"
+        : opts.mapId === "map_02" || opts.mapId === "map_03"
           ? "biome_17_sandy_cove_beaches"
-          : opts.mapId === "map_03"
-            ? "biome_17_sandy_cove_beaches"
-            : "biome_34_coastal_shore_frostbound_ocean";
+          : "biome_34_coastal_shore_frostbound_ocean";
     const st = byId.get(coastalStageId);
     if (st) return { stage: st, portalNum: null };
   } else if (opts.nearWaterKind === "inland_water" && Math.random() < 0.42) {
@@ -863,7 +496,9 @@ export function resolveBattleStage(
         ? "biome_09_saltmarsh_waterways_shore"
         : opts.mapId === "map_02"
           ? "biome_14_borderland_channel_shore"
-          : "biome_20_oasis_alpine_lakes_shore";
+          : opts.mapId === "map_03"
+            ? "biome_20_oasis_alpine_lakes_shore"
+            : "biome_32_frozen_glacial_lakes";
     const st = byId.get(inlandId);
     if (st) return { stage: st, portalNum: null };
   }
@@ -978,15 +613,82 @@ function buildPlacement(
 
 let seqCounter = 1;
 
-function instantiateEnemyUnit(def: BattleEnemyDef, zoneLevel: number): BattleEnemyUnit {
-  const lv = def.isBoss ? Math.max(zoneLevel, def.level ?? zoneLevel) : Math.max(1, Math.round((def.level ?? zoneLevel) * 0.4 + zoneLevel * 0.6));
-  const roleLow = (def.role ?? "").toLowerCase();
-  const speedBase = roleLow.includes("skirmish") || roleLow.includes("assassin") ? 22 : roleLow.includes("tank") || roleLow.includes("brute") ? 12 : 16;
-  const maxHp = def.isBoss ? Math.max(250, def.hp) : Math.max(24, Math.round(def.hp * (0.85 + lv / Math.max(4, (def.level ?? lv) + 2) * 0.25)));
-  const xpReward = def.xp ?? Math.max(18, Math.round((def.isBoss ? 3.5 : 1) * (16 + lv * 7.2 + lv * lv * 0.42)));
-  const silverReward = def.silver ?? Math.max(8, Math.round((def.isBoss ? 4.0 : 1) * (7 + lv * 3.1)));
-  const pDef = def.pDef ?? Math.round(2 + lv * 0.85);
-  const mDef = def.mDef ?? Math.round(2 + lv * 0.8);
+const ZONE_LEVEL_BENCHMARKS: ReadonlyArray<readonly [number, number, number]> = [
+  [1, 28, 4.2],
+  [3, 43, 5.5],
+  [8, 96, 9.3],
+  [13, 155, 13.5],
+  [18, 320, 26.2],
+  [23, 476, 34.0],
+  [28, 674, 41.5],
+  [33, 1077, 52.3],
+  [38, 1313, 73.5],
+  [43, 1891, 85.5],
+  [48, 2341, 96.7],
+  [53, 2760, 110.3],
+  [58, 3622, 125.7],
+  [63, 4369, 160.2],
+  [68, 5388, 180.5],
+  [73, 5880, 199.8],
+  [78, 6928, 222.3],
+  [83, 7783, 277.7],
+  [88, 9116, 304.2],
+  [93, 10171, 334.5],
+  [98, 11756, 374.7],
+  [99, 12100, 384.0],
+];
+
+function sampleZoneBenchmark(level: number): { hp: number; off: number } {
+  const lv = Math.max(1, Math.min(99, level));
+  for (let i = 0; i < ZONE_LEVEL_BENCHMARKS.length - 1; i++) {
+    const [l0, h0, o0] = ZONE_LEVEL_BENCHMARKS[i];
+    const [l1, h1, o1] = ZONE_LEVEL_BENCHMARKS[i + 1];
+    if (lv <= l1) {
+      const t = (lv - l0) / Math.max(1, l1 - l0);
+      return {
+        hp: h0 + (h1 - h0) * t,
+        off: o0 + (o1 - o0) * t,
+      };
+    }
+  }
+  return { hp: 12100, off: 384 };
+}
+
+function instantiateEnemyUnit(def: BattleEnemyDef, zoneMin: number, zoneMax: number): BattleEnemyUnit {
+  const zoneMid = Math.round((zoneMin + zoneMax) / 2);
+  const rawLv = Math.max(1, def.level ?? zoneMid);
+  const inNativeZone = !def.isBoss && rawLv >= zoneMin && rawLv <= zoneMax;
+  const lv = def.isBoss
+    ? Math.max(zoneMid, rawLv)
+    : inNativeZone
+      ? rawLv
+      : Math.max(zoneMin, Math.min(zoneMax, zoneMid + Math.floor(Math.random() * 3) - 1));
+
+  let scaledHp = def.hp;
+  let scaledAtk = def.atk;
+  let scaledMag = def.mag ?? 0;
+  let scaledGuard = Math.max(0, def.guard ?? (def.isBoss ? 4 : 0));
+
+  if (!def.isBoss && !inNativeZone) {
+    const rawBench = sampleZoneBenchmark(rawLv);
+    const tgtBench = sampleZoneBenchmark(lv);
+    const hpMul = tgtBench.hp / Math.max(1, rawBench.hp);
+    const offMul = tgtBench.off / Math.max(1, rawBench.off);
+    scaledHp = Math.max(24, Math.round(def.hp * hpMul));
+    scaledAtk = def.atk > 0 ? Math.max(2, Math.round(def.atk * offMul)) : 0;
+    scaledMag = (def.mag ?? 0) > 0 ? Math.max(2, Math.round((def.mag ?? 0) * offMul)) : 0;
+    scaledGuard = lv <= 10 ? 0 : lv <= 30 ? Math.min(1, scaledGuard) : Math.min(2, scaledGuard);
+  }
+
+  const maxHp = def.isBoss ? Math.max(250, def.hp) : scaledHp;
+  const xpReward = def.isBoss
+    ? (def.xp ?? Math.max(400, Math.round(120 + lv * 140 + lv * lv * 6.2)))
+    : Math.max(4, Math.round(3 + lv * 0.9 + lv * lv * 0.19));
+  const silverReward = def.isBoss
+    ? (def.silver ?? Math.max(300, Math.round(50 + lv * 80 + lv * lv * 11.5)))
+    : Math.max(1, Math.round(0.7 + lv * 0.22 + lv * lv * lv * 0.0014));
+  const pDef = def.pDef && inNativeZone ? def.pDef : Math.round(2 + lv * 0.85);
+  const mDef = def.mDef && inNativeZone ? def.mDef : Math.round(2 + lv * 0.8);
 
   return {
     instanceId: `foe_${seqCounter++}_${def.id}`,
@@ -996,18 +698,17 @@ function instantiateEnemyUnit(def: BattleEnemyDef, zoneLevel: number): BattleEne
     role: def.role ?? "Enemy",
     maxHp,
     curHp: maxHp,
-    atk: Math.max(6, Math.round(def.atk)),
-    mag: Math.max(0, Math.round(def.mag ?? 0)),
+    atk: scaledAtk > 0 ? Math.max(2, Math.round(scaledAtk)) : (scaledMag > 0 ? 0 : 4),
+    mag: Math.max(0, Math.round(scaledMag)),
     pDef,
     mDef,
-    speed: speedBase + Math.floor(lv * 0.7),
     xpReward,
     silverReward,
     weakTypes: parseDamageTypeList(def.weak),
     resistTypes: parseDamageTypeList(def.resist),
     revealedWeaknesses: [],
-    guardMax: Math.max(0, def.guard ?? (def.isBoss ? 4 : 0)),
-    guardCur: Math.max(0, def.guard ?? (def.isBoss ? 4 : 0)),
+    guardMax: scaledGuard,
+    guardCur: scaledGuard,
     staggeredTurns: 0,
     telegraphedMove: null,
     isBoss: Boolean(def.isBoss),
@@ -1019,7 +720,7 @@ function instantiateEnemyUnit(def: BattleEnemyDef, zoneLevel: number): BattleEne
     visualScale: def.visualScale ?? 1.0,
     flipX: Boolean(def.flipX),
     iconPath: def.iconPath,
-    timelinePos: Math.random() * 25 + 15,
+    actedThisRound: false,
     statuses: [],
     rawDef: def,
   };
@@ -1071,17 +772,32 @@ export function createBattleState(params: {
     const attrs = getHeroAttributes(hid, heroLv, params.heroSpentAttrs);
     const wpnId = params.equippedByHero[hid]?.right_hand;
     const wpn = wpnId ? params.itemsById[wpnId] : undefined;
-    const { badges, mods } = buildHeroDisciplineModifiers(
+    const rawLeftId = params.equippedByHero[hid]?.left_hand;
+    const rawLeft = rawLeftId ? params.itemsById[rawLeftId] : undefined;
+    const offhandWpn = canDualWieldItem(hid, rawLeft) ? rawLeft : undefined;
+    const hasShield = rawLeft?.category === "shield";
+    const rightWpnAtk = Number(wpn?.stats?.attackPower ?? 0);
+    const leftWpnAtk = Number(offhandWpn?.stats?.attackPower ?? 0);
+    const stones = [params.socketsByHero[hid]?.weapon, params.socketsByHero[hid]?.armor];
+    const { badges, mods, passives } = buildFullDisciplineProfile(
       params.disciplinesByHero[hid],
-      params.chosenDisciplinesByHero[hid]
+      params.chosenDisciplinesByHero[hid],
+      stones
     );
+
+    const effectivePDefPct = mods.pDefPct + (hasShield ? passives.shieldPDefPct : 0);
+    const effectiveDodge = vitals.dodge + mods.dodgePct + (hasShield ? passives.shieldDodgePct : 0);
+    const effectiveCrit =
+      vitals.crit + mods.critPct + (wpn?.subType === "Spear" ? passives.spearCritPct : 0);
+    const effectiveStatusResist =
+      Math.round(attrs.grit * 0.5) + mods.statusResistPct + (hasShield ? passives.shieldStunResistPct : 0);
 
     const maxHp = Math.max(30, Math.round(vitals.maxHp * (1 + mods.maxHpPct / 100)));
     const curHp = Math.max(1, Math.min(maxHp, Math.round((maxHp * (params.heroHpPct[hid] ?? 100)) / 100)));
     const maxMp = vitals.hasMp ? Math.max(10, Math.round(vitals.maxMp * (1 + mods.maxMpPct / 100))) : 0;
     const curMp = vitals.hasMp ? Math.max(0, Math.min(maxMp, Math.round((maxMp * (params.heroMpPct[hid] ?? 100)) / 100))) : 0;
 
-    return {
+    const unit: BattleHeroUnit = {
       heroId: hid,
       name: heroDef.name,
       className: heroDef.className,
@@ -1095,24 +811,39 @@ export function createBattleState(params: {
       atk: Math.round(vitals.atk * (1 + mods.atkPct / 100)),
       mag: Math.round(vitals.mag * (1 + mods.magPct / 100)),
       heal: Math.round(vitals.heal * (1 + mods.healPct / 100)),
-      pDef: Math.round(vitals.pDef * (1 + mods.pDefPct / 100)),
+      pDef: Math.round(vitals.pDef * (1 + effectivePDefPct / 100)),
       mDef: Math.round(vitals.mDef * (1 + mods.mDefPct / 100)),
-      speed: vitals.speed + mods.speedBonus,
-      critPct: Math.min(75, vitals.crit + mods.critPct),
-      dodgePct: Math.min(40, Math.round(attrs.finesse * 0.3) + mods.dodgePct),
+      critPct: Math.min(75, effectiveCrit),
+      dodgePct: Math.min(45, effectiveDodge),
       armorPiercePct: mods.armorPiercePct,
-      statusResistPct: Math.min(65, Math.round(attrs.grit * 0.5) + mods.statusResistPct),
+      statusResistPct: Math.min(65, effectiveStatusResist),
       weaponName: wpn?.name ?? "Unarmed",
       weaponSubType: wpn?.subType ?? "Unarmed",
       weaponDamageType: wpn?.damageType ?? "Bludgeoning",
+      hasShield,
+      offhandWeaponName: offhandWpn?.name,
+      offhandWeaponSubType: offhandWpn?.subType,
+      offhandWeaponDamageType: offhandWpn?.damageType,
+      offhandAtk: offhandWpn ? Math.max(1, Math.round((vitals.atk - rightWpnAtk + leftWpnAtk) * (1 + mods.atkPct / 100))) : 0,
+      shieldHp: 0,
       guarding: false,
       momentum: false,
-      timelinePos: Math.random() * 14 + slotIdx * 4,
+      actedThisRound: false,
+      bonusTurnUsedThisRound: false,
+      bonusTurnUsedThisBattle: false,
+      cadenceStacks: 0,
+      battleWrathStacks: 0,
+      skillCooldowns: {},
       statuses: [],
       disciplines: badges,
       mods,
+      passives,
       avatarPath: heroDef.avatarPath,
     };
+    if (passives.startWardShieldPct > 0) {
+      grantWardShield(unit, passives.startWardShieldPct);
+    }
+    return unit;
   });
 
   // Pick enemies matched cleanly to Portal Boss or Zone level & stage pool
@@ -1125,8 +856,35 @@ export function createBattleState(params: {
       params.config.monsters.find((m) => m.isBoss);
     if (boss) chosenDefs = [boss];
   } else {
+    const zoneKey = String(params.zoneCode);
+    const curatedNames = stage.zoneSpawns?.[zoneKey] ?? [];
+    const curatedSet = new Set(curatedNames.map((n) => n.toLowerCase()));
     const spawnNames = new Set((stage.spawnNames ?? []).map((n) => n.toLowerCase()));
-    let pool = params.config.monsters.filter((m) => !m.isBoss && spawnNames.has(m.name.toLowerCase()));
+
+    // 1. Exact curated Zone × Biome roster from battle-config.json
+    let pool =
+      curatedSet.size > 0
+        ? params.config.monsters.filter((m) => !m.isBoss && curatedSet.has(m.name.toLowerCase()))
+        : [];
+
+    // 2. Native biome spawns that belong to this Danger Zone's level band
+    if (pool.length === 0 && spawnNames.size > 0) {
+      pool = params.config.monsters.filter(
+        (m) =>
+          !m.isBoss &&
+          spawnNames.has(m.name.toLowerCase()) &&
+          typeof m.level === "number" &&
+          m.level >= params.zoneMin &&
+          m.level <= params.zoneMax
+      );
+    }
+
+    // 3. Fallback preserving biome ecology (scaled cleanly by instantiateEnemyUnit to zoneMin..zoneMax)
+    if (pool.length === 0 && spawnNames.size > 0) {
+      pool = params.config.monsters.filter((m) => !m.isBoss && spawnNames.has(m.name.toLowerCase()));
+    }
+
+    // 4. Last-resort Zone level band fallback
     if (pool.length === 0) {
       pool = params.config.monsters.filter(
         (m) =>
@@ -1153,10 +911,18 @@ export function createBattleState(params: {
     }
   }
 
-  const enemies = chosenDefs.map((d) => instantiateEnemyUnit(d, midZoneLv));
+  const enemies = chosenDefs.map((d) => instantiateEnemyUnit(d, params.zoneMin, params.zoneMax));
   packEncounterIntoGrid(enemies, stage);
 
-  // Advance timeline until the fastest first unit takes the floor
+  // Orin Lv10 Rallying Horn: opening party Empowered buff at start of battle
+  const rallyTurns = Math.max(0, ...heroes.map((h) => h.passives.partyStartEmpowerTurns));
+  if (rallyTurns > 0) {
+    for (const h of heroes) {
+      h.statuses = upsertStatusEffect(h.statuses, "haste", rallyTurns);
+    }
+  }
+
+  // Start Round 1 cleanly from Party Slot #1
   const state: BattleState = {
     stage,
     biomeName: params.biomeName,
@@ -1176,18 +942,22 @@ export function createBattleState(params: {
     turnCounter: 1,
   };
 
-  advanceTimelineToNextLivingUnit(state);
+  advanceToNextTurnInRound(state);
   return state;
 }
 
-export function getEffectiveSpeed(speed: number, statuses: StatusEffectState[]): number {
-  let mul = 1.0;
-  if (statuses.some((s) => s.kind === "chill")) mul *= 0.72;
-  if (statuses.some((s) => s.kind === "haste")) mul *= 1.2;
-  return Math.max(4, speed * mul);
+export function finishHeroTurnCooldowns(hero: BattleHeroUnit, usedAction?: BattleActionSpec): void {
+  if (!hero.skillCooldowns) hero.skillCooldowns = {};
+  for (const [id, rem] of Object.entries(hero.skillCooldowns)) {
+    if (rem <= 1) delete hero.skillCooldowns[id];
+    else hero.skillCooldowns[id] = rem - 1;
+  }
+  if (usedAction?.cooldownTurns && usedAction.cooldownTurns > 0) {
+    hero.skillCooldowns[usedAction.id] = usedAction.cooldownTurns;
+  }
 }
 
-export function advanceTimelineToNextLivingUnit(state: BattleState): void {
+export function advanceToNextTurnInRound(state: BattleState): void {
   const livingHeroes = state.heroes.filter((h) => h.curHp > 0);
   const livingEnemies = state.enemies.filter((e) => e.curHp > 0);
   if (livingHeroes.length === 0) {
@@ -1201,109 +971,177 @@ export function advanceTimelineToNextLivingUnit(state: BattleState): void {
     return;
   }
 
-  let bestKind: "hero" | "enemy" = "hero";
-  let bestId: string = livingHeroes[0].heroId;
-  let minPos = Number.POSITIVE_INFINITY;
+  const nextHero = livingHeroes.find((h) => !h.actedThisRound);
+  if (nextHero) {
+    state.activeActor = { kind: "hero", heroId: nextHero.heroId };
+    return;
+  }
 
-  for (const h of livingHeroes) {
-    if (h.timelinePos < minPos) {
-      minPos = h.timelinePos;
-      bestKind = "hero";
-      bestId = h.heroId;
+  const nextEnemy = livingEnemies.find((e) => !e.actedThisRound);
+  if (nextEnemy) {
+    state.activeActor = { kind: "enemy", instanceId: nextEnemy.instanceId };
+    return;
+  }
+
+  state.turnCounter += 1;
+  if (state.galeCanopyDodgeTurns && state.galeCanopyDodgeTurns > 0) {
+    state.galeCanopyDodgeTurns -= 1;
+  }
+  const poisonFoeCount = Math.min(3, livingEnemies.filter((e) => e.statuses.some((s) => s.kind === "poison")).length);
+  for (const h of state.heroes) {
+    h.actedThisRound = false;
+    h.bonusTurnUsedThisRound = false;
+    h.riposteUsedThisRound = false;
+    h.interceptUsedThisRound = false;
+    h.dodgeHealUsedThisRound = false;
+    h.coveringVolleyUsedThisRound = false;
+    h.guardDodgeBonusPct = 0;
+    h.guardShieldWall = false;
+    if (h.curHp > 0 && h.passives.cadenceAtkPerRoundPct > 0) {
+      h.cadenceStacks = Math.min(5, (h.cadenceStacks ?? 0) + 1);
+    }
+    if (h.adaptiveTurns && h.adaptiveTurns > 0) {
+      h.adaptiveTurns -= 1;
+      if (h.adaptiveTurns === 0) {
+        h.adaptiveElement = undefined;
+        h.adaptiveReductionPct = 0;
+      }
+    }
+    if (h.mossWardTurns && h.mossWardTurns > 0) {
+      h.mossWardTurns -= 1;
+    }
+    if (h.curHp > 0 && h.hasMp && poisonFoeCount > 0 && h.passives.blightSiphonMpPerPoison > 0) {
+      h.curMp = Math.min(h.maxMp, h.curMp + poisonFoeCount * h.passives.blightSiphonMpPerPoison);
     }
   }
-  for (const e of livingEnemies) {
-    if (e.timelinePos < minPos) {
-      minPos = e.timelinePos;
-      bestKind = "enemy";
-      bestId = e.instanceId;
-    }
+  for (const e of state.enemies) {
+    e.actedThisRound = false;
+    e.struckThisRoundByOrin = false;
+    if (e.armorBrokenByOrinTurns && e.armorBrokenByOrinTurns > 0) e.armorBrokenByOrinTurns -= 1;
+    if (e.rotCloudDoubleTurns && e.rotCloudDoubleTurns > 0) e.rotCloudDoubleTurns -= 1;
   }
-
-  // Pull timeline so active actor sits at 0
-  if (Number.isFinite(minPos) && minPos > 0) {
-    for (const h of livingHeroes) h.timelinePos = Math.max(0, h.timelinePos - minPos);
-    for (const e of livingEnemies) e.timelinePos = Math.max(0, e.timelinePos - minPos);
-  }
-
-  state.activeActor =
-    bestKind === "hero" ? { kind: "hero", heroId: bestId as HeroId } : { kind: "enemy", instanceId: bestId };
+  state.activeActor = { kind: "hero", heroId: livingHeroes[0].heroId };
 }
 
-export function previewTurnTimeline(state: BattleState, count = 8): TurnTimelineEntry[] {
+export function previewRoundOrder(state: BattleState, count = 10): TurnTimelineEntry[] {
   const livingHeroes = state.heroes.filter((h) => h.curHp > 0);
   const livingEnemies = state.enemies.filter((e) => e.curHp > 0);
   if (livingHeroes.length === 0 || livingEnemies.length === 0) return [];
 
-  const sim = [
-    ...livingHeroes.map((h) => ({
-      kind: "hero" as const,
-      id: h.heroId as string,
-      name: h.name,
-      iconPath: h.avatarPath,
-      pos: h.timelinePos,
-      spd: getEffectiveSpeed(h.speed, h.statuses),
-      telegraphed: false,
-    })),
-    ...livingEnemies.map((e) => ({
-      kind: "enemy" as const,
-      id: e.instanceId,
-      name: e.name,
-      iconPath: e.iconPath,
-      pos: e.timelinePos,
-      spd: getEffectiveSpeed(e.speed, e.statuses),
-      telegraphed: Boolean(e.telegraphedMove),
-    })),
-  ];
-
   const out: TurnTimelineEntry[] = [];
   const activeId = state.activeActor.kind === "hero" ? state.activeActor.heroId : state.activeActor.instanceId;
 
-  for (let i = 0; i < count; i++) {
-    sim.sort((a, b) => a.pos - b.pos);
-    const next = sim[0];
-    if (!next) break;
-    out.push({
-      kind: next.kind,
-      id: next.id,
-      name: next.name,
-      iconPath: next.iconPath,
-      isActive: i === 0 && next.id === activeId,
-      isTelegraphed: next.telegraphed,
+  const pushEntry = (entry: TurnTimelineEntry) => {
+    if (out.length < count) out.push(entry);
+  };
+
+  for (const h of livingHeroes) {
+    if (h.actedThisRound) continue;
+    pushEntry({
+      kind: "hero",
+      id: h.heroId,
+      name: h.name,
+      iconPath: h.avatarPath,
+      isActive: state.activeActor.kind === "hero" && h.heroId === activeId,
     });
-    const adv = next.pos;
-    for (const u of sim) u.pos = Math.max(0, u.pos - adv);
-    next.pos += 100 / Math.max(4, next.spd);
+  }
+  for (const e of livingEnemies) {
+    if (e.actedThisRound) continue;
+    pushEntry({
+      kind: "enemy",
+      id: e.instanceId,
+      name: e.name,
+      iconPath: e.iconPath,
+      isActive: state.activeActor.kind === "enemy" && e.instanceId === activeId,
+      isTelegraphed: Boolean(e.telegraphedMove),
+    });
+  }
+
+  if (out.length > 0 && out.length < count) {
+    pushEntry({
+      kind: "round_break",
+      id: `round_${state.turnCounter + 1}`,
+      name: `Round ${state.turnCounter + 1}`,
+      iconPath: "",
+      isActive: false,
+    });
+  }
+
+  for (const h of livingHeroes) {
+    if (out.length >= count) break;
+    pushEntry({
+      kind: "hero",
+      id: `${h.heroId}_next`,
+      name: h.name,
+      iconPath: h.avatarPath,
+      isActive: false,
+    });
+  }
+  for (const e of livingEnemies) {
+    if (out.length >= count) break;
+    pushEntry({
+      kind: "enemy",
+      id: `${e.instanceId}_next`,
+      name: e.name,
+      iconPath: e.iconPath,
+      isActive: false,
+      isTelegraphed: Boolean(e.telegraphedMove),
+    });
   }
 
   return out;
 }
 
-export function buildHeroWeaponActions(hero: BattleHeroUnit): BattleActionSpec[] {
-  const modes = WEAPON_MODE_SPECS[hero.weaponSubType] ?? WEAPON_MODE_SPECS.Unarmed;
-  return modes.map((m, idx) => ({
-    id: m.id,
+export function buildDualWieldFollowupAction(hero: BattleHeroUnit): BattleActionSpec | null {
+  if (!hero.offhandWeaponSubType || !hero.offhandAtk || hero.offhandAtk <= 0) return null;
+  const dmgType = hero.offhandWeaponDamageType ?? hero.weaponDamageType;
+  return {
+    id: "dual_wield_offhand",
     kind: "attack",
-    name: m.name,
-    categoryLabel: `${hero.weaponSubType} · ${m.tag}`,
-    badge: m.tag,
+    name: hero.offhandWeaponName ?? "Off-Hand Strike",
+    categoryLabel: "Dual Wield Follow-Up",
+    badge: "Off-Hand",
     badgeKind: "weapon",
-    iconPath: getWeaponAbilityIconPath(hero.weaponSubType, idx as 0 | 1),
+    iconPath: getWeaponAbilityIconPath(hero.offhandWeaponSubType, 0),
     mpCost: 0,
     targetScope: "enemy",
-    damageType: hero.weaponDamageType,
-    power: m.power,
-    critBonus: m.critBonus,
-    execCritBonus: m.execCritBonus,
-    armorIgnore: m.armorIgnore,
-    delayPct: m.delayPct,
-    targetDelayPush: m.targetDelayPush,
-    guardChip: m.guardChip,
-    inflictStatus: m.debuff,
-    restoreMp: m.restoreMp,
-    vfxKey: pickVfxKey(hero.weaponDamageType, "enemy", m.name, idx === 1),
-    effectText: m.effect,
-  }));
+    damageType: dmgType,
+    power: 0.5,
+    critBonus: 0,
+    vfxKey: pickVfxKey(dmgType, "enemy", hero.offhandWeaponName ?? "Quick Slash", false),
+    effectText: "Automatic 50% power off-hand blade follow-up hit.",
+  };
+}
+
+export function buildHeroWeaponActions(hero: BattleHeroUnit): BattleActionSpec[] {
+  const modes = WEAPON_MODE_SPECS[hero.weaponSubType] ?? WEAPON_MODE_SPECS.Unarmed;
+  return modes.map((m, idx) => {
+    const cdRem = hero.skillCooldowns?.[m.id] ?? 0;
+    return {
+      id: m.id,
+      kind: "attack",
+      name: m.name,
+      categoryLabel: `${hero.weaponSubType} · ${m.cooldownTurns > 0 ? "1-Turn Cooldown" : "No Cooldown"}`,
+      badge: cdRem > 0 ? `${cdRem}T CD` : m.cooldownTurns > 0 ? "1T CD" : m.tag,
+      badgeKind: "weapon",
+      iconPath: getWeaponAbilityIconPath(hero.weaponSubType, idx as 0 | 1),
+      mpCost: 0,
+      targetScope: "enemy",
+      damageType: hero.weaponDamageType,
+      power: m.power,
+      critBonus: m.critBonus,
+      execCritBonus: m.execCritBonus,
+      armorIgnore: m.armorIgnore,
+      cooldownTurns: m.cooldownTurns,
+      splashPct: m.splashPct,
+      guardChip: m.guardChip,
+      inflictStatus: m.debuff,
+      restoreMp: m.restoreMp,
+      vfxKey: pickVfxKey(hero.weaponDamageType, "enemy", m.name, idx === 1),
+      effectText: m.effect,
+      disabledReason: cdRem > 0 ? `Recharging (${cdRem}T cooldown)` : undefined,
+    };
+  });
 }
 
 function parseSpellTimedEffects(sp: SpellEntry): {
@@ -1311,25 +1149,37 @@ function parseSpellTimedEffects(sp: SpellEntry): {
   inflictTurns?: number;
   inflictChance?: number;
   grantStatus?: { kind: StatusAilmentKind; turns: number };
-  targetDelayPush?: number;
+  splashPct?: number;
   guardChip?: number;
   armorIgnore?: number;
   grantMomentum?: boolean;
+  grantBonusTurn?: boolean;
   stripEnemyBuffs?: boolean;
   restoreMp?: number;
+  secondAlly?: boolean;
+  siphonHpPct?: number;
+  siphonMpPct?: number;
+  siphonPartyHpPct?: number;
+  empowerNextSpell?: boolean;
+  specialTag?: string;
 } {
   const eff = (sp.effect ?? "").toLowerCase();
   const turnsMatch = eff.match(/(\d+)\s*[–-]?\s*turn/);
   const turns = turnsMatch ? Math.max(1, Math.min(4, Number(turnsMatch[1]))) : 2;
   const tg = (sp.target ?? "").toLowerCase();
   const isAlly = tg.includes("ally") || tg.includes("allies");
+  const isTwoAllies = isAlly && tg.includes("2 allies");
+  const splashPct = !isAlly && tg.includes("splash") ? 0.5 : undefined;
 
   let inflictStatus: StatusAilmentKind | undefined;
   let inflictChance = 0.72;
   let grantStatus: { kind: StatusAilmentKind; turns: number } | undefined;
 
   if (!isAlly) {
-    if (eff.includes("burn")) {
+    if (eff.includes("stun")) {
+      inflictStatus = "stun";
+      inflictChance = eff.includes("strong") ? 0.65 : 0.45;
+    } else if (eff.includes("burn")) {
       inflictStatus = "burn";
       inflictChance = eff.includes("light burn") ? 0.45 : eff.includes("severe") ? 0.9 : 0.75;
     } else if (eff.includes("bleed")) {
@@ -1347,16 +1197,13 @@ function parseSpellTimedEffects(sp: SpellEntry): {
     } else if (eff.includes("curse")) {
       inflictStatus = "curse";
       inflictChance = 0.85;
-    } else if (eff.includes("stun")) {
-      inflictStatus = "stun";
-      inflictChance = eff.includes("strong") ? 0.65 : 0.45;
     } else if (eff.includes("accuracy")) {
       inflictStatus = "blind";
       inflictChance = 0.8;
-    } else if (eff.includes("def") && (eff.includes("melt") || eff.includes("-"))) {
+    } else if ((eff.includes("def") || eff.includes("defense")) && (eff.includes("melt") || eff.includes("-") || eff.includes("cutting"))) {
       inflictStatus = "def_down";
       inflictChance = 0.85;
-    } else if (eff.includes("attack") && (eff.includes("cuts") || eff.includes("-"))) {
+    } else if (eff.includes("attack") && (eff.includes("cuts") || eff.includes("-") || eff.includes("lower"))) {
       inflictStatus = "atk_down";
       inflictChance = 0.85;
     }
@@ -1371,44 +1218,81 @@ function parseSpellTimedEffects(sp: SpellEntry): {
       grantStatus = { kind: "regen", turns: turnsMatch ? turns : 3 };
     } else if (eff.includes("ward") || eff.includes("barrier") || eff.includes("defense") || eff.includes("barkskin")) {
       grantStatus = { kind: "ward", turns };
-    } else if (eff.includes("speed") || eff.includes("force & finesse") || eff.includes("magic power")) {
+    } else if (eff.includes("crit") || eff.includes("force & finesse") || eff.includes("magic power")) {
       grantStatus = { kind: "haste", turns };
     }
   }
 
-  const targetDelayPush = eff.includes("delay") || eff.includes("pushing") ? 20 : undefined;
-  const guardChip = eff.includes("breaking 2 guard") ? 2 : eff.includes("guard point") ? 1 : undefined;
+  const guardChip =
+    eff.includes("breaking 2 guard") || eff.includes("heavy guard break")
+      ? 2
+      : eff.includes("guard point") || eff.includes("breaking 1 guard") || eff.includes("chipping 1 guard") || eff.includes("chip 1 guard")
+        ? 1
+        : undefined;
   const armorIgnore = eff.includes("50% magic defense") ? 0.5 : eff.includes("40% magic defense") ? 0.4 : eff.includes("25%") ? 0.25 : undefined;
   const grantMomentum = eff.includes("momentum") ? true : undefined;
-  const stripEnemyBuffs = eff.includes("strips enemy buffs") ? true : undefined;
+  const grantBonusTurn = eff.includes("bonus turn") ? true : undefined;
+  const stripEnemyBuffs = eff.includes("strips enemy buffs") || eff.includes("strips positive") ? true : undefined;
   const mpMatch = sp.effect?.match(/\+?(\d+)\s*MP/i);
-  const restoreMp = eff.includes("restores") && mpMatch ? Number(mpMatch[1]) : undefined;
+  const restoreMp = (eff.includes("restores") && mpMatch) ? Number(mpMatch[1]) : eff.includes("restores ally mp") ? 25 : undefined;
+  const siphonHpPct = sp.id === "spell_8_ellowyn_24" ? 0.15 : undefined;
+  const siphonMpPct = sp.id === "spell_8_ellowyn_24" ? 0.15 : undefined;
+  const siphonPartyHpPct = sp.id === "spell_8_harlan_71" ? 0.2 : undefined;
+  const empowerNextSpell = sp.id === "spell_4_ellowyn_12" ? true : undefined;
+
+  let specialTag: string | undefined;
+  if (eff.includes("undead")) specialTag = "undead_bonus";
+  else if (eff.includes("shocked or chilled")) specialTag = "shock_chill_bonus";
+  else if (eff.includes("per active ailment")) specialTag = "ailment_burst";
+  else if (eff.includes("doubles tick damage") || eff.includes("rot-cloud")) specialTag = "double_dot";
 
   return {
     inflictStatus,
     inflictTurns: turns,
     inflictChance,
     grantStatus,
-    targetDelayPush,
+    splashPct,
     guardChip,
     armorIgnore,
     grantMomentum,
+    grantBonusTurn,
     stripEnemyBuffs,
     restoreMp,
+    secondAlly: isTwoAllies || undefined,
+    siphonHpPct,
+    siphonMpPct,
+    siphonPartyHpPct,
+    empowerNextSpell,
+    specialTag,
   };
+}
+
+export function getAdjacentEnemies(primary: BattleEnemyUnit, livingEnemies: BattleEnemyUnit[]): BattleEnemyUnit[] {
+  const primaryIdx = livingEnemies.findIndex((e) => e.instanceId === primary.instanceId);
+  return livingEnemies.filter((other, idx) => {
+    if (other.instanceId === primary.instanceId || other.curHp <= 0) return false;
+    if (primary.r0 >= 0 && primary.c0 >= 0 && other.r0 >= 0 && other.c0 >= 0) {
+      const cGap = Math.max(0, other.c0 - (primary.c0 + primary.gw), primary.c0 - (other.c0 + other.gw));
+      const rGap = Math.max(0, other.r0 - (primary.r0 + primary.gh), primary.r0 - (other.r0 + other.gh));
+      return cGap === 0 && rGap === 0;
+    }
+    return primaryIdx >= 0 && Math.abs(idx - primaryIdx) === 1;
+  });
 }
 
 export function buildHeroSpellTierBuckets(
   hero: BattleHeroUnit,
   spells: SpellEntry[],
-  learnedSpellIds: string[]
+  learnedSpellIds: string[],
+  allHeroes?: BattleHeroUnit[]
 ): Map<number, BattleActionSpec[]> {
   const learnedSet = new Set(learnedSpellIds);
   const buckets = new Map<number, BattleActionSpec[]>();
   if (!hero.hasMp) return buckets;
 
-  const mpDiscount = 1 - Math.min(0.25, hero.mods.mpCostReductionPct / 100);
+  const mpDiscount = 1 - Math.min(0.3, hero.mods.mpCostReductionPct / 100);
   const heroSpells = spells.filter((sp) => (sp.usableBy ?? []).includes(hero.heroId) && learnedSet.has(sp.id));
+  const anyAllyCritLow = Boolean(allHeroes?.some((h) => h.curHp > 0 && h.curHp / Math.max(1, h.maxHp) < 0.3));
 
   for (const sp of heroSpells) {
     const tier = Math.max(1, Math.min(8, sp.region || 1));
@@ -1416,7 +1300,7 @@ export function buildHeroSpellTierBuckets(
     const isAlly = tg.includes("ally") || tg.includes("allies");
     const isAll = tg.includes("all") || tg.includes("party");
     const isRevive = sp.name.toLowerCase().includes("reviv") || sp.effect.toLowerCase().includes("reviv");
-    const isCleanse = sp.effect.toLowerCase().includes("cleanse") || sp.effect.toLowerCase().includes("cure") || sp.effect.toLowerCase().includes("removes 1");
+    const isCleanse = sp.effect.toLowerCase().includes("cleanse") || sp.effect.toLowerCase().includes("cure") || sp.effect.toLowerCase().includes("removes 1") || sp.effect.toLowerCase().includes("clears");
     const isHeal =
       isAlly &&
       (sp.damageType.toLowerCase().includes("restor") ||
@@ -1424,10 +1308,15 @@ export function buildHeroSpellTierBuckets(
         sp.effect.toLowerCase().includes("restore hp") ||
         sp.effect.toLowerCase().includes("restores burst hp") ||
         sp.effect.toLowerCase().includes("restores light hp") ||
-        sp.effect.toLowerCase().includes("restores solid hp"));
-    const mpCost = Math.max(1, Math.round(sp.mpCost * mpDiscount));
+        sp.effect.toLowerCase().includes("restores solid hp") ||
+        sp.effect.toLowerCase().includes("restores healthy hp"));
+    const isFirstOffSpellDiscount = !isAlly && !hero.firstStrikeUsed && (hero.passives?.firstSpellHalfMpPct ?? 0) > 0;
+    const isEmergencyHealHalf = isHeal && anyAllyCritLow && (hero.passives?.emergencyHealHalfMp30Pct ?? 0) > 0;
+    const rawMp = sp.mpCost * mpDiscount + (!isAlly ? hero.passives?.extraSpellMpCost ?? 0 : 0);
+    const mpCost = Math.max(1, Math.round(rawMp * (isFirstOffSpellDiscount || isEmergencyHealHalf ? 0.5 : 1)));
     const parsedFx = parseSpellTimedEffects(sp);
     const list = buckets.get(tier) ?? [];
+    const extraCritBonus = sp.id === "spell_7_mera_45" ? 0.35 : 0;
 
     list.push({
       id: sp.id,
@@ -1441,8 +1330,7 @@ export function buildHeroSpellTierBuckets(
       targetScope: isRevive ? "dead_ally" : isAlly ? (isAll ? "all_allies" : "ally") : isAll ? "all_enemies" : "enemy",
       damageType: sp.damageType,
       power: 1.2 + tier * 0.14,
-      critBonus: hero.mods.spellCritPct / 100,
-      delayPct: isAll ? 1.12 : 0.96,
+      critBonus: hero.mods.spellCritPct / 100 + extraCritBonus,
       healPower: isHeal ? 1.1 + tier * 0.18 : undefined,
       cleanse: isCleanse,
       revive: isRevive,
@@ -1450,12 +1338,19 @@ export function buildHeroSpellTierBuckets(
       inflictTurns: parsedFx.inflictTurns,
       inflictChance: parsedFx.inflictChance,
       grantStatus: parsedFx.grantStatus,
-      targetDelayPush: parsedFx.targetDelayPush,
+      splashPct: parsedFx.splashPct,
       guardChip: parsedFx.guardChip,
       armorIgnore: parsedFx.armorIgnore,
       grantMomentum: parsedFx.grantMomentum,
+      grantBonusTurn: parsedFx.grantBonusTurn,
       stripEnemyBuffs: parsedFx.stripEnemyBuffs,
       restoreMp: parsedFx.restoreMp,
+      secondAlly: parsedFx.secondAlly,
+      siphonHpPct: parsedFx.siphonHpPct,
+      siphonMpPct: parsedFx.siphonMpPct,
+      siphonPartyHpPct: parsedFx.siphonPartyHpPct,
+      empowerNextSpell: parsedFx.empowerNextSpell,
+      specialTag: parsedFx.specialTag,
       regionTier: tier,
       vfxKey: pickVfxKey(sp.damageType, sp.target, sp.name, isAll || tier >= 5),
       effectText: sp.effect,
@@ -1502,7 +1397,6 @@ export function buildCombatPotionActions(
       damageType: isMp ? "Arcane" : "Restoration",
       power: healPower,
       critBonus: 0,
-      delayPct: 0.78,
       healPower: isMp ? undefined : healPower,
       restoreMp: isMp ? (pctNum > 0 ? pctNum : Math.max(20, flatNum)) : undefined,
       cleanse: isCleanse,
@@ -1525,51 +1419,196 @@ export function getHeroResolveState(hero: BattleHeroUnit): { tier: 0 | 1 | 2; at
   return { tier: 0, atkMul: 1.0, magMul: 1.0, healMul: 1.0, mpSavePct: 0 };
 }
 
+/** Compute incoming enemy strike damage against a hero's P.Def / M.Def using shared RPG scaling. */
+export function computeEnemyStrikeDamage(params: {
+  atk: number;
+  mag: number;
+  isMagicMove: boolean;
+  movePower: number;
+  offenseMul?: number;
+  defVal: number;
+  guarding?: boolean;
+  guardMitigationPct?: number;
+  hasWard?: boolean;
+  hasChillBonus?: boolean;
+  variance?: number;
+}): number {
+  const baseOffense = Math.max(
+    4,
+    (params.isMagicMove ? Math.max(params.atk, params.mag) : params.atk) *
+      params.movePower *
+      (params.offenseMul ?? 1)
+  );
+  const rawStrike = baseOffense * 2.4;
+  const mitigation = 1 / (1 + Math.max(0, params.defVal) / Math.max(3.5, baseOffense * 0.48));
+  let dmg = Math.max(2, Math.round(rawStrike * mitigation));
+  if (params.guarding) {
+    const mit = 0.5 - Math.min(0.2, (params.guardMitigationPct ?? 0) / 100);
+    dmg = Math.max(1, Math.round(dmg * mit));
+  }
+  if (params.hasWard) {
+    dmg = Math.max(1, Math.round(dmg * 0.75));
+  }
+  if (params.hasChillBonus) {
+    dmg = Math.max(1, Math.round(dmg * 1.15));
+  }
+  const roll = params.variance ?? 0.92 + Math.random() * 0.16;
+  return Math.max(1, Math.round(dmg * roll));
+}
+
 export function computeDamageOnEnemy(
   hero: BattleHeroUnit,
   action: BattleActionSpec,
-  enemy: BattleEnemyUnit
-): { damage: number; isCrit: boolean; isWeak: boolean; isResist: boolean; brokeGuard: boolean; triggeredStagger: boolean } {
+  enemy: BattleEnemyUnit,
+  atkOverride?: number,
+  battleCtx?: { allHeroes?: BattleHeroUnit[]; livingEnemiesCount?: number; isModeB?: boolean }
+): { damage: number; isCrit: boolean; isWeak: boolean; isResist: boolean; brokeGuard: boolean; triggeredStagger: boolean; detonateDotDmg: number } {
+  const p = hero.passives;
+  const auras = battleCtx?.allHeroes ? getPartyCombatAuras(battleCtx.allHeroes) : null;
   const isMagic = action.kind === "spell";
   const resolve = getHeroResolveState(hero);
   const momentumMul = hero.momentum ? 1.25 : 1.0;
   const hasteMul = hero.statuses.some((s) => s.kind === "haste") ? 1.2 : 1.0;
   const cursedMul = hero.statuses.some((s) => s.kind === "curse") ? 0.8 : 1.0;
   const weakMul = hero.statuses.some((s) => s.kind === "atk_down") ? 0.78 : 1.0;
+  const chillMul = hero.statuses.some((s) => s.kind === "chill") ? 0.85 : 1.0;
   const poisonMul = !isMagic && hero.statuses.some((s) => s.kind === "poison") ? 0.85 : 1.0;
 
-  const baseStat = (isMagic ? (14 + hero.mag) * resolve.magMul : (12 + hero.atk) * resolve.atkMul) * hasteMul;
-  const defStat = isMagic ? enemy.mDef : enemy.pDef * (1 - Math.min(0.6, (action.armorIgnore ?? 0) + hero.armorPiercePct / 100));
-  const defMod = enemy.statuses.some((s) => s.kind === "def_down") ? 0.75 : 1.0;
+  // Dynamic Discipline & Runestone Combat Modifiers
+  let atkBonusPct = (hero.cadenceStacks ?? 0) * (p?.cadenceAtkPerRoundPct ?? 0) + (hero.battleWrathStacks ?? 0) * (p?.battleWrathPerHitPct ?? 0);
+  if (p?.runestoneBatteredPowerPct > 0 && hero.curHp / Math.max(1, hero.maxHp) < 0.5) {
+    atkBonusPct += p.runestoneBatteredPowerPct;
+  }
+  if (!isMagic) {
+    if (!hero.firstStrikeUsed && p?.firstHitBonusPct > 0) atkBonusPct += p.firstHitBonusPct;
+    if (hero.weaponSubType === "Light Crossbow" && p?.crossbowBonusPct > 0) atkBonusPct += p.crossbowBonusPct;
+    if ((hero.weaponSubType === "Scimitar" || hero.weaponSubType === "Sickle") && p?.scimitarSicklePct > 0) atkBonusPct += p.scimitarSicklePct;
+    if (hero.weaponSubType === "Greatsword" && (enemy.staggeredTurns > 0 || enemy.statuses.some((s) => s.kind === "stun")) && p?.greatswordStaggeredBonusPct > 0) {
+      atkBonusPct += p.greatswordStaggeredBonusPct;
+    }
+    if ((battleCtx?.livingEnemiesCount ?? 2) === 1 && p?.soloEnemyBonusPct > 0) atkBonusPct += p.soloEnemyBonusPct;
+    if (enemy.guardCur > 0 && p?.vsGuardedBonusPct > 0) atkBonusPct += p.vsGuardedBonusPct;
+    if ((enemy.isBoss || enemy.role.toLowerCase().includes("heavy") || enemy.role.toLowerCase().includes("tank")) && p?.antiBossArmorPct > 0) {
+      atkBonusPct += p.antiBossArmorPct;
+    }
+    if (enemy.markedByRegalCommand) atkBonusPct += 10;
+    if (enemy.struckThisRoundByOrin && battleCtx?.allHeroes?.some((h) => h.curHp > 0 && h.passives.crushingFollowThroughPct > 0)) {
+      atkBonusPct += 8;
+    }
+  } else {
+    if (!hero.firstStrikeUsed && p?.firstSpellHalfMpPct > 0) atkBonusPct += p.firstSpellHalfMpPct;
+    if (hero.weaponSubType === "Quarterstaff" && p?.staffSpellPct > 0) atkBonusPct += p.staffSpellPct;
+    if (hero.nextSpellEmpower) atkBonusPct += 35;
+    if (hero.guardNatureEmpower && p?.guardNatureSpellPct > 0) atkBonusPct += p.guardNatureSpellPct;
+  }
+
+  // Situational Enemy-Target & Aura Damage Multipliers
+  const eHpRatio = enemy.curHp / Math.max(1, enemy.maxHp);
+  if (eHpRatio < 0.35 && p?.vsLowHp35BonusPct > 0) atkBonusPct += p.vsLowHp35BonusPct;
+  if ((eHpRatio < 0.4 || enemy.staggeredTurns > 0) && p?.vsLowHp40ExecPct > 0) atkBonusPct += p.vsLowHp40ExecPct;
+  if ((enemy.armorBrokenByOrinTurns ?? 0) > 0) atkBonusPct += 15;
+  if (p?.vsCasterRangedBonusPct > 0 && /caster|skirmish|assassin|fly|bird|dragon|eagle|hawk|harpy/i.test(`${enemy.role} ${enemy.name}`)) {
+    atkBonusPct += p.vsCasterRangedBonusPct;
+  }
+  if (p?.vsBeastMonsterBonusPct > 0 && /wolf|boar|bear|spider|shark|dragon|beast|hydra|owlbear|manticore|worg|bulette/i.test(enemy.name)) {
+    atkBonusPct += p.vsBeastMonsterBonusPct;
+  }
+  if (enemy.statuses.some((s) => s.kind === "shock") && auras && auras.shockBonusPct > 0 && !isMagic) {
+    atkBonusPct += auras.shockBonusPct;
+  }
+  if (enemy.statuses.some((s) => s.kind === "bleed") && hero.mods.ailmentPowerPct > 0 && !isMagic) {
+    atkBonusPct += hero.mods.ailmentPowerPct;
+  }
+  if (p?.runestoneBonusElemPct > 0 && !isMagic) {
+    atkBonusPct += p.runestoneBonusElemPct;
+  }
+  const isUndeadOrHorror = /skeleton|zombie|wight|wraith|ghoul|ghast|lich|vampire|specter|shadow|mummy|demon|devil|fiend|aboleth|garrick/i.test(enemy.name);
+  if (p?.runestoneHallowedUndeadPct > 0 && isUndeadOrHorror) atkBonusPct += p.runestoneHallowedUndeadPct;
+  if (action.specialTag === "undead_bonus" && isUndeadOrHorror) atkBonusPct += 35;
+  if (action.specialTag === "shock_chill_bonus" && enemy.statuses.some((s) => s.kind === "shock" || s.kind === "chill")) {
+    atkBonusPct += 40;
+  }
+  if (action.specialTag === "ailment_burst") {
+    atkBonusPct += Math.min(75, enemy.statuses.filter((s) => s.kind !== "ward").length * 25);
+  }
+
+  const usedAtk = atkOverride ?? hero.atk;
+  const statMul = 1 + atkBonusPct / 100;
+  const baseStat = (isMagic ? (14 + hero.mag) * resolve.magMul : (12 + usedAtk) * resolve.atkMul) * hasteMul * statMul;
+
+  const hasBleedOrShock = enemy.statuses.some((s) => s.kind === "bleed" || s.kind === "shock");
+  let extraPen = (eHpRatio < 0.35 ? p?.vsLowHp35PenPct ?? 0 : 0) + (hasBleedOrShock && auras ? auras.bleedShockPenPct : 0);
+  if (isMagic && p?.magicPiercePct > 0) extraPen += p.magicPiercePct;
+
+  const defStat = isMagic
+    ? enemy.mDef * (1 - Math.min(0.65, (action.armorIgnore ?? 0) + extraPen / 100))
+    : enemy.pDef * (1 - Math.min(0.65, (action.armorIgnore ?? 0) + (hero.armorPiercePct + extraPen) / 100));
+  const causticDefMod =
+    enemy.statuses.some((s) => s.kind === "poison") &&
+    battleCtx?.allHeroes?.some((h) => h.curHp > 0 && h.heroId === "harlan" && h.passives.spotterExposeDef)
+      ? 0.9
+      : 1.0;
+  const defMod = (enemy.statuses.some((s) => s.kind === "def_down") ? 0.75 : 1.0) * causticDefMod;
   const effDef = defStat * defMod;
 
-  const lowHp = enemy.curHp / Math.max(1, enemy.maxHp) < 0.5;
+  const lowHp = eHpRatio < 0.5;
+  let bonusCritPct = 0;
+  if (!hero.firstStrikeUsed && p?.firstShotCritPct > 0) bonusCritPct += p.firstShotCritPct;
+  if (hero.curHp / Math.max(1, hero.maxHp) > 0.75 && p?.highlandHp75CritPct > 0) bonusCritPct += p.highlandHp75CritPct;
+  if (!battleCtx?.isModeB && p?.lightModeCritPct > 0) bonusCritPct += p.lightModeCritPct;
+  if (eHpRatio < 0.35 && p?.vsLowHp35CritPct > 0) bonusCritPct += p.vsLowHp35CritPct;
+  if (auras) bonusCritPct += auras.packCritPct + (hasBleedOrShock ? auras.bleedShockCritPct : 0);
+
   const critChance = Math.min(
-    0.85,
-    (hero.critPct / 100) + (action.critBonus || 0) + (lowHp ? action.execCritBonus || 0 : 0)
+    0.88,
+    (hero.critPct + bonusCritPct) / 100 + (action.critBonus || 0) + (lowHp ? action.execCritBonus || 0 : 0)
   );
   const isCrit = Math.random() < critChance;
 
-  const dtLower = action.damageType.toLowerCase();
-  const isWeak = enemy.weakTypes.some((w) => dtLower.includes(w.toLowerCase()));
-  const isResist = !isWeak && enemy.resistTypes.some((r) => dtLower.includes(r.toLowerCase()));
+  const dtCombined = `${action.damageType} ${!isMagic && p?.runestoneBonusElemType ? p.runestoneBonusElemType : ""}`.toLowerCase();
+  const isWeak = enemy.weakTypes.some((w) => dtCombined.includes(w.toLowerCase()));
+  const rawResist = !isWeak && enemy.resistTypes.some((r) => action.damageType.toLowerCase().includes(r.toLowerCase()));
+  const poisonBypass = dtCombined.includes("poison") && (p?.universalPoisonPenPct ?? 0) > 0;
+  const isResist = rawResist && !poisonBypass;
 
-  let elemMul = isWeak ? 1.5 : isResist ? 0.5 : 1.0;
+  let elemMul = isWeak ? 1.5 : isResist ? 0.5 : (rawResist && poisonBypass ? 0.75 : 1.0);
   if (enemy.staggeredTurns > 0) elemMul *= 1.5;
+  if (enemy.statuses.some((s) => s.kind === "chill") && (dtCombined.includes("frost") || dtCombined.includes("lightning"))) {
+    elemMul *= 1.15;
+  }
   if (enemy.statuses.some((s) => s.kind === "shock")) {
     elemMul *= 1.2;
     enemy.statuses = enemy.statuses.filter((s) => s.kind !== "shock");
   }
 
-  let raw = Math.max(baseStat * 0.45, baseStat * 1.45 - effDef * 0.55) * action.power * elemMul * momentumMul * cursedMul * weakMul * poisonMul;
-  if (isCrit) raw *= 1.55;
+  let raw = Math.max(baseStat * 0.45, baseStat * 1.45 - effDef * 0.55) * action.power * elemMul * momentumMul * cursedMul * weakMul * chillMul * poisonMul;
+  const critMult = 1.55 + ((p?.critDamagePct ?? 0) + (hero.hasShield ? p?.shieldCritDamagePct ?? 0 : 0)) / 100;
+  if (isCrit) raw *= critMult;
   raw *= 0.94 + Math.random() * 0.12;
   const damage = Math.max(1, Math.round(raw));
+
+  // Detonate remaining Burn/Bleed/Poison on hit for Detonating Runestone
+  let detonateDotDmg = 0;
+  if (p?.runestoneDetonateDotPct > 0) {
+    for (const st of enemy.statuses) {
+      if (st.kind === "burn" || st.kind === "bleed" || st.kind === "poison") {
+        const tickEst = Math.max(3, Math.round(enemy.maxHp * (st.kind === "burn" ? 0.06 : 0.05)));
+        detonateDotDmg += Math.max(1, Math.round((tickEst * st.turns * p.runestoneDetonateDotPct) / 100));
+      }
+    }
+  }
 
   // Guard / Weakness Break check
   let brokeGuard = false;
   let triggeredStagger = false;
-  const chip = (isWeak ? 1 : 0) + (action.guardChip ?? 0);
+  let extraChip = p?.extraGuardChip ?? 0;
+  if (enemy.guardCur > 0 && p?.extraGuardVsGuarded > 0) extraChip += p.extraGuardVsGuarded;
+  if (battleCtx?.isModeB && p?.extraGuardModeB > 0) extraChip += p.extraGuardModeB;
+  if (dtCombined.includes("poison") && p?.extraGuardAcidPoison > 0) extraChip += p.extraGuardAcidPoison;
+  if (isWeak && p?.extraGuardOnWeakness > 0) extraChip += p.extraGuardOnWeakness;
+  if (isMagic && hero.nextSpellEmpower) extraChip += 1;
+
+  const chip = (isWeak ? 1 : 0) + (action.guardChip ?? 0) + extraChip;
   if (chip > 0 && enemy.guardCur > 0) {
     enemy.guardCur = Math.max(0, enemy.guardCur - chip);
     brokeGuard = true;
@@ -1577,16 +1616,29 @@ export function computeDamageOnEnemy(
       enemy.staggeredTurns = 1;
       enemy.telegraphedMove = null;
       triggeredStagger = true;
+      if (p?.commandingBreachPct > 0) enemy.armorBrokenByOrinTurns = 2;
     }
   }
   if (isWeak) {
-    const matchedWeak = enemy.weakTypes.find((w) => dtLower.includes(w.toLowerCase()));
+    const matchedWeak = enemy.weakTypes.find((w) => dtCombined.includes(w.toLowerCase()));
     if (matchedWeak && !enemy.revealedWeaknesses.includes(matchedWeak)) {
       enemy.revealedWeaknesses.push(matchedWeak);
     }
   }
 
-  return { damage, isCrit, isWeak, isResist, brokeGuard, triggeredStagger };
+  return { damage, isCrit, isWeak, isResist, brokeGuard, triggeredStagger, detonateDotDmg };
+}
+
+export function levelToRegionNum(level: number): number {
+  const lv = Math.max(1, level);
+  if (lv <= 15) return 1;
+  if (lv <= 25) return 2;
+  if (lv <= 40) return 3;
+  if (lv <= 50) return 4;
+  if (lv <= 60) return 5;
+  if (lv <= 75) return 6;
+  if (lv <= 90) return 7;
+  return 8;
 }
 
 export function applyLootAndDropsForDefeatedEnemy(
@@ -1597,21 +1649,27 @@ export function applyLootAndDropsForDefeatedEnemy(
   state.totalXpEarned += enemy.xpReward;
   state.totalSilverEarned += enemy.silverReward;
 
-  // Roll matching Trade Good drops cleanly by monster slug or region
+  // Roll matching Trade Good drops strictly inside the defeated enemy's Region price tier
   const tradeGoods = itemsCatalog.filter((it) => it.category === "trade_good");
   if (tradeGoods.length === 0) return;
 
-  const slug = (enemy.rawDef.slug ?? enemy.name).toLowerCase().replace(/[^a-z0-9]+/g, "_");
-  const exactMatch = tradeGoods.find((tg) => tg.id.toLowerCase().includes(slug));
   const dropChance = enemy.isBoss ? 1.0 : 0.42;
   if (Math.random() <= dropChance) {
-    const regionNum = Math.max(1, Math.min(8, Math.ceil(enemy.level / 12.5)));
+    const regionNum = levelToRegionNum(enemy.level);
     const regionalPool = tradeGoods.filter((tg) => (tg.region ?? 1) === regionNum);
+    const activePool = regionalPool.length > 0 ? regionalPool : tradeGoods;
+
+    const explicitDrop = enemy.rawDef.dropItemId
+      ? activePool.find((tg) => tg.id === enemy.rawDef.dropItemId)
+      : undefined;
+    const mobLow = enemy.name.toLowerCase();
+    const exactSource = activePool.find(
+      (tg) => (tg as unknown as { sourceMob?: string }).sourceMob?.toLowerCase() === mobLow
+    );
     const chosen =
-      exactMatch ??
-      (regionalPool.length > 0
-        ? regionalPool[Math.floor(Math.random() * regionalPool.length)]
-        : tradeGoods[Math.floor(Math.random() * tradeGoods.length)]);
+      explicitDrop ??
+      exactSource ??
+      activePool[Math.floor(Math.random() * activePool.length)];
     if (chosen) {
       state.droppedTradeGoods[chosen.id] = (state.droppedTradeGoods[chosen.id] ?? 0) + 1;
     }
@@ -1621,29 +1679,35 @@ export function applyLootAndDropsForDefeatedEnemy(
 export function applyTurnStartAilments(
   statuses: StatusEffectState[],
   maxHp: number,
-  statusResistPct: number
+  statusResistPct: number,
+  opts?: { poisonDotBonusPct?: number; dotResistPct?: number; doublePoisonBurn?: boolean; universalPoisonPenPct?: number; onExpireHealPct?: number }
 ): {
   remaining: StatusEffectState[];
   dotDamage: number;
   regenHeal: number;
   stunned: boolean;
+  expiredHeal: number;
   label: string | null;
 } {
   let dotDamage = 0;
   let regenHeal = 0;
   let stunned = false;
+  let expiredHeal = 0;
   let label: string | null = null;
   const remaining: StatusEffectState[] = [];
+  const dotMit = 1 - Math.min(0.6, (opts?.dotResistPct ?? 0) / 100);
+  const dblMul = opts?.doublePoisonBurn ? 2 : 1;
 
   for (const st of statuses) {
     if (st.kind === "burn") {
-      dotDamage += Math.max(3, Math.round(maxHp * 0.06));
+      dotDamage += Math.max(3, Math.round(maxHp * 0.06 * dotMit * dblMul));
       label = label ?? "Burn";
     } else if (st.kind === "bleed") {
-      dotDamage += Math.max(3, Math.round(maxHp * 0.05));
+      dotDamage += Math.max(3, Math.round(maxHp * 0.05 * dotMit));
       label = label ?? "Bleed";
     } else if (st.kind === "poison") {
-      dotDamage += Math.max(3, Math.round(maxHp * 0.05));
+      const poisonScale = (1 + (opts?.poisonDotBonusPct ?? 0) / 100) * dblMul;
+      dotDamage += Math.max(3, Math.round(maxHp * 0.05 * dotMit * poisonScale));
       label = label ?? "Poison";
     } else if (st.kind === "regen") {
       regenHeal += Math.max(4, Math.round(maxHp * 0.1));
@@ -1655,11 +1719,9 @@ export function applyTurnStartAilments(
     }
     if (st.turns > 1) {
       remaining.push({ ...st, turns: st.turns - 1 });
+    } else if (!STATUS_UI_META[st.kind].isBuff && (opts?.onExpireHealPct ?? 0) > 0) {
+      expiredHeal += Math.max(2, Math.round((maxHp * (opts?.onExpireHealPct ?? 0)) / 100));
     }
   }
-  return { remaining, dotDamage, regenHeal, stunned, label };
-}
-
-export function getTimeAdvanceForDelay(speed: number, delayPct: number): number {
-  return (100 / Math.max(4, speed)) * Math.max(0.5, delayPct);
+  return { remaining, dotDamage, regenHeal, stunned, expiredHeal, label };
 }

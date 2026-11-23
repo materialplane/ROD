@@ -1,14 +1,15 @@
 import React from "react";
 import { assetUrl } from "../api";
 import { getHeroById } from "../heroes";
-import type { EquippedGearMap, HeroId, ItemEntry, SpellEntry } from "../types";
+import type { EquippedGearMap, GearSlot, HeroId, ItemEntry, SpellEntry } from "../types";
 import { itemTooltipHandlers } from "./itemTooltip";
+import { WeaponAttackIconsRow } from "./WeaponAttackIconsRow";
 import {
+  canDualWieldItem,
   cleanDamageTypeLabel,
   computeHeroDelta,
   countRegionSpellsForHero,
   MAX_SPELLS_PER_REGION,
-  WEAPON_ATTACK_MODES,
   type ShopCatalogEntry,
   type StatDeltaRow,
 } from "./shopLogic";
@@ -21,7 +22,9 @@ interface CompareBoxProps {
   itemsById: Record<string, ItemEntry>;
   spells?: SpellEntry[];
   learnedSpellIds: string[];
-  onAction: (entry: ShopCatalogEntry) => void;
+  preferredSlot?: GearSlot;
+  onChangePreferredSlot?: (slot: GearSlot) => void;
+  onAction: (entry: ShopCatalogEntry, targetSlot?: GearSlot) => void;
 }
 
 function fmtStat(row: StatDeltaRow, v: number): string {
@@ -45,6 +48,8 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
   itemsById,
   spells = [],
   learnedSpellIds,
+  preferredSlot = "right_hand",
+  onChangePreferredSlot,
   onAction,
 }) => {
   const focusHero = getHeroById(activeHeroId);
@@ -57,7 +62,9 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
     );
   }
 
-  const delta = computeHeroDelta(item, equippedByHero, itemsById, activeHeroId);
+  const showDualWieldToggle = canDualWieldItem(activeHeroId, item);
+  const activePreferredSlot = showDualWieldToggle ? preferredSlot : undefined;
+  const delta = computeHeroDelta(item, equippedByHero, itemsById, activeHeroId, activePreferredSlot);
   const isSpell = item.category === "spell";
   const spell = isSpell ? (item as SpellEntry) : null;
   const gearItem = !isSpell ? (item as ItemEntry) : null;
@@ -102,7 +109,6 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
   const heroIdsMap = equippedByHero[activeHeroId] ?? {};
   const equippedLeft = heroIdsMap.left_hand ? itemsById[heroIdsMap.left_hand] : null;
   const equippedRight = heroIdsMap.right_hand ? itemsById[heroIdsMap.right_hand] : null;
-  const attacks = gearItem?.category === "weapon" ? WEAPON_ATTACK_MODES[gearItem.subType] : undefined;
 
   let footNote = item.subType;
   if (spell) {
@@ -184,6 +190,28 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
                 <div className="text-[13px] font-bold text-[#f6ebd5] truncate">{item.name}</div>
                 <div className="text-[11px] text-[#a7b6ce] truncate">{`${gearItem?.handed ? `${gearItem.handed} · ` : item.subType ? `${item.subType} · ` : ""}${item.priceSilver.toLocaleString()}s`}</div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {showDualWieldToggle && onChangePreferredSlot && (
+          <div className="flex items-center justify-between gap-2 px-2 py-1.5 rounded border border-[#3a4256] bg-[#121724]">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#e2be74]">Duelist Hand Slot</span>
+            <div className="flex gap-1.5">
+              {(["right_hand", "left_hand"] as const).map((sl) => (
+                <button
+                  key={sl}
+                  type="button"
+                  onClick={() => onChangePreferredSlot(sl)}
+                  className={`px-2 py-0.5 rounded border text-[11px] font-bold cursor-pointer ${
+                    activePreferredSlot === sl
+                      ? "border-[#ebca7e] bg-[#2e2412] text-[#fae4b0]"
+                      : "border-[#323a4d] bg-[#161c29] text-[#aebad0] hover:border-[#7d653c]"
+                  }`}
+                >
+                  {sl === "right_hand" ? "Right Hand (Main)" : "Left Hand (Dual Wield)"}
+                </button>
+              ))}
             </div>
           </div>
         )}
@@ -281,7 +309,15 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
           {gearItem && (
             <div className="flex flex-wrap gap-1">
               {gearItem.damageType && <span className="px-1.5 py-0.5 rounded border border-[#7e663b] bg-[#261f13] text-[#f7dea4] text-[11.5px] font-semibold">{cleanDamageTypeLabel(gearItem.damageType)}</span>}
-              {gearItem.handed && <span className="px-1.5 py-0.5 rounded border border-[#354057] bg-[#171d2b] text-[#cbd7eb] text-[11.5px] font-semibold">{gearItem.handed === "2H" ? "2H · Two-Handed" : "1H · Allows Shield"}</span>}
+              {gearItem.handed && (
+                <span className="px-1.5 py-0.5 rounded border border-[#354057] bg-[#171d2b] text-[#cbd7eb] text-[11.5px] font-semibold">
+                  {gearItem.handed === "2H"
+                    ? "2H · Two-Handed"
+                    : showDualWieldToggle
+                      ? "1H · Shield or Dual Wield"
+                      : "1H · Allows Shield"}
+                </span>
+              )}
               {gearItem.weight && <span className="px-1.5 py-0.5 rounded border border-[#354057] bg-[#171d2b] text-[#cbd7eb] text-[11.5px] font-semibold">{gearItem.weight} Armor</span>}
               {gearItem.runestoneSockets ? (
                 <span className="px-1.5 py-0.5 rounded border border-[#497b8c] bg-[#13252d] text-[#9de2f7] text-[11.5px] font-semibold">◆ {gearItem.runestoneSockets} Runestone Socket</span>
@@ -290,9 +326,13 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
               ) : null}
             </div>
           )}
-          {attacks && (
-            <div className="text-[13px] text-[#dce5f5]">
-              <strong className="text-[#e5c37a]">Weapon Attacks:</strong> {attacks[0]} · {attacks[1]}
+          {gearItem?.category === "weapon" && (
+            <div className="flex items-center justify-between gap-2 pt-1 mt-0.5 border-t border-[#222938]">
+              <div className="flex flex-col">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#e5c37a]">Weapon Attacks</span>
+                <span className="text-[10.5px] text-[#8f9fb8]">Hover icon for attack details</span>
+              </div>
+              <WeaponAttackIconsRow subType={gearItem.subType} damageType={gearItem.damageType} size="md" />
             </div>
           )}
           {gearItem?.stats?.passiveBonus && (
@@ -310,7 +350,7 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
         <button
           type="button"
           disabled={alreadyLearned || regionCapped || !canAfford}
-          onClick={() => onAction(item)}
+          onClick={() => onAction(item, activePreferredSlot)}
           className="px-4 py-2 rounded border border-[#e6c170] bg-gradient-to-b from-[#b88a38] to-[#845e1e] hover:brightness-110 disabled:opacity-45 disabled:cursor-default text-[#fff6dc] text-[14px] font-bold cursor-pointer shrink-0"
         >
           {!canAfford && !alreadyLearned && !regionCapped ? `Need ${item.priceSilver.toLocaleString()}s` : btnText}

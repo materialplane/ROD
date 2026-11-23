@@ -18,11 +18,13 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 OUT_DIRS = {
     "weapon_abilities": REPO_ROOT / "assets" / "weapon_abilities" / "batch_sheets",
     "magic_tiers": REPO_ROOT / "assets" / "magic_tiers" / "batch_sheets",
+    "conditions": REPO_ROOT / "assets" / "conditions" / "batch_sheets",
 }
 
 DEFAULT_STEMS = {
     "weapon_abilities": "rod_weapon_abilities_sheet",
     "magic_tiers": "rod_magic_tiers_sheet",
+    "conditions": "rod_conditions_sheet",
 }
 
 EXT_BY_MIME = {

@@ -13,7 +13,6 @@ const STAT_LABELS = {
   dodgePct: "Dodge %",
   guardBonusPct: "Guard %",
   gritBonus: "Grit",
-  speedMod: "Speed",
   maxHp: "Max HP",
   maxMp: "Max MP",
   statusPotencyPct: "Ailment Power %",
@@ -113,10 +112,10 @@ export function computeHeroDelta(item, equippedMap, heroId) {
   }
   const priority =
     heroId === "ellowyn" || heroId === "mera"
-      ? ["magicPower", "healPower", "attackPower", "physDef", "magDef", "spellCritPct", "speedMod"]
+      ? ["magicPower", "healPower", "attackPower", "physDef", "magDef", "spellCritPct", "dodgePct"]
       : heroId === "harlan"
-        ? ["healPower", "magicPower", "attackPower", "physDef", "magDef", "statusResistPct", "speedMod"]
-        : ["attackPower", "physDef", "magDef", "piercePowerPct", "critBonusPct", "speedMod"];
+        ? ["healPower", "magicPower", "attackPower", "physDef", "magDef", "statusResistPct", "dodgePct"]
+        : ["attackPower", "physDef", "magDef", "piercePowerPct", "critBonusPct", "dodgePct"];
   let primaryDiff = null;
   for (const pk of priority) {
     const hit = rows.find((r) => r.key === pk);
@@ -158,7 +157,6 @@ export function shortStatSummary(item) {
   if (s.physDef) parts.push(`DEF ${s.physDef}`);
   if (s.magDef) parts.push(`MDEF ${s.magDef}`);
   if (s.critBonusPct) parts.push(`CRIT +${s.critBonusPct}%`);
-  if (s.speedMod) parts.push(`SPD ${s.speedMod > 0 ? "+" : ""}${s.speedMod}`);
   if (s.dodgePct) parts.push(`DODGE +${s.dodgePct}%`);
   return parts.slice(0, 3).join(" · ") || item.subType;
 }

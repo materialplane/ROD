@@ -1,9 +1,9 @@
 # ROD — Gear Suite & Carved Runestones
 
 > **Status:** Complete (Synced to `classes.txt`: `13` D&D Weapons, `23` Shared Armor & Helmet Types, `6` Global Shields, `6` Class Accessories, Procedural Runestones & Town Potions)  
-> **Equipment Slots (`5` Core Slots Per Hero):** **Right Hand** (Main `1H`/`2H` Weapon), **Left Hand** (Global Shield when wielding `1H`), **Body** (Armor), **Helmet**, plus **1 Class Accessory Slot** (`Cloak`, `Orb`, `Horn`, `Quiver`, `Crystal`, or `Tome`).
-> **Town Shop Structure (`6` Shop Types + Dedicated Trade Goods Buyer):** **Weapon Shop** (`all 13 weapons`), **Armor Shop** (`metal body armor, metal helmets & shields`), **Tailor** (`all non-metal armor & helmets: robes, leather, hide, bone, dragonscale`), **Magic Shop** (`caster spells`), **Arcanist** (`all potions + Orbs, Crystals, Tomes`), **Adventurer Shop** (`Cloaks, War-Horns, Quivers`), plus dedicated **Trade Goods Buyer NPCs** (`weigh & sell all trade goods for Silver — no buy list`).
-> **Progression Structure:** Each Weapon and Class Accessory climbs **24 steps** (`3` per Region across `8` Regions). Each class wears **6 Armor Types** (`4` progressive Body pieces + `4` Helmets per type = `24` steps; shared types use the exact same `4`-item set cleanly without duplication). Weapons and Body Armor carry **1 Permanent Runestone Socket** (inserting a new Runestone overwrites and destroys the previous one).
+> **Equipment Slots (`5` Core Slots Per Hero):** **Right Hand** (Main `1H`/`2H` Weapon), **Left Hand** (Global Shield when wielding `1H`, or a second `1H` Longsword/Rapier when **Valen [`Duelist`]** Dual Wields), **Body** (Armor), **Helmet**, plus **1 Class Accessory Slot** (`Cloak`, `Orb`, `Horn`, `Quiver`, `Crystal`, or `Tome`).
+> **Town Shop Structure (`6` Shop Types + Dedicated Trade Goods Buyer):** **Weapon Shop** (`all 13 weapons`), **Armor Shop** (`forged plate, mail, splint, hide, bone, reinforced armor & helmets + shields`; stocks all armor at Forts & Keeps), **Tailor** (`all cloth robes & light leather attire`; stocks all armor & shields at Villages), **Magic Shop** (`caster spells`), **Arcanist** (`all potions + Orbs, Crystals, Tomes`), **Adventurer Shop** (`Cloaks, War-Horns, Quivers`), plus dedicated **Trade Goods Buyer NPCs** (`weigh & sell all trade goods for Silver — no buy list`).
+> **Progression Structure:** Each Weapon, Shield, Armor Set progression, and Class Accessory climbs **`24` Gear Tiers (`Tier 1`–`Tier 24`)** mapped directly across Ethoria's **`20` Level Zones (`Z01–Z20`, `6` Gear Tiers per Map)**: **`1` base tier per Zone, plus `1` extra mid-zone upgrade tier inside each Map's sole `3`-town Zone (`Z02`, `Z09`, `Z14`, `Z16`)**. Each class wears **6 Armor Types** (`4` progressive Body pieces + `4` Helmets per type = `24` Gear Tiers; shared types use the exact same `4`-item set cleanly without duplication). Weapons and Body Armor carry **1 Permanent Runestone Socket** (inserting a new Runestone overwrites and destroys the previous one).
 
 ---
 
@@ -11,67 +11,67 @@
 
 Every class uses **3 distinct D&D weapon types** (`1H` or `2H`, shared cleanly across the cast), and each weapon type carries **2 unique `0 MP` Attack Modes**:
 
-| # | Weapon Type | Handed | Damage Type | Usable By | Attack Mode A *(Fast / Accurate)* | Attack Mode B *(Slow / Heavy / Special)* |
+| # | Weapon Type | Handed | Damage Type | Usable By | Attack Mode A *(No Cooldown)* | Attack Mode B *(1-Turn Cooldown)* |
 | :---: | :--- | :---: | :--- | :--- | :--- | :--- |
-| **1** | **Longsword** | 1H | Slashing | Duelist (`Valen`) | **Quick Slash** — Fast slash with high accuracy; keeps next turn sooner | **Heavy Cleave** — High damage, `+15%` Crit Chance, breaks 1 Guard point |
-| **2** | **Greatsword** | 2H | Slashing | Duelist (`Valen`) | **Wide Sweep** — Broad arc that pushes target back on the turn bar | **Overhead Rend** — Massive heavy strike, breaks 1 extra Guard point |
-| **3** | **Rapier** | 1H | Piercing | Duelist (`Valen`) | **Needle Thrust** — Ultra-fast lunge (`98%` hit); keeps next turn sooner | **Heart Pierce** — Focused thrust (`+20%` Crit Chance), ignores `25%` Physical Defense |
-| **4** | **Battleaxe** | 1H | Slashing | Knight (`Orin`) | **Chopping Hack** — Dependable axe chop with reliable accuracy | **Execution Chop** — Heavy chop (`+25%` Crit Chance vs. enemies below `50%` HP) |
-| **5** | **Mace** | 1H | Bludgeoning | Knight (`Orin`), Sage (`Harlan`) | **Heavy Bash** — Fast blunt hit, chips 1 Guard point | **Armor Crush** — Heavy slam, lowers enemy Physical Defense 1 turn |
-| **6** | **Spear** | 2H | Piercing | Knight (`Orin`) | **Long Thrust** — High-reach thrust with bonus accuracy & `+12%` Crit Chance | **Brace Sweep** — Heavy thrust that pushes enemies back on the turn bar |
-| **7** | **Longbow** | 2H | Piercing | Ranger (`Rowan`) | **Snap Arrow** — Fast long-range arrow, high accuracy | **Aimed Piercer** — Slow, aimed shot (`+25%` Crit Chance), ignores `25%` Physical Defense |
-| **8** | **Shortbow** | 2H | Piercing | Ranger (`Rowan`) | **Quick Volley** — Fastest bow attack; keeps next turn early | **Wing Clip** — Pinning arrow that pushes target back on the turn bar |
-| **9** | **Dagger** | 1H | Piercing | Sorceress (`Ellowyn`), Ranger (`Rowan`), Sage (`Harlan`) | **Quick Jab** — Rapid stab with high accuracy and fast recovery | **Vital Gouge** — Deep stab (`+15%` Crit Chance) with chance for 2-turn Bleed |
-| **10** | **Light Crossbow** | 2H | Piercing | Sorceress (`Ellowyn`) | **Bolt Snap** — Steady shot ignoring `15%` of Physical Defense | **Siege Crank** — Heavy cranked bolt + breaks 1 Guard point |
-| **11** | **Quarterstaff** | 2H | Bludgeoning *(+Caster)* | Sorceress (`Ellowyn`), Druid (`Mera`), Sage (`Harlan`) | **Staff Sweep** — Quick two-handed strike, restores a sliver of MP | **Crushing Vault** — Heavy overhead slam, chips 1 Guard point |
-| **12** | **Scimitar** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Crescent Cut** — Smooth curved slash with reliable accuracy | **Whirling Slash** — Spinning slash (`+15%` Crit Chance) bringing next turn sooner |
-| **13** | **Sickle** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Reaping Hook** — Fast hooked slice with 2-turn Bleed chance | **Thorn Slash** — Barbed cut that lowers target Attack 1 turn |
+| **1** | **Longsword** | 1H | Slashing | Duelist (`Valen`) | **Quick Slash** — Reliable slash with sharp accuracy (`No Cooldown`) | **Heavy Cleave** — High damage, `+15%` Crit Chance, breaks 1 Guard point (`1-Turn Cooldown`) |
+| **2** | **Greatsword** | 2H | Slashing | Duelist (`Valen`) | **Wide Sweep** — Broad arc (`95%` target + `50%` neighbor splash, `No Cooldown`) | **Overhead Rend** — Massive heavy strike, breaks 1 extra Guard point (`1-Turn Cooldown`) |
+| **3** | **Rapier** | 1H | Piercing | Duelist (`Valen`) | **Needle Thrust** — Precision lunge (`+5%` Crit, high accuracy, `No Cooldown`) | **Heart Pierce** — Focused thrust (`+20%` Crit Chance), ignores `25%` Physical Defense (`1-Turn Cooldown`) |
+| **4** | **Battleaxe** | 1H | Slashing | Knight (`Orin`) | **Chopping Hack** — Dependable axe chop with reliable accuracy (`No Cooldown`) | **Execution Chop** — Heavy chop (`+25%` Crit Chance vs. enemies below `50%` HP, `1-Turn Cooldown`) |
+| **5** | **Mace** | 1H | Bludgeoning | Knight (`Orin`), Sage (`Harlan`) | **Heavy Bash** — Steady blunt hit, chips 1 Guard point (`No Cooldown`) | **Armor Crush** — Heavy slam, lowers enemy Physical Defense (`1-Turn Cooldown`) |
+| **6** | **Spear** | 2H | Piercing | Knight (`Orin`) | **Long Thrust** — High-reach thrust with `+12%` Crit Chance (`No Cooldown`) | **Brace Sweep** — Heavy sweep breaking 1 Guard & lowering enemy Attack (`1-Turn Cooldown`) |
+| **7** | **Longbow** | 2H | Piercing | Ranger (`Rowan`) | **Snap Arrow** — Clean long-range arrow, high accuracy (`No Cooldown`) | **Aimed Piercer** — Aimed shot (`+25%` Crit Chance), ignores `25%` Physical Defense (`1-Turn Cooldown`) |
+| **8** | **Shortbow** | 2H | Piercing | Ranger (`Rowan`) | **Quick Volley** — Light volley with `+5%` Crit & steady accuracy (`No Cooldown`) | **Wing Clip** — Pinning arrow cutting enemy Attack & Accuracy (`1-Turn Cooldown`) |
+| **9** | **Dagger** | 1H | Piercing | Sorceress (`Ellowyn`), Ranger (`Rowan`), Sage (`Harlan`) | **Quick Jab** — Precise stab (`+6%` Crit) with high accuracy (`No Cooldown`) | **Vital Gouge** — Deep stab (`+15%` Crit Chance) with lingering Poison (`1-Turn Cooldown`) |
+| **10** | **Light Crossbow** | 2H | Piercing | Sorceress (`Ellowyn`) | **Bolt Snap** — Steady shot ignoring `15%` of Physical Defense (`No Cooldown`) | **Siege Crank** — Heavy cranked bolt + breaks 1 Guard point (`1-Turn Cooldown`) |
+| **11** | **Quarterstaff** | 2H | Bludgeoning *(+Caster)* | Sorceress (`Ellowyn`), Druid (`Mera`), Sage (`Harlan`) | **Staff Sweep** — Clean two-handed strike restoring 6 MP on hit (`No Cooldown`) | **Crushing Vault** — Heavy overhead slam, chips 1 Guard point (`1-Turn Cooldown`) |
+| **12** | **Scimitar** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Crescent Cut** — Smooth curved slash (`+5%` Crit, `No Cooldown`) | **Whirling Slash** — Spinning slash (`+15%` Crit Chance) & bonus power (`1-Turn Cooldown`) |
+| **13** | **Sickle** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Reaping Hook** — Hooked slice (`+5%` Crit) with Poison chance (`No Cooldown`) | **Thorn Slash** — Barbed cut that lowers target Attack 2 turns (`1-Turn Cooldown`) |
 
 ---
 
-## 2. Weapon Power & Silver Curve (Steps `1`–`24`)
+## 2. Weapon Power & Silver Curve (`Gear Tiers 1–24` Across `Zones 1–20`)
 
-Base values scale smoothly across the 8 Regions so players feel a clear power jump with each Town upgrade:
+Base values scale smoothly across all `20` Level Zones (`6` Gear Tiers per Map) so players feel a clear power jump with each Zone's towns and forts:
 
-* **1H Weapons (`Longsword, Rapier, Battleaxe, Mace, Dagger, Scimitar, Sickle`):** Standard `1.0×` Attack Power and `1.0×` Silver Cost (`leaves Left Hand free for any Global Shield`).
+* **1H Weapons (`Longsword, Rapier, Battleaxe, Mace, Dagger, Scimitar, Sickle`):** Standard `1.0×` Attack Power and `1.0×` Silver Cost (`leaves Left Hand free for any Global Shield—or a second Longsword/Rapier on Valen for an automatic 50% off-hand follow-up strike`).
 * **2H Weapons (`Greatsword, Spear, Longbow, Shortbow, Light Crossbow, Quarterstaff`):** `+25%` higher Attack Power, `+20%` Silver Cost *(uses both hands—locks Left Hand slot)*.
 * **Caster Weapon Scaling (`Quarterstaff, Scimitar, Sickle`, plus `Dagger / Mace / Light Crossbow` on Casters):** Casters (**Ellowyn, Mera, Harlan**) get matching **Magic / Heal Power** from **`Quarterstaff, Scimitar, Sickle`** (`2H Quarterstaff` gives `+20%` more Magic/Heal Power than `1H`) and additional Spell Power from their Class Accessories (`Orbs`, `Crystals`, `Tomes`).
 
-* **New Campaign Starting State:** Heroes begin unequipped with an empty pack (`no free weapons, armor, spells, or potions`) and **`250s` Silver**—enough to arm the party and make strategic early choices at **Highcrown**'s shops, but far short of outfitting every hero in all `5` slots (`~466s–500s` for base Step 1 gear alone).
+* **New Campaign Starting State:** Heroes begin unequipped with an empty pack (`no free weapons, armor, spells, or potions`) and **`250s` Silver**—enough to arm the party and make strategic early choices at **Highcrown**'s shops, but far short of outfitting every hero in all `5` slots (`~466s–500s` for base Tier 1 gear alone).
 
-| Step | Region | Target Levels | Base 1H Attack | Base 2H Attack | Caster Magic/Heal Power | Typical 1H Price (Silver) | Where Stocked |
+| Gear Tier | Map · Level Zone | Target Levels | Base 1H Attack | Base 2H Attack | Caster Magic/Heal Power | Typical 1H Price (Silver) | Where Stocked |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | Region 1 | `1–4` | `6` | `8` | `+5` (`2H +6`) | `40s` | Highcrown / Oakhaven |
-| **2** | Region 1 | `5–8` | `10` | `13` | `+9` (`2H +11`) | `120s` | Oakhaven / Meadowbrook Hamlet |
-| **3** | Region 1 | `9–12` | `15` | `19` | `+14` (`2H +17`) | `260s` | Millbrook Crossing / Crownlands Hill-Fort |
-| **4** | Region 2 | `12–15` | `21` | `26` | `+20` (`2H +24`) | `450s` | Saltwind Harbor |
-| **5** | Region 2 | `16–20` | `28` | `35` | `+27` (`2H +32`) | `720s` | Brinecliff Watch-Fort / Reedfen Village |
-| **6** | Region 2 | `21–24` | `36` | `45` | `+35` (`2H +42`) | `1,050s` | Mirewatch Post / Tidewater Keep |
-| **7** | Region 3 | `25–28` | `45` | `56` | `+44` (`2H +53`) | `1,500s` | Redmarch Bastion / Goldmoor Village |
-| **8** | Region 3 | `29–32` | `55` | `69` | `+54` (`2H +65`) | `2,100s` | Redmarch Bastion / Slatepeak Mining Fort |
-| **9** | Region 3 | `33–36` | `66` | `83` | `+65` (`2H +78`) | `2,900s` | Thornwall Border Castle *(+ Hollowstone liberated)* |
-| **10** | Region 4 | `37–40` | `78` | `98` | `+77` (`2H +92`) | `3,900s` | Briarstead / Timberfall Village |
-| **11** | Region 4 | `41–44` | `91` | `114` | `+90` (`2H +108`) | `5,200s` | Briarstead / Mosswood Hamlet |
-| **12** | Region 4 | `45–48` | `105` | `131` | `+104` (`2H +125`) | `6,800s` | Greenwarden Fort / Blightwatch Keep |
-| **13** | Region 5 | `49–52` | `120` | `150` | `+119` (`2H +143`) | `8,800s` | Port Veridia / Sunstone Caravan Post |
-| **14** | Region 5 | `53–56` | `136` | `170` | `+135` (`2H +162`) | `11,200s` | Port Veridia / Dunespire Oasis |
-| **15** | Region 5 | `57–60` | `153` | `191` | `+152` (`2H +182`) | `14,000s` | Sandwall Citadel *(+ Gilded Manor liberated)* |
-| **16** | Region 6 | `61–64` | `172` | `215` | `+171` (`2H +205`) | `17,500s` | Highpass Refuge / Clearwater Lake Village |
-| **17** | Region 6 | `65–68` | `192` | `240` | `+191` (`2H +229`) | `21,500s` | Highpass Refuge / Cragwatch Fort |
-| **18** | Region 6 | `69–72` | `214` | `268` | `+213` (`2H +256`) | `26,500s` | Anvilhall Forge / Stormhold Citadel |
-| **19** | Region 7 | `73–76` | `238` | `298` | `+237` (`2H +284`) | `32,500s` | Rimeport / Frostmere Village |
-| **20** | Region 7 | `77–80` | `264` | `330` | `+263` (`2H +316`) | `39,500s` | Rimeport / Glacierwatch Fort |
-| **21** | Region 7 | `81–85` | `292` | `365` | `+291` (`2H +349`) | `48,000s` | Icecrest Holdfast *(+ Bleakwatch liberated)* |
-| **22** | Region 8 | `86–90` | `324` | `405` | `+322` (`2H +386`) | `58,000s` | Ashenford War-Camp / Cinderwatch Bastion |
-| **23** | Region 8 | `91–95` | `358` | `448` | `+356` (`2H +427`) | `70,000s` | Cinderwatch Bastion / Ashvale Village |
-| **24** | Region 8 | `96–99` | `395` | `494` | `+394` (`2H +473`) | `85,000s` | Ashenford War-Camp / Scorchwall Fort |
+| **1** | Map 1 · **Zone 1** | `1–5` | `6` | `8` | `+5` (`2H +6`) | `40s` | Highcrown / Oakhaven |
+| **2** | Map 1 · **Zone 2** *(entry)* | `6–8` | `10` | `13` | `+9` (`2H +11`) | `120s` | Meadowbrook Hamlet |
+| **3** | Map 1 · **Zone 2** *(frontier)* | `8–10` | `15` | `19` | `+14` (`2H +17`) | `260s` | Millbrook Crossing / Crownlands Hill-Fort |
+| **4** | Map 1 · **Zone 3** | `11–15` | `21` | `26` | `+20` (`2H +24`) | `450s` | Saltwind Harbor |
+| **5** | Map 1 · **Zone 4** | `16–20` | `28` | `35` | `+27` (`2H +32`) | `720s` | Brinecliff Watch-Fort / Reedfen Village |
+| **6** | Map 1 · **Zone 5** | `21–25` | `36` | `45` | `+35` (`2H +42`) | `1,050s` | Mirewatch Post / Tidewater Keep |
+| **7** | Map 2 · **Zone 6** | `26–30` | `45` | `56` | `+44` (`2H +53`) | `1,500s` | Redmarch Bastion / Goldmoor Village |
+| **8** | Map 2 · **Zone 7** | `31–35` | `55` | `69` | `+54` (`2H +65`) | `2,100s` | Slatepeak Mining Fort / Thornwall Border Castle |
+| **9** | Map 2 · **Zone 8** | `36–40` | `66` | `83` | `+65` (`2H +78`) | `2,900s` | Briarstead *(+ Hollowstone liberated)* |
+| **10** | Map 2 · **Zone 9** *(entry)* | `41–43` | `78` | `98` | `+77` (`2H +92`) | `3,900s` | Timberfall Village / Mosswood Hamlet |
+| **11** | Map 2 · **Zone 9** *(deep)* | `43–45` | `91` | `114` | `+90` (`2H +108`) | `5,200s` | Greenwarden Fort |
+| **12** | Map 2 · **Zone 10** | `46–50` | `105` | `131` | `+104` (`2H +125`) | `6,800s` | Blightwatch Keep |
+| **13** | Map 3 · **Zone 11** | `51–55` | `120` | `150` | `+119` (`2H +143`) | `8,800s` | Port Veridia / Sunstone Caravan Post |
+| **14** | Map 3 · **Zone 12** | `56–60` | `136` | `170` | `+135` (`2H +162`) | `11,200s` | Dunespire Oasis / Sandwall Citadel |
+| **15** | Map 3 · **Zone 13** | `61–65` | `153` | `191` | `+152` (`2H +182`) | `14,000s` | Highpass Refuge *(+ Gilded Manor liberated)* |
+| **16** | Map 3 · **Zone 14** *(basin)* | `66–68` | `172` | `215` | `+171` (`2H +205`) | `17,500s` | Clearwater Lake Village / Cragwatch Fort |
+| **17** | Map 3 · **Zone 14** *(forge)* | `68–70` | `192` | `240` | `+191` (`2H +229`) | `21,500s` | Anvilhall Forge |
+| **18** | Map 3 · **Zone 15** | `71–75` | `214` | `268` | `+213` (`2H +256`) | `26,500s` | Stormhold Citadel |
+| **19** | Map 4 · **Zone 16** *(coast)* | `76–78` | `238` | `298` | `+237` (`2H +284`) | `32,500s` | Rimeport / Frostmere Village |
+| **20** | Map 4 · **Zone 16** *(glacier)* | `78–80` | `264` | `330` | `+263` (`2H +316`) | `39,500s` | Glacierwatch Fort |
+| **21** | Map 4 · **Zone 17** | `81–85` | `292` | `365` | `+291` (`2H +349`) | `48,000s` | Icecrest Holdfast |
+| **22** | Map 4 · **Zone 18** | `86–90` | `324` | `405` | `+322` (`2H +386`) | `58,000s` | Ashenford War-Camp *(+ Bleakwatch liberated)* |
+| **23** | Map 4 · **Zone 19** | `91–95` | `358` | `448` | `+356` (`2H +427`) | `70,000s` | Cinderwatch Bastion / Ashvale Village |
+| **24** | Map 4 · **Zone 20** | `96–99` | `395` | `494` | `+394` (`2H +473`) | `85,000s` | Scorchwall Fort / Garrick's Black Keep |
 
 ---
 
-## 3. Complete Weapon Catalog (`13` D&D Types × `24` Steps)
+## 3. Complete Weapon Catalog (`13` D&D Types × `24` Gear Tiers)
 
-### Region 1: The Crownlands *(Steps `1–3` — Oakhaven & Millbrook Crossing)*
-| Weapon Type | Step 1 *(Oakhaven / Start)* | Step 2 *(Oakhaven)* | Step 3 *(Millbrook Crossing)* |
+### Map 1 — Crownlands Heart & Roads *(Zones `1–2` | Gear Tiers `1–3`)*
+| Weapon Type | Tier 1 *(`Z01`: Highcrown / Oakhaven)* | Tier 2 *(`Z02`: Meadowbrook Hamlet)* | Tier 3 *(`Z02`: Millbrook / Hill-Fort)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Rusted Longsword | Iron Arming Longsword | Millbrook Broadsword |
 | **Greatsword** | Pitted Claymore | Iron Greatsword | Riverguard Zweihander |
@@ -87,8 +87,8 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 | **Scimitar** | Bronze Leaf Scimitar | Curved Forester Blade | Crownland Briar Scimitar |
 | **Sickle** | Iron Herb-Sickle | Curved Field Sickle | Harvest Steel Sickle |
 
-### Region 2: The Saltmarsh & Westward Coast *(Steps `4–6` — Saltwind Harbor, Brinecliff / Reedfen & Mirewatch Post)*
-| Weapon Type | Step 4 *(Saltwind Harbor)* | Step 5 *(Brinecliff / Reedfen)* | Step 6 *(Mirewatch Post)* |
+### Map 1 — Coast & Saltmarsh *(Zones `3–5` | Gear Tiers `4–6`)*
+| Weapon Type | Tier 4 *(`Z03`: Saltwind Harbor)* | Tier 5 *(`Z04`: Brinecliff / Reedfen)* | Tier 6 *(`Z05`: Mirewatch / Tidewater)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Sailor's Cutlass | Salt-Tempered Longsword | Marshwarden Saber |
 | **Greatsword** | Deckbreaker Greatsword | Tide-Forged Greatsword | Fen-Cleaver Greatsword |
@@ -104,8 +104,8 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 | **Scimitar** | Mariner Crescent Scimitar | Brine-Edge Scimitar | Fen-Fang Scimitar |
 | **Sickle** | Marsh-Reed Sickle | Brine-Steel Sickle | Mire-Root Sickle |
 
-### Region 3: Thornwall & The Border Warfronts *(Steps `7–9` — Redmarch Bastion)*
-| Weapon Type | Step 7 *(Redmarch)* | Step 8 *(Redmarch)* | Step 9 *(Redmarch)* |
+### Map 2 — Thornwall Warfronts & Weald Border *(Zones `6–8` | Gear Tiers `7–9`)*
+| Weapon Type | Tier 7 *(`Z06`: Redmarch / Goldmoor)* | Tier 8 *(`Z07`: Slatepeak / Thornwall)* | Tier 9 *(`Z08`: Briarstead / Hollowstone)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Garrison Longsword | Redmarch Bastion Sword | Veteran's Vanguard Blade |
 | **Greatsword** | Siege Greatsword | Thornwall Bastard Sword | Warfront Executioner |
@@ -121,8 +121,8 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 | **Scimitar** | Border Cavalry Scimitar | Redmarch Curved Blade | Thornwall Trench Scimitar |
 | **Sickle** | Trench-Iron Sickle | Borderland Hook-Sickle | Bastion War-Sickle |
 
-### Region 4: The Verdant Weald & Plague Woods *(Steps `10–12` — Briarstead)*
-| Weapon Type | Step 10 *(Briarstead)* | Step 11 *(Briarstead)* | Step 12 *(Briarstead)* |
+### Map 2 — Verdant Weald & Plague Woods *(Zones `9–10` | Gear Tiers `10–12`)*
+| Weapon Type | Tier 10 *(`Z09`: Timberfall / Mosswood)* | Tier 11 *(`Z09`: Greenwarden Fort)* | Tier 12 *(`Z10`: Blightwatch Keep)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Briarwood Longsword | Amber-Hilt Longsword | Elderwood Fang |
 | **Greatsword** | Thorn-Etched Greatsword | Moss-Iron Claymore | Ancient Canopy Blade |
@@ -138,8 +138,8 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 | **Scimitar** | Thorn-Curved Scimitar | Moss-Steel Scimitar | Elderwood Leaf-Blade |
 | **Sickle** | Druidic Oak Sickle | Amber-Edge Sickle | Elderwood Moon-Sickle |
 
-### Region 5: The Sun-Scorched Isles *(Steps `13–15` — Port Veridia & Dunespire Oasis)*
-| Weapon Type | Step 13 *(Port Veridia)* | Step 14 *(Port Veridia)* | Step 15 *(Dunespire Oasis)* |
+### Map 3 — Sun-Scorched Isles *(Zones `11–13` | Gear Tiers `13–15`)*
+| Weapon Type | Tier 13 *(`Z11`: Port Veridia / Sunstone)* | Tier 14 *(`Z12`: Dunespire / Sandwall)* | Tier 15 *(`Z13`: Highpass / Gilded Manor)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Sun-Bronze Longsword | Mirage Steel Sword | Solarflare Blade |
 | **Greatsword** | Sand-Glass Greatsword | Bronze-Gilded Claymore | Sunfire Executioner |
@@ -155,8 +155,8 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 | **Scimitar** | Bronze Dune Scimitar | Mirage Shamshir | Oasis Golden Scimitar |
 | **Sickle** | Sun-Brass Sickle | Glasswind Crescent Sickle | Oasis Solar Sickle |
 
-### Region 6: The Ironcrest Peaks *(Steps `16–18` — Highpass Refuge & Anvilhall Forge)*
-| Weapon Type | Step 16 *(Highpass Refuge)* | Step 17 *(Highpass Refuge)* | Step 18 *(Anvilhall Forge)* |
+### Map 3 — Ironcrest Highlands *(Zones `14–15` | Gear Tiers `16–18`)*
+| Weapon Type | Tier 16 *(`Z14`: Clearwater / Cragwatch)* | Tier 17 *(`Z14`: Anvilhall Forge)* | Tier 18 *(`Z15`: Stormhold Citadel)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Highland Steel Longsword | Storm-Quenched Longsword | Anvilhall Mythril Blade |
 | **Greatsword** | Crag-Splitter Greatsword | Thunder-Forged Blade | Titan-Peak Claymore |
@@ -172,8 +172,8 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 | **Scimitar** | Ridge-Steel Scimitar | Thunder-Curved Scimitar | Anvilhall Silver Scimitar |
 | **Sickle** | Flint Ridge Sickle | Storm-Forged Sickle | Anvilhall Mythril Sickle |
 
-### Region 7: The Frostbound Reach *(Steps `19–21` — Rimeport)*
-| Weapon Type | Step 19 *(Rimeport)* | Step 20 *(Rimeport)* | Step 21 *(Rimeport)* |
+### Map 4 — Frostbound Reach *(Zones `16–17` | Gear Tiers `19–21`)*
+| Weapon Type | Tier 19 *(`Z16`: Rimeport / Frostmere)* | Tier 20 *(`Z16`: Glacierwatch Fort)* | Tier 21 *(`Z17`: Icecrest Holdfast)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Rime-Iron Longsword | Frost-Etched Longsword | Glacier-Edge Blade |
 | **Greatsword** | Icebreaker Greatsword | Frozen Fjord Claymore | Pale-Abyss Greatblade |
@@ -189,8 +189,8 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 | **Scimitar** | Frost-Iron Scimitar | Tundra Moon Scimitar | Boreal Glacier Scimitar |
 | **Sickle** | Ice-Carved Sickle | Frostfang Hook-Sickle | Pale-Winter Sickle |
 
-### Region 8: The Dreadwaste & Garrick's Citadel *(Steps `22–24` — Ashenford War-Camp)*
-| Weapon Type | Step 22 *(Ashenford)* | Step 23 *(Ashenford)* | Step 24 *(Ashenford Endgame)* |
+### Map 4 — Ashen Border & The Dreadwaste *(Zones `18–20` | Gear Tiers `22–24`)*
+| Weapon Type | Tier 22 *(`Z18`: Ashenford / Bleakwatch)* | Tier 23 *(`Z19`: Cinderwatch / Ashvale)* | Tier 24 *(`Z20`: Scorchwall / Black Keep)* |
 | :--- | :--- | :--- | :--- |
 | **Longsword** | Ashen-Steel Longsword | Crimson-Oath Sword | **Sovereign's Edge** |
 | **Greatsword** | Dreadwaste Greatsword | Wolf-Bane Zweihander | **Koren's Reckoning** |
@@ -210,61 +210,61 @@ Base values scale smoothly across the 8 Regions so players feel a clear power ju
 
 ## 4. Armor (`23` Shared Types), Global Shields (`6` Types) & Class Accessories
 
-Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, `4` Body + `4` Helmets per type = exact `24`-step progression without duplicating shared sets), wields a **Right-Hand Weapon**, holds a **Global Shield** (`6` types × `4` tiers, usable by **any class wielding a `1H` weapon**), and equips **1 Class Accessory** (`Cloak`, `Orb`, `Horn`, `Quiver`, `Crystal`, or `Tome`).
+Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, `4` Body + `4` Helmets per type = exact `24` Gear Tiers without duplicating shared sets), wields a **Right-Hand Weapon**, holds a **Global Shield** (`6` types × `4` upgrades = `24` Gear Tiers, usable by **any class wielding a `1H` weapon**), and equips **1 Class Accessory** (`Cloak`, `Orb`, `Horn`, `Quiver`, `Crystal`, or `Tome`).
 
 ### A. Armor Weights *(~65% Body / ~35% Helmet Split · Body Carries 1 Runestone Socket)*
 | Weight | Combat Profile |
 | :--- | :--- |
-| **Heavy** | Highest Physical Defense (`100%`), lower Magic Defense (`50%`), slight `-2` Timeline Speed trade-off; Heavy Helmets add `+10%–25%` Stun & Pushback resist. |
-| **Medium** | Balanced Physical (`75%`) & Magic (`75%`) Defense, `0` Speed penalty; Medium Helmets add `+2%–8%` Accuracy & Critical Chance. |
-| **Light** | Highest Magic Defense (`100%`), lower Physical Defense (`45%`), `+Max MP` and `+2` Timeline Speed bonus; Light Helmets add bonus `+Max MP`. |
+| **Heavy** | Highest Physical Defense (`100%`), lower Magic Defense (`50%`); Heavy Helmets add `+10%–25%` Stun & Status resist. |
+| **Medium** | Balanced Physical (`75%`) & Magic (`75%`) Defense; Medium Helmets add `+2%–8%` Accuracy & Critical Chance. |
+| **Light** | Highest Magic Defense (`100%`), lower Physical Defense (`45%`), `+Max MP` and `+4%` Dodge Chance; Light Helmets add bonus `+Max MP`. |
 
-### B. Class Accessory Profiles *(`1` Accessory Slot Per Hero · `24`-Step Progression)*
+### B. Class Accessory Profiles *(`1` Accessory Slot Per Hero · `24` Gear Tiers)*
 | Accessory Type | Usable By | Combat Profile |
 | :--- | :--- | :--- |
-| **Cloaks** | Duelist (`Valen`) | Boosts Turn Timeline Speed, Dodge Chance & Critical Chance. |
-| **Orbs** | Sorceress (`Ellowyn`) | Boosts Magic Power, Spell Crit Chance & Turn Timeline Speed. |
+| **Cloaks** | Duelist (`Valen`) | Boosts Dodge Chance & Critical Chance. |
+| **Orbs** | Sorceress (`Ellowyn`) | Boosts Magic Power, Spell Crit Chance & Max MP. |
 | **Horns** | Knight (`Orin`) | Boosts Grit, Physical Defense & Guard mitigation bonus. |
 | **Quivers** | Ranger (`Rowan`) | Boosts Piercing Attack Power & Critical Damage. |
 | **Crystals** | Druid (`Mera`) | Boosts Magic Power, Max MP & Nature/Status potency. |
 | **Tomes** | Sage (`Harlan`) | Boosts Healing Power, Max MP & Status Ailment Resistance. |
 
-### C. Combined Defense & Price Curve (Steps `1`–`24`)
-* **Armor Split Across Both Slots:** Values below show the **combined** Step total (`Body + Helmet`)—in town shops, **Body Armor** provides ~`65%` of the stats & price and **Helmets** provide ~`35%`, so equipping a matching pair hits the exact balanced baseline.
-* **Shield / Class Accessory Silver Cost:** Roughly `0.65×` of a 1H Weapon at the same Step (`25s` at Step 1 $\to$ `55,000s` at Step 24).
+### C. Combined Defense & Price Curve (`Gear Tiers 1–24` Across `Zones 1–20`)
+* **Armor Split Across Both Slots:** Values below show the **combined** Gear Tier total (`Body + Helmet`)—in town shops, **Body Armor** provides ~`65%` of the stats & price and **Helmets** provide ~`35%`, so equipping a matching pair hits the exact balanced baseline.
+* **Shield / Class Accessory Silver Cost:** Roughly `0.65×` of a 1H Weapon at the same Gear Tier (`25s` at Tier 1 $\to$ `55,000s` at Tier 24).
 
-| Step | Region | Heavy P.Def / M.Def | Medium P.Def / M.Def | Light P.Def / M.Def *(+MP)* | Shield P.Def | Body + Helmet Price | Shield / Accessory Price |
+| Gear Tier | Map · Level Zone | Heavy P.Def / M.Def | Medium P.Def / M.Def | Light P.Def / M.Def *(+MP)* | Shield P.Def | Body + Helmet Price | Shield / Accessory Price |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1** | Region 1 | `6 / 3` | `5 / 5` | `3 / 6` *(+5 MP)* | `+4` | `35s` | `25s` |
-| **2** | Region 1 | `10 / 5` | `8 / 8` | `5 / 10` *(+8 MP)* | `+6` | `110s` | `80s` |
-| **3** | Region 1 | `15 / 7` | `12 / 12` | `7 / 15` *(+10 MP)* | `+9` | `230s` | `170s` |
-| **4** | Region 2 | `21 / 10` | `16 / 16` | `9 / 21` *(+13 MP)* | `+13` | `400s` | `290s` |
-| **5** | Region 2 | `28 / 14` | `21 / 21` | `13 / 28` *(+16 MP)* | `+17` | `650s` | `470s` |
-| **6** | Region 2 | `36 / 18` | `27 / 27` | `16 / 36` *(+19 MP)* | `+22` | `950s` | `680s` |
-| **7** | Region 3 | `45 / 22` | `34 / 34` | `20 / 45` *(+22 MP)* | `+27` | `1,350s` | `975s` |
-| **8** | Region 3 | `55 / 27` | `41 / 41` | `25 / 55` *(+25 MP)* | `+33` | `1,900s` | `1,360s` |
-| **9** | Region 3 | `66 / 33` | `50 / 50` | `30 / 66` *(+28 MP)* | `+40` | `2,600s` | `1,880s` |
-| **10** | Region 4 | `78 / 39` | `59 / 59` | `35 / 78` *(+31 MP)* | `+47` | `3,500s` | `2,500s` |
-| **11** | Region 4 | `91 / 45` | `68 / 68` | `41 / 91` *(+34 MP)* | `+55` | `4,700s` | `3,400s` |
-| **12** | Region 4 | `105 / 52` | `79 / 79` | `47 / 105` *(+37 MP)* | `+63` | `6,100s` | `4,400s` |
-| **13** | Region 5 | `120 / 60` | `90 / 90` | `54 / 120` *(+40 MP)* | `+72` | `7,900s` | `5,700s` |
-| **14** | Region 5 | `136 / 68` | `102 / 102` | `61 / 136` *(+43 MP)* | `+82` | `10,000s` | `7,300s` |
-| **15** | Region 5 | `153 / 76` | `115 / 115` | `69 / 153` *(+46 MP)* | `+92` | `12,600s` | `9,100s` |
-| **16** | Region 6 | `172 / 86` | `129 / 129` | `77 / 172` *(+49 MP)* | `+103` | `15,800s` | `11,400s` |
-| **17** | Region 6 | `192 / 96` | `144 / 144` | `86 / 192` *(+52 MP)* | `+115` | `19,400s` | `14,000s` |
-| **18** | Region 6 | `214 / 107` | `161 / 161` | `96 / 214` *(+55 MP)* | `+128` | `24,000s` | `17,200s` |
-| **19** | Region 7 | `238 / 119` | `179 / 179` | `107 / 238` *(+58 MP)* | `+143` | `29,000s` | `21,000s` |
-| **20** | Region 7 | `264 / 132` | `198 / 198` | `119 / 264` *(+61 MP)* | `+158` | `35,500s` | `25,600s` |
-| **21** | Region 7 | `292 / 146` | `219 / 219` | `131 / 292` *(+64 MP)* | `+175` | `43,000s` | `31,200s` |
-| **22** | Region 8 | `324 / 162` | `243 / 243` | `146 / 324` *(+68 MP)* | `+194` | `52,000s` | `37,700s` |
-| **23** | Region 8 | `358 / 179` | `269 / 269` | `161 / 358` *(+72 MP)* | `+215` | `63,000s` | `45,500s` |
-| **24** | Region 8 | `395 / 198` | `296 / 296` | `178 / 395` *(+78 MP)* | `+237` | `78,000s` | `55,000s` |
+| **1** | Map 1 · **Zone 1** | `6 / 3` | `5 / 5` | `3 / 6` *(+5 MP)* | `+4` | `35s` | `25s` |
+| **2** | Map 1 · **Zone 2** *(entry)* | `10 / 5` | `8 / 8` | `5 / 10` *(+8 MP)* | `+6` | `110s` | `80s` |
+| **3** | Map 1 · **Zone 2** *(frontier)* | `15 / 7` | `12 / 12` | `7 / 15` *(+10 MP)* | `+9` | `230s` | `170s` |
+| **4** | Map 1 · **Zone 3** | `21 / 10` | `16 / 16` | `9 / 21` *(+13 MP)* | `+13` | `400s` | `290s` |
+| **5** | Map 1 · **Zone 4** | `28 / 14` | `21 / 21` | `13 / 28` *(+16 MP)* | `+17` | `650s` | `470s` |
+| **6** | Map 1 · **Zone 5** | `36 / 18` | `27 / 27` | `16 / 36` *(+19 MP)* | `+22` | `950s` | `680s` |
+| **7** | Map 2 · **Zone 6** | `45 / 22` | `34 / 34` | `20 / 45` *(+22 MP)* | `+27` | `1,350s` | `975s` |
+| **8** | Map 2 · **Zone 7** | `55 / 27` | `41 / 41` | `25 / 55` *(+25 MP)* | `+33` | `1,900s` | `1,360s` |
+| **9** | Map 2 · **Zone 8** | `66 / 33` | `50 / 50` | `30 / 66` *(+28 MP)* | `+40` | `2,600s` | `1,880s` |
+| **10** | Map 2 · **Zone 9** *(entry)* | `78 / 39` | `59 / 59` | `35 / 78` *(+31 MP)* | `+47` | `3,500s` | `2,500s` |
+| **11** | Map 2 · **Zone 9** *(deep)* | `91 / 45` | `68 / 68` | `41 / 91` *(+34 MP)* | `+55` | `4,700s` | `3,400s` |
+| **12** | Map 2 · **Zone 10** | `105 / 52` | `79 / 79` | `47 / 105` *(+37 MP)* | `+63` | `6,100s` | `4,400s` |
+| **13** | Map 3 · **Zone 11** | `120 / 60` | `90 / 90` | `54 / 120` *(+40 MP)* | `+72` | `7,900s` | `5,700s` |
+| **14** | Map 3 · **Zone 12** | `136 / 68` | `102 / 102` | `61 / 136` *(+43 MP)* | `+82` | `10,000s` | `7,300s` |
+| **15** | Map 3 · **Zone 13** | `153 / 76` | `115 / 115` | `69 / 153` *(+46 MP)* | `+92` | `12,600s` | `9,100s` |
+| **16** | Map 3 · **Zone 14** *(basin)* | `172 / 86` | `129 / 129` | `77 / 172` *(+49 MP)* | `+103` | `15,800s` | `11,400s` |
+| **17** | Map 3 · **Zone 14** *(forge)* | `192 / 96` | `144 / 144` | `86 / 192` *(+52 MP)* | `+115` | `19,400s` | `14,000s` |
+| **18** | Map 3 · **Zone 15** | `214 / 107` | `161 / 161` | `96 / 214` *(+55 MP)* | `+128` | `24,000s` | `17,200s` |
+| **19** | Map 4 · **Zone 16** *(coast)* | `238 / 119` | `179 / 179` | `107 / 238` *(+58 MP)* | `+143` | `29,000s` | `21,000s` |
+| **20** | Map 4 · **Zone 16** *(glacier)* | `264 / 132` | `198 / 198` | `119 / 264` *(+61 MP)* | `+158` | `35,500s` | `25,600s` |
+| **21** | Map 4 · **Zone 17** | `292 / 146` | `219 / 219` | `131 / 292` *(+64 MP)* | `+175` | `43,000s` | `31,200s` |
+| **22** | Map 4 · **Zone 18** | `324 / 162` | `243 / 243` | `146 / 324` *(+68 MP)* | `+194` | `52,000s` | `37,700s` |
+| **23** | Map 4 · **Zone 19** | `358 / 179` | `269 / 269` | `161 / 358` *(+72 MP)* | `+215` | `63,000s` | `45,500s` |
+| **24** | Map 4 · **Zone 20** | `395 / 198` | `296 / 296` | `178 / 395` *(+78 MP)* | `+237` | `78,000s` | `55,000s` |
 
 ---
 
 ### D. Complete Shared Armor & Helmet Catalog *(`23` Types × `4` Body + `4` Helmets = `92` Body + `92` Helmets)*
 
-| Armor Type | Weight | Steps | Slot | Usable By | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
+| Armor Type | Weight | Gear Tiers | Slot | Usable By | Upgrade 1 | Upgrade 2 | Upgrade 3 | Upgrade 4 |
 | :--- | :---: | :---: | :---: | :--- | :--- | :--- | :--- | :--- |
 | **Leather** | Light | `1, 2, 3, 4` | Body | Valen, Rowan, Mera | Traveler's Leather Jerkin | Frontier Leather Coat | Tempered Leather Vest | Veteran Leather Cuirass |
 | **Leather** | Light | `1, 2, 3, 4` | Helmet | Valen, Rowan, Mera | Leather Skullcap | Scout's Leather Cap | Hardened Leather Hood | Ranger Leather Cowl |
@@ -296,12 +296,12 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Plate** | Heavy | `21, 22, 23, 24` | Helmet | Orin | Bleakwatch Warhelm | Ashen-Iron Greathelm | Black-Keep Full Visor | **Crown of the First King** |
 | **Simple Robes** | Light | `1, 2, 3, 4` | Body | Ellowyn, Harlan | Linen Travel Robes | Simple Apprentice Robes | Crownland Cloth Robes | Harbor Wool Robes |
 | **Simple Robes** | Light | `1, 2, 3, 4` | Helmet | Ellowyn, Harlan | Simple Linen Hood | Plain Cloth Cowl | Wanderer's Cap | Saltwind Wool Hood |
-| **Fine Robes** | Light | `5, 6, 7, 8` | Body | Ellowyn | Trimmed Fine Robes | Dyed Velvet Robes | Redmarch Fine Mantle | Noble Thread Robes |
-| **Fine Robes** | Light | `5, 6, 7, 8` | Helmet | Ellowyn | Fine Silk Fillet | Copper Circlet | Redmarch Hood | Noble Velour Cowl |
-| **Padded Robes** | Light | `6, 8, 10, 12` | Body | Ellowyn, Harlan | Quilted Hemp Robes | Marsh-Padded Mantle | Garrison Padded Robes | Briar-Lined Padded Coat |
-| **Padded Robes** | Light | `6, 8, 10, 12` | Helmet | Ellowyn, Harlan | Quilted Linen Cap | Soft Padded Hood | Garrison Padded Cowl | Briar Padded Circlet |
-| **Silk Robes** | Light | `10, 12, 14, 16` | Body | Ellowyn, Harlan | Weald Silk Robes | Golden-Thread Silk Robes | Oasis Star-Silk Mantle | Storm-Woven Silk Robes |
-| **Silk Robes** | Light | `10, 12, 14, 16` | Helmet | Ellowyn, Harlan | Weald Silk Veil | Silver Silk Band | Oasis Silk Crownlet | Highpass Silk Diadem |
+| **Fine Robes** | Light | `5, 6, 7, 8` | Body | Ellowyn, Harlan | Trimmed Fine Robes | Dyed Velvet Robes | Redmarch Fine Mantle | Noble Thread Robes |
+| **Fine Robes** | Light | `5, 6, 7, 8` | Helmet | Ellowyn, Harlan | Fine Silk Fillet | Copper Circlet | Redmarch Hood | Noble Velour Cowl |
+| **Padded Robes** | Light | `9, 10, 11, 12` | Body | Ellowyn, Harlan | Quilted Hemp Robes | Marsh-Padded Mantle | Garrison Padded Robes | Briar-Lined Padded Coat |
+| **Padded Robes** | Light | `9, 10, 11, 12` | Helmet | Ellowyn, Harlan | Quilted Linen Cap | Soft Padded Hood | Garrison Padded Cowl | Briar Padded Circlet |
+| **Silk Robes** | Light | `13, 14, 15, 16` | Body | Ellowyn | Weald Silk Robes | Golden-Thread Silk Robes | Oasis Star-Silk Mantle | Storm-Woven Silk Robes |
+| **Silk Robes** | Light | `13, 14, 15, 16` | Helmet | Ellowyn | Weald Silk Veil | Silver Silk Band | Oasis Silk Crownlet | Highpass Silk Diadem |
 | **Widowsilk Robes** | Light | `13, 14, 15, 16` | Body | Mera, Harlan | Dune-Web Widowsilk | Black-Spun Widowsilk | Velvet Widowsilk Mantle | Frost-Spun Widowsilk |
 | **Widowsilk Robes** | Light | `13, 14, 15, 16` | Helmet | Mera, Harlan | Web-Spun Hood | Black-Silk Cowl | Spider-Thread Veil | Crystal Widowsilk Crown |
 | **Padded Bone** | Medium | `17, 18, 19, 20` | Body | Mera, Harlan | Carved Rib-Bone Coat | Highland Padded Bone | Tundra-Hide Bone Armor | Frost-Stitched Bone Vest |
@@ -315,9 +315,9 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 
 ---
 
-### E. Complete Global Shields Catalog *(`6` Types × `4` Tiers = `24` Shields · All Classes w/ `1H` Weapon)*
+### E. Complete Global Shields Catalog *(`6` Types × `4` Upgrades = `24` Gear Tiers · All Classes w/ `1H` Weapon)*
 
-| Shield Type | Weight | Steps | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
+| Shield Type | Weight | Gear Tiers | Upgrade 1 | Upgrade 2 | Upgrade 3 | Upgrade 4 |
 | :--- | :---: | :---: | :--- | :--- | :--- | :--- |
 | **Buckler** | Light | `1, 2, 3, 4` | Cracked Wood Buckler | Iron-Rimmed Buckler | Crownland Steel Buckler | Saltwind Brass Buckler |
 | **Round Shield** | Light | `5, 6, 7, 8` | Oak-Plank Round Shield | Mire-Iron Round Shield | Redmarch Bronze Round | Veteran's Steel Round |
@@ -328,10 +328,10 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 
 ---
 
-### F. Complete Class Accessories Catalog *(`6` Types × `24` Steps = `144` Items · `1` Slot)*
+### F. Complete Class Accessories Catalog *(`6` Types × `24` Gear Tiers = `144` Items · `1` Slot)*
 
-#### Region 1: The Crownlands *(Steps `1–3`)*
-| Category | Step 1 | Step 2 | Step 3 |
+#### Map 1 — Crownlands Heart & Roads *(Zones `1–2` | Gear Tiers `1–3`)*
+| Category | Tier 1 *(`Z01`)* | Tier 2 *(`Z02` entry)* | Tier 3 *(`Z02` frontier)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Tattered Travel Cloak | Oakhaven Wool Cloak | Millbrook Duelist Cape |
 | **Orb** | Cracked Glass Orb | Amber Focus Orb | Crownland Star-Orb |
@@ -340,8 +340,8 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Crystal** | Chipped Quartz Crystal | Moss-Lit Shard | Crownland Verdant Crystal |
 | **Tome** | Linen Herbal Tome | Stitched Field Primer | Crownland Herbal Ledger |
 
-#### Region 2: The Saltmarsh & Westward Coast *(Steps `4–6`)*
-| Category | Step 4 | Step 5 | Step 6 |
+#### Map 1 — Coast & Saltmarsh *(Zones `3–5` | Gear Tiers `4–6`)*
+| Category | Tier 4 *(`Z03`)* | Tier 5 *(`Z04`)* | Tier 6 *(`Z05`)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Waxed Mariner Cloak | Saltwind Storm-Cape | Mirewatch Oilskin Cloak |
 | **Orb** | Brine-Pearl Sphere | Sea-Glass Globe | Tidestone Crystal Orb |
@@ -350,8 +350,8 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Crystal** | Sea-Salt Prism Crystal | Brine-Moss Crystal | Fen-Amber Crystal |
 | **Tome** | Mariner's Tide-Tome | Sea-Kelp Herbarium | Mire-Antidote Ledger |
 
-#### Region 3: Thornwall & The Border Warfronts *(Steps `7–9`)*
-| Category | Step 7 | Step 8 | Step 9 |
+#### Map 2 — Thornwall Warfronts & Weald Border *(Zones `6–8` | Gear Tiers `7–9`)*
+| Category | Tier 7 *(`Z06`)* | Tier 8 *(`Z07`)* | Tier 9 *(`Z08`)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Ash-Dyed Border Cloak | Redmarch Crimson Cape | Vanguard Silk Mantle |
 | **Orb** | Smoke-Quartz Sphere | War-Chanter Orb | Redmarch Focus Globe |
@@ -360,8 +360,8 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Crystal** | Slate-Bound Crystal | Amber-Vein Crystal | Redmarch Storm-Shard |
 | **Tome** | Battlefield Triage Tome | Cinder-Ink Compendium | Bastion Field Codex |
 
-#### Region 4: The Verdant Weald & Plague Woods *(Steps `10–12`)*
-| Category | Step 10 | Step 11 | Step 12 |
+#### Map 2 — Verdant Weald & Plague Woods *(Zones `9–10` | Gear Tiers `10–12`)*
+| Category | Tier 10 *(`Z09` entry)* | Tier 11 *(`Z09` deep)* | Tier 12 *(`Z10`)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Fern-Dyed Ranger Cloak | Briar-Thorn Mantle | Elderwood Canopy Cloak |
 | **Orb** | Amber-Sap Sphere | Dewdrop Crystal Orb | Elderwood Star-Globe |
@@ -370,8 +370,8 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Crystal** | Heartwood Sap Crystal | Emerald Weald Crystal | Ancient Grove Prism |
 | **Tome** | Herbalist's Lore Tome | Amber-Leaf Codex | Elderwood Panacea Tome |
 
-#### Region 5: The Sun-Scorched Isles *(Steps `13–15`)*
-| Category | Step 13 | Step 14 | Step 15 |
+#### Map 3 — Sun-Scorched Isles *(Zones `11–13` | Gear Tiers `13–15`)*
+| Category | Tier 13 *(`Z11`)* | Tier 14 *(`Z12`)* | Tier 15 *(`Z13`)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Sun-Bleached Sand Cloak | Gilded Veridia Cape | Mirage Silk Shawl |
 | **Orb** | Sun-Glass Sphere | Topaz Mirage Orb | Solar Prism Globe |
@@ -380,8 +380,8 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Crystal** | Sunstone Shard Crystal | Topaz Desert Crystal | Solar Hearth Crystal |
 | **Tome** | Sun-Dial Field Tome | Oasis Tincture Codex | Solar-Flare Lexicon |
 
-#### Region 6: The Ironcrest Peaks *(Steps `16–18`)*
-| Category | Step 16 | Step 17 | Step 18 |
+#### Map 3 — Ironcrest Highlands *(Zones `14–15` | Gear Tiers `16–18`)*
+| Category | Tier 16 *(`Z14` basin)* | Tier 17 *(`Z14` forge)* | Tier 18 *(`Z15`)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Wolf-Fur Travel Cloak | Storm-Weave Cape | Anvilhall Silver Mantle |
 | **Orb** | Thunder-Quartz Orb | Silver-Core Sphere | Anvilhall Prism Globe |
@@ -390,8 +390,8 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Crystal** | Storm-Quartz Crystal | Silver-Peak Crystal | Sky-Heart Gem Crystal |
 | **Tome** | Alpine-Herb Folio | Mineral-Salve Compendium | Anvilhall Runic Tome |
 
-#### Region 7: The Frostbound Reach *(Steps `19–21`)*
-| Category | Step 19 | Step 20 | Step 21 |
+#### Map 4 — Frostbound Reach *(Zones `16–17` | Gear Tiers `19–21`)*
+| Category | Tier 19 *(`Z16` coast)* | Tier 20 *(`Z16` glacier)* | Tier 21 *(`Z17`)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Rime-Lined Wolf Cloak | Tundra Snow-Mantle | Boreal Starlight Cape |
 | **Orb** | Frosted Glass Sphere | Boreal Ice-Orb | Pale-Star Crystal Globe |
@@ -400,8 +400,8 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Crystal** | Glacial Ice Crystal | Boreal Frost Crystal | Winter-Moon Prism |
 | **Tome** | Frost-Script Folio | Ice-Bound Herbarium | Glacial Elixir Tome |
 
-#### Region 8: The Dreadwaste & Garrick's Citadel *(Steps `22–24`)*
-| Category | Step 22 | Step 23 | Step 24 |
+#### Map 4 — Ashen Border & The Dreadwaste *(Zones `18–20` | Gear Tiers `22–24`)*
+| Category | Tier 22 *(`Z18`)* | Tier 23 *(`Z19`)* | Tier 24 *(`Z20`)* |
 | :--- | :--- | :--- | :--- |
 | **Cloak** | Ashen-Hide Cloak | Crimson-Oath Cape | **Sovereign Duelist Cloak** |
 | **Orb** | Void-Glass Sphere | Eclipse Rift Orb | **Heart of the First Dawn** |
@@ -418,16 +418,16 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 * **Lore Hook:** Ties straight back to the mysterious *"smuggled dark stone"* from [backstory.txt](../backstory.txt)—weathered tablets of slate, basalt, bone, or obsidian etched with glowing runes.
 * **1 Permanent Runestone Socket on Every Weapon & Body Armor:** Every Weapon and Body Armor piece has **1 socket**. Slotting a Runestone into an empty socket is free anytime from the Equipment menu.
 * **Permanent Binding & Overwrite Rule (No Extraction):** Runestones **cannot be removed or reclaimed** once socketed, and there are **no Runesmith NPCs**. Inserting a **new Runestone** onto an already-occupied socket **overwrites and destroys the old Runestone** *(with a clear confirmation prompt)*, making every replacement a high-stakes choice.
-* **Pick 1 of 3 Procedural Quest Draft:** Completing any quest opens a 3-card Runestone Draft that **procedurally generates 3 distinct Runestones** scaled to the Region's tier by rolling **Prefixes + Suffixes** from the pools below (`name format: "[Prefix] Runestone [of Suffix]"`, e.g., *Vampiric Runestone of Alacrity*, or multi-affix rolls like *Arcing Echoing Runestone of Precision & Brutality*).
+* **Pick 1 of 3 Procedural Quest Draft:** Completing any quest opens a 3-card Runestone Draft that **procedurally generates 3 distinct Runestones** scaled to the quest's Map / Level Zone tier by rolling **Prefixes + Suffixes** from the pools below (`name format: "[Prefix] Runestone [of Suffix]"`, e.g., *Vampiric Runestone of Alacrity*, or multi-affix rolls like *Arcing Echoing Runestone of Precision & Brutality*).
 * **100% Pure Combat Effects:** No non-combat economy affixes—every Prefix and Suffix directly impacts combat. Unwanted Runestones can be **sold to merchants for Silver** (`Runestones cannot be crafted, extracted, or rerolled in shops`).
 
-#### Runestone Rarity Tiers Across the 8 Regions
-| Tier | Regions | Roll Formula | Strength Scale |
+#### Runestone Rarity Tiers Across Maps `1–4` (`Zones 1–20`)
+| Rarity Tier | Maps & Level Zones | Roll Formula | Strength Scale |
 | :--- | :--- | :--- | :---: |
-| **Lesser** | Regions `1–2` | `1` Prefix + `1` Suffix | Base Tier (`1×`) |
-| **Refined** | Regions `3–4` | `1` Prefix + `1` Suffix | Strong Tier (`~1.5×`) |
-| **Greater** | Regions `5–6` | `2` Prefixes + `1` Suffix **or** `1` Prefix + `2` Suffixes | High Tier (`~2×`) |
-| **Mythic** | Regions `7–8` | `2` Prefixes + `2` Suffixes | Endgame Tier (`~2.5×`) |
+| **Lesser** | **Map 1** (`Zones 1–5`) | `1` Prefix + `1` Suffix | Base Tier (`1×`) |
+| **Refined** | **Map 2** (`Zones 6–10`) | `1` Prefix + `1` Suffix | Strong Tier (`~1.5×`) |
+| **Greater** | **Map 3** (`Zones 11–15`) | `2` Prefixes + `1` Suffix **or** `1` Prefix + `2` Suffixes | High Tier (`~2×`) |
+| **Mythic** | **Map 4** (`Zones 16–20`) | `2` Prefixes + `2` Suffixes | Endgame Tier (`~2.5×`) |
 
 ---
 
@@ -435,7 +435,7 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | Prefix Name | Combat Effect *(Scales Lesser $\to$ Mythic)* |
 | :--- | :--- |
 | **Blazing** | Strikes deal bonus **Fire** damage (`+12%–25%`), splash `35%` to an adjacent enemy, and chance to **Burn**. |
-| **Glacial** | Strikes deal bonus **Frost** damage (`+12%–25%`) and apply **Chill**, pushing targets back on the timeline. |
+| **Glacial** | Strikes deal bonus **Frost** damage (`+12%–25%`) and apply **Chill**, lowering enemy Attack & Magic Power by `15%`. |
 | **Arcing** | Strikes deal bonus **Lightning** damage (`+12%–25%`) that chains to a 2nd enemy with a **Shock** chance. |
 | **Venomous** | Strikes deal bonus **Poison** damage (`+12%–25%`); poisoned foes deal `10%–18%` less physical damage. |
 | **Hallowed** | Strikes deal bonus **Radiant** damage (`+15%–32%` vs. Undead & Portal Horrors) and purge `1` enemy buff on crit. |
@@ -456,7 +456,7 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 | **Retaliating** | Reflect `18%–38%` of incoming melee damage back onto attackers and chip `1` Guard point when hit while Battered. |
 | **Resolve-Heart** | Gain `+18%–38%` damage & healing potency whenever HP is below `50%` (**Battered**). |
 | **Sanctified** | Gain `25%–60%` resistance to **all Status Ailments & Stun**, and heal `3%–6%` HP when an ailment fails or expires. |
-| **Vanguard's** | Taking the **Guard** action restores `6%–15%` Max HP + `4–10 MP` and pushes your next turn forward on the timeline. |
+| **Vanguard's** | Taking the **Guard** action restores `6%–15%` Max HP + `4–10 MP` and grants `+15%` Defense for `1` turn. |
 | **Unbreakable** | Once per battle, survive a fatal hit at `1 HP` and immediately gain a `10%–25%` **Ward Shield**. |
 | **Overflowing** | Excess healing above `100%` Max HP converts into a protective **Ward Shield** *(up to `15%–30%` Max HP)*. |
 | **Phantom's** | Gain `+6%–16%` Dodge Chance, and dodging an attack immediately grants **Momentum** (`+25%` next hit). |
@@ -468,7 +468,7 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 ### D. Universal Suffixes *(Combat Stats & Perks — Roll on Any Runestone)*
 | Suffix Name | Stat & Combat Bonus *(Scales Lesser $\to$ Mythic)* |
 | :--- | :--- |
-| **of Alacrity** | `+3 to +14` **Turn Timeline Speed** & `+3 to +12` opening battle Initiative. |
+| **of Alacrity** | `+3% to +14%` **Dodge Chance** & `+3% to +12%` **Accuracy**. |
 | **of Precision** | `+3% to +14%` **Critical Chance** & `+5% to +18%` **Accuracy**. |
 | **of Brutality** | `+12% to +45%` **Critical Damage** multiplier. |
 | **of Piercing** | Attacks & spells ignore `10%–30%` of enemy Physical & Magic Defense. |
@@ -485,26 +485,26 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 
 ## 6. Town Potions
 
-Because players can pick **any 4 of the 6 heroes** (even a squad without **Harlan** or **Mera**), Town **Arcanist** shops stock healing, mana, revival, and status-cure supplies strictly as **Potions** across the 8 Regions. **Unlimited Stacking:** Any consumables sharing the exact same stats and effect merge together into a single unlimited stack in your bag (`no 99-item limit`).
+Because players can pick **any 4 of the 6 heroes** (even a squad without **Harlan** or **Mera**), Town **Arcanist** shops stock healing, mana, revival, and status-cure supplies strictly as **Potions** scaled across Ethoria's Level Zones (`Maps 1–4`). **Unlimited Stacking:** Any consumables sharing the exact same stats and effect merge together into a single unlimited stack in your bag (`no 99-item limit`).
 
 ### A. Healing & Mana Potions *(Usable In or Out of Combat)*
-| Item | Regions Stocked | Effect | Price *(Silver)* |
+| Item | Zones Stocked | Effect | Price *(Silver)* |
 | :--- | :--- | :--- | :---: |
-| **Minor Healing Potion** | Regions `1–8` | Restores `60 HP` to 1 ally | `25s` |
-| **Stout Healing Potion** | Regions `3–8` | Restores `220 HP` to 1 ally | `90s` |
-| **Greater Healing Potion** | Regions `5–8` | Restores `600 HP` to 1 ally | `300s` |
-| **Supreme Healing Potion** | Regions `7–8` | Restores `1,500 HP` to 1 ally | `950s` |
-| **Minor Mana Potion** | Regions `1–8` | Restores `25 MP` to 1 ally | `60s` |
-| **Greater Mana Potion** | Regions `4–8` | Restores `75 MP` to 1 ally | `240s` |
-| **Supreme Mana Potion** | Regions `7–8` | Restores `180 MP` to 1 ally | `750s` |
+| **Minor Healing Potion** | Zones `1–20` *(Maps `1–4`)* | Restores `60 HP` to 1 ally | `25s` |
+| **Stout Healing Potion** | Zones `6–20` *(Maps `2–4`)* | Restores `220 HP` to 1 ally | `90s` |
+| **Greater Healing Potion** | Zones `11–20` *(Maps `3–4`)* | Restores `600 HP` to 1 ally | `300s` |
+| **Supreme Healing Potion** | Zones `16–20` *(Map `4`)* | Restores `1,500 HP` to 1 ally | `950s` |
+| **Minor Mana Potion** | Zones `1–20` *(Maps `1–4`)* | Restores `25 MP` to 1 ally | `60s` |
+| **Greater Mana Potion** | Zones `9–20` *(Map `2` Weald onward)* | Restores `75 MP` to 1 ally | `240s` |
+| **Supreme Mana Potion** | Zones `16–20` *(Map `4`)* | Restores `180 MP` to 1 ally | `750s` |
 
 ### B. Revival & Cure Potions *(Usable In or Out of Combat)*
-| Item | Regions Stocked | Effect | Price *(Silver)* |
+| Item | Zones Stocked | Effect | Price *(Silver)* |
 | :--- | :--- | :--- | :---: |
-| **Reviving Potion** | Regions `1–8` | Revives a Knocked Out (`0 HP`) ally with `30% HP` | `120s` |
-| **Phoenix Potion** | Regions `5–8` | Revives a Knocked Out ally with `75% HP` & cures ailments | `650s` |
-| **Antidote Potion** | Regions `1–8` | Cures **Poison** on 1 ally | `30s` |
-| **Cooling Potion** | Regions `1–8` | Cures **Burn** on 1 ally | `30s` |
-| **Warming Potion** | Regions `1–8` | Cures **Chill** on 1 ally | `30s` |
-| **Clarity Potion** | Regions `2–8` | Cures **Shock, Curse & Stun** on 1 ally | `45s` |
-| **Panacea Potion** | Regions `4–8` | Cures **all ailments** on 1 ally | `180s` |
+| **Reviving Potion** | Zones `1–20` *(Maps `1–4`)* | Revives a Knocked Out (`0 HP`) ally with `30% HP` | `120s` |
+| **Phoenix Potion** | Zones `11–20` *(Maps `3–4`)* | Revives a Knocked Out ally with `75% HP` & cures ailments | `650s` |
+| **Antidote Potion** | Zones `1–20` *(Maps `1–4`)* | Cures **Poison** on 1 ally | `30s` |
+| **Cooling Potion** | Zones `1–20` *(Maps `1–4`)* | Cures **Burn** on 1 ally | `30s` |
+| **Warming Potion** | Zones `1–20` *(Maps `1–4`)* | Cures **Chill** on 1 ally | `30s` |
+| **Clarity Potion** | Zones `4–20` *(Map `1` Saltmarsh onward)* | Cures **Shock, Curse & Stun** on 1 ally | `45s` |
+| **Panacea Potion** | Zones `9–20` *(Map `2` Weald onward)* | Cures **all ailments** on 1 ally | `180s` |

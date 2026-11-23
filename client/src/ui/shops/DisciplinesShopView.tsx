@@ -2,11 +2,13 @@ import React from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import type { DisciplineOption, DisciplineTier, HeroId } from "../types";
+import { getDisciplinesForZone } from "./shopLogic";
 
 interface DisciplinesShopViewProps {
   heroId: HeroId;
   heroName: string;
   tiers: DisciplineTier[];
+  zoneNum: number;
   partyLevel: number;
   silver: number;
   chosenByTier: Record<string, string>;
@@ -23,6 +25,7 @@ export const DisciplinesShopView: React.FC<DisciplinesShopViewProps> = ({
   heroId,
   heroName,
   tiers,
+  zoneNum,
   partyLevel,
   silver,
   chosenByTier,
@@ -36,14 +39,16 @@ export const DisciplinesShopView: React.FC<DisciplinesShopViewProps> = ({
     );
   }
 
+  const { visibleTiers } = getDisciplinesForZone(tiers, zoneNum);
+
   return (
     <div className="flex flex-col gap-2.5 pr-1">
       <div className="rounded border border-[#473c27] bg-[#141822]/95 px-3 py-2 text-[12px] text-[#cdd7e8]">
         <strong className="text-[#fae2aa]">{heroName}&apos;s Discipline Training:</strong> Pick{" "}
-        <strong className="text-[#ffe49e]">1 of 2</strong> perks per milestone (Lv 1, 10, 20… 90). Choices are permanent per hero.
+        <strong className="text-[#ffe49e]">1 of 2</strong> permanent perks per milestone.
       </div>
 
-      {tiers.map((tier) => {
+      {visibleTiers.map((tier) => {
         const chosenId = chosenByTier[String(tier.level)];
         const unlocked = partyLevel >= tier.level;
         const canAfford = silver >= tier.silver;

@@ -161,7 +161,7 @@ function buildTooltipHtml(item, state) {
   } else {
     const extra = [];
     if (item.sourceMob) extra.push(`<div><strong>Dropped By:</strong> ${esc(item.sourceMob)}${item.sourceType ? ` (${esc(item.sourceType)})` : ""}</div>`);
-    if (item.regionsStocked) extra.push(`<div><strong>Stocked:</strong> ${esc(item.regionsStocked)}</div>`);
+    if (item.zonesStocked || item.regionsStocked) extra.push(`<div><strong>Stocked:</strong> ${esc(item.zonesStocked ?? item.regionsStocked)}</div>`);
     if (item.effect) {
       statsHtml += `<div class="tip-effect">${esc(item.effect)}</div>`;
     }

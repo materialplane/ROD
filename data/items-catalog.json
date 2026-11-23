@@ -7959,7 +7959,7 @@
         "physDef": 2,
         "magDef": 4,
         "maxMp": 3,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_01_leather_travelers_leather_jerkin.webp"
     },
@@ -7985,7 +7985,7 @@
         "physDef": 3,
         "magDef": 6,
         "maxMp": 5,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_02_leather_frontier_leather_coat.webp"
     },
@@ -8011,7 +8011,7 @@
         "physDef": 5,
         "magDef": 10,
         "maxMp": 6,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_03_leather_tempered_leather_vest.webp"
     },
@@ -8037,7 +8037,7 @@
         "physDef": 6,
         "magDef": 14,
         "maxMp": 8,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_04_leather_veteran_leather_cuirass.webp"
     },
@@ -8167,7 +8167,7 @@
         "physDef": 8,
         "magDef": 18,
         "maxMp": 10,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_05_padded_leather_quilted_leather_jacket.webp"
     },
@@ -8193,7 +8193,7 @@
         "physDef": 10,
         "magDef": 23,
         "maxMp": 12,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_06_padded_leather_saltwind_padded_coat.webp"
     },
@@ -8219,7 +8219,7 @@
         "physDef": 13,
         "magDef": 29,
         "maxMp": 14,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_07_padded_leather_redmarch_padded_jerkin.webp"
     },
@@ -8245,7 +8245,7 @@
         "physDef": 16,
         "magDef": 36,
         "maxMp": 16,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_08_padded_leather_warden_padded_hauberk.webp"
     },
@@ -8375,7 +8375,7 @@
         "physDef": 20,
         "magDef": 43,
         "maxMp": 18,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_09_studded_leather_iron_studded_jerkin.webp"
     },
@@ -8401,7 +8401,7 @@
         "physDef": 23,
         "magDef": 51,
         "maxMp": 20,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_10_studded_leather_briar_studded_coat.webp"
     },
@@ -8427,7 +8427,7 @@
         "physDef": 27,
         "magDef": 59,
         "maxMp": 22,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_11_studded_leather_steel_riveted_leather.webp"
     },
@@ -8453,7 +8453,7 @@
         "physDef": 31,
         "magDef": 68,
         "maxMp": 24,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_12_studded_leather_master_studded_brigandine.webp"
     },
@@ -8582,7 +8582,7 @@
         "physDef": 35,
         "magDef": 78,
         "maxMp": 26,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_13_spiked_leather_desert_spiked_leather.webp"
     },
@@ -8607,7 +8607,7 @@
         "physDef": 40,
         "magDef": 88,
         "maxMp": 28,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_14_spiked_leather_sun_thorn_jerkin.webp"
     },
@@ -8632,7 +8632,7 @@
         "physDef": 45,
         "magDef": 99,
         "maxMp": 30,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_15_spiked_leather_barbed_arena_coat.webp"
     },
@@ -8657,7 +8657,7 @@
         "physDef": 50,
         "magDef": 112,
         "maxMp": 32,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_16_spiked_leather_highpass_spiked_armor.webp"
     },
@@ -8780,8 +8780,7 @@
       "stats": {
         "physDef": 94,
         "magDef": 94,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_17_breastplate_crag_steel_breastplate.webp"
     },
@@ -8804,8 +8803,7 @@
       "stats": {
         "physDef": 105,
         "magDef": 105,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_18_breastplate_mythril_trimmed_breastplate.webp"
     },
@@ -8828,8 +8826,7 @@
       "stats": {
         "physDef": 116,
         "magDef": 116,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_19_breastplate_rime_steel_cuirass.webp"
     },
@@ -8852,8 +8849,7 @@
       "stats": {
         "physDef": 129,
         "magDef": 129,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_20_breastplate_frostguard_breastplate.webp"
     },
@@ -8972,8 +8968,7 @@
       "stats": {
         "physDef": 142,
         "magDef": 142,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_21_half_plate_glacial_half_plate.webp"
     },
@@ -8996,8 +8991,7 @@
       "stats": {
         "physDef": 158,
         "magDef": 158,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_22_half_plate_ashen_steel_half_plate.webp"
     },
@@ -9020,8 +9014,7 @@
       "stats": {
         "physDef": 175,
         "magDef": 175,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_23_half_plate_crimson_oath_half_plate.webp"
     },
@@ -9044,8 +9037,7 @@
       "stats": {
         "physDef": 192,
         "magDef": 192,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_24_half_plate_sovereign_royal_half_plate.webp"
     },
@@ -9164,8 +9156,7 @@
       "stats": {
         "physDef": 94,
         "magDef": 94,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_17_reinforced_leather_charred_copper_jerkin.webp"
     },
@@ -9188,8 +9179,7 @@
       "stats": {
         "physDef": 105,
         "magDef": 105,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_18_reinforced_leather_ember_burnished_leather.webp"
     },
@@ -9212,8 +9202,7 @@
       "stats": {
         "physDef": 116,
         "magDef": 116,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_19_reinforced_leather_scorched_copper_coat.webp"
     },
@@ -9236,8 +9225,7 @@
       "stats": {
         "physDef": 129,
         "magDef": 129,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_20_reinforced_leather_tarnished_copper_cuirass.webp"
     },
@@ -9356,8 +9344,7 @@
       "stats": {
         "physDef": 142,
         "magDef": 142,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_21_leather_plate_charred_silver_leather_plate.webp"
     },
@@ -9380,8 +9367,7 @@
       "stats": {
         "physDef": 158,
         "magDef": 158,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_22_leather_plate_ash_tempered_coat.webp"
     },
@@ -9404,8 +9390,7 @@
       "stats": {
         "physDef": 175,
         "magDef": 175,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_23_leather_plate_eclipse_burnt_plate.webp"
     },
@@ -9428,8 +9413,7 @@
       "stats": {
         "physDef": 192,
         "magDef": 192,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_24_leather_plate_sovereign_shadow_leather.webp"
     },
@@ -9548,8 +9532,7 @@
       "stats": {
         "physDef": 3,
         "magDef": 3,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_01_hide_rough_boar_hide_tunic.webp"
     },
@@ -9572,8 +9555,7 @@
       "stats": {
         "physDef": 5,
         "magDef": 5,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_02_hide_thick_elk_hide_vest.webp"
     },
@@ -9596,8 +9578,7 @@
       "stats": {
         "physDef": 8,
         "magDef": 8,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_03_hide_crownland_bull_hide.webp"
     },
@@ -9620,8 +9601,7 @@
       "stats": {
         "physDef": 10,
         "magDef": 10,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_04_hide_harbor_sea_hide_coat.webp"
     },
@@ -9740,8 +9720,7 @@
       "stats": {
         "physDef": 14,
         "magDef": 14,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_05_scale_mail_saltwind_scale_mail.webp"
     },
@@ -9764,8 +9743,7 @@
       "stats": {
         "physDef": 18,
         "magDef": 18,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_06_scale_mail_mire_iron_scale_coat.webp"
     },
@@ -9788,8 +9766,7 @@
       "stats": {
         "physDef": 22,
         "magDef": 22,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_07_scale_mail_redmarch_bronze_scale.webp"
     },
@@ -9812,8 +9789,7 @@
       "stats": {
         "physDef": 27,
         "magDef": 27,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_08_scale_mail_bastion_steel_scale.webp"
     },
@@ -9932,8 +9908,7 @@
       "stats": {
         "physDef": 43,
         "magDef": 21,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_09_ring_mail_thornwall_ring_mail.webp"
     },
@@ -9956,8 +9931,7 @@
       "stats": {
         "physDef": 51,
         "magDef": 25,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_10_ring_mail_iron_ringed_hauberk.webp"
     },
@@ -9980,8 +9954,7 @@
       "stats": {
         "physDef": 59,
         "magDef": 29,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_11_ring_mail_amber_linked_ring_mail.webp"
     },
@@ -10004,8 +9977,7 @@
       "stats": {
         "physDef": 68,
         "magDef": 34,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_12_ring_mail_elderwood_ring_armor.webp"
     },
@@ -10124,8 +10096,7 @@
       "stats": {
         "physDef": 78,
         "magDef": 39,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_13_chain_mail_veridian_chain_mail.webp"
     },
@@ -10148,8 +10119,7 @@
       "stats": {
         "physDef": 88,
         "magDef": 44,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_14_chain_mail_sun_forged_chain_hauberk.webp"
     },
@@ -10172,8 +10142,7 @@
       "stats": {
         "physDef": 99,
         "magDef": 49,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_15_chain_mail_sandwall_siege_chain.webp"
     },
@@ -10196,8 +10165,7 @@
       "stats": {
         "physDef": 112,
         "magDef": 56,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_16_chain_mail_ironcrest_heavy_chain.webp"
     },
@@ -10316,8 +10284,7 @@
       "stats": {
         "physDef": 125,
         "magDef": 62,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_17_splint_crag_iron_splint.webp"
     },
@@ -10340,8 +10307,7 @@
       "stats": {
         "physDef": 139,
         "magDef": 70,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_18_splint_anvilhall_mythril_splint.webp"
     },
@@ -10364,8 +10330,7 @@
       "stats": {
         "physDef": 155,
         "magDef": 77,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_19_splint_rime_bound_splint.webp"
     },
@@ -10388,8 +10353,7 @@
       "stats": {
         "physDef": 172,
         "magDef": 86,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_20_splint_glacierwall_splint.webp"
     },
@@ -10508,8 +10472,7 @@
       "stats": {
         "physDef": 190,
         "magDef": 95,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_21_plate_bleakwatch_war_plate.webp"
     },
@@ -10532,8 +10495,7 @@
       "stats": {
         "physDef": 211,
         "magDef": 105,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_22_plate_ashen_iron_full_plate.webp"
     },
@@ -10556,8 +10518,7 @@
       "stats": {
         "physDef": 233,
         "magDef": 116,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_23_plate_black_keep_siege_plate.webp"
     },
@@ -10580,8 +10541,7 @@
       "stats": {
         "physDef": 257,
         "magDef": 129,
-        "maxMp": 0,
-        "speedMod": -2
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_24_plate_bastion_of_the_first_king.webp"
     },
@@ -10702,7 +10662,7 @@
         "physDef": 2,
         "magDef": 4,
         "maxMp": 3,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_01_simple_robes_linen_travel_robes.webp"
     },
@@ -10727,7 +10687,7 @@
         "physDef": 3,
         "magDef": 6,
         "maxMp": 5,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_02_simple_robes_simple_apprentice_robes.webp"
     },
@@ -10752,7 +10712,7 @@
         "physDef": 5,
         "magDef": 10,
         "maxMp": 6,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_03_simple_robes_crownland_cloth_robes.webp"
     },
@@ -10777,7 +10737,7 @@
         "physDef": 6,
         "magDef": 14,
         "maxMp": 8,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_04_simple_robes_harbor_wool_robes.webp"
     },
@@ -10894,14 +10854,15 @@
       "priceSilver": 422,
       "sellSilver": 169,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 1,
       "stats": {
         "physDef": 8,
         "magDef": 18,
         "maxMp": 10,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_05_fine_robes_trimmed_fine_robes.webp"
     },
@@ -10918,14 +10879,15 @@
       "priceSilver": 618,
       "sellSilver": 247,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 1,
       "stats": {
         "physDef": 10,
         "magDef": 23,
         "maxMp": 12,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_06_fine_robes_dyed_velvet_robes.webp"
     },
@@ -10942,14 +10904,15 @@
       "priceSilver": 878,
       "sellSilver": 351,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 1,
       "stats": {
         "physDef": 13,
         "magDef": 29,
         "maxMp": 14,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_07_fine_robes_redmarch_fine_mantle.webp"
     },
@@ -10966,14 +10929,15 @@
       "priceSilver": 1235,
       "sellSilver": 494,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 1,
       "stats": {
         "physDef": 16,
         "magDef": 36,
         "maxMp": 16,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_08_fine_robes_noble_thread_robes.webp"
     },
@@ -10990,7 +10954,8 @@
       "priceSilver": 228,
       "sellSilver": 91,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 0,
       "stats": {
@@ -11014,7 +10979,8 @@
       "priceSilver": 332,
       "sellSilver": 133,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 0,
       "stats": {
@@ -11038,7 +11004,8 @@
       "priceSilver": 472,
       "sellSilver": 189,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 0,
       "stats": {
@@ -11062,7 +11029,8 @@
       "priceSilver": 665,
       "sellSilver": 266,
       "usableBy": [
-        "ellowyn"
+        "ellowyn",
+        "harlan"
       ],
       "runestoneSockets": 0,
       "stats": {
@@ -11080,52 +11048,27 @@
       "subType": "Padded Robes",
       "slot": "body",
       "weight": "Light",
-      "region": 2,
-      "step": 6,
+      "region": 3,
+      "step": 9,
       "shopType": "armory",
-      "priceSilver": 618,
-      "sellSilver": 247,
+      "priceSilver": 1690,
+      "sellSilver": 676,
       "usableBy": [
         "ellowyn",
         "harlan"
       ],
       "runestoneSockets": 1,
       "stats": {
-        "physDef": 10,
-        "magDef": 23,
-        "maxMp": 12,
-        "speedMod": 2
+        "physDef": 20,
+        "magDef": 43,
+        "maxMp": 18,
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_06_padded_robes_quilted_hemp_robes.webp"
     },
     {
       "id": "armor_08_padded_robes_marsh_padded_mantle",
       "name": "Marsh-Padded Mantle",
-      "category": "armor",
-      "subType": "Padded Robes",
-      "slot": "body",
-      "weight": "Light",
-      "region": 3,
-      "step": 8,
-      "shopType": "armory",
-      "priceSilver": 1235,
-      "sellSilver": 494,
-      "usableBy": [
-        "ellowyn",
-        "harlan"
-      ],
-      "runestoneSockets": 1,
-      "stats": {
-        "physDef": 16,
-        "magDef": 36,
-        "maxMp": 16,
-        "speedMod": 2
-      },
-      "iconPath": "assets/icons/items/armor_08_padded_robes_marsh_padded_mantle.webp"
-    },
-    {
-      "id": "armor_10_padded_robes_garrison_padded_robes",
-      "name": "Garrison Padded Robes",
       "category": "armor",
       "subType": "Padded Robes",
       "slot": "body",
@@ -11144,7 +11087,32 @@
         "physDef": 23,
         "magDef": 51,
         "maxMp": 20,
-        "speedMod": 2
+        "dodgePct": 4
+      },
+      "iconPath": "assets/icons/items/armor_08_padded_robes_marsh_padded_mantle.webp"
+    },
+    {
+      "id": "armor_10_padded_robes_garrison_padded_robes",
+      "name": "Garrison Padded Robes",
+      "category": "armor",
+      "subType": "Padded Robes",
+      "slot": "body",
+      "weight": "Light",
+      "region": 4,
+      "step": 11,
+      "shopType": "armory",
+      "priceSilver": 3055,
+      "sellSilver": 1222,
+      "usableBy": [
+        "ellowyn",
+        "harlan"
+      ],
+      "runestoneSockets": 1,
+      "stats": {
+        "physDef": 27,
+        "magDef": 59,
+        "maxMp": 22,
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_10_padded_robes_garrison_padded_robes.webp"
     },
@@ -11169,7 +11137,7 @@
         "physDef": 31,
         "magDef": 68,
         "maxMp": 24,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_12_padded_robes_briar_lined_padded_coat.webp"
     },
@@ -11180,52 +11148,27 @@
       "subType": "Padded Robes",
       "slot": "head",
       "weight": "Light",
-      "region": 2,
-      "step": 6,
+      "region": 3,
+      "step": 9,
       "shopType": "armory",
-      "priceSilver": 332,
-      "sellSilver": 133,
+      "priceSilver": 910,
+      "sellSilver": 364,
       "usableBy": [
         "ellowyn",
         "harlan"
       ],
       "runestoneSockets": 0,
       "stats": {
-        "physDef": 6,
-        "magDef": 13,
-        "maxMp": 7,
-        "passiveBonus": "+7 Max MP"
+        "physDef": 10,
+        "magDef": 23,
+        "maxMp": 10,
+        "passiveBonus": "+10 Max MP"
       },
       "iconPath": "assets/icons/items/helm_06_padded_robes_quilted_linen_cap.webp"
     },
     {
       "id": "helm_08_padded_robes_soft_padded_hood",
       "name": "Soft Padded Hood",
-      "category": "helm",
-      "subType": "Padded Robes",
-      "slot": "head",
-      "weight": "Light",
-      "region": 3,
-      "step": 8,
-      "shopType": "armory",
-      "priceSilver": 665,
-      "sellSilver": 266,
-      "usableBy": [
-        "ellowyn",
-        "harlan"
-      ],
-      "runestoneSockets": 0,
-      "stats": {
-        "physDef": 9,
-        "magDef": 19,
-        "maxMp": 9,
-        "passiveBonus": "+9 Max MP"
-      },
-      "iconPath": "assets/icons/items/helm_08_padded_robes_soft_padded_hood.webp"
-    },
-    {
-      "id": "helm_10_padded_robes_garrison_padded_cowl",
-      "name": "Garrison Padded Cowl",
       "category": "helm",
       "subType": "Padded Robes",
       "slot": "head",
@@ -11245,6 +11188,31 @@
         "magDef": 27,
         "maxMp": 11,
         "passiveBonus": "+11 Max MP"
+      },
+      "iconPath": "assets/icons/items/helm_08_padded_robes_soft_padded_hood.webp"
+    },
+    {
+      "id": "helm_10_padded_robes_garrison_padded_cowl",
+      "name": "Garrison Padded Cowl",
+      "category": "helm",
+      "subType": "Padded Robes",
+      "slot": "head",
+      "weight": "Light",
+      "region": 4,
+      "step": 11,
+      "shopType": "armory",
+      "priceSilver": 1645,
+      "sellSilver": 658,
+      "usableBy": [
+        "ellowyn",
+        "harlan"
+      ],
+      "runestoneSockets": 0,
+      "stats": {
+        "physDef": 14,
+        "magDef": 32,
+        "maxMp": 12,
+        "passiveBonus": "+12 Max MP"
       },
       "iconPath": "assets/icons/items/helm_10_padded_robes_garrison_padded_cowl.webp"
     },
@@ -11280,21 +11248,20 @@
       "subType": "Silk Robes",
       "slot": "body",
       "weight": "Light",
-      "region": 4,
-      "step": 10,
+      "region": 5,
+      "step": 13,
       "shopType": "armory",
-      "priceSilver": 2275,
-      "sellSilver": 910,
+      "priceSilver": 5135,
+      "sellSilver": 2054,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 1,
       "stats": {
-        "physDef": 23,
-        "magDef": 51,
-        "maxMp": 20,
-        "speedMod": 2
+        "physDef": 35,
+        "magDef": 78,
+        "maxMp": 26,
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_10_silk_robes_weald_silk_robes.webp"
     },
@@ -11305,21 +11272,20 @@
       "subType": "Silk Robes",
       "slot": "body",
       "weight": "Light",
-      "region": 4,
-      "step": 12,
+      "region": 5,
+      "step": 14,
       "shopType": "armory",
-      "priceSilver": 3965,
-      "sellSilver": 1586,
+      "priceSilver": 6500,
+      "sellSilver": 2600,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 1,
       "stats": {
-        "physDef": 31,
-        "magDef": 68,
-        "maxMp": 24,
-        "speedMod": 2
+        "physDef": 40,
+        "magDef": 88,
+        "maxMp": 28,
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_12_silk_robes_golden_thread_silk_robes.webp"
     },
@@ -11331,20 +11297,19 @@
       "slot": "body",
       "weight": "Light",
       "region": 5,
-      "step": 14,
+      "step": 15,
       "shopType": "armory",
-      "priceSilver": 6500,
-      "sellSilver": 2600,
+      "priceSilver": 8190,
+      "sellSilver": 3276,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 1,
       "stats": {
-        "physDef": 40,
-        "magDef": 88,
-        "maxMp": 28,
-        "speedMod": 2
+        "physDef": 45,
+        "magDef": 99,
+        "maxMp": 30,
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_14_silk_robes_oasis_star_silk_mantle.webp"
     },
@@ -11361,15 +11326,14 @@
       "priceSilver": 10270,
       "sellSilver": 4108,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 1,
       "stats": {
         "physDef": 50,
         "magDef": 112,
         "maxMp": 32,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_16_silk_robes_storm_woven_silk_robes.webp"
     },
@@ -11380,21 +11344,20 @@
       "subType": "Silk Robes",
       "slot": "head",
       "weight": "Light",
-      "region": 4,
-      "step": 10,
+      "region": 5,
+      "step": 13,
       "shopType": "armory",
-      "priceSilver": 1225,
-      "sellSilver": 490,
+      "priceSilver": 2765,
+      "sellSilver": 1106,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 0,
       "stats": {
-        "physDef": 12,
-        "magDef": 27,
-        "maxMp": 11,
-        "passiveBonus": "+11 Max MP"
+        "physDef": 19,
+        "magDef": 42,
+        "maxMp": 14,
+        "passiveBonus": "+14 Max MP"
       },
       "iconPath": "assets/icons/items/helm_10_silk_robes_weald_silk_veil.webp"
     },
@@ -11405,21 +11368,20 @@
       "subType": "Silk Robes",
       "slot": "head",
       "weight": "Light",
-      "region": 4,
-      "step": 12,
+      "region": 5,
+      "step": 14,
       "shopType": "armory",
-      "priceSilver": 2135,
-      "sellSilver": 854,
+      "priceSilver": 3500,
+      "sellSilver": 1400,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 0,
       "stats": {
-        "physDef": 16,
-        "magDef": 37,
-        "maxMp": 13,
-        "passiveBonus": "+13 Max MP"
+        "physDef": 21,
+        "magDef": 48,
+        "maxMp": 15,
+        "passiveBonus": "+15 Max MP"
       },
       "iconPath": "assets/icons/items/helm_12_silk_robes_silver_silk_band.webp"
     },
@@ -11431,20 +11393,19 @@
       "slot": "head",
       "weight": "Light",
       "region": 5,
-      "step": 14,
+      "step": 15,
       "shopType": "armory",
-      "priceSilver": 3500,
-      "sellSilver": 1400,
+      "priceSilver": 4410,
+      "sellSilver": 1764,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 0,
       "stats": {
-        "physDef": 21,
-        "magDef": 48,
-        "maxMp": 15,
-        "passiveBonus": "+15 Max MP"
+        "physDef": 24,
+        "magDef": 54,
+        "maxMp": 16,
+        "passiveBonus": "+16 Max MP"
       },
       "iconPath": "assets/icons/items/helm_14_silk_robes_oasis_silk_crownlet.webp"
     },
@@ -11461,8 +11422,7 @@
       "priceSilver": 5530,
       "sellSilver": 2212,
       "usableBy": [
-        "ellowyn",
-        "harlan"
+        "ellowyn"
       ],
       "runestoneSockets": 0,
       "stats": {
@@ -11494,7 +11454,7 @@
         "physDef": 35,
         "magDef": 78,
         "maxMp": 26,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_13_widowsilk_robes_dune_web_widowsilk.webp"
     },
@@ -11519,7 +11479,7 @@
         "physDef": 40,
         "magDef": 88,
         "maxMp": 28,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_14_widowsilk_robes_black_spun_widowsilk.webp"
     },
@@ -11544,7 +11504,7 @@
         "physDef": 45,
         "magDef": 99,
         "maxMp": 30,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_15_widowsilk_robes_velvet_widowsilk_mantle.webp"
     },
@@ -11569,7 +11529,7 @@
         "physDef": 50,
         "magDef": 112,
         "maxMp": 32,
-        "speedMod": 2
+        "dodgePct": 4
       },
       "iconPath": "assets/icons/items/armor_16_widowsilk_robes_frost_spun_widowsilk.webp"
     },
@@ -11693,8 +11653,7 @@
       "stats": {
         "physDef": 94,
         "magDef": 94,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_17_padded_bone_carved_rib_bone_coat.webp"
     },
@@ -11718,8 +11677,7 @@
       "stats": {
         "physDef": 105,
         "magDef": 105,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_18_padded_bone_highland_padded_bone.webp"
     },
@@ -11743,8 +11701,7 @@
       "stats": {
         "physDef": 116,
         "magDef": 116,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_19_padded_bone_tundra_hide_bone_armor.webp"
     },
@@ -11768,8 +11725,7 @@
       "stats": {
         "physDef": 129,
         "magDef": 129,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_20_padded_bone_frost_stitched_bone_vest.webp"
     },
@@ -11893,8 +11849,7 @@
       "stats": {
         "physDef": 142,
         "magDef": 142,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_21_reinforced_bone_giant_skull_bone_plate.webp"
     },
@@ -11918,8 +11873,7 @@
       "stats": {
         "physDef": 158,
         "magDef": 158,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_22_reinforced_bone_ashen_carved_bone_armor.webp"
     },
@@ -11943,8 +11897,7 @@
       "stats": {
         "physDef": 175,
         "magDef": 175,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_23_reinforced_bone_dreadwaste_ossuary_coat.webp"
     },
@@ -11968,8 +11921,7 @@
       "stats": {
         "physDef": 192,
         "magDef": 192,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_24_reinforced_bone_sovereign_bone_vestments.webp"
     },
@@ -12092,8 +12044,7 @@
       "stats": {
         "physDef": 94,
         "magDef": 94,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_17_scale_plate_wyvern_scale_mantle.webp"
     },
@@ -12116,8 +12067,7 @@
       "stats": {
         "physDef": 105,
         "magDef": 105,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_18_scale_plate_drake_crest_scale_plate.webp"
     },
@@ -12140,8 +12090,7 @@
       "stats": {
         "physDef": 116,
         "magDef": 116,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_19_scale_plate_storm_scale_mystic_plate.webp"
     },
@@ -12164,8 +12113,7 @@
       "stats": {
         "physDef": 129,
         "magDef": 129,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_20_scale_plate_boreal_scale_armor.webp"
     },
@@ -12284,8 +12232,7 @@
       "stats": {
         "physDef": 142,
         "magDef": 142,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_21_dragonscale_blue_wyrm_dragonscale.webp"
     },
@@ -12308,8 +12255,7 @@
       "stats": {
         "physDef": 158,
         "magDef": 158,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_22_dragonscale_crimson_dragonscale_coat.webp"
     },
@@ -12332,8 +12278,7 @@
       "stats": {
         "physDef": 175,
         "magDef": 175,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_23_dragonscale_shadow_wyrm_dragonscale.webp"
     },
@@ -12356,8 +12301,7 @@
       "stats": {
         "physDef": 192,
         "magDef": 192,
-        "maxMp": 0,
-        "speedMod": 0
+        "maxMp": 0
       },
       "iconPath": "assets/icons/items/armor_24_dragonscale_sovereign_dawn_dragonscale.webp"
     },
@@ -12481,7 +12425,7 @@
       "stats": {
         "physDef": 4,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_01_buckler_cracked_wood_buckler.webp"
     },
@@ -12509,7 +12453,7 @@
       "stats": {
         "physDef": 6,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_02_buckler_iron_rimmed_buckler.webp"
     },
@@ -12537,7 +12481,7 @@
       "stats": {
         "physDef": 9,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_03_buckler_crownland_steel_buckler.webp"
     },
@@ -12565,7 +12509,7 @@
       "stats": {
         "physDef": 13,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_04_buckler_saltwind_brass_buckler.webp"
     },
@@ -12593,7 +12537,7 @@
       "stats": {
         "physDef": 17,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_05_round_shield_oak_plank_round_shield.webp"
     },
@@ -12621,7 +12565,7 @@
       "stats": {
         "physDef": 22,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_06_round_shield_mire_iron_round_shield.webp"
     },
@@ -12649,7 +12593,7 @@
       "stats": {
         "physDef": 27,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_07_round_shield_redmarch_bronze_round.webp"
     },
@@ -12677,7 +12621,7 @@
       "stats": {
         "physDef": 33,
         "guardBonusPct": 8,
-        "speedMod": 1
+        "dodgePct": 3
       },
       "iconPath": "assets/icons/items/shd_08_round_shield_veterans_steel_round.webp"
     },
@@ -12704,8 +12648,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 40,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_09_heater_shield_thornwall_crest_heater.webp"
     },
@@ -12732,8 +12675,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 47,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_10_heater_shield_briarwood_steel_heater.webp"
     },
@@ -12760,8 +12702,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 55,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_11_heater_shield_amber_bound_heater.webp"
     },
@@ -12788,8 +12729,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 63,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_12_heater_shield_greenwarden_heater.webp"
     },
@@ -12816,8 +12756,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 72,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_13_kite_shield_veridian_bronze_kite.webp"
     },
@@ -12844,8 +12783,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 82,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_14_kite_shield_sun_crest_caravan_kite.webp"
     },
@@ -12872,8 +12810,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 92,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_15_kite_shield_highpass_steel_kite.webp"
     },
@@ -12900,8 +12837,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 103,
-        "guardBonusPct": 12,
-        "speedMod": 0
+        "guardBonusPct": 12
       },
       "iconPath": "assets/icons/items/shd_16_kite_shield_storm_rim_kite_shield.webp"
     },
@@ -12928,8 +12864,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 115,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_17_spiked_shield_crag_tooth_spiked_shield.webp"
     },
@@ -12956,8 +12891,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 128,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_18_spiked_shield_anvilhall_mythril_spiked.webp"
     },
@@ -12984,8 +12918,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 143,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_19_spiked_shield_rime_iron_barbed_shield.webp"
     },
@@ -13012,8 +12945,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 158,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_20_spiked_shield_glacierwall_spiked_bulwark.webp"
     },
@@ -13040,8 +12972,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 175,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_21_tower_shield_bleakwatch_wall_shield.webp"
     },
@@ -13068,8 +12999,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 194,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_22_tower_shield_ashen_steel_tower_shield.webp"
     },
@@ -13096,8 +13026,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 215,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_23_tower_shield_black_keep_pavise_tower.webp"
     },
@@ -13124,8 +13053,7 @@
       "runestoneSockets": 0,
       "stats": {
         "physDef": 237,
-        "guardBonusPct": 16,
-        "speedMod": -1
+        "guardBonusPct": 16
       },
       "iconPath": "assets/icons/items/shd_24_tower_shield_aegis_of_the_crown.webp"
     },
@@ -13145,9 +13073,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 1,
-        "dodgePct": 3,
-        "critBonusPct": 3
+        "dodgePct": 5,
+        "critBonusPct": 4
       },
       "iconPath": "assets/icons/items/clk_01_tattered_travel_cloak.webp"
     },
@@ -13167,9 +13094,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 1,
-        "dodgePct": 3,
-        "critBonusPct": 3
+        "dodgePct": 5,
+        "critBonusPct": 4
       },
       "iconPath": "assets/icons/items/clk_02_oakhaven_wool_cloak.webp"
     },
@@ -13189,9 +13115,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 1,
-        "dodgePct": 3,
-        "critBonusPct": 3
+        "dodgePct": 6,
+        "critBonusPct": 5
       },
       "iconPath": "assets/icons/items/clk_03_millbrook_duelist_cape.webp"
     },
@@ -13212,8 +13137,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 2,
-        "spellCritPct": 3,
-        "speedMod": 1
+        "spellCritPct": 4,
+        "maxMp": 6
       },
       "iconPath": "assets/icons/items/orb_01_cracked_glass_orb.webp"
     },
@@ -13234,8 +13159,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 4,
-        "spellCritPct": 3,
-        "speedMod": 1
+        "spellCritPct": 4,
+        "maxMp": 8
       },
       "iconPath": "assets/icons/items/orb_02_amber_focus_orb.webp"
     },
@@ -13256,8 +13181,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 6,
-        "spellCritPct": 3,
-        "speedMod": 1
+        "spellCritPct": 5,
+        "maxMp": 10
       },
       "iconPath": "assets/icons/items/orb_03_crownland_star_orb.webp"
     },
@@ -13538,9 +13463,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 2,
-        "dodgePct": 4,
-        "critBonusPct": 4
+        "dodgePct": 6,
+        "critBonusPct": 5
       },
       "iconPath": "assets/icons/items/clk_04_waxed_mariner_cloak.webp"
     },
@@ -13560,9 +13484,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 2,
-        "dodgePct": 4,
-        "critBonusPct": 4
+        "dodgePct": 7,
+        "critBonusPct": 5
       },
       "iconPath": "assets/icons/items/clk_05_saltwind_storm_cape.webp"
     },
@@ -13582,9 +13505,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 2,
-        "dodgePct": 4,
-        "critBonusPct": 4
+        "dodgePct": 7,
+        "critBonusPct": 6
       },
       "iconPath": "assets/icons/items/clk_06_mirewatch_oilskin_cloak.webp"
     },
@@ -13605,8 +13527,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 8,
-        "spellCritPct": 4,
-        "speedMod": 1
+        "spellCritPct": 5,
+        "maxMp": 12
       },
       "iconPath": "assets/icons/items/orb_04_brine_pearl_sphere.webp"
     },
@@ -13627,8 +13549,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 10,
-        "spellCritPct": 4,
-        "speedMod": 1
+        "spellCritPct": 5,
+        "maxMp": 14
       },
       "iconPath": "assets/icons/items/orb_05_sea_glass_globe.webp"
     },
@@ -13649,8 +13571,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 12,
-        "spellCritPct": 4,
-        "speedMod": 1
+        "spellCritPct": 6,
+        "maxMp": 16
       },
       "iconPath": "assets/icons/items/orb_06_tidestone_crystal_orb.webp"
     },
@@ -13931,9 +13853,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 2,
-        "dodgePct": 5,
-        "critBonusPct": 5
+        "dodgePct": 8,
+        "critBonusPct": 6
       },
       "iconPath": "assets/icons/items/clk_07_ash_dyed_border_cloak.webp"
     },
@@ -13953,9 +13874,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 3,
-        "dodgePct": 5,
-        "critBonusPct": 5
+        "dodgePct": 8,
+        "critBonusPct": 6
       },
       "iconPath": "assets/icons/items/clk_08_redmarch_crimson_cape.webp"
     },
@@ -13975,9 +13895,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 3,
-        "dodgePct": 5,
-        "critBonusPct": 5
+        "dodgePct": 9,
+        "critBonusPct": 7
       },
       "iconPath": "assets/icons/items/clk_09_vanguard_silk_mantle.webp"
     },
@@ -13998,8 +13917,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 14,
-        "spellCritPct": 5,
-        "speedMod": 1
+        "spellCritPct": 6,
+        "maxMp": 18
       },
       "iconPath": "assets/icons/items/orb_07_smoke_quartz_sphere.webp"
     },
@@ -14020,8 +13939,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 16,
-        "spellCritPct": 5,
-        "speedMod": 2
+        "spellCritPct": 6,
+        "maxMp": 20
       },
       "iconPath": "assets/icons/items/orb_08_war_chanter_orb.webp"
     },
@@ -14042,8 +13961,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 18,
-        "spellCritPct": 5,
-        "speedMod": 2
+        "spellCritPct": 7,
+        "maxMp": 22
       },
       "iconPath": "assets/icons/items/orb_09_redmarch_focus_globe.webp"
     },
@@ -14324,9 +14243,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 3,
-        "dodgePct": 5,
-        "critBonusPct": 5
+        "dodgePct": 9,
+        "critBonusPct": 7
       },
       "iconPath": "assets/icons/items/clk_10_fern_dyed_ranger_cloak.webp"
     },
@@ -14346,9 +14264,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 3,
-        "dodgePct": 6,
-        "critBonusPct": 6
+        "dodgePct": 10,
+        "critBonusPct": 7
       },
       "iconPath": "assets/icons/items/clk_11_briar_thorn_mantle.webp"
     },
@@ -14368,9 +14285,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 4,
-        "dodgePct": 6,
-        "critBonusPct": 6
+        "dodgePct": 10,
+        "critBonusPct": 8
       },
       "iconPath": "assets/icons/items/clk_12_elderwood_canopy_cloak.webp"
     },
@@ -14391,8 +14307,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 20,
-        "spellCritPct": 5,
-        "speedMod": 2
+        "spellCritPct": 7,
+        "maxMp": 24
       },
       "iconPath": "assets/icons/items/orb_10_amber_sap_sphere.webp"
     },
@@ -14413,8 +14329,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 22,
-        "spellCritPct": 6,
-        "speedMod": 2
+        "spellCritPct": 7,
+        "maxMp": 26
       },
       "iconPath": "assets/icons/items/orb_11_dewdrop_crystal_orb.webp"
     },
@@ -14435,8 +14351,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 24,
-        "spellCritPct": 6,
-        "speedMod": 2
+        "spellCritPct": 8,
+        "maxMp": 28
       },
       "iconPath": "assets/icons/items/orb_12_elderwood_star_globe.webp"
     },
@@ -14717,9 +14633,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 4,
-        "dodgePct": 6,
-        "critBonusPct": 6
+        "dodgePct": 10,
+        "critBonusPct": 8
       },
       "iconPath": "assets/icons/items/clk_13_sun_bleached_sand_cloak.webp"
     },
@@ -14739,9 +14654,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 4,
-        "dodgePct": 7,
-        "critBonusPct": 7
+        "dodgePct": 11,
+        "critBonusPct": 8
       },
       "iconPath": "assets/icons/items/clk_14_gilded_veridia_cape.webp"
     },
@@ -14761,9 +14675,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 4,
-        "dodgePct": 7,
-        "critBonusPct": 7
+        "dodgePct": 11,
+        "critBonusPct": 9
       },
       "iconPath": "assets/icons/items/clk_15_mirage_silk_shawl.webp"
     },
@@ -14784,8 +14697,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 26,
-        "spellCritPct": 6,
-        "speedMod": 2
+        "spellCritPct": 8,
+        "maxMp": 30
       },
       "iconPath": "assets/icons/items/orb_13_sun_glass_sphere.webp"
     },
@@ -14806,8 +14719,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 28,
-        "spellCritPct": 7,
-        "speedMod": 2
+        "spellCritPct": 8,
+        "maxMp": 32
       },
       "iconPath": "assets/icons/items/orb_14_topaz_mirage_orb.webp"
     },
@@ -14828,8 +14741,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 30,
-        "spellCritPct": 7,
-        "speedMod": 2
+        "spellCritPct": 9,
+        "maxMp": 34
       },
       "iconPath": "assets/icons/items/orb_15_solar_prism_globe.webp"
     },
@@ -15110,9 +15023,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 5,
-        "dodgePct": 7,
-        "critBonusPct": 7
+        "dodgePct": 12,
+        "critBonusPct": 9
       },
       "iconPath": "assets/icons/items/clk_16_wolf_fur_travel_cloak.webp"
     },
@@ -15132,9 +15044,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 5,
-        "dodgePct": 7,
-        "critBonusPct": 7
+        "dodgePct": 12,
+        "critBonusPct": 9
       },
       "iconPath": "assets/icons/items/clk_17_storm_weave_cape.webp"
     },
@@ -15154,9 +15065,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 5,
-        "dodgePct": 8,
-        "critBonusPct": 8
+        "dodgePct": 13,
+        "critBonusPct": 10
       },
       "iconPath": "assets/icons/items/clk_18_anvilhall_silver_mantle.webp"
     },
@@ -15177,8 +15087,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 32,
-        "spellCritPct": 7,
-        "speedMod": 3
+        "spellCritPct": 9,
+        "maxMp": 36
       },
       "iconPath": "assets/icons/items/orb_16_thunder_quartz_orb.webp"
     },
@@ -15199,8 +15109,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 34,
-        "spellCritPct": 7,
-        "speedMod": 3
+        "spellCritPct": 9,
+        "maxMp": 38
       },
       "iconPath": "assets/icons/items/orb_17_silver_core_sphere.webp"
     },
@@ -15221,8 +15131,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 36,
-        "spellCritPct": 8,
-        "speedMod": 3
+        "spellCritPct": 10,
+        "maxMp": 40
       },
       "iconPath": "assets/icons/items/orb_18_anvilhall_prism_globe.webp"
     },
@@ -15503,9 +15413,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 5,
-        "dodgePct": 8,
-        "critBonusPct": 8
+        "dodgePct": 13,
+        "critBonusPct": 10
       },
       "iconPath": "assets/icons/items/clk_19_rime_lined_wolf_cloak.webp"
     },
@@ -15525,9 +15434,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 6,
-        "dodgePct": 8,
-        "critBonusPct": 8
+        "dodgePct": 14,
+        "critBonusPct": 10
       },
       "iconPath": "assets/icons/items/clk_20_tundra_snow_mantle.webp"
     },
@@ -15547,9 +15455,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 6,
-        "dodgePct": 9,
-        "critBonusPct": 9
+        "dodgePct": 14,
+        "critBonusPct": 11
       },
       "iconPath": "assets/icons/items/clk_21_boreal_starlight_cape.webp"
     },
@@ -15570,8 +15477,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 38,
-        "spellCritPct": 8,
-        "speedMod": 3
+        "spellCritPct": 10,
+        "maxMp": 42
       },
       "iconPath": "assets/icons/items/orb_19_frosted_glass_sphere.webp"
     },
@@ -15592,8 +15499,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 40,
-        "spellCritPct": 8,
-        "speedMod": 3
+        "spellCritPct": 10,
+        "maxMp": 44
       },
       "iconPath": "assets/icons/items/orb_20_boreal_ice_orb.webp"
     },
@@ -15614,8 +15521,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 42,
-        "spellCritPct": 9,
-        "speedMod": 3
+        "spellCritPct": 11,
+        "maxMp": 46
       },
       "iconPath": "assets/icons/items/orb_21_pale_star_crystal_globe.webp"
     },
@@ -15896,9 +15803,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 6,
-        "dodgePct": 9,
-        "critBonusPct": 9
+        "dodgePct": 15,
+        "critBonusPct": 11
       },
       "iconPath": "assets/icons/items/clk_22_ashen_hide_cloak.webp"
     },
@@ -15918,9 +15824,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 6,
-        "dodgePct": 9,
-        "critBonusPct": 9
+        "dodgePct": 15,
+        "critBonusPct": 11
       },
       "iconPath": "assets/icons/items/clk_23_crimson_oath_cape.webp"
     },
@@ -15940,9 +15845,8 @@
       ],
       "runestoneSockets": 0,
       "stats": {
-        "speedMod": 7,
-        "dodgePct": 10,
-        "critBonusPct": 10
+        "dodgePct": 16,
+        "critBonusPct": 12
       },
       "iconPath": "assets/icons/items/clk_24_sovereign_duelist_cloak.webp"
     },
@@ -15963,8 +15867,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 44,
-        "spellCritPct": 9,
-        "speedMod": 3
+        "spellCritPct": 11,
+        "maxMp": 48
       },
       "iconPath": "assets/icons/items/orb_22_void_glass_sphere.webp"
     },
@@ -15985,8 +15889,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 46,
-        "spellCritPct": 9,
-        "speedMod": 3
+        "spellCritPct": 11,
+        "maxMp": 50
       },
       "iconPath": "assets/icons/items/orb_23_eclipse_rift_orb.webp"
     },
@@ -16007,8 +15911,8 @@
       "runestoneSockets": 0,
       "stats": {
         "magicPower": 48,
-        "spellCritPct": 10,
-        "speedMod": 4
+        "spellCritPct": 12,
+        "maxMp": 52
       },
       "iconPath": "assets/icons/items/orb_24_heart_of_the_first_dawn.webp"
     },
@@ -16278,7 +16182,9 @@
       "name": "Minor Healing Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 1–8",
+      "zonesStocked": "Zones 1–20 (Maps 1–4)",
+      "minZone": 1,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 25,
       "sellSilver": 10,
@@ -16291,7 +16197,9 @@
       "name": "Stout Healing Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 3–8",
+      "zonesStocked": "Zones 6–20 (Maps 2–4)",
+      "minZone": 6,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 90,
       "sellSilver": 36,
@@ -16304,7 +16212,9 @@
       "name": "Greater Healing Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 5–8",
+      "zonesStocked": "Zones 11–20 (Maps 3–4)",
+      "minZone": 11,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 300,
       "sellSilver": 120,
@@ -16317,7 +16227,9 @@
       "name": "Supreme Healing Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 7–8",
+      "zonesStocked": "Zones 16–20 (Map 4)",
+      "minZone": 16,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 950,
       "sellSilver": 380,
@@ -16330,7 +16242,9 @@
       "name": "Minor Mana Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 1–8",
+      "zonesStocked": "Zones 1–20 (Maps 1–4)",
+      "minZone": 1,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 60,
       "sellSilver": 24,
@@ -16343,7 +16257,9 @@
       "name": "Greater Mana Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 4–8",
+      "zonesStocked": "Zones 9–20 (Map 2 Weald onward)",
+      "minZone": 9,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 240,
       "sellSilver": 96,
@@ -16356,7 +16272,9 @@
       "name": "Supreme Mana Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 7–8",
+      "zonesStocked": "Zones 16–20 (Map 4)",
+      "minZone": 16,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 750,
       "sellSilver": 300,
@@ -16369,7 +16287,9 @@
       "name": "Reviving Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 1–8",
+      "zonesStocked": "Zones 1–20 (Maps 1–4)",
+      "minZone": 1,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 120,
       "sellSilver": 48,
@@ -16382,7 +16302,9 @@
       "name": "Phoenix Potion",
       "category": "consumable",
       "subType": "Healing / MP Potion",
-      "regionsStocked": "Regions 5–8",
+      "zonesStocked": "Zones 11–20 (Maps 3–4)",
+      "minZone": 11,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 650,
       "sellSilver": 260,
@@ -16395,7 +16317,9 @@
       "name": "Antidote Potion",
       "category": "consumable",
       "subType": "Curative Potion",
-      "regionsStocked": "Regions 1–8",
+      "zonesStocked": "Zones 1–20 (Maps 1–4)",
+      "minZone": 1,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 30,
       "sellSilver": 12,
@@ -16408,7 +16332,9 @@
       "name": "Cooling Potion",
       "category": "consumable",
       "subType": "Curative Potion",
-      "regionsStocked": "Regions 1–8",
+      "zonesStocked": "Zones 1–20 (Maps 1–4)",
+      "minZone": 1,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 30,
       "sellSilver": 12,
@@ -16421,7 +16347,9 @@
       "name": "Warming Potion",
       "category": "consumable",
       "subType": "Curative Potion",
-      "regionsStocked": "Regions 1–8",
+      "zonesStocked": "Zones 1–20 (Maps 1–4)",
+      "minZone": 1,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 30,
       "sellSilver": 12,
@@ -16434,7 +16362,9 @@
       "name": "Clarity Potion",
       "category": "consumable",
       "subType": "Curative Potion",
-      "regionsStocked": "Regions 2–8",
+      "zonesStocked": "Zones 4–20 (Map 1 Saltmarsh onward)",
+      "minZone": 4,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 45,
       "sellSilver": 18,
@@ -16447,7 +16377,9 @@
       "name": "Panacea Potion",
       "category": "consumable",
       "subType": "Curative Potion",
-      "regionsStocked": "Regions 4–8",
+      "zonesStocked": "Zones 9–20 (Map 2 Weald onward)",
+      "minZone": 9,
+      "maxZone": 20,
       "shopType": "both",
       "priceSilver": 180,
       "sellSilver": 72,
@@ -18140,7 +18072,8 @@
       "name": "Gray Wolf Pelt",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 1, 4",
+      "region": 1,
+      "regionsFound": "Z01–03 & Z09–10",
       "sourceMob": "Wolf",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18153,7 +18086,8 @@
       "name": "Curved Ivory Tusk",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 1, 4",
+      "region": 1,
+      "regionsFound": "Z01–03 & Z09–10",
       "sourceMob": "Giant Boar",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18166,7 +18100,8 @@
       "name": "Intact Venom Gland",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 1, 4",
+      "region": 1,
+      "regionsFound": "Z01–03 & Z09–10",
       "sourceMob": "Giant Spider",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18179,7 +18114,8 @@
       "name": "Thick Bear Hide",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 3, 6",
+      "region": 3,
+      "regionsFound": "Z06–08 & Z14–15",
       "sourceMob": "Brown Bear",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18192,7 +18128,8 @@
       "name": "Amber Chitin Stinger",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Region 5",
+      "region": 5,
+      "regionsFound": "Z11–13",
       "sourceMob": "Giant Scorpion",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18205,7 +18142,8 @@
       "name": "Snow-White Pelt",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 6, 7",
+      "region": 7,
+      "regionsFound": "Z14–15 & Z16–18",
       "sourceMob": "Polar Bear",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18218,7 +18156,8 @@
       "name": "Frosted Alpha Pelt",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Region 7",
+      "region": 7,
+      "regionsFound": "Z16–18",
       "sourceMob": "Winter Wolf",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18231,7 +18170,8 @@
       "name": "Massive Ivory Fang",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
-      "regionsFound": "Regions 6, 7",
+      "region": 7,
+      "regionsFound": "Z14–15 & Z16–18",
       "sourceMob": "Saber-Toothed Tiger",
       "shopType": "sell_only",
       "priceSilver": 0,
@@ -18244,6 +18184,7 @@
       "name": "Rusty Coin Purse",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 1,
       "regionsFound": "Regions 1–2",
       "sourceMob": "Road Bandit",
       "shopType": "sell_only",
@@ -18257,6 +18198,7 @@
       "name": "Fletched Bolt Case",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 1,
       "regionsFound": "Regions 1–3",
       "sourceMob": "Crossbow Poacher",
       "shopType": "sell_only",
@@ -18270,6 +18212,7 @@
       "name": "Contraband Seal",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 2,
       "regionsFound": "Regions 2, 5",
       "sourceMob": "Smuggler Cutthroat",
       "shopType": "sell_only",
@@ -18283,6 +18226,7 @@
       "name": "Torn Wolf Tabard",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 1,
       "regionsFound": "Regions 1, 3",
       "sourceMob": "Garrick Deserter",
       "shopType": "sell_only",
@@ -18296,6 +18240,7 @@
       "name": "Usurper Pennant",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 3,
       "regionsFound": "Regions 3, 7",
       "sourceMob": "Rival House Pikeman",
       "shopType": "sell_only",
@@ -18309,6 +18254,7 @@
       "name": "Steel Crest Badge",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 3,
       "regionsFound": "Regions 3, 7",
       "sourceMob": "Rival House Knight",
       "shopType": "sell_only",
@@ -18322,6 +18268,7 @@
       "name": "Brass Collar Key",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 5,
       "regionsFound": "Region 5",
       "sourceMob": "Gilded Slaver Enforcer",
       "shopType": "sell_only",
@@ -18335,6 +18282,7 @@
       "name": "Obsidian Talisman",
       "category": "trade_good",
       "subType": "Ethoria Trade Good",
+      "region": 8,
       "regionsFound": "Region 8",
       "sourceMob": "Eclipse Cultist",
       "shopType": "sell_only",

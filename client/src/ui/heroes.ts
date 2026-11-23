@@ -11,7 +11,7 @@ export interface AttributeMeta {
 
 export const ATTRIBUTE_META: AttributeMeta[] = [
   { key: "force", label: "Force", shortLabel: "FOR", hint: "Melee Power" },
-  { key: "finesse", label: "Finesse", shortLabel: "FIN", hint: "Speed & Crit" },
+  { key: "finesse", label: "Finesse", shortLabel: "FIN", hint: "Dodge & Crit" },
   { key: "grit", label: "Grit", shortLabel: "GRT", hint: "HP & Defense" },
   { key: "arcana", label: "Arcana", shortLabel: "ARC", hint: "Magic & MP" },
   { key: "presence", label: "Presence", shortLabel: "PRE", hint: "Heal & Ward" },
@@ -54,11 +54,11 @@ export const HEROES: HeroDefinition[] = [
     className: "Duelist",
     shortTag: "Swords & Rapiers · Striker",
     worldBio:
-      "Raised as Highcrown's proud royal heir, Valen was stripped of his title and thrown into the arena dungeons after a fatal duel exposed the truth of his blood. Freed when King Garrick abandoned the capital to unleash the Portals, he steps out seeking atonement—carrying only the scarred blade-craft the sands forced him to learn.",
+      "Raised as Garrick's ruthless heir, Valen cut down his arena trainer Koren in a spiteful duel—only to watch two halves of a silver wolf pendant lock in the sand and realize he had killed his own father, who chose death over striking his son. Stripped of crown and armor and thrown into Koren's old cell, the broken prince steps into a bleeding Ethoria drowning in grief and unpayable guilt.",
     classStyle:
-      "A versatile frontline fighter who wields longswords, 2H greatswords, or rapiers—paired with light or medium armor, cloaks, and any shield when fighting one-handed. Built for sharp single-target pressure and fast follow-up strikes, getting fiercer as he takes hits.",
+      "A versatile frontline fighter who wields longswords, 2H greatswords, or rapiers—paired with light or medium armor, cloaks, shields, or dual one-handed blades. Built for relentless single-target pressure and twin off-hand follow-ups, getting fiercer as he takes hits.",
     gearSummary: "Longswords, Greatswords, Rapiers · Global Shields · Light or Medium Armor · Cloaks",
-    roleSummary: "Versatile physical fighter built around crisp single-target pressure and fast follow-up turns.",
+    roleSummary: "Versatile frontline swordsman built around sharp single-target pressure and Dual Wield follow-up strikes.",
     focusAttributes: ["force", "finesse"],
     focusLabel: "Force & Finesse",
     startingAttributes: { ...BASE_STARTING_ATTRIBUTES },
@@ -76,7 +76,7 @@ export const HEROES: HeroDefinition[] = [
     className: "Sorceress",
     shortTag: "Arcane · Spells & Wards",
     worldBio:
-      "Locked beneath Highcrown once her secret rebellion unraveled, Ellowyn no longer has to hide behind the silence of a captive queen. With the Portals torn open across Ethoria, she steps forward with arcane craft kept hidden for decades—fighting to protect her son and save the kingdom.",
+      "Enduring years in a loveless marriage to a tyrant, Ellowyn lost Koren—the only love she ever knew—the day he let their oblivious son run him through on the sands. Stripped of her silver crown and locked beneath Highcrown as Valen fell, the grieving Queen unleashes forbidden arcane magic kept hidden through decades of misery, marching into a torn Ethoria to keep her broken son alive.",
     classStyle:
       "A ranged spellcaster wielding quarterstaves, daggers, or light crossbows, alongside robes or dragonscale armor, crystal orbs, and shields when holding a dagger. Channels arcane spells learned as she levels to punish dangerous enemies while shielding companions with protective wards.",
     gearSummary: "Quarterstaves, Daggers, Light Crossbows · Global Shields · Robes & Dragonscale · Orbs",
@@ -98,7 +98,7 @@ export const HEROES: HeroDefinition[] = [
     className: "Knight",
     shortTag: "Heavy Arms · Protector",
     worldBio:
-      "Once refusing Highcrown's marriage-forbidden Lead Commander post for love, Orin only swore the rank's vow—never to love again—after his wife died giving birth to Rowan. Now the veteran stands watch beside his boy to defend Ethoria.",
+      "Orin swore Highcrown's marriage-forbidden Commander vow only after his wife died giving birth to Rowan. Worse, Koren was his close friend—Orin spotted Valen's matching wolf pendant and Ellowyn's secret years before the duel, yet held his tongue. Haunted by crushing grief that speaking to Valen sooner could have spared Koren's life, the weary veteran marches beside his own boy into a broken realm.",
     classStyle:
       "A sturdy frontline defender free to wield 2H spears for reach, or pair battleaxes and maces with a shield—clad in hide, scale, or heavy plate alongside war-horns. Built to absorb heavy blows, crack enemy guard, and steady the party.",
     gearSummary: "Battleaxes, Maces, 2H Spears · Global Shields · Medium or Heavy Armor · Horns",
@@ -120,16 +120,16 @@ export const HEROES: HeroDefinition[] = [
     className: "Ranger",
     shortTag: "Bows · Precision Hunter",
     worldBio:
-      "Commander Orin's sharp-eyed son, raised far from castle intrigue on Ethoria's rugged borderlands. Hardened by frontier patrols rather than court walls, he refuses to stand aside while the kingdom fractures—or let his father march into the wilds alone.",
+      "Left motherless at birth, Rowan grew up on cold, bloodied border patrols under a silent father scarred by loss rather than behind castle walls. As Garrick's Portals bleed Ethoria dry and remorse over his friend Koren's death hollows Orin from within, the quiet marksman rides out into the dark wilds refusing to let his father fall alone.",
     classStyle:
-      "A sharp-eyed hunter comfortable with longbows, shortbows, or backup daggers (paired with shields if needed), wearing light or reinforced medium leather with arrow quivers. Picks off priority threats with high critical precision and slows dangerous enemies before they act.",
+      "A sharp-eyed hunter comfortable with longbows, shortbows, or backup daggers (paired with shields if needed), wearing light or reinforced medium leather with arrow quivers. Picks off priority threats with high critical precision and weakens dangerous enemies.",
     gearSummary: "Longbows, Shortbows, Daggers · Global Shields · Light or Medium Leather · Quivers",
-    roleSummary: "Long-range marksman focused on high-precision critical shots and slowing dangerous enemies.",
+    roleSummary: "Long-range marksman focused on high-precision critical shots and debilitating debuffs.",
     focusAttributes: ["finesse", "force"],
     focusLabel: "Finesse & Force",
     startingAttributes: { ...BASE_STARTING_ATTRIBUTES },
     wounded50: "Below 50% HP: Shots strike harder and pierce part of enemy armor.",
-    wounded25: "Below 25% HP: Critical rate spikes and he acts faster in the turn order.",
+    wounded25: "Below 25% HP: Critical rate and precision damage surge sharply.",
     baseHp: 47,
     baseMp: 0,
     avatarPath: "assets/portraits/heroes/rowan_avatar.webp",
@@ -142,7 +142,7 @@ export const HEROES: HeroDefinition[] = [
     className: "Druid",
     shortTag: "Nature Magic · Thorns, Earth & Wind",
     worldBio:
-      "Purchased out of childhood servitude and freed by Queen Ellowyn, Mera repaid that mercy with fierce loyalty—tending Highcrown's palace gardens while quietly keeping old Druid grove-lore alive under Garrick's ban. Stepping beyond the gates, she wields earth, thorn, and storm magic while searching Ethoria for the mother sold away from her years ago.",
+      "Purchased from childhood slavery by Queen Ellowyn after her mother was sold away, Mera served as Ellowyn's loyal handmaid—and secretly wove the iron chisel and letter into Koren's bandages so the lovers could meet. Burdened by how that lifeline ended in Koren's blood and her Queen's ruin, she unleashes banned Druid nature magic across a grieving Ethoria while searching for her stolen mother.",
     classStyle:
       "A wild-magic Druid wielding quarterstaves, scimitars, or sickles—able to carry a shield alongside one-handed blades—clad in leather, widowsilk robes, or bone armor with nature crystals. Calls down earth, thorn, lightning, and mending spells as she levels.",
     gearSummary: "Quarterstaves, Scimitars, Sickles · Global Shields · Leather, Widowsilk & Bone · Crystals",
@@ -151,7 +151,7 @@ export const HEROES: HeroDefinition[] = [
     focusLabel: "Arcana & Finesse",
     startingAttributes: { ...BASE_STARTING_ATTRIBUTES },
     wounded50: "Below 50% HP: Nature spells hit and heal harder, and she dodges incoming blows more often.",
-    wounded25: "Below 25% HP: Spell power surges sharply and she acts faster in the turn order.",
+    wounded25: "Below 25% HP: Spell power and critical spell surge rise sharply.",
     baseHp: 47,
     baseMp: 19,
     avatarPath: "assets/portraits/heroes/mera_avatar.webp",
@@ -164,7 +164,7 @@ export const HEROES: HeroDefinition[] = [
     className: "Sage",
     shortTag: "Herbal Magic · Healer & Remedies",
     worldBio:
-      "After losing his wife and daughter to a merciless plague in his youth, Harlan spent decades tending battered fighters in the torch-lit infirmary beneath Highcrown's arena. Carrying pouches of remedies and bitter toxins, the elderly apothecary steps into the open world so others will not lose who they love.",
+      "After losing his wife and daughter to a merciless plague in his youth, Harlan buried himself in Highcrown's dark undercroft—tending Koren's mangled arena wounds time and again as one of the gladiator's closest friends. Losing Koren on the sands reopened decades of sorrow; carrying healing herbs and bitter toxins into a dying Ethoria, the old apothecary vows no ally will fall unmended.",
     classStyle:
       "A supportive healer and alchemist carrying quarterstaves, maces, or daggers (plus shields with one-handed weapons) in robes or bone armor alongside field tomes. Unlocks restorative herbs, cleanses, and corrosive poison spells naturally as he levels.",
     gearSummary: "Quarterstaves, Maces, Daggers · Global Shields · Robes & Bone Armor · Tomes",

@@ -134,12 +134,14 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
             section = "consumables"
             continue
 
-        # Capture region & steps from subheadings in catalogs
+        # Capture Gear Tiers & Map-Half progression band from subheadings in catalogs
         if section in ("weapon_catalog", "accessories_catalog") and line.startswith("###"):
-            rm = re.search(r"Region\s+(\d+)", line)
-            if rm:
-                cur_region = int(rm.group(1))
-                current_steps = [(cur_region - 1) * 3 + 1, (cur_region - 1) * 3 + 2, (cur_region - 1) * 3 + 3]
+            gm = re.search(r"Gear\s+Tiers?\s+(\d+)\s*[–-]\s*(\d+)", strip_md(line))
+            if gm:
+                t_start = int(gm.group(1))
+                t_end = int(gm.group(2))
+                current_steps = list(range(t_start, t_end + 1))
+                cur_region = step_to_region(t_start)
             continue
 
         if not line.startswith("|"):
@@ -152,9 +154,11 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
             st = int(cells[0])
             cm = re.search(r"\+(\d+)\s*\(2H\s*\+(\d+)\)", cells[5])
             p1h = parse_silver(cells[6])
+            zm = re.search(r"Zone\s+(\d+)", cells[1])
             weapon_curve[st] = {
                 "step": st,
-                "region": int(re.search(r"\d+", cells[1]).group()),
+                "zone": int(zm.group(1)) if zm else 1,
+                "region": step_to_region(st),
                 "atk1h": int(cells[3]),
                 "atk2h": int(cells[4]),
                 "cast1h": int(cm.group(1)) if cm else 5,
@@ -226,13 +230,19 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
                 })
 
         elif section == "armor_shared" and len(cells) >= 9 and cells[0] != "Armor Type":
+            legacy_icon_steps = {
+                "Padded Robes": [6, 8, 10, 12],
+                "Silk Robes": [10, 12, 14, 16],
+            }
             armor_type = cells[0]
             weight_key = cells[1].lower()
             steps = [int(x.strip()) for x in cells[2].split(",")]
+            icon_steps = legacy_icon_steps.get(armor_type, steps)
             slot_label = cells[3]
             usable_by = [HERO_NAME_TO_ID[u.strip()] for u in cells[4].split(",") if u.strip() in HERO_NAME_TO_ID]
             for idx, name in enumerate(cells[5:9]):
                 step = steps[idx]
+                icon_step = icon_steps[idx]
                 reg = step_to_region(step)
                 ac = armor_curve[step]
                 tot_p, tot_m = ac[weight_key][0], ac[weight_key][1]
@@ -242,7 +252,7 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
                     body_price = max(15, round(ac["combinedArmorPrice"] * 0.65))
                     body_mp = round(ac["light"][2] * 0.65) if weight_key == "light" else 0
                     items.append({
-                        "id": f"armor_{step:02d}_{slugify(armor_type)}_{slugify(name)}",
+                        "id": f"armor_{icon_step:02d}_{slugify(armor_type)}_{slugify(name)}",
                         "name": name,
                         "category": "armor",
                         "subType": armor_type,
@@ -259,9 +269,9 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
                             "physDef": body_p,
                             "magDef": body_m,
                             "maxMp": body_mp,
-                            "speedMod": -2 if weight_key == "heavy" else (2 if weight_key == "light" else 0),
+                            **({"dodgePct": 4} if weight_key == "light" else {}),
                         },
-                        "iconPath": f"assets/icons/items/armor_{step:02d}_{slugify(armor_type)}_{slugify(name)}.webp",
+                        "iconPath": f"assets/icons/items/armor_{icon_step:02d}_{slugify(armor_type)}_{slugify(name)}.webp",
                     })
                 elif slot_label == "Helmet":
                     helm_p = max(1, tot_p - round(tot_p * 0.65))
@@ -274,7 +284,7 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
                         else (f"+{2 + (step * 6) // 24}% Accuracy & Crit Chance" if weight_key == "medium" else f"+{helm_mp} Max MP")
                     )
                     items.append({
-                        "id": f"helm_{step:02d}_{slugify(armor_type)}_{slugify(name)}",
+                        "id": f"helm_{icon_step:02d}_{slugify(armor_type)}_{slugify(name)}",
                         "name": name,
                         "category": "helm",
                         "subType": armor_type,
@@ -293,7 +303,7 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
                             "maxMp": helm_mp,
                             "passiveBonus": bonus_desc,
                         },
-                        "iconPath": f"assets/icons/items/helm_{step:02d}_{slugify(armor_type)}_{slugify(name)}.webp",
+                        "iconPath": f"assets/icons/items/helm_{icon_step:02d}_{slugify(armor_type)}_{slugify(name)}.webp",
                     })
 
         elif section == "shields_shared" and len(cells) >= 7 and cells[0] != "Shield Type":
@@ -301,7 +311,6 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
             weight_key = cells[1].lower()
             steps = [int(x.strip()) for x in cells[2].split(",")]
             guard_bonus = 8 if weight_key == "light" else (12 if weight_key == "medium" else 16)
-            speed_mod = 1 if weight_key == "light" else (0 if weight_key == "medium" else -1)
             for idx, name in enumerate(cells[3:7]):
                 step = steps[idx]
                 reg = step_to_region(step)
@@ -324,7 +333,7 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
                     "stats": {
                         "physDef": ac["shieldDef"],
                         "guardBonusPct": guard_bonus,
-                        "speedMod": speed_mod,
+                        **({"dodgePct": 3} if weight_key == "light" else {}),
                     },
                     "iconPath": f"assets/icons/items/shd_{step:02d}_{slugify(shield_type)}_{slugify(name)}.webp",
                 })
@@ -338,9 +347,9 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
                 acc_price = ac["leftHandPrice"]
                 acc_stats: dict = {}
                 if acc_label == "Cloak":
-                    acc_stats = {"speedMod": 1 + step // 4, "dodgePct": 3 + (step * 7) // 24, "critBonusPct": 3 + (step * 7) // 24}
+                    acc_stats = {"dodgePct": 5 + (step * 11) // 24, "critBonusPct": 4 + (step * 8) // 24}
                 elif acc_label == "Orb":
-                    acc_stats = {"magicPower": max(2, round(step * 2.0)), "spellCritPct": 3 + (step * 7) // 24, "speedMod": 1 + step // 8}
+                    acc_stats = {"magicPower": max(2, round(step * 2.0)), "spellCritPct": 4 + (step * 8) // 24, "maxMp": 4 + step * 2}
                 elif acc_label == "Horn":
                     acc_stats = {"physDef": max(2, round(step * 1.4)), "gritBonus": 1 + step // 4, "guardBonusPct": 6 + (step * 14) // 24}
                 elif acc_label == "Quiver":
@@ -370,12 +379,15 @@ def parse_docs_06() -> tuple[dict, list[dict]]:
         elif section == "consumables" and len(cells) >= 4 and cells[0] != "Item":
             price = parse_silver(cells[3])
             shop = "armory" if any(k in cells[0] for k in ("Healing", "Reviving", "Phoenix")) else "apothecary"
+            zm = re.search(r"Zones?\s*(\d+)\s*[–-]\s*(\d+)", cells[1])
             items.append({
                 "id": f"cons_{slugify(cells[0])}",
                 "name": cells[0],
                 "category": "consumable",
                 "subType": "Healing / MP Potion" if "HP" in cells[2] or "MP" in cells[2] else "Curative Potion",
-                "regionsStocked": cells[1],
+                "zonesStocked": cells[1],
+                "minZone": int(zm.group(1)) if zm else 1,
+                "maxZone": int(zm.group(2)) if zm else 20,
                 "shopType": "both",
                 "priceSilver": price,
                 "sellSilver": round(price * 0.4),
@@ -437,11 +449,20 @@ def parse_trade_goods() -> list[dict]:
             silver_val = silver_nums[0] if silver_nums and silver_nums[0] > 0 else 25
             good_name = cells[7]
             sell_val = max(3, round(silver_val * 0.67))
+            # Derive numeric primary region (1..8) strictly matching Zone & sellSilver tier
+            native_region = 1
+            if "Z16" in regions_str or sell_val >= 500:
+                native_region = 7
+            elif "Z11" in regions_str or sell_val >= 170:
+                native_region = 5
+            elif "Z06" in regions_str or sell_val >= 32:
+                native_region = 3
             goods.append({
                 "id": f"tg_native_{slugify(mob_name)}_{slugify(good_name)}",
                 "name": good_name,
                 "category": "trade_good",
                 "subType": "Ethoria Trade Good",
+                "region": native_region,
                 "regionsFound": regions_str,
                 "sourceMob": mob_name,
                 "shopType": "sell_only",
@@ -452,19 +473,19 @@ def parse_trade_goods() -> list[dict]:
             })
 
     # Preserve the 8 Ethorian humanoid trade goods whose icons live in client/assets/icons/items/
-    # (scaled to the updated 0.16x Trade Good economy so all 825 catalog icons remain wired).
+    # (tagged with exact primary numeric Region matching their Zone/sellSilver tier).
     humanoid_fallbacks = [
-        ("Road Bandit", "Regions 1–2", "Rusty Coin Purse", 3),
-        ("Crossbow Poacher", "Regions 1–3", "Fletched Bolt Case", 4),
-        ("Smuggler Cutthroat", "Regions 2, 5", "Contraband Seal", 20),
-        ("Garrick Deserter", "Regions 1, 3", "Torn Wolf Tabard", 6),
-        ("Rival House Pikeman", "Regions 3, 7", "Usurper Pennant", 59),
-        ("Rival House Knight", "Regions 3, 7", "Steel Crest Badge", 85),
-        ("Gilded Slaver Enforcer", "Region 5", "Brass Collar Key", 290),
-        ("Eclipse Cultist", "Region 8", "Obsidian Talisman", 1555),
+        ("Road Bandit", "Regions 1–2", 1, "Rusty Coin Purse", 3),
+        ("Crossbow Poacher", "Regions 1–3", 1, "Fletched Bolt Case", 4),
+        ("Smuggler Cutthroat", "Regions 2, 5", 2, "Contraband Seal", 20),
+        ("Garrick Deserter", "Regions 1, 3", 1, "Torn Wolf Tabard", 6),
+        ("Rival House Pikeman", "Regions 3, 7", 3, "Usurper Pennant", 59),
+        ("Rival House Knight", "Regions 3, 7", 3, "Steel Crest Badge", 85),
+        ("Gilded Slaver Enforcer", "Region 5", 5, "Brass Collar Key", 290),
+        ("Eclipse Cultist", "Region 8", 8, "Obsidian Talisman", 1555),
     ]
     existing_ids = {g["id"] for g in goods}
-    for mob_name, regions_str, good_name, sell_val in humanoid_fallbacks:
+    for mob_name, regions_str, reg_num, good_name, sell_val in humanoid_fallbacks:
         gid = f"tg_native_{slugify(mob_name)}_{slugify(good_name)}"
         if gid not in existing_ids:
             goods.append({
@@ -472,6 +493,7 @@ def parse_trade_goods() -> list[dict]:
                 "name": good_name,
                 "category": "trade_good",
                 "subType": "Ethoria Trade Good",
+                "region": reg_num,
                 "regionsFound": regions_str,
                 "sourceMob": mob_name,
                 "shopType": "sell_only",
@@ -566,11 +588,12 @@ def parse_runestone_affixes() -> dict:
         if not cells or all(re.fullmatch(r"[:\-\s]+", c) for c in cells):
             continue
 
-        if section == "tiers" and cells[0] != "Tier" and len(cells) >= 4:
+        if section == "tiers" and cells[0] not in ("Tier", "Rarity Tier") and len(cells) >= 4:
             tiers.append({
                 "id": slugify(cells[0]),
                 "tier": cells[0],
                 "regions": cells[1],
+                "zones": cells[1],
                 "rollFormula": cells[2],
                 "strengthScale": cells[3],
             })

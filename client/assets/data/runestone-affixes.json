@@ -5,28 +5,32 @@
     {
       "id": "lesser",
       "tier": "Lesser",
-      "regions": "Regions 1–2",
+      "regions": "Map 1 (Zones 1–5)",
+      "zones": "Map 1 (Zones 1–5)",
       "rollFormula": "1 Prefix + 1 Suffix",
       "strengthScale": "Base Tier (1×)"
     },
     {
       "id": "refined",
       "tier": "Refined",
-      "regions": "Regions 3–4",
+      "regions": "Map 2 (Zones 6–10)",
+      "zones": "Map 2 (Zones 6–10)",
       "rollFormula": "1 Prefix + 1 Suffix",
       "strengthScale": "Strong Tier (~1.5×)"
     },
     {
       "id": "greater",
       "tier": "Greater",
-      "regions": "Regions 5–6",
+      "regions": "Map 3 (Zones 11–15)",
+      "zones": "Map 3 (Zones 11–15)",
       "rollFormula": "2 Prefixes + 1 Suffix or 1 Prefix + 2 Suffixes",
       "strengthScale": "High Tier (~2×)"
     },
     {
       "id": "mythic",
       "tier": "Mythic",
-      "regions": "Regions 7–8",
+      "regions": "Map 4 (Zones 16–20)",
+      "zones": "Map 4 (Zones 16–20)",
       "rollFormula": "2 Prefixes + 2 Suffixes",
       "strengthScale": "Endgame Tier (~2.5×)"
     }
@@ -42,7 +46,7 @@
       "id": "pfx_wpn_glacial",
       "name": "Glacial",
       "socket": "weapon",
-      "effect": "Strikes deal bonus Frost damage (+12%–25%) and apply Chill, pushing targets back on the timeline."
+      "effect": "Strikes deal bonus Frost damage (+12%–25%) and apply Chill, lowering enemy Attack & Magic Power by 15%."
     },
     {
       "id": "pfx_wpn_arcing",
@@ -134,7 +138,7 @@
       "id": "pfx_arm_vanguards",
       "name": "Vanguard's",
       "socket": "armor",
-      "effect": "Taking the Guard action restores 6%–15% Max HP + 4–10 MP and pushes your next turn forward on the timeline."
+      "effect": "Taking the Guard action restores 6%–15% Max HP + 4–10 MP and grants +15% Defense for 1 turn."
     },
     {
       "id": "pfx_arm_unbreakable",
@@ -171,7 +175,7 @@
     {
       "id": "sfx_of_alacrity",
       "name": "of Alacrity",
-      "effect": "+3 to +14 Turn Timeline Speed & +3 to +12 opening battle Initiative."
+      "effect": "+3% to +14% Dodge Chance & +3% to +12% Accuracy."
     },
     {
       "id": "sfx_of_precision",

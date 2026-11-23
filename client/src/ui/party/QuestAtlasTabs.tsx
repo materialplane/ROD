@@ -227,10 +227,10 @@ interface WorldAtlasTabProps {
 }
 
 const REALM_ORDER: Array<{ id: string; name: string }> = [
-  { id: "map_01", name: "King's Reach" },
-  { id: "map_02", name: "Westmarch" },
-  { id: "map_03", name: "Suncrest Isles" },
-  { id: "map_04", name: "Northhold" },
+  { id: "map_01", name: "The Crownlands" },
+  { id: "map_02", name: "Thornwall Warfronts" },
+  { id: "map_03", name: "Sun-Scorched Isles" },
+  { id: "map_04", name: "Frostbound Reach" },
 ];
 
 const REALM_NAME_BY_ID: Record<string, string> = Object.fromEntries(REALM_ORDER.map((r) => [r.id, r.name]));
@@ -772,7 +772,7 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
         {unlockedRealms.length <= 1 ? (
           <div className="flex items-center gap-2.5">
             <span className="font-display text-[15px] font-bold text-[#fae2aa] tracking-wide">
-              {REALM_NAME_BY_ID[atlasMapId] ?? "King's Reach"}
+              {REALM_NAME_BY_ID[atlasMapId] ?? "The Crownlands"}
             </span>
             <span className="text-[11px] text-[#9eb0c8]">
               Places Discovered: <strong className="text-[#fae2aa]">{visibleLocations.filter((l) => discoveredSet.has(l.id)).length}</strong>

@@ -4,7 +4,7 @@
 > **Core Rule:** Only the **`40` Hubs + `20` Unique Zone Outposts + `8` Portals** (`17` per map) are permanent Overworld markers. All `178` unique Quest `.webp` tokens stay active as **illustrated Quest Journal emblems**, split cleanly across three runtime formats: **`151` Wilderness Quest Sites (`wilderness_pin`, appearing on the Overworld near their Hub only while the quest is active and clearing when finished)**, **`11` Hub-to-Hub Couriers (`hub_courier`, completing at their destination permanent Hub with no duplicate field pin)**, and **`16` Interior / Harbor / Garrison Events (`hub_interior`, resolving inside the Hub's `16:9` scene)**.  
 > **No-One-Note-Battle Rule:** Quests never play out as "walk to a dot and immediately trigger one turn-based battle modal." Depending on the quest, they launch either a **Procedural `1:1` Zelda-Style Dungeon**, an **Overworld Roam / Courier / Tracking Hunt** across Ethoria, or a **Hub / Keep Event**.  
 > **Global Active Quest Limit (`15` Active Quests Total):** Instead of a separate repeatable quest cap, players share a single **Global Active Quest Limit (`15` active quests max across Hub Quests and Zone Outpost Hunts combined)** and may abandon or turn in hunts anytime to free slots.  
-> **XP & Silver Rule:** Rewards scale cleanly per Region (`docs/03`) so clearing `~20–23` quests in a Region naturally carries the party across that Region's level band alongside Portal encounters and **Zone Outpost Hunts**.
+> **XP & Silver Rule:** Rewards scale cleanly across Ethoria's **`20` Level Zones (`docs/03`)** so clearing local quests on each unlocked continent half (`~17–28` quests per Map half) naturally carries the party across its Level Zone band alongside Portal encounters and **Zone Outpost Hunts**.
 
 ---
 
@@ -15,7 +15,7 @@
    * **Grid Size = Bounding Canvas, Not Packed Rooms:** Bounding grids span anywhere from **`2×2`** (compact skirmish lair) up to **`10×10+`** (sprawling strongholds & Portals). Just like original *The Legend of Zelda*, a **`10×10` grid does NOT create 100 rooms**—it simply bounds the dungeon layout while the generator carves twisting paths, side wings, locked doors, loops, and **dead ends** through only a portion of those grid cells (`leaving empty uncarved space around branches`).
    * **`~10`-Tile `1:1` Doorless Room Pools:** Instead of custom art per room, each environment theme (*Stone Aqueduct / Sewers, Limestone Cave, Woodland Thicket / Clearing, Ancient Ruin / Shrine, Coastal Reef / Shipwreck, Outlaw Stockade / Keep*, plus the **8 Portal Planes**) maintains a pool of **`~10` doorless `1:1` square top-down paintings**. The generator places tiles across the carved path and dynamically overlays **N/S/E/W doors, keys & locked gates, dead-end walls/barricades, loot chests, combat encounters, and the final Mini-Boss / Objective room**.
 2. **Overworld Roam, Courier, Tracking & Rescue Quests:**
-   * Not every quest needs a separate dungeon instance—some complete organically as you run around Ethoria (`delivering dispatches between Hubs, tracking scattered beast/raider clues across regions, intercepting patrols, or completing multi-step errands`).
+   * Not every quest needs a separate dungeon instance—some complete organically as you run around Ethoria (`delivering dispatches between Hubs, tracking scattered beast/raider clues across neighboring lands, intercepting patrols, or completing multi-step errands`).
 3. **Town, Harbor & Keep Events:**
    * Local investigations, dockside defenses, cellar raids, or garrison holds resolved directly inside towns, harbors, and contested forts.
 
@@ -39,7 +39,7 @@
 ---
 
 ## Layer 1: Main Goal & Home-Front B-Plot (`16:9` Cutscenes)
-* **Opening Flow:** Months after `backstory.txt` Chapter 11—once succession infighting and Garrick's Portal pact force the King out of the capital—Valen and Ellowyn are freed openly inside **Highcrown** (`Hub #1`, which houses Highcrown Keep, the Great Coliseum, and the Overgrown Palace Gardens & Dry Aqueducts). After choosing **4 of 6 heroes**, an **Opening Council Dialogue Scene** inside **Highcrown Keep** shows both groups setting their plan—your 4 marching out into Region 1 while the remaining **2 stay to hold Highcrown Keep**.
+* **Opening Flow:** Months after `backstory.txt` Chapter 11—once succession infighting and Garrick's Portal pact force the King out of the capital—Valen and Ellowyn are freed openly inside **Highcrown** (`Hub #1`, which houses Highcrown Keep, the Great Coliseum, and the Overgrown Palace Gardens & Dry Aqueducts). After choosing **4 of 6 heroes**, an **Opening Council Dialogue Scene** inside **Highcrown Keep** shows both groups setting their plan—your 4 marching out into **Zone 1 (The Crownlands)** while the remaining **2 stay to hold Highcrown Keep**.
 * **The Hidden Magic & Non-Human Border War Reveal:** Season 1 kept Highcrown focused solely on the gladiator drama (`hiding both Ethoria's latent magic and who Garrick really fought`). Across both **Highcrown Keep's sealed archives** and **Chain C**, heroes uncover dispatches proving King Garrick's decades-old *"border wars"* (`backstory.txt` Chapters 2–5) were actually fought against **encroaching non-human powers**—masked from Highcrown behind censored casualty reports until Chapter 11 drove him to break open all `8` Portals openly.
 * **Home-Front Cutscenes (`2 / 4 / 6 / 7` Portals Closed):** Tracks the `2` heroes holding **Highcrown Keep** across 4 milestones, culminating in all 6 converging at **Garrick's Black Keep** (`Boss #8`).
 * **Post-Credits Save Rule *(Option A)*:** Victory unlocks Steam Achievements, stamps the save with a **Cleared Crown**, and places your party right outside **The Eclipse Gate** so hitting **Continue** lets you finish any leftover hubs, quests, or **Level 99**.
@@ -56,35 +56,35 @@
 
 ## Layer 3 + 2 Hub-by-Hub Master Quest Roster (`178` Unique Quests & `178` Unique Field Markers Across `40` Hubs)
 
-### Map 1 — Region 1: The Crownlands *(`22` Quests | `Lv 1–12` | `18s–85s` | `80–265 XP` | Lesser Draft)*
+### Map 1 — First Half: Zones `1–3` *(*The Crownlands & Saltwind Coast* · `27` Quests | `Lv 1–15` | `18s–375s` | `80–560 XP` | Lesser Draft)*
 
-#### 1. Highcrown *(4 Quests · `Lv 1–4`)*
+#### 1. Highcrown *(4 Quests · `Lv 1–4` · Zone 1)*
 1. **`[Purge / Restore]` Seal the Aqueduct Grate** *(Orin / Capital Guard · Marker: **Dry Aqueduct Drainage Gate**)* — During the months of unrest after Garrick abandoned Highcrown, rogue kennel trackers pried open the neglected dry aqueduct grate behind Highcrown's overgrown palace gardens, letting war-hounds prowl beneath the Coliseum undercroft. Descend through the garden grate, defeat the Garrick Houndmaster and his wolves guarding the culvert control chamber, and pull the gate lever to seal the breach shut. | **Mini-Boss:** Garrick Houndmaster & Wolves | `18s | 80 XP | Lesser Draft`
 2. **`[Retrieve]` Salvage Koren's Forge-Kit** *(Coliseum Armorer · Marker: **Brushwood Salvage Hollow**)* — During the succession riots that rocked Highcrown before Garrick fled north, Coliseum armorers stashed heavy repair trunks—including tools forged for Koren—along the brushwood hollow just beyond the outer capital road. Clear the opportunistic bandits looting the wreck and bring the steel back to Highcrown. | **Mini-Boss:** Road Bandits | `22s | 100 XP | Lesser Draft`
 3. **`[Escort / Defend]` Highcrown Perimeter Watch** *(Capital Loyalist Guard · Marker: **Ruined Wall Campfire**)* — Capital scouts spotted smoke rising behind a crumbling ivy-covered limestone wall just outside Highcrown, where deserters in Garrick's gray war-cloaks have stacked spears and crossbows around a hidden campfire to plot their next move. Ambush the forward camp and break up the plot before they act. | **Mini-Boss:** Garrick Deserter Scout | `26s | 120 XP | Lesser Draft`
 4. **`[Deliver]` Word to Oakhaven** *(Highcrown Watch Captain · Marker: **Crossroad Poacher Barricade**)* — Carry Highcrown's wax-sealed royal dispatch up the Crownlands trade road to Oakhaven's elder. Poachers and turncoat deserters have thrown up shield barricades along the bend to intercept every courier riding north from the capital. | **Mini-Boss:** Crossbow Poacher Pack | `28s | 135 XP | Lesser Draft`
 
-#### 2. Oakhaven *(5 Quests · `Lv 2–7`)*
+#### 2. Oakhaven *(5 Quests · `Lv 2–7` · Zone 1)*
 5. **`[Retrieve]` Missing Grain Carts** *(Oakhaven Granary Keeper · Marker: **Overturned Grain Wagons**)* — Loaded grain wagons bound for Oakhaven vanished before dawn along the fenced dirt lanes outside town. Track the spilled wheat sacks to the ambushed bend and defeat the bandit wagon-boss's crew to recover the grain. | **Mini-Boss:** Bandit Wagon-Boss | `30s | 140 XP | Lesser Draft`
 6. **`[Rescue]` Boy in the Fold** *(Heartland Shepherd · Marker: **Alpha Wolf Hollow**)* — A young shepherd boy chased a stray lamb into the deep woods after wolves scattered his flock. Track the pawprints to the pack's mossy wolf den among the trees and bring the boy home alive. | **Mini-Boss:** Alpha Timber Wolf & Pack | `32s | 160 XP | Lesser Draft`
 7. **`[Deliver]` Forged Rivets for the Palisade** *(Oakhaven Blacksmith · Marker: **Rift Construct Road Ambush**)* — Haul crates of hardened iron gate-rivets toward Millbrook Crossing's western palisade. Halfway up the lane, rogue animated armor drawn by stray Portal sparks has smashed the lead handcart across the oak road. | **Mini-Boss:** Animated Armor Vanguard | `36s | 185 XP | Lesser Draft`
 8. **`[Purge / Restore]` Bandits at the Old Orchard** *(Town Constable · Marker: **Old Orchard Poacher Camp**)* — Armed highwaymen have turned the abandoned apple orchard outside Oakhaven into a toll hideout and cider-cellar ambush. Clear their orchard camp under the fruit trees so harvest wagons can pass unmolested. | **Mini-Boss:** Outlaw Orchard Boss | `34s | 170 XP | Lesser Draft`
 9. **`[Investigate]` Poachers on the Meadow Trail** *(Heartland Trapper · Marker: **Tusked Boar Thicket**)* — Snare-wires and mauled deer carcasses line the game trails outside Oakhaven. Track the scarred trail into the deep oak grove where an enraged dire boar has gored both poachers and travelers alike. | **Mini-Boss:** Tusked Dire Boar | `30s | 150 XP | Lesser Draft`
 
-#### 3. Meadowbrook Hamlet *(4 Quests · `Lv 4–8`)*
+#### 3. Meadowbrook Hamlet *(4 Quests · `Lv 4–8` · Zone 2)*
 10. **`[Escort / Defend]` Wolves in the Sheepfold** *(Meadowbrook Herder · Marker: **Meadowbrook Outer Sheepfold**)* — Hungry timber wolves driven down from the eastern hills have broken through the split-rail fences of the hamlet's outlying sheep barn. Hold the timber barn door until the herders drive the last flocks inside. | **Mini-Boss:** Timber Wolf Pack | `48s | 155 XP | Lesser Draft`
 11. **`[Retrieve]` Stolen Plough-Iron** *(Hamlet Farmer · Marker: **Webbed Plough-Hill Burrow**)* — Iron-thieving thugs hid Meadowbrook's spring ploughshares inside a stony hillside burrow only to get webbed up by nesting giant spiders. Cut open the silk-choked burrow and haul the town's metalwork back. | **Mini-Boss:** Giant Spider Brood | `55s | 180 XP | Lesser Draft`
 12. **`[Investigate]` Burned Granary Ledger** *(Hamlet Bailiff · Marker: **Ash-Sack Stash Clearing**)* — Someone torched Meadowbrook's tax barn right after stealing the village tithe box, hoping fire would hide the theft. Follow soot-stained wagon ruts into the brush clearing and recover the bailiff's ledger from the bandit lieutenant. | **Mini-Boss:** Road Bandit Lieutenant | `58s | 190 XP | Lesser Draft`
 13. **`[Escort / Defend]` Seed Caravan to Oakhaven** *(Grain Merchant · Marker: **Southern Seed-Wagon Turn**)* — Wild blades animated by rogue Ashen Gate magic have pinned down the spring seed caravan halfway along the sunny wheat lane to Oakhaven. Smash the floating steel ambushers and clear the wagon turn. | **Mini-Boss:** Animated Sword Ambush | `60s | 200 XP | Lesser Draft`
 
-#### 4. Millbrook Crossing *(5 Quests · `Lv 7–11`)*
+#### 4. Millbrook Crossing *(5 Quests · `Lv 7–11` · Zone 2)*
 14. **`[Escort / Defend]` Hold the West Palisade** *(Millbrook Warden · Marker: **Millbrook West Palisade**)* — Arsonists wearing turncoat garrison colors are gathering oil flasks outside Millbrook's wooden western gatehouse. Stand at the sharpened timber palisade stakes and break the sergeant's night assault. | **Mini-Boss:** Garrick Deserter Sergeant | `65s | 210 XP | Lesser Draft`
 15. **`[Purge / Restore]` Shattered Mill-Tower** *(Town Mason · Marker: **Shattered Mill-Tower**)* — Winged stone gargoyles shaken loose from eastern shrines have nested atop the cracked ridge windmill spire overlooking Millbrook. Head up to the bluff ruins and defeat the alpha stone gargoyle roosting above the broken sails. | **Mini-Boss:** Stone Gargoyle Alpha | `72s | 240 XP | Lesser Draft`
 16. **`[Investigate]` Chain D1: The Scarred Name** *(Tavern Rumor · Marker: **Roadside Bounty Camp**)* — A loud-mouthed bounty hunter bragging about sealed papers tracing Koren's earliest transfer from the northern border war-pits to Highcrown's Great Coliseum made camp along the muddy woodland road outside Millbrook. Raid the campfire stockade and seize the transfer dossier. | **Mini-Boss:** Arena Bounty-Captain | `70s | 230 XP | Lesser Draft`
 17. **`[Purge / Restore]` Dust Mephits in the Old Mine Shack** *(Crossroads Miner · Marker: **Choking Chalk-Pit Vent**)* — Billowing ash vents have choked the old limestone quarry shaft north of Millbrook with giggling dust mephits. Seal the quarry vent and sweep the blinding swarm out of the timber shoring. | **Mini-Boss:** Dust Mephit Swarm | `68s | 220 XP | Lesser Draft`
 18. **`[Rescue]` Lost Courier on the North Ridge** *(Crossroads Postmaster · Marker: **Ankheg Ridge Burrows**)* — The hill-fort dispatch rider's horse galloped back into Millbrook alone with chitin gashes down its flank. Follow the ridge trail to the ankheg burrows and defeat the beast to bring the wounded rider home. | **Mini-Boss:** Ankheg Burrower | `75s | 250 XP | Lesser Draft`
 
-#### 5. Crownlands Hill-Fort *(4 Quests · `Lv 8–12`)*
+#### 5. Crownlands Hill-Fort *(4 Quests · `Lv 8–12` · Zone 2)*
 19. **`[Rescue]` The Stolen Ribbon** *(Garrison Captain · Marker: **Bramblewatch Cave**)* — Cutthroats holding a captured hill-fort courier—and Valen's prized crimson arena keepsake—fortified a thorn-choked limestone cave in the eastern hills. Fight past the spiked barricade and free the courier. | **Mini-Boss:** Bramblewatch Ringleader & Dust Mephit | `80s | 260 XP | Lesser Draft`
 20. **`[Purge / Restore]` Animated Sentinels of the Knoll** *(Fort Quartermaster · Marker: **Scorched Sentinel Knoll**)* — Residual Earth-Plane tremors spilling from The Ashen Gate have awakened derelict stone-and-iron war prototypes atop the grassy western knoll. Smash the towering Shield Guardian before it marches on the hill-fort gates. | **Mini-Boss:** Shield Guardian Prototype | `78s | 250 XP | Lesser Draft`
 21. **`[Retrieve]` Rust Monsters at the Munitions Dump** *(Fort Armorer · Marker: **Rusted Ore-Cave Dump**)* — Chittering rift creatures that melt forged steel on touch have burrowed under the fort's forward munitions depot cave. Exterminate the chitinous nest and save the remaining halberd crates before everything turns to red powder. | **Mini-Boss:** Rust Monster Alpha | `75s | 240 XP | Lesser Draft`
@@ -92,35 +92,35 @@
 
 ---
 
-### Map 1 — Region 2: The Saltmarsh & Westward Coast *(`22` Quests | `Lv 12–25` | `260s–520s` | `360–780 XP` | Lesser Draft)*
-
-#### 6. Saltwind Harbor *(5 Quests · `Lv 12–15`)*
+#### 6. Saltwind Harbor *(5 Quests · `Lv 11–15` · Zone 3)*
 23. **`[Investigate]` Chain A1: Ledgers in the Brine** *(Harbor Dockmaster · Marker: **Saltwind Shoreline Chapel Ruins**)* — Black-market slavers hid Mera's mother's shipping manifest inside a ruined tidal belltower chapel perched along the muddy coastal tidal flats. Best the massive chuul haunting the sunken steps and claim the waterproof ledger. | **Mini-Boss:** Chuul Ledger-Keeper | `340s | 520 XP | Lesser Draft`
 24. **`[Escort / Defend]` Pier Three Blockade** *(Master Shipwright · Marker: **Saltwind Drydock Pier**)* — Hired thugs trying to cripple Saltwind's continent-sailing fleet have barricaded the stone-and-timber drydock slipway. Guard the harbor carpenters while they finish rigging the sea-hull for open-water voyages. | **Mini-Boss:** Smuggler Cutthroat Captain | `260s | 360 XP | Lesser Draft`
 25. **`[Purge / Restore]` The Cracked Lighthouse** *(Lighthouse Keeper · Marker: **Cracked Coastal Lighthouse**)* — Thermal fissures linked to The Ashen Gate drew boiling steam mephits and harpoon-armed merrow into Saltwind's northern cliffside lighthouse, where they hoard the glowing Ashen Forge Keystone needed to open Portal #1. Clear the lighthouse tower, reclaim the catalyst, and restore the harbor beam. | **Mini-Boss:** Steam Mephit Brood & Merrow Harpooner | `375s | 560 XP + Ashen Forge Keystone | Lesser Draft`
 26. **`[Retrieve]` Sunken Tide-Cargo** *(Coastal Merchant · Marker: **Tide-Cargo Sandbars**)* — Waterproof ironbound crates stamped with merchant guild seals washed onto the beach flats south of Saltwind. Slay the acid-spitting black dragon wyrmling nesting over the stranded rowboat and recover the guild cargo. | **Mini-Boss:** Abyssal Black Dragon Wyrmling | `285s | 410 XP | Lesser Draft`
 27. **`[Retrieve]` Harbor-Master's Beach Salvage** *(Fleet Navigator · Marker: **Beached Harbor Merchant Wreck**)* — A storm-broken merchant vessel lies wedged high upon the outer golden sandbar holding crucial sea charts for Map 2's coast. Fend off coastal scavengers and retrieve the captain's brass chart cylinder. | **Mini-Boss:** Trench Chuul & Smugglers | `295s | 430 XP | Lesser Draft`
 
-#### 7. Brinecliff Watch-Fort *(4 Quests · `Lv 14–19`)*
+### Map 1 — Second Half: Zones `4–5` *(*The Saltmarsh Coast* · `17` Quests | `Lv 16–25` | `310s–520s` | `450–780 XP` | Lesser Draft)*
+
+#### 7. Brinecliff Watch-Fort *(4 Quests · `Lv 16–20` · Zone 4)*
 28. **`[Retrieve]` Tide-Watcher's Cache** *(Fort Quartermaster · Marker: **Smuggler's Cave**)* — Smugglers hid the navy's missing brass compass chest inside a dry sandstone cave mouth overlooking the Brinecliff headland. Slip inside, defeat the abyssal water weird coiled around the chest, and reclaim the relic. | **Mini-Boss:** Abyssal Water Weird | `360s | 560 XP | Lesser Draft`
 29. **`[Escort / Defend]` Merrow Raiders on the Breakwater** *(Wall Captain · Marker: **Brinecliff Stone Breakwater**)* — Scaly merrow war-bands have been hauling themselves up the lower limestone headland steps under cover of sea spray. Hold the rocky breakwater wall before they breach the fort's seaward stair. | **Mini-Boss:** Merrow War-Band | `310s | 450 XP | Lesser Draft`
 30. **`[Retrieve]` Reef-Shattered Corsair Wreck** *(Smuggler Informant · Marker: **Reef-Shattered Corsair Wreck**)* — A shattered corsair wreck wedged upon coastal reef stones still holds watertight powder kegs and brass spyglasses. Defeat the sea hag coven haunting the splintered hull to recover the naval stores. | **Mini-Boss:** Sea Hag Coven | `350s | 530 XP | Lesser Draft`
 31. **`[Purge / Restore]` Sea-Hag Hollow on the Cliffs** *(Fort Chaplain · Marker: **Bone-Chime Sea Hollow**)* — Every misty evening a coven hangs driftwood bone chimes from a cliff hollow north of the fort, hexing the watch sentries asleep. Smash their caustic cauldron and banish the sea hag into the surf. | **Mini-Boss:** Sea Hag & Steam Mephits | `340s | 510 XP | Lesser Draft`
 
-#### 8. Reedfen Village *(4 Quests · `Lv 16–21`)*
+#### 8. Reedfen Village *(4 Quests · `Lv 16–21` · Zone 4)*
 32. **`[Rescue]` Lanterns in the Bog** *(Fen Scout · Marker: **Marsh Signal Lantern Path**)* — Fog rolled deep through the Reedfen marshes, swallowing a relief patrol whose lantern posts went dark. Slay the multi-headed marsh hydra stalking the flooded reed track so scouts can relight the route safely. | **Mini-Boss:** Abyssal Marsh Hydra | `370s | 570 XP | Lesser Draft`
 33. **`[Purge / Restore]` Watchtower Braziers** *(Reedfen Elder · Marker: **Sunken Harbor Watchtower**)* — Marsh raiders overran the old coastal sandstone watchtower so Reedfen fishermen lose sight of safe shoals at nightfall. Defeat the beasts lurking around the tower yard so village wardens can restore the beacon. | **Mini-Boss:** Trench Otyugh & Merrow | `355s | 540 XP | Lesser Draft`
 34. **`[Investigate]` Poachers of the Reed-Beds** *(Village Fisher · Marker: **Reed-Bank Poacher Mound**)* — Reedfen's fishermen keep waking to slashed net lines and missing skiffs along the southern reed hummocks. Corner the smuggler boss stockpiling stolen village gear on the dry mud knoll. | **Mini-Boss:** Smuggler Cutthroat Boss | `380s | 590 XP | Lesser Draft`
 35. **`[Deliver]` Salt-Cured Rations to Mirewatch** *(Village Grocer · Marker: **Tidal Mud-Track Camp**)* — Mirewatch's garrison is down to moldy biscuit after storms blocked supply wagons. Haul sealed salt-cured barrels along the wet mud track and fight off the monstrous coastal cephalopod ambushing baggage carts near shore. | **Mini-Boss:** Giant Octopus Ambush | `395s | 615 XP | Lesser Draft`
 
-#### 9. Mirewatch Post *(5 Quests · `Lv 18–23`)*
+#### 9. Mirewatch Post *(5 Quests · `Lv 18–23` · Zone 5)*
 36. **`[Deliver]` Swamp-Fever Antitoxin** *(Mirewatch Medic · Marker: **Saltmarsh Cobble Road Ambush**)* — Fever is spreading fast through Saltwind's wounded watchmen, and an armored chuul snapped the apothecary wagon's axle on the dry cobble trail mid-fen. Clear the monster from the road and get the remaining antitoxin moving. | **Mini-Boss:** Chitinous Marsh Chuul | `420s | 650 XP | Lesser Draft`
 37. **`[Purge / Restore]` Water Weirds in the Cistern** *(Post Engineer · Marker: **Mirewatch Wellhead Cistern**)* — Portal energy seeping through groundwater has animated the garrison's main stone drinking cistern outside the wooden palisade. Banish the surging elemental so Mirewatch's garrison can draw clean water again. | **Mini-Boss:** Water Elemental | `445s | 690 XP | Lesser Draft`
 38. **`[Investigate]` Chuul Nest in the Fen** *(Fen Tracker · Marker: **Chuul Claw-Mound Hollow**)* — Missing fen trackers never vanish without leaving half-eaten steel helmets behind. Trace deep pincer furrows across the peat mound to slay the breeding chuul pair before their clutch hatches. | **Mini-Boss:** Chuul Brood-Pair | `435s | 675 XP | Lesser Draft`
 39. **`[Rescue]` Ambush at the Ferry Landing** *(Ferry Pier Master · Marker: **Mud-Bank Ferry Post**)* — A screeching gibbering mouther crawled up onto the western strait ferry shore, trapping the boat crew behind coiled timber crates. Break the aberrant horror before it drags the ferrymen into the surf. | **Mini-Boss:** Gibbering Mouther | `430s | 665 XP | Lesser Draft`
 40. **`[Retrieve]` Lost Admiralty Chest** *(Saltmarsh Quartermaster · Marker: **Sunken-Bank Vault Stones**)* — When coastal patrols abandoned the outer stone excise bank, they buried a locked payroll chest beneath the foundation flagstones. Drive off the beasts guarding the ruined wall and recover the admiralty silver. | **Mini-Boss:** Water Weird & Marsh Otyugh | `455s | 710 XP | Lesser Draft`
 
-#### 10. Tidewater Keep *(4 Quests · `Lv 21–25`)*
+#### 10. Tidewater Keep *(4 Quests · `Lv 21–25` · Zone 5)*
 41. **`[Escort / Defend]` Hold the Sea-Wall Gate** *(Keep Commander · Marker: **Tidewater Causeway Approach**)* — Surging water elementals rolling straight out of the coastal surf have begun battering the stone outer causeway below Tidewater Keep. Hold the spiked barricades along the coastal road until the castle sappers reinforce the gate. | **Mini-Boss:** Water Elemental Vanguard | `475s | 740 XP | Lesser Draft`
 42. **`[Purge / Restore]` Gibbering Horror in the Cellar** *(Keep Steward · Marker: **Outer Vault Drain-Cellar**)* — Mad whispers drifting up from an old dry stone drainage cellar outside Tidewater Keep have driven scouts away from their patrol routes. Descend the mossy stone stairs toward the faint violet glow below and silence the bloated alpha mouther lurking inside. | **Mini-Boss:** Gibbering Mouther Alpha | `485s | 755 XP | Lesser Draft`
 43. **`[Investigate]` Sabotage the Black-Market Dock** *(Fleet Inspector · Marker: **Beached Smuggler Warship Cove**)* — Renegade pirates allied with merrow raiders have been running gunpowder off a grounded warship hidden along the western headland cove. Defeat the smugglers guarding the wreck to end their coastal supply drops. | **Mini-Boss:** Cutthroat & Merrow Enforcers | `495s | 770 XP | Lesser Draft`
@@ -128,7 +128,7 @@
 
 ---
 
-### Map 2 — Region 3: Thornwall Warfronts *(`23` Quests | `Lv 25–39` | `690s–1,450s` | `810–1,750 XP` | Refined Draft)*
+### Map 2 — First Half: Zones `6–8` *(*Thornwall Warfronts & Weald Border* · `28` Quests | `Lv 26–40` | `690s–1,650s` | `810–1,920 XP` | Refined Draft)*
 
 #### 11. Redmarch Bastion *(5 Quests · `Lv 25–30`)*
 45. **`[Retrieve]` Deserters' Armory** *(Bastion Quartermaster · Marker: **Deserters' Canyon Depot**)* — Deserters who bolted during the border skirmishes hauled away three racks of garrison halberds and shields into a jagged slate canyon outside Redmarch. Best the towering minotaur mercenary guarding their canyon camp. | **Mini-Boss:** Labyrinth Minotaur Raider | `720s | 860 XP | Refined Draft`
@@ -165,16 +165,16 @@
 
 ---
 
-### Map 2 — Region 4: The Verdant Weald & Plague Woods *(`22` Quests | `Lv 37–50` | `1,500s–2,600s` | `1,750–3,000 XP` | Refined Draft)*
-
-#### 16. Briarstead *(5 Quests · `Lv 37–42`)*
+#### 16. Briarstead *(5 Quests · `Lv 36–40` · Zone 8)*
 68. **`[Investigate]` Chain B1: The Spreading Blight** *(Briarstead Apothecary · Marker: **Infected Road Shrine**)* — Dark purple fungal tendrils erupting out of the stone well beside an old roadside chapel beyond Briarstead are choking travelers with spores. Defeat the violet spore-colony at the shrine so Harlan can trace the blight's origin. | **Mini-Boss:** Violet Spore-Colony | `1,650s | 1,920 XP | Refined Draft`
 69. **`[Deliver]` Poultices for the Sawyers** *(Town Herbalist · Marker: **Blighted Logging Camp**)* — Carry fever-breaking herb poultices through the pine woods toward Timberfall Village. Along the way, corrosive black puddings and sprawling violet fungus have overrun an outer logging clearing. | **Mini-Boss:** Black Pudding & Violet Fungus Mother | `1,580s | 1,850 XP | Refined Draft`
 70. **`[Escort / Defend]` Blink-Dog Ambush on the Herb Trail** *(Town Gate Guard · Marker: **Briar-Gate Herb Trail**)* — Maddened teleporting blink dogs frightened out of the corrupted deeper woods keep vanishing in flashes of mist to raid herbalist wagons leaving Briarstead. Hold the trail and scatter the erratic pack. | **Mini-Boss:** Blink Dog Pack | `1,520s | 1,780 XP | Refined Draft`
 71. **`[Retrieve]` Briar-Root Harvest** *(Village Alchemist · Marker: **Unspoiled Briar-Root Grove**)* — Every healing draught in Briarstead relies on rare white briar-roots pulled from sunlit moss-ringed oak hollows. Clear away the towering awakened dread-tree guarding the grove and fill the apothecary's baskets. | **Mini-Boss:** Gnarled Awakened Tree | `1,500s | 1,750 XP | Refined Draft`
 72. **`[Purge / Restore]` Wolves in the Apiary Woods** *(Town Beekeeper · Marker: **Orchard Woodland Apiary**)* — Predators fleeing creeping blight spores have broken open the woodland honey-yards outside Briarstead, scattering the town's skeps. Drive out the rabid wolf and tusked boar pack trampling the hives. | **Mini-Boss:** Weald Wolf & Boar Pack | `1,550s | 1,800 XP | Refined Draft`
 
-#### 17. Timberfall Village *(4 Quests · `Lv 38–43`)*
+### Map 2 — Second Half: Zones `9–10` *(*The Verdant Weald & Plague Woods* · `17` Quests | `Lv 41–50` | `1,700s–2,600s` | `1,960–3,000 XP` | Refined Draft)*
+
+#### 17. Timberfall Village *(4 Quests · `Lv 41–45`)*
 73. **`[Escort / Defend]` Shelter the Timber Yard** *(Head Forester · Marker: **Briarwood Timber Palisade**)* — A ferocious mated pair of towering owlbears has battered down half the sawyer yard's outer log gate after loggers felled near their nesting ridge. Hold the lantern-lit timber palisade while crews clear the stacks. | **Mini-Boss:** Mated Owlbear Pair | `1,780s | 2,080 XP | Refined Draft`
 74. **`[Rescue]` Caught in the Canopy** *(Sawyer Chief · Marker: **Webbed Spider Grove**)* — Three Timberfall fellers walked straight into a dark pine hollow draped floor-to-canopy in thick giant webs. Defeat the bloated ettercap and flickering phase spiders guarding the silk grove to rescue the trapped loggers. | **Mini-Boss:** Ettercap Weaver & Phase Spiders | `1,720s | 2,000 XP | Refined Draft`
 75. **`[Purge / Restore]` Clear the Woodland Beast Den** *(Timberfall Hunter · Marker: **Woodland Beast Den**)* — Gnarled oak roots arch over a dark earthen cavern heaped with gnawed deer bones just off the upper lumber cut. Clean out the towering alpha owlbear before logging carts grind to a halt. | **Mini-Boss:** Owlbear Alpha | `1,750s | 2,040 XP | Refined Draft`
@@ -201,7 +201,7 @@
 
 ---
 
-### Map 3 — Region 5: The Sun-Scorched Isles *(`22` Quests | `Lv 49–64` | `3,000s–5,350s` | `2,800–4,750 XP` | Greater Draft)*
+### Map 3 — First Half: Zones `11–13` *(*Sun-Scorched Isles & Highland Gate* · `27` Quests | `Lv 51–65` | `3,000s–6,400s` | `2,800–5,250 XP` | Greater Draft)*
 
 #### 21. Port Veridia *(5 Quests · `Lv 49–54`)*
 90. **`[Investigate]` Chain A2: The Smuggler's Crossing** *(Manifest Lead · Marker: **Corsair Trading Quay**)* — The shipping ledgers recovered back in Saltwind Harbor point to an illicit night-pier along the coast near Port Veridia. Ambush the Gilded Slaver Quartermaster on the sandstone quay and force the location of Mera's mother. | **Mini-Boss:** Gilded Slaver Quartermaster | `3,500s | 3,250 XP | Greater Draft`
@@ -237,16 +237,16 @@
 
 ---
 
-### Map 3 — Region 6: The Ironcrest Highlands *(`22` Quests | `Lv 61–75` | `5,800s–9,500s` | `4,800–7,200 XP` | Greater Draft)*
-
-#### 26. Highpass Refuge *(5 Quests · `Lv 61–66`)*
+#### 26. Highpass Refuge *(5 Quests · `Lv 61–65` · Zone 13)*
 112. **`[Investigate]` Granite Scree Pass** *(Pass Watchman · Marker: **Granite Scree Pass**)* — Shrieking storm mephits and harpies have been loosing giant granite scree boulders down onto Highpass's lower trail. Clear the scree-strewn green alpine ridge before another slide cuts town off. | **Mini-Boss:** Harpy Matriarch & Storm Mephits | `5,900s | 4,850 XP | Greater Draft`
 113. **`[Deliver]` Star-Iron Ingots** *(Highpass Smith · Marker: **Anvilhall Forge Approach**)* — Haul raw black meteoric ore along the sunny green highland road leading to Anvilhall Forge's great granite doors. A colossal sky-roc swooped out of the storm clouds and flipped the ore cart. | **Mini-Boss:** Giant Sky-Roc | `6,400s | 5,250 XP | Greater Draft`
 114. **`[Purge / Restore]` Blood-Hawk Roosts** *(Highpass Rancher · Marker: **Granite Pine Raptor Spire**)* — Giant crimson-feathered raptors nested atop the gray-granite outcrops directly above Highpass Refuge's goat folds, diving on shepherds at noon. Defeat the blood-hawk and giant eagle flock threatening the town pastures. | **Mini-Boss:** Blood Hawk & Giant Eagle Pack | `5,800s | 4,800 XP | Greater Draft`
 115. **`[Rescue]` Missing Foothill Caravan** *(Foothill Merchant · Marker: **Pinned Highland Foothill Cart**)* — Whirling tempest spirits hurled down gray boulders to pin a merchant's team below the sunny alpine pass. Shatter the howling air elementals circling the overturned wagon and pull the injured drivers free. | **Mini-Boss:** Air Elemental Ambush | `6,100s | 5,050 XP | Greater Draft`
 116. **`[Escort / Defend]` Guard the Highland Storehouses** *(Town Mason · Marker: **Outer Granite Provision Sheds**)* — Screaming harpies and barbed manticores are swooping over Highpass's unfortified outer slate storage terrace to tear into winter salt beef crates. Defend the outer provision yards until doors are bolted. | **Mini-Boss:** Harpy & Manticore Flock | `6,200s | 5,100 XP | Greater Draft`
 
-#### 27. Clearwater Lake Village *(4 Quests · `Lv 63–68`)*
+### Map 3 — Second Half: Zones `14–15` *(*The Ironcrest Highlands* · `17` Quests | `Lv 66–75` | `6,800s–9,500s` | `5,500–7,200 XP` | Greater Draft)*
+
+#### 27. Clearwater Lake Village *(4 Quests · `Lv 66–70`)*
 117. **`[Purge / Restore]` Lightning at Cragwater Storm-Stone** *(Lake Warden · Marker: **Cragwater Storm-Stone**)* — A twelve-legged sapphire behir coiled inside the carved ancient granite storm-stone circle along Clearwater's grassy shore, shooting arcs of lightning at fishermen. Slay the storm-fanged monster and calm the shrine. | **Mini-Boss:** Storm-Fanged Behir | `6,900s | 5,600 XP | Greater Draft`
 118. **`[Escort / Defend]` Sanctuary of the Lake** *(Highland Pilgrim · Marker: **Lakeside Temple Ruins**)* — A lightning-breathing young blue dragon descended onto the ancient weathered granite temple pillars resting beside Clearwater's meadows. Drive the dragon from the sacred stones to preserve pilgrims' shelter. | **Mini-Boss:** Young Blue Dragon | `7,600s | 6,100 XP | Greater Draft`
 119. **`[Purge / Restore]` Wyverns on the Lake Shore** *(Village Fisherman · Marker: **Clearwater Fishing Jetty**)* — Venomous cliff wyverns swoop out of green granite peaks every morning to pluck fishermen right off Clearwater's lakeshore wooden boat landing. Bring down the alpha stinger-wyvern haunting the shoreline. | **Mini-Boss:** Poison-Barbed Wyvern | `6,800s | 5,500 XP | Greater Draft`
@@ -273,7 +273,7 @@
 
 ---
 
-### Map 4 — Region 7: The Frostbound Reach *(`22` Quests | `Lv 73–89` | `10,500s–16,800s` | `7,400–10,800 XP` | Mythic Draft)*
+### Map 4 — First Half: Zones `16–18` *(*Frostbound Reach & Ashen Border* · `27` Quests | `Lv 76–90` | `10,500s–21,000s` | `7,400–12,100 XP` | Mythic Draft)*
 
 #### 31. Rimeport *(5 Quests · `Lv 73–78`)*
 134. **`[Purge / Restore]` Frozen Beacon** *(Rimeport Harbor Master · Marker: **Rimeport Headland Beacon**)* — Winged spined devils drove keepers from Rimeport's snow-draped coastal headland tower so supply ships strike icebergs in the fog. Defeat the flying fiends atop the headland so harbor wardens can relight the signal. | **Mini-Boss:** Spined Devil Flight | `10,800s | 7,500 XP | Mythic Draft`
@@ -309,16 +309,16 @@
 
 ---
 
-### Map 4 — Region 8: The Dreadwaste & Black Keep *(`23` Quests | `Lv 86–99` | `18,000s–30,000s` | `10,800–15,000 XP` | Mythic Draft)*
-
-#### 36. Ashenford War-Camp *(5 Quests · `Lv 86–92`)*
+#### 36. Ashenford War-Camp *(5 Quests · `Lv 86–90` · Zone 18)*
 156. **`[Escort / Defend]` Hold the Ash-Wall** *(Ashenford Commander · Marker: **Ash-Wall Forward Trench**)* — Garrick's armored wight legion and an ash-shrouded Lich commander are marching across volcanic wastes to overrun Ashenford's forward sandbag earthworks. Stand at the blackened steel pike trench and halt the undead advance. | **Mini-Boss:** Lich & Risen Wight Vanguard | `19,500s | 11,400 XP | Mythic Draft`
 157. **`[Purge / Restore]` Consecrate the Sentry Posts** *(War-Camp Chaplain · Marker: **Void-Fog Watch Brazier**)* — Creeping pale violet mist rolling off the Dreadwaste darkened Ashenford's perimeter braziers, letting wraiths slip inside watch lines. Defeat the greater wraith and wisps haunting the sentry posts so chaplains can consecrate them anew. | **Mini-Boss:** Greater Wraith & Will-o'-Wisps | `20,000s | 11,650 XP | Mythic Draft`
 158. **`[Deliver]` Siege-Alchemist's Powder** *(Camp Quartermaster · Marker: **Forward Siege Battery**)* — Escort ironbound black-powder wagons across black ash flatlands to the forward catapult battery before ravenous ghasts and undead wights tear through the escort shields. | **Mini-Boss:** Ghast & Wight Pack-Master | `21,000s | 12,100 XP | Mythic Draft`
 159. **`[Investigate]` Intercept Eclipse Supply Carts** *(Outrider Scout · Marker: **Ashen-Cliff Cultist Cart**)* — Black-robed Eclipse acolytes haul ground bone-powder canisters under escort of ghouls down the scarred ash trail toward Black Keep. Ambush their supply convoy and scatter the cursed reagents. | **Mini-Boss:** Eclipse Cultists & Ghouls | `18,500s | 10,900 XP | Mythic Draft`
 160. **`[Purge / Restore]` Clear the Burned Ridge** *(Northern Scout · Marker: **Scorched Mass-Grave Ridge**)* — Every fallen soldier buried along the scarred ash ridge is clawing back through soot under Garrick's Shadowfell pulse. Sweep the bone-strewn hillside and put the risen legion back to rest. | **Mini-Boss:** Skeleton & Zombie Legion | `18,000s | 10,800 XP | Mythic Draft`
 
-#### 37. Cinderwatch Bastion *(4 Quests · `Lv 88–94`)*
+### Map 4 — Second Half: Zones `19–20` *(*The Dreadwaste & Black Keep* · `18` Quests | `Lv 91–99` | `21,500s–30,000s` | `12,300–15,000 XP` | Mythic Draft)*
+
+#### 37. Cinderwatch Bastion *(4 Quests · `Lv 91–95`)*
 161. **`[Purge / Restore]` Eclipse Cultist Cliff Altar** *(Bastion Warden · Marker: **Eclipse Cultist Cliff Altar**)* — Atop scarred black obsidian cliffs overlooking Cinderwatch, Eclipse high-priests chant over a cracked violet altar slab feeding spectral mists across the valley. Shatter the ritual platform. | **Mini-Boss:** Eclipse Cultist High-Priest & Specters | `22,000s | 12,500 XP | Mythic Draft`
 162. **`[Investigate]` Turncoat Patrols on the Ridge** *(Bastion Captain · Marker: **Obsidian Ridge Checkpoint**)* — Turncoat border riders allied with winged shadow-cloakers seized the basalt saddle road beyond Cinderwatch to cut off supply wagons. Clear their spiked checkpoint and seize their orders. | **Mini-Boss:** Cloaker & Wight Scouts | `21,500s | 12,300 XP | Mythic Draft`
 163. **`[Purge / Restore]` Ghouls in the Ash Quarry** *(Obsidian Miner · Marker: **Black Basalt Ash-Quarry**)* — Pack after pack of ravenous ghasts and ghouls burrowed into the stepped obsidian quarry pits below Cinderwatch, ambushing work gangs mining stone for bastion walls. Purge the ash pits clean. | **Mini-Boss:** Ghast & Ghoul Horde | `21,800s | 12,400 XP | Mythic Draft`

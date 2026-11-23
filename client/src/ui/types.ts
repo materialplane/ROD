@@ -1,3 +1,5 @@
+import type { BattleState } from "./battle/battleTypes";
+
 export type HeroId = "valen" | "ellowyn" | "orin" | "rowan" | "mera" | "harlan";
 export type ShopType = "weapon" | "armor" | "tailor" | "magic" | "arcanist" | "adventurer" | "trade_goods";
 export type GearSlot = "right_hand" | "left_hand" | "body" | "head" | "accessory";
@@ -73,6 +75,7 @@ export interface BattleEnemyDef {
   portalNum?: number | null;
   zone?: string;
   homeBiome?: string;
+  dropItemId?: string;
   gridW: number;
   gridH: number;
   spriteW?: number;
@@ -111,6 +114,7 @@ export interface BattleStageConfig {
   name: string;
   zones?: string;
   spawnNames?: string[];
+  zoneSpawns?: Record<string, string[]>;
   imagePath: string;
   isPortal?: boolean;
   heroZone: BattleStageZoneRect;
@@ -150,6 +154,7 @@ export interface SaveSlotData {
   heroLevels?: Partial<Record<HeroId, number>>;
   heroXp?: Partial<Record<HeroId, number>>;
   partyXp?: number;
+  activeBattle?: BattleState | null;
   level: number;
   x: number;
   y: number;
@@ -173,11 +178,16 @@ export interface WorldLocation {
   id: string;
   locNum?: number | null;
   progOrder?: number;
+  zoneNum?: number;
+  gearTiers?: number[];
+  spellTier?: number;
   levelRange?: string;
   visibility?: string;
   name: string;
   category: string;
   locationType?: string;
+  isPortal?: boolean;
+  portalNum?: number | null;
   region?: number;
   playerKind?: string;
   playerRegion?: string;
@@ -256,6 +266,9 @@ export interface ItemEntry {
   effect?: string;
   sourceMob?: string;
   sourceType?: string;
+  zonesStocked?: string;
+  minZone?: number;
+  maxZone?: number;
   regionsStocked?: string;
   iconPath: string;
 }

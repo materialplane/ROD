@@ -17,21 +17,21 @@ To keep combat 100% consistent and balanced across the entire game:
 
 ## 2. The 8 Dimensional Realms *(Planes)* & Apex Portal Bosses
 
-| Portal | Region *(Level Band)* | Dimensional Realm *(Plane)* | Apex Portal Boss |
+| Portal | Map · Level Zones *(Geography)* | Dimensional Realm *(Plane)* | Apex Portal Boss |
 | :---: | :--- | :--- | :--- |
-| **#1** | Region 1: The Crownlands *(`1–12`)* | **Elemental Plane of Earth & Forge** | **The Ashen Iron Golem** *(Construct)* |
-| **#2** | Region 2: The Saltmarsh *(`13–24`)* | **Elemental Plane of Water & Deep Trench** | **The Abyssal Aboleth** *(Aberration)* |
-| **#3** | Region 3: Thornwall *(`25–36`)* | **The Blood-Iron Warlands *(Ysgard / Giant Steppes)*** | **The Fire Giant Warlord** *(Giant)* |
-| **#4** | Region 4: Verdant Weald *(`37–48`)* | **The Corrupted Feywild & Spore-Mire** | **The Elder Blight-Treant** *(Plant)* |
-| **#5** | Region 5: Sun-Scorched Isles *(`49–60`)* | **Elemental Plane of Fire *(City of Brass)*** | **The Efreeti Pasha** *(Elemental / Genie)* |
-| **#6** | Region 6: Ironcrest Peaks *(`61–72`)* | **Elemental Plane of Air & Dragon Crags** | **The Ancient Storm Dragon *(Blue)*** *(Dragon)* |
-| **#7** | Region 7: Frostbound Reach *(`73–85`)* | **The Nine Hells & The Abyss *(Frozen Pit)*** | **The Pit Fiend General** *(Fiend)* |
-| **#8** | Region 8: Black Keep *(`86–99`)* | **The Shadowfell *(Realm of Death)*** | **King Garrick, Sovereign of the Undead Eclipse** *(Undead Master)* |
+| **#1** | **Map 1 · Zones `1–3`** *(`Lv 1–15` · Crownlands)* | **Elemental Plane of Earth & Forge** | **The Ashen Iron Golem** *(Construct)* |
+| **#2** | **Map 1 · Zones `4–5`** *(`Lv 16–25` · Saltmarsh Coast)* | **Elemental Plane of Water & Deep Trench** | **The Abyssal Aboleth** *(Aberration)* |
+| **#3** | **Map 2 · Zones `6–8`** *(`Lv 26–40` · Thornwall Warfronts)* | **The Blood-Iron Warlands *(Ysgard / Giant Steppes)*** | **The Fire Giant Warlord** *(Giant)* |
+| **#4** | **Map 2 · Zones `9–10`** *(`Lv 41–50` · Verdant Weald)* | **The Corrupted Feywild & Spore-Mire** | **The Elder Blight-Treant** *(Plant)* |
+| **#5** | **Map 3 · Zones `11–13`** *(`Lv 51–65` · Sun-Scorched Isles)* | **Elemental Plane of Fire *(City of Brass)*** | **The Efreeti Pasha** *(Elemental / Genie)* |
+| **#6** | **Map 3 · Zones `14–15`** *(`Lv 66–75` · Ironcrest Highlands)* | **Elemental Plane of Air & Dragon Crags** | **The Ancient Storm Dragon *(Blue)*** *(Dragon)* |
+| **#7** | **Map 4 · Zones `16–18`** *(`Lv 76–90` · Frostbound Reach)* | **The Nine Hells & The Abyss *(Frozen Pit)*** | **The Pit Fiend General** *(Fiend)* |
+| **#8** | **Map 4 · Zones `19–20`** *(`Lv 91–99` · The Dreadwaste)* | **The Shadowfell *(Realm of Death)*** | **King Garrick, Sovereign of the Undead Eclipse** *(Undead Master)* |
 
 ---
 
 ### Boss #1 — **The Ashen Iron Golem** *(SRD 5.2: `Construct`)*
-* **Location:** Region 1 (Zone 3) — *The Ashen Gate* *(Portal #1 · Requires `Ashen Forge Keystone` from `Q025`)* | **Target Level:** `11–15` | **Reward:** `1,200 XP` | `650s`
+* **Location:** **Map 1 · Zone 3** *(The Crownlands)* — *The Ashen Gate* *(Portal #1 · Requires `Ashen Forge Keystone` from `Q025`)* | **Target Level:** `11–15` | **Reward:** `1,200 XP` | `650s`
 * **What It Is:** A towering 12-foot **animated iron statue** built inside a lifeless volcanic forge dimension—solid blackened iron plates, glowing furnace seams, and no soul or mind.
 * **Guard Points:** `3` | **Weaknesses:** **Bludgeoning, Frost, Radiant** | **Resists:** Fire, Poison *(Immune to Poison ticks)*
 * **Boss Kit *(3 Boss Abilities)*:**
@@ -42,7 +42,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ---
 
 ### Boss #2 — **The Abyssal Aboleth** *(SRD 5.2: `Aberration`)*
-* **Location:** Region 2 (Zone 5) — *The Sunken Maw* *(Portal #2 · Requires `Abyssal Brine-Pearl` from `Q044`)* | **Target Level:** `21–25` | **Reward:** `4,200 XP` | `2,400s`
+* **Location:** **Map 1 · Zone 5** *(The Saltmarsh Coast)* — *The Sunken Maw* *(Portal #2 · Requires `Abyssal Brine-Pearl` from `Q044`)* | **Target Level:** `21–25` | **Reward:** `4,200 XP` | `2,400s`
 * **What It Is:** A massive **three-eyed amphibious tentacle-eel aberration** from a pitch-black ocean dimension—slick grey-green hide, trailing slime tendrils, and ancient psychic malice.
 * **Guard Points:** `3` | **Weaknesses:** **Lightning, Piercing, Fire** | **Resists:** Frost, Poison
 * **Boss Kit *(3 Boss Abilities)*:**
@@ -53,7 +53,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ---
 
 ### Boss #3 — **The Fire Giant Warlord** *(SRD 5.2: `Giant`)*
-* **Location:** Region 3 (Zone 8) — *The Iron Rift* *(Portal #3 · Requires `Blood-Iron Keystone` from `Q067`)* | **Target Level:** `36–40` | **Reward:** `9,500 XP` | `6,500s`
+* **Location:** **Map 2 · Zone 8** *(Thornwall Warfronts)* — *The Iron Rift* *(Portal #3 · Requires `Blood-Iron Keystone` from `Q067`)* | **Target Level:** `36–40` | **Reward:** `9,500 XP` | `6,500s`
 * **What It Is:** A colossal **20-foot flame-bearded giant blacksmith-king** clad in blackened forged plate and wielding a greatsword taller than a wagon, flanked by **2 Giant-kin Ettin/Ogre guards**.
 * **Guard Points:** `4` | **Weaknesses:** **Frost, Piercing, Bludgeoning** | **Resists:** Fire, Slashing
 * **Boss Kit *(3 Boss Abilities)*:**
@@ -64,11 +64,11 @@ To keep combat 100% consistent and balanced across the entire game:
 ---
 
 ### Boss #4 — **The Elder Blight-Treant** *(SRD 5.2: `Plant & Ooze`)*
-* **Location:** Region 4 (Zone 10) — *The Rotspire* *(Portal #4 · Requires `Spore-Heart Amber` from `Q089`)* | **Target Level:** `46–50` | **Reward:** `16,500 XP` | `14,000s`
+* **Location:** **Map 2 · Zone 10** *(The Verdant Weald)* — *The Rotspire* *(Portal #4 · Requires `Spore-Heart Amber` from `Q089`)* | **Target Level:** `46–50` | **Reward:** `16,500 XP` | `14,000s`
 * **What It Is:** An **immense walking corrupted tree-titan** from an overgrown spore-and-slime dimension—gnarled iron-hard bark, glowing fungal veins, and oozing sap tentacles.
 * **Guard Points:** `4` | **Weaknesses:** **Fire, Slashing, Radiant** | **Resists:** Bludgeoning, Poison
 * **Boss Kit *(4 Boss Abilities)*:**
-  1. **Root Slam** — Heavy **Bludgeoning** blow that knocks the hero back on the turn timeline.
+  1. **Root Slam** — Heavy **Bludgeoning** blow that deals massive damage and weakens enemy Defense.
   2. **Spore-Rot Burst *(Telegraphed)*** *(uses Harlan's **Plague-Spore Burst** mechanic)* — Party-wide **Poison** eruption dealing bonus damage to already poisoned heroes.
   3. **Living Bark** *(uses Harlan's **Vitality Infusion** mechanic)* — Grants itself 3-turn **Regeneration** (halted cleanly by **Burn**).
   4. **Acidic Sap** *(uses Harlan's **Acidic Flask** mechanic)* — Melts a target's Physical & Magic Defense for 3 turns.
@@ -76,7 +76,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ---
 
 ### Boss #5 — **The Efreeti Pasha** *(SRD 5.2: `Elemental`)*
-* **Location:** Region 5 (Zone 13) — *The Scorched Chasm* *(Portal #5 · Requires `Brass Cinder-Seal` from `Q111`)* | **Target Level:** `61–65` | **Reward:** `26,000 XP` | `27,000s`
+* **Location:** **Map 3 · Zone 13** *(Sun-Scorched Isles)* — *The Scorched Chasm* *(Portal #5 · Requires `Brass Cinder-Seal` from `Q111`)* | **Target Level:** `61–65` | **Reward:** `26,000 XP` | `27,000s`
 * **What It Is:** A **towering horned genie of living fire and brass** from the Elemental Plane of Fire—clad in scorched desert silks and floating bronze shackles, wielding a flaming scimitar.
 * **Guard Points:** `4` | **Weaknesses:** **Frost, Piercing, Bludgeoning** | **Resists:** Fire, Lightning
 * **Boss Kit *(4 Boss Abilities)*:**
@@ -88,7 +88,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ---
 
 ### Boss #6 — **The Ancient Storm Dragon *(Blue Dragon)*** *(SRD 5.2: `Dragon`)*
-* **Location:** Region 6 (Zone 15) — *The Storm-Crowned Spire* *(Portal #6 · Requires `Storm-Crown Lodestone` from `Q133`)* | **Target Level:** `71–75` | **Reward:** `38,000 XP` | `48,000s`
+* **Location:** **Map 3 · Zone 15** *(Ironcrest Highlands)* — *The Storm-Crowned Spire* *(Portal #6 · Requires `Storm-Crown Lodestone` from `Q133`)* | **Target Level:** `71–75` | **Reward:** `38,000 XP` | `48,000s`
 * **What It Is:** A **gargantuan winged dragon** from a jagged lightning-dragon dimension—armored in storm-blue scales with a single massive rhino-like horn crackling with pure electricity.
 * **Guard Points:** `5` | **Weaknesses:** **Frost, Piercing, Shadow** | **Resists:** Lightning, Slashing
 * **Boss Kit *(4 Boss Abilities)*:**
@@ -100,7 +100,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ---
 
 ### Boss #7 — **The Pit Fiend General** *(SRD 5.2: `Fiend`)*
-* **Location:** Region 7 (Zone 18) — *The Pale Abyss* *(Portal #7 · Requires `Pale-Abyss Ice-Seal` from `Q155`)* | **Target Level:** `86–90` | **Reward:** `52,000 XP` | `80,000s`
+* **Location:** **Map 4 · Zone 18** *(Frostbound Reach)* — *The Pale Abyss* *(Portal #7 · Requires `Pale-Abyss Ice-Seal` from `Q155`)* | **Target Level:** `86–90` | **Reward:** `52,000 XP` | `80,000s`
 * **What It Is:** A **14-foot winged arch-devil** from an infernal war-dimension—crimson armored scales, wicked horns, bat-like wings, and a jagged burning mace-halberd. *(Strongest non-human apex monster before Garrick himself!)*
 * **Guard Points:** `5` | **Weaknesses:** **Radiant, Frost, Bludgeoning** | **Resists:** Fire, Poison, Shadow
 * **Boss Kit *(4 Boss Abilities)*:**
@@ -112,7 +112,7 @@ To keep combat 100% consistent and balanced across the entire game:
 ---
 
 ### Boss #8 *(Final Boss)* — **King Garrick, Sovereign of the Undead Eclipse** *(SRD 5.2: `Undead` Dimension)*
-* **Location:** Region 8 (Zone 20) — *The Eclipse Gate (Heart of Black Keep)* *(Portal #8 · Requires `Interlocking Wolf Pendant` from `Q178`)* | **Target Level:** `96–99` | **Reward:** `75,000 XP` | `120,000s`
+* **Location:** **Map 4 · Zone 20** *(The Dreadwaste)* — *The Eclipse Gate (Heart of Black Keep)* *(Portal #8 · Requires `Interlocking Wolf Pendant` from `Q178`)* | **Target Level:** `96–99` | **Reward:** `75,000 XP` | `120,000s`
 * **What It Is:** **King Garrick**—the lone human of **Ethoria** who forced open the **8th Undead Dimension** to raise his undead army, absorbing Lich/Death-Knight dark magic onto his own massive scarred frame after mocking **Koren & Ellowyn's stolen silver wolf pendant** (taken off Valen in the coliseum and entrusted to the **Abyssal Eclipse Guard** as the final ward-key locking **The Eclipse Gate**).
 * **Party Structure:** All **6 surviving heroes converge** at Black Keep; the player fights the entire battle with their chosen **4-hero squad intact**.
 
@@ -138,11 +138,11 @@ To keep combat 100% consistent and balanced across the entire game:
 
 ## 3. All 120 Dimensional Realm Mobs *(15 SRD 5.2 Creatures Per Realm — Overworld + Portal)*
 
-Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's Dimensional Plane ecology—spilling out through the rift into **Ethoria's Region Overworld & Side Caves** (typically #1–#9 in Mid-Wilds & Deep Frontier Danger Sub-Zones) as well as guarding inside the **Portal Dungeon** itself (typically #8–#15, leading to the Apex Portal Boss). Each carries **2–3 max active abilities** alongside its basic attacks plus a **Trade Good Drop** sold to town merchants for Silver.
+Every creature below is drawn from **D&D SRD 5.2** and belongs to that Dimensional Plane's ecology—spilling out through the rift into **Ethoria's matching Level Zones & Quest Sites** (typically #1–#9 across local Overworld Danger Zones & Side Caves) as well as guarding inside the **Portal Dungeon** itself (typically #8–#15, leading to the Apex Portal Boss). Each carries **2–3 max active abilities** alongside its basic attacks plus a **Trade Good Drop** sold to town merchants for Silver.
 
 ---
 
-### Portal #1 Realm: **Elemental Plane of Earth & Forge** *(Levels `1–12` | Region 1)*
+### Portal #1 Realm: **Elemental Plane of Earth & Forge** *(Map 1 · Zones `1–3` | Lv `1–15`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Animated Flying Sword** | Construct | *Cross Slash, Viper Lunge* | Bludgeoning, Lightning | `6` | `3s` | Chipped Rune-Blade Shard |
@@ -163,7 +163,7 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 
 ---
 
-### Portal #2 Realm: **Elemental Plane of Water & Deep Trench** *(Levels `13–24` | Region 2)*
+### Portal #2 Realm: **Elemental Plane of Water & Deep Trench** *(Map 1 · Zones `4–5` | Lv `16–25`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Reef Shark** | Beast | *Viper Lunge, Ragged Cut* | Lightning, Piercing | `53` | `14s` | Serrated Reef Fin |
@@ -184,7 +184,7 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 
 ---
 
-### Portal #3 Realm: **The Blood-Iron Warlands *(Ysgard / Giant Steppes)*** *(Levels `25–36` | Region 3)*
+### Portal #3 Realm: **The Blood-Iron Warlands *(Ysgard / Giant Steppes)*** *(Map 2 · Zones `6–8` | Lv `26–40`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Worg** | Monstrosity | *Ragged Cut, Hunter's Mark* | Fire, Piercing | `182` | `48s` | Iron-Gray Wolf Pelt |
@@ -205,7 +205,7 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 
 ---
 
-### Portal #4 Realm: **The Corrupted Feywild & Spore-Mire** *(Levels `37–48` | Region 4)*
+### Portal #4 Realm: **The Corrupted Feywild & Spore-Mire** *(Map 2 · Zones `9–10` | Lv `41–50`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Awakened Tree** | Plant | *Crushing Blow, Iron Steadfast* | **Fire**, Slashing | `370` | `120s` | Gnarled Dreadwood Heart |
@@ -226,7 +226,7 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 
 ---
 
-### Portal #5 Realm: **Elemental Plane of Fire *(City of Brass & Glass Wastes)*** *(Levels `49–60` | Region 5)*
+### Portal #5 Realm: **Elemental Plane of Fire *(City of Brass & Glass Wastes)*** *(Map 3 · Zones `11–13` | Lv `51–65`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Rakshasa** | Fiend | *Mirage Decoy, Crimson Arc* | Piercing, Radiant | `625` | `255s` | Silk-Wrapped Claw Charm |
@@ -247,7 +247,7 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 
 ---
 
-### Portal #6 Realm: **Elemental Plane of Air & Dragon Crags** *(Levels `61–72` | Region 6)*
+### Portal #6 Realm: **Elemental Plane of Air & Dragon Crags** *(Map 3 · Zones `14–15` | Lv `66–75`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Blood Hawk** | Beast | *Rapid Draw, Hunter's Mark* | Lightning, Frost | `930` | `480s` | Crimson Talon |
@@ -268,7 +268,7 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 
 ---
 
-### Portal #7 Realm: **The Nine Hells & The Abyss *(Frozen Pit)*** *(Levels `73–85` | Region 7)*
+### Portal #7 Realm: **The Nine Hells & The Abyss *(Frozen Pit)*** *(Map 4 · Zones `16–18` | Lv `76–90`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Erinyes** | Fiend | *Venom-Tipped Blade, Pinning Arrow* | Radiant, Frost | `1,290` | `865s` | Blackened Wing-Pinion |
@@ -289,7 +289,7 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 
 ---
 
-### Portal #8 Realm: **The Shadowfell *(Realm of Death)*** *(Levels `86–99` | Region 8)*
+### Portal #8 Realm: **The Shadowfell *(Realm of Death)*** *(Map 4 · Zones `19–20` | Lv `91–99`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
 | 1 | **Vampire Familiar** | Undead | *Gouge & Fade, Back-Alley Strike* | Radiant, Fire | `1,670` | `1,470s` | Crimson Signet Thimble |
@@ -315,14 +315,14 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Region's 
 Along Ethoria's wild roads and frontier biomes, players also encounter **natural beasts** (drawn from SRD 5.2 Beast stat archetypes, using the exact same `2–3` shared-pool ability cap; human enemies are covered directly by the SRD 5.2 humanoid entries in the main bestiary):
 
 ### Ethoria Natural Wildlife *(8 Beast Types)*
-| # | SRD 5.2 Beast | Regions | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP *(By Region)* | Silver *(By Region)* | Trade Good Drop |
+| # | SRD 5.2 Beast | Map · Level Zones | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP *(By Zone)* | Silver *(By Zone)* | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Wolf** | Regions `1, 4` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `11` *(R1)* / `435` *(R4)* | `4s` *(R1)* / `145s` *(R4)* | Gray Wolf Pelt |
-| 2 | **Giant Boar** | Regions `1, 4` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `25` *(R1)* / `625` *(R4)* | `7s` *(R1)* / `220s` *(R4)* | Curved Ivory Tusk |
-| 3 | **Giant Spider** | Regions `1, 4` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `32` *(R1)* / `740` *(R4)* | `9s` *(R1)* / `265s` *(R4)* | Intact Venom Gland |
-| 4 | **Brown Bear** | Regions `3, 6` | *Heavy Cleave, Hold the Line* | Fire, Piercing | `335` *(R3)* / `1,250` *(R6)* | `94s` *(R3)* / `690s` *(R6)* | Thick Bear Hide |
-| 5 | **Giant Scorpion** | Region `5` | *Venom-Tipped Blade, Artery Slice* | Frost, Bludgeoning | `815` | `350s` | Amber Chitin Stinger |
-| 6 | **Polar Bear** | Regions `6, 7` | *Crushing Blow, Iron Steadfast* | Fire, Piercing | `1,480` *(R6)* / `1,940` *(R7)* | `830s` *(R6)* / `1,440s` *(R7)* | Snow-White Pelt |
-| 7 | **Winter Wolf** | Region `7` | *Frost Shard (Breath), Ragged Cut* | **Fire**, Bludgeoning | `1,750` | `1,260s` | Frosted Alpha Pelt |
-| 8 | **Saber-Toothed Tiger** | Regions `6, 7` | *Executioner's Arc, Twin-Fang Cascade* | Fire, Lightning | `1,800` *(R6)* / `2,320` *(R7)* | `1,060s` *(R6)* / `1,760s` *(R7)* | Massive Ivory Fang |
+| 1 | **Wolf** | `Z01–03` & `Z09–10` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `11` *(`Z01–03`)* / `435` *(`Z09–10`)* | `4s` *(`Z01–03`)* / `145s` *(`Z09–10`)* | Gray Wolf Pelt |
+| 2 | **Giant Boar** | `Z01–03` & `Z09–10` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `25` *(`Z01–03`)* / `625` *(`Z09–10`)* | `7s` *(`Z01–03`)* / `220s` *(`Z09–10`)* | Curved Ivory Tusk |
+| 3 | **Giant Spider** | `Z01–03` & `Z09–10` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `32` *(`Z01–03`)* / `740` *(`Z09–10`)* | `9s` *(`Z01–03`)* / `265s` *(`Z09–10`)* | Intact Venom Gland |
+| 4 | **Brown Bear** | `Z06–08` & `Z14–15` | *Heavy Cleave, Hold the Line* | Fire, Piercing | `335` *(`Z06–08`)* / `1,250` *(`Z14–15`)* | `94s` *(`Z06–08`)* / `690s` *(`Z14–15`)* | Thick Bear Hide |
+| 5 | **Giant Scorpion** | `Z11–13` | *Venom-Tipped Blade, Artery Slice* | Frost, Bludgeoning | `815` | `350s` | Amber Chitin Stinger |
+| 6 | **Polar Bear** | `Z14–15` & `Z16–18` | *Crushing Blow, Iron Steadfast* | Fire, Piercing | `1,480` *(`Z14–15`)* / `1,940` *(`Z16–18`)* | `830s` *(`Z14–15`)* / `1,440s` *(`Z16–18`)* | Snow-White Pelt |
+| 7 | **Winter Wolf** | `Z16–18` | *Frost Shard (Breath), Ragged Cut* | **Fire**, Bludgeoning | `1,750` | `1,260s` | Frosted Alpha Pelt |
+| 8 | **Saber-Toothed Tiger** | `Z14–15` & `Z16–18` | *Executioner's Arc, Twin-Fang Cascade* | Fire, Lightning | `1,800` *(`Z14–15`)* / `2,320` *(`Z16–18`)* | `1,060s` *(`Z14–15`)* / `1,760s` *(`Z16–18`)* | Massive Ivory Fang |
 

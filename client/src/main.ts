@@ -37,6 +37,7 @@ export interface SaveSlotData {
   heroLevels?: Record<string, number>;
   heroXp?: Record<string, number>;
   partyXp?: number;
+  activeBattle?: unknown | null;
   level: number;
   x: number;
   y: number;

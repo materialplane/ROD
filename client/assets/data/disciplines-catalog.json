@@ -920,7 +920,7 @@
             "name": "Arrow Storm",
             "pillar": "body",
             "tag": "Mass Volley",
-            "effect": "Relentless physical draw speed lets Rowan rain arrows hitting ALL enemies every 3rd round for 70% Piercing damage.",
+            "effect": "Relentless archery mastery lets Rowan rain arrows hitting ALL enemies every 3rd round for 70% Piercing damage.",
             "iconPath": "assets/icons/disciplines/disc_rowan_90_b.webp"
           }
         }

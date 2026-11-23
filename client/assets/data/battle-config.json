@@ -55,6 +55,28 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "1": [
+          "Bandit",
+          "Acolyte"
+        ],
+        "2": [
+          "Thug",
+          "Spy"
+        ],
+        "3": [
+          "Thug",
+          "Spy",
+          "Bandit Captain",
+          "Harpy"
+        ],
+        "4": [
+          "Bandit Captain"
+        ],
+        "5": [
+          "Warrior Veteran"
+        ]
       }
     },
     {
@@ -91,6 +113,32 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "1": [
+          "Cultist",
+          "Wolf"
+        ],
+        "2": [
+          "Zombie"
+        ],
+        "3": [
+          "Ghoul",
+          "Dire Wolf",
+          "Giant Spider"
+        ],
+        "4": [
+          "Dire Wolf",
+          "Giant Spider",
+          "Berserker",
+          "Ghast"
+        ],
+        "5": [
+          "Werewolf",
+          "Brown Bear",
+          "Dire Wolf",
+          "Ogre"
+        ]
       }
     },
     {
@@ -123,6 +171,29 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "1": [
+          "Giant Crab"
+        ],
+        "2": [
+          "Giant Crab",
+          "Pirate",
+          "Wolf"
+        ],
+        "3": [
+          "Pirate"
+        ],
+        "4": [
+          "Pirate",
+          "Merrow",
+          "Giant Crab"
+        ],
+        "5": [
+          "Merrow",
+          "Pirate",
+          "Black Dragon Wyrmling"
+        ]
       }
     },
     {
@@ -158,6 +229,26 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "1": [
+          "Skeleton"
+        ],
+        "2": [
+          "Worg"
+        ],
+        "3": [
+          "Brown Bear",
+          "Harpy"
+        ],
+        "4": [
+          "Berserker"
+        ],
+        "5": [
+          "Ogre",
+          "Berserker",
+          "Brown Bear"
+        ]
       }
     },
     {
@@ -190,6 +281,29 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "1": [
+          "Bandit",
+          "Wolf",
+          "Scout"
+        ],
+        "2": [
+          "Scout"
+        ],
+        "3": [
+          "Scout",
+          "Dire Wolf",
+          "Harpy"
+        ],
+        "4": [
+          "Bandit Captain",
+          "Knight",
+          "Berserker"
+        ],
+        "5": [
+          "Knight"
+        ]
       }
     },
     {
@@ -221,6 +335,15 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "1": [
+          "Skeleton",
+          "Shadow"
+        ],
+        "2": [
+          "Shadow"
+        ]
       }
     },
     {
@@ -254,6 +377,15 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "4": [
+          "Cultist Fanatic",
+          "Gargoyle"
+        ],
+        "5": [
+          "Ogre"
+        ]
       }
     },
     {
@@ -287,6 +419,15 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "4": [
+          "Ghast"
+        ],
+        "5": [
+          "Merrow",
+          "Werewolf"
+        ]
       }
     },
     {
@@ -319,6 +460,14 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "4": [
+          "Giant Constrictor Snake"
+        ],
+        "5": [
+          "Black Dragon Wyrmling"
+        ]
       }
     },
     {
@@ -356,6 +505,19 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "6": [
+          "Minotaur",
+          "Manticore",
+          "Winter Wolf"
+        ],
+        "7": [
+          "Basilisk",
+          "Mummy",
+          "Red Dragon Wyrmling",
+          "Ettin"
+        ]
       }
     },
     {
@@ -391,6 +553,27 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "6": [
+          "Wight",
+          "Vampire Familiar",
+          "Hell Hound"
+        ],
+        "7": [
+          "Bearded Devil",
+          "Guard Captain"
+        ],
+        "8": [
+          "Guard Captain",
+          "Hell Hound",
+          "Gladiator"
+        ],
+        "10": [
+          "Guard Captain",
+          "Gladiator",
+          "Hell Hound"
+        ]
       }
     },
     {
@@ -425,6 +608,23 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "8": [
+          "Green Hag",
+          "Owlbear",
+          "Wereboar"
+        ],
+        "9": [
+          "Green Hag",
+          "Owlbear",
+          "Wereboar",
+          "Night Hag",
+          "Troll"
+        ],
+        "10": [
+          "Vampire Spawn"
+        ]
       }
     },
     {
@@ -459,6 +659,22 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "8": [
+          "Lamia",
+          "Ghost",
+          "Succubus"
+        ],
+        "9": [
+          "Gladiator"
+        ],
+        "10": [
+          "Gladiator",
+          "Lamia",
+          "Succubus",
+          "Vampire Spawn"
+        ]
       }
     },
     {
@@ -491,6 +707,12 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "9": [
+          "Chuul",
+          "Giant Crocodile"
+        ]
       }
     },
     {
@@ -526,6 +748,17 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "9": [
+          "Shadow Demon",
+          "Troll",
+          "Night Hag"
+        ],
+        "10": [
+          "Flesh Golem",
+          "Wraith"
+        ]
       }
     },
     {
@@ -558,6 +791,23 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "8": [
+          "Minotaur",
+          "Manticore",
+          "Owlbear"
+        ],
+        "9": [
+          "Hill Giant",
+          "Bulette",
+          "Troll",
+          "Manticore"
+        ],
+        "10": [
+          "Hill Giant",
+          "Bulette"
+        ]
       }
     },
     {
@@ -589,6 +839,59 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "6": [
+          "Pirate",
+          "Merrow",
+          "Giant Crab"
+        ],
+        "7": [
+          "Pirate Captain",
+          "Merrow",
+          "Giant Constrictor Snake"
+        ],
+        "8": [
+          "Pirate Captain",
+          "Chuul",
+          "Merrow"
+        ],
+        "9": [
+          "Pirate Captain",
+          "Chuul",
+          "Giant Crocodile"
+        ],
+        "10": [
+          "Pirate Captain"
+        ],
+        "11": [
+          "Pirate Captain",
+          "Wyvern",
+          "Water Elemental"
+        ],
+        "12": [
+          "Water Elemental",
+          "Young Black Dragon",
+          "Pirate Captain"
+        ],
+        "13": [
+          "Hydra",
+          "Water Elemental",
+          "Young Blue Dragon",
+          "Pirate Captain"
+        ],
+        "14": [
+          "Hezrou",
+          "Hydra",
+          "Young Blue Dragon",
+          "Pirate Admiral"
+        ],
+        "15": [
+          "Pirate Admiral",
+          "Young Blue Dragon",
+          "Hezrou",
+          "Hydra"
+        ]
       }
     },
     {
@@ -623,6 +926,21 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "11": [
+          "Salamander",
+          "Fire Elemental"
+        ],
+        "12": [
+          "Vrock",
+          "Invisible Stalker"
+        ],
+        "15": [
+          "Salamander",
+          "Vrock",
+          "Stone Giant"
+        ]
       }
     },
     {
@@ -658,6 +976,17 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "11": [
+          "Barbed Devil",
+          "Mage",
+          "Chimera",
+          "Wyvern"
+        ],
+        "12": [
+          "Stone Giant"
+        ]
       }
     },
     {
@@ -692,6 +1021,24 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "12": [
+          "Water Elemental",
+          "Young Black Dragon"
+        ],
+        "13": [
+          "Hydra"
+        ],
+        "14": [
+          "Hezrou"
+        ],
+        "15": [
+          "Hydra",
+          "Hezrou",
+          "Young Blue Dragon",
+          "Water Elemental"
+        ]
       }
     },
     {
@@ -723,6 +1070,11 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "12": [
+          "Oni"
+        ]
       }
     },
     {
@@ -759,6 +1111,20 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "13": [
+          "Young White Dragon",
+          "Young Copper Dragon"
+        ],
+        "14": [
+          "Frost Giant",
+          "Chain Devil"
+        ],
+        "15": [
+          "Young Silver Dragon",
+          "Young Blue Dragon"
+        ]
       }
     },
     {
@@ -793,6 +1159,18 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "13": [
+          "Shield Guardian"
+        ],
+        "14": [
+          "Cloaker",
+          "Clay Golem"
+        ],
+        "15": [
+          "Bone Devil"
+        ]
       }
     },
     {
@@ -825,6 +1203,19 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "13": [
+          "Assassin"
+        ],
+        "14": [
+          "Assassin",
+          "Glabrezu",
+          "Cloaker"
+        ],
+        "15": [
+          "Glabrezu"
+        ]
       }
     },
     {
@@ -857,6 +1248,19 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "13": [
+          "Young Green Dragon"
+        ],
+        "14": [
+          "Young Green Dragon",
+          "Cultist Hierophant",
+          "Young Copper Dragon"
+        ],
+        "15": [
+          "Cultist Hierophant"
+        ]
       }
     },
     {
@@ -889,6 +1293,20 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "13": [
+          "Cloud Giant",
+          "Warrior Commander",
+          "Young Copper Dragon",
+          "Shield Guardian"
+        ],
+        "14": [
+          "Cloud Giant"
+        ],
+        "15": [
+          "Warrior Commander"
+        ]
       }
     },
     {
@@ -924,6 +1342,34 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "16": [
+          "Stone Golem",
+          "Bandit Crime Lord"
+        ],
+        "17": [
+          "Young Red Dragon",
+          "Behir",
+          "Horned Devil"
+        ],
+        "18": [
+          "Young Red Dragon",
+          "Behir",
+          "Horned Devil",
+          "Stone Golem"
+        ],
+        "19": [
+          "Iron Golem",
+          "Behir",
+          "Horned Devil",
+          "Adult Green Dragon"
+        ],
+        "20": [
+          "Iron Golem",
+          "Adult Silver Dragon",
+          "Horned Devil"
+        ]
       }
     },
     {
@@ -957,6 +1403,20 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "16": [
+          "Guardian Naga"
+        ],
+        "17": [
+          "Guardian Naga",
+          "Rakshasa",
+          "Vampire"
+        ],
+        "18": [
+          "Rakshasa",
+          "Vampire"
+        ]
       }
     },
     {
@@ -993,6 +1453,26 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "16": [
+          "Roc",
+          "Remorhaz",
+          "Djinni"
+        ],
+        "17": [
+          "Archmage",
+          "Erinyes"
+        ],
+        "18": [
+          "Ice Devil"
+        ],
+        "19": [
+          "Ice Devil",
+          "Erinyes",
+          "Archmage",
+          "Adult Silver Dragon"
+        ]
       }
     },
     {
@@ -1028,6 +1508,29 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "16": [
+          "Stone Golem",
+          "Sphinx of Lore",
+          "Remorhaz"
+        ],
+        "17": [
+          "Sphinx of Lore"
+        ],
+        "18": [
+          "Sphinx of Lore",
+          "Mummy Lord",
+          "Iron Golem"
+        ],
+        "19": [
+          "Mummy Lord",
+          "Adult Green Dragon",
+          "Iron Golem"
+        ],
+        "20": [
+          "Adult Silver Dragon"
+        ]
       }
     },
     {
@@ -1059,6 +1562,26 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "16": [
+          "Pirate Admiral",
+          "Frost Giant",
+          "Remorhaz"
+        ],
+        "17": [
+          "Pirate Admiral",
+          "Storm Giant",
+          "Young Red Dragon"
+        ],
+        "18": [
+          "Pirate Admiral"
+        ],
+        "19": [
+          "Pirate Admiral",
+          "Dragon Turtle",
+          "Storm Giant"
+        ]
       }
     },
     {
@@ -1091,6 +1614,17 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "16": [
+          "Storm Giant",
+          "Adult Black Dragon",
+          "Remorhaz"
+        ],
+        "18": [
+          "Storm Giant",
+          "Adult Black Dragon"
+        ]
       }
     },
     {
@@ -1128,6 +1662,24 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "18": [
+          "Nalfeshnee",
+          "Marilith",
+          "Horned Devil"
+        ],
+        "19": [
+          "Nalfeshnee",
+          "Purple Worm",
+          "Marilith"
+        ],
+        "20": [
+          "Adult Red Dragon",
+          "Balor",
+          "Ancient Black Dragon",
+          "Lich"
+        ]
       }
     },
     {
@@ -1159,6 +1711,31 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
+      },
+      "zoneSpawns": {
+        "16": [
+          "Pirate Admiral",
+          "Storm Giant",
+          "Adult Black Dragon"
+        ],
+        "17": [
+          "Pirate Admiral",
+          "Storm Giant",
+          "Adult Black Dragon"
+        ],
+        "18": [
+          "Storm Giant",
+          "Adult Black Dragon",
+          "Pirate Admiral"
+        ],
+        "19": [
+          "Dragon Turtle",
+          "Storm Giant",
+          "Adult Black Dragon"
+        ],
+        "20": [
+          "Dragon Turtle"
+        ]
       }
     },
     {
@@ -1405,7 +1982,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_road_bandit_rusty_coin_purse"
     },
     {
       "id": "mob_acolyte",
@@ -1432,7 +2010,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_dust_mephit_jar_of_cinder_ash"
     },
     {
       "id": "mob_cultist",
@@ -1459,7 +2038,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_clay_golem_carved_earthen_seal"
     },
     {
       "id": "mob_wolf",
@@ -1486,7 +2066,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.76
+      "visualScale": 0.76,
+      "dropItemId": "tg_native_wolf_gray_wolf_pelt"
     },
     {
       "id": "mob_giant_crab",
@@ -1513,7 +2094,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.74
+      "visualScale": 0.74,
+      "dropItemId": "tg_r1_ankheg_chitinous_mandible"
     },
     {
       "id": "mob_skeleton",
@@ -1540,7 +2122,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_animated_armor_hollow_greave_plate"
     },
     {
       "id": "mob_zombie",
@@ -1567,7 +2150,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_flesh_golem_iron_sutured_hide"
     },
     {
       "id": "mob_scout",
@@ -1594,7 +2178,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_crossbow_poacher_fletched_bolt_case"
     },
     {
       "id": "mob_thug",
@@ -1621,7 +2206,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_road_bandit_rusty_coin_purse"
     },
     {
       "id": "mob_spy",
@@ -1648,7 +2234,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_garrick_deserter_torn_wolf_tabard"
     },
     {
       "id": "mob_shadow",
@@ -1675,7 +2262,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_darkmantle_shadow_cowl_membrane"
     },
     {
       "id": "mob_worg",
@@ -1702,7 +2290,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.82
+      "visualScale": 0.82,
+      "dropItemId": "tg_native_wolf_gray_wolf_pelt"
     },
     {
       "id": "mob_pirate",
@@ -1729,7 +2318,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_rust_monster_oxidized_antenna"
     },
     {
       "id": "mob_ghoul",
@@ -1756,7 +2346,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_roper_petrous_tendril_core"
     },
     {
       "id": "mob_dire_wolf",
@@ -1783,7 +2374,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.84
+      "visualScale": 0.84,
+      "dropItemId": "tg_native_giant_boar_curved_ivory_tusk"
     },
     {
       "id": "mob_giant_spider",
@@ -1810,7 +2402,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.8
+      "visualScale": 0.8,
+      "dropItemId": "tg_native_giant_spider_intact_venom_gland"
     },
     {
       "id": "mob_brown_bear",
@@ -1837,7 +2430,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r1_bulette_landshark_armor_plate"
     },
     {
       "id": "mob_harpy",
@@ -1864,7 +2458,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r1_xorn_gem_flecked_claw"
     },
     {
       "id": "mob_bandit_captain",
@@ -1891,7 +2486,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_smuggler_cutthroat_contraband_seal"
     },
     {
       "id": "mob_cultist_fanatic",
@@ -1918,7 +2514,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r2_sea_hag_brine_salt_talisman"
     },
     {
       "id": "mob_gargoyle",
@@ -1945,7 +2542,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.98
+      "visualScale": 0.98,
+      "dropItemId": "tg_r2_hydra_severed_hydra_neck_crest"
     },
     {
       "id": "mob_berserker",
@@ -1972,7 +2570,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_smuggler_cutthroat_contraband_seal"
     },
     {
       "id": "mob_ghast",
@@ -1999,7 +2598,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r2_gibbering_mouther_writhing_eye_cluster"
     },
     {
       "id": "mob_giant_constrictor_snake",
@@ -2026,7 +2626,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.86
+      "visualScale": 0.86,
+      "dropItemId": "tg_r2_giant_octopus_coiled_sucker_tendril"
     },
     {
       "id": "mob_ogre",
@@ -2053,7 +2654,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r2_giant_shark_pale_abyssal_jawbone"
     },
     {
       "id": "mob_merrow",
@@ -2080,7 +2682,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r2_merrow_barbed_coral_harpoon"
     },
     {
       "id": "mob_werewolf",
@@ -2107,7 +2710,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r2_killer_whale_ivory_trench_tooth"
     },
     {
       "id": "mob_black_dragon_wyrmling",
@@ -2134,7 +2738,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.82
+      "visualScale": 0.82,
+      "dropItemId": "tg_r2_black_dragon_wyrmling_corrosive_trench_scale"
     },
     {
       "id": "mob_warrior_veteran",
@@ -2161,7 +2766,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r2_chuul_translucent_pincer"
     },
     {
       "id": "mob_knight",
@@ -2188,7 +2794,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r2_dragon_turtle_steam_scarred_scute"
     },
     {
       "id": "mob_minotaur",
@@ -2215,7 +2822,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r3_minotaur_brass_nose_ring"
     },
     {
       "id": "mob_manticore",
@@ -2242,7 +2850,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r3_manticore_venomous_tail_spike"
     },
     {
       "id": "mob_winter_wolf",
@@ -2269,7 +2878,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.84
+      "visualScale": 0.84,
+      "dropItemId": "tg_r3_worg_iron_gray_wolf_pelt"
     },
     {
       "id": "mob_wight",
@@ -2296,7 +2906,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r3_ogre_notched_iron_club_band"
     },
     {
       "id": "mob_vampire_familiar",
@@ -2323,7 +2934,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r3_hippogriff_bronze_wing_pinion"
     },
     {
       "id": "mob_hell_hound",
@@ -2350,7 +2962,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.8
+      "visualScale": 0.8,
+      "dropItemId": "tg_r3_dire_wolf_massive_alpha_fang"
     },
     {
       "id": "mob_basilisk",
@@ -2377,7 +2990,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.82
+      "visualScale": 0.82,
+      "dropItemId": "tg_r3_cockatrice_calcified_feather"
     },
     {
       "id": "mob_mummy",
@@ -2404,7 +3018,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r3_griffon_razor_lion_talon"
     },
     {
       "id": "mob_red_dragon_wyrmling",
@@ -2431,7 +3046,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.84
+      "visualScale": 0.84,
+      "dropItemId": "tg_r3_gorgon_iron_scaled_horn"
     },
     {
       "id": "mob_ettin",
@@ -2458,7 +3074,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r3_ettin_split_skull_totem"
     },
     {
       "id": "mob_bearded_devil",
@@ -2485,7 +3102,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r3_gorgon_iron_scaled_horn"
     },
     {
       "id": "mob_guard_captain",
@@ -2512,7 +3130,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_rival_house_pikeman_usurper_pennant"
     },
     {
       "id": "mob_green_hag",
@@ -2539,7 +3158,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r3_troll_charred_troll_sinew"
     },
     {
       "id": "mob_owlbear",
@@ -2566,7 +3186,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_native_brown_bear_thick_bear_hide"
     },
     {
       "id": "mob_wereboar",
@@ -2593,7 +3214,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r3_hill_giant_giants_brass_buckle"
     },
     {
       "id": "mob_lamia",
@@ -2620,7 +3242,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r3_oni_curved_horn_mask"
     },
     {
       "id": "mob_ghost",
@@ -2647,7 +3270,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r3_stone_giant_carved_granite_heart"
     },
     {
       "id": "mob_succubus",
@@ -2674,7 +3298,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_rival_house_knight_steel_crest_badge"
     },
     {
       "id": "mob_chuul",
@@ -2701,7 +3326,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r4_ochre_jelly_golden_gel_shard"
     },
     {
       "id": "mob_giant_crocodile",
@@ -2728,7 +3354,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r4_shambling_mound_pulsing_vine_heart"
     },
     {
       "id": "mob_shadow_demon",
@@ -2755,7 +3382,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r4_black_pudding_caustic_obsidian_gel"
     },
     {
       "id": "mob_troll",
@@ -2782,7 +3410,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r4_werewolf_torn_alpha_pelt"
     },
     {
       "id": "mob_night_hag",
@@ -2809,7 +3438,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r4_night_hag_nightmare_hearthstone"
     },
     {
       "id": "mob_gladiator",
@@ -2836,7 +3466,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r4_gelatinous_cube_suspended_bone_key"
     },
     {
       "id": "mob_flesh_golem",
@@ -2863,7 +3494,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r4_awakened_tree_gnarled_dreadwood_heart"
     },
     {
       "id": "mob_wraith",
@@ -2890,7 +3522,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r4_phase_spider_spectral_silk_fang"
     },
     {
       "id": "mob_vampire_spawn",
@@ -2917,7 +3550,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r4_ettercap_spun_silk_sac"
     },
     {
       "id": "mob_hill_giant",
@@ -2944,7 +3578,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r4_owlbear_feathered_bear_claw"
     },
     {
       "id": "mob_bulette",
@@ -2971,7 +3606,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r4_gray_ooze_acidic_slime_residue"
     },
     {
       "id": "mob_pirate_captain",
@@ -2998,7 +3634,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r4_green_hag_knotted_swamp_wand"
     },
     {
       "id": "mob_salamander",
@@ -3025,7 +3662,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_salamander_heated_iron_spear_tip"
     },
     {
       "id": "mob_fire_elemental",
@@ -3052,7 +3690,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_fire_elemental_eternal_cinder_essence"
     },
     {
       "id": "mob_barbed_devil",
@@ -3079,7 +3718,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r5_azer_sentinel_brass_forged_beard_ring"
     },
     {
       "id": "mob_mage",
@@ -3106,7 +3746,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_gilded_slaver_enforcer_brass_collar_key"
     },
     {
       "id": "mob_chimera",
@@ -3133,7 +3774,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_chimera_three_horned_crest"
     },
     {
       "id": "mob_wyvern",
@@ -3160,7 +3802,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_fire_snake_molten_shed_scale"
     },
     {
       "id": "mob_water_elemental",
@@ -3187,7 +3830,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_magma_mephit_cooled_obsidian_shard"
     },
     {
       "id": "mob_young_black_dragon",
@@ -3214,7 +3858,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_red_dragon_wyrmling_scarlet_hatchling_scale"
     },
     {
       "id": "mob_oni",
@@ -3241,7 +3886,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_lamia_tarnished_brass_anklet"
     },
     {
       "id": "mob_vrock",
@@ -3268,7 +3914,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r5_rakshasa_silk_wrapped_claw_charm"
     },
     {
       "id": "mob_invisible_stalker",
@@ -3295,7 +3942,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r5_magmin_charred_ash_core"
     },
     {
       "id": "mob_stone_giant",
@@ -3322,7 +3970,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r5_young_red_dragon_ember_hot_horn_fragment"
     },
     {
       "id": "mob_young_white_dragon",
@@ -3349,7 +3998,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_ice_mephit_unmelting_ice_splinter"
     },
     {
       "id": "mob_young_copper_dragon",
@@ -3376,7 +4026,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_blue_dragon_wyrmling_cobalt_hatchling_scale"
     },
     {
       "id": "mob_shield_guardian",
@@ -3403,7 +4054,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_air_elemental_bottled_tempest_wind"
     },
     {
       "id": "mob_assassin",
@@ -3430,7 +4082,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r6_blood_hawk_crimson_talon"
     },
     {
       "id": "mob_hydra",
@@ -3457,7 +4110,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_giant_eagle_storm_tipped_feather"
     },
     {
       "id": "mob_young_green_dragon",
@@ -3484,7 +4138,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_wyvern_barbed_poison_stinger"
     },
     {
       "id": "mob_frost_giant",
@@ -3511,7 +4166,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r6_ice_mephit_unmelting_ice_splinter"
     },
     {
       "id": "mob_chain_devil",
@@ -3538,7 +4194,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r6_behir_twelve_legged_storm_hide"
     },
     {
       "id": "mob_cloaker",
@@ -3565,7 +4222,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r6_harpy_jagged_wing_quill"
     },
     {
       "id": "mob_clay_golem",
@@ -3592,7 +4250,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_sphinx_of_lore_carved_sphinx_feather"
     },
     {
       "id": "mob_hezrou",
@@ -3619,7 +4278,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_invisible_stalker_whispering_air_core"
     },
     {
       "id": "mob_cloud_giant",
@@ -3646,7 +4306,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r6_djinni_braided_cloud_silk"
     },
     {
       "id": "mob_young_silver_dragon",
@@ -3673,7 +4334,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_roc_plume_of_the_sky_titan"
     },
     {
       "id": "mob_young_blue_dragon",
@@ -3700,7 +4362,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_young_blue_dragon_crackling_lightning_fang"
     },
     {
       "id": "mob_bone_devil",
@@ -3727,7 +4390,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_wyvern_barbed_poison_stinger"
     },
     {
       "id": "mob_glabrezu",
@@ -3754,7 +4418,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_behir_twelve_legged_storm_hide"
     },
     {
       "id": "mob_warrior_commander",
@@ -3781,7 +4446,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r6_storm_giant_crown_forged_storm_pearl"
     },
     {
       "id": "mob_cultist_hierophant",
@@ -3808,7 +4474,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r6_djinni_braided_cloud_silk"
     },
     {
       "id": "mob_stone_golem",
@@ -3835,7 +4502,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r7_marilith_sixfold_iron_bracelet"
     },
     {
       "id": "mob_bandit_crime_lord",
@@ -3862,7 +4530,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_polar_bear_snow_white_pelt"
     },
     {
       "id": "mob_guardian_naga",
@@ -3889,7 +4558,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_native_saber_toothed_tiger_massive_ivory_fang"
     },
     {
       "id": "mob_roc",
@@ -3916,7 +4586,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r7_erinyes_blackened_wing_pinion"
     },
     {
       "id": "mob_remorhaz",
@@ -3943,7 +4614,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_native_winter_wolf_frosted_alpha_pelt"
     },
     {
       "id": "mob_djinni",
@@ -3970,7 +4642,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r7_nightmare_blazing_horseshoe"
     },
     {
       "id": "mob_young_red_dragon",
@@ -3997,7 +4670,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r7_spined_devil_scorched_tail_spine"
     },
     {
       "id": "mob_behir",
@@ -4024,7 +4698,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r7_hezrou_abyssal_chitin_fang"
     },
     {
       "id": "mob_horned_devil",
@@ -4051,7 +4726,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r7_horned_devil_branded_hell_horn"
     },
     {
       "id": "mob_sphinx_of_lore",
@@ -4078,7 +4754,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r7_succubus_incubus_whispering_silver_clasp"
     },
     {
       "id": "mob_archmage",
@@ -4105,7 +4782,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r7_shadow_demon_condensed_void_shroud"
     },
     {
       "id": "mob_erinyes",
@@ -4132,7 +4810,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r7_erinyes_blackened_wing_pinion"
     },
     {
       "id": "mob_pirate_admiral",
@@ -4159,7 +4838,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r7_barbed_devil_jagged_iron_hide_plate"
     },
     {
       "id": "mob_rakshasa",
@@ -4186,7 +4866,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r7_chain_devil_living_spiked_link"
     },
     {
       "id": "mob_vampire",
@@ -4213,7 +4894,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r7_bone_devil_pale_scorpion_stinger"
     },
     {
       "id": "mob_storm_giant",
@@ -4240,7 +4922,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r7_glabrezu_massive_pincer_claw"
     },
     {
       "id": "mob_adult_black_dragon",
@@ -4267,7 +4950,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r7_ice_devil_eternal_permafrost_shard"
     },
     {
       "id": "mob_ice_devil",
@@ -4294,7 +4978,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r7_ice_devil_eternal_permafrost_shard"
     },
     {
       "id": "mob_nalfeshnee",
@@ -4321,7 +5006,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r8_ghast_fetid_crypt_fang"
     },
     {
       "id": "mob_purple_worm",
@@ -4348,7 +5034,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r8_ghoul_rotting_claw_tip"
     },
     {
       "id": "mob_marilith",
@@ -4375,7 +5062,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r8_wight_tarnished_tomb_blade"
     },
     {
       "id": "mob_mummy_lord",
@@ -4402,7 +5090,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r8_zombie_tattered_burial_band"
     },
     {
       "id": "mob_adult_green_dragon",
@@ -4429,7 +5118,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r8_shadow_cold_twilight_ash"
     },
     {
       "id": "mob_iron_golem",
@@ -4456,7 +5146,8 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r8_wraith_black_frost_shackle"
     },
     {
       "id": "mob_adult_silver_dragon",
@@ -4483,7 +5174,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r8_ghost_wailing_silver_shroud"
     },
     {
       "id": "mob_adult_red_dragon",
@@ -4510,7 +5202,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r8_vampire_spawn_crimson_blood_vial"
     },
     {
       "id": "mob_balor",
@@ -4537,7 +5230,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r8_vampire_royal_velvet_signet"
     },
     {
       "id": "mob_ancient_black_dragon",
@@ -4564,7 +5258,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r8_cloaker_shadow_hide_cloak"
     },
     {
       "id": "mob_lich",
@@ -4591,7 +5286,8 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 0.94
+      "visualScale": 0.94,
+      "dropItemId": "tg_r8_lich_shattered_phylactery_seal"
     },
     {
       "id": "mob_dragon_turtle",
@@ -4618,7 +5314,8 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r8_skeleton_bleached_marrow_bone"
     },
     {
       "id": "mob_earth_elemental",
@@ -4645,7 +5342,10 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r1_earth_elemental_dense_geode_heart",
+      "xp": 1200,
+      "silver": 650
     },
     {
       "id": "mob_otyugh",
@@ -4672,7 +5372,10 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r2_otyugh_barbed_trench_tentacle",
+      "xp": 4200,
+      "silver": 2400
     },
     {
       "id": "mob_fire_giant",
@@ -4699,7 +5402,10 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r3_frost_giant_scarred_war_belt_plate",
+      "xp": 9500,
+      "silver": 6500
     },
     {
       "id": "mob_aboleth",
@@ -4726,7 +5432,10 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r4_shambling_mound_pulsing_vine_heart",
+      "xp": 16500,
+      "silver": 14000
     },
     {
       "id": "mob_efreeti",
@@ -4753,7 +5462,10 @@
       "gridW": 2,
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
-      "visualScale": 1
+      "visualScale": 1,
+      "dropItemId": "tg_r6_storm_giant_crown_forged_storm_pearl",
+      "xp": 26000,
+      "silver": 27000
     },
     {
       "id": "mob_adult_blue_dragon",
@@ -4780,7 +5492,10 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r6_adult_blue_dragon_charged_sapphire_horn",
+      "xp": 38000,
+      "silver": 48000
     },
     {
       "id": "mob_pit_fiend",
@@ -4807,7 +5522,10 @@
       "gridW": 3,
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
-      "visualScale": 1.02
+      "visualScale": 1.02,
+      "dropItemId": "tg_r7_glabrezu_massive_pincer_claw",
+      "xp": 52000,
+      "silver": 80000
     },
     {
       "id": "mob_king_garrick",
@@ -4834,7 +5552,10 @@
       "gridW": 1,
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
-      "visualScale": 1.04
+      "visualScale": 1.04,
+      "dropItemId": "tg_native_eclipse_cultist_obsidian_talisman",
+      "xp": 75000,
+      "silver": 120000
     }
   ]
 }

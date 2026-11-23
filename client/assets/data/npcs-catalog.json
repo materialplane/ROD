@@ -28,10 +28,10 @@
         {
           "id": "npc_loc_01_overgrown_garden_sanctuary_armorer",
           "name": "Aldric Blackwood",
-          "roleTitle": "Master Armorer & Provisions (Step 1)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 1)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 1)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 1)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -43,17 +43,17 @@
         {
           "id": "npc_loc_01_overgrown_garden_sanctuary_mystic",
           "name": "Beatrice Carter",
-          "roleTitle": "Sanctuary Apothecary & Caster Outfitter (Tier 1)",
+          "roleTitle": "Sanctuary Apothecary & Caster Outfitter (Tier-1 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Sanctuary Apothecary & Caster Outfitter (Tier 1)",
+            "Sanctuary Apothecary & Caster Outfitter (Tier-1 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_01_overgrown_garden_sanctuary_mystic.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_01_overgrown_garden_sanctuary_arena",
@@ -94,8 +94,8 @@
             "Salvage Koren's Forge-Kit"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_01_overgrown_garden_sanctuary_coliseum_armorer.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_01_overgrown_garden_sanctuary_capital_loyalist_guard",
@@ -109,8 +109,8 @@
             "Highcrown Perimeter Watch"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_01_overgrown_garden_sanctuary_capital_loyalist_guard.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_01_overgrown_garden_sanctuary_highcrown_watch_captain",
@@ -215,10 +215,10 @@
         {
           "id": "npc_loc_02_oakhaven_armorer",
           "name": "Fletcher Ironwood",
-          "roleTitle": "Oakhaven Blacksmith & Gear Merchant (Steps 1–2)",
+          "roleTitle": "Oakhaven Blacksmith & Gear Merchant (Gear Tier 1)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Steps 1–2)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 1)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -232,17 +232,17 @@
         {
           "id": "npc_loc_02_oakhaven_mystic",
           "name": "Delilah Jennings",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-1)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-1 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-1)",
+            "Apothecary & Caster Outfitter (Tier-1 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_02_oakhaven_mystic.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_02_oakhaven_arena",
@@ -267,8 +267,8 @@
             "Missing Grain Carts"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_02_oakhaven_oakhaven_granary_keeper.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_02_oakhaven_heartland_shepherd",
@@ -356,10 +356,10 @@
         {
           "id": "npc_loc_04_millbrook_crossing_armorer",
           "name": "Jasper Quickwater",
-          "roleTitle": "Master Armorer & Provisions (Step 3)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 3)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 3)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 3)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -371,17 +371,17 @@
         {
           "id": "npc_loc_04_millbrook_crossing_mystic",
           "name": "Helena Redmayne",
-          "roleTitle": "Apothecary & Caster Outfitter (Remaining Tier-1)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-1 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-1)",
+            "Apothecary & Caster Outfitter (Tier-1 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_04_millbrook_crossing_mystic.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_04_millbrook_crossing_millbrook_warden",
@@ -395,8 +395,8 @@
             "Hold the West Palisade"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_04_millbrook_crossing_millbrook_warden.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_04_millbrook_crossing_town_mason",
@@ -410,8 +410,8 @@
             "Shattered Mill-Tower"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_04_millbrook_crossing_town_mason.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_04_millbrook_crossing_crossroads_miner",
@@ -470,10 +470,10 @@
         {
           "id": "npc_loc_06_saltwind_harbor_armorer",
           "name": "Nolan York",
-          "roleTitle": "Master Armorer & Provisions (Step 4)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 4)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 4)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 4)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -485,17 +485,17 @@
         {
           "id": "npc_loc_06_saltwind_harbor_mystic",
           "name": "Katrina Alder",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-2)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-1 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-2)",
+            "Apothecary & Caster Outfitter (Tier-1 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_06_saltwind_harbor_mystic.webp",
-          "shopType": "armor",
-          "shopLabel": "Armor Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_06_saltwind_harbor_arena",
@@ -533,8 +533,8 @@
             "Pier Three Blockade"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_06_saltwind_harbor_master_shipwright.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "armor",
+          "shopLabel": "Armor Shop"
         },
         {
           "id": "npc_loc_06_saltwind_harbor_lighthouse_keeper",
@@ -548,8 +548,8 @@
             "The Cracked Lighthouse"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_06_saltwind_harbor_lighthouse_keeper.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_06_saltwind_harbor_coastal_merchant",
@@ -563,8 +563,8 @@
             "Sunken Tide-Cargo"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_06_saltwind_harbor_coastal_merchant.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_06_saltwind_harbor_fleet_navigator",
@@ -620,10 +620,10 @@
         {
           "id": "npc_loc_09_mirewatch_post_armorer",
           "name": "Sebastian Ironside",
-          "roleTitle": "Master Armorer & Provisions (Step 6)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 6)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 6)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 6)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -635,17 +635,17 @@
         {
           "id": "npc_loc_09_mirewatch_post_mystic",
           "name": "Ophelia Joss",
-          "roleTitle": "Apothecary & Caster Outfitter (Remaining Tier-2)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-2 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-2)",
+            "Apothecary & Caster Outfitter (Tier-2 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_09_mirewatch_post_mystic.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_09_mirewatch_post_mirewatch_medic",
@@ -659,8 +659,8 @@
             "Swamp-Fever Antitoxin"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_09_mirewatch_post_mirewatch_medic.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_09_mirewatch_post_post_engineer",
@@ -745,10 +745,10 @@
         {
           "id": "npc_hub_brinecliff_watch_fort_armorer",
           "name": "Xander Quarry",
-          "roleTitle": "Master Armorer & Provisions (Step 5)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 5)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 5)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 5)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -760,10 +760,10 @@
         {
           "id": "npc_hub_brinecliff_watch_fort_mystic",
           "name": "Sabina Rowley",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-2)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-2 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-2)",
+            "Apothecary & Caster Outfitter (Tier-2 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
@@ -784,8 +784,8 @@
             "Tide-Watcher's Cache"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_brinecliff_watch_fort_fort_quartermaster.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "trade_goods",
+          "shopLabel": "Trade Goods Buyer"
         },
         {
           "id": "npc_hub_brinecliff_watch_fort_wall_captain",
@@ -814,8 +814,8 @@
             "Reef-Shattered Corsair Wreck"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_brinecliff_watch_fort_smuggler_informant.webp",
-          "shopType": "trade_goods",
-          "shopLabel": "Trade Goods Buyer"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_hub_brinecliff_watch_fort_fort_chaplain",
@@ -857,10 +857,10 @@
         {
           "id": "npc_hub_crownlands_hill_fort_armorer",
           "name": "Barnaby Yeoman",
-          "roleTitle": "Fort Armorer & Gear Merchant (Step 3)",
+          "roleTitle": "Fort Armorer & Gear Merchant (Gear Tier 3)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 3)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 3)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -898,8 +898,8 @@
             "Animated Sentinels of the Knoll"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_crownlands_hill_fort_fort_quartermaster.webp",
-          "shopType": "adventurer",
-          "shopLabel": "Adventurer Shop"
+          "shopType": "trade_goods",
+          "shopLabel": "Trade Goods Buyer"
         },
         {
           "id": "npc_hub_crownlands_hill_fort_hill_fort_lookout",
@@ -913,8 +913,8 @@
             "Signal Fires on the Ridge"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_crownlands_hill_fort_hill_fort_lookout.webp",
-          "shopType": "trade_goods",
-          "shopLabel": "Trade Goods Buyer"
+          "shopType": "adventurer",
+          "shopLabel": "Adventurer Shop"
         }
       ]
     },
@@ -943,10 +943,10 @@
         {
           "id": "npc_hub_meadowbrook_hamlet_armorer",
           "name": "Godwin Glover",
-          "roleTitle": "Master Armorer & Provisions (Step 2)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 2)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 2)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 2)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -958,17 +958,17 @@
         {
           "id": "npc_hub_meadowbrook_hamlet_mystic",
           "name": "Winifred Hayward",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-1)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-1 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-1)",
+            "Apothecary & Caster Outfitter (Tier-1 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_hub_meadowbrook_hamlet_mystic.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_hub_meadowbrook_hamlet_meadowbrook_herder",
@@ -982,8 +982,8 @@
             "Wolves in the Sheepfold"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_meadowbrook_hamlet_meadowbrook_herder.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_hub_meadowbrook_hamlet_hamlet_farmer",
@@ -1055,10 +1055,10 @@
         {
           "id": "npc_hub_reedfen_village_armorer",
           "name": "Kieran Naylor",
-          "roleTitle": "Master Armorer & Provisions (Step 5)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 5)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 5)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 5)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -1152,10 +1152,10 @@
         {
           "id": "npc_hub_tidewater_keep_armorer",
           "name": "Octavian Unwin",
-          "roleTitle": "Master Armorer & Provisions (Step 6)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 6)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 6)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 6)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -1613,10 +1613,10 @@
         {
           "id": "npc_loc_11_redmarch_bastion_armorer",
           "name": "Jorah Wells",
-          "roleTitle": "Master Armorer & Provisions (Steps 7–9)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 7)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Steps 7–9)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 7)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -1628,17 +1628,17 @@
         {
           "id": "npc_loc_11_redmarch_bastion_mystic",
           "name": "Johanna Bram",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-3)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-3 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-3)",
+            "Apothecary & Caster Outfitter (Tier-3 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_11_redmarch_bastion_mystic.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_11_redmarch_bastion_arena",
@@ -1663,8 +1663,8 @@
             "Deserters' Armory"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_11_redmarch_bastion_bastion_quartermaster.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "trade_goods",
+          "shopLabel": "Trade Goods Buyer"
         },
         {
           "id": "npc_loc_11_redmarch_bastion_garrison_courier",
@@ -1678,8 +1678,8 @@
             "Sealed Border Dispatches"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_11_redmarch_bastion_garrison_courier.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_11_redmarch_bastion_border_scout",
@@ -1708,8 +1708,8 @@
             "Cove Supply Convoy"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_11_redmarch_bastion_harbor_liaison.webp",
-          "shopType": "trade_goods",
-          "shopLabel": "Trade Goods Buyer"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_11_redmarch_bastion_bastion_marshal",
@@ -1755,10 +1755,10 @@
         {
           "id": "npc_loc_13_hollowstone_keep_armorer",
           "name": "Redmond Lane",
-          "roleTitle": "Master Armorer & Provisions (Step 9 (Unlocked Post-Liberation))",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 9 (Unlocked Post-Liberation))",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 9 (Unlocked Post-Liberation))",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 9 (Unlocked Post-Liberation))",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -1885,10 +1885,10 @@
         {
           "id": "npc_loc_16_briarstead_armorer",
           "name": "Alaric Vaughan",
-          "roleTitle": "Master Armorer & Provisions (Steps 10–12)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 9)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Steps 10–12)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 9)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -1900,10 +1900,10 @@
         {
           "id": "npc_loc_16_briarstead_mystic",
           "name": "Ottilie Wade",
-          "roleTitle": "Briarstead Apothecary & Apothecary & Caster Outfitter (Tier-4)",
+          "roleTitle": "Briarstead Apothecary & Apothecary & Caster Outfitter (Tier-3 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-4)",
+            "Apothecary & Caster Outfitter (Tier-3 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
@@ -1911,8 +1911,8 @@
             "Chain B1: The Spreading Blight"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_16_briarstead_mystic.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_16_briarstead_arena",
@@ -1937,8 +1937,8 @@
             "Poultices for the Sawyers"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_16_briarstead_town_herbalist.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_16_briarstead_town_gate_guard",
@@ -2024,10 +2024,10 @@
         {
           "id": "npc_hub_blightwatch_keep_armorer",
           "name": "Darius Kaye",
-          "roleTitle": "Master Armorer & Provisions (Step 12)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 12)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 12)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 12)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -2121,10 +2121,10 @@
         {
           "id": "npc_hub_goldmoor_village_armorer",
           "name": "Hector Webb",
-          "roleTitle": "Master Armorer & Provisions (Step 8)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 7)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 8)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 7)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -2218,10 +2218,10 @@
         {
           "id": "npc_hub_greenwarden_fort_armorer",
           "name": "Marcus Fairfax",
-          "roleTitle": "Master Armorer & Provisions (Step 12)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 11)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 12)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 11)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -2233,10 +2233,10 @@
         {
           "id": "npc_hub_greenwarden_fort_mystic",
           "name": "Astrid Goodwin",
-          "roleTitle": "Apothecary & Caster Outfitter (Remaining Tier-4)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-4 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-4)",
+            "Apothecary & Caster Outfitter (Tier-4 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
@@ -2354,10 +2354,10 @@
         {
           "id": "npc_hub_mosswood_hamlet_armorer",
           "name": "Roland Oakley",
-          "roleTitle": "Master Armorer & Provisions (Step 11)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 10)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 11)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 10)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -2453,10 +2453,10 @@
         {
           "id": "npc_hub_slatepeak_mining_fort_armorer",
           "name": "Theobald Underhill",
-          "roleTitle": "Master Smith & Gear Merchant (Step 8)",
+          "roleTitle": "Master Smith & Gear Merchant (Gear Tier 8)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 8)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 8)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -2552,10 +2552,10 @@
         {
           "id": "npc_hub_thornwall_border_castle_armorer",
           "name": "Bjorn Chandler",
-          "roleTitle": "Castle Armorer & Gear Merchant (Step 9)",
+          "roleTitle": "Castle Armorer & Gear Merchant (Gear Tier 8)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 9)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 8)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -2569,17 +2569,17 @@
         {
           "id": "npc_hub_thornwall_border_castle_mystic",
           "name": "Karin Draper",
-          "roleTitle": "Apothecary & Caster Outfitter (Remaining Tier-3)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-3 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-3)",
+            "Apothecary & Caster Outfitter (Tier-3 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_hub_thornwall_border_castle_mystic.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_hub_thornwall_border_castle_castle_captain",
@@ -2593,8 +2593,8 @@
             "Chain C1: Blood on the Watchtower"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_thornwall_border_castle_castle_captain.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_hub_thornwall_border_castle_battery_chief",
@@ -2633,7 +2633,7 @@
           "category": "merchant_armor",
           "shopType": "armor",
           "servicesOffered": [
-            "Armor Shop (Metal Armor, Helms & Shields)"
+            "Armor Shop (Armor, Helms & Shields)"
           ],
           "portraitPath": "assets/portraits/npcs/npc_res_ironcrest_smith.webp",
           "shopLabel": "Armor Shop"
@@ -2677,10 +2677,10 @@
         {
           "id": "npc_hub_timberfall_village_armorer",
           "name": "Favian Ironside",
-          "roleTitle": "Master Armorer & Provisions (Step 11)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 10)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 11)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 10)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3031,10 +3031,10 @@
         {
           "id": "npc_loc_21_port_veridia_armorer",
           "name": "Ragnar Dyer",
-          "roleTitle": "Master Armorer & Provisions (Steps 13–14)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 13)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Steps 13–14)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 13)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3046,17 +3046,17 @@
         {
           "id": "npc_loc_21_port_veridia_mystic",
           "name": "Ulrika Fenwick",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-5)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-5 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-5)",
+            "Apothecary & Caster Outfitter (Tier-5 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_21_port_veridia_mystic.webp",
-          "shopType": "armor",
-          "shopLabel": "Armor Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_21_port_veridia_arena",
@@ -3094,8 +3094,8 @@
             "Chain A2: The Smuggler's Crossing"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_21_port_veridia_manifest_lead.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "trade_goods",
+          "shopLabel": "Trade Goods Buyer"
         },
         {
           "id": "npc_loc_21_port_veridia_coastal_fisherman",
@@ -3109,8 +3109,8 @@
             "Stone-Eyed Coast"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_21_port_veridia_coastal_fisherman.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "armor",
+          "shopLabel": "Armor Shop"
         },
         {
           "id": "npc_loc_21_port_veridia_veridia_trade_guild",
@@ -3124,8 +3124,8 @@
             "Break the Corsair Pier"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_21_port_veridia_veridia_trade_guild.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_21_port_veridia_warehouse_clerk",
@@ -3139,8 +3139,8 @@
             "Scorpion Infestation in the Docks"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_21_port_veridia_warehouse_clerk.webp",
-          "shopType": "trade_goods",
-          "shopLabel": "Trade Goods Buyer"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_res_sunscorch_guide",
@@ -3181,10 +3181,10 @@
         {
           "id": "npc_loc_23_dunespire_oasis_armorer",
           "name": "Adelard Naylor",
-          "roleTitle": "Master Armorer & Provisions (Step 15)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 14)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 15)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 14)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3196,10 +3196,10 @@
         {
           "id": "npc_loc_23_dunespire_oasis_mystic",
           "name": "Amina Oakhurst",
-          "roleTitle": "Oasis Scholar & Apothecary & Caster Outfitter (Remaining Tier-5)",
+          "roleTitle": "Oasis Scholar & Apothecary & Caster Outfitter (Tier-5 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-5)",
+            "Apothecary & Caster Outfitter (Tier-5 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
@@ -3207,8 +3207,8 @@
             "Prism Echoes"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_23_dunespire_oasis_mystic.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_23_dunespire_oasis_dunespire_caravan_chief",
@@ -3222,8 +3222,8 @@
             "Tremors Under the Sand"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_23_dunespire_oasis_dunespire_caravan_chief.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_23_dunespire_oasis_water_warden",
@@ -3299,10 +3299,10 @@
         {
           "id": "npc_loc_24_gilded_auction_manor_armorer",
           "name": "Edric Ward",
-          "roleTitle": "Master Armorer & Provisions (Step 15 (Unlocked Post-Liberation))",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 15 (Unlocked Post-Liberation))",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 15 (Unlocked Post-Liberation))",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 15 (Unlocked Post-Liberation))",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3416,10 +3416,10 @@
         {
           "id": "npc_loc_26_highpass_refuge_armorer",
           "name": "Aldric Gale",
-          "roleTitle": "Highpass Smith & Gear Merchant (Steps 16–17)",
+          "roleTitle": "Highpass Smith & Gear Merchant (Gear Tier 15)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Steps 16–17)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 15)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3433,17 +3433,17 @@
         {
           "id": "npc_loc_26_highpass_refuge_mystic",
           "name": "Grace Hall",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-6)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-5 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-6)",
+            "Apothecary & Caster Outfitter (Tier-5 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_26_highpass_refuge_mystic.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_26_highpass_refuge_arena",
@@ -3455,8 +3455,8 @@
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_26_highpass_refuge_arena.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_26_highpass_refuge_pass_watchman",
@@ -3485,8 +3485,8 @@
             "Blood-Hawk Roosts"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_26_highpass_refuge_highpass_rancher.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_26_highpass_refuge_foothill_merchant",
@@ -3500,8 +3500,8 @@
             "Missing Foothill Caravan"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_26_highpass_refuge_foothill_merchant.webp",
-          "shopType": "adventurer",
-          "shopLabel": "Adventurer Shop"
+          "shopType": "trade_goods",
+          "shopLabel": "Trade Goods Buyer"
         },
         {
           "id": "npc_loc_26_highpass_refuge_town_mason",
@@ -3515,8 +3515,8 @@
             "Guard the Highland Storehouses"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_26_highpass_refuge_town_mason.webp",
-          "shopType": "trade_goods",
-          "shopLabel": "Trade Goods Buyer"
+          "shopType": "adventurer",
+          "shopLabel": "Adventurer Shop"
         }
       ]
     },
@@ -3545,10 +3545,10 @@
         {
           "id": "npc_loc_27_anvilhall_forge_armorer",
           "name": "Fletcher Orr",
-          "roleTitle": "Master Forgemaster & Gear Merchant (Step 18)",
+          "roleTitle": "Master Forgemaster & Gear Merchant (Gear Tier 17)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 18)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 17)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3562,17 +3562,17 @@
         {
           "id": "npc_loc_27_anvilhall_forge_mystic",
           "name": "Joan Page",
-          "roleTitle": "Apothecary & Caster Outfitter (Remaining Tier-6)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-6 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-6)",
+            "Apothecary & Caster Outfitter (Tier-6 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_27_anvilhall_forge_mystic.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_27_anvilhall_forge_arena",
@@ -3584,8 +3584,8 @@
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_27_anvilhall_forge_arena.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_27_anvilhall_forge_forge_warden",
@@ -3614,8 +3614,8 @@
             "Defend the Granite Foundry"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_27_anvilhall_forge_forge_armorer.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_27_anvilhall_forge_head_miner",
@@ -3674,10 +3674,10 @@
         {
           "id": "npc_hub_clearwater_lake_village_armorer",
           "name": "Kendrick Bram",
-          "roleTitle": "Master Armorer & Provisions (Step 17)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 16)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 17)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 16)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3771,10 +3771,10 @@
         {
           "id": "npc_hub_cragwatch_fort_armorer",
           "name": "Oswald Holt",
-          "roleTitle": "Master Armorer & Provisions (Step 18)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 16)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 18)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 16)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3868,10 +3868,10 @@
         {
           "id": "npc_hub_sandwall_citadel_armorer",
           "name": "Tobias Quinn",
-          "roleTitle": "Master Armorer & Provisions (Step 15)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 14)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 15)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 14)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -3976,10 +3976,10 @@
         {
           "id": "npc_hub_stormhold_citadel_armorer",
           "name": "Zachary Cobb",
-          "roleTitle": "Master Armorer & Provisions (Step 18)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 18)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 18)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 18)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -4084,10 +4084,10 @@
         {
           "id": "npc_hub_sunstone_caravan_post_armorer",
           "name": "Godwin Noyes",
-          "roleTitle": "Master Armorer & Provisions (Step 14)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 13)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 14)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 13)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -4438,10 +4438,10 @@
         {
           "id": "npc_loc_31_rimeport_armorer",
           "name": "Silas Northwood",
-          "roleTitle": "Master Armorer & Provisions (Steps 19–21)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 19)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Steps 19–21)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 19)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -4453,17 +4453,17 @@
         {
           "id": "npc_loc_31_rimeport_mystic",
           "name": "Delilah Oakley",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-7)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-7 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-7)",
+            "Apothecary & Caster Outfitter (Tier-7 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_31_rimeport_mystic.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_31_rimeport_arena",
@@ -4516,8 +4516,8 @@
             "Sunken Warships"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_31_rimeport_northern_naval_captain.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_31_rimeport_harbor_clerk",
@@ -4531,8 +4531,8 @@
             "Supply Ledgers to Frostmere"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_31_rimeport_harbor_clerk.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         },
         {
           "id": "npc_loc_31_rimeport_rimeport_shipwright",
@@ -4590,10 +4590,10 @@
         {
           "id": "npc_loc_34_bleakwatch_citadel_armorer",
           "name": "Conrad Whitaker",
-          "roleTitle": "Master Armorer & Provisions (Step 21 (Unlocked Post-Liberation))",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 22 (Unlocked Post-Liberation))",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 21 (Unlocked Post-Liberation))",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 22 (Unlocked Post-Liberation))",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -4720,10 +4720,10 @@
         {
           "id": "npc_loc_36_ashenford_war_camp_armorer",
           "name": "Isidore Granger",
-          "roleTitle": "Master Armorer & Provisions (Steps 22–24)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 22)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Steps 22–24)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 22)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -4735,17 +4735,17 @@
         {
           "id": "npc_loc_36_ashenford_war_camp_mystic",
           "name": "Isolde Hollis",
-          "roleTitle": "Apothecary & Caster Outfitter (Tier-8)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-7 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Tier-8)",
+            "Apothecary & Caster Outfitter (Tier-7 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_loc_36_ashenford_war_camp_mystic.webp",
-          "shopType": "armor",
-          "shopLabel": "Armor Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_loc_36_ashenford_war_camp_ashenford_commander",
@@ -4759,8 +4759,8 @@
             "Hold the Ash-Wall"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_36_ashenford_war_camp_ashenford_commander.webp",
-          "shopType": "tailor",
-          "shopLabel": "Tailor"
+          "shopType": "armor",
+          "shopLabel": "Armor Shop"
         },
         {
           "id": "npc_loc_36_ashenford_war_camp_war_camp_chaplain",
@@ -4774,8 +4774,8 @@
             "Consecrate the Sentry Posts"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_36_ashenford_war_camp_war_camp_chaplain.webp",
-          "shopType": "magic",
-          "shopLabel": "Magic Shop"
+          "shopType": "tailor",
+          "shopLabel": "Tailor"
         },
         {
           "id": "npc_loc_36_ashenford_war_camp_camp_quartermaster",
@@ -4789,8 +4789,8 @@
             "Siege-Alchemist's Powder"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_36_ashenford_war_camp_camp_quartermaster.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "trade_goods",
+          "shopLabel": "Trade Goods Buyer"
         },
         {
           "id": "npc_loc_36_ashenford_war_camp_outrider_scout",
@@ -4819,8 +4819,8 @@
             "Clear the Burned Ridge"
           ],
           "portraitPath": "assets/portraits/npcs/npc_loc_36_ashenford_war_camp_northern_scout.webp",
-          "shopType": "trade_goods",
-          "shopLabel": "Trade Goods Buyer"
+          "shopType": "magic",
+          "shopLabel": "Magic Shop"
         }
       ]
     },
@@ -4850,10 +4850,10 @@
         {
           "id": "npc_loc_40_garricks_black_keep_armorer",
           "name": "Norbert Osborne",
-          "roleTitle": "Master Armorer & Provisions (Step 24 (Outer Bailey Vanguard))",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 24 (Outer Bailey Vanguard))",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 24 (Outer Bailey Vanguard))",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 24 (Outer Bailey Vanguard))",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -4971,10 +4971,10 @@
         {
           "id": "npc_hub_ashvale_village_armorer",
           "name": "Otis Quarry",
-          "roleTitle": "Master Armorer & Provisions (Step 23)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 23)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 23)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 23)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -5081,10 +5081,10 @@
         {
           "id": "npc_hub_cinderwatch_bastion_armorer",
           "name": "Tristan Yeoman",
-          "roleTitle": "Master Armorer & Provisions (Step 23)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 23)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 23)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 23)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -5178,10 +5178,10 @@
         {
           "id": "npc_hub_frostmere_village_armorer",
           "name": "Benedict Hayward",
-          "roleTitle": "Master Armorer & Provisions (Step 20)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 19)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 20)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 19)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -5275,10 +5275,10 @@
         {
           "id": "npc_hub_glacierwatch_fort_armorer",
           "name": "Gilbert Naylor",
-          "roleTitle": "Master Armorer & Provisions (Step 20)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 20)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 20)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 20)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -5372,10 +5372,10 @@
         {
           "id": "npc_hub_icecrest_holdfast_armorer",
           "name": "Killian Unwin",
-          "roleTitle": "Master Armorer & Provisions (Step 21)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 21)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 21)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 21)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -5387,17 +5387,17 @@
         {
           "id": "npc_hub_icecrest_holdfast_mystic",
           "name": "Vivienne Ward",
-          "roleTitle": "Apothecary & Caster Outfitter (Remaining Tier-7)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-7 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-7)",
+            "Apothecary & Caster Outfitter (Tier-7 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],
           "questsOffered": [],
           "portraitPath": "assets/portraits/npcs/npc_hub_icecrest_holdfast_mystic.webp",
-          "shopType": "armor",
-          "shopLabel": "Armor Shop"
+          "shopType": "arcanist",
+          "shopLabel": "Arcanist"
         },
         {
           "id": "npc_hub_icecrest_holdfast_escaped_clansman",
@@ -5411,8 +5411,8 @@
             "The Frozen Labor Camp"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_icecrest_holdfast_escaped_clansman.webp",
-          "shopType": "arcanist",
-          "shopLabel": "Arcanist"
+          "shopType": "armor",
+          "shopLabel": "Armor Shop"
         },
         {
           "id": "npc_hub_icecrest_holdfast_clan_huntmaster",
@@ -5484,10 +5484,10 @@
         {
           "id": "npc_hub_scorchwall_fort_armorer",
           "name": "Orson Farrier",
-          "roleTitle": "Master Armorer & Provisions (Step 24)",
+          "roleTitle": "Master Armorer & Provisions (Gear Tier 24)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Step 24)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 24)",
             "Potions",
             "Buy Trade Goods"
           ],
@@ -5499,10 +5499,10 @@
         {
           "id": "npc_hub_scorchwall_fort_mystic",
           "name": "Zelda Gale",
-          "roleTitle": "Apothecary & Caster Outfitter (Remaining Tier-8)",
+          "roleTitle": "Apothecary & Caster Outfitter (Tier-8 Spells)",
           "category": "service",
           "servicesOffered": [
-            "Apothecary & Caster Outfitter (Remaining Tier-8)",
+            "Apothecary & Caster Outfitter (Tier-8 Spells)",
             "Potions & Caster Accessories",
             "Buy Trade Goods"
           ],

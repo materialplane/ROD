@@ -32,6 +32,13 @@ CARD_SETS = {
         "display_prefix": "rod-magic-tiers",
         "out_dir_rel": "assets/magic_tiers/batch_sheets",
     },
+    "conditions": {
+        "prompts_file": REPO_ROOT / "imageprompts" / "conditions.txt",
+        "jsonl_file": BATCH_DIR / "conditions_batch.jsonl",
+        "sheet_prefix": "rod_conditions_sheet",
+        "display_prefix": "rod-conditions",
+        "out_dir_rel": "assets/conditions/batch_sheets",
+    },
 }
 
 

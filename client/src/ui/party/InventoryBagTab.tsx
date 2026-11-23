@@ -3,7 +3,9 @@ import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById } from "../heroes";
 import { hideClientItemTooltip, itemTooltipHandlers } from "../shops/itemTooltip";
-import type { EquippedGearMap, HeroId, ItemEntry, RunestoneItem } from "../types";
+import { WeaponAttackIconsRow } from "../shops/WeaponAttackIconsRow";
+import { canDualWieldItem } from "../shops/shopLogic";
+import type { EquippedGearMap, GearSlot, HeroId, ItemEntry, RunestoneItem } from "../types";
 import {
   type BagFilterGroup,
   type BagSortMode,
@@ -20,7 +22,7 @@ interface InventoryBagTabProps {
   itemsById: Record<string, ItemEntry>;
   equippedByHero: EquippedGearMap;
   runestonesBag: RunestoneItem[];
-  onEquipFromBag: (heroId: HeroId, itemId: string) => void;
+  onEquipFromBag: (heroId: HeroId, itemId: string, targetSlot?: GearSlot) => void;
   onUseConsumable: (sourceIds: string[], targetHeroId: HeroId, item: ItemEntry) => void;
   onRequestSocketRunestone: (heroId: HeroId, stone: RunestoneItem) => void;
 }
@@ -235,6 +237,20 @@ export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
                 : activeEntry.item?.effect || summarizeItemStats(activeEntry.item)}
             </div>
 
+            {activeEntry.item?.category === "weapon" && (
+              <div className="rounded border border-[#2c3445] bg-[#0d1119] p-2.5 flex items-center justify-between gap-2">
+                <div className="flex flex-col">
+                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#e5c37a]">Weapon Attacks</span>
+                  <span className="text-[10.5px] text-[#8f9fb8]">Hover icon for attack details</span>
+                </div>
+                <WeaponAttackIconsRow
+                  subType={activeEntry.item.subType}
+                  damageType={activeEntry.item.damageType}
+                  size="md"
+                />
+              </div>
+            )}
+
             {activeEntry.group === "potions" && activeEntry.item && (
               <div className="mt-1 rounded border border-[#2c3445] bg-[#0d1119] p-3 flex flex-col gap-2.5">
                 <div className="text-[11px] text-[#9bb0c8]">
@@ -290,17 +306,44 @@ export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
                         </option>
                       ))}
                     </select>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        if (!chosenEquipHero) return;
-                        audioEngine.playUiClick(0.38);
-                        onEquipFromBag(chosenEquipHero, activeEntry.item!.id);
-                      }}
-                      className="px-3.5 py-1.5 rounded border border-[#c7a052] bg-[#c49848]/30 hover:bg-[#c49848]/50 text-[11.5px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
-                    >
-                      Equip on Hero
-                    </button>
+                    {chosenEquipHero && canDualWieldItem(chosenEquipHero, activeEntry.item) && itemsById[equippedByHero[chosenEquipHero]?.right_hand ?? ""]?.handed === "1H" ? (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (!chosenEquipHero) return;
+                            audioEngine.playUiClick(0.38);
+                            onEquipFromBag(chosenEquipHero, activeEntry.item!.id, "right_hand");
+                          }}
+                          className="px-3 py-1.5 rounded border border-[#c7a052] bg-[#c49848]/30 hover:bg-[#c49848]/50 text-[11px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
+                        >
+                          Equip Main
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (!chosenEquipHero) return;
+                            audioEngine.playUiClick(0.38);
+                            onEquipFromBag(chosenEquipHero, activeEntry.item!.id, "left_hand");
+                          }}
+                          className="px-3 py-1.5 rounded border border-[#56a874] bg-[#21613d]/55 hover:bg-[#2a7d4e]/75 text-[11px] font-bold uppercase tracking-wider text-[#eafff2] cursor-pointer"
+                        >
+                          Equip Off-Hand
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (!chosenEquipHero) return;
+                          audioEngine.playUiClick(0.38);
+                          onEquipFromBag(chosenEquipHero, activeEntry.item!.id);
+                        }}
+                        className="px-3.5 py-1.5 rounded border border-[#c7a052] bg-[#c49848]/30 hover:bg-[#c49848]/50 text-[11.5px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
+                      >
+                        Equip on Hero
+                      </button>
+                    )}
                   </div>
                 ) : (
                   <div className="text-[11.5px] text-[#98a6bc]">

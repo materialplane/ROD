@@ -1,0 +1,118 @@
+# ROD — Illustrated Battle Condition, Buff, Debuff & Stance Icon Sheets (2 x 4x4 Sheets = 32 Combat Condition Icons)
+# Source: client/src/ui/battle/battleLogic.ts (STATUS_UI_META, Guard/Stagger, Resolve, Combat Triggers)
+# Target Model: gemini-3-pro-image (Pro 4K, 1:1)
+# Art Style Anchor: Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy icon art matching spell-cards.txt, weapon-abilities.txt, and magic-tiers.txt — single bold high-contrast central silhouette per cell readable cleanly at small UI badge sizes, crisp sculpted lighting fading smoothly into dark atmospheric vignette edges, zero pixel art, zero sketchiness, zero 3D plastic CGI gloss, zero human faces, zero #FF00FF, zero baked frames, zero numbers, and zero text or letters anywhere.
+# Export Pipeline: Slice strict 4x4 into 16 equal 1024x1024 lossless PNGs (assets/conditions/slices/) -> export 512x512 .webp + conditions-manifest.json in client/assets/icons/conditions/ (do NOT submit until Creative Director approves prompts!)
+
+================================================================================
+SHEET 01 OF 02 — Timed Combat Status Effects #01–#16 (10 Debuffs + 6 Buffs)
+================================================================================
+# SLOT MANIFEST (Row,Col -> condId | Name | Type):
+#   R1C1 -> cond_burn      | Burn        | Debuff (6% Fire DoT, -25% healing)
+#   R1C2 -> cond_bleed     | Bleed       | Debuff (5% Bleed DoT)
+#   R1C3 -> cond_poison    | Poison      | Debuff (5% Poison DoT, -15% phys dmg)
+#   R1C4 -> cond_chill     | Chill       | Debuff (-15% dmg, +15% Frost/Lightning taken)
+#   R2C1 -> cond_shock     | Shock       | Debuff (+20% next hit taken)
+#   R2C2 -> cond_curse     | Curse       | Debuff (-20% dmg & healing dealt)
+#   R2C3 -> cond_stun      | Stun        | Debuff (Skips next turn)
+#   R2C4 -> cond_def_down  | Armor Break | Debuff (-25% P.Def & M.Def)
+#   R3C1 -> cond_atk_down  | Weakened    | Debuff (-22% outgoing attack dmg)
+#   R3C2 -> cond_blind     | Blinded     | Debuff (22% attack miss chance)
+#   R3C3 -> cond_ward      | Ward        | Buff (-25% incoming damage)
+#   R3C4 -> cond_regen     | Regen       | Buff (+10% Max HP each turn)
+#   R4C1 -> cond_reflect   | Reflect     | Buff (Reflects 25% dmg back)
+#   R4C2 -> cond_immunity  | Ward Purity | Buff (Blocks negative ailments)
+#   R4C3 -> cond_haste     | Empowered   | Buff (+20% Attack & Magic Power)
+#   R4C4 -> cond_undying   | Undying     | Buff (Prevents KO once at 20% HP)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG status buff and debuff emblem illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO numbers, ZERO text, ZERO human faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY & STATUS ICONS / LEGENDS OF RUNETERRA):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy RPG status icon illustration — one unmistakable bold central iconic silhouette per cell designed to read clearly even at small HUD badge size, dramatic high-contrast color identity (fiery scarlet, crimson blood, venom emerald, glacial cyan, crackling lightning gold, obsidian violet curse, radiant barrier blue, restorative mint-gold), crisp sculpted painted highlights, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any icon, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, ZERO numbers, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight navy, or dark forest soot) so every status emblem pops cleanly without spilling into neighboring cells.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square icons never clips the focal art.
+
+Render these exact 16 distinct status buff and debuff icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Fierce blazing scarlet-orange flame tongue and bright incandescent gold ember sparks roaring upward around a cracked dark-charred ember stone over pitch obsidian soot.
+- Row 1 Col 2: Bold diagonal razor-sharp scarlet slash wound glowing bright crimson, dripping three heavy glistening ruby droplets down into deep dark obsidian shadow.
+- Row 1 Col 3: Wicked curved toxic venom-emerald fang drop glistening with glowing chartreuse-green acid bubbles and swirling poisonous vapor fumes against deep forest soot.
+- Row 1 Col 4: Sharp six-pointed translucent ice-cyan and frost-white snowflake crystal crest spiked with jagged freezing blue icicle shards radiating cold frost vapor over midnight navy.
+
+- Row 2 Col 1: Bold jagged electric bright-yellow and white-gold lightning bolt crackling sharply inside a sputtering amber static ring against deep dark stormcloud slate.
+- Row 2 Col 2: Sinister fractured obsidian-black and dark amethyst eclipsed orb clutched by curling pitch-violet shadow tendrils trailing murky curse haze over deep midnight dark.
+- Row 2 Col 3: Three bright spinning gold-and-amber four-point daze stars orbiting cleanly around a sharp golden concussion impact flash against deep dark iron shadow.
+- Row 2 Col 4: Heavy forged dark-steel heater shield split cleanly diagonally down the middle by a glowing crimson-orange fault fracture shedding flying steel shards in charcoal gloom.
+
+- Row 3 Col 1: Proud steel broadsword blade visibly snapped clean in half mid-shaft, its tarnished iron shards sinking downward trailing fading muted purple-gray drain wisps.
+- Row 3 Col 2: Bold stylized radiant ivory mystic eye emblem slashed diagonally across the center by a thick pitch-black and smoky slate shadow veil dimming its light in darkness.
+- Row 3 Col 3: Luminous translucent sapphire-cyan domed arcane ward shield etched faintly with clean geometric diamond facets glowing upright over deep twilight indigo gloom.
+- Row 3 Col 4: Vibrant emerald-green heart-shaped living leaf sprout unfurling glowing warm gold-and-mint restorative light petals with rising healing sparkles against dark forest shadow.
+
+- Row 4 Col 1: Crisp faceted silver-and-violet hexagonal mirror prism crystal rebounding a bright incoming crimson-magenta bolt backward in sharp azure deflection rays over indigo gloom.
+- Row 4 Col 2: Luminous pure pearl-white and warm gold lotus blossom crest sealed inside an unbroken circular sky-cyan purity halo repelling faint dark ash wisps outward.
+- Row 4 Col 3: Twin crossed gleaming royal gold-and-crimson battle swords surging upward behind bright golden flame flare wings and rising radiant power sparks in dark slate.
+- Row 4 Col 4: Majestic radiant ivory-gold and warm amber phoenix wing crest rising cleanly out of dark smoldering charcoal ash around an incandescent golden soul diamond.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square combat condition icons), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 02 OF 02 — Combat Stances, Guard/Stagger, Resolve Thresholds & Triggers #17–#32
+================================================================================
+# SLOT MANIFEST (Row,Col -> condId | Name | Type):
+#   R1C1 -> cond_hero_guard       | Hero Guard         | Stance (-50%+ dmg, next-turn shield)
+#   R1C2 -> cond_momentum         | Momentum           | Stance (+25% next strike dmg)
+#   R1C3 -> cond_enemy_guard      | Enemy Guard        | Stance (Intact Boss/Foe Guard shield)
+#   R1C4 -> cond_staggered        | Staggered          | State (Guard broken: +50% dmg & skip turn)
+#   R2C1 -> cond_boss_charging    | Telegraphed Charge | Enemy State (Boss gathering AOE power)
+#   R2C2 -> cond_resolve_battered | Battered Resolve   | Resolve (<=50% HP fighting surge)
+#   R2C3 -> cond_resolve_critical | Critical Resolve   | Resolve (<=25% HP last-stand surge)
+#   R2C4 -> cond_dual_wield       | Dual Wield         | Stance (Valen twin blades follow-up)
+#   R3C1 -> cond_weakness_hit     | Weakness Exposed   | Trigger (1.5x vulnerability pierced)
+#   R3C2 -> cond_resist_blocked   | Damage Resisted    | Trigger (0.5x warded deflection)
+#   R3C3 -> cond_crit_strike      | Critical Strike    | Trigger (1.55x piercing burst hit)
+#   R3C4 -> cond_dodge_evade      | Evasion            | Trigger (Agile dodge sidestep)
+#   R4C1 -> cond_counter_ready    | Riposte Counter    | Resolve Stance (Valen <25% HP counter)
+#   R4C2 -> cond_intercept        | Veteran Intercept  | Resolve Stance (Orin <25% HP ally block)
+#   R4C3 -> cond_ko_fallen        | Fallen             | Hero State (0 HP Knocked Out)
+#   R4C4 -> cond_flee_blocked     | Escape Blocked     | State (Blocked retreat / Boss lock)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG combat stance and battle state emblem illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO numbers, ZERO text, ZERO human faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY & STATUS ICONS / LEGENDS OF RUNETERRA):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy RPG stance and condition icon illustration — single bold unmistakable central emblem silhouette per cell designed to read crisply even at small badge size, dramatic directional lighting, forged steel shields, twin crossed blades, glowing ember hearts, shattered armor crystals, wind evasion trails, crisp dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any icon, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, ZERO numbers, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight iron, or storm slate) so every shield, sword, heart crest, and flash pops cleanly without spilling into adjacent cells.
+- FRAMING: Keep every emblem's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square icons never clips the focal art.
+
+Render these exact 16 distinct combat stance, resolve, and trigger icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Heavy braced knight's steel kite shield gleaming behind a bright curved steel-blue protective barrier wave catching warm golden sparks over dark iron gloom.
+- Row 1 Col 2: Dynamic surging fiery-gold and white chevron spearhead emblem lunging swiftly forward trailing blazing amber battle streaks against deep midnight charcoal.
+- Row 1 Col 3: Intact menacing heavy riveted dark-iron fortress shield badge rimmed with glowing molten ember-orange guard pips over obsidian black.
+- Row 1 Col 4: Heavy dark-iron fortress shield bursting open in blinding amber-white fractures surrounded by spiraling orange shockwave splinters against dark soot.
+
+- Row 2 Col 1: Volatile swelling scarlet-and-black storm orb radiating jagged crimson warning spikes and gathering dark lightning arcs inside abyssal gloom.
+- Row 2 Col 2: Cracked forged bronze-and-iron heart crest glowing steadily with warm molten amber fire embers inside its fractures over dark twilight slate.
+- Row 2 Col 3: Deeply fractured ruby-crimson heart emblem erupting fiercely with blinding white-gold and crimson last-stand flames against pitch black shadow.
+- Row 2 Col 4: Twin matching polished steel dueling blades sweeping tightly together in parallel diagonal slash trails gleaming bright sapphire and silver in dark charcoal.
+
+- Row 3 Col 1: Faceted glowing diamond core pierced cleanly dead-center by a blazing white-gold lance flash inside crisp golden targeting arcs over midnight black.
+- Row 3 Col 2: Blunted dull gray arrow head glancing harmlessly sideways off a thick beveled slate-blue stone armor plate with faint muted spark dust.
+- Row 3 Col 3: Explosive four-pointed blinding incandescent gold-and-scarlet starburst detonating sharply at a glowing crimson steel blade point against deep night.
+- Row 3 Col 4: Agile translucent pale sky-cyan wind ribbon curving sharply sideways in a swift crescent evade blur cleanly dodging past a dark steel slash arc.
+
+- Row 4 Col 1: Gleaming crimson-rimmed steel longsword catching an incoming dark iron blade edge and snapping outward in a blazing golden circular counter-slash trail.
+- Row 4 Col 2: Heavy battered steel paladin shield lunging firmly forward in front of a soft glowing azure sanctuary crystal catching bright orange impact sparks in darkness.
+- Row 4 Col 3: Hollow cracked tarnished steel knight helmet resting tilted in cold dark ash beneath fading pale silver smoke wisps over charcoal gloom.
+- Row 4 Col 4: Heavy forged black iron chain links snapping taut across a broken pale silver wing emblem against deep rust and obsidian shadow.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square combat stance and state icons), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---

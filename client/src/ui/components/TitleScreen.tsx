@@ -49,7 +49,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
       {
         id: "new",
         label: "New Campaign",
-        meta: "Begin at Highcrown in King's Reach",
+        meta: "Begin at Highcrown in The Crownlands",
         action: onNewCampaign,
       },
       { id: "load", label: "Load Game", action: onOpenLoad },

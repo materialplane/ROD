@@ -63,7 +63,7 @@ const HEROES = [
     baseHp: 47,
     baseMp: 19,
     wounded50: "Below 50% HP: Nature spells hit and heal harder, and she dodges incoming blows more often.",
-    wounded25: "Below 25% HP: Spell power surges sharply and she acts faster in the turn order.",
+    wounded25: "Below 25% HP: Spell power surges sharply and she gains extra Critical Chance.",
     bio: "Wild-magic channeler weaving storm, thorn, lightning, and mending spells to sustain the party.",
   },
   {
@@ -85,7 +85,7 @@ const HERO_MAP = Object.fromEntries(HEROES.map((h) => [h.id, h]));
 
 const ATTRS = [
   { key: "force", label: "Force", short: "FOR", hint: "Melee Power" },
-  { key: "finesse", label: "Finesse", short: "FIN", hint: "Speed & Crit" },
+  { key: "finesse", label: "Finesse", short: "FIN", hint: "Dodge & Crit" },
   { key: "grit", label: "Grit", short: "GRT", hint: "HP & Defense" },
   { key: "arcana", label: "Arcana", short: "ARC", hint: "Magic & MP" },
   { key: "presence", label: "Presence", short: "PRE", hint: "Heal & Ward" },
@@ -235,7 +235,7 @@ function getHeroVitals(heroId) {
   let heal = 0;
   let pDef = 0;
   let mDef = 0;
-  let speed = 0;
+  let dodge = 0;
   let crit = 0;
 
   for (const itemId of Object.values(eq)) {
@@ -248,7 +248,7 @@ function getHeroVitals(heroId) {
     heal += Number(it.stats.healPower || 0);
     pDef += Number(it.stats.physDef || 0);
     mDef += Number(it.stats.magDef || 0);
-    speed += Number(it.stats.speedMod || 0);
+    dodge += Number(it.stats.dodgePct || 0);
     crit += Number(it.stats.critBonusPct || 0);
   }
 
@@ -269,7 +269,7 @@ function getHeroVitals(heroId) {
     heal: heal + Math.round((attrs.presence - 1) * 1.5),
     pDef: pDef + (attrs.grit - 1),
     mDef: mDef + (attrs.presence - 1),
-    speed: 10 + speed + (attrs.finesse - 1),
+    dodge: Math.min(45, dodge + Math.round((attrs.finesse - 1) * 0.3)),
     crit: Math.min(45, 5 + crit + Math.round((attrs.finesse - 1) * 0.4)),
   };
 }
@@ -341,7 +341,7 @@ function populateDemoState() {
 
   state.socketsByHero = {
     valen: {
-      weapon: { id: "rn_01_lesser_blazing_slate", name: "Lesser Blazing Slate of Alacrity", tier: "Lesser", target: "weapon", affix: "+14% Fire bonus damage + Burn chance · +4 Turn Speed", iconPath: "/assets/icons/runestones/rn_01_lesser_blazing_slate.webp" },
+      weapon: { id: "rn_01_lesser_blazing_slate", name: "Lesser Blazing Slate of Alacrity", tier: "Lesser", target: "weapon", affix: "+14% Fire bonus damage + Burn chance · +3% Dodge Chance", iconPath: "/assets/icons/runestones/rn_01_lesser_blazing_slate.webp" },
       armor: null,
     },
     ellowyn: { weapon: null, armor: null },
@@ -385,7 +385,7 @@ function populateDemoState() {
   });
 
   state.runestonesBag = [
-    makeStone(0, "Lesser", "weapon", wPfx[0] || { name: "Blazing", effect: "Bonus Fire damage" }, sfx[0] || { name: "of Alacrity", effect: "+5 Speed" }),
+    makeStone(0, "Lesser", "weapon", wPfx[0] || { name: "Blazing", effect: "Bonus Fire damage" }, sfx[0] || { name: "of Alacrity", effect: "+3% Dodge Chance" }),
     makeStone(1, "Lesser", "weapon", wPfx[1] || { name: "Glacial", effect: "Bonus Frost damage" }, sfx[1] || { name: "of Precision", effect: "+5% Crit" }),
     makeStone(6, "Refined", "weapon", wPfx[2] || { name: "Arcing", effect: "Bonus Lightning damage" }, sfx[2] || { name: "of Brutality", effect: "+22% Crit Dmg" }),
     makeStone(10, "Greater", "armor", aPfx[0] || { name: "Stalwart", effect: "+Phys Def" }, sfx[4] || { name: "of Vitality", effect: "+140 Max HP" }),
@@ -558,7 +558,7 @@ function renderPartyStatsTab() {
         <div class="derived-box"><span>Spell Mod</span><strong>${vit.mag}</strong></div>
         <div class="derived-box"><span>Phys Def</span><strong>${vit.pDef}</strong></div>
         <div class="derived-box"><span>Magic Def</span><strong>${vit.mDef}</strong></div>
-        <div class="derived-box"><span>Turn Speed</span><strong>${vit.speed}</strong></div>
+        <div class="derived-box"><span>Dodge Chance</span><strong>${vit.dodge}%</strong></div>
         <div class="derived-box"><span>Crit %</span><strong>${vit.crit}%</strong></div>
         <div class="derived-box"><span>Heal Mod</span><strong>${vit.heal}</strong></div>
         <div class="derived-box"><span>Map Slot</span><strong>${state.partyOrder[0] === hid ? "Leader (#1)" : "Slot #" + (state.partyOrder.indexOf(hid) + 1)}</strong></div>
@@ -610,7 +610,7 @@ function summarizeItemStats(it) {
   if (it.stats.healPower) parts.push(`Heal +${it.stats.healPower}`);
   if (it.stats.physDef) parts.push(`P.Def +${it.stats.physDef}`);
   if (it.stats.magDef) parts.push(`M.Def +${it.stats.magDef}`);
-  if (it.stats.speedMod) parts.push(`Spd ${it.stats.speedMod > 0 ? "+" : ""}${it.stats.speedMod}`);
+  if (it.stats.dodgePct) parts.push(`Dodge +${it.stats.dodgePct}%`);
   return parts.join(" · ") || it.subType;
 }
 

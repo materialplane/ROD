@@ -4,25 +4,34 @@ import { audioEngine } from "../audio";
 import { applyHeroXpGain, getHeroLevel, getHeroXp } from "../party/partyLogic";
 import type { HeroId, ItemEntry, SpellEntry } from "../types";
 import {
-  advanceTimelineToNextLivingUnit,
+  advanceToNextTurnInRound,
   applyLootAndDropsForDefeatedEnemy,
   applyTurnStartAilments,
   buildCombatPotionActions,
+  buildDualWieldFollowupAction,
   buildHeroSpellTierBuckets,
   buildHeroWeaponActions,
   computeDamageOnEnemy,
-  getEffectiveSpeed,
+  computeEnemyStrikeDamage,
+  finishHeroTurnCooldowns,
+  getAdjacentEnemies,
   getHeroResolveState,
-  getTimeAdvanceForDelay,
   HERO_MAGIC_THEMES,
   packEncounterIntoGrid,
   pickEnemyCombatMove,
   pickVfxKey,
-  previewTurnTimeline,
+  previewRoundOrder,
   STATUS_UI_META,
   upsertStatusEffect,
   VFX_MAP,
 } from "./battleLogic";
+import {
+  absorbWithWardShield,
+  getPartyCombatAuras,
+  grantWardShield,
+  pickSecondAllyForDualTarget,
+  resolveEnemyTargetAndIntercept,
+} from "./combatEffects";
 import type {
   BattleActionSpec,
   BattleEnemyUnit,
@@ -55,7 +64,57 @@ interface BattleOverlayProps {
   bagCounts: Record<string, number>;
   itemsById: Record<string, ItemEntry>;
   itemsCatalog: ItemEntry[];
+  onBattleSnapshot?: (snapshot: BattleState) => void;
   onComplete: (outcome: BattleOutcomeResult) => void;
+}
+
+function cloneBattleSnapshot(state: BattleState): BattleState {
+  return JSON.parse(JSON.stringify(state)) as BattleState;
+}
+
+function normalizeRestoredBattle(raw: BattleState): BattleState {
+  const b = cloneBattleSnapshot(raw);
+  for (const h of b.heroes) {
+    h.actedThisRound ??= false;
+    h.bonusTurnUsedThisRound ??= false;
+    h.bonusTurnUsedThisBattle ??= false;
+    h.skillCooldowns ??= {};
+  }
+  for (const e of b.enemies) {
+    e.actedThisRound ??= false;
+  }
+  if (b.phase === "victory" || b.phase === "defeat" || b.phase === "fled") return b;
+
+  const liveHeroes = b.heroes.filter((h) => h.curHp > 0);
+  const liveEnemies = b.enemies.filter((e) => e.curHp > 0);
+  if (liveHeroes.length === 0) {
+    b.phase = "defeat";
+    b.bannerText = "All companions have fallen...";
+    return b;
+  }
+  if (liveEnemies.length === 0) {
+    b.phase = "victory";
+    b.bannerText = "Victory! All enemies defeated.";
+    return b;
+  }
+
+  const actorAlive =
+    b.activeActor.kind === "hero"
+      ? liveHeroes.some((h) => h.heroId === (b.activeActor as { heroId: HeroId }).heroId)
+      : liveEnemies.some((e) => e.instanceId === (b.activeActor as { instanceId: string }).instanceId);
+  if (!actorAlive) {
+    advanceToNextTurnInRound(b);
+  }
+  if (b.activeActor.kind === "hero") {
+    const activeHero = liveHeroes.find((h) => h.heroId === (b.activeActor as { heroId: HeroId }).heroId);
+    b.phase = "player_turn";
+    if (activeHero) {
+      b.bannerText = `${activeHero.name}'s turn — choose an action`;
+    }
+  } else {
+    b.phase = "animating";
+  }
+  return b;
 }
 
 interface FloatingTextItem {
@@ -98,8 +157,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
   bagCounts,
   itemsById,
   itemsCatalog,
+  onBattleSnapshot,
   onComplete,
 }) => {
+  const onBattleSnapshotRef = useRef(onBattleSnapshot);
+  onBattleSnapshotRef.current = onBattleSnapshot;
   const stageRef = useRef<HTMLDivElement | null>(null);
   const vfxLayerRef = useRef<HTMLDivElement | null>(null);
   const hotbarRef = useRef<HTMLDivElement | null>(null);
@@ -125,6 +187,9 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     pills: Array<{ label: string; tone?: "mp" | "qty" | "warn" }>;
     effect: string;
     hint?: string;
+    leftPx: number;
+    bottomPx: number;
+    widthPx: number;
   } | null>(null);
   const [perkTip, setPerkTip] = useState<{
     badge: BattleHeroDisciplineBadge;
@@ -136,6 +201,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
   const [stageShaking, setStageShaking] = useState(false);
   const [lungingEnemyId, setLungingEnemyId] = useState<string | null>(null);
   const [lungingHeroId, setLungingHeroId] = useState<HeroId | null>(null);
+  const [hoveredEnemyId, setHoveredEnemyId] = useState<string | null>(null);
 
   useEffect(() => {
     mountedRef.current = true;
@@ -149,7 +215,8 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       battleRef.current = null;
       return;
     }
-    battleRef.current = initialBattle;
+    const restored = normalizeRestoredBattle(initialBattle);
+    battleRef.current = restored;
     busyRef.current = false;
     enemyTurnLockRef.current = false;
     setOpenTierPopup(null);
@@ -159,10 +226,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     setActiveBursts([]);
 
     // Pre-arm Hero's default Weapon Attack 1 if Hero starts immediately
-    if (initialBattle.activeActor.kind === "hero") {
-      const actorId = initialBattle.activeActor.heroId;
-      const hero = initialBattle.heroes.find((h) => h.heroId === actorId);
-      setArmedAction(hero ? buildHeroWeaponActions(hero)[0] ?? null : null);
+    if (restored.phase === "player_turn" && restored.activeActor.kind === "hero") {
+      const actorId = restored.activeActor.heroId;
+      const hero = restored.heroes.find((h) => h.heroId === actorId);
+      const acts = hero ? buildHeroWeaponActions(hero) : [];
+      setArmedAction(acts.find((a) => !a.disabledReason) ?? acts[0] ?? null);
     } else {
       setArmedAction(null);
     }
@@ -171,6 +239,62 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
 
   const forceRefresh = () => {
     if (mountedRef.current) setRenderTick((t) => t + 1);
+  };
+
+  const showActionTip = (
+    anchorEl: HTMLElement,
+    tip: {
+      title: string;
+      subtitle: string;
+      icon: string;
+      pills: Array<{ label: string; tone?: "mp" | "qty" | "warn" }>;
+      effect: string;
+      hint?: string;
+    },
+    besidePopup = false
+  ) => {
+    const stRect = stageRef.current?.getBoundingClientRect();
+    const btnRect = anchorEl.getBoundingClientRect();
+    if (!stRect) return;
+
+    const tipW = Math.min(290, Math.max(210, stRect.width - 24));
+    const popupW = btnRect.width + 14;
+    const pLeft = popupAnchorLeft;
+    const pRight = pLeft + popupW;
+    const btnCenter = btnRect.left - stRect.left + btnRect.width / 2;
+
+    let leftPx: number;
+    let bottomPx: number;
+
+    if (besidePopup && openTierPopup !== null) {
+      const rightCandidate = pRight + 10;
+      const leftCandidate = pLeft - tipW - 10;
+      // Prefer opening right of the vertical spell stack without crowding the right-hand hero cards
+      if (rightCandidate + tipW <= stRect.width * 0.77) {
+        leftPx = rightCandidate;
+      } else if (leftCandidate >= 12) {
+        leftPx = leftCandidate;
+      } else {
+        leftPx = Math.max(12, Math.min(stRect.width - tipW - 12, rightCandidate));
+      }
+      bottomPx = Math.max(24, Math.min(stRect.height - 170, stRect.bottom - btnRect.bottom));
+    } else {
+      leftPx = Math.max(12, Math.min(stRect.width - tipW - 12, btnCenter - tipW / 2));
+      bottomPx = Math.max(78, stRect.bottom - btnRect.top + 10);
+
+      // Keep bar tooltips clear of an open vertical Tier spell popup
+      if (openTierPopup !== null && leftPx < pRight + 8 && leftPx + tipW > pLeft - 8) {
+        if (btnCenter < pLeft + popupW / 2 && pLeft - tipW - 10 >= 12) {
+          leftPx = pLeft - tipW - 10;
+        } else if (pRight + 10 + tipW <= stRect.width - 12) {
+          leftPx = pRight + 10;
+        } else {
+          leftPx = Math.max(12, pLeft - tipW - 10);
+        }
+      }
+    }
+
+    setHoverTip({ ...tip, leftPx, bottomPx, widthPx: tipW });
   };
 
   const spawnFloatingText = (xPct: number, yPct: number, text: string, colorClass: string) => {
@@ -313,10 +437,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
   };
 
   const advanceNextTurn = async (b: BattleState) => {
-    advanceTimelineToNextLivingUnit(b);
+    advanceToNextTurnInRound(b);
     if (b.phase === "victory" || b.phase === "defeat") {
       setArmedAction(null);
       busyRef.current = false;
+      onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
       if (b.phase === "victory") audioEngine.playSfx("coin", 0.65);
       forceRefresh();
       return;
@@ -329,93 +454,144 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         await advanceNextTurn(b);
         return;
       }
-      hero.guarding = false;
 
-      // Discipline passive HP regen
-      if (hero.mods.hpRegenPct > 0 && hero.curHp > 0 && hero.curHp < hero.maxHp) {
-        const regenAmt = Math.max(1, Math.round((hero.maxHp * hero.mods.hpRegenPct) / 100));
-        hero.curHp = Math.min(hero.maxHp, hero.curHp + regenAmt);
-        const hEl = heroElRefs.current.get(hero.heroId);
-        if (hEl) {
-          const vpRect = stageRef.current?.getBoundingClientRect();
-          const bRect = hEl.getBoundingClientRect();
-          if (vpRect) {
-            spawnFloatingText(
-              (((bRect.left + bRect.width * 0.3) - vpRect.left) / vpRect.width) * 100,
-              (((bRect.top + bRect.height * 0.4) - vpRect.top) / vpRect.height) * 100,
-              `+${regenAmt}`,
-              "text-[#79f2a5]"
-            );
+      const isBonusTurnContinuation = Boolean(hero.bonusTurnUsedThisRound);
+      if (!isBonusTurnContinuation) {
+        hero.guarding = false;
+
+        // Discipline passive HP regen
+        if (hero.mods.hpRegenPct > 0 && hero.curHp > 0 && hero.curHp < hero.maxHp) {
+          const regenAmt = Math.max(1, Math.round((hero.maxHp * hero.mods.hpRegenPct) / 100));
+          hero.curHp = Math.min(hero.maxHp, hero.curHp + regenAmt);
+          const hEl = heroElRefs.current.get(hero.heroId);
+          if (hEl) {
+            const vpRect = stageRef.current?.getBoundingClientRect();
+            const bRect = hEl.getBoundingClientRect();
+            if (vpRect) {
+              spawnFloatingText(
+                (((bRect.left + bRect.width * 0.3) - vpRect.left) / vpRect.width) * 100,
+                (((bRect.top + bRect.height * 0.4) - vpRect.top) / vpRect.height) * 100,
+                `+${regenAmt}`,
+                "text-[#79f2a5]"
+              );
+            }
           }
         }
-      }
 
-      // Tick Turn-Start Buffs & Ailments
-      if (hero.statuses.length > 0) {
-        const hadBurn = hero.statuses.some((s) => s.kind === "burn");
-        const hadCurse = hero.statuses.some((s) => s.kind === "curse");
-        const tick = applyTurnStartAilments(hero.statuses, hero.maxHp, hero.statusResistPct);
-        hero.statuses = tick.remaining;
-        if (tick.regenHeal > 0 && hero.curHp > 0 && hero.curHp < hero.maxHp) {
-          const finalRegen = Math.max(1, Math.round(tick.regenHeal * (hadBurn ? 0.75 : 1) * (hadCurse ? 0.8 : 1)));
-          hero.curHp = Math.min(hero.maxHp, hero.curHp + finalRegen);
-          await playVfxAtElement(
-            heroElRefs.current.get(hero.heroId),
-            "heal_single",
-            `+${finalRegen}`,
-            "text-[#79f2a5]",
-            false
+        // Tick Turn-Start Buffs & Ailments
+        const turnAuras = getPartyCombatAuras(b.heroes, b.galeCanopyDodgeTurns && b.galeCanopyDodgeTurns > 0 ? 6 : 0);
+        if (hero.statuses.length > 0) {
+          const hadBurn = hero.statuses.some((s) => s.kind === "burn");
+          const hadCurse = hero.statuses.some((s) => s.kind === "curse");
+          const tick = applyTurnStartAilments(
+            hero.statuses,
+            hero.maxHp,
+            Math.min(85, hero.statusResistPct + turnAuras.wardRootResistPct),
+            {
+              dotResistPct: hero.passives.dotResistPct,
+              onExpireHealPct: hero.passives.runestoneSanctifiedHealPct,
+            }
           );
-        }
-        if (tick.dotDamage > 0) {
-          if (hero.curHp - tick.dotDamage <= 0 && hero.statuses.some((s) => s.kind === "undying")) {
-            hero.statuses = hero.statuses.filter((s) => s.kind !== "undying");
-            hero.curHp = Math.max(1, Math.round(hero.maxHp * 0.2));
+          hero.statuses = tick.remaining;
+          if (tick.expiredHeal > 0 && hero.curHp > 0 && hero.curHp < hero.maxHp) {
+            hero.curHp = Math.min(hero.maxHp, hero.curHp + tick.expiredHeal);
+            await playVfxAtElement(heroElRefs.current.get(hero.heroId), "heal_single", `+${tick.expiredHeal}`, "text-[#9df5dc]", false);
+          }
+          if (tick.regenHeal > 0 && hero.curHp > 0 && hero.curHp < hero.maxHp) {
+            const finalRegen = Math.max(1, Math.round(tick.regenHeal * (hadBurn ? 0.75 : 1) * (hadCurse ? 0.8 : 1)));
+            hero.curHp = Math.min(hero.maxHp, hero.curHp + finalRegen);
             await playVfxAtElement(
               heroElRefs.current.get(hero.heroId),
-              "revive",
-              "UNDYING!",
-              "text-[#fff0ad]",
-              false
-            );
-          } else {
-            hero.curHp = Math.max(0, hero.curHp - tick.dotDamage);
-            await playVfxAtElement(
-              heroElRefs.current.get(hero.heroId),
-              tick.label === "Burn" ? "fire_single" : tick.label === "Bleed" ? "slashing_bleed" : "poison_acid",
-              `-${tick.dotDamage}`,
-              "text-[#ff8e6e]",
+              "heal_single",
+              `+${finalRegen}`,
+              "text-[#79f2a5]",
               false
             );
           }
-          if (hero.curHp <= 0) {
-            hero.statuses = [];
-            hero.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(hero.speed, hero.statuses), 1.0);
+          if (tick.dotDamage > 0) {
+            const dotBlocked = absorbWithWardShield(hero, tick.dotDamage);
+            const dotHpDmg = dotBlocked.hpDmg;
+            if (hero.curHp - dotHpDmg <= 0 && hero.statuses.some((s) => s.kind === "undying")) {
+              hero.statuses = hero.statuses.filter((s) => s.kind !== "undying");
+              hero.curHp = Math.max(1, Math.round(hero.maxHp * 0.2));
+              await playVfxAtElement(
+                heroElRefs.current.get(hero.heroId),
+                "revive",
+                "UNDYING!",
+                "text-[#fff0ad]",
+                false
+              );
+            } else {
+              hero.curHp = Math.max(0, hero.curHp - dotHpDmg);
+              await playVfxAtElement(
+                heroElRefs.current.get(hero.heroId),
+                tick.label === "Burn" ? "fire_single" : tick.label === "Bleed" ? "slashing_bleed" : "poison_acid",
+                dotBlocked.absorbed > 0 && dotHpDmg === 0 ? `🛡 -${dotBlocked.absorbed}` : `-${tick.dotDamage}`,
+                "text-[#ff8e6e]",
+                false
+              );
+            }
+            if (hero.curHp <= 0) {
+              hero.statuses = [];
+              hero.actedThisRound = true;
+              finishHeroTurnCooldowns(hero);
+              await advanceNextTurn(b);
+              return;
+            }
+          }
+          if (tick.stunned) {
+            b.bannerText = `${hero.name} is stunned and skips this turn!`;
+            forceRefresh();
+            await waitMs(600);
+            hero.actedThisRound = true;
+            finishHeroTurnCooldowns(hero);
             await advanceNextTurn(b);
             return;
           }
         }
-        if (tick.stunned) {
-          b.bannerText = `${hero.name} is stunned and skips this turn!`;
-          forceRefresh();
-          await waitMs(600);
-          hero.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(hero.speed, hero.statuses), 0.9);
-          await advanceNextTurn(b);
-          return;
+
+        // Rowan Lv90 Arrow Storm: Every 3rd round rains Piercing volley across all enemies before his action
+        if (hero.passives.bowArrowStormR3 && b.turnCounter % 3 === 0) {
+          const stormTargets = b.enemies.filter((e) => e.curHp > 0);
+          if (stormTargets.length > 0) {
+            b.bannerText = `${hero.name} unleashes Arrow Storm!`;
+            audioEngine.playSfx("Longbow", 0.55);
+            const stormSpec = { ...buildHeroWeaponActions(hero)[0], power: 0.7, damageType: "Piercing" };
+            await Promise.all(
+              stormTargets.map(async (foe) => {
+                const res = computeDamageOnEnemy(hero, stormSpec, foe, undefined, {
+                  allHeroes: b.heroes,
+                  livingEnemiesCount: stormTargets.length,
+                });
+                foe.curHp = Math.max(0, foe.curHp - res.damage);
+                await playVfxAtElement(enemyElRefs.current.get(foe.instanceId), "piercing_arrow", `${res.damage} STORM`, "text-[#ffe066]", false);
+                if (foe.curHp <= 0) applyLootAndDropsForDefeatedEnemy(b, foe, itemsCatalog);
+              })
+            );
+            if (b.enemies.every((e) => e.curHp <= 0)) {
+              await advanceNextTurn(b);
+              return;
+            }
+          }
         }
       }
 
       b.phase = "player_turn";
-      b.bannerText = `${hero.name}'s turn — choose an action`;
-      const defaultAtk = buildHeroWeaponActions(hero)[0] ?? null;
+      b.bannerText = isBonusTurnContinuation
+        ? `${hero.name}'s Bonus Turn — choose an action`
+        : `${hero.name}'s turn — choose an action`;
+      const availWeaponActs = buildHeroWeaponActions(hero);
+      const defaultAtk = availWeaponActs.find((a) => !a.disabledReason) ?? availWeaponActs[0] ?? null;
       setArmedAction(defaultAtk);
       setOpenTierPopup(null);
       busyRef.current = false;
+      onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
       forceRefresh();
     } else {
       setArmedAction(null);
       setOpenTierPopup(null);
       b.phase = "animating";
+      onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
       forceRefresh();
       await runEnemyTurn(b, b.activeActor.instanceId);
     }
@@ -441,16 +617,21 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         b.bannerText = `${enemy.name} recovers from Stagger!`;
         forceRefresh();
         await waitMs(700);
-        enemy.timelinePos += getTimeAdvanceForDelay(enemy.speed, 1.0);
+        enemy.actedThisRound = true;
         enemyTurnLockRef.current = false;
         await advanceNextTurn(b);
         return;
       }
 
       // Tick Enemy Buffs & Ailments
+      const enemyAuras = getPartyCombatAuras(b.heroes, b.galeCanopyDodgeTurns && b.galeCanopyDodgeTurns > 0 ? 6 : 0);
       if (enemy.statuses.length > 0) {
         const hadBurn = enemy.statuses.some((s) => s.kind === "burn");
-        const tick = applyTurnStartAilments(enemy.statuses, enemy.maxHp, enemy.isBoss ? 40 : 15);
+        const tick = applyTurnStartAilments(enemy.statuses, enemy.maxHp, enemy.isBoss ? 40 : 15, {
+          poisonDotBonusPct: enemyAuras.poisonDotBonusPct,
+          doublePoisonBurn: Boolean(enemy.rotCloudDoubleTurns && enemy.rotCloudDoubleTurns > 0),
+          universalPoisonPenPct: enemyAuras.universalPoisonPenPct,
+        });
         enemy.statuses = tick.remaining;
         if (tick.regenHeal > 0 && enemy.curHp > 0 && enemy.curHp < enemy.maxHp) {
           const finalRegen = Math.max(1, Math.round(tick.regenHeal * (hadBurn ? 0.75 : 1)));
@@ -468,16 +649,22 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           if (enemy.curHp <= 0) {
             applyLootAndDropsForDefeatedEnemy(b, enemy, itemsCatalog);
             b.bannerText = `${enemy.name} fell to ${tick.label ?? "wounds"}!`;
+            enemy.actedThisRound = true;
             enemyTurnLockRef.current = false;
             await advanceNextTurn(b);
             return;
           }
         }
-        if (tick.stunned) {
-          b.bannerText = `${enemy.name} is Stunned!`;
+        const nerveLockChance = Math.max(0, ...b.heroes.filter((h) => h.curHp > 0).map((h) => h.passives.nerveLockStumbleChance));
+        const stumbled =
+          !tick.stunned && enemy.statuses.length >= 2 && nerveLockChance > 0 && Math.random() < nerveLockChance;
+        if (tick.stunned || stumbled) {
+          b.bannerText = stumbled
+            ? `${enemy.name} stumbles under toxic lock!`
+            : `${enemy.name} is Stunned!`;
           forceRefresh();
           await waitMs(650);
-          enemy.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(enemy.speed, enemy.statuses), 0.9);
+          enemy.actedThisRound = true;
           enemyTurnLockRef.current = false;
           await advanceNextTurn(b);
           return;
@@ -498,7 +685,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         b.bannerText = `Warning: ${enemy.name} gathers power for ${enemy.telegraphedMove}!`;
         forceRefresh();
         await waitMs(780);
-        enemy.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(enemy.speed, enemy.statuses), 0.95);
+        enemy.actedThisRound = true;
         enemyTurnLockRef.current = false;
         await advanceNextTurn(b);
         return;
@@ -508,7 +695,14 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       const isTelegraphRelease = Boolean(enemy.telegraphedMove);
       enemy.telegraphedMove = null;
       const isAoe = pickedAction.target === "All Allies" || isTelegraphRelease;
-      const targets = isAoe ? livingHeroes : [livingHeroes[Math.floor(Math.random() * livingHeroes.length)]];
+      const livingMaxHp = Math.max(...b.enemies.filter((e) => e.curHp > 0).map((e) => e.maxHp));
+      const interceptPlan = resolveEnemyTargetAndIntercept(
+        livingHeroes,
+        enemy.maxHp >= livingMaxHp,
+        b.turnCounter,
+        isAoe
+      );
+      const targets = isAoe ? livingHeroes : [interceptPlan.primary];
 
       b.bannerText = `${enemy.name} unleashes ${pickedAction.name}!`;
       audioEngine.playSfx(pickedAction.damageType ?? "sword", 0.52);
@@ -520,48 +714,182 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         enemy.mag > enemy.atk * 0.8 ||
         /fire|frost|lightning|shadow|radiant|poison/i.test(pickedAction.damageType ?? "");
       const atkWeaken = enemy.statuses.some((s) => s.kind === "atk_down") ? 0.78 : 1.0;
+      const chillWeaken = enemy.statuses.some((s) => s.kind === "chill") ? 0.85 : 1.0;
       const curseMul = enemy.statuses.some((s) => s.kind === "curse") ? 0.8 : 1.0;
       const hasteMul = enemy.statuses.some((s) => s.kind === "haste") ? 1.2 : 1.0;
+      const poisonWeakenMul =
+        enemy.statuses.some((s) => s.kind === "poison") && enemyAuras.poisonWeakenPct > 0
+          ? 1 - enemyAuras.poisonWeakenPct / 100
+          : 1.0;
       const isBlinded = enemy.statuses.some((s) => s.kind === "blind");
-      const baseOffense = Math.max(8, (isMagicMove ? Math.max(enemy.atk, enemy.mag) : enemy.atk) * pickedAction.power * atkWeaken * curseMul * hasteMul);
+      const offenseMul = atkWeaken * chillWeaken * curseMul * hasteMul * poisonWeakenMul;
       const vfxKey = pickVfxKey(pickedAction.damageType ?? "Slashing", pickedAction.target, pickedAction.name, isAoe);
 
       const wasAliveBeforeReflect = enemy.curHp > 0;
       await Promise.all(
         targets.map(async (target) => {
           const hEl = heroElRefs.current.get(target.heroId);
+          const tp = target.passives;
           const missedBlind = isBlinded && Math.random() < 0.22;
-          const dodged = Math.random() * 100 < target.dodgePct;
+          const effectiveDodge =
+            target.dodgePct +
+            (target.guardDodgeBonusPct ?? 0) +
+            enemyAuras.livingBarricadeDodgePct +
+            enemyAuras.galeDodgePct +
+            (!isMagicMove ? tp.rangedDodgePct * 0.5 : 0);
+          const dodged = Math.random() * 100 < effectiveDodge;
           if (missedBlind || dodged) {
             await playVfxAtElement(hEl, "wind", missedBlind ? "MISS" : "DODGE", "text-[#8be9ff]", false);
+            if (dodged && tp.dodgeHealsPct > 0 && !target.dodgeHealUsedThisRound && target.curHp > 0) {
+              target.dodgeHealUsedThisRound = true;
+              const healAmt = Math.max(1, Math.round((target.maxHp * tp.dodgeHealsPct) / 100));
+              target.curHp = Math.min(target.maxHp, target.curHp + healAmt);
+              await playVfxAtElement(hEl, "heal_single", `+${healAmt}`, "text-[#79f2a5]", false);
+            }
+            if (dodged && tp.dodgeGrantsMomentum) target.momentum = true;
             return;
           }
-          const rawDef = isMagicMove ? target.mDef : target.pDef;
+          const mAuraBoost = isMagicMove
+            ? 1 + (enemyAuras.mDefAuraPct + ((target.mossWardTurns ?? 0) > 0 ? 12 : 0)) / 100
+            : 1;
+          const rawDef = (isMagicMove ? target.mDef : target.pDef) * mAuraBoost;
           const defVal = target.statuses.some((s) => s.kind === "def_down") ? Math.round(rawDef * 0.75) : rawDef;
-          let dmg = Math.max(2, Math.round(baseOffense * 1.45 - defVal * 0.52));
-          if (target.guarding) {
-            const mit = 0.5 - Math.min(0.2, target.mods.guardMitigationPct / 100);
-            dmg = Math.max(1, Math.round(dmg * mit));
+          let dmg = computeEnemyStrikeDamage({
+            atk: enemy.atk,
+            mag: enemy.mag,
+            isMagicMove,
+            movePower: pickedAction.power,
+            offenseMul,
+            defVal,
+            guarding: target.guarding,
+            guardMitigationPct: target.mods.guardMitigationPct,
+            hasWard: target.statuses.some((s) => s.kind === "ward"),
+            hasChillBonus:
+              target.statuses.some((s) => s.kind === "chill") &&
+              /frost|lightning/i.test(pickedAction.damageType ?? ""),
+          });
+          if (isAoe && enemyAuras.aoeDamageReductionPct > 0) {
+            dmg = Math.max(1, Math.round(dmg * (1 - enemyAuras.aoeDamageReductionPct / 100)));
           }
-          if (target.statuses.some((s) => s.kind === "ward")) {
+          if (!isMagicMove && tp.meleeDamageTakenReductionPct > 0) {
+            dmg = Math.max(1, Math.round(dmg * (1 - tp.meleeDamageTakenReductionPct / 100)));
+          }
+          if (tp.aboveHalfHpMitigationPct > 0 && target.curHp / Math.max(1, target.maxHp) > 0.5) {
+            dmg = Math.max(1, Math.round(dmg * (1 - tp.aboveHalfHpMitigationPct / 100)));
+          }
+          if (
+            isMagicMove &&
+            target.adaptiveTurns &&
+            target.adaptiveTurns > 0 &&
+            target.adaptiveElement === (pickedAction.damageType ?? "Arcane")
+          ) {
+            dmg = Math.max(1, Math.round(dmg * (1 - (target.adaptiveReductionPct ?? 0) / 100)));
+          }
+          if (isMagicMove && tp.plagueShadowResistPct > 0 && /poison|shadow/i.test(pickedAction.damageType ?? "")) {
+            dmg = Math.max(1, Math.round(dmg * (1 - tp.plagueShadowResistPct / 100)));
+          }
+          const lowestHeroPct = Math.min(...livingHeroes.map((h) => h.curHp / Math.max(1, h.maxHp)));
+          if (
+            target.curHp / Math.max(1, target.maxHp) <= lowestHeroPct + 0.02 &&
+            livingHeroes.some((h) => h.guarding && h.guardShieldWall && h.heroId !== target.heroId)
+          ) {
             dmg = Math.max(1, Math.round(dmg * 0.75));
           }
-          dmg = Math.max(1, Math.round(dmg * (0.92 + Math.random() * 0.16)));
 
-          if (target.curHp - dmg <= 0 && target.statuses.some((s) => s.kind === "undying")) {
+          // Split with Interceptor (Orin Unbroken Wall / Vow of Protection / Valen Royal Intercept / Martyr Runestone)
+          const interceptor = !isAoe ? interceptPlan.interceptor : null;
+          let targetDmg = interceptor ? Math.max(1, Math.round(dmg * interceptPlan.interceptKeepRatio)) : dmg;
+          if (interceptor) {
+            const takeDmg = Math.max(1, Math.round(dmg * (1 - interceptPlan.interceptKeepRatio) * 0.85));
+            const iEl = heroElRefs.current.get(interceptor.heroId);
+            const iShield = absorbWithWardShield(interceptor, takeDmg);
+            interceptor.curHp = Math.max(1, interceptor.curHp - iShield.hpDmg);
+            await playVfxAtElement(iEl, "guard", `INTERCEPT -${takeDmg}`, "text-[#ffd878]", false);
+          }
+
+          const shielded = absorbWithWardShield(target, targetDmg);
+          const hpHit = shielded.hpDmg;
+          const prevPct = target.curHp / Math.max(1, target.maxHp);
+
+          if (target.curHp - hpHit <= 0 && target.statuses.some((s) => s.kind === "undying")) {
             target.statuses = target.statuses.filter((s) => s.kind !== "undying");
             target.curHp = Math.max(1, Math.round(target.maxHp * 0.2));
             await playVfxAtElement(hEl, "revive", "UNDYING!", "text-[#fff0ad]", false);
+          } else if (target.curHp - hpHit <= 0 && !target.unbreakableUsed && tp.unbreakableWardPct > 0) {
+            target.unbreakableUsed = true;
+            target.curHp = 1;
+            if (target.heroId === "orin") {
+              for (const ally of b.heroes) {
+                if (ally.curHp > 0) grantWardShield(ally, tp.unbreakableWardPct);
+              }
+            } else {
+              grantWardShield(target, tp.unbreakableWardPct);
+            }
+            await playVfxAtElement(hEl, "guard", "UNBREAKABLE!", "text-[#9de6ff]", false);
           } else {
-            target.curHp = Math.max(0, target.curHp - dmg);
+            target.curHp = Math.max(0, target.curHp - hpHit);
             if (target.curHp <= 0) target.statuses = [];
-            await playVfxAtElement(hEl, vfxKey, `-${dmg}`, target.guarding ? "text-[#ffd878]" : "text-[#ff8e6e]", false);
+            const txt =
+              shielded.absorbed > 0 && hpHit === 0 ? `🛡 -${shielded.absorbed}` : `-${hpHit}`;
+            await playVfxAtElement(hEl, vfxKey, txt, target.guarding ? "text-[#ffd878]" : "text-[#ff8e6e]", false);
           }
 
-          if (target.statuses.some((s) => s.kind === "reflect") && enemy.curHp > 0) {
-            const reflectDmg = Math.max(1, Math.round(dmg * 0.25));
+          // Adaptive Barrier Runestone
+          if (isMagicMove && tp.runestoneAdaptiveMaxPct > 0 && target.curHp > 0) {
+            target.adaptiveElement = pickedAction.damageType ?? "Arcane";
+            target.adaptiveReductionPct = tp.runestoneAdaptiveMaxPct;
+            target.adaptiveTurns = 2;
+          }
+
+          // Orin Sacred Resilience (<35% HP once/battle heal 15% + cleanse 1 + 12% Ward Shield)
+          if (target.curHp > 0 && prevPct >= 0.35 && target.curHp / Math.max(1, target.maxHp) < 0.35 && tp.sacredResilience && !target.sacredResilienceUsed) {
+            target.sacredResilienceUsed = true;
+            const badIdx = target.statuses.findIndex((s) => !STATUS_UI_META[s.kind].isBuff);
+            if (badIdx >= 0) target.statuses.splice(badIdx, 1);
+            const resHeal = Math.max(1, Math.round(target.maxHp * 0.15));
+            target.curHp = Math.min(target.maxHp, target.curHp + resHeal);
+            grantWardShield(target, 12);
+            await playVfxAtElement(hEl, "heal_single", `SACRED +${resHeal}`, "text-[#9de6ff]", false);
+          }
+
+          if (target.curHp > 0 && tp.battleWrathPerHitPct > 0) {
+            target.battleWrathStacks = Math.min(4, (target.battleWrathStacks ?? 0) + 1);
+          }
+          if (target.curHp > 0 && tp.bluntingEnemyAtkDown && enemy.curHp > 0) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "atk_down", 1);
+          }
+
+          // Reflect / Retaliate / Thorns
+          const reflectTotalPct =
+            (target.statuses.some((s) => s.kind === "reflect") ? 25 : 0) +
+            (!isMagicMove ? tp.runestoneRetaliateMeleePct : 0);
+          if (reflectTotalPct > 0 && enemy.curHp > 0) {
+            const reflectDmg = Math.max(1, Math.round((targetDmg * reflectTotalPct) / 100));
             enemy.curHp = Math.max(0, enemy.curHp - reflectDmg);
+            if (!isMagicMove && tp.runestoneRetaliateBatteredGuard && target.curHp / Math.max(1, target.maxHp) < 0.5 && enemy.guardCur > 0) {
+              enemy.guardCur = Math.max(0, enemy.guardCur - 1);
+              if (enemy.guardCur === 0) enemy.staggeredTurns = 1;
+            }
             await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), "radiant", `${reflectDmg} REFLECT`, "text-[#c2c9ff]", true);
+          }
+
+          // Valen Duelist's Riposte OR Resolve <25% HP Automatic Counterstrike
+          const canValenCounter =
+            !isMagicMove &&
+            target.curHp > 0 &&
+            enemy.curHp > 0 &&
+            !target.riposteUsedThisRound &&
+            !target.statuses.some((s) => s.kind === "stun") &&
+            (tp.riposteEachRound || (target.heroId === "valen" && target.curHp / Math.max(1, target.maxHp) <= 0.25));
+          if (canValenCounter) {
+            target.riposteUsedThisRound = true;
+            const riposteSpec = { ...buildHeroWeaponActions(target)[0], power: 0.55 };
+            const ripRes = computeDamageOnEnemy(target, riposteSpec, enemy, undefined, {
+              allHeroes: b.heroes,
+              livingEnemiesCount: b.enemies.filter((e) => e.curHp > 0).length,
+            });
+            enemy.curHp = Math.max(0, enemy.curHp - ripRes.damage);
+            await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), riposteSpec.vfxKey, `${ripRes.damage} COUNTER!`, "text-[#ffe066]", false);
           }
 
           if (
@@ -569,7 +897,13 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
             pickedAction.inflictStatus &&
             Math.random() < (pickedAction.inflictChance ?? 0.55)
           ) {
-            target.statuses = upsertStatusEffect(target.statuses, pickedAction.inflictStatus, pickedAction.inflictTurns ?? 2);
+            const effResist =
+              target.statusResistPct +
+              enemyAuras.wardRootResistPct +
+              (pickedAction.inflictStatus === "stun" || pickedAction.inflictStatus === "curse" ? tp.stunCurseResistPct : 0);
+            if (Math.random() * 100 >= Math.min(88, effResist)) {
+              target.statuses = upsertStatusEffect(target.statuses, pickedAction.inflictStatus, pickedAction.inflictTurns ?? 2);
+            }
           }
         })
       );
@@ -579,7 +913,8 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       }
 
       setLungingEnemyId(null);
-      enemy.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(enemy.speed, enemy.statuses), 1.0);
+      enemy.actedThisRound = true;
+      onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
       await waitMs(240);
       enemyTurnLockRef.current = false;
       await advanceNextTurn(b);
@@ -603,7 +938,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     const activeHeroId = b.activeActor.heroId;
     const hero = b.heroes.find((h) => h.heroId === activeHeroId);
     if (!hero || hero.curHp <= 0) return;
-    if (action.mpCost > hero.curMp) return;
+    if (action.disabledReason || action.mpCost > hero.curMp) return;
 
     busyRef.current = true;
     b.phase = "animating";
@@ -618,23 +953,70 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         forceRefresh();
         return;
       }
-      b.phase = "fled";
-      b.bannerText = "Party slipped away safely into the wilds.";
-      busyRef.current = false;
+      const livingHeroesCount = b.heroes.filter((h) => h.curHp > 0).length;
+      const escapeChance = Math.min(0.85, 0.62 + hero.dodgePct * 0.005 + (livingHeroesCount > 1 ? 0.05 : 0));
+      if (Math.random() < escapeChance) {
+        b.phase = "fled";
+        b.bannerText = `${hero.name} led the party safely out of battle!`;
+        audioEngine.playSfx("wind", 0.45);
+        busyRef.current = false;
+        forceRefresh();
+        setTimeout(() => {
+          if (mountedRef.current) onComplete(buildOutcomePayload("fled"));
+        }, 450);
+        return;
+      }
+      b.bannerText = `${hero.name} tried to break away, but the enemy blocked the escape!`;
       forceRefresh();
-      setTimeout(() => {
-        if (mountedRef.current) onComplete(buildOutcomePayload("fled"));
-      }, 450);
+      await playVfxAtElement(heroElRefs.current.get(hero.heroId), "wind", "BLOCKED!", "text-[#ffb085]", false);
+      hero.actedThisRound = true;
+      finishHeroTurnCooldowns(hero, action);
+      onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
+      await advanceNextTurn(b);
       return;
     }
 
     if (action.kind === "guard") {
       hero.guarding = true;
       hero.momentum = true;
+      const gp = hero.passives;
+      if (gp.guardDodgePct > 0) hero.guardDodgeBonusPct = gp.guardDodgePct;
+      if (gp.guardShieldWallLowestPct > 0) hero.guardShieldWall = true;
+      if (gp.guardNatureSpellPct > 0) hero.guardNatureEmpower = true;
+      if (gp.guardClearsBurnOrBleed) {
+        const rmIdx = hero.statuses.findIndex((s) => s.kind === "burn" || s.kind === "bleed");
+        if (rmIdx >= 0) hero.statuses.splice(rmIdx, 1);
+      }
+      if (gp.guardHealPct > 0 && hero.curHp > 0) {
+        const gHeal = Math.max(1, Math.round((hero.maxHp * gp.guardHealPct) / 100));
+        hero.curHp = Math.min(hero.maxHp, hero.curHp + gHeal);
+      }
+      const guardMp = (gp.wardOrGuardMpPct > 0 && hero.hasMp ? Math.round((hero.maxMp * gp.wardOrGuardMpPct) / 100) : 0) + gp.guardMpGain;
+      if (guardMp > 0 && hero.hasMp) hero.curMp = Math.min(hero.maxMp, hero.curMp + guardMp);
+      if (gp.guardSlamEnemy && hero.hasShield) {
+        const slamFoe = b.enemies.find((e) => e.curHp > 0 && e.guardCur > 0) ?? b.enemies.find((e) => e.curHp > 0);
+        if (slamFoe && slamFoe.guardCur > 0) {
+          slamFoe.guardCur = Math.max(0, slamFoe.guardCur - 1);
+          if (slamFoe.guardCur === 0) slamFoe.staggeredTurns = 1;
+          await playVfxAtElement(enemyElRefs.current.get(slamFoe.instanceId), "guard", "SHIELD SLAM!", "text-[#ffd878]", true);
+        }
+      }
+      if (gp.critiqueExposeDef || gp.regalCommandMark) {
+        const markFoe = b.enemies.find((e) => e.curHp > 0);
+        if (markFoe) {
+          if (gp.critiqueExposeDef) markFoe.statuses = upsertStatusEffect(markFoe.statuses, "def_down", 2);
+          if (gp.regalCommandMark) {
+            for (const x of b.enemies) x.markedByRegalCommand = false;
+            markFoe.markedByRegalCommand = true;
+          }
+        }
+      }
       b.bannerText = `${hero.name} braces behind Guard (+25% next strike Momentum)!`;
       forceRefresh();
       await playVfxAtElement(heroElRefs.current.get(hero.heroId), "guard", "GUARD", "text-[#b8d4ff]", false);
-      hero.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(hero.speed, hero.statuses), 0.72);
+      hero.actedThisRound = true;
+      finishHeroTurnCooldowns(hero, action);
+      onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
       await advanceNextTurn(b);
       return;
     }
@@ -665,24 +1047,33 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       action.targetScope === "all_allies" ||
       action.targetScope === "self"
     ) {
+      const primaryTarget =
+        action.targetScope === "dead_ally"
+          ? (b.heroes.find((h) => h.heroId === targetId && h.curHp <= 0) ?? b.heroes.find((h) => h.curHp <= 0))
+          : (b.heroes.find((h) => h.heroId === targetId && h.curHp > 0) ?? hero);
+      const secondTarget =
+        action.targetScope === "ally" && action.secondAlly && primaryTarget
+          ? pickSecondAllyForDualTarget(b.heroes, primaryTarget.heroId)
+          : null;
       const targets =
         action.targetScope === "all_allies"
           ? b.heroes.filter((h) => h.curHp > 0)
           : action.targetScope === "self"
             ? [hero]
-            : action.targetScope === "dead_ally"
-              ? [b.heroes.find((h) => h.heroId === targetId && h.curHp <= 0) ?? b.heroes.find((h) => h.curHp <= 0)].filter(
-                  (x): x is BattleHeroUnit => Boolean(x)
-                )
-              : [b.heroes.find((h) => h.heroId === targetId && h.curHp > 0) ?? hero];
+            : [primaryTarget, secondTarget].filter((x): x is BattleHeroUnit => Boolean(x));
 
       const resolve = getHeroResolveState(hero);
+      const hpCritMul = hero.passives.runestoneBatteredPowerPct > 0 && hero.curHp / Math.max(1, hero.maxHp) < 0.5
+        ? 1 + hero.passives.runestoneBatteredPowerPct / 100
+        : 1.0;
       await Promise.all(
         targets.map(async (ally) => {
           const hEl = heroElRefs.current.get(ally.heroId);
           if (action.revive && ally.curHp <= 0) {
-            ally.curHp = Math.max(1, Math.round(ally.maxHp * 0.45));
+            const revivePct = 0.45 + (hero.passives.quickeningBalmBonusPct ?? 0) / 100;
+            ally.curHp = Math.max(1, Math.round(ally.maxHp * revivePct));
             ally.statuses = [];
+            if (hero.passives.quickeningBalmWardPct > 0) grantWardShield(ally, hero.passives.quickeningBalmWardPct);
             if (action.grantStatus) {
               ally.statuses = upsertStatusEffect(ally.statuses, action.grantStatus.kind, action.grantStatus.turns);
             }
@@ -692,15 +1083,37 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           let playedFx = false;
           if (action.cleanse) {
             ally.statuses = ally.statuses.filter((s) => STATUS_UI_META[s.kind].isBuff);
+            if (hero.passives.smellingSaltCleanseBuff) {
+              ally.statuses = upsertStatusEffect(ally.statuses, "haste", 2);
+              if (hero.hasMp) hero.curMp = Math.min(hero.maxMp, hero.curMp + 5);
+            }
           }
           if (action.grantStatus) {
-            ally.statuses = upsertStatusEffect(ally.statuses, action.grantStatus.kind, action.grantStatus.turns);
+            let gTurns = action.grantStatus.turns;
+            if (action.grantStatus.kind === "ward") gTurns += hero.passives.wardExtraTurn;
+            if (action.grantStatus.kind === "regen") {
+              gTurns += hero.passives.regenExtraTurn;
+              if (hero.passives.purifyingDewCleanses) {
+                ally.statuses = ally.statuses.filter((s) => s.kind !== "bleed" && s.kind !== "poison");
+              }
+            }
+            ally.statuses = upsertStatusEffect(ally.statuses, action.grantStatus.kind, gTurns);
+            if (action.grantStatus.kind === "ward") {
+              grantWardShield(ally, 12);
+              if (hero.passives.wardOrGuardMpPct > 0 && hero.hasMp) {
+                hero.curMp = Math.min(hero.maxMp, hero.curMp + Math.round((hero.maxMp * hero.passives.wardOrGuardMpPct) / 100));
+              }
+            }
+          }
+          if (action.empowerNextSpell) {
+            hero.nextSpellEmpower = true;
           }
           if (action.grantMomentum) {
             ally.momentum = true;
           }
           if (action.restoreMp && ally.hasMp) {
-            const mpGain = Math.max(8, Math.round(ally.maxMp * (action.restoreMp / 100)));
+            const mpMult = action.kind === "item" ? 1 + hero.passives.potionBonusPct / 100 : 1;
+            const mpGain = Math.max(8, Math.round(ally.maxMp * (action.restoreMp / 100) * mpMult));
             ally.curMp = Math.min(ally.maxMp, ally.curMp + mpGain);
             await playVfxAtElement(hEl, "mana", `+${mpGain} MP`, "text-[#7fc4ff]", false);
             playedFx = true;
@@ -708,12 +1121,28 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           if (action.healPower !== undefined) {
             const burned = ally.statuses.some((s) => s.kind === "burn");
             const cursedHeal = ally.statuses.some((s) => s.kind === "curse") ? 0.8 : 1.0;
+            const allyBelowHalf = ally.curHp / Math.max(1, ally.maxHp) < 0.5;
+            const triageMul = allyBelowHalf && hero.passives.triageHalfHpHealPct > 0 ? 1 + hero.passives.triageHalfHpHealPct / 100 : 1;
+            const emerMul = ally.curHp / Math.max(1, ally.maxHp) < 0.3 && hero.passives.emergencyHealHalfMp30Pct > 0 ? 1 + hero.passives.emergencyHealHalfMp30Pct / 100 : 1;
+            const potMul = action.kind === "item" ? 1 + hero.passives.potionBonusPct / 100 : 1;
             const rawHeal =
               action.kind === "item"
-                ? Math.max(15, Math.round(ally.maxHp * action.healPower))
-                : Math.max(18, Math.round((12 + hero.heal) * 1.45 * action.healPower * resolve.healMul));
+                ? Math.max(15, Math.round(ally.maxHp * action.healPower * potMul))
+                : Math.max(18, Math.round((12 + hero.heal) * 1.45 * action.healPower * resolve.healMul * hpCritMul * triageMul * emerMul));
             const finalHeal = Math.max(1, Math.round(rawHeal * (burned ? 0.75 : 1.0) * cursedHeal));
+            const preHp = ally.curHp;
             ally.curHp = Math.min(ally.maxHp, ally.curHp + finalHeal);
+            const overheal = preHp + finalHeal - ally.curHp;
+            if (overheal > 0 && ally.passives.overflowShieldMaxPct > 0) {
+              grantWardShield(ally, Math.min(ally.passives.overflowShieldMaxPct, Math.round((overheal / Math.max(1, ally.maxHp)) * 100)));
+            }
+            if (allyBelowHalf && hero.passives.protectiveSalveWardPct > 0) {
+              grantWardShield(ally, hero.passives.protectiveSalveWardPct);
+            }
+            if (hero.passives.mossWardTurns > 0) ally.mossWardTurns = Math.max(ally.mossWardTurns ?? 0, hero.passives.mossWardTurns);
+            if (action.targetScope === "all_allies" && hero.passives.masterPanaceaResistBuff) {
+              ally.statuses = upsertStatusEffect(ally.statuses, "immunity", 2);
+            }
             await playVfxAtElement(hEl, action.vfxKey, `+${finalHeal}`, "text-[#79f2a5]", false);
             playedFx = true;
           }
@@ -730,17 +1159,37 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         })
       );
 
+      // Mera Lv90 Lifebloom Surge: once/battle single heal spreads 40% healing + Regen to all other living allies
+      if (action.kind === "spell" && action.healPower !== undefined && action.targetScope === "ally" && hero.passives.lifebloomSurgeOnce && !hero.lifebloomUsed && primaryTarget) {
+        hero.lifebloomUsed = true;
+        const spreadHeal = Math.max(8, Math.round((12 + hero.heal) * 1.45 * action.healPower * 0.4));
+        for (const extra of b.heroes) {
+          if (extra.curHp > 0 && extra.heroId !== primaryTarget.heroId) {
+            extra.curHp = Math.min(extra.maxHp, extra.curHp + spreadHeal);
+            extra.statuses = upsertStatusEffect(extra.statuses, "regen", 2 + hero.passives.regenExtraTurn);
+          }
+        }
+      }
+
       if (!action.grantMomentum || (action.targetScope !== "self" && !targets.some((t) => t.heroId === hero.heroId))) {
         hero.momentum = false;
       }
       setLungingHeroId(null);
-      hero.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(hero.speed, hero.statuses), action.delayPct);
+      if (action.grantBonusTurn && !hero.bonusTurnUsedThisBattle && !hero.bonusTurnUsedThisRound) {
+        hero.bonusTurnUsedThisBattle = true;
+        hero.bonusTurnUsedThisRound = true;
+        hero.actedThisRound = false;
+      } else {
+        hero.actedThisRound = true;
+        finishHeroTurnCooldowns(hero, action);
+      }
+      onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
       await waitMs(180);
       await advanceNextTurn(b);
       return;
     }
 
-    // Offensive Attack / Spell against Enemy / All Enemies
+    // Offensive Attack / Spell against Enemy / All Enemies / Neighbor Splash
     const livingEnemies = b.enemies.filter((e) => e.curHp > 0);
     const enemyTargets =
       action.targetScope === "all_enemies"
@@ -749,55 +1198,318 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
             (x): x is BattleEnemyUnit => Boolean(x)
           );
 
+    const splashRate = action.targetScope === "enemy" && action.splashPct ? action.splashPct : 0;
+    const hitEntries: Array<{ enemy: BattleEnemyUnit; act: BattleActionSpec; isSplash: boolean }> = [];
+    if (splashRate > 0 && enemyTargets[0]) {
+      const primary = enemyTargets[0];
+      hitEntries.push({ enemy: primary, act: action, isSplash: false });
+      for (const nb of getAdjacentEnemies(primary, livingEnemies)) {
+        hitEntries.push({
+          enemy: nb,
+          act: {
+            ...action,
+            power: action.power * splashRate,
+            guardChip: undefined,
+            inflictStatus: undefined,
+          },
+          isSplash: true,
+        });
+      }
+    } else {
+      for (const enemy of enemyTargets) {
+        hitEntries.push({ enemy, act: action, isSplash: false });
+      }
+    }
+
     const isHeroBlinded = action.kind === "attack" && hero.statuses.some((s) => s.kind === "blind");
+    const heroAccOffset = Math.min(0.18, (hero.passives.accuracyBonusPct + (hero.hasShield ? hero.passives.shieldAccuracyPct : 0)) / 100);
+    const isModeB = Boolean((action.cooldownTurns ?? 0) > 0);
+    let anyLandedCrit = false;
+    let totalOffensiveDamage = 0;
+
     await Promise.all(
-      enemyTargets.map(async (enemy) => {
-        if (isHeroBlinded && Math.random() < 0.22) {
+      hitEntries.map(async ({ enemy, act, isSplash }) => {
+        if (isHeroBlinded && Math.random() < Math.max(0.05, 0.22 - heroAccOffset)) {
           await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), "wind", "MISS", "text-[#8be9ff]", false);
           return;
         }
-        const res = computeDamageOnEnemy(hero, action, enemy);
-        enemy.curHp = Math.max(0, enemy.curHp - res.damage);
+        const res = computeDamageOnEnemy(hero, act, enemy, undefined, {
+          allHeroes: b.heroes,
+          livingEnemiesCount: livingEnemies.length,
+          isModeB,
+        });
+        const totalHit = res.damage + res.detonateDotDmg;
+        enemy.curHp = Math.max(0, enemy.curHp - totalHit);
+        totalOffensiveDamage += totalHit;
+        if (res.isCrit) anyLandedCrit = true;
+        if (res.isCrit && hero.passives.critGainMomentum) hero.momentum = true;
 
-        if (action.targetDelayPush) {
-          enemy.timelinePos += action.targetDelayPush * 0.45;
-        }
-        if (action.stripEnemyBuffs && enemy.curHp > 0) {
-          enemy.statuses = enemy.statuses.filter((s) => !STATUS_UI_META[s.kind].isBuff);
-        }
-        if (action.inflictStatus && enemy.curHp > 0 && Math.random() < (action.inflictChance ?? 0.75)) {
-          enemy.statuses = upsertStatusEffect(enemy.statuses, action.inflictStatus, action.inflictTurns ?? 2);
-          if (action.inflictStatus === "shock" && enemy.telegraphedMove) {
-            enemy.telegraphedMove = null;
+        if (!isSplash) {
+          if (hero.heroId === "orin") enemy.struckThisRoundByOrin = true;
+          if (hero.passives.regalCommandMark) {
+            for (const x of b.enemies) x.markedByRegalCommand = false;
+            enemy.markedByRegalCommand = true;
+          }
+          if (hero.passives.critiqueExposeDef || hero.passives.spotterExposeDef) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "def_down", 2);
           }
         }
+
+        const stripChance = act.stripEnemyBuffs
+          ? 1.0
+          : (act.damageType.toLowerCase().includes("radiant") ? hero.passives.radiantStripBuffChance : 0) ||
+            (isModeB && hero.passives.modeBBlindsAndStrips ? 0.6 : 0) ||
+            (["Longbow", "Shortbow"].includes(hero.weaponSubType) && act.kind === "attack" ? hero.passives.bowSeverBuffChance : 0) ||
+            (res.isCrit && hero.passives.runestoneHallowedCritStrip ? 1.0 : 0);
+        if (!isSplash && stripChance > 0 && enemy.curHp > 0 && Math.random() < stripChance) {
+          enemy.statuses = enemy.statuses.filter((s) => !STATUS_UI_META[s.kind].isBuff);
+        }
+
+        const alreadyPoisoned = enemy.statuses.some((s) => s.kind === "poison");
+        if (!isSplash && act.inflictStatus && enemy.curHp > 0 && Math.random() < (act.inflictChance ?? 0.75)) {
+          const appliedKind =
+            act.inflictStatus === "stun" && enemy.isBoss && act.effectText.toLowerCase().includes("chill on bosses")
+              ? "chill"
+              : act.inflictStatus;
+          if (!(appliedKind === "stun" && enemy.isBoss && act.effectText.toLowerCase().includes("non-bosses"))) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, appliedKind, act.inflictTurns ?? 2);
+            if (appliedKind === "bleed" && hero.passives.corrosiveThornsDefDown) {
+              enemy.statuses = upsertStatusEffect(enemy.statuses, "def_down", 2);
+            }
+            if (appliedKind === "poison" && alreadyPoisoned && hero.passives.toxicRuptureOnPoisoned) {
+              const burst = Math.max(8, Math.round(enemy.maxHp * 0.08));
+              enemy.curHp = Math.max(0, enemy.curHp - burst);
+              await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), "poison_acid", `${burst} RUPTURE!`, "text-[#b4f285]", false);
+            }
+            if (appliedKind === "shock" && enemy.telegraphedMove) {
+              enemy.telegraphedMove = null;
+            }
+          }
+        }
+
+        // Extra Discipline & Runestone status effects on hit
+        if (!isSplash && enemy.curHp > 0) {
+          if (act.specialTag === "double_dot") enemy.rotCloudDoubleTurns = 2;
+          if (act.kind === "spell" && act.damageType.toLowerCase().includes("frost") && hero.passives.frostStunOrWeaken && Math.random() < 0.25) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, enemy.isBoss ? "atk_down" : "stun", 1);
+          }
+          if (res.isCrit && act.kind === "attack" && hero.passives.critInflictsBleedTurns > 0) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "bleed", hero.passives.critInflictsBleedTurns);
+          }
+          if (act.kind === "attack" && hero.passives.coatedEdgePoisonChance > 0 && Math.random() < hero.passives.coatedEdgePoisonChance) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "poison", 2);
+          }
+          if (act.kind === "attack" && !isModeB && hero.passives.lightModeBlinds) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "blind", 2);
+          }
+          if (act.kind === "attack" && !isModeB && hero.passives.lightModeBleed && Math.random() < 0.4) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "bleed", 2);
+          }
+          if (act.kind === "attack" && hero.weaponSubType === "Light Crossbow" && hero.passives.crossbowBlinds) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "blind", 2);
+          }
+          if (act.kind === "attack" && isModeB && hero.passives.modeBBlindsAndStrips) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "blind", 2);
+          }
+          if (act.kind === "attack" && isModeB && hero.passives.modeBStunChance > 0 && Math.random() < hero.passives.modeBStunChance) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, enemy.isBoss ? "atk_down" : "stun", 1);
+          }
+          if (act.kind === "attack" && hero.passives.runestoneChillOnHit) {
+            enemy.statuses = upsertStatusEffect(enemy.statuses, "chill", 2);
+          }
+          if (hero.passives.creepingBriarsSpreadChance > 0 && (act.inflictStatus === "bleed" || hero.passives.lightModeBleed)) {
+            const other = livingEnemies.find((o) => o.instanceId !== enemy.instanceId && o.curHp > 0);
+            if (other && Math.random() < hero.passives.creepingBriarsSpreadChance) {
+              other.statuses = upsertStatusEffect(other.statuses, "bleed", 2);
+            }
+          }
+        }
+
         if (hero.mods.lifestealPct > 0 && hero.curHp > 0) {
-          const healAmt = Math.max(1, Math.round((res.damage * hero.mods.lifestealPct) / 100));
+          const healAmt = Math.max(1, Math.round((totalHit * hero.mods.lifestealPct) / 100));
           hero.curHp = Math.min(hero.maxHp, hero.curHp + healAmt);
         }
-        if (action.restoreMp && hero.hasMp) {
-          hero.curMp = Math.min(hero.maxMp, hero.curMp + action.restoreMp);
+        if (!isSplash && hero.passives.runestoneSiphonMpPerHit > 0 && hero.hasMp) {
+          const bonusMult = res.isWeak || res.isCrit ? 2 : 1;
+          hero.curMp = Math.min(hero.maxMp, hero.curMp + hero.passives.runestoneSiphonMpPerHit * bonusMult);
+        }
+        if (!isSplash && act.restoreMp && hero.hasMp) {
+          hero.curMp = Math.min(hero.maxMp, hero.curMp + act.restoreMp);
         }
 
         const label = res.triggeredStagger
-          ? `${res.damage}! STAGGER`
+          ? `${totalHit}! STAGGER`
           : res.isCrit
-            ? `${res.damage}!`
-            : res.isWeak
-              ? `${res.damage} WEAK`
-              : `${res.damage}`;
-        const cls = res.isCrit ? "text-[#ffe066] text-[22px]" : res.isWeak ? "text-[#ffa65c]" : res.isResist ? "text-[#9cb0cc]" : "text-[#ff8e6e]";
-        await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), action.vfxKey, label, cls, true);
+            ? `${totalHit}!`
+            : isSplash
+              ? `${totalHit} CLEAVE`
+              : res.isWeak
+                ? `${totalHit} WEAK`
+                : `${totalHit}`;
+        const cls = res.isCrit ? "text-[#ffe066] text-[22px]" : res.isWeak ? "text-[#ffa65c]" : isSplash ? "text-[#ffd294]" : res.isResist ? "text-[#9cb0cc]" : "text-[#ff8e6e]";
+        await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), act.vfxKey, label, cls, !isSplash);
+
+        // Secondary bounce / cleave / elemental splash / Radiant echo
+        if (!isSplash) {
+          const otherAlive = b.enemies.filter((e) => e.curHp > 0 && e.instanceId !== enemy.instanceId);
+          if (otherAlive.length > 0) {
+            const randOther = otherAlive[Math.floor(Math.random() * otherAlive.length)];
+            if (act.kind === "attack" && hero.passives.cleaveSecondEnemyPct > 0 && ["Longsword", "Greatsword", "Scimitar"].includes(hero.weaponSubType)) {
+              const cDmg = Math.max(1, Math.round((totalHit * hero.passives.cleaveSecondEnemyPct) / 100));
+              randOther.curHp = Math.max(0, randOther.curHp - cDmg);
+              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "slashing_heavy", `${cDmg} CLEAVE`, "text-[#ffd294]", false);
+            }
+            if (res.isCrit && act.kind === "attack" && hero.passives.critBouncePct > 0) {
+              const bDmg = Math.max(1, Math.round((totalHit * hero.passives.critBouncePct) / 100));
+              randOther.curHp = Math.max(0, randOther.curHp - bDmg);
+              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "piercing_arrow", `${bDmg} RICOCHET`, "text-[#ffd294]", false);
+            }
+            if (act.kind === "attack" && hero.passives.runestoneSplash35Burn) {
+              const sDmg = Math.max(1, Math.round(totalHit * 0.35));
+              randOther.curHp = Math.max(0, randOther.curHp - sDmg);
+              randOther.statuses = upsertStatusEffect(randOther.statuses, "burn", 2);
+              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "fire_single", `${sDmg} BLAZE`, "text-[#ffab85]", false);
+            }
+            if (act.kind === "attack" && hero.passives.runestoneArcChainShock) {
+              const aDmg = Math.max(1, Math.round(totalHit * 0.3));
+              randOther.curHp = Math.max(0, randOther.curHp - aDmg);
+              randOther.statuses = upsertStatusEffect(randOther.statuses, "shock", 2);
+              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "lightning_single", `${aDmg} ARC`, "text-[#ffe885]", false);
+            }
+            if (hero.passives.vaporShatterPoisonSplashPct > 0 && act.damageType.toLowerCase().includes("poison") && act.targetScope === "enemy") {
+              const vDmg = Math.max(1, Math.round((totalHit * hero.passives.vaporShatterPoisonSplashPct) / 100));
+              randOther.curHp = Math.max(0, randOther.curHp - vDmg);
+              randOther.statuses = upsertStatusEffect(randOther.statuses, "poison", 2);
+              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "poison_acid", `${vDmg} VAPOR`, "text-[#b4f285]", false);
+            }
+          }
+          if (act.kind === "spell" && act.targetScope === "enemy" && hero.passives.singleSpellEchoRadiantPct > 0 && enemy.curHp > 0) {
+            const eDmg = Math.max(1, Math.round((totalHit * hero.passives.singleSpellEchoRadiantPct) / 100));
+            enemy.curHp = Math.max(0, enemy.curHp - eDmg);
+            await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), "radiant", `${eDmg} ECHO`, "text-[#fff0ad]", false);
+          }
+        }
 
         if (enemy.curHp <= 0) {
           applyLootAndDropsForDefeatedEnemy(b, enemy, itemsCatalog);
+          if (hero.passives.critGainMomentum) hero.momentum = true;
         }
       })
     );
 
+    // Siphon & Spell Multi-Target Refunds + Gale Canopy Wind Dodge + Single-Use Resets
+    if (action.kind === "spell") {
+      hero.nextSpellEmpower = false;
+      hero.guardNatureEmpower = false;
+      if (action.siphonHpPct && totalOffensiveDamage > 0 && hero.curHp > 0) {
+        const sHp = Math.max(1, Math.round(totalOffensiveDamage * action.siphonHpPct));
+        hero.curHp = Math.min(hero.maxHp, hero.curHp + sHp);
+        await playVfxAtElement(heroElRefs.current.get(hero.heroId), "heal_single", `+${sHp}`, "text-[#79f2a5]", false);
+      }
+      if (action.siphonMpPct && totalOffensiveDamage > 0 && hero.hasMp) {
+        const sMp = Math.max(2, Math.round(totalOffensiveDamage * action.siphonMpPct));
+        hero.curMp = Math.min(hero.maxMp, hero.curMp + sMp);
+      }
+      if (action.siphonPartyHpPct && totalOffensiveDamage > 0) {
+        const pHeal = Math.max(4, Math.round(totalOffensiveDamage * action.siphonPartyHpPct));
+        for (const a of b.heroes) {
+          if (a.curHp > 0) a.curHp = Math.min(a.maxHp, a.curHp + pHeal);
+        }
+      }
+      if (hero.passives.multiSpellMpRefundPct > 0 && action.targetScope === "all_enemies" && action.mpCost > 0) {
+        hero.curMp = Math.min(hero.maxMp, hero.curMp + Math.max(1, Math.round((action.mpCost * hero.passives.multiSpellMpRefundPct) / 100)));
+      }
+      if (hero.passives.galeWindPartyDodgePct > 0 && /wind|gale|lightning|tempest/i.test(`${action.name} ${action.damageType}`)) {
+        b.galeCanopyDodgeTurns = 1;
+      }
+    }
+    hero.firstStrikeUsed = true;
+
+    // Sweeping clean dead allies/enemies check & Echoing / Twin-Nock / Seize the Opening / Covering Volley
+    const postAliveEnemies = b.enemies.filter((e) => e.curHp > 0);
+    if (action.kind === "attack" && action.targetScope === "enemy" && postAliveEnemies.length > 0) {
+      const targetEcho = postAliveEnemies.find((e) => e.instanceId === targetId) ?? postAliveEnemies[0];
+      const twinChance =
+        (["Longbow", "Shortbow"].includes(hero.weaponSubType) ? hero.passives.bowTwinShotChance : 0) +
+        hero.passives.runestoneEchoAttackChance;
+      if (twinChance > 0 && Math.random() < twinChance && targetEcho.curHp > 0) {
+        const echoSpec = { ...action, power: action.power * 0.5, cooldownTurns: 0 };
+        const echoRes = computeDamageOnEnemy(hero, echoSpec, targetEcho, undefined, { allHeroes: b.heroes });
+        targetEcho.curHp = Math.max(0, targetEcho.curHp - echoRes.damage);
+        await playVfxAtElement(enemyElRefs.current.get(targetEcho.instanceId), echoSpec.vfxKey, `${echoRes.damage} ECHO!`, "text-[#ffd294]", false);
+        if (targetEcho.curHp <= 0) applyLootAndDropsForDefeatedEnemy(b, targetEcho, itemsCatalog);
+      }
+    }
+
+    if (hero.passives.seizeOpeningOnce && !hero.seizeOpeningUsed) {
+      const killedSomeone = enemyTargets.some((t) => t.curHp <= 0);
+      const nextFoe = b.enemies.find((e) => e.curHp > 0);
+      if (nextFoe && (killedSomeone || livingEnemies.length === 1)) {
+        hero.seizeOpeningUsed = true;
+        const seizeSpec = { ...action, power: action.power * 0.5, cooldownTurns: 0 };
+        const seizeRes = computeDamageOnEnemy(hero, seizeSpec, nextFoe, undefined, { allHeroes: b.heroes });
+        nextFoe.curHp = Math.max(0, nextFoe.curHp - seizeRes.damage);
+        await playVfxAtElement(enemyElRefs.current.get(nextFoe.instanceId), seizeSpec.vfxKey, `${seizeRes.damage} SEIZE!`, "text-[#ffe066]", false);
+        if (nextFoe.curHp <= 0) applyLootAndDropsForDefeatedEnemy(b, nextFoe, itemsCatalog);
+      }
+    }
+
+    if (anyLandedCrit) {
+      const rowanAlly = b.heroes.find(
+        (h) => h.curHp > 0 && h.heroId !== hero.heroId && h.passives.coveringVolleyOnceRound && !h.coveringVolleyUsedThisRound
+      );
+      const volleyTarget = b.enemies.find((e) => e.curHp > 0);
+      if (rowanAlly && volleyTarget) {
+        rowanAlly.coveringVolleyUsedThisRound = true;
+        const volSpec = { ...buildHeroWeaponActions(rowanAlly)[0], power: 0.6, damageType: "Piercing" };
+        const volRes = computeDamageOnEnemy(rowanAlly, volSpec, volleyTarget, undefined, { allHeroes: b.heroes });
+        volleyTarget.curHp = Math.max(0, volleyTarget.curHp - volRes.damage);
+        await playVfxAtElement(enemyElRefs.current.get(volleyTarget.instanceId), "piercing_arrow", `${volRes.damage} COVER!`, "text-[#ffe066]", false);
+        if (volleyTarget.curHp <= 0) applyLootAndDropsForDefeatedEnemy(b, volleyTarget, itemsCatalog);
+      }
+    }
+
     hero.momentum = false;
+    if (action.kind === "attack") {
+      const offhandAct = buildDualWieldFollowupAction(hero);
+      const offhandTarget = enemyTargets[0];
+      if (offhandAct && offhandTarget && offhandTarget.curHp > 0) {
+        await waitMs(130);
+        if (isHeroBlinded && Math.random() < 0.22) {
+          await playVfxAtElement(enemyElRefs.current.get(offhandTarget.instanceId), "wind", "MISS", "text-[#8be9ff]", false);
+        } else {
+          audioEngine.playSfx(hero.offhandWeaponSubType ?? hero.weaponSubType, 0.48);
+          const ohRes = computeDamageOnEnemy(hero, offhandAct, offhandTarget, hero.offhandAtk);
+          offhandTarget.curHp = Math.max(0, offhandTarget.curHp - ohRes.damage);
+          if (hero.mods.lifestealPct > 0 && hero.curHp > 0) {
+            const healAmt = Math.max(1, Math.round((ohRes.damage * hero.mods.lifestealPct) / 100));
+            hero.curHp = Math.min(hero.maxHp, hero.curHp + healAmt);
+          }
+          const ohLabel = ohRes.triggeredStagger
+            ? `${ohRes.damage}! STAGGER`
+            : ohRes.isCrit
+              ? `${ohRes.damage}! OFF-HAND`
+              : `${ohRes.damage} OFF-HAND`;
+          const ohCls = ohRes.isCrit ? "text-[#ffe066] text-[20px]" : ohRes.isWeak ? "text-[#ffa65c]" : "text-[#ffd294]";
+          await playVfxAtElement(enemyElRefs.current.get(offhandTarget.instanceId), offhandAct.vfxKey, ohLabel, ohCls, false);
+          if (offhandTarget.curHp <= 0) {
+            applyLootAndDropsForDefeatedEnemy(b, offhandTarget, itemsCatalog);
+          }
+        }
+      }
+    }
     setLungingHeroId(null);
-    hero.timelinePos += getTimeAdvanceForDelay(getEffectiveSpeed(hero.speed, hero.statuses), action.delayPct);
+    const grantedBonus = Boolean(action.grantBonusTurn && !hero.bonusTurnUsedThisBattle && !hero.bonusTurnUsedThisRound);
+    if (grantedBonus) {
+      hero.bonusTurnUsedThisBattle = true;
+      hero.bonusTurnUsedThisRound = true;
+      hero.actedThisRound = false;
+      await playVfxAtElement(heroElRefs.current.get(hero.heroId), "wind", "BONUS TURN!", "text-[#ffe066]", false);
+    } else {
+      hero.actedThisRound = true;
+      finishHeroTurnCooldowns(hero, action);
+    }
+    onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
     await waitMs(200);
     await advanceNextTurn(b);
   };
@@ -813,9 +1525,9 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
   const activeHeroId = b.phase === "player_turn" && b.activeActor.kind === "hero" ? b.activeActor.heroId : null;
   const activeHero = activeHeroId ? b.heroes.find((h) => h.heroId === activeHeroId) ?? null : null;
 
-  const timelinePips = previewTurnTimeline(b, 8);
+  const roundOrderPips = previewRoundOrder(b, 9);
   const weaponActions = activeHero ? buildHeroWeaponActions(activeHero) : [];
-  const spellBuckets = activeHero ? buildHeroSpellTierBuckets(activeHero, spells, learnedSpellIds) : new Map<number, BattleActionSpec[]>();
+  const spellBuckets = activeHero ? buildHeroSpellTierBuckets(activeHero, spells, learnedSpellIds, b.heroes) : new Map<number, BattleActionSpec[]>();
   const potionActions = buildCombatPotionActions(bagCounts, b.consumedPotions, itemsById);
   const magicTheme = activeHero ? HERO_MAGIC_THEMES[activeHero.heroId] : undefined;
 
@@ -832,7 +1544,6 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     damageType: "Physical",
     power: 0,
     critBonus: 0,
-    delayPct: 0.72,
     vfxKey: "guard",
     effectText: "Halves incoming damage until your next turn and grants Momentum (+25% damage on your next strike).",
   };
@@ -850,11 +1561,10 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     damageType: "Physical",
     power: 0,
     critBonus: 0,
-    delayPct: 1,
     vfxKey: "wind",
     effectText: b.isBossBattle
       ? "Cannot retreat from a Dimensional Portal Guardian."
-      : "Withdraw safely back onto Ethoria's map without losing items.",
+      : "Attempt to withdraw back onto Ethoria's map without losing items (~67% chance + Finesse/Dodge). Failing ends your turn while foes finish attacking.",
     disabledReason: b.isBossBattle ? "Boss Battle" : undefined,
   };
 
@@ -886,7 +1596,9 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         heroMpPct[h.heroId] = 100;
         heroXpEarned[h.heroId] = 0;
       } else {
-        heroHpPct[h.heroId] = h.curHp <= 0 ? 1 : Math.max(1, Math.min(100, Math.round((h.curHp / Math.max(1, h.maxHp)) * 100)));
+        const basePct = h.curHp <= 0 ? 1 : Math.max(1, Math.min(100, Math.round((h.curHp / Math.max(1, h.maxHp)) * 100)));
+        const vitHeal = result === "victory" && h.curHp > 0 ? h.passives.postBattleHealPct : 0;
+        heroHpPct[h.heroId] = Math.min(100, basePct + vitHeal);
         heroMpPct[h.heroId] = h.hasMp ? Math.max(0, Math.min(100, Math.round((h.curMp / Math.max(1, h.maxMp)) * 100))) : 100;
         heroXpEarned[h.heroId] = result === "victory" && h.curHp > 0 ? b.totalXpEarned : 0;
       }
@@ -942,18 +1654,25 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           <div className="battle-stage-vignette" />
         </div>
 
-        {/* 2. Top Turn Timeline & Prompt Banner */}
+        {/* 2. Top Round Order Strip & Prompt Banner */}
         <div className="battle-turn-bar">
-          {timelinePips.map((pip, idx) => (
-            <div
-              key={`${pip.id}_${idx}`}
-              className={`battle-turn-pip ${pip.kind === "enemy" ? "foe" : ""} ${pip.isActive ? "active" : ""}`}
-            >
-              <img src={assetUrl(pip.iconPath)} alt="" draggable={false} />
-              <span>{pip.name.split(" ")[0]}</span>
-              {pip.isTelegraphed && <span className="text-[#ff9c9c] font-black">!</span>}
-            </div>
-          ))}
+          <div className="battle-turn-pip round-break">Round {b.turnCounter}</div>
+          {roundOrderPips.map((pip, idx) =>
+            pip.kind === "round_break" ? (
+              <div key={`${pip.id}_${idx}`} className="battle-turn-pip round-break">
+                {pip.name}
+              </div>
+            ) : (
+              <div
+                key={`${pip.id}_${idx}`}
+                className={`battle-turn-pip ${pip.kind === "enemy" ? "foe" : ""} ${pip.isActive ? "active" : ""}`}
+              >
+                <img src={assetUrl(pip.iconPath)} alt="" draggable={false} />
+                <span>{pip.name.split(" ")[0]}</span>
+                {pip.isTelegraphed && <span className="text-[#ff9c9c] font-black">!</span>}
+              </div>
+            )
+          )}
         </div>
 
         <div className="battle-action-banner">{b.bannerText}</div>
@@ -968,6 +1687,17 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
             const isTargetable = Boolean(
               activeHero && armedAction && (armedAction.targetScope === "enemy" || armedAction.targetScope === "all_enemies")
             );
+            const hoveredUnit =
+              isTargetable && hoveredEnemyId && (armedAction?.splashPct ?? 0) > 0
+                ? b.enemies.find((e) => e.instanceId === hoveredEnemyId && e.curHp > 0)
+                : undefined;
+            const isSplashTarget = Boolean(
+              hoveredUnit &&
+                getAdjacentEnemies(
+                  hoveredUnit,
+                  b.enemies.filter((e) => e.curHp > 0)
+                ).some((n) => n.instanceId === unit.instanceId)
+            );
             return (
               <div
                 key={unit.instanceId}
@@ -975,19 +1705,24 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                   if (el) enemyElRefs.current.set(unit.instanceId, el);
                   else enemyElRefs.current.delete(unit.instanceId);
                 }}
+                onMouseEnter={() => setHoveredEnemyId(unit.instanceId)}
+                onMouseLeave={() => setHoveredEnemyId((cur) => (cur === unit.instanceId ? null : cur))}
                 onClick={() => {
                   if (!activeHero) return;
                   const chosenAct =
-                    armedAction && (armedAction.targetScope === "enemy" || armedAction.targetScope === "all_enemies")
+                    armedAction &&
+                    !armedAction.disabledReason &&
+                    (armedAction.targetScope === "enemy" || armedAction.targetScope === "all_enemies")
                       ? armedAction
-                      : weaponActions[0];
-                  if (chosenAct) void executeHeroAction(chosenAct, unit.instanceId);
+                      : weaponActions.find((a) => !a.disabledReason) ?? weaponActions[0];
+                  if (chosenAct && !chosenAct.disabledReason) void executeHeroAction(chosenAct, unit.instanceId);
                 }}
                 style={{ left: `${xPct}%`, top: `${yPct}%`, width: `${wPct}%`, height: `${hPct}%`, zIndex }}
                 className={[
                   "battle-enemy-unit",
                   eg.flipRight || unit.flipX ? "face-right" : "",
                   isTargetable ? "is-targetable" : "",
+                  isSplashTarget ? "is-splash-hit" : "",
                   lungingEnemyId === unit.instanceId ? "is-lunging" : "",
                 ].join(" ")}
               >
@@ -1124,6 +1859,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                       <span className="relative z-[1] text-[clamp(8.5px,2.4cqw,10.5px)] font-extrabold text-white drop-shadow">HP</span>
                       <span className="relative z-[1] ml-auto text-[clamp(9px,2.6cqw,11px)] font-extrabold text-[#f3f7ff] tabular-nums drop-shadow">
                         {hero.curHp}/{hero.maxHp}
+                        {hero.shieldHp > 0 && <span className="text-[#9de6ff] ml-1">(+{hero.shieldHp}🛡)</span>}
                       </span>
                     </div>
 
@@ -1240,20 +1976,24 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                 <button
                   key={spAct.id}
                   type="button"
-                  disabled={noMp}
-                  onMouseEnter={() =>
-                    setHoverTip({
-                      title: spAct.name,
-                      subtitle: spAct.categoryLabel,
-                      icon: spAct.iconPath,
-                      pills: [
-                        { label: `${spAct.mpCost} MP`, tone: "mp" },
-                        { label: spAct.damageType },
-                        ...(noMp ? [{ label: "Not Enough MP", tone: "warn" as const }] : []),
-                      ],
-                      effect: spAct.effectText,
-                      hint: spAct.targetScope === "all_enemies" || spAct.targetScope === "all_allies" ? "Click to cast immediately" : "Click to arm, then select target",
-                    })
+                  aria-disabled={noMp}
+                  onMouseEnter={(e) =>
+                    showActionTip(
+                      e.currentTarget,
+                      {
+                        title: spAct.name,
+                        subtitle: spAct.categoryLabel,
+                        icon: spAct.iconPath,
+                        pills: [
+                          { label: `${spAct.mpCost} MP`, tone: "mp" },
+                          { label: spAct.damageType },
+                          ...(noMp ? [{ label: "Not Enough MP", tone: "warn" as const }] : []),
+                        ],
+                        effect: spAct.effectText,
+                        hint: spAct.targetScope === "all_enemies" || spAct.targetScope === "all_allies" ? "Click to cast immediately" : "Click to arm, then select target",
+                      },
+                      true
+                    )
                   }
                   onMouseLeave={() => setHoverTip(null)}
                   onClick={() => handleHotbarSlotClick(spAct)}
@@ -1269,11 +2009,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           </div>
         )}
 
-        {/* 7. Floating Hotbar Tooltip */}
+        {/* 7. Floating Context-Anchored Hotbar Tooltip */}
         {hoverTip && (
           <div
-            style={{ bottom: "calc(clamp(20px, 3.6%, 40px) + 74px)" }}
-            className="absolute left-1/2 -translate-x-1/2 w-[min(300px,calc(100%-24px))] rounded-lg border-[1.5px] border-[#c9a356] bg-[#101522]/96 px-3 py-2 pointer-events-none z-40 shadow-2xl flex flex-col gap-1.5"
+            style={{ left: `${hoverTip.leftPx}px`, bottom: `${hoverTip.bottomPx}px`, width: `${hoverTip.widthPx}px` }}
+            className="absolute rounded-lg border-[1.5px] border-[#c9a356] bg-[#101522]/96 px-3 py-2 pointer-events-none z-40 shadow-2xl flex flex-col gap-1.5"
           >
             <div className="flex items-center gap-2">
               <img src={assetUrl(hoverTip.icon)} alt="" className="w-8 h-8 rounded border border-[#96773f] object-cover shrink-0" />
@@ -1332,25 +2072,26 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                 <button
                   key={act.id}
                   type="button"
-                  onMouseEnter={() =>
-                    setHoverTip({
+                  aria-disabled={Boolean(act.disabledReason)}
+                  onMouseEnter={(e) =>
+                    showActionTip(e.currentTarget, {
                       title: act.name,
-                      subtitle: act.categoryLabel,
+                      subtitle: act.disabledReason ?? act.categoryLabel,
                       icon: act.iconPath,
                       pills: [{ label: activeHero.weaponSubType }, { label: act.damageType }, { label: act.badge }],
                       effect: act.effectText,
-                      hint: "Click an enemy on the left to strike",
+                      hint: act.disabledReason ?? "Click an enemy on the left to strike",
                     })
                   }
                   onMouseLeave={() => setHoverTip(null)}
                   onClick={() => handleHotbarSlotClick(act)}
-                  className={`battle-hb-slot border-[#8f6e3f] ${armedAction?.id === act.id ? "is-armed" : ""}`}
+                  className={`battle-hb-slot border-[#8f6e3f] ${armedAction?.id === act.id && !act.disabledReason ? "is-armed" : ""} ${act.disabledReason ? "is-disabled" : ""}`}
                 >
                   <img src={assetUrl(act.iconPath)} alt={act.name} className="w-full h-full object-cover" draggable={false} />
                   <span className="absolute top-[2px] left-[3px] px-1 rounded bg-[#07090f]/86 text-[9px] font-extrabold text-[#cdd8ec]">
                     {idx + 1}
                   </span>
-                  <span className="absolute bottom-[2px] right-[2px] px-1 py-[1px] rounded bg-[#070a10]/90 border border-[#d7a867]/35 text-[8.5px] font-extrabold text-[#f6cfa0] leading-none">
+                  <span className={`absolute bottom-[2px] right-[2px] px-1 py-[1px] rounded bg-[#070a10]/90 border text-[8.5px] font-extrabold leading-none ${act.disabledReason ? "border-[#e06a6a]/65 text-[#ffb4b4]" : "border-[#d7a867]/35 text-[#f6cfa0]"}`}>
                     {act.badge}
                   </span>
                 </button>
@@ -1381,18 +2122,23 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                             }}
                             type="button"
                             style={{ borderColor: magicTheme.accentColor }}
-                            onMouseEnter={() =>
-                              setHoverTip({
-                                title: `Tier ${tierNum} · ${magicTheme.tierNames[tierNum - 1] ?? "Spells"}`,
-                                subtitle: `${magicTheme.label} (${tierSpells.length}/2 Learned)`,
-                                icon: tierIcon,
-                                pills: tierSpells.map((s) => ({ label: `${s.name} (${s.mpCost} MP)`, tone: "mp" as const })),
-                                effect: "Click to open this tier's learned spells.",
-                              })
+                            onMouseEnter={(e) =>
+                              showActionTip(
+                                e.currentTarget,
+                                {
+                                  title: `Tier ${tierNum} · ${magicTheme.tierNames[tierNum - 1] ?? "Spells"}`,
+                                  subtitle: `${magicTheme.label} (${tierSpells.length}/2 Learned)`,
+                                  icon: tierIcon,
+                                  pills: tierSpells.map((s) => ({ label: `${s.name} (${s.mpCost} MP)`, tone: "mp" as const })),
+                                  effect: isOpen ? "Click a spell above to cast or arm." : "Click to open this tier's learned spells.",
+                                },
+                                isOpen
+                              )
                             }
                             onMouseLeave={() => setHoverTip(null)}
                             onClick={() => {
                               audioEngine.playUiClick(0.26);
+                              setHoverTip(null);
                               if (isOpen) {
                                 setOpenTierPopup(null);
                                 return;
@@ -1423,8 +2169,8 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                 <button
                   key={pot.id}
                   type="button"
-                  onMouseEnter={() =>
-                    setHoverTip({
+                  onMouseEnter={(e) =>
+                    showActionTip(e.currentTarget, {
                       title: pot.name,
                       subtitle: pot.categoryLabel,
                       icon: pot.iconPath,
@@ -1450,9 +2196,9 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                 <button
                   key={sysAct.id}
                   type="button"
-                  disabled={Boolean(sysAct.disabledReason)}
-                  onMouseEnter={() =>
-                    setHoverTip({
+                  aria-disabled={Boolean(sysAct.disabledReason)}
+                  onMouseEnter={(e) =>
+                    showActionTip(e.currentTarget, {
                       title: sysAct.name,
                       subtitle: sysAct.categoryLabel,
                       icon: sysAct.iconPath,
