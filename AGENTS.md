@@ -41,6 +41,18 @@ The repository separates player runtime code from private authoring tools while 
 * **Save Files:** Support **Save Anywhere** (outside combat) + **Auto-Saves** serialized to JSON in user AppData / Steam Cloud *(never write saves inside the read-only app install directory)*.
 * **Audio Integration:** Music tracks and SFX are supplied separately by the Creative Director. Implement clean playback hooks and user volume sliders (`Master / Music / SFX`) without generating placeholder audio or modifying user audio files without permission.
 
+### GitHub Commit & Push Workflow
+* **Remote & Branch:** `origin` (`https://github.com/materialplane/ROD.git`), branch `main`.
+* **Pre-Commit Audit & Build Gate:**
+  * Check `git status --porcelain` before staging to confirm [.gitignore](.gitignore) excludes `/assets/` (`raw 4K masters`), `.env` secrets, `node_modules/`, `client/dist/`, and `imageprompts/batch/*.jsonl`.
+  * Verify `client/assets/` holds runtime `.webp` / `.ogg` / `.json` assets only (never raw `.png` or `.jpg` masters).
+  * If `client/src/` changed, run `npm --prefix client run build` (`typecheck + electron + vite`) and confirm exit code `0` before committing.
+* **PowerShell 5.1 Commit & Push Command:** Use `; if ($LASTEXITCODE -eq 0)` instead of `&&` (invalid in PowerShell 5.1), then verify `main...origin/main` is clean:
+  ```powershell
+  git add -A; if ($LASTEXITCODE -eq 0) { git commit -m "<concise summary>" }; if ($LASTEXITCODE -eq 0) { git push origin main }; git status -sb
+  ```
+* **Push Timing:** Commit and push only when requested by the Creative Director (or after verified milestones when approved).
+
 ---
 
 ## 4. Non-Negotiable Visual, Art & Pipeline Rules
