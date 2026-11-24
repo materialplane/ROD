@@ -31,13 +31,13 @@ interface CharacterSelectModalProps {
 }
 
 export const CharacterSelectModal: React.FC<CharacterSelectModalProps> = ({ open, onConfirm, onClose }) => {
-  const [selected, setSelected] = useState<HeroId[]>(DEFAULT_PARTY_ORDER);
-  const [inspectId, setInspectId] = useState<HeroId>(DEFAULT_PARTY_ORDER[0]);
+  const [selected, setSelected] = useState<HeroId[]>(() => [...DEFAULT_PARTY_ORDER]);
+  const [inspectId, setInspectId] = useState<HeroId>(() => DEFAULT_PARTY_ORDER[0] ?? HEROES[0]?.id ?? "valen");
 
   useEffect(() => {
     if (open) {
-      setSelected(DEFAULT_PARTY_ORDER);
-      setInspectId(HEROES[0].id);
+      setSelected([...DEFAULT_PARTY_ORDER]);
+      setInspectId(HEROES[0]?.id ?? DEFAULT_PARTY_ORDER[0] ?? "valen");
     }
   }, [open]);
 
@@ -405,6 +405,9 @@ interface PartyMenuModalProps {
   onSaveGame: () => void;
   onOpenSettings: () => void;
   onClose: () => void;
+  initialTab?: LedgerTabId;
+  activeTab?: LedgerTabId;
+  onTabChange?: (tab: LedgerTabId) => void;
 }
 
 export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
@@ -452,8 +455,16 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
   onSaveGame,
   onOpenSettings,
   onClose,
+  initialTab = "party",
+  activeTab: controlledTab,
+  onTabChange,
 }) => {
-  const [activeTab, setActiveTab] = useState<LedgerTabId>("party");
+  const [internalTab, setInternalTab] = useState<LedgerTabId>(controlledTab ?? initialTab);
+  const activeTab = controlledTab ?? internalTab;
+  const setActiveTab = (tab: LedgerTabId) => {
+    setInternalTab(tab);
+    onTabChange?.(tab);
+  };
   const [selectedHeroId, setSelectedHeroId] = useState<HeroId>(partyOrder[0] ?? "valen");
   const [pendingOverwrite, setPendingOverwrite] = useState<{
     heroId: HeroId;
@@ -463,12 +474,15 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
 
   useEffect(() => {
     if (open) {
+      if (!controlledTab) {
+        setInternalTab(initialTab);
+      }
       setSelectedHeroId((prev) => (partyOrder.includes(prev) ? prev : partyOrder[0] ?? "valen"));
       setPendingOverwrite(null);
     } else {
       hideClientItemTooltip();
     }
-  }, [open, partyOrder]);
+  }, [open, initialTab, controlledTab, partyOrder]);
 
   useEffect(() => {
     if (!partyOrder.includes(selectedHeroId) && partyOrder[0]) {
@@ -548,7 +562,7 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
                 onClose();
               }}
               className="w-[32px] h-[32px] rounded border border-[#484f60] hover:border-[#d7b267] text-[#c8c0af] hover:text-white cursor-pointer"
-              title="Close (Esc / P)"
+              title="Close (Esc / P / J)"
             >
               ✕
             </button>
@@ -568,6 +582,7 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
                   audioEngine.playUiClick(0.32);
                   setActiveTab(t.id);
                 }}
+                title={t.id === "journal" ? "Quest Journal (J)" : t.id === "party" ? "Party & Stats (P)" : t.label}
                 className={[
                   "flex items-center gap-2 px-3 py-1.5 rounded border text-[12px] font-semibold cursor-pointer transition",
                   isActive
@@ -576,7 +591,7 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
                 ].join(" ")}
               >
                 <img src={assetUrl(t.icon)} alt="" className="w-[17px] h-[17px] object-contain shrink-0" draggable={false} />
-                <span>{t.label}</span>
+                <span>{t.id === "journal" ? `${t.label} (J)` : t.label}</span>
               </button>
             );
           })}

@@ -1,4 +1,5 @@
-import { getHeroById, HEROES } from "../heroes";
+import { getRunestoneTierRatio } from "../battle/combatEffects";
+import { getHeroById, getHeroProgression, HEROES } from "../heroes";
 import { canDualWieldItem, itemSlotFor, itemSlotForHero } from "../shops/shopLogic";
 import type {
   EquippedGearMap,
@@ -6,17 +7,66 @@ import type {
   HeroAttrKey,
   HeroAttrMap,
   HeroId,
+  HeroProgressionCatalog,
   HeroSocketsMap,
   ItemEntry,
+  RunestoneAffixesCatalog,
   RunestoneItem,
 } from "../types";
 
-export const RUNESTONE_EMPTY_ICON = "assets/icons/ui/ui_17_runestone_glyph.webp";
+export type LedgerTabId = "party" | "gear" | "skills" | "bag" | "journal" | "atlas";
+
+export interface LedgerTabEntry {
+  id: LedgerTabId;
+  label: string;
+  icon: string;
+}
+
+export interface SlotSpec {
+  key: GearSlot;
+  label: string;
+  fallbackIcon: string;
+}
+
+export let RUNESTONE_EMPTY_ICON = "";
+export const LEDGER_TABS: LedgerTabEntry[] = [];
+export const SLOT_CONFIG: SlotSpec[] = [];
+const RUNESTONE_TIER_ORDER: Record<string, number> = {};
+
+/** Synchronize UI tabs, gear slots, and empty runestone icon from loaded HeroProgressionCatalog. */
+export function applyPartyProgressionCatalog(prog: HeroProgressionCatalog | null | undefined): void {
+  if (!prog) return;
+  if (prog.runestoneEmptyIcon) {
+    RUNESTONE_EMPTY_ICON = prog.runestoneEmptyIcon;
+  }
+  if (Array.isArray(prog.ledgerTabs)) {
+    LEDGER_TABS.splice(
+      0,
+      LEDGER_TABS.length,
+      ...prog.ledgerTabs.map((t) => ({ id: t.id as LedgerTabId, label: t.label, icon: t.icon }))
+    );
+  }
+  if (Array.isArray(prog.slotConfig)) {
+    SLOT_CONFIG.splice(0, SLOT_CONFIG.length, ...prog.slotConfig);
+  }
+}
+
+/** Synchronize Runestone rarity tier sort order from data/runestone-affixes.json. */
+export function applyRunestoneTiersToParty(catalog: RunestoneAffixesCatalog | null | undefined): void {
+  if (!catalog || !Array.isArray(catalog.rarityTiers)) return;
+  for (const k of Object.keys(RUNESTONE_TIER_ORDER)) delete RUNESTONE_TIER_ORDER[k];
+  for (const tier of catalog.rarityTiers) {
+    if (tier.tier) RUNESTONE_TIER_ORDER[tier.tier] = Number(tier.tierOrder ?? 1);
+    if (tier.id) RUNESTONE_TIER_ORDER[tier.id] = Number(tier.tierOrder ?? 1);
+  }
+}
 
 export function xpRequiredForNextLevel(level: number): number {
-  const safe = Math.max(1, Math.min(99, Math.floor(level)));
-  if (safe >= 99) return 0;
-  return 100 * safe + 12 * safe * safe;
+  const prog = getHeroProgression();
+  const maxLv = prog.maxLevel || 99;
+  const safe = Math.max(1, Math.min(maxLv, Math.floor(level)));
+  if (safe >= maxLv) return 0;
+  return (prog.xpCurve?.linear ?? 100) * safe + (prog.xpCurve?.quadratic ?? 12) * safe * safe;
 }
 
 export function getHeroLevel(
@@ -74,53 +124,36 @@ export function applyHeroXpGain(
   currentXp: number,
   gainedXp: number
 ): { level: number; xp: number; leveledUp: boolean } {
-  let lv = Math.max(1, Math.min(99, Math.floor(level)));
+  const maxLv = getHeroProgression().maxLevel || 99;
+  let lv = Math.max(1, Math.min(maxLv, Math.floor(level)));
   let xp = Math.max(0, Math.floor(currentXp) + Math.max(0, Math.floor(gainedXp)));
   const startLv = lv;
-  while (lv < 99) {
+  while (lv < maxLv) {
     const req = xpRequiredForNextLevel(lv);
     if (req <= 0 || xp < req) break;
     xp -= req;
     lv += 1;
   }
-  if (lv >= 99) xp = 0;
+  if (lv >= maxLv) xp = 0;
   return { level: lv, xp, leveledUp: lv > startLv };
 }
 
 export const applyPartyXpGain = applyHeroXpGain;
 
-export const LEDGER_TABS = [
-  { id: "party", label: "Party & Stats", icon: "assets/icons/ui/ui_21_party_hero_glyph.webp" },
-  { id: "gear", label: "Gear & Runestones", icon: "assets/icons/ui/ui_04_body_armor_slot_glyph.webp" },
-  { id: "skills", label: "Weapons & Spells", icon: "assets/icons/ui/ui_09_spells_magic_glyph.webp" },
-  { id: "bag", label: "Inventory Bag", icon: "assets/icons/ui/ui_22_all_pack_bag_glyph.webp" },
-  { id: "journal", label: "Quest Journal", icon: "assets/icons/ui/ui_06_quest_scroll_glyph.webp" },
-  { id: "atlas", label: "World Map", icon: "assets/icons/ui/ui_25_world_atlas_glyph.webp" },
-] as const;
-
-export type LedgerTabId = (typeof LEDGER_TABS)[number]["id"];
-
-export interface SlotSpec {
-  key: GearSlot;
-  label: string;
-  fallbackIcon: string;
-}
-
-export const SLOT_CONFIG: SlotSpec[] = [
-  { key: "right_hand", label: "Right Hand", fallbackIcon: "assets/icons/ui/ui_01_weapon_slot_glyph.webp" },
-  { key: "left_hand", label: "Left Hand", fallbackIcon: "assets/icons/ui/ui_02_shield_slot_glyph.webp" },
-  { key: "body", label: "Body Armor", fallbackIcon: "assets/icons/ui/ui_04_body_armor_slot_glyph.webp" },
-  { key: "head", label: "Helmet", fallbackIcon: "assets/icons/ui/ui_03_helmet_slot_glyph.webp" },
-  { key: "accessory", label: "Class Accessory", fallbackIcon: "assets/icons/ui/ui_05_accessory_slot_glyph.webp" },
-];
-
-/** Earned spendable stat points through level N (+2/lvl, +1 extra every 5th lvl < 100; Lv 99 = 215). */
+/** Earned spendable stat points through level N (from heroes-catalog.json progression config). */
 export function earnedPointsForLevel(level: number): number {
+  const prog = getHeroProgression();
   const safeLvl = Math.max(1, Math.floor(level));
   if (safeLvl <= 1) return 0;
-  let total = (safeLvl - 1) * 2;
-  for (let l = 5; l <= safeLvl; l += 5) {
-    if (l < 100) total += 1;
+  const perLv = prog.pointsPerLevel ?? 2;
+  const interval = prog.milestoneLevelInterval ?? 5;
+  const bonus = prog.milestoneBonusPoints ?? 1;
+  const maxLv = prog.maxLevel ?? 99;
+  let total = (safeLvl - 1) * perLv;
+  if (interval > 0 && bonus > 0) {
+    for (let l = interval; l <= safeLvl; l += interval) {
+      if (l <= maxLv) total += bonus;
+    }
   }
   return total;
 }
@@ -180,52 +213,46 @@ export interface ParsedStoneBonus {
   crit: number;
 }
 
-export interface ParsedStoneBonus {
-  maxHp: number;
-  maxMp: number;
-  atk: number;
-  mag: number;
-  heal: number;
-  pDef: number;
-  mDef: number;
-  dodge: number;
-  crit: number;
-}
-
-/** Extracts flat numeric bonuses written in a Carved Runestone affix description. */
-export function parseRunestoneStatBonuses(affix: string | undefined): ParsedStoneBonus {
+/** Extracts tier-scaled or single flat numeric bonuses written in a Carved Runestone affix description. */
+export function parseRunestoneStatBonuses(affix: string | undefined, tier = "Lesser"): ParsedStoneBonus {
   const out: ParsedStoneBonus = { maxHp: 0, maxMp: 0, atk: 0, mag: 0, heal: 0, pDef: 0, mDef: 0, dodge: 0, crit: 0 };
   if (!affix) return out;
+  const ratio = getRunestoneTierRatio(tier);
   const pull = (re: RegExp): number => {
     const m = affix.match(re);
-    return m ? Number(m[1]) : 0;
+    if (!m) return 0;
+    const a = Number(m[1]);
+    if (m[2] === undefined) return a;
+    return Math.round(a + (Number(m[2]) - a) * ratio);
   };
-  out.maxHp += pull(/([+-]?\d+)\s+Max\s+HP/i);
-  out.maxMp += pull(/([+-]?\d+)\s+Max\s+MP/i);
-  out.dodge += pull(/([+-]?\d+)%?\s+Dodge(?:\s+Chance)?/i);
-  out.crit += pull(/([+-]?\d+)%\s+Crit(?:ical)?(?:\s+Chance)?/i);
-  out.pDef += pull(/([+-]?\d+)\s+Phys(?:ical)?\s+Def(?:ense)?/i);
-  out.mDef += pull(/([+-]?\d+)\s+Mag(?:ic)?\s+Def(?:ense)?/i);
-  out.atk += pull(/([+-]?\d+)\s+Attack(?:\s+Power)?/i);
-  out.mag += pull(/([+-]?\d+)\s+(?:Spell|Magic)(?:\s+Power)?/i);
-  const force = pull(/([+-]?\d+)\s+Force/i);
-  const finesse = pull(/([+-]?\d+)\s+Finesse/i);
-  const grit = pull(/([+-]?\d+)\s+Grit/i);
-  const arcana = pull(/([+-]?\d+)\s+Arcana/i);
-  const presence = pull(/([+-]?\d+)\s+Presence/i);
-  if (force > 0) out.atk += Math.round(force * 1.6);
+  const scale = getHeroProgression().runestoneAttrScaling;
+  out.maxHp += pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Max\s+HP/i);
+  out.maxMp += pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Max\s+MP/i);
+  out.dodge += pull(/([+-]?\d+)%?(?:\s*(?:[–-]|to)\s*([+-]?\d+)%?)?\s+Dodge(?:\s+Chance)?/i);
+  out.crit += pull(/([+-]?\d+)%(?:\s*(?:[–-]|to)\s*([+-]?\d+)%)?\s+Crit(?:ical)?(?:\s+Chance)?/i);
+  out.pDef += pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Phys(?:ical)?\s+Def(?:ense)?/i);
+  out.mDef += pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Mag(?:ic)?\s+Def(?:ense)?/i);
+  out.atk += pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Attack(?:\s+Power)?/i);
+  out.mag += pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+(?:Spell|Magic)(?:\s+Power)?/i);
+  const force = pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Force/i);
+  const finesse = pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Finesse/i);
+  const grit = pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Grit/i);
+  const arcanaPresence = pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Arcana\s*(?:&|and)\s*Presence/i);
+  const arcana = arcanaPresence || pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Arcana/i);
+  const presence = arcanaPresence || pull(/([+-]?\d+)(?:\s*(?:[–-]|to)\s*([+-]?\d+))?\s+Presence/i);
+  if (force > 0) out.atk += Math.round(force * (scale?.forceAtk ?? 1.5));
   if (finesse > 0) {
-    out.dodge += finesse * 0.3;
-    out.crit += finesse * 0.4;
+    out.dodge += finesse * (scale?.finesseDodge ?? 0.3);
+    out.crit += finesse * (scale?.finesseCrit ?? 0.4);
   }
   if (grit > 0) {
-    out.maxHp += grit * 12;
-    out.pDef += grit;
+    out.maxHp += grit * (scale?.gritHp ?? 12);
+    out.pDef += grit * (scale?.gritPdef ?? 1);
   }
-  if (arcana > 0) out.mag += Math.round(arcana * 1.6);
+  if (arcana > 0) out.mag += Math.round(arcana * (scale?.arcanaMag ?? 1.6));
   if (presence > 0) {
-    out.mDef += presence;
-    out.heal += Math.round(presence * 1.2);
+    out.mDef += presence * (scale?.presenceMdef ?? 1);
+    out.heal += Math.round(presence * (scale?.presenceHeal ?? 1.5));
   }
   return out;
 }
@@ -299,7 +326,7 @@ export function computeHeroVitals(
   const sockets = socketsByHero?.[heroId];
   for (const stone of [sockets?.weapon, sockets?.armor]) {
     if (!stone) continue;
-    const sb = parseRunestoneStatBonuses(stone.affix);
+    const sb = parseRunestoneStatBonuses(stone.affix, stone.tier);
     bonusHp += sb.maxHp;
     bonusMp += sb.maxMp;
     atk += sb.atk;
@@ -311,10 +338,17 @@ export function computeHeroVitals(
     crit += sb.crit;
   }
 
+  const prog = getHeroProgression();
   const safeLevel = Math.max(1, Math.floor(level));
-  const maxHp = Math.round(hero.baseHp + (safeLevel - 1) * 18 + (attrs.grit - 1) * 12 + bonusHp);
-  const hasMp = hero.baseMp > 0 || heroId === "ellowyn" || heroId === "mera" || heroId === "harlan";
-  const maxMp = hasMp ? Math.round(hero.baseMp + (safeLevel - 1) * 3 + (attrs.arcana - 1) * 4 + bonusMp) : 0;
+  const maxHp = Math.round(
+    hero.baseHp + (safeLevel - 1) * (prog.hpPerLevel ?? 18) + (attrs.grit - 1) * (prog.gritHpPerPoint ?? 12) + bonusHp
+  );
+  const hasMp = hero.baseMp > 0 || Boolean(hero.usesMp);
+  const maxMp = hasMp
+    ? Math.round(
+        hero.baseMp + (safeLevel - 1) * (prog.mpPerLevel ?? 3) + (attrs.arcana - 1) * (prog.arcanaMpPerPoint ?? 4) + bonusMp
+      )
+    : 0;
 
   const pct = Math.max(1, Math.min(100, Number(heroHpPct?.[heroId] ?? 100)));
   const curHp = Math.max(1, Math.min(maxHp, Math.round((maxHp * pct) / 100)));
@@ -323,9 +357,11 @@ export function computeHeroVitals(
   const mpPctVal = Math.max(0, Math.min(100, Number(heroMpPct?.[heroId] ?? 100)));
   const curMp = hasMp ? Math.max(0, Math.min(maxMp, Math.round((maxMp * mpPctVal) / 100))) : 0;
 
-  const mainAtk = atk + Math.round((attrs.force - 1) * 1.5);
+  const mainAtk = atk + Math.round((attrs.force - 1) * (prog.forceAtkPerPoint ?? 1.5));
   const dualWielding = leftWeaponAtk > 0;
-  const offhandAtk = dualWielding ? Math.max(1, Math.round((mainAtk - rightWeaponAtk + leftWeaponAtk) * 0.5)) : 0;
+  const offhandAtk = dualWielding
+    ? Math.max(1, Math.round((mainAtk - rightWeaponAtk + leftWeaponAtk) * (prog.dualWieldOffhandScale ?? 0.5)))
+    : 0;
 
   return {
     maxHp,
@@ -338,12 +374,15 @@ export function computeHeroVitals(
     atk: mainAtk,
     offhandAtk,
     dualWielding,
-    mag: mag + Math.round((attrs.arcana - 1) * 1.6),
-    heal: heal + Math.round((attrs.presence - 1) * 1.5),
-    pDef: pDef + (attrs.grit - 1),
-    mDef: mDef + (attrs.presence - 1),
-    dodge: Math.min(45, dodge + Math.round((attrs.finesse - 1) * 0.3)),
-    crit: Math.min(45, 5 + crit + Math.round((attrs.finesse - 1) * 0.4)),
+    mag: mag + Math.round((attrs.arcana - 1) * (prog.arcanaMagPerPoint ?? 1.6)),
+    heal: heal + Math.round((attrs.presence - 1) * (prog.presenceHealPerPoint ?? 1.5)),
+    pDef: pDef + (attrs.grit - 1) * (prog.gritPdefPerPoint ?? 1),
+    mDef: mDef + (attrs.presence - 1) * (prog.presenceMdefPerPoint ?? 1),
+    dodge: Math.min(prog.dodgeCapPct ?? 45, dodge + Math.round((attrs.finesse - 1) * (prog.finesseDodgePerPoint ?? 0.3))),
+    crit: Math.min(
+      prog.critCapPct ?? 45,
+      (prog.baseCritPct ?? 5) + crit + Math.round((attrs.finesse - 1) * (prog.finesseCritPerPoint ?? 0.4))
+    ),
   };
 }
 
@@ -388,13 +427,6 @@ export interface MergedBagEntry {
   item?: ItemEntry;
   runestone?: RunestoneItem;
 }
-
-const RUNESTONE_TIER_ORDER: Record<string, number> = {
-  Lesser: 1,
-  Refined: 2,
-  Greater: 3,
-  Mythic: 4,
-};
 
 export function mergeBagEntries(
   bagCounts: Record<string, number>,

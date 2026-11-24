@@ -5,6 +5,8 @@
     {
       "id": "lesser",
       "tier": "Lesser",
+      "tierOrder": 1,
+      "scale": 1.0,
       "regions": "Map 1 (Zones 1–5)",
       "zones": "Map 1 (Zones 1–5)",
       "rollFormula": "1 Prefix + 1 Suffix",
@@ -13,6 +15,8 @@
     {
       "id": "refined",
       "tier": "Refined",
+      "tierOrder": 2,
+      "scale": 1.5,
       "regions": "Map 2 (Zones 6–10)",
       "zones": "Map 2 (Zones 6–10)",
       "rollFormula": "1 Prefix + 1 Suffix",
@@ -21,6 +25,8 @@
     {
       "id": "greater",
       "tier": "Greater",
+      "tierOrder": 3,
+      "scale": 2.0,
       "regions": "Map 3 (Zones 11–15)",
       "zones": "Map 3 (Zones 11–15)",
       "rollFormula": "2 Prefixes + 1 Suffix or 1 Prefix + 2 Suffixes",
@@ -29,6 +35,8 @@
     {
       "id": "mythic",
       "tier": "Mythic",
+      "tierOrder": 4,
+      "scale": 2.5,
       "regions": "Map 4 (Zones 16–20)",
       "zones": "Map 4 (Zones 16–20)",
       "rollFormula": "2 Prefixes + 2 Suffixes",

@@ -1767,7 +1767,9 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
-      }
+      },
+      "portalNum": 1,
+      "bossId": "mob_earth_elemental"
     },
     {
       "order": 36,
@@ -1798,7 +1800,9 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
-      }
+      },
+      "portalNum": 2,
+      "bossId": "mob_otyugh"
     },
     {
       "order": 37,
@@ -1829,7 +1833,9 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
-      }
+      },
+      "portalNum": 3,
+      "bossId": "mob_fire_giant"
     },
     {
       "order": 38,
@@ -1860,7 +1866,9 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
-      }
+      },
+      "portalNum": 4,
+      "bossId": "mob_aboleth"
     },
     {
       "order": 39,
@@ -1891,7 +1899,9 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
-      }
+      },
+      "portalNum": 5,
+      "bossId": "mob_efreeti"
     },
     {
       "order": 40,
@@ -1922,7 +1932,9 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
-      }
+      },
+      "portalNum": 6,
+      "bossId": "mob_adult_blue_dragon"
     },
     {
       "order": 41,
@@ -1953,7 +1965,9 @@
         "backRowScale": 0.84,
         "frontRowScale": 1.0,
         "flipRight": false
-      }
+      },
+      "portalNum": 7,
+      "bossId": "mob_pit_fiend"
     }
   ],
   "monsters": [
@@ -1983,7 +1997,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_road_bandit_rusty_coin_purse"
+      "dropItemId": "tg_r1_bandit_rusty_coin_purse",
+      "actions": [
+        {
+          "name": "Scimitar Slash",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.0
+        },
+        {
+          "name": "Crossbow Snap",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.3
+        }
+      ],
+      "pDef": 4,
+      "mDef": 3
     },
     {
       "id": "mob_acolyte",
@@ -2011,7 +2044,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_dust_mephit_jar_of_cinder_ash"
+      "dropItemId": "tg_r1_acolyte_ash_stained_votive_seal",
+      "actions": [
+        {
+          "name": "Radiant Mace",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 0.96
+        },
+        {
+          "name": "Sacred Flame",
+          "damageType": "Radiant",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 4,
+      "mDef": 5
     },
     {
       "id": "mob_cultist",
@@ -2039,7 +2091,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_clay_golem_carved_earthen_seal"
+      "dropItemId": "tg_r1_cultist_cracked_obsidian_sigil",
+      "actions": [
+        {
+          "name": "Ritual Dagger",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.0,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        },
+        {
+          "name": "Dark Devotion",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 3,
+      "mDef": 3
     },
     {
       "id": "mob_wolf",
@@ -2067,7 +2141,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.76,
-      "dropItemId": "tg_native_wolf_gray_wolf_pelt"
+      "dropItemId": "tg_native_wolf_gray_wolf_pelt",
+      "actions": [
+        {
+          "name": "Lunge Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.02
+        },
+        {
+          "name": "Tendon Tear",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.05,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 5,
+      "mDef": 4
     },
     {
       "id": "mob_giant_crab",
@@ -2095,7 +2188,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.74,
-      "dropItemId": "tg_r1_ankheg_chitinous_mandible"
+      "dropItemId": "tg_r1_giant_crab_serrated_crab_pincer",
+      "actions": [
+        {
+          "name": "Pincer Clamp",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        },
+        {
+          "name": "Shell Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.06
+        }
+      ],
+      "pDef": 4,
+      "mDef": 3
     },
     {
       "id": "mob_skeleton",
@@ -2123,7 +2235,23 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_animated_armor_hollow_greave_plate"
+      "dropItemId": "tg_r1_skeleton_bleached_marrow_bone",
+      "actions": [
+        {
+          "name": "Rusted Shortsword",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.0
+        },
+        {
+          "name": "Bone Shortbow",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.04
+        }
+      ],
+      "pDef": 5,
+      "mDef": 4
     },
     {
       "id": "mob_zombie",
@@ -2151,7 +2279,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_flesh_golem_iron_sutured_hide"
+      "dropItemId": "tg_r1_zombie_tattered_burial_band",
+      "actions": [
+        {
+          "name": "Putrid Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "poison",
+          "inflictTurns": 2,
+          "inflictChance": 0.3
+        },
+        {
+          "name": "Grave Grip",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.0
+        }
+      ],
+      "pDef": 9,
+      "mDef": 7
     },
     {
       "id": "mob_scout",
@@ -2179,7 +2326,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_crossbow_poacher_fletched_bolt_case"
+      "dropItemId": "tg_r1_scout_fletched_bolt_case",
+      "actions": [
+        {
+          "name": "Longbow Shot",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.04
+        },
+        {
+          "name": "Shortsword Flurry",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.0,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.32
+        }
+      ],
+      "pDef": 8,
+      "mDef": 8
     },
     {
       "id": "mob_thug",
@@ -2207,7 +2373,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_road_bandit_rusty_coin_purse"
+      "dropItemId": "tg_r1_thug_cutpurse_coin_pouch",
+      "actions": [
+        {
+          "name": "Heavy Mace",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        },
+        {
+          "name": "Crossbow Bolt",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.0
+        }
+      ],
+      "pDef": 10,
+      "mDef": 8
     },
     {
       "id": "mob_spy",
@@ -2235,7 +2420,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_garrick_deserter_torn_wolf_tabard"
+      "dropItemId": "tg_r1_spy_torn_wolf_tabard",
+      "actions": [
+        {
+          "name": "Venomous Stiletto",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "poison",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Smoke Feint",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 10,
+      "mDef": 10
     },
     {
       "id": "mob_shadow",
@@ -2263,7 +2470,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_darkmantle_shadow_cowl_membrane"
+      "dropItemId": "tg_r1_shadow_cold_twilight_ash",
+      "actions": [
+        {
+          "name": "Strength Drain",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Twilight Ambush",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 8,
+      "mDef": 8
     },
     {
       "id": "mob_worg",
@@ -2291,7 +2520,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.82,
-      "dropItemId": "tg_native_wolf_gray_wolf_pelt"
+      "dropItemId": "tg_r1_worg_iron_gray_wolf_pelt",
+      "actions": [
+        {
+          "name": "Crushing Jaw",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        },
+        {
+          "name": "Howling Rend",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 9,
+      "mDef": 8
     },
     {
       "id": "mob_pirate",
@@ -2319,7 +2570,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_rust_monster_oxidized_antenna"
+      "dropItemId": "tg_r1_pirate_contraband_sea_seal",
+      "actions": [
+        {
+          "name": "Cutlass Sweep",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        },
+        {
+          "name": "Boarding Pistol",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.08
+        }
+      ],
+      "pDef": 12,
+      "mDef": 12
     },
     {
       "id": "mob_ghoul",
@@ -2347,7 +2617,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_roper_petrous_tendril_core"
+      "dropItemId": "tg_r1_ghoul_rotting_claw_tip",
+      "actions": [
+        {
+          "name": "Rotting Claws",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.25
+        },
+        {
+          "name": "Septic Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "poison",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 12,
+      "mDef": 12
     },
     {
       "id": "mob_dire_wolf",
@@ -2375,7 +2667,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.84,
-      "dropItemId": "tg_native_giant_boar_curved_ivory_tusk"
+      "dropItemId": "tg_r1_dire_wolf_massive_alpha_fang",
+      "actions": [
+        {
+          "name": "Alpha Fang",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Pack Maul",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.04
+        }
+      ],
+      "pDef": 14,
+      "mDef": 11
     },
     {
       "id": "mob_giant_spider",
@@ -2403,7 +2714,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.8,
-      "dropItemId": "tg_native_giant_spider_intact_venom_gland"
+      "dropItemId": "tg_native_giant_spider_intact_venom_gland",
+      "actions": [
+        {
+          "name": "Venomous Fang",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.0,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Barbed Web",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 0.96,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 12,
+      "mDef": 12
     },
     {
       "id": "mob_brown_bear",
@@ -2431,7 +2764,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r1_bulette_landshark_armor_plate"
+      "dropItemId": "tg_r1_brown_bear_thick_bear_hide",
+      "actions": [
+        {
+          "name": "Crushing Paw",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        },
+        {
+          "name": "Savage Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.05,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 16,
+      "mDef": 12
     },
     {
       "id": "mob_harpy",
@@ -2459,7 +2814,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r1_xorn_gem_flecked_claw"
+      "dropItemId": "tg_r1_harpy_jagged_wing_quill",
+      "actions": [
+        {
+          "name": "Talon Rake",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.38
+        },
+        {
+          "name": "Luring Shriek",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.85,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 12,
+      "mDef": 12
     },
     {
       "id": "mob_bandit_captain",
@@ -2487,7 +2864,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_smuggler_cutthroat_contraband_seal"
+      "dropItemId": "tg_r2_bandit_captain_brigand_captain_coin_purse",
+      "actions": [
+        {
+          "name": "Captain's Saber",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.42
+        },
+        {
+          "name": "Parry & Dagger",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.05
+        }
+      ],
+      "pDef": 19,
+      "mDef": 16
     },
     {
       "id": "mob_cultist_fanatic",
@@ -2515,7 +2911,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r2_sea_hag_brine_salt_talisman"
+      "dropItemId": "tg_r2_cultist_fanatic_salt_stained_cult_talisman",
+      "actions": [
+        {
+          "name": "Inflict Wounds",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Zealot Dagger",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 19,
+      "mDef": 19
     },
     {
       "id": "mob_gargoyle",
@@ -2543,7 +2961,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.98,
-      "dropItemId": "tg_r2_hydra_severed_hydra_neck_crest"
+      "dropItemId": "tg_r2_gargoyle_cracked_stone_horn",
+      "actions": [
+        {
+          "name": "Granite Claw",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.06
+        },
+        {
+          "name": "Horned Dive",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.25
+        }
+      ],
+      "pDef": 21,
+      "mDef": 16
     },
     {
       "id": "mob_berserker",
@@ -2571,7 +3008,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_smuggler_cutthroat_contraband_seal"
+      "dropItemId": "tg_r2_berserker_notched_marauder_iron_band",
+      "actions": [
+        {
+          "name": "Reckless Greataxe",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Frenzied Smash",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.08
+        }
+      ],
+      "pDef": 21,
+      "mDef": 16
     },
     {
       "id": "mob_ghast",
@@ -2599,7 +3055,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r2_gibbering_mouther_writhing_eye_cluster"
+      "dropItemId": "tg_r2_ghast_fetid_crypt_fang",
+      "actions": [
+        {
+          "name": "Stench Claw",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.05,
+          "inflictStatus": "poison",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Paralyzing Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        }
+      ],
+      "pDef": 17,
+      "mDef": 17
     },
     {
       "id": "mob_giant_constrictor_snake",
@@ -2627,7 +3105,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.86,
-      "dropItemId": "tg_r2_giant_octopus_coiled_sucker_tendril"
+      "dropItemId": "tg_r2_giant_constrictor_snake_giant_viper_shed_scale",
+      "actions": [
+        {
+          "name": "Crushing Coils",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Striking Fangs",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.04
+        }
+      ],
+      "pDef": 19,
+      "mDef": 16
     },
     {
       "id": "mob_ogre",
@@ -2655,7 +3152,26 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r2_giant_shark_pale_abyssal_jawbone"
+      "dropItemId": "tg_r2_ogre_notched_iron_club_band",
+      "actions": [
+        {
+          "name": "Greatclub Smash",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.25
+        },
+        {
+          "name": "Javelin Hurl",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.05
+        }
+      ],
+      "pDef": 24,
+      "mDef": 18
     },
     {
       "id": "mob_merrow",
@@ -2683,7 +3199,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r2_merrow_barbed_coral_harpoon"
+      "dropItemId": "tg_r2_merrow_barbed_coral_harpoon",
+      "actions": [
+        {
+          "name": "Coral Harpoon",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        },
+        {
+          "name": "Tidal Claw",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.04
+        }
+      ],
+      "pDef": 22,
+      "mDef": 18
     },
     {
       "id": "mob_werewolf",
@@ -2711,7 +3246,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r2_killer_whale_ivory_trench_tooth"
+      "dropItemId": "tg_r2_werewolf_torn_alpha_pelt",
+      "actions": [
+        {
+          "name": "Lunar Claw",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Ravenous Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 24,
+      "mDef": 20
     },
     {
       "id": "mob_black_dragon_wyrmling",
@@ -2739,7 +3296,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.82,
-      "dropItemId": "tg_r2_black_dragon_wyrmling_corrosive_trench_scale"
+      "dropItemId": "tg_r2_black_dragon_wyrmling_corrosive_trench_scale",
+      "actions": [
+        {
+          "name": "Acid Breath",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 0.94,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Wyrmling Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "poison",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 23,
+      "mDef": 19
     },
     {
       "id": "mob_warrior_veteran",
@@ -2767,7 +3346,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r2_chuul_translucent_pincer"
+      "dropItemId": "tg_r2_warrior_veteran_veteran_steel_guard_crest",
+      "actions": [
+        {
+          "name": "Twin Longswords",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        },
+        {
+          "name": "Pommel Bash",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.22
+        }
+      ],
+      "pDef": 24,
+      "mDef": 20
     },
     {
       "id": "mob_knight",
@@ -2795,7 +3396,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r2_dragon_turtle_steam_scarred_scute"
+      "dropItemId": "tg_r2_knight_knight_steel_crest_badge",
+      "actions": [
+        {
+          "name": "Greatsword Cleave",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        },
+        {
+          "name": "Heavy Shield Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 27,
+      "mDef": 21
     },
     {
       "id": "mob_minotaur",
@@ -2823,7 +3446,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r3_minotaur_brass_nose_ring"
+      "dropItemId": "tg_r3_minotaur_brass_nose_ring",
+      "actions": [
+        {
+          "name": "Labyrinth Greataxe",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.42
+        },
+        {
+          "name": "Gore Charge",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        }
+      ],
+      "pDef": 30,
+      "mDef": 23
     },
     {
       "id": "mob_manticore",
@@ -2851,7 +3496,26 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r3_manticore_venomous_tail_spike"
+      "dropItemId": "tg_r3_manticore_venomous_tail_spike",
+      "actions": [
+        {
+          "name": "Tail Spike Volley",
+          "damageType": "Piercing",
+          "target": "All Allies",
+          "power": 0.88,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        },
+        {
+          "name": "Lion Rend",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.08
+        }
+      ],
+      "pDef": 27,
+      "mDef": 22
     },
     {
       "id": "mob_winter_wolf",
@@ -2879,7 +3543,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.84,
-      "dropItemId": "tg_r3_worg_iron_gray_wolf_pelt"
+      "dropItemId": "tg_r3_winter_wolf_frosted_alpha_pelt",
+      "actions": [
+        {
+          "name": "Frost Breath",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 0.94,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Ice Fang",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 27,
+      "mDef": 22
     },
     {
       "id": "mob_wight",
@@ -2907,7 +3593,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r3_ogre_notched_iron_club_band"
+      "dropItemId": "tg_r3_wight_tarnished_tomb_blade",
+      "actions": [
+        {
+          "name": "Life Drain",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Tomb Longsword",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 28,
+      "mDef": 23
     },
     {
       "id": "mob_vampire_familiar",
@@ -2935,7 +3643,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r3_hippogriff_bronze_wing_pinion"
+      "dropItemId": "tg_r3_vampire_familiar_crimson_signet_thimble",
+      "actions": [
+        {
+          "name": "Crimson Dagger",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Shadow Bolt",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 24,
+      "mDef": 23
     },
     {
       "id": "mob_hell_hound",
@@ -2963,7 +3693,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.8,
-      "dropItemId": "tg_r3_dire_wolf_massive_alpha_fang"
+      "dropItemId": "tg_r3_hell_hound_singed_brimstone_fang",
+      "actions": [
+        {
+          "name": "Brimstone Breath",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.95,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.58
+        },
+        {
+          "name": "Scorching Bite",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 28,
+      "mDef": 23
     },
     {
       "id": "mob_basilisk",
@@ -2991,7 +3743,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.82,
-      "dropItemId": "tg_r3_cockatrice_calcified_feather"
+      "dropItemId": "tg_r3_basilisk_petrified_eye_stone",
+      "actions": [
+        {
+          "name": "Venomous Jaw",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Petrifying Glare",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.3
+        }
+      ],
+      "pDef": 32,
+      "mDef": 26
     },
     {
       "id": "mob_mummy",
@@ -3019,7 +3793,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r3_griffon_razor_lion_talon"
+      "dropItemId": "tg_r3_mummy_desiccated_linen_wrap",
+      "actions": [
+        {
+          "name": "Rotting Fist",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Dreadful Glare",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 35,
+      "mDef": 27
     },
     {
       "id": "mob_red_dragon_wyrmling",
@@ -3047,7 +3843,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.84,
-      "dropItemId": "tg_r3_gorgon_iron_scaled_horn"
+      "dropItemId": "tg_r3_red_dragon_wyrmling_scarlet_hatchling_scale",
+      "actions": [
+        {
+          "name": "Cinder Breath",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Scorching Bite",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.08
+        }
+      ],
+      "pDef": 32,
+      "mDef": 27
     },
     {
       "id": "mob_ettin",
@@ -3075,7 +3890,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r3_ettin_split_skull_totem"
+      "dropItemId": "tg_r3_ettin_split_skull_totem",
+      "actions": [
+        {
+          "name": "Twin Battleaxes",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Morningstar Crush",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 36,
+      "mDef": 27
     },
     {
       "id": "mob_bearded_devil",
@@ -3103,7 +3940,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r3_gorgon_iron_scaled_horn"
+      "dropItemId": "tg_r3_bearded_devil_venomous_beard_tendril",
+      "actions": [
+        {
+          "name": "Sawtooth Glaive",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "bleed",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Venom Beard",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        }
+      ],
+      "pDef": 32,
+      "mDef": 26
     },
     {
       "id": "mob_guard_captain",
@@ -3131,7 +3990,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_rival_house_pikeman_usurper_pennant"
+      "dropItemId": "tg_r3_guard_captain_usurper_garrison_pennant",
+      "actions": [
+        {
+          "name": "Commanding Cleave",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Halberd Sweep",
+          "damageType": "Piercing",
+          "target": "All Allies",
+          "power": 0.88
+        }
+      ],
+      "pDef": 37,
+      "mDef": 28
     },
     {
       "id": "mob_green_hag",
@@ -3159,7 +4037,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r3_troll_charred_troll_sinew"
+      "dropItemId": "tg_r3_green_hag_knotted_swamp_wand",
+      "actions": [
+        {
+          "name": "Vicious Hex",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Swamp-Wand Bolt",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 29,
+      "mDef": 38
     },
     {
       "id": "mob_owlbear",
@@ -3187,7 +4087,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 1.02,
-      "dropItemId": "tg_native_brown_bear_thick_bear_hide"
+      "dropItemId": "tg_r3_owlbear_feathered_bear_claw",
+      "actions": [
+        {
+          "name": "Savage Beak",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Rending Claws",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.12
+        }
+      ],
+      "pDef": 36,
+      "mDef": 30
     },
     {
       "id": "mob_wereboar",
@@ -3215,7 +4134,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 1,
-      "dropItemId": "tg_r3_hill_giant_giants_brass_buckle"
+      "dropItemId": "tg_r3_wereboar_curved_iron_tusker_ivory",
+      "actions": [
+        {
+          "name": "Tusk Gore",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Maul Smash",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 41,
+      "mDef": 31
     },
     {
       "id": "mob_lamia",
@@ -3243,7 +4184,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r3_oni_curved_horn_mask"
+      "dropItemId": "tg_r3_lamia_tarnished_brass_anklet",
+      "actions": [
+        {
+          "name": "Intoxicating Touch",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Cruel Scimitar",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 36,
+      "mDef": 37
     },
     {
       "id": "mob_ghost",
@@ -3271,7 +4234,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r3_stone_giant_carved_granite_heart"
+      "dropItemId": "tg_r3_ghost_wailing_silver_shroud",
+      "actions": [
+        {
+          "name": "Withering Touch",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Horrifying Wail",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.92,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 30,
+      "mDef": 39
     },
     {
       "id": "mob_succubus",
@@ -3299,7 +4284,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_rival_house_knight_steel_crest_badge"
+      "dropItemId": "tg_r3_succubus_whispering_silver_clasp",
+      "actions": [
+        {
+          "name": "Draining Kiss",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Fiendish Claw",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 33,
+      "mDef": 32
     },
     {
       "id": "mob_chuul",
@@ -3327,7 +4334,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r4_ochre_jelly_golden_gel_shard"
+      "dropItemId": "tg_r4_chuul_translucent_pincer",
+      "actions": [
+        {
+          "name": "Crushing Pincers",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Paralytic Tentacles",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.04,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        }
+      ],
+      "pDef": 45,
+      "mDef": 34
     },
     {
       "id": "mob_giant_crocodile",
@@ -3355,7 +4384,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r4_shambling_mound_pulsing_vine_heart"
+      "dropItemId": "tg_r4_giant_crocodile_serrated_crocodile_jawbone",
+      "actions": [
+        {
+          "name": "Iron-Jaw Clamp",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        },
+        {
+          "name": "Tail Thresh",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.9,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.22
+        }
+      ],
+      "pDef": 41,
+      "mDef": 34
     },
     {
       "id": "mob_shadow_demon",
@@ -3383,7 +4434,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r4_black_pudding_caustic_obsidian_gel"
+      "dropItemId": "tg_r4_shadow_demon_condensed_void_shroud",
+      "actions": [
+        {
+          "name": "Void Claws",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Umbral Surge",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.94,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 36,
+      "mDef": 35
     },
     {
       "id": "mob_troll",
@@ -3411,7 +4484,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r4_werewolf_torn_alpha_pelt"
+      "dropItemId": "tg_r4_troll_charred_troll_sinew",
+      "actions": [
+        {
+          "name": "Rend & Tear",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        },
+        {
+          "name": "Feral Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.35
+        }
+      ],
+      "pDef": 46,
+      "mDef": 35
     },
     {
       "id": "mob_night_hag",
@@ -3439,7 +4534,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r4_night_hag_nightmare_hearthstone"
+      "dropItemId": "tg_r4_night_hag_nightmare_hearthstone",
+      "actions": [
+        {
+          "name": "Nightmare Bolt",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.58
+        },
+        {
+          "name": "Sleep-Plague Hex",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 0.92,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 34,
+      "mDef": 44
     },
     {
       "id": "mob_gladiator",
@@ -3467,7 +4584,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r4_gelatinous_cube_suspended_bone_key"
+      "dropItemId": "tg_r4_gladiator_chipped_arena_blade_shard",
+      "actions": [
+        {
+          "name": "Arena Shield Bash",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        },
+        {
+          "name": "Champion Spear",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 42,
+      "mDef": 35
     },
     {
       "id": "mob_flesh_golem",
@@ -3495,7 +4634,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r4_awakened_tree_gnarled_dreadwood_heart"
+      "dropItemId": "tg_r4_flesh_golem_iron_sutured_hide",
+      "actions": [
+        {
+          "name": "Sutured Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Berserk Rampage",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.94
+        }
+      ],
+      "pDef": 50,
+      "mDef": 38
     },
     {
       "id": "mob_wraith",
@@ -3523,7 +4681,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r4_phase_spider_spectral_silk_fang"
+      "dropItemId": "tg_r4_wraith_black_frost_shackle",
+      "actions": [
+        {
+          "name": "Life Drain",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Soul-Chill Swipe",
+          "damageType": "Frost",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 40,
+      "mDef": 39
     },
     {
       "id": "mob_vampire_spawn",
@@ -3551,7 +4731,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r4_ettercap_spun_silk_sac"
+      "dropItemId": "tg_r4_vampire_spawn_crimson_blood_vial",
+      "actions": [
+        {
+          "name": "Blood-Drain Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "bleed",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Night Claw",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 40,
+      "mDef": 39
     },
     {
       "id": "mob_hill_giant",
@@ -3579,7 +4781,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r4_owlbear_feathered_bear_claw"
+      "dropItemId": "tg_r4_hill_giant_giant_s_brass_buckle",
+      "actions": [
+        {
+          "name": "Timber Greatclub",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        },
+        {
+          "name": "Hurled Boulder",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 51,
+      "mDef": 39
     },
     {
       "id": "mob_bulette",
@@ -3607,7 +4831,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r4_gray_ooze_acidic_slime_residue"
+      "dropItemId": "tg_r4_bulette_landshark_armor_plate",
+      "actions": [
+        {
+          "name": "Deadly Leap",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Landshark Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 46,
+      "mDef": 38
     },
     {
       "id": "mob_pirate_captain",
@@ -3635,7 +4881,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r4_green_hag_knotted_swamp_wand"
+      "dropItemId": "tg_r4_pirate_captain_corsair_captain_sea_seal",
+      "actions": [
+        {
+          "name": "Broadside Cutlass",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Grape-Shot Volley",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.9,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.38
+        }
+      ],
+      "pDef": 47,
+      "mDef": 39
     },
     {
       "id": "mob_salamander",
@@ -3663,7 +4931,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_salamander_heated_iron_spear_tip"
+      "dropItemId": "tg_r5_salamander_heated_iron_spear_tip",
+      "actions": [
+        {
+          "name": "Heated Spear",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Tail Coil Crush",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 49,
+      "mDef": 41
     },
     {
       "id": "mob_fire_elemental",
@@ -3691,7 +4981,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_fire_elemental_eternal_cinder_essence"
+      "dropItemId": "tg_r5_fire_elemental_eternal_cinder_essence",
+      "actions": [
+        {
+          "name": "Blazing Touch",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Searing Vortex",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 44,
+      "mDef": 43
     },
     {
       "id": "mob_barbed_devil",
@@ -3719,7 +5031,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r5_azer_sentinel_brass_forged_beard_ring"
+      "dropItemId": "tg_r5_barbed_devil_jagged_iron_hide_plate",
+      "actions": [
+        {
+          "name": "Barbed Tail",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "bleed",
+          "inflictTurns": 3,
+          "inflictChance": 0.52
+        },
+        {
+          "name": "Hurl Flame",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 48,
+      "mDef": 49
     },
     {
       "id": "mob_mage",
@@ -3747,7 +5081,26 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_gilded_slaver_enforcer_brass_collar_key"
+      "dropItemId": "tg_r5_mage_arcanist_amber_pendant",
+      "actions": [
+        {
+          "name": "Arcane Fireball",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Magic Missiles",
+          "damageType": "Radiant",
+          "target": "1 Ally",
+          "power": 1.14
+        }
+      ],
+      "pDef": 41,
+      "mDef": 53
     },
     {
       "id": "mob_chimera",
@@ -3775,7 +5128,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_chimera_three_horned_crest"
+      "dropItemId": "tg_r5_chimera_three_horned_crest",
+      "actions": [
+        {
+          "name": "Dragon Flame Breath",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Triple-Head Maul",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 50,
+      "mDef": 42
     },
     {
       "id": "mob_wyvern",
@@ -3803,7 +5178,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_fire_snake_molten_shed_scale"
+      "dropItemId": "tg_r5_wyvern_barbed_poison_stinger",
+      "actions": [
+        {
+          "name": "Venom Stinger",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Swooping Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 50,
+      "mDef": 42
     },
     {
       "id": "mob_water_elemental",
@@ -3831,7 +5228,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_magma_mephit_cooled_obsidian_shard"
+      "dropItemId": "tg_r5_water_elemental_living_tide_core",
+      "actions": [
+        {
+          "name": "Tidal Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Whelm Wave",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 0.94,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 60,
+      "mDef": 45
     },
     {
       "id": "mob_young_black_dragon",
@@ -3859,7 +5278,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_red_dragon_wyrmling_scarlet_hatchling_scale"
+      "dropItemId": "tg_r5_young_black_dragon_black_wyrmling_hatchling_scale",
+      "actions": [
+        {
+          "name": "Corrosive Breath",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Acidic Bite",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 55,
+      "mDef": 45
     },
     {
       "id": "mob_oni",
@@ -3887,7 +5328,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_lamia_tarnished_brass_anklet"
+      "dropItemId": "tg_r5_oni_curved_horn_mask",
+      "actions": [
+        {
+          "name": "Cone of Cold",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Shadow Glaive",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 53,
+      "mDef": 54
     },
     {
       "id": "mob_vrock",
@@ -3915,7 +5378,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r5_rakshasa_silk_wrapped_claw_charm"
+      "dropItemId": "tg_r5_vrock_ash_gray_buzzard_plume",
+      "actions": [
+        {
+          "name": "Stunning Screech",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.92,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.25
+        },
+        {
+          "name": "Spore & Talon",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        }
+      ],
+      "pDef": 48,
+      "mDef": 46
     },
     {
       "id": "mob_invisible_stalker",
@@ -3943,7 +5428,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r5_magmin_charred_ash_core"
+      "dropItemId": "tg_r5_invisible_stalker_whispering_air_core",
+      "actions": [
+        {
+          "name": "Gale Ambush",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Vortex Slash",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 48,
+      "mDef": 46
     },
     {
       "id": "mob_stone_giant",
@@ -3971,7 +5478,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r5_young_red_dragon_ember_hot_horn_fragment"
+      "dropItemId": "tg_r5_stone_giant_carved_granite_heart",
+      "actions": [
+        {
+          "name": "Granite Greatclub",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.3
+        },
+        {
+          "name": "Stone Boulder Toss",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 61,
+      "mDef": 47
     },
     {
       "id": "mob_young_white_dragon",
@@ -3999,7 +5528,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_ice_mephit_unmelting_ice_splinter"
+      "dropItemId": "tg_r5_young_white_dragon_rime_frosted_wyrm_scale",
+      "actions": [
+        {
+          "name": "Glacial Breath",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "chill",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Arctic Bite",
+          "damageType": "Frost",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 58,
+      "mDef": 48
     },
     {
       "id": "mob_young_copper_dragon",
@@ -4027,7 +5578,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_blue_dragon_wyrmling_cobalt_hatchling_scale"
+      "dropItemId": "tg_r5_young_copper_dragon_burnished_copper_wyrm_horn",
+      "actions": [
+        {
+          "name": "Slowing Acid Breath",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.58
+        },
+        {
+          "name": "Draconic Claws",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 58,
+      "mDef": 48
     },
     {
       "id": "mob_shield_guardian",
@@ -4055,7 +5628,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_air_elemental_bottled_tempest_wind"
+      "dropItemId": "tg_r5_shield_guardian_runed_guardian_amulet",
+      "actions": [
+        {
+          "name": "Arcane Fist",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        },
+        {
+          "name": "Force Ward Smash",
+          "damageType": "Radiant",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 64,
+      "mDef": 49
     },
     {
       "id": "mob_assassin",
@@ -4083,7 +5678,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r6_blood_hawk_crimson_talon"
+      "dropItemId": "tg_r5_assassin_syndicate_brass_collar_key",
+      "actions": [
+        {
+          "name": "Nightshade Blade",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.62
+        },
+        {
+          "name": "Vital Artery Strike",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        }
+      ],
+      "pDef": 53,
+      "mDef": 51
     },
     {
       "id": "mob_hydra",
@@ -4111,7 +5728,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_giant_eagle_storm_tipped_feather"
+      "dropItemId": "tg_r5_hydra_severed_hydra_neck_crest",
+      "actions": [
+        {
+          "name": "Five-Head Snapping",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Marsh Thrash",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.42
+        }
+      ],
+      "pDef": 59,
+      "mDef": 49
     },
     {
       "id": "mob_young_green_dragon",
@@ -4139,7 +5778,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_wyvern_barbed_poison_stinger"
+      "dropItemId": "tg_r5_young_green_dragon_venom_etched_wyrm_stinger",
+      "actions": [
+        {
+          "name": "Poison Gas Breath",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Venomous Rend",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "poison",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 60,
+      "mDef": 50
     },
     {
       "id": "mob_frost_giant",
@@ -4167,7 +5828,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r6_ice_mephit_unmelting_ice_splinter"
+      "dropItemId": "tg_r6_frost_giant_scarred_war_belt_plate",
+      "actions": [
+        {
+          "name": "Glacier Greataxe",
+          "damageType": "Frost",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Frozen Boulder",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        }
+      ],
+      "pDef": 69,
+      "mDef": 53
     },
     {
       "id": "mob_chain_devil",
@@ -4195,7 +5878,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r6_behir_twelve_legged_storm_hide"
+      "dropItemId": "tg_r6_chain_devil_living_spiked_link",
+      "actions": [
+        {
+          "name": "Barbed Chain Lash",
+          "damageType": "Slashing",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Binding Chains",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 63,
+      "mDef": 52
     },
     {
       "id": "mob_cloaker",
@@ -4223,7 +5928,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r6_harpy_jagged_wing_quill"
+      "dropItemId": "tg_r6_cloaker_shadow_hide_cloak",
+      "actions": [
+        {
+          "name": "Shadow Wrap",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Moaning Phantasms",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.94,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 56,
+      "mDef": 54
     },
     {
       "id": "mob_clay_golem",
@@ -4251,7 +5978,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_sphinx_of_lore_carved_sphinx_feather"
+      "dropItemId": "tg_r6_clay_golem_carved_earthen_seal",
+      "actions": [
+        {
+          "name": "Earthen Fist",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Quake Slam",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.95,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 70,
+      "mDef": 54
     },
     {
       "id": "mob_hezrou",
@@ -4279,7 +6028,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_invisible_stalker_whispering_air_core"
+      "dropItemId": "tg_r6_hezrou_abyssal_chitin_fang",
+      "actions": [
+        {
+          "name": "Fetid Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.58
+        },
+        {
+          "name": "Abyssal Stench Claw",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 0.94,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 70,
+      "mDef": 54
     },
     {
       "id": "mob_cloud_giant",
@@ -4307,7 +6078,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r6_djinni_braided_cloud_silk"
+      "dropItemId": "tg_r6_cloud_giant_braided_cloud_silk_sash",
+      "actions": [
+        {
+          "name": "Thunder Morningstar",
+          "damageType": "Lightning",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "shock",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        },
+        {
+          "name": "Gale Boulder Storm",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.25
+        }
+      ],
+      "pDef": 63,
+      "mDef": 64
     },
     {
       "id": "mob_young_silver_dragon",
@@ -4335,7 +6128,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_roc_plume_of_the_sky_titan"
+      "dropItemId": "tg_r6_young_silver_dragon_silver_wyrmling_crest_scale",
+      "actions": [
+        {
+          "name": "Freezing Breath",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "chill",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Paralyzing Gale",
+          "damageType": "Radiant",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.26
+        }
+      ],
+      "pDef": 67,
+      "mDef": 56
     },
     {
       "id": "mob_young_blue_dragon",
@@ -4363,7 +6178,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_young_blue_dragon_crackling_lightning_fang"
+      "dropItemId": "tg_r6_young_blue_dragon_crackling_lightning_fang",
+      "actions": [
+        {
+          "name": "Storm-Bolt Breath",
+          "damageType": "Lightning",
+          "target": "All Allies",
+          "power": 1.02,
+          "inflictStatus": "shock",
+          "inflictTurns": 2,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Azure Wing Rend",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 67,
+      "mDef": 56
     },
     {
       "id": "mob_bone_devil",
@@ -4391,7 +6228,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_wyvern_barbed_poison_stinger"
+      "dropItemId": "tg_r6_bone_devil_pale_scorpion_stinger",
+      "actions": [
+        {
+          "name": "Scorpion Stinger",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Hooked Spine Cleave",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 60,
+      "mDef": 58
     },
     {
       "id": "mob_glabrezu",
@@ -4419,7 +6278,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_behir_twelve_legged_storm_hide"
+      "dropItemId": "tg_r6_glabrezu_massive_pincer_claw",
+      "actions": [
+        {
+          "name": "Pincer Crush",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Abyssal Confusion",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        }
+      ],
+      "pDef": 66,
+      "mDef": 67
     },
     {
       "id": "mob_warrior_commander",
@@ -4447,7 +6328,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r6_storm_giant_crown_forged_storm_pearl"
+      "dropItemId": "tg_r6_warrior_commander_commander_storm_crest_badge",
+      "actions": [
+        {
+          "name": "Vanguard Greatsword",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        },
+        {
+          "name": "Shockwave Banner",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 76,
+      "mDef": 58
     },
     {
       "id": "mob_cultist_hierophant",
@@ -4475,7 +6378,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r6_djinni_braided_cloud_silk"
+      "dropItemId": "tg_r6_cultist_hierophant_hierophant_obsidian_talisman",
+      "actions": [
+        {
+          "name": "Void Flame",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        },
+        {
+          "name": "Dread Plague Curse",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.58
+        }
+      ],
+      "pDef": 57,
+      "mDef": 73
     },
     {
       "id": "mob_stone_golem",
@@ -4487,7 +6412,7 @@
       "level": 78,
       "cr": "10",
       "hp": 7691,
-      "atk": 236,
+      "atk": 271,
       "mag": 0,
       "guard": 2,
       "weak": "Bludgeoning, Lightning",
@@ -4503,7 +6428,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r7_marilith_sixfold_iron_bracelet"
+      "dropItemId": "tg_r7_stone_golem_carved_granite_heartstone",
+      "actions": [
+        {
+          "name": "Monolith Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.3
+        },
+        {
+          "name": "Slow-Pulse Shock",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 79,
+      "mDef": 61
     },
     {
       "id": "mob_bandit_crime_lord",
@@ -4515,7 +6462,7 @@
       "level": 79,
       "cr": "11",
       "hp": 5907,
-      "atk": 203,
+      "atk": 233,
       "mag": 0,
       "guard": 2,
       "weak": "Lightning, Bludgeoning",
@@ -4531,7 +6478,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_polar_bear_snow_white_pelt"
+      "dropItemId": "tg_r7_bandit_crime_lord_crime_lord_signet_purse",
+      "actions": [
+        {
+          "name": "Poisoned Rapier",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.58
+        },
+        {
+          "name": "Guild Crossbow Volley",
+          "damageType": "Piercing",
+          "target": "All Allies",
+          "power": 0.95,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        }
+      ],
+      "pDef": 65,
+      "mDef": 63
     },
     {
       "id": "mob_guardian_naga",
@@ -4543,8 +6512,8 @@
       "level": 78,
       "cr": "10",
       "hp": 5386,
-      "atk": 133,
-      "mag": 231,
+      "atk": 153,
+      "mag": 266,
       "guard": 1,
       "weak": "Slashing, Frost",
       "resist": "Poison",
@@ -4559,7 +6528,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_native_saber_toothed_tiger_massive_ivory_fang"
+      "dropItemId": "tg_r7_guardian_naga_sacred_naga_serpent_scale",
+      "actions": [
+        {
+          "name": "Radiant Flame Strike",
+          "damageType": "Radiant",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        },
+        {
+          "name": "Spit Poison",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.62
+        }
+      ],
+      "pDef": 59,
+      "mDef": 76
     },
     {
       "id": "mob_roc",
@@ -4571,7 +6562,7 @@
       "level": 79,
       "cr": "11",
       "hp": 7481,
-      "atk": 223,
+      "atk": 256,
       "mag": 0,
       "guard": 2,
       "weak": "Lightning, Piercing",
@@ -4587,7 +6578,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r7_erinyes_blackened_wing_pinion"
+      "dropItemId": "tg_r7_roc_plume_of_the_sky_titan",
+      "actions": [
+        {
+          "name": "Sky-Titan Talons",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Beak Plunge",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 73,
+      "mDef": 60
     },
     {
       "id": "mob_remorhaz",
@@ -4599,7 +6612,7 @@
       "level": 79,
       "cr": "11",
       "hp": 7481,
-      "atk": 223,
+      "atk": 256,
       "mag": 0,
       "guard": 2,
       "weak": "Lightning, Piercing",
@@ -4615,7 +6628,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_native_winter_wolf_frosted_alpha_pelt"
+      "dropItemId": "tg_r7_remorhaz_superheated_bore_tooth",
+      "actions": [
+        {
+          "name": "Scalding Bite",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Thermal Crush",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        }
+      ],
+      "pDef": 73,
+      "mDef": 60
     },
     {
       "id": "mob_djinni",
@@ -4627,8 +6662,8 @@
       "level": 79,
       "cr": "11",
       "hp": 7622,
-      "atk": 210,
-      "mag": 218,
+      "atk": 241,
+      "mag": 251,
       "guard": 1,
       "weak": "Frost, Shadow",
       "resist": "None",
@@ -4643,7 +6678,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r7_nightmare_blazing_horseshoe"
+      "dropItemId": "tg_r7_djinni_braided_cloud_silk",
+      "actions": [
+        {
+          "name": "Whirlwind Tempest",
+          "damageType": "Lightning",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "shock",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        },
+        {
+          "name": "Thunder Scimitar",
+          "damageType": "Lightning",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        }
+      ],
+      "pDef": 71,
+      "mDef": 72
     },
     {
       "id": "mob_young_red_dragon",
@@ -4655,7 +6712,7 @@
       "level": 83,
       "cr": "10",
       "hp": 7529,
-      "atk": 273,
+      "atk": 349,
       "mag": 0,
       "guard": 2,
       "weak": "Frost",
@@ -4671,7 +6728,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r7_spined_devil_scorched_tail_spine"
+      "dropItemId": "tg_r7_young_red_dragon_ember_hot_horn_fragment",
+      "actions": [
+        {
+          "name": "Searing Fire Breath",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.04,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Inferno Bite",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 76,
+      "mDef": 63
     },
     {
       "id": "mob_behir",
@@ -4683,7 +6762,7 @@
       "level": 84,
       "cr": "11",
       "hp": 8052,
-      "atk": 273,
+      "atk": 349,
       "mag": 0,
       "guard": 2,
       "weak": "Frost",
@@ -4699,7 +6778,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r7_hezrou_abyssal_chitin_fang"
+      "dropItemId": "tg_r7_behir_twelve_legged_storm_hide",
+      "actions": [
+        {
+          "name": "Storm Breath",
+          "damageType": "Lightning",
+          "target": "All Allies",
+          "power": 1.02,
+          "inflictStatus": "shock",
+          "inflictTurns": 2,
+          "inflictChance": 0.62
+        },
+        {
+          "name": "Twelve-Legged Crush",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 77,
+      "mDef": 64
     },
     {
       "id": "mob_horned_devil",
@@ -4711,7 +6812,7 @@
       "level": 84,
       "cr": "11",
       "hp": 9418,
-      "atk": 289,
+      "atk": 370,
       "mag": 0,
       "guard": 2,
       "weak": "Radiant, Frost",
@@ -4727,7 +6828,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r7_horned_devil_branded_hell_horn"
+      "dropItemId": "tg_r7_horned_devil_branded_hell_horn",
+      "actions": [
+        {
+          "name": "Forked Hurl-Flame",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Barbed Devil-Tail",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "bleed",
+          "inflictTurns": 3,
+          "inflictChance": 0.58
+        }
+      ],
+      "pDef": 85,
+      "mDef": 65
     },
     {
       "id": "mob_sphinx_of_lore",
@@ -4739,8 +6862,8 @@
       "level": 84,
       "cr": "11",
       "hp": 6588,
-      "atk": 163,
-      "mag": 284,
+      "atk": 209,
+      "mag": 364,
       "guard": 2,
       "weak": "Shadow",
       "resist": "Radiant, Frost",
@@ -4755,7 +6878,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r7_succubus_incubus_whispering_silver_clasp"
+      "dropItemId": "tg_r7_sphinx_of_lore_carved_sphinx_feather",
+      "actions": [
+        {
+          "name": "Astral Verdict",
+          "damageType": "Radiant",
+          "target": "All Allies",
+          "power": 1.02,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Temporal Roar",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        }
+      ],
+      "pDef": 63,
+      "mDef": 82
     },
     {
       "id": "mob_archmage",
@@ -4767,8 +6912,8 @@
       "level": 85,
       "cr": "12",
       "hp": 6899,
-      "atk": 163,
-      "mag": 284,
+      "atk": 209,
+      "mag": 364,
       "guard": 2,
       "weak": "Slashing, Piercing",
       "resist": "Fire, Lightning",
@@ -4783,7 +6928,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r7_shadow_demon_condensed_void_shroud"
+      "dropItemId": "tg_r7_archmage_archmage_runed_focus",
+      "actions": [
+        {
+          "name": "Cone of Cold",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 1.04,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Chain Lightning",
+          "damageType": "Lightning",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "shock",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        }
+      ],
+      "pDef": 64,
+      "mDef": 83
     },
     {
       "id": "mob_erinyes",
@@ -4795,7 +6962,7 @@
       "level": 85,
       "cr": "12",
       "hp": 8213,
-      "atk": 263,
+      "atk": 337,
       "mag": 0,
       "guard": 2,
       "weak": "Radiant",
@@ -4811,7 +6978,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r7_erinyes_blackened_wing_pinion"
+      "dropItemId": "tg_r7_erinyes_blackened_wing_pinion",
+      "actions": [
+        {
+          "name": "Hellfire Longbow",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        },
+        {
+          "name": "Poisoned Longsword",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.58
+        }
+      ],
+      "pDef": 78,
+      "mDef": 64
     },
     {
       "id": "mob_pirate_admiral",
@@ -4823,7 +7012,7 @@
       "level": 87,
       "cr": "12",
       "hp": 7829,
-      "atk": 292,
+      "atk": 374,
       "mag": 0,
       "guard": 1,
       "weak": "Lightning",
@@ -4839,7 +7028,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r7_barbed_devil_jagged_iron_hide_plate"
+      "dropItemId": "tg_r7_pirate_admiral_admiral_contraband_sea_seal",
+      "actions": [
+        {
+          "name": "Storm-Steel Cutlass",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Cannonade Barrage",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 80,
+      "mDef": 66
     },
     {
       "id": "mob_rakshasa",
@@ -4851,8 +7062,8 @@
       "level": 88,
       "cr": "13",
       "hp": 7049,
-      "atk": 181,
-      "mag": 315,
+      "atk": 232,
+      "mag": 403,
       "guard": 2,
       "weak": "Piercing, Radiant",
       "resist": "Fire, Frost",
@@ -4867,7 +7078,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r7_chain_devil_living_spiked_link"
+      "dropItemId": "tg_r7_rakshasa_silk_wrapped_claw_charm",
+      "actions": [
+        {
+          "name": "Cursed Tiger Claw",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.62
+        },
+        {
+          "name": "Phantom Dominate",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.52
+        }
+      ],
+      "pDef": 66,
+      "mDef": 85
     },
     {
       "id": "mob_vampire",
@@ -4879,8 +7112,8 @@
       "level": 88,
       "cr": "13",
       "hp": 9216,
-      "atk": 286,
-      "mag": 297,
+      "atk": 366,
+      "mag": 380,
       "guard": 2,
       "weak": "Radiant, Fire",
       "resist": "Shadow, Frost",
@@ -4895,7 +7128,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r7_bone_devil_pale_scorpion_stinger"
+      "dropItemId": "tg_r7_vampire_royal_velvet_signet",
+      "actions": [
+        {
+          "name": "Necrotic Bite",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Midnight Claws",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.0,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 78,
+      "mDef": 80
     },
     {
       "id": "mob_storm_giant",
@@ -4907,8 +7162,8 @@
       "level": 89,
       "cr": "13",
       "hp": 9368,
-      "atk": 286,
-      "mag": 297,
+      "atk": 366,
+      "mag": 380,
       "guard": 2,
       "weak": "Frost, Shadow",
       "resist": "None",
@@ -4923,7 +7178,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r7_glabrezu_massive_pincer_claw"
+      "dropItemId": "tg_r7_storm_giant_crown_forged_storm_pearl",
+      "actions": [
+        {
+          "name": "Lightning Strike",
+          "damageType": "Lightning",
+          "target": "All Allies",
+          "power": 1.06,
+          "inflictStatus": "shock",
+          "inflictTurns": 2,
+          "inflictChance": 0.62
+        },
+        {
+          "name": "Storm Greatsword",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 79,
+      "mDef": 81
     },
     {
       "id": "mob_adult_black_dragon",
@@ -4935,7 +7212,7 @@
       "level": 89,
       "cr": "14",
       "hp": 9792,
-      "atk": 303,
+      "atk": 388,
       "mag": 0,
       "guard": 2,
       "weak": "Radiant, Frost",
@@ -4951,7 +7228,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r7_ice_devil_eternal_permafrost_shard"
+      "dropItemId": "tg_r7_adult_black_dragon_obsidian_wyrm_horn_fragment",
+      "actions": [
+        {
+          "name": "Abyssal Acid Breath",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 1.06,
+          "inflictStatus": "def_down",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Shadow Tail Sweep",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.3
+        }
+      ],
+      "pDef": 82,
+      "mDef": 67
     },
     {
       "id": "mob_ice_devil",
@@ -4963,7 +7262,7 @@
       "level": 90,
       "cr": "14",
       "hp": 11441,
-      "atk": 321,
+      "atk": 411,
       "mag": 0,
       "guard": 2,
       "weak": "Fire, Radiant",
@@ -4979,7 +7278,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r7_ice_devil_eternal_permafrost_shard"
+      "dropItemId": "tg_r7_ice_devil_eternal_permafrost_shard",
+      "actions": [
+        {
+          "name": "Blizzard Spear",
+          "damageType": "Frost",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "chill",
+          "inflictTurns": 3,
+          "inflictChance": 0.62
+        },
+        {
+          "name": "Permafrost Wall",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 1.04,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.58
+        }
+      ],
+      "pDef": 91,
+      "mDef": 70
     },
     {
       "id": "mob_nalfeshnee",
@@ -4991,8 +7312,8 @@
       "level": 93,
       "cr": "13",
       "hp": 9676,
-      "atk": 316,
-      "mag": 329,
+      "atk": 404,
+      "mag": 421,
       "guard": 2,
       "weak": "Radiant",
       "resist": "Fire, Frost, Lightning",
@@ -5007,7 +7328,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r8_ghast_fetid_crypt_fang"
+      "dropItemId": "tg_r8_nalfeshnee_abyssal_boar_fiend_pincer",
+      "actions": [
+        {
+          "name": "Horror Nimbus",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 1.02,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.28
+        },
+        {
+          "name": "Abyssal Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        }
+      ],
+      "pDef": 83,
+      "mDef": 84
     },
     {
       "id": "mob_purple_worm",
@@ -5019,7 +7362,7 @@
       "level": 94,
       "cr": "15",
       "hp": 10336,
-      "atk": 335,
+      "atk": 429,
       "mag": 0,
       "guard": 2,
       "weak": "Frost, Lightning",
@@ -5035,7 +7378,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r8_ghoul_rotting_claw_tip"
+      "dropItemId": "tg_r8_purple_worm_massive_bore_tooth",
+      "actions": [
+        {
+          "name": "Titanic Bite",
+          "damageType": "Piercing",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "def_down",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Deadly Tail Stinger",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.68
+        }
+      ],
+      "pDef": 86,
+      "mDef": 71
     },
     {
       "id": "mob_marilith",
@@ -5047,7 +7412,7 @@
       "level": 95,
       "cr": "16",
       "hp": 8962,
-      "atk": 306,
+      "atk": 392,
       "mag": 0,
       "guard": 2,
       "weak": "Radiant",
@@ -5063,7 +7428,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r8_wight_tarnished_tomb_blade"
+      "dropItemId": "tg_r8_marilith_sixfold_iron_bracelet",
+      "actions": [
+        {
+          "name": "Sixfold Blade Flurry",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "bleed",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Coiling Tail Crush",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 1.0,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.48
+        }
+      ],
+      "pDef": 78,
+      "mDef": 75
     },
     {
       "id": "mob_mummy_lord",
@@ -5075,8 +7462,8 @@
       "level": 94,
       "cr": "15",
       "hp": 8324,
-      "atk": 200,
-      "mag": 348,
+      "atk": 256,
+      "mag": 445,
       "guard": 2,
       "weak": "Fire, Radiant",
       "resist": "Shadow",
@@ -5091,7 +7478,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r8_zombie_tattered_burial_band"
+      "dropItemId": "tg_r8_mummy_lord_royal_tomb_linen_wrap",
+      "actions": [
+        {
+          "name": "Blasphemous Curse",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 1.04,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Necrotic Rot Fist",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        }
+      ],
+      "pDef": 70,
+      "mDef": 91
     },
     {
       "id": "mob_adult_green_dragon",
@@ -5103,7 +7512,7 @@
       "level": 94,
       "cr": "15",
       "hp": 10672,
-      "atk": 335,
+      "atk": 429,
       "mag": 0,
       "guard": 2,
       "weak": "Fire, Radiant",
@@ -5119,7 +7528,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r8_shadow_cold_twilight_ash"
+      "dropItemId": "tg_r8_adult_green_dragon_caustic_wyrm_tail_stinger",
+      "actions": [
+        {
+          "name": "Noxious Cloud Breath",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 1.06,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.68
+        },
+        {
+          "name": "Venom Tail Crush",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "atk_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 86,
+      "mDef": 71
     },
     {
       "id": "mob_iron_golem",
@@ -5131,7 +7562,7 @@
       "level": 95,
       "cr": "16",
       "hp": 13056,
-      "atk": 354,
+      "atk": 453,
       "mag": 0,
       "guard": 2,
       "weak": "Lightning, Bludgeoning",
@@ -5147,7 +7578,29 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r8_wraith_black_frost_shackle"
+      "dropItemId": "tg_r8_iron_golem_forged_iron_greave_core",
+      "actions": [
+        {
+          "name": "Forge-Iron Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Poison Fume Breath",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 1.02,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        }
+      ],
+      "pDef": 96,
+      "mDef": 73
     },
     {
       "id": "mob_adult_silver_dragon",
@@ -5159,7 +7612,7 @@
       "level": 97,
       "cr": "16",
       "hp": 10515,
-      "atk": 370,
+      "atk": 474,
       "mag": 0,
       "guard": 2,
       "weak": "Fire",
@@ -5175,7 +7628,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r8_ghost_wailing_silver_shroud"
+      "dropItemId": "tg_r8_adult_silver_dragon_ancient_silver_wyrm_scale",
+      "actions": [
+        {
+          "name": "Glacial Breath",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 1.06,
+          "inflictStatus": "chill",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Paralyzing Frost",
+          "damageType": "Frost",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.3
+        }
+      ],
+      "pDef": 89,
+      "mDef": 73
     },
     {
       "id": "mob_adult_red_dragon",
@@ -5187,7 +7662,7 @@
       "level": 98,
       "cr": "17",
       "hp": 11272,
-      "atk": 370,
+      "atk": 474,
       "mag": 0,
       "guard": 2,
       "weak": "Frost",
@@ -5203,7 +7678,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r8_vampire_spawn_crimson_blood_vial"
+      "dropItemId": "tg_r8_adult_red_dragon_scarlet_wyrm_horn_fragment",
+      "actions": [
+        {
+          "name": "Cataclysm Fire Breath",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.08,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.68
+        },
+        {
+          "name": "Tyrant Claws",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        }
+      ],
+      "pDef": 90,
+      "mDef": 74
     },
     {
       "id": "mob_balor",
@@ -5215,8 +7712,8 @@
       "level": 99,
       "cr": "19",
       "hp": 12641,
-      "atk": 348,
-      "mag": 363,
+      "atk": 445,
+      "mag": 465,
       "guard": 2,
       "weak": "Radiant, Frost",
       "resist": "Lightning",
@@ -5231,7 +7728,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r8_vampire_royal_velvet_signet"
+      "dropItemId": "tg_r8_balor_balor_infernal_flame_core",
+      "actions": [
+        {
+          "name": "Fire Whip & Longsword",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.62
+        },
+        {
+          "name": "Death Aura Nova",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.08,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.62
+        }
+      ],
+      "pDef": 88,
+      "mDef": 89
     },
     {
       "id": "mob_ancient_black_dragon",
@@ -5243,7 +7762,7 @@
       "level": 99,
       "cr": "21",
       "hp": 12785,
-      "atk": 370,
+      "atk": 474,
       "mag": 0,
       "guard": 2,
       "weak": "Radiant, Frost",
@@ -5259,7 +7778,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r8_cloaker_shadow_hide_cloak"
+      "dropItemId": "tg_r8_ancient_black_dragon_ancient_eclipse_wyrm_scale",
+      "actions": [
+        {
+          "name": "Dread Acid Deluge",
+          "damageType": "Poison",
+          "target": "All Allies",
+          "power": 1.1,
+          "inflictStatus": "def_down",
+          "inflictTurns": 3,
+          "inflictChance": 0.68
+        },
+        {
+          "name": "Ruinous Jaw",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.58
+        }
+      ],
+      "pDef": 90,
+      "mDef": 75
     },
     {
       "id": "mob_lich",
@@ -5271,8 +7812,8 @@
       "level": 99,
       "cr": "21",
       "hp": 10132,
-      "atk": 220,
-      "mag": 384,
+      "atk": 282,
+      "mag": 492,
       "guard": 2,
       "weak": "Radiant, Fire",
       "resist": "Frost, Shadow",
@@ -5287,7 +7828,29 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 0.94,
-      "dropItemId": "tg_r8_lich_shattered_phylactery_seal"
+      "dropItemId": "tg_r8_lich_shattered_phylactery_seal",
+      "actions": [
+        {
+          "name": "Finger of Death",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.22,
+          "inflictStatus": "curse",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Astral Meteor",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.1,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        }
+      ],
+      "pDef": 74,
+      "mDef": 96
     },
     {
       "id": "mob_dragon_turtle",
@@ -5299,7 +7862,7 @@
       "level": 98,
       "cr": "17",
       "hp": 13191,
-      "atk": 391,
+      "atk": 500,
       "mag": 0,
       "guard": 2,
       "weak": "Lightning, Frost",
@@ -5315,7 +7878,29 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r8_skeleton_bleached_marrow_bone"
+      "dropItemId": "tg_r8_dragon_turtle_steam_scarred_scute",
+      "actions": [
+        {
+          "name": "Scalding Steam Breath",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.08,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.65
+        },
+        {
+          "name": "Shell-Breaker Bite",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "def_down",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        }
+      ],
+      "pDef": 99,
+      "mDef": 76
     },
     {
       "id": "mob_earth_elemental",
@@ -5345,7 +7930,39 @@
       "visualScale": 1,
       "dropItemId": "tg_r1_earth_elemental_dense_geode_heart",
       "xp": 1200,
-      "silver": 650
+      "silver": 650,
+      "actions": [
+        {
+          "name": "Furnace Slam",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.12,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Seismic Crush",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.06,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.25
+        },
+        {
+          "name": "Cinder Cloud",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.55,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 14,
+      "mDef": 11
     },
     {
       "id": "mob_otyugh",
@@ -5375,7 +7992,39 @@
       "visualScale": 1,
       "dropItemId": "tg_r2_otyugh_barbed_trench_tentacle",
       "xp": 4200,
-      "silver": 2400
+      "silver": 2400,
+      "actions": [
+        {
+          "name": "Psychic Lance",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Toxic Tentacle",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.02,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Abyssal Lash",
+          "damageType": "Bludgeoning",
+          "target": "All Allies",
+          "power": 0.96,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.45,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 25,
+      "mDef": 19
     },
     {
       "id": "mob_fire_giant",
@@ -5403,9 +8052,41 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r3_frost_giant_scarred_war_belt_plate",
+      "dropItemId": "tg_r3_fire_giant_scorched_giant_war_belt_plate",
       "xp": 9500,
-      "silver": 6500
+      "silver": 6500,
+      "actions": [
+        {
+          "name": "Molten Greatsword",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.4
+        },
+        {
+          "name": "Hurl Molten Boulder",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Colossal Cleave",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.02,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.55,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 40,
+      "mDef": 30
     },
     {
       "id": "mob_aboleth",
@@ -5433,9 +8114,41 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r4_shambling_mound_pulsing_vine_heart",
+      "dropItemId": "tg_r4_aboleth_abyssal_trench_eye_cluster",
       "xp": 16500,
-      "silver": 14000
+      "silver": 14000,
+      "actions": [
+        {
+          "name": "Spore-Rot Lash",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Acidic Bile",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.05,
+          "inflictStatus": "def_down",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Psychic Maelstrom",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 1.04,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.5,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 50,
+      "mDef": 38
     },
     {
       "id": "mob_efreeti",
@@ -5463,9 +8176,41 @@
       "gridH": 2,
       "sizePreset": "Large (2\u00d72)",
       "visualScale": 1,
-      "dropItemId": "tg_r6_storm_giant_crown_forged_storm_pearl",
+      "dropItemId": "tg_r5_efreeti_blazing_brass_cinder_core",
       "xp": 26000,
-      "silver": 27000
+      "silver": 27000,
+      "actions": [
+        {
+          "name": "Scimitar Flurry",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.45
+        },
+        {
+          "name": "Hurl Flame Orb",
+          "damageType": "Fire",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "burn",
+          "inflictTurns": 2,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Solar Flare",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.08,
+          "inflictStatus": "blind",
+          "inflictTurns": 2,
+          "inflictChance": 0.45,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 64,
+      "mDef": 49
     },
     {
       "id": "mob_adult_blue_dragon",
@@ -5495,7 +8240,39 @@
       "visualScale": 1.02,
       "dropItemId": "tg_r6_adult_blue_dragon_charged_sapphire_horn",
       "xp": 38000,
-      "silver": 48000
+      "silver": 48000,
+      "actions": [
+        {
+          "name": "Dragon Rend",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.5
+        },
+        {
+          "name": "Gale Wing-Sweep",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.1,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.3
+        },
+        {
+          "name": "Tempest Lightning Breath",
+          "damageType": "Lightning",
+          "target": "All Allies",
+          "power": 1.1,
+          "inflictStatus": "shock",
+          "inflictTurns": 2,
+          "inflictChance": 0.6,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 74,
+      "mDef": 57
     },
     {
       "id": "mob_pit_fiend",
@@ -5523,9 +8300,50 @@
       "gridH": 3,
       "sizePreset": "Colossal (3\u00d73)",
       "visualScale": 1.02,
-      "dropItemId": "tg_r7_glabrezu_massive_pincer_claw",
+      "dropItemId": "tg_r7_pit_fiend_pit_general_jagged_plate",
       "xp": 52000,
-      "silver": 80000
+      "silver": 80000,
+      "actions": [
+        {
+          "name": "Infernal Mace",
+          "damageType": "Bludgeoning",
+          "target": "1 Ally",
+          "power": 1.16,
+          "inflictStatus": "stun",
+          "inflictTurns": 1,
+          "inflictChance": 0.32
+        },
+        {
+          "name": "Hellfire Curse",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.14,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Venomous Bite",
+          "damageType": "Poison",
+          "target": "1 Ally",
+          "power": 1.08,
+          "inflictStatus": "poison",
+          "inflictTurns": 3,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Meteor Hellstorm",
+          "damageType": "Fire",
+          "target": "All Allies",
+          "power": 1.12,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.65,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 89,
+      "mDef": 68
     },
     {
       "id": "mob_king_garrick",
@@ -5553,9 +8371,390 @@
       "gridH": 1,
       "sizePreset": "Standard (1\u00d71)",
       "visualScale": 1.04,
-      "dropItemId": "tg_native_eclipse_cultist_obsidian_talisman",
+      "dropItemId": "tg_r8_king_garrick_black_keep_obsidian_sigil",
       "xp": 75000,
-      "silver": 120000
+      "silver": 120000,
+      "actions": [
+        {
+          "name": "Executioner's Greatsword",
+          "damageType": "Slashing",
+          "target": "1 Ally",
+          "power": 1.2,
+          "inflictStatus": "bleed",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Necrotic Lance",
+          "damageType": "Shadow",
+          "target": "1 Ally",
+          "power": 1.18,
+          "inflictStatus": "curse",
+          "inflictTurns": 2,
+          "inflictChance": 0.6
+        },
+        {
+          "name": "Timeless Chill",
+          "damageType": "Frost",
+          "target": "All Allies",
+          "power": 0.98,
+          "inflictStatus": "chill",
+          "inflictTurns": 2,
+          "inflictChance": 0.55
+        },
+        {
+          "name": "Eclipse Cataclysm",
+          "damageType": "Shadow",
+          "target": "All Allies",
+          "power": 1.16,
+          "inflictStatus": "burn",
+          "inflictTurns": 3,
+          "inflictChance": 0.65,
+          "telegraphed": true
+        }
+      ],
+      "pDef": 100,
+      "mDef": 76
     }
-  ]
+  ],
+  "combatConfig": {
+    "biomeStageMap": {
+      "Crownland Meadows": "biome_01_crownland_meadows",
+      "Oakleaf Groves": "biome_02_oakleaf_groves",
+      "Crown Sea": "biome_03_coastal_shore_crown_sea",
+      "Upland Foothills": "biome_04_upland_foothills",
+      "Sunlit Downs": "biome_05_sunlit_downs",
+      "Graystone Foothills": "biome_06_graystone_foothills",
+      "Sandstone Ridges": "biome_07_sandstone_ridges",
+      "Saltmarsh Wetlands": "biome_08_saltmarsh_wetlands",
+      "Saltmarsh Waterways": "biome_09_saltmarsh_waterways_shore",
+      "Thornwall Slate Crags": "biome_10_thornwall_slate_crags",
+      "Ochre Grasslands": "biome_11_ochre_grasslands",
+      "Verdant Canopy Woods": "biome_12_verdant_canopy_woods",
+      "Weald Clearings": "biome_13_weald_clearings",
+      "Borderland Channel": "biome_14_borderland_channel_shore",
+      "Blighted Mire-Glade": "biome_15_blighted_mire_glade",
+      "Highland Foothills": "biome_16_highland_foothills",
+      "Alpine Foothills": "biome_23_ironcrest_foothills",
+      "Sandy Cove Beaches": "biome_17_sandy_cove_beaches",
+      "Veridian Coast Beaches": "biome_17_sandy_cove_beaches",
+      "Sun-Scorched Dunes": "biome_18_sun_scorched_dunes",
+      "Sandstone Mesas": "biome_19_sandstone_mesas",
+      "Oasis & Alpine Lakes": "biome_20_oasis_alpine_lakes_shore",
+      "Palm Oasis Verge": "biome_21_palm_oasis_verge",
+      "Granite Highland Ridge": "biome_22_granite_highland_ridge",
+      "Ironcrest Foothills": "biome_23_ironcrest_foothills",
+      "Highland Oak Woods": "biome_24_highland_oak_woods",
+      "Evergreen Pine Forest": "biome_25_evergreen_pine_forest",
+      "Ironcrest Alpine Meadow": "biome_26_ironcrest_alpine_meadow",
+      "Frostbound Foothills": "biome_27_frostbound_foothills",
+      "Frostpine Taiga": "biome_28_frostpine_taiga",
+      "Glacial Snowfields": "biome_29_glacial_snowfields",
+      "Ashen Border Scree": "biome_30_ashen_border_scree",
+      "Dreadwaste Basalt Crags": "biome_30_ashen_border_scree",
+      "Frost-Shore Beaches": "biome_31_frost_shore_beaches",
+      "Frozen Glacial Lakes": "biome_32_frozen_glacial_lakes",
+      "Charred Ash Plains": "biome_33_charred_ash_plains",
+      "Black Lava Mountain": "biome_33_charred_ash_plains",
+      "Frostbound Ocean": "biome_34_coastal_shore_frostbound_ocean"
+    },
+    "portalStageMap": [
+      {
+        "keys": [
+          "ashen gate",
+          "portal_1",
+          "loc_05"
+        ],
+        "portalNum": 1,
+        "stageId": "biome_35_portal_1_ashen_gate",
+        "bossId": "mob_earth_elemental"
+      },
+      {
+        "keys": [
+          "sunken maw",
+          "portal_2",
+          "loc_10"
+        ],
+        "portalNum": 2,
+        "stageId": "biome_36_portal_2_sunken_maw",
+        "bossId": "mob_otyugh"
+      },
+      {
+        "keys": [
+          "iron rift",
+          "portal_3",
+          "loc_15"
+        ],
+        "portalNum": 3,
+        "stageId": "biome_37_portal_3_iron_rift",
+        "bossId": "mob_fire_giant"
+      },
+      {
+        "keys": [
+          "rotspire",
+          "portal_4",
+          "loc_20"
+        ],
+        "portalNum": 4,
+        "stageId": "biome_38_portal_4_rotspire",
+        "bossId": "mob_aboleth"
+      },
+      {
+        "keys": [
+          "scorched chasm",
+          "portal_5",
+          "loc_25"
+        ],
+        "portalNum": 5,
+        "stageId": "biome_39_portal_5_scorched_chasm",
+        "bossId": "mob_efreeti"
+      },
+      {
+        "keys": [
+          "storm-crowned",
+          "storm crowned",
+          "storm_crowned",
+          "portal_6",
+          "loc_30"
+        ],
+        "portalNum": 6,
+        "stageId": "biome_40_portal_6_storm_crowned_spire",
+        "bossId": "mob_adult_blue_dragon"
+      },
+      {
+        "keys": [
+          "pale abyss",
+          "portal_7",
+          "loc_35"
+        ],
+        "portalNum": 7,
+        "stageId": "biome_41_portal_7_pale_abyss",
+        "bossId": "mob_pit_fiend"
+      },
+      {
+        "keys": [
+          "eclipse gate",
+          "garrick",
+          "demon",
+          "citadel",
+          "black keep",
+          "portal_8",
+          "loc_39",
+          "loc_40"
+        ],
+        "portalNum": 8,
+        "stageId": "biome_33_charred_ash_plains",
+        "bossId": "mob_king_garrick"
+      }
+    ],
+    "coastalChance": 0.45,
+    "coastalStageByMap": {
+      "map_01": "biome_03_coastal_shore_crown_sea",
+      "map_02": "biome_17_sandy_cove_beaches",
+      "map_03": "biome_17_sandy_cove_beaches",
+      "map_04": "biome_34_coastal_shore_frostbound_ocean"
+    },
+    "inlandChance": 0.42,
+    "inlandStageByMap": {
+      "map_01": "biome_09_saltmarsh_waterways_shore",
+      "map_02": "biome_14_borderland_channel_shore",
+      "map_03": "biome_20_oasis_alpine_lakes_shore",
+      "map_04": "biome_32_frozen_glacial_lakes"
+    },
+    "regionLevelCutoffs": [
+      15,
+      25,
+      40,
+      50,
+      65,
+      75,
+      90
+    ],
+    "levelBenchmarks": [
+      [
+        1,
+        28,
+        4.2
+      ],
+      [
+        3,
+        43,
+        5.5
+      ],
+      [
+        8,
+        96,
+        9.3
+      ],
+      [
+        13,
+        155,
+        13.5
+      ],
+      [
+        18,
+        320,
+        26.2
+      ],
+      [
+        23,
+        476,
+        34.0
+      ],
+      [
+        28,
+        674,
+        41.5
+      ],
+      [
+        33,
+        1077,
+        52.3
+      ],
+      [
+        38,
+        1313,
+        73.5
+      ],
+      [
+        43,
+        1891,
+        85.5
+      ],
+      [
+        48,
+        2341,
+        96.7
+      ],
+      [
+        53,
+        2760,
+        110.3
+      ],
+      [
+        58,
+        3622,
+        125.7
+      ],
+      [
+        63,
+        4369,
+        160.2
+      ],
+      [
+        68,
+        5388,
+        180.5
+      ],
+      [
+        73,
+        5880,
+        199.8
+      ],
+      [
+        78,
+        6928,
+        222.3
+      ],
+      [
+        83,
+        7783,
+        277.7
+      ],
+      [
+        88,
+        9116,
+        304.2
+      ],
+      [
+        93,
+        10171,
+        334.5
+      ],
+      [
+        98,
+        11756,
+        374.7
+      ],
+      [
+        99,
+        12100,
+        384.0
+      ]
+    ],
+    "packLootScale": {
+      "single": 1.85,
+      "pair": 1.25,
+      "groupTotal": 3.0
+    },
+    "packHpScale": {
+      "single": 1.35,
+      "pair": 1.05,
+      "three": 0.92,
+      "four": 0.8,
+      "fivePlus": 0.72
+    },
+    "earlyHpLift": {
+      "maxLevel": 6,
+      "maxMultiplier": 1.42
+    },
+    "bossHpBoost": {
+      "1": 1.4,
+      "2": 1.2
+    },
+    "rewardCurve": {
+      "xp": {
+        "minVal": 4,
+        "base": 3.0,
+        "lin": 0.9,
+        "quad": 0.19
+      },
+      "silver": {
+        "minVal": 3,
+        "base": 1.2,
+        "earlyMaxLv": 25,
+        "earlyLift": 11.45,
+        "earlyPower": 0.55,
+        "lin": 0.25,
+        "cubic": 0.00108
+      },
+      "bossXpFallback": {
+        "minVal": 400,
+        "base": 120,
+        "lin": 140,
+        "quad": 6.2
+      },
+      "bossSilverFallback": {
+        "minVal": 300,
+        "base": 50,
+        "lin": 80,
+        "quad": 11.5
+      }
+    },
+    "speedConfig": {
+      "heroBase": {
+        "valen": 17,
+        "rowan": 17,
+        "ellowyn": 15,
+        "harlan": 15,
+        "mera": 15,
+        "orin": 13
+      },
+      "lightArmorBonus": 2,
+      "heavyArmorPenalty": -2,
+      "shieldPenalty": -1,
+      "heroFinesseScale": 0.45,
+      "enemyRoleBase": {
+        "skirmish": 19,
+        "beast": 19,
+        "caster": 16,
+        "hybrid": 16,
+        "fighter": 15,
+        "heavy": 12
+      },
+      "enemyDefault": 15,
+      "bossBase": 20,
+      "enemyLevelScale": 0.42
+    }
+  }
 }

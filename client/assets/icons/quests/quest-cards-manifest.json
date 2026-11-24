@@ -1,0 +1,1353 @@
+{
+  "version": 1,
+  "count": 192,
+  "dimensions": "512x512",
+  "cards": {
+    "q001": "assets/icons/quests/q001.webp",
+    "q002": "assets/icons/quests/q002.webp",
+    "q003": "assets/icons/quests/q003.webp",
+    "q004": "assets/icons/quests/q004.webp",
+    "q005": "assets/icons/quests/q005.webp",
+    "q006": "assets/icons/quests/q006.webp",
+    "q007": "assets/icons/quests/q007.webp",
+    "q008": "assets/icons/quests/q008.webp",
+    "q009": "assets/icons/quests/q009.webp",
+    "q010": "assets/icons/quests/q010.webp",
+    "q011": "assets/icons/quests/q011.webp",
+    "q012": "assets/icons/quests/q012.webp",
+    "q013": "assets/icons/quests/q013.webp",
+    "q014": "assets/icons/quests/q014.webp",
+    "q015": "assets/icons/quests/q015.webp",
+    "q016": "assets/icons/quests/q016.webp",
+    "q017": "assets/icons/quests/q017.webp",
+    "q018": "assets/icons/quests/q018.webp",
+    "q019": "assets/icons/quests/q019.webp",
+    "q020": "assets/icons/quests/q020.webp",
+    "q021": "assets/icons/quests/q021.webp",
+    "q022": "assets/icons/quests/q022.webp",
+    "q023": "assets/icons/quests/q023.webp",
+    "q024": "assets/icons/quests/q024.webp",
+    "q025": "assets/icons/quests/q025.webp",
+    "q026": "assets/icons/quests/q026.webp",
+    "q027": "assets/icons/quests/q027.webp",
+    "q028": "assets/icons/quests/q028.webp",
+    "q029": "assets/icons/quests/q029.webp",
+    "q030": "assets/icons/quests/q030.webp",
+    "q031": "assets/icons/quests/q031.webp",
+    "q032": "assets/icons/quests/q032.webp",
+    "q033": "assets/icons/quests/q033.webp",
+    "q034": "assets/icons/quests/q034.webp",
+    "q035": "assets/icons/quests/q035.webp",
+    "q036": "assets/icons/quests/q036.webp",
+    "q037": "assets/icons/quests/q037.webp",
+    "q038": "assets/icons/quests/q038.webp",
+    "q039": "assets/icons/quests/q039.webp",
+    "q040": "assets/icons/quests/q040.webp",
+    "q041": "assets/icons/quests/q041.webp",
+    "q042": "assets/icons/quests/q042.webp",
+    "q043": "assets/icons/quests/q043.webp",
+    "q044": "assets/icons/quests/q044.webp",
+    "q045": "assets/icons/quests/q045.webp",
+    "q046": "assets/icons/quests/q046.webp",
+    "q047": "assets/icons/quests/q047.webp",
+    "q048": "assets/icons/quests/q048.webp",
+    "q049": "assets/icons/quests/q049.webp",
+    "q050": "assets/icons/quests/q050.webp",
+    "q051": "assets/icons/quests/q051.webp",
+    "q052": "assets/icons/quests/q052.webp",
+    "q053": "assets/icons/quests/q053.webp",
+    "q054": "assets/icons/quests/q054.webp",
+    "q055": "assets/icons/quests/q055.webp",
+    "q056": "assets/icons/quests/q056.webp",
+    "q057": "assets/icons/quests/q057.webp",
+    "q058": "assets/icons/quests/q058.webp",
+    "q059": "assets/icons/quests/q059.webp",
+    "q060": "assets/icons/quests/q060.webp",
+    "q061": "assets/icons/quests/q061.webp",
+    "q062": "assets/icons/quests/q062.webp",
+    "q063": "assets/icons/quests/q063.webp",
+    "q064": "assets/icons/quests/q064.webp",
+    "q065": "assets/icons/quests/q065.webp",
+    "q066": "assets/icons/quests/q066.webp",
+    "q067": "assets/icons/quests/q067.webp",
+    "q068": "assets/icons/quests/q068.webp",
+    "q069": "assets/icons/quests/q069.webp",
+    "q070": "assets/icons/quests/q070.webp",
+    "q071": "assets/icons/quests/q071.webp",
+    "q072": "assets/icons/quests/q072.webp",
+    "q073": "assets/icons/quests/q073.webp",
+    "q074": "assets/icons/quests/q074.webp",
+    "q075": "assets/icons/quests/q075.webp",
+    "q076": "assets/icons/quests/q076.webp",
+    "q077": "assets/icons/quests/q077.webp",
+    "q078": "assets/icons/quests/q078.webp",
+    "q079": "assets/icons/quests/q079.webp",
+    "q080": "assets/icons/quests/q080.webp",
+    "q081": "assets/icons/quests/q081.webp",
+    "q082": "assets/icons/quests/q082.webp",
+    "q083": "assets/icons/quests/q083.webp",
+    "q084": "assets/icons/quests/q084.webp",
+    "q085": "assets/icons/quests/q085.webp",
+    "q086": "assets/icons/quests/q086.webp",
+    "q087": "assets/icons/quests/q087.webp",
+    "q088": "assets/icons/quests/q088.webp",
+    "q089": "assets/icons/quests/q089.webp",
+    "q090": "assets/icons/quests/q090.webp",
+    "q091": "assets/icons/quests/q091.webp",
+    "q092": "assets/icons/quests/q092.webp",
+    "q093": "assets/icons/quests/q093.webp",
+    "q094": "assets/icons/quests/q094.webp",
+    "q095": "assets/icons/quests/q095.webp",
+    "q096": "assets/icons/quests/q096.webp",
+    "q097": "assets/icons/quests/q097.webp",
+    "q098": "assets/icons/quests/q098.webp",
+    "q099": "assets/icons/quests/q099.webp",
+    "q100": "assets/icons/quests/q100.webp",
+    "q101": "assets/icons/quests/q101.webp",
+    "q102": "assets/icons/quests/q102.webp",
+    "q103": "assets/icons/quests/q103.webp",
+    "q104": "assets/icons/quests/q104.webp",
+    "q105": "assets/icons/quests/q105.webp",
+    "q106": "assets/icons/quests/q106.webp",
+    "q107": "assets/icons/quests/q107.webp",
+    "q108": "assets/icons/quests/q108.webp",
+    "q109": "assets/icons/quests/q109.webp",
+    "q110": "assets/icons/quests/q110.webp",
+    "q111": "assets/icons/quests/q111.webp",
+    "q112": "assets/icons/quests/q112.webp",
+    "q113": "assets/icons/quests/q113.webp",
+    "q114": "assets/icons/quests/q114.webp",
+    "q115": "assets/icons/quests/q115.webp",
+    "q116": "assets/icons/quests/q116.webp",
+    "q117": "assets/icons/quests/q117.webp",
+    "q118": "assets/icons/quests/q118.webp",
+    "q119": "assets/icons/quests/q119.webp",
+    "q120": "assets/icons/quests/q120.webp",
+    "q121": "assets/icons/quests/q121.webp",
+    "q122": "assets/icons/quests/q122.webp",
+    "q123": "assets/icons/quests/q123.webp",
+    "q124": "assets/icons/quests/q124.webp",
+    "q125": "assets/icons/quests/q125.webp",
+    "q126": "assets/icons/quests/q126.webp",
+    "q127": "assets/icons/quests/q127.webp",
+    "q128": "assets/icons/quests/q128.webp",
+    "q129": "assets/icons/quests/q129.webp",
+    "q130": "assets/icons/quests/q130.webp",
+    "q131": "assets/icons/quests/q131.webp",
+    "q132": "assets/icons/quests/q132.webp",
+    "q133": "assets/icons/quests/q133.webp",
+    "q134": "assets/icons/quests/q134.webp",
+    "q135": "assets/icons/quests/q135.webp",
+    "q136": "assets/icons/quests/q136.webp",
+    "q137": "assets/icons/quests/q137.webp",
+    "q138": "assets/icons/quests/q138.webp",
+    "q139": "assets/icons/quests/q139.webp",
+    "q140": "assets/icons/quests/q140.webp",
+    "q141": "assets/icons/quests/q141.webp",
+    "q142": "assets/icons/quests/q142.webp",
+    "q143": "assets/icons/quests/q143.webp",
+    "q144": "assets/icons/quests/q144.webp",
+    "q145": "assets/icons/quests/q145.webp",
+    "q146": "assets/icons/quests/q146.webp",
+    "q147": "assets/icons/quests/q147.webp",
+    "q148": "assets/icons/quests/q148.webp",
+    "q149": "assets/icons/quests/q149.webp",
+    "q150": "assets/icons/quests/q150.webp",
+    "q151": "assets/icons/quests/q151.webp",
+    "q152": "assets/icons/quests/q152.webp",
+    "q153": "assets/icons/quests/q153.webp",
+    "q154": "assets/icons/quests/q154.webp",
+    "q155": "assets/icons/quests/q155.webp",
+    "q156": "assets/icons/quests/q156.webp",
+    "q157": "assets/icons/quests/q157.webp",
+    "q158": "assets/icons/quests/q158.webp",
+    "q159": "assets/icons/quests/q159.webp",
+    "q160": "assets/icons/quests/q160.webp",
+    "q161": "assets/icons/quests/q161.webp",
+    "q162": "assets/icons/quests/q162.webp",
+    "q163": "assets/icons/quests/q163.webp",
+    "q164": "assets/icons/quests/q164.webp",
+    "q165": "assets/icons/quests/q165.webp",
+    "q166": "assets/icons/quests/q166.webp",
+    "q167": "assets/icons/quests/q167.webp",
+    "q168": "assets/icons/quests/q168.webp",
+    "q169": "assets/icons/quests/q169.webp",
+    "q170": "assets/icons/quests/q170.webp",
+    "q171": "assets/icons/quests/q171.webp",
+    "q172": "assets/icons/quests/q172.webp",
+    "q173": "assets/icons/quests/q173.webp",
+    "q174": "assets/icons/quests/q174.webp",
+    "q175": "assets/icons/quests/q175.webp",
+    "q176": "assets/icons/quests/q176.webp",
+    "q177": "assets/icons/quests/q177.webp",
+    "q178": "assets/icons/quests/q178.webp",
+    "quest_chain_a_slavers": "assets/icons/quests/quest_chain_a_slavers.webp",
+    "quest_chain_b_blight": "assets/icons/quests/quest_chain_b_blight.webp",
+    "quest_chain_c_conspiracy": "assets/icons/quests/quest_chain_c_conspiracy.webp",
+    "quest_chain_d_coliseum": "assets/icons/quests/quest_chain_d_coliseum.webp",
+    "quest_cat_purge": "assets/icons/quests/quest_cat_purge.webp",
+    "quest_cat_retrieve": "assets/icons/quests/quest_cat_retrieve.webp",
+    "quest_cat_rescue": "assets/icons/quests/quest_cat_rescue.webp",
+    "quest_cat_deliver": "assets/icons/quests/quest_cat_deliver.webp",
+    "quest_cat_defend": "assets/icons/quests/quest_cat_defend.webp",
+    "quest_cat_investigate": "assets/icons/quests/quest_cat_investigate.webp",
+    "quest_outpost_hunt_board": "assets/icons/quests/quest_outpost_hunt_board.webp",
+    "quest_outpost_elite_contract": "assets/icons/quests/quest_outpost_elite_contract.webp",
+    "quest_portal_catalyst_seal": "assets/icons/quests/quest_portal_catalyst_seal.webp",
+    "quest_complete_royal_seal": "assets/icons/quests/quest_complete_royal_seal.webp"
+  },
+  "slots": [
+    {
+      "id": "q001",
+      "name": "Seal the Aqueduct Grate",
+      "detail": "R1 Highcrown (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q001.webp"
+    },
+    {
+      "id": "q002",
+      "name": "Salvage Koren's Forge-Kit",
+      "detail": "R1 Highcrown (Retrieve)",
+      "iconPath": "assets/icons/quests/q002.webp"
+    },
+    {
+      "id": "q003",
+      "name": "Highcrown Perimeter Watch",
+      "detail": "R1 Highcrown (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q003.webp"
+    },
+    {
+      "id": "q004",
+      "name": "Word to Oakhaven",
+      "detail": "R1 Highcrown (Deliver)",
+      "iconPath": "assets/icons/quests/q004.webp"
+    },
+    {
+      "id": "q005",
+      "name": "Missing Grain Carts",
+      "detail": "R1 Oakhaven (Retrieve)",
+      "iconPath": "assets/icons/quests/q005.webp"
+    },
+    {
+      "id": "q006",
+      "name": "Boy in the Fold",
+      "detail": "R1 Oakhaven (Rescue)",
+      "iconPath": "assets/icons/quests/q006.webp"
+    },
+    {
+      "id": "q007",
+      "name": "Forged Rivets for the Palisade",
+      "detail": "R1 Oakhaven (Deliver)",
+      "iconPath": "assets/icons/quests/q007.webp"
+    },
+    {
+      "id": "q008",
+      "name": "Bandits at the Old Orchard",
+      "detail": "R1 Oakhaven (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q008.webp"
+    },
+    {
+      "id": "q009",
+      "name": "Poachers on the Meadow Trail",
+      "detail": "R1 Oakhaven (Investigate)",
+      "iconPath": "assets/icons/quests/q009.webp"
+    },
+    {
+      "id": "q010",
+      "name": "Wolves in the Sheepfold",
+      "detail": "R1 Meadowbrook Hamlet (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q010.webp"
+    },
+    {
+      "id": "q011",
+      "name": "Stolen Plough-Iron",
+      "detail": "R1 Meadowbrook Hamlet (Retrieve)",
+      "iconPath": "assets/icons/quests/q011.webp"
+    },
+    {
+      "id": "q012",
+      "name": "Burned Granary Ledger",
+      "detail": "R1 Meadowbrook Hamlet (Investigate)",
+      "iconPath": "assets/icons/quests/q012.webp"
+    },
+    {
+      "id": "q013",
+      "name": "Seed Caravan to Oakhaven",
+      "detail": "R1 Meadowbrook Hamlet (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q013.webp"
+    },
+    {
+      "id": "q014",
+      "name": "Hold the West Palisade",
+      "detail": "R1 Millbrook Crossing (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q014.webp"
+    },
+    {
+      "id": "q015",
+      "name": "Shattered Mill-Tower",
+      "detail": "R1 Millbrook Crossing (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q015.webp"
+    },
+    {
+      "id": "q016",
+      "name": "Chain D1: The Scarred Name",
+      "detail": "R1 Millbrook Crossing (Investigate)",
+      "iconPath": "assets/icons/quests/q016.webp"
+    },
+    {
+      "id": "q017",
+      "name": "Dust Mephits in the Old Mine Shack",
+      "detail": "R1 Millbrook Crossing (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q017.webp"
+    },
+    {
+      "id": "q018",
+      "name": "Lost Courier on the North Ridge",
+      "detail": "R1 Millbrook Crossing (Rescue)",
+      "iconPath": "assets/icons/quests/q018.webp"
+    },
+    {
+      "id": "q019",
+      "name": "The Stolen Ribbon",
+      "detail": "R1 Crownlands Hill-Fort (Rescue)",
+      "iconPath": "assets/icons/quests/q019.webp"
+    },
+    {
+      "id": "q020",
+      "name": "Animated Sentinels of the Knoll",
+      "detail": "R1 Crownlands Hill-Fort (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q020.webp"
+    },
+    {
+      "id": "q021",
+      "name": "Rust Monsters at the Munitions Dump",
+      "detail": "R1 Crownlands Hill-Fort (Retrieve)",
+      "iconPath": "assets/icons/quests/q021.webp"
+    },
+    {
+      "id": "q022",
+      "name": "Signal Fires on the Ridge",
+      "detail": "R1 Crownlands Hill-Fort (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q022.webp"
+    },
+    {
+      "id": "q023",
+      "name": "Chain A1: Ledgers in the Brine",
+      "detail": "R2 Saltwind Harbor (Investigate)",
+      "iconPath": "assets/icons/quests/q023.webp"
+    },
+    {
+      "id": "q024",
+      "name": "Pier Three Blockade",
+      "detail": "R2 Saltwind Harbor (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q024.webp"
+    },
+    {
+      "id": "q025",
+      "name": "The Cracked Lighthouse",
+      "detail": "R2 Saltwind Harbor (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q025.webp"
+    },
+    {
+      "id": "q026",
+      "name": "Sunken Tide-Cargo",
+      "detail": "R2 Saltwind Harbor (Retrieve)",
+      "iconPath": "assets/icons/quests/q026.webp"
+    },
+    {
+      "id": "q027",
+      "name": "Harbor-Master's Beach Salvage",
+      "detail": "R2 Saltwind Harbor (Retrieve)",
+      "iconPath": "assets/icons/quests/q027.webp"
+    },
+    {
+      "id": "q028",
+      "name": "Tide-Watcher's Cache",
+      "detail": "R2 Brinecliff Watch-Fort (Retrieve)",
+      "iconPath": "assets/icons/quests/q028.webp"
+    },
+    {
+      "id": "q029",
+      "name": "Merrow Raiders on the Breakwater",
+      "detail": "R2 Brinecliff Watch-Fort (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q029.webp"
+    },
+    {
+      "id": "q030",
+      "name": "Reef-Shattered Corsair Wreck",
+      "detail": "R2 Brinecliff Watch-Fort (Retrieve)",
+      "iconPath": "assets/icons/quests/q030.webp"
+    },
+    {
+      "id": "q031",
+      "name": "Sea-Hag Hollow on the Cliffs",
+      "detail": "R2 Brinecliff Watch-Fort (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q031.webp"
+    },
+    {
+      "id": "q032",
+      "name": "Lanterns in the Bog",
+      "detail": "R2 Reedfen Village (Rescue)",
+      "iconPath": "assets/icons/quests/q032.webp"
+    },
+    {
+      "id": "q033",
+      "name": "Watchtower Braziers",
+      "detail": "R2 Reedfen Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q033.webp"
+    },
+    {
+      "id": "q034",
+      "name": "Poachers of the Reed-Beds",
+      "detail": "R2 Reedfen Village (Investigate)",
+      "iconPath": "assets/icons/quests/q034.webp"
+    },
+    {
+      "id": "q035",
+      "name": "Salt-Cured Rations to Mirewatch",
+      "detail": "R2 Reedfen Village (Deliver)",
+      "iconPath": "assets/icons/quests/q035.webp"
+    },
+    {
+      "id": "q036",
+      "name": "Swamp-Fever Antitoxin",
+      "detail": "R2 Mirewatch Post (Deliver)",
+      "iconPath": "assets/icons/quests/q036.webp"
+    },
+    {
+      "id": "q037",
+      "name": "Water Weirds in the Cistern",
+      "detail": "R2 Mirewatch Post (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q037.webp"
+    },
+    {
+      "id": "q038",
+      "name": "Chuul Nest in the Fen",
+      "detail": "R2 Mirewatch Post (Investigate)",
+      "iconPath": "assets/icons/quests/q038.webp"
+    },
+    {
+      "id": "q039",
+      "name": "Ambush at the Ferry Landing",
+      "detail": "R2 Mirewatch Post (Rescue)",
+      "iconPath": "assets/icons/quests/q039.webp"
+    },
+    {
+      "id": "q040",
+      "name": "Lost Admiralty Chest",
+      "detail": "R2 Mirewatch Post (Retrieve)",
+      "iconPath": "assets/icons/quests/q040.webp"
+    },
+    {
+      "id": "q041",
+      "name": "Hold the Sea-Wall Gate",
+      "detail": "R2 Tidewater Keep (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q041.webp"
+    },
+    {
+      "id": "q042",
+      "name": "Gibbering Horror in the Cellar",
+      "detail": "R2 Tidewater Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q042.webp"
+    },
+    {
+      "id": "q043",
+      "name": "Sabotage the Black-Market Dock",
+      "detail": "R2 Tidewater Keep (Investigate)",
+      "iconPath": "assets/icons/quests/q043.webp"
+    },
+    {
+      "id": "q044",
+      "name": "Outer Abyssal Watch",
+      "detail": "R2 Tidewater Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q044.webp"
+    },
+    {
+      "id": "q045",
+      "name": "Deserters' Armory",
+      "detail": "R3 Redmarch Bastion (Retrieve)",
+      "iconPath": "assets/icons/quests/q045.webp"
+    },
+    {
+      "id": "q046",
+      "name": "Sealed Border Dispatches",
+      "detail": "R3 Redmarch Bastion (Deliver)",
+      "iconPath": "assets/icons/quests/q046.webp"
+    },
+    {
+      "id": "q047",
+      "name": "Worg Packs on the Supply Trail",
+      "detail": "R3 Redmarch Bastion (Investigate)",
+      "iconPath": "assets/icons/quests/q047.webp"
+    },
+    {
+      "id": "q048",
+      "name": "Cove Supply Convoy",
+      "detail": "R3 Redmarch Bastion (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q048.webp"
+    },
+    {
+      "id": "q049",
+      "name": "Salvage the Lost War-Wagons",
+      "detail": "R3 Redmarch Bastion (Retrieve)",
+      "iconPath": "assets/icons/quests/q049.webp"
+    },
+    {
+      "id": "q050",
+      "name": "Burned Banners",
+      "detail": "R3 Goldmoor Village (Investigate)",
+      "iconPath": "assets/icons/quests/q050.webp"
+    },
+    {
+      "id": "q051",
+      "name": "Cockatrices in the Pasture",
+      "detail": "R3 Goldmoor Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q051.webp"
+    },
+    {
+      "id": "q052",
+      "name": "Herders at Highland Camp",
+      "detail": "R3 Goldmoor Village (Rescue)",
+      "iconPath": "assets/icons/quests/q052.webp"
+    },
+    {
+      "id": "q053",
+      "name": "Grain Harvest Guard",
+      "detail": "R3 Goldmoor Village (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q053.webp"
+    },
+    {
+      "id": "q054",
+      "name": "Collapsed Shaft Four",
+      "detail": "R3 Slatepeak Mining Fort (Rescue)",
+      "iconPath": "assets/icons/quests/q054.webp"
+    },
+    {
+      "id": "q055",
+      "name": "Toll at Slate-Crag Pass",
+      "detail": "R3 Slatepeak Mining Fort (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q055.webp"
+    },
+    {
+      "id": "q056",
+      "name": "Abandoned Mine Watch-Shack",
+      "detail": "R3 Slatepeak Mining Fort (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q056.webp"
+    },
+    {
+      "id": "q057",
+      "name": "Stolen Iron Ingots",
+      "detail": "R3 Slatepeak Mining Fort (Retrieve)",
+      "iconPath": "assets/icons/quests/q057.webp"
+    },
+    {
+      "id": "q058",
+      "name": "Brown Bears in the Upper Adit",
+      "detail": "R3 Slatepeak Mining Fort (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q058.webp"
+    },
+    {
+      "id": "q059",
+      "name": "Chain C1: Blood on the Watchtower",
+      "detail": "R3 Thornwall Border Castle (Retrieve)",
+      "iconPath": "assets/icons/quests/q059.webp"
+    },
+    {
+      "id": "q060",
+      "name": "Cliffside Artillery",
+      "detail": "R3 Thornwall Border Castle (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q060.webp"
+    },
+    {
+      "id": "q061",
+      "name": "Hippogriff Eyrie Raid",
+      "detail": "R3 Thornwall Border Castle (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q061.webp"
+    },
+    {
+      "id": "q062",
+      "name": "Siege-Arrows to the Bailey",
+      "detail": "R3 Thornwall Border Castle (Deliver)",
+      "iconPath": "assets/icons/quests/q062.webp"
+    },
+    {
+      "id": "q063",
+      "name": "Chain C2: Fall of House Hollowstone",
+      "detail": "R3 Hollowstone Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q063.webp"
+    },
+    {
+      "id": "q064",
+      "name": "Prisoners in the Bailey Dungeon",
+      "detail": "R3 Hollowstone Keep (Rescue)",
+      "iconPath": "assets/icons/quests/q064.webp"
+    },
+    {
+      "id": "q065",
+      "name": "Secret War-Pact Ledgers",
+      "detail": "R3 Hollowstone Keep (Investigate)",
+      "iconPath": "assets/icons/quests/q065.webp"
+    },
+    {
+      "id": "q066",
+      "name": "Rogue Troll Patrol",
+      "detail": "R3 Hollowstone Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q066.webp"
+    },
+    {
+      "id": "q067",
+      "name": "Shatter the Stone-Giant Picket",
+      "detail": "R3 Hollowstone Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q067.webp"
+    },
+    {
+      "id": "q068",
+      "name": "Chain B1: The Spreading Blight",
+      "detail": "R4 Briarstead (Investigate)",
+      "iconPath": "assets/icons/quests/q068.webp"
+    },
+    {
+      "id": "q069",
+      "name": "Poultices for the Sawyers",
+      "detail": "R4 Briarstead (Deliver)",
+      "iconPath": "assets/icons/quests/q069.webp"
+    },
+    {
+      "id": "q070",
+      "name": "Blink-Dog Ambush on the Herb Trail",
+      "detail": "R4 Briarstead (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q070.webp"
+    },
+    {
+      "id": "q071",
+      "name": "Briar-Root Harvest",
+      "detail": "R4 Briarstead (Retrieve)",
+      "iconPath": "assets/icons/quests/q071.webp"
+    },
+    {
+      "id": "q072",
+      "name": "Wolves in the Apiary Woods",
+      "detail": "R4 Briarstead (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q072.webp"
+    },
+    {
+      "id": "q073",
+      "name": "Shelter the Timber Yard",
+      "detail": "R4 Timberfall Village (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q073.webp"
+    },
+    {
+      "id": "q074",
+      "name": "Caught in the Canopy",
+      "detail": "R4 Timberfall Village (Rescue)",
+      "iconPath": "assets/icons/quests/q074.webp"
+    },
+    {
+      "id": "q075",
+      "name": "Clear the Woodland Beast Den",
+      "detail": "R4 Timberfall Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q075.webp"
+    },
+    {
+      "id": "q076",
+      "name": "Poachers at Outlaw Stockade",
+      "detail": "R4 Timberfall Village (Investigate)",
+      "iconPath": "assets/icons/quests/q076.webp"
+    },
+    {
+      "id": "q077",
+      "name": "The Forgotten Pillar",
+      "detail": "R4 Mosswood Hamlet (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q077.webp"
+    },
+    {
+      "id": "q078",
+      "name": "The Wandering Relic",
+      "detail": "R4 Mosswood Hamlet (Retrieve)",
+      "iconPath": "assets/icons/quests/q078.webp"
+    },
+    {
+      "id": "q079",
+      "name": "Nightmare Howls in the Glade",
+      "detail": "R4 Mosswood Hamlet (Investigate)",
+      "iconPath": "assets/icons/quests/q079.webp"
+    },
+    {
+      "id": "q080",
+      "name": "Pure Spring-Vials to Greenwarden",
+      "detail": "R4 Mosswood Hamlet (Deliver)",
+      "iconPath": "assets/icons/quests/q080.webp"
+    },
+    {
+      "id": "q081",
+      "name": "Chain B2: Ghosts of Oakhollow",
+      "detail": "R4 Greenwarden Fort (Retrieve)",
+      "iconPath": "assets/icons/quests/q081.webp"
+    },
+    {
+      "id": "q082",
+      "name": "Trapped Rangers in the Copse",
+      "detail": "R4 Greenwarden Fort (Rescue)",
+      "iconPath": "assets/icons/quests/q082.webp"
+    },
+    {
+      "id": "q083",
+      "name": "Purge the Blighted Thicket",
+      "detail": "R4 Greenwarden Fort (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q083.webp"
+    },
+    {
+      "id": "q084",
+      "name": "Fortify the Outer Palisade",
+      "detail": "R4 Greenwarden Fort (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q084.webp"
+    },
+    {
+      "id": "q085",
+      "name": "Stolen Antitoxin Crates",
+      "detail": "R4 Greenwarden Fort (Retrieve)",
+      "iconPath": "assets/icons/quests/q085.webp"
+    },
+    {
+      "id": "q086",
+      "name": "Chain B3: Heart of the Mire",
+      "detail": "R4 Blightwatch Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q086.webp"
+    },
+    {
+      "id": "q087",
+      "name": "Voices in the Roots",
+      "detail": "R4 Blightwatch Keep (Investigate)",
+      "iconPath": "assets/icons/quests/q087.webp"
+    },
+    {
+      "id": "q088",
+      "name": "Burn the Spore Pits",
+      "detail": "R4 Blightwatch Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q088.webp"
+    },
+    {
+      "id": "q089",
+      "name": "Hold the Quarantine Gate",
+      "detail": "R4 Blightwatch Keep (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q089.webp"
+    },
+    {
+      "id": "q090",
+      "name": "Chain A2: The Smuggler's Crossing",
+      "detail": "R5 Port Veridia (Investigate)",
+      "iconPath": "assets/icons/quests/q090.webp"
+    },
+    {
+      "id": "q091",
+      "name": "Silk & Cinders",
+      "detail": "R5 Port Veridia (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q091.webp"
+    },
+    {
+      "id": "q092",
+      "name": "Stone-Eyed Coast",
+      "detail": "R5 Port Veridia (Rescue)",
+      "iconPath": "assets/icons/quests/q092.webp"
+    },
+    {
+      "id": "q093",
+      "name": "Break the Corsair Pier",
+      "detail": "R5 Port Veridia (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q093.webp"
+    },
+    {
+      "id": "q094",
+      "name": "Scorpion Infestation in the Docks",
+      "detail": "R5 Port Veridia (Investigate)",
+      "iconPath": "assets/icons/quests/q094.webp"
+    },
+    {
+      "id": "q095",
+      "name": "Water-Casks Across the Dune",
+      "detail": "R5 Sunstone Caravan Post (Deliver)",
+      "iconPath": "assets/icons/quests/q095.webp"
+    },
+    {
+      "id": "q096",
+      "name": "Desert Nomad Raider Camp",
+      "detail": "R5 Sunstone Caravan Post (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q096.webp"
+    },
+    {
+      "id": "q097",
+      "name": "Fire Snakes at the Dry Wash",
+      "detail": "R5 Sunstone Caravan Post (Investigate)",
+      "iconPath": "assets/icons/quests/q097.webp"
+    },
+    {
+      "id": "q098",
+      "name": "Wrecked Spice Carts",
+      "detail": "R5 Sunstone Caravan Post (Retrieve)",
+      "iconPath": "assets/icons/quests/q098.webp"
+    },
+    {
+      "id": "q099",
+      "name": "Tremors Under the Sand",
+      "detail": "R5 Dunespire Oasis (Investigate)",
+      "iconPath": "assets/icons/quests/q099.webp"
+    },
+    {
+      "id": "q100",
+      "name": "Prism Echoes",
+      "detail": "R5 Dunespire Oasis (Retrieve)",
+      "iconPath": "assets/icons/quests/q100.webp"
+    },
+    {
+      "id": "q101",
+      "name": "Guard the Oasis Spring",
+      "detail": "R5 Dunespire Oasis (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q101.webp"
+    },
+    {
+      "id": "q102",
+      "name": "Mummy Tomb Beneath the Dunes",
+      "detail": "R5 Dunespire Oasis (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q102.webp"
+    },
+    {
+      "id": "q103",
+      "name": "Lost Desert Travelers",
+      "detail": "R5 Dunespire Oasis (Rescue)",
+      "iconPath": "assets/icons/quests/q103.webp"
+    },
+    {
+      "id": "q104",
+      "name": "Scorched Dragon Lair",
+      "detail": "R5 Sandwall Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q104.webp"
+    },
+    {
+      "id": "q105",
+      "name": "Relight the Dune Beacons",
+      "detail": "R5 Sandwall Citadel (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q105.webp"
+    },
+    {
+      "id": "q106",
+      "name": "Break the Hell-Hound Pack",
+      "detail": "R5 Sandwall Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q106.webp"
+    },
+    {
+      "id": "q107",
+      "name": "Munitions to Gilded Approach",
+      "detail": "R5 Sandwall Citadel (Deliver)",
+      "iconPath": "assets/icons/quests/q107.webp"
+    },
+    {
+      "id": "q108",
+      "name": "Chain A3: Broken Shackles",
+      "detail": "R5 The Gilded Auction Manor (Rescue)",
+      "iconPath": "assets/icons/quests/q108.webp"
+    },
+    {
+      "id": "q109",
+      "name": "Seize the Collar Ledgers",
+      "detail": "R5 The Gilded Auction Manor (Retrieve)",
+      "iconPath": "assets/icons/quests/q109.webp"
+    },
+    {
+      "id": "q110",
+      "name": "Disable the Holding Pens",
+      "detail": "R5 The Gilded Auction Manor (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q110.webp"
+    },
+    {
+      "id": "q111",
+      "name": "Guard Against Efreeti Scouts",
+      "detail": "R5 The Gilded Auction Manor (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q111.webp"
+    },
+    {
+      "id": "q112",
+      "name": "Granite Scree Pass",
+      "detail": "R6 Highpass Refuge (Investigate)",
+      "iconPath": "assets/icons/quests/q112.webp"
+    },
+    {
+      "id": "q113",
+      "name": "Star-Iron Ingots",
+      "detail": "R6 Highpass Refuge (Deliver)",
+      "iconPath": "assets/icons/quests/q113.webp"
+    },
+    {
+      "id": "q114",
+      "name": "Blood-Hawk Roosts",
+      "detail": "R6 Highpass Refuge (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q114.webp"
+    },
+    {
+      "id": "q115",
+      "name": "Missing Foothill Caravan",
+      "detail": "R6 Highpass Refuge (Rescue)",
+      "iconPath": "assets/icons/quests/q115.webp"
+    },
+    {
+      "id": "q116",
+      "name": "Guard the Highland Storehouses",
+      "detail": "R6 Highpass Refuge (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q116.webp"
+    },
+    {
+      "id": "q117",
+      "name": "Lightning at Cragwater Storm-Stone",
+      "detail": "R6 Clearwater Lake Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q117.webp"
+    },
+    {
+      "id": "q118",
+      "name": "Sanctuary of the Lake",
+      "detail": "R6 Clearwater Lake Village (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q118.webp"
+    },
+    {
+      "id": "q119",
+      "name": "Wyverns on the Lake Shore",
+      "detail": "R6 Clearwater Lake Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q119.webp"
+    },
+    {
+      "id": "q120",
+      "name": "Cornered Lakeside Foragers",
+      "detail": "R6 Clearwater Lake Village (Rescue)",
+      "iconPath": "assets/icons/quests/q120.webp"
+    },
+    {
+      "id": "q121",
+      "name": "The Missing Envoy",
+      "detail": "R6 Anvilhall Forge (Retrieve)",
+      "iconPath": "assets/icons/quests/q121.webp"
+    },
+    {
+      "id": "q122",
+      "name": "Meteoric Core Slabs",
+      "detail": "R6 Anvilhall Forge (Retrieve)",
+      "iconPath": "assets/icons/quests/q122.webp"
+    },
+    {
+      "id": "q123",
+      "name": "Defend the Granite Foundry",
+      "detail": "R6 Anvilhall Forge (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q123.webp"
+    },
+    {
+      "id": "q124",
+      "name": "Clear the High-Ridge Ore Track",
+      "detail": "R6 Anvilhall Forge (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q124.webp"
+    },
+    {
+      "id": "q125",
+      "name": "Chimney-Vent Tempests",
+      "detail": "R6 Anvilhall Forge (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q125.webp"
+    },
+    {
+      "id": "q126",
+      "name": "Stranded on Crag-Ledge",
+      "detail": "R6 Cragwatch Fort (Rescue)",
+      "iconPath": "assets/icons/quests/q126.webp"
+    },
+    {
+      "id": "q127",
+      "name": "Clear the Alpine Crag Bear Den",
+      "detail": "R6 Cragwatch Fort (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q127.webp"
+    },
+    {
+      "id": "q128",
+      "name": "Highland Marauder Camp",
+      "detail": "R6 Cragwatch Fort (Investigate)",
+      "iconPath": "assets/icons/quests/q128.webp"
+    },
+    {
+      "id": "q129",
+      "name": "Storm-Wards to Stormhold",
+      "detail": "R6 Cragwatch Fort (Deliver)",
+      "iconPath": "assets/icons/quests/q129.webp"
+    },
+    {
+      "id": "q130",
+      "name": "Storm-Crag Dragon Roost",
+      "detail": "R6 Stormhold Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q130.webp"
+    },
+    {
+      "id": "q131",
+      "name": "Behir Tunnel Breach",
+      "detail": "R6 Stormhold Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q131.webp"
+    },
+    {
+      "id": "q132",
+      "name": "Battlements of Lightning",
+      "detail": "R6 Stormhold Citadel (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q132.webp"
+    },
+    {
+      "id": "q133",
+      "name": "Silence the Storm-Giant Warband",
+      "detail": "R6 Stormhold Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q133.webp"
+    },
+    {
+      "id": "q134",
+      "name": "Frozen Beacon",
+      "detail": "R7 Rimeport (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q134.webp"
+    },
+    {
+      "id": "q135",
+      "name": "Hellfire on the Sea-Wall",
+      "detail": "R7 Rimeport (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q135.webp"
+    },
+    {
+      "id": "q136",
+      "name": "Sunken Warships",
+      "detail": "R7 Rimeport (Retrieve)",
+      "iconPath": "assets/icons/quests/q136.webp"
+    },
+    {
+      "id": "q137",
+      "name": "Supply Ledgers to Frostmere",
+      "detail": "R7 Rimeport (Deliver)",
+      "iconPath": "assets/icons/quests/q137.webp"
+    },
+    {
+      "id": "q138",
+      "name": "Shadows in the Drydock",
+      "detail": "R7 Rimeport (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q138.webp"
+    },
+    {
+      "id": "q139",
+      "name": "Coal & Fur Crates",
+      "detail": "R7 Frostmere Village (Deliver)",
+      "iconPath": "assets/icons/quests/q139.webp"
+    },
+    {
+      "id": "q140",
+      "name": "Frost-Bound Shoreline Wreck",
+      "detail": "R7 Frostmere Village (Retrieve)",
+      "iconPath": "assets/icons/quests/q140.webp"
+    },
+    {
+      "id": "q141",
+      "name": "Trappers at the Frozen Shoreline",
+      "detail": "R7 Frostmere Village (Rescue)",
+      "iconPath": "assets/icons/quests/q141.webp"
+    },
+    {
+      "id": "q142",
+      "name": "Abyssal Blight in the Pelts",
+      "detail": "R7 Frostmere Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q142.webp"
+    },
+    {
+      "id": "q143",
+      "name": "Heart of the Ice",
+      "detail": "R7 Glacierwatch Fort (Investigate)",
+      "iconPath": "assets/icons/quests/q143.webp"
+    },
+    {
+      "id": "q144",
+      "name": "Overrun Cliff Watch-Post",
+      "detail": "R7 Glacierwatch Fort (Rescue)",
+      "iconPath": "assets/icons/quests/q144.webp"
+    },
+    {
+      "id": "q145",
+      "name": "Vrock Screechers on the Wall",
+      "detail": "R7 Glacierwatch Fort (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q145.webp"
+    },
+    {
+      "id": "q146",
+      "name": "Hold the Glacier Ramparts",
+      "detail": "R7 Glacierwatch Fort (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q146.webp"
+    },
+    {
+      "id": "q147",
+      "name": "The Frozen Labor Camp",
+      "detail": "R7 Icecrest Holdfast (Rescue)",
+      "iconPath": "assets/icons/quests/q147.webp"
+    },
+    {
+      "id": "q148",
+      "name": "Saber-Tooth Trail",
+      "detail": "R7 Icecrest Holdfast (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q148.webp"
+    },
+    {
+      "id": "q149",
+      "name": "Chain-Devil Slaver Convoy",
+      "detail": "R7 Icecrest Holdfast (Investigate)",
+      "iconPath": "assets/icons/quests/q149.webp"
+    },
+    {
+      "id": "q150",
+      "name": "Clan Brazier Relics",
+      "detail": "R7 Icecrest Holdfast (Retrieve)",
+      "iconPath": "assets/icons/quests/q150.webp"
+    },
+    {
+      "id": "q151",
+      "name": "Chain C3: The Northern Pretender",
+      "detail": "R7 Bleakwatch Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q151.webp"
+    },
+    {
+      "id": "q152",
+      "name": "Garrison Hostages in the Keep",
+      "detail": "R7 Bleakwatch Citadel (Rescue)",
+      "iconPath": "assets/icons/quests/q152.webp"
+    },
+    {
+      "id": "q153",
+      "name": "Shatter the Nightmare Stables",
+      "detail": "R7 Bleakwatch Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q153.webp"
+    },
+    {
+      "id": "q154",
+      "name": "Infernal Pact Braziers",
+      "detail": "R7 Bleakwatch Citadel (Investigate)",
+      "iconPath": "assets/icons/quests/q154.webp"
+    },
+    {
+      "id": "q155",
+      "name": "Gatekeepers of the Abyss",
+      "detail": "R7 Bleakwatch Citadel (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q155.webp"
+    },
+    {
+      "id": "q156",
+      "name": "Hold the Ash-Wall",
+      "detail": "R8 Ashenford War-Camp (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q156.webp"
+    },
+    {
+      "id": "q157",
+      "name": "Consecrate the Sentry Posts",
+      "detail": "R8 Ashenford War-Camp (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q157.webp"
+    },
+    {
+      "id": "q158",
+      "name": "Siege-Alchemist's Powder",
+      "detail": "R8 Ashenford War-Camp (Deliver)",
+      "iconPath": "assets/icons/quests/q158.webp"
+    },
+    {
+      "id": "q159",
+      "name": "Intercept Eclipse Supply Carts",
+      "detail": "R8 Ashenford War-Camp (Investigate)",
+      "iconPath": "assets/icons/quests/q159.webp"
+    },
+    {
+      "id": "q160",
+      "name": "Clear the Burned Ridge",
+      "detail": "R8 Ashenford War-Camp (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q160.webp"
+    },
+    {
+      "id": "q161",
+      "name": "Eclipse Cultist Cliff Altar",
+      "detail": "R8 Cinderwatch Bastion (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q161.webp"
+    },
+    {
+      "id": "q162",
+      "name": "Turncoat Patrols on the Ridge",
+      "detail": "R8 Cinderwatch Bastion (Investigate)",
+      "iconPath": "assets/icons/quests/q162.webp"
+    },
+    {
+      "id": "q163",
+      "name": "Ghouls in the Ash Quarry",
+      "detail": "R8 Cinderwatch Bastion (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q163.webp"
+    },
+    {
+      "id": "q164",
+      "name": "Hold the Ridge Signal Tower",
+      "detail": "R8 Cinderwatch Bastion (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q164.webp"
+    },
+    {
+      "id": "q165",
+      "name": "The Fallen Banner",
+      "detail": "R8 Ashvale Village (Retrieve)",
+      "iconPath": "assets/icons/quests/q165.webp"
+    },
+    {
+      "id": "q166",
+      "name": "Chain D2: Shattered Sands",
+      "detail": "R8 Ashvale Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q166.webp"
+    },
+    {
+      "id": "q167",
+      "name": "Escort Ashvale Survivors",
+      "detail": "R8 Ashvale Village (Rescue)",
+      "iconPath": "assets/icons/quests/q167.webp"
+    },
+    {
+      "id": "q168",
+      "name": "Spectral Wails in the Ruins",
+      "detail": "R8 Ashvale Village (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q168.webp"
+    },
+    {
+      "id": "q169",
+      "name": "Recover Fallen Knight Medallions",
+      "detail": "R8 Ashvale Village (Retrieve)",
+      "iconPath": "assets/icons/quests/q169.webp"
+    },
+    {
+      "id": "q170",
+      "name": "Prisoners of the Oathbreakers",
+      "detail": "R8 Scorchwall Fort (Rescue)",
+      "iconPath": "assets/icons/quests/q170.webp"
+    },
+    {
+      "id": "q171",
+      "name": "Lord of the Crypt",
+      "detail": "R8 Scorchwall Fort (Investigate)",
+      "iconPath": "assets/icons/quests/q171.webp"
+    },
+    {
+      "id": "q172",
+      "name": "Wreck of the Shadow-Fleet",
+      "detail": "R8 Scorchwall Fort (Retrieve)",
+      "iconPath": "assets/icons/quests/q172.webp"
+    },
+    {
+      "id": "q173",
+      "name": "Hold the Bay Watch-Wall",
+      "detail": "R8 Scorchwall Fort (Escort / Defend)",
+      "iconPath": "assets/icons/quests/q173.webp"
+    },
+    {
+      "id": "q174",
+      "name": "Breach the Outer Obsidian Gate",
+      "detail": "R8 Garrick's Black Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q174.webp"
+    },
+    {
+      "id": "q175",
+      "name": "Destroy the Three Necrotic Obelisks",
+      "detail": "R8 Garrick's Black Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q175.webp"
+    },
+    {
+      "id": "q176",
+      "name": "Hunt the Undead Lich Lieutenants",
+      "detail": "R8 Garrick's Black Keep (Investigate)",
+      "iconPath": "assets/icons/quests/q176.webp"
+    },
+    {
+      "id": "q177",
+      "name": "Honor Fallen Loyalist Banners",
+      "detail": "R8 Garrick's Black Keep (Retrieve)",
+      "iconPath": "assets/icons/quests/q177.webp"
+    },
+    {
+      "id": "q178",
+      "name": "Unbind the Final Ward-Seal",
+      "detail": "R8 Garrick's Black Keep (Purge / Restore)",
+      "iconPath": "assets/icons/quests/q178.webp"
+    },
+    {
+      "id": "quest_chain_a_slavers",
+      "name": "Chain A Crest: Broken Shackles",
+      "detail": "Story Chain A Emblem (Mera & Slavers)",
+      "iconPath": "assets/icons/quests/quest_chain_a_slavers.webp"
+    },
+    {
+      "id": "quest_chain_b_blight",
+      "name": "Chain B Crest: Heart of the Blight",
+      "detail": "Story Chain B Emblem (Harlan & Oakhollow)",
+      "iconPath": "assets/icons/quests/quest_chain_b_blight.webp"
+    },
+    {
+      "id": "quest_chain_c_conspiracy",
+      "name": "Chain C Crest: Sundered Dispatch",
+      "detail": "Story Chain C Emblem (Rowan & Border Pact)",
+      "iconPath": "assets/icons/quests/quest_chain_c_conspiracy.webp"
+    },
+    {
+      "id": "quest_chain_d_coliseum",
+      "name": "Chain D Crest: Shattered Sands",
+      "detail": "Story Chain D Emblem (Valen & Koren Arena)",
+      "iconPath": "assets/icons/quests/quest_chain_d_coliseum.webp"
+    },
+    {
+      "id": "quest_cat_purge",
+      "name": "Category Seal: Purge & Restore",
+      "detail": "Quest Category Icon (Purge / Restore)",
+      "iconPath": "assets/icons/quests/quest_cat_purge.webp"
+    },
+    {
+      "id": "quest_cat_retrieve",
+      "name": "Category Seal: Retrieve Relic",
+      "detail": "Quest Category Icon (Retrieve)",
+      "iconPath": "assets/icons/quests/quest_cat_retrieve.webp"
+    },
+    {
+      "id": "quest_cat_rescue",
+      "name": "Category Seal: Rescue & Liberate",
+      "detail": "Quest Category Icon (Rescue)",
+      "iconPath": "assets/icons/quests/quest_cat_rescue.webp"
+    },
+    {
+      "id": "quest_cat_deliver",
+      "name": "Category Seal: Royal Courier",
+      "detail": "Quest Category Icon (Deliver)",
+      "iconPath": "assets/icons/quests/quest_cat_deliver.webp"
+    },
+    {
+      "id": "quest_cat_defend",
+      "name": "Category Seal: Hold & Defend",
+      "detail": "Quest Category Icon (Escort / Defend)",
+      "iconPath": "assets/icons/quests/quest_cat_defend.webp"
+    },
+    {
+      "id": "quest_cat_investigate",
+      "name": "Category Seal: Investigate Threat",
+      "detail": "Quest Category Icon (Investigate)",
+      "iconPath": "assets/icons/quests/quest_cat_investigate.webp"
+    },
+    {
+      "id": "quest_outpost_hunt_board",
+      "name": "Outpost Hunts: Monster Bounty Crest",
+      "detail": "Zone Outpost Repeatable Hunt Seal",
+      "iconPath": "assets/icons/quests/quest_outpost_hunt_board.webp"
+    },
+    {
+      "id": "quest_outpost_elite_contract",
+      "name": "Outpost Hunts: Champion Trophy Seal",
+      "detail": "Zone Outpost Elite Hunt Contract",
+      "iconPath": "assets/icons/quests/quest_outpost_elite_contract.webp"
+    },
+    {
+      "id": "quest_portal_catalyst_seal",
+      "name": "Portal Gate: Catalyst Seal",
+      "detail": "Dimensional Portal Catalyst Emblem",
+      "iconPath": "assets/icons/quests/quest_portal_catalyst_seal.webp"
+    },
+    {
+      "id": "quest_complete_royal_seal",
+      "name": "Quest Complete: Highcrown Seal",
+      "detail": "Completed Quest Royal Victory Emblem",
+      "iconPath": "assets/icons/quests/quest_complete_royal_seal.webp"
+    }
+  ]
+}

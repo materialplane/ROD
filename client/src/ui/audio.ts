@@ -1,6 +1,6 @@
 import { assetUrl } from "./api";
-import { getTavernTrackInfo, type TavernTrackInfo } from "./tavernLore";
-import type { AudioSettings } from "./types";
+import { applyTavernTrackCatalog, getTavernTrackInfo, type TavernTrackInfo } from "./tavernLore";
+import type { AudioCatalog, AudioSettings } from "./types";
 
 export type MusicContext =
   | "title"
@@ -45,118 +45,35 @@ export type SfxKey =
   | "fire_spell"
   | "water_spell";
 
-const MUSIC_HEADROOM = 0.52;
-const SFX_HEADROOM = 0.85;
-const MOVEMENT_LOOP_GAIN = 0.42;
+let MUSIC_HEADROOM = 0.52;
+let SFX_HEADROOM = 0.85;
+let MOVEMENT_LOOP_GAIN = 0.42;
 
-const MENU_MUSIC = {
-  titleStart: "assets/audio/music/menu/menu__quiet_menu_start.ogg",
-  titleLoop: "assets/audio/music/menu/menu__quiet_menu_loop.ogg",
-  cutscene: "assets/audio/music/menu/menu__between_journeys.ogg",
-  worldMap: "assets/audio/music/menu/menu__world_map.ogg",
-  town: "assets/audio/music/menu/menu__safe_haven.ogg",
-  inn: "assets/audio/music/menu/menu__resting_place.ogg",
-} as const;
-
-const EXPLORATION_PLAYLIST = [
-  "assets/audio/music/exploration/exploration__quiet_crossing.ogg",
-  "assets/audio/music/exploration/exploration__the_far_quiet.ogg",
-  "assets/audio/music/exploration/exploration__under_pale_skies.ogg",
-  "assets/audio/music/exploration/exploration__fallow_lands.ogg",
-  "assets/audio/music/exploration/exploration__lantern_ashes.ogg",
-] as const;
-
-const COMBAT_PLAYLIST = [
-  "assets/audio/music/action/combat__with_fire_and_sword.ogg",
-  "assets/audio/music/action/combat__raised_by_the_storm.ogg",
-  "assets/audio/music/action/combat__flameborn.ogg",
-  "assets/audio/music/action/combat__beyond_the_starfall.ogg",
-] as const;
-
-const BOSS_TRACK = "assets/audio/music/action/combat__clash_of_the_kings.ogg";
-
-/** Option 3: All 11 Season 1 musical chapters divided chronologically across Ethoria's 4 continents. */
-const TAVERN_PLAYLISTS: Record<TavernContinentContext, readonly string[]> = {
-  tavern_map_01: [
-    "assets/audio/music/taverns/chapter_01_the_gladiator_yearning.ogg",
-    "assets/audio/music/taverns/chapter_02_the_queen_the_plan.ogg",
-    "assets/audio/music/taverns/chapter_03_the_gladiator_the_affair.ogg",
-  ],
-  tavern_map_02: [
-    "assets/audio/music/taverns/chapter_04_the_queen_the_seduction.ogg",
-    "assets/audio/music/taverns/chapter_05_the_king_the_iron_heir.ogg",
-    "assets/audio/music/taverns/chapter_06_the_prince_the_arrogant_pupil.ogg",
-  ],
-  tavern_map_03: [
-    "assets/audio/music/taverns/chapter_07_the_lead_commander_whispers_and_the_scar.ogg",
-    "assets/audio/music/taverns/chapter_08_the_prince_the_humiliation.ogg",
-    "assets/audio/music/taverns/chapter_09_the_gladiator_the_sacrifice.ogg",
-  ],
-  tavern_map_04: [
-    "assets/audio/music/taverns/chapter_10_the_prince_the_awakening.ogg",
-    "assets/audio/music/taverns/chapter_11_the_king_the_wrath_of_the_crown.ogg",
-  ],
-};
+const MENU_MUSIC: Record<string, string> = {};
+const EXPLORATION_PLAYLIST: string[] = [];
+const COMBAT_PLAYLIST: string[] = [];
+let BOSS_TRACK = "";
+const TAVERN_MAP_CONTEXT_BY_ID: Record<string, TavernContinentContext> = {};
+const TAVERN_PLAYLISTS: Record<string, string[]> = {};
+const MOVEMENT_TRACKS: Record<string, string> = {};
+const SFX_POOLS: Record<string, string[]> = {};
+const DEFAULT_SFX_GAIN: Record<string, number> = {};
+const SFX_KEYWORD_RULES: Array<{ keywords: string[]; key: string }> = [];
+let audioCatalogLoaded = false;
 
 function isTavernContext(ctx: MusicContext): ctx is TavernContinentContext {
   return ctx.startsWith("tavern_map_");
 }
 
 export function getTavernMusicContext(mapId?: string | null): TavernContinentContext {
+  if (mapId && TAVERN_MAP_CONTEXT_BY_ID[mapId]) {
+    return TAVERN_MAP_CONTEXT_BY_ID[mapId];
+  }
   if (mapId === "map_02") return "tavern_map_02";
   if (mapId === "map_03") return "tavern_map_03";
   if (mapId === "map_04") return "tavern_map_04";
   return "tavern_map_01";
 }
-
-const MOVEMENT_TRACKS: Record<Exclude<MovementLoopMode, "none">, string> = {
-  walk: "assets/audio/sfx/walking_loop.ogg",
-  boat: "assets/audio/sfx/boat_sailing.ogg",
-};
-
-/**
- * Explicit SFX & fallback mapping using the current audio library:
- * - Soft UI clicks / closes / fallback interactions -> `item_drop_04.ogg` (shortest soft tabletop thud, 0.53s)
- * - Opening gates, stepping outside Highcrown, major ledgers -> `mech_door_wood_open_03.ogg`
- * - Manual Save / Silver / Rewards -> `item_coin_pickup_05.ogg`
- * - Discoveries / New Campaign launch / Campfires -> `item_torch_ignite_04.ogg`
- * - Unknown combat melee -> `combat_sword_default_hit.ogg`
- * - Unknown magic -> `spell_cast_1.ogg` / `spell_cast_2.ogg`
- */
-const SFX_POOLS: Record<SfxKey, readonly string[]> = {
-  ui_click: ["assets/audio/sfx/item_drop_04.ogg"],
-  ui_close: ["assets/audio/sfx/item_drop_04.ogg"],
-  ui_open: ["assets/audio/sfx/mech_door_wood_open_03.ogg"],
-  door_open: ["assets/audio/sfx/mech_door_wood_open_03.ogg"],
-  save: ["assets/audio/sfx/item_coin_pickup_05.ogg"],
-  coin: ["assets/audio/sfx/item_coin_pickup_05.ogg"],
-  discovery: ["assets/audio/sfx/item_torch_ignite_04.ogg"],
-  torch: ["assets/audio/sfx/item_torch_ignite_04.ogg"],
-  drop: ["assets/audio/sfx/item_drop_04.ogg"],
-  sword: ["assets/audio/sfx/combat_sword_default_hit.ogg"],
-  arrow: ["assets/audio/sfx/combat_arrow_hit_03.ogg"],
-  axe: ["assets/audio/sfx/combat_axe_hit_05.ogg"],
-  dagger: ["assets/audio/sfx/combat_dagger_hit_06.ogg"],
-  flail: ["assets/audio/sfx/combat_flail_hit_05.ogg"],
-  katana: ["assets/audio/sfx/combat_katana_hit_06.ogg"],
-  mace: ["assets/audio/sfx/combat_mace_hit_05.ogg"],
-  spear: ["assets/audio/sfx/combat_spear_hit_05.ogg"],
-  staff: ["assets/audio/sfx/combat_staff_hit_06.ogg"],
-  warhammer: ["assets/audio/sfx/combat_warhammer_hit_05.ogg"],
-  spell_cast: ["assets/audio/sfx/spell_cast_1.ogg", "assets/audio/sfx/spell_cast_2.ogg"],
-  fire_spell: ["assets/audio/sfx/fire_spell_1.ogg", "assets/audio/sfx/fire_spell_2.ogg"],
-  water_spell: ["assets/audio/sfx/water_spell_1.ogg", "assets/audio/sfx/water_spell_2.ogg"],
-};
-
-const DEFAULT_SFX_GAIN: Partial<Record<SfxKey, number>> = {
-  ui_click: 0.34,
-  ui_close: 0.28,
-  ui_open: 0.45,
-  door_open: 0.62,
-  save: 0.65,
-  discovery: 0.68,
-  drop: 0.5,
-};
 
 function clamp01(v: number): number {
   return Math.max(0, Math.min(1, v));
@@ -254,7 +171,9 @@ class RodAudioEngine {
   }
 
   private pickRandomTavernTrack(ctx: TavernContinentContext, excludeRel?: string | null): string {
-    const pool = [...TAVERN_PLAYLISTS[ctx]];
+    const rawPool = TAVERN_PLAYLISTS[ctx] ?? [];
+    if (rawPool.length === 0) return "";
+    const pool = [...rawPool];
     let deck = this.tavernDecks[ctx];
     if (!deck || deck.length === 0) {
       // Fisher-Yates shuffle every ballad in this continent's subset so random play visits all before repeating
@@ -274,7 +193,7 @@ class RodAudioEngine {
       deck.unshift(popped);
       return alt;
     }
-    return popped ?? TAVERN_PLAYLISTS[ctx][0];
+    return popped ?? rawPool[0];
   }
 
   private notifyTrackChange(): void {
@@ -303,35 +222,54 @@ class RodAudioEngine {
   }
 
   private pickNextTrack(ctx: MusicContext): { rel: string; loop: boolean } | null {
+    if (!audioCatalogLoaded) return null;
     if (isTavernContext(ctx)) {
-      return { rel: this.pickRandomTavernTrack(ctx, this.activeTrackRel), loop: false };
+      const rel = this.pickRandomTavernTrack(ctx, this.activeTrackRel);
+      return rel ? { rel, loop: false } : null;
     }
     switch (ctx) {
       case "silent":
         return null;
       case "title":
-        if (!this.titleIntroPlayed) {
+        if (!this.titleIntroPlayed && MENU_MUSIC.titleStart) {
           return { rel: MENU_MUSIC.titleStart, loop: false };
         }
-        return { rel: MENU_MUSIC.titleLoop, loop: true };
+        return MENU_MUSIC.titleLoop ? { rel: MENU_MUSIC.titleLoop, loop: true } : null;
       case "cutscene":
-        return { rel: MENU_MUSIC.cutscene, loop: true };
+        return MENU_MUSIC.cutscene ? { rel: MENU_MUSIC.cutscene, loop: true } : null;
       case "world_map":
-        return { rel: MENU_MUSIC.worldMap, loop: true };
+        return MENU_MUSIC.worldMap ? { rel: MENU_MUSIC.worldMap, loop: true } : null;
       case "town":
-        return { rel: MENU_MUSIC.town, loop: true };
+        return MENU_MUSIC.town ? { rel: MENU_MUSIC.town, loop: true } : null;
       case "inn":
-        return { rel: MENU_MUSIC.inn, loop: true };
+        return MENU_MUSIC.inn ? { rel: MENU_MUSIC.inn, loop: true } : null;
       case "boss":
-        return { rel: BOSS_TRACK, loop: true };
+        return BOSS_TRACK ? { rel: BOSS_TRACK, loop: true } : null;
       case "exploration": {
+        if (EXPLORATION_PLAYLIST.length === 0) return null;
         const rel = EXPLORATION_PLAYLIST[this.explorationIdx % EXPLORATION_PLAYLIST.length];
         return { rel, loop: false };
       }
       case "combat": {
+        if (COMBAT_PLAYLIST.length === 0) return null;
         const rel = COMBAT_PLAYLIST[this.combatIdx % COMBAT_PLAYLIST.length];
         return { rel, loop: false };
       }
+    }
+  }
+
+  public syncPendingPlaybackAfterCatalogLoad(): void {
+    this.notifyTrackChange();
+    if (this.musicContext !== "silent" && !this.activeDeck) {
+      const picked = this.pickNextTrack(this.musicContext);
+      if (picked) {
+        this.switchTrack(picked.rel, picked.loop, this.musicContext);
+      }
+    }
+    if (this.moveMode !== "none" && !this.moveAudio) {
+      const prevMode = this.moveMode;
+      this.moveMode = "none";
+      this.setMovementLoop(prevMode);
     }
   }
 
@@ -472,6 +410,7 @@ class RodAudioEngine {
     const targetRel = MOVEMENT_TRACKS[mode];
     const switchingFile = this.moveMode !== mode;
     this.moveMode = mode;
+    if (!targetRel) return;
 
     if (!this.moveAudio || switchingFile) {
       if (this.moveAudio) {
@@ -493,6 +432,7 @@ class RodAudioEngine {
   public playSfx(key: SfxKey | string, volumeMultiplier?: number): void {
     const resolvedKey = this.resolveSfxKey(key);
     const pool = SFX_POOLS[resolvedKey];
+    if (!pool || pool.length === 0) return;
     const rel = pool[this.variantCounter % pool.length];
     this.variantCounter = (this.variantCounter + 1) % 10000;
 
@@ -520,24 +460,11 @@ class RodAudioEngine {
   private resolveSfxKey(raw: string): SfxKey {
     if (raw in SFX_POOLS) return raw as SfxKey;
     const norm = raw.trim().toLowerCase();
-    if (norm.includes("bow") || norm.includes("crossbow") || norm.includes("arrow")) return "arrow";
-    if (norm.includes("axe") || norm.includes("halberd")) return "axe";
-    if (norm.includes("dagger") || norm.includes("knife")) return "dagger";
-    if (norm.includes("flail")) return "flail";
-    if (norm.includes("katana") || norm.includes("saber") || norm.includes("scimitar")) return "katana";
-    if (norm.includes("mace") || norm.includes("club") || norm.includes("unarmed") || norm.includes("bludgeon")) return "mace";
-    if (norm.includes("spear") || norm.includes("pike") || norm.includes("lance")) return "spear";
-    if (norm.includes("staff") || norm.includes("rod")) return "staff";
-    if (norm.includes("hammer") || norm.includes("maul")) return "warhammer";
-    if (norm.includes("fire") || norm.includes("flame") || norm.includes("ember")) return "fire_spell";
-    if (norm.includes("water") || norm.includes("ice") || norm.includes("frost") || norm.includes("heal") || norm.includes("remedy")) {
-      return "water_spell";
+    for (const rule of SFX_KEYWORD_RULES) {
+      if (rule.keywords.some((kw) => norm.includes(kw))) {
+        return rule.key as SfxKey;
+      }
     }
-    if (norm.includes("spell") || norm.includes("magic") || norm.includes("arcane")) return "spell_cast";
-    if (norm.includes("sword") || norm.includes("blade") || norm.includes("hit") || norm.includes("attack")) return "sword";
-    if (norm.includes("door") || norm.includes("gate") || norm.includes("enter")) return "door_open";
-    if (norm.includes("save") || norm.includes("coin") || norm.includes("silver")) return "coin";
-    if (norm.includes("torch") || norm.includes("discover") || norm.includes("camp")) return "torch";
     return "ui_click";
   }
 
@@ -566,3 +493,53 @@ class RodAudioEngine {
 }
 
 export const audioEngine = new RodAudioEngine();
+
+/** Populate music playlists, tavern ballads, headroom, and SFX pools from data/audio-catalog.json. */
+export function applyAudioCatalog(catalog: AudioCatalog | null | undefined): void {
+  if (!catalog) return;
+  if (catalog.headroom) {
+    if (typeof catalog.headroom.music === "number") MUSIC_HEADROOM = catalog.headroom.music;
+    if (typeof catalog.headroom.sfx === "number") SFX_HEADROOM = catalog.headroom.sfx;
+    if (typeof catalog.headroom.movementLoopGain === "number") MOVEMENT_LOOP_GAIN = catalog.headroom.movementLoopGain;
+  }
+  if (catalog.menuMusic) {
+    Object.assign(MENU_MUSIC, catalog.menuMusic);
+  }
+  if (Array.isArray(catalog.explorationPlaylist)) {
+    EXPLORATION_PLAYLIST.splice(0, EXPLORATION_PLAYLIST.length, ...catalog.explorationPlaylist);
+  }
+  if (Array.isArray(catalog.combatPlaylist)) {
+    COMBAT_PLAYLIST.splice(0, COMBAT_PLAYLIST.length, ...catalog.combatPlaylist);
+  }
+  if (catalog.bossTrack) {
+    BOSS_TRACK = catalog.bossTrack;
+  }
+  if (catalog.tavernMapContextByMapId) {
+    for (const [k, v] of Object.entries(catalog.tavernMapContextByMapId)) {
+      TAVERN_MAP_CONTEXT_BY_ID[k] = v as TavernContinentContext;
+    }
+  }
+  if (catalog.tavernPlaylists) {
+    for (const k of Object.keys(TAVERN_PLAYLISTS)) delete TAVERN_PLAYLISTS[k];
+    Object.assign(TAVERN_PLAYLISTS, catalog.tavernPlaylists);
+  }
+  if (catalog.movementTracks) {
+    Object.assign(MOVEMENT_TRACKS, catalog.movementTracks);
+  }
+  if (catalog.sfxPools) {
+    for (const k of Object.keys(SFX_POOLS)) delete SFX_POOLS[k];
+    Object.assign(SFX_POOLS, catalog.sfxPools);
+  }
+  if (catalog.defaultSfxGain) {
+    for (const k of Object.keys(DEFAULT_SFX_GAIN)) delete DEFAULT_SFX_GAIN[k];
+    Object.assign(DEFAULT_SFX_GAIN, catalog.defaultSfxGain);
+  }
+  if (Array.isArray(catalog.sfxKeywordRules)) {
+    SFX_KEYWORD_RULES.splice(0, SFX_KEYWORD_RULES.length, ...catalog.sfxKeywordRules);
+  }
+  if (catalog.tavernTracks) {
+    applyTavernTrackCatalog(catalog.tavernTracks);
+  }
+  audioCatalogLoaded = true;
+  audioEngine.syncPendingPlaybackAfterCatalogLoad();
+}

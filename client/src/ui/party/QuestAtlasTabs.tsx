@@ -3,8 +3,9 @@ import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { formatRewardLine } from "../components/LocationInteriorModal";
 import { QuestCardThumb } from "../components/QuestCardThumb";
-import { GLOBAL_ACTIVE_QUEST_LIMIT, formatOutpostRewardLine } from "../quests/outpostHunts";
-import type { ActiveOutpostHunt, ItemEntry, QuestEntry, WorldLocation } from "../types";
+import { GLOBAL_ACTIVE_QUEST_LIMIT, formatOutpostRewardLine, pluralizeMonsterName } from "../quests/outpostHunts";
+import { resolveOutpostHuntLore } from "../quests/outpostHuntLore";
+import type { ActiveOutpostHunt, ItemEntry, QuestEntry, TravelCatalog, TravelStoryChainEntry, WorldLocation } from "../types";
 
 interface QuestJournalTabProps {
   acceptedQuestIds: string[];
@@ -21,47 +22,31 @@ interface QuestJournalTabProps {
 
 type JournalSubTab = "active" | "completed" | "chains" | "portals" | "hunts" | "bestiary";
 
-const REGION_NAMES: Record<number, string> = {
-  1: "Crownlands",
-  2: "Saltwind Coast",
-  3: "Redmarch Highlands",
-  4: "Whispering Weald",
-  5: "Golden Sands",
-  6: "Stormcrag Mountains",
-  7: "Frostfall Reach",
-  8: "Dreadwaste",
-};
+const REGION_NAMES: Record<number, string> = {};
+const STORY_CHAINS: TravelStoryChainEntry[] = [];
+const REALM_ORDER: Array<{ id: string; name: string }> = [];
+const REALM_NAME_BY_ID: Record<string, string> = {};
 
-const STORY_CHAINS = [
-  {
-    id: "chain_a",
-    cardId: "quest_chain_a_slavers",
-    title: "Chain A — Mera's Mother Rescue",
-    route: "Saltwind Harbor -> Port Veridia -> The Gilded Auction Manor -> Free Mera's Mother",
-    questIds: ["q023", "q090", "q108"],
-  },
-  {
-    id: "chain_b",
-    cardId: "quest_chain_b_blight",
-    title: "Chain B — Harlan's Plague Woods Arc",
-    route: "Briarstead -> Greenwarden Fort -> Blightwatch Keep -> Purge the Spore-Mire",
-    questIds: ["q068", "q081", "q086"],
-  },
-  {
-    id: "chain_c",
-    cardId: "quest_chain_c_conspiracy",
-    title: "Chain C — Crown of Vultures",
-    route: "Thornwall Castle -> Hollowstone Keep -> Bleakwatch Citadel -> Expose Garrick's War Pact",
-    questIds: ["q059", "q063", "q151"],
-  },
-  {
-    id: "chain_d",
-    cardId: "quest_chain_d_coliseum",
-    title: "Chain D — Valen & Koren's Legacy",
-    route: "Millbrook Crossing -> Ashvale Village -> Reclaim Koren's Arena Trophy",
-    questIds: ["q016", "q166"],
-  },
-];
+/** Populate Quest Journal region names, story chains, and realm names from data/travel-catalog.json. */
+export function applyAtlasTravelCatalog(catalog: TravelCatalog | null | undefined): void {
+  if (!catalog) return;
+  if (catalog.regionNames) {
+    for (const k of Object.keys(REGION_NAMES)) delete REGION_NAMES[Number(k)];
+    for (const [k, v] of Object.entries(catalog.regionNames)) {
+      REGION_NAMES[Number(k)] = v;
+    }
+  }
+  if (Array.isArray(catalog.storyChains)) {
+    STORY_CHAINS.splice(0, STORY_CHAINS.length, ...catalog.storyChains);
+  }
+  if (Array.isArray(catalog.realms)) {
+    REALM_ORDER.splice(0, REALM_ORDER.length, ...catalog.realms);
+    for (const k of Object.keys(REALM_NAME_BY_ID)) delete REALM_NAME_BY_ID[k];
+    for (const r of REALM_ORDER) {
+      REALM_NAME_BY_ID[r.id] = r.name;
+    }
+  }
+}
 
 export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
   acceptedQuestIds,
@@ -71,14 +56,14 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
   questsCatalog,
   worldLocations,
   sealedPortalIds,
-  itemsById,
   onAbandonQuest,
   onAbandonOutpostHunt,
 }) => {
   const [subTab, setSubTab] = useState<JournalSubTab>("active");
   const [regionFilter, setRegionFilter] = useState<number | "all">("all");
 
-  const portals = useMemo(() => worldLocations.filter((l) => Boolean(l.bossInfo)), [worldLocations]);
+  const portals = useMemo(() => worldLocations.filter((l) => Boolean(l.isPortal)), [worldLocations]);
+  const bossLocations = useMemo(() => worldLocations.filter((l) => Boolean(l.bossInfo)), [worldLocations]);
   const outposts = useMemo(() => worldLocations.filter((l) => l.id.startsWith("outpost_")), [worldLocations]);
   const sealedSet = useMemo(() => new Set(sealedPortalIds), [sealedPortalIds]);
   const acceptedSet = useMemo(() => new Set(acceptedQuestIds), [acceptedQuestIds]);
@@ -214,6 +199,7 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
               {activeOutpostHunts.map((h) => {
                 const ready = h.killsProgress >= h.killsRequired;
                 const pct = Math.min(100, Math.round((h.killsProgress / Math.max(1, h.killsRequired)) * 100));
+                const lore = resolveOutpostHuntLore(h.mobId, h.mobName, h.outpostName, h.zoneNum, h.biomeHints);
                 return (
                   <div
                     key={h.huntId}
@@ -234,7 +220,7 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
                         <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">
-                          Hunt: {h.killsRequired} {h.mobName}
+                          {lore.contractTitle}
                         </div>
                         <span
                           className={[
@@ -244,7 +230,9 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                               : "border-[#3c6a5c] bg-[#132620] text-[#95e2be]",
                           ].join(" ")}
                         >
-                          {ready ? "★ Return to Outpost" : `${h.killsProgress}/${h.killsRequired} Slain`}
+                          {ready
+                            ? "★ Return to Outpost"
+                            : `Slay ${h.killsProgress}/${h.killsRequired} ${pluralizeMonsterName(h.mobName, h.killsRequired)}`}
                         </span>
                       </div>
                       <div className="flex items-center gap-2 mt-1">
@@ -254,7 +242,9 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                           draggable={false}
                           className="w-[22px] h-[22px] rounded border border-[#404b62] bg-[#0b0e15] object-contain shrink-0"
                         />
-                        <div className="text-[11px] text-[#9db0c8] truncate">{h.outpostName}</div>
+                        <div className="text-[11px] text-[#9db0c8] truncate">
+                          {h.outpostName} · Zone {h.zoneNum} Wilds
+                        </div>
                       </div>
                       <div className="mt-1.5 h-[6px] w-full rounded-full bg-[#1a202d] overflow-hidden border border-[#2d3648]">
                         <div
@@ -265,12 +255,10 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                           style={{ width: `${pct}%` }}
                         />
                       </div>
-                      <p className="m-0 mt-1.5 text-[11.5px] text-[#cfd8e8] leading-snug">
-                        Habitat: {h.biomeHints.length > 0 ? h.biomeHints.join(" · ") : "Surrounding Zone Wilds"}
-                      </p>
+                      <p className="m-0 mt-1.5 text-[11.5px] text-[#cfd8e8] leading-snug">{lore.threatSummary}</p>
                       <div className="mt-2 flex items-center justify-between gap-2">
                         <span className="text-[11px] font-bold text-[#f4cf80] truncate">
-                          {formatOutpostRewardLine(h, itemsById?.[h.rewardConsumableId]?.name)}
+                          {formatOutpostRewardLine(h)}
                         </span>
                         <button
                           type="button"
@@ -503,7 +491,7 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                     </div>
                     <div className="text-[11px] text-[#9bb0c9] mt-0.5 truncate">
                       {activeHunt
-                        ? `Habitat: ${activeHunt.biomeHints.join(" · ") || o.playerRegion || "Surrounding Wilds"}`
+                        ? `${o.playerRegion || o.mapId} · Active Zone ${activeHunt.zoneNum} Hunt`
                         : `${o.playerRegion || o.mapId} · Repeatable Zone Monster Hunt`}
                     </div>
                   </div>
@@ -514,7 +502,7 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
         )}
 
         {subTab === "bestiary" &&
-          portals.map((p) => (
+          bossLocations.map((p) => (
             <div key={p.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-center">
               <img
                 src={assetUrl("assets/icons/ui/ui_24_bestiary_skull_glyph.webp")}
@@ -550,15 +538,6 @@ interface WorldAtlasTabProps {
   questsCatalog: QuestEntry[];
   sealedPortalIds: string[];
 }
-
-const REALM_ORDER: Array<{ id: string; name: string }> = [
-  { id: "map_01", name: "The Crownlands" },
-  { id: "map_02", name: "Thornwall Warfronts" },
-  { id: "map_03", name: "Sun-Scorched Isles" },
-  { id: "map_04", name: "Frostbound Reach" },
-];
-
-const REALM_NAME_BY_ID: Record<string, string> = Object.fromEntries(REALM_ORDER.map((r) => [r.id, r.name]));
 
 // Persistent image caches so switching tabs or reopening Party (P) is instant
 const ATLAS_IMAGE_CACHE: Record<string, HTMLImageElement> = {};
@@ -905,7 +884,7 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
         if (sx < -40 || sy < -40 || sx > w + 40 || sy > h + 40) continue;
 
         const isQuest = questTargetsByLoc.has(loc.id);
-        const isPortal = Boolean(loc.bossInfo);
+        const isPortal = Boolean(loc.isPortal);
         const isSealed = sealedSet.has(loc.id);
         const isTravel = loc.category === "travel";
         const isFocus = loc.id === hoveredLocId || loc.id === selectedLocId;

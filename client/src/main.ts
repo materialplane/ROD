@@ -24,6 +24,7 @@ export interface SaveSlotData {
   acceptedQuestIds?: string[];
   completedQuestIds?: string[];
   activeOutpostHunts?: unknown[];
+  outpostOffers?: Record<string, unknown>;
   completedOutpostHunts?: number;
   sealedPortalIds?: string[];
   silver?: number;

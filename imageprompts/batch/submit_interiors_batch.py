@@ -21,13 +21,19 @@ INTERIORS_FILE = REPO_ROOT / "imageprompts" / "location-interiors.txt"
 TAVERNS_FILE = REPO_ROOT / "imageprompts" / "bard-tavern.txt"
 OUTPOSTS_FILE = REPO_ROOT / "imageprompts" / "monster-hunter.txt"
 PORTS_FILE = REPO_ROOT / "imageprompts" / "port-travel.txt"
+PORTALS_FILE = REPO_ROOT / "imageprompts" / "portal-interiors.txt"
+WATER_TRAVEL_FILE = REPO_ROOT / "imageprompts" / "water-travel-interiors.txt"
 OUT_DIR = REPO_ROOT / "assets" / "maps" / "interiors"
 TAVERNS_OUT_DIR = REPO_ROOT / "assets" / "maps" / "taverns"
+PORTALS_OUT_DIR = REPO_ROOT / "assets" / "maps" / "portals"
 DEFAULT_REF = REPO_ROOT / "assets" / "ui" / "menu_background_16x9_4k_v2.png"
 OUTPUT_JSONL = Path(__file__).resolve().parent / "interiors_batch.jsonl"
 TAVERNS_JSONL = Path(__file__).resolve().parent / "taverns_batch.jsonl"
 OUTPOSTS_JSONL = Path(__file__).resolve().parent / "outposts_batch.jsonl"
 PORTS_JSONL = Path(__file__).resolve().parent / "ports_batch.jsonl"
+PORTALS_JSONL = Path(__file__).resolve().parent / "portals_batch.jsonl"
+PORTALS_SEALED_JSONL = Path(__file__).resolve().parent / "portals_sealed_batch.jsonl"
+WATER_TRAVEL_JSONL = Path(__file__).resolve().parent / "water_travel_batch.jsonl"
 DEFAULT_MODEL = "models/gemini-3-pro-image"
 
 
@@ -71,14 +77,15 @@ def parse_interior_scenes(
     skip_existing: bool,
     out_dir: Path = OUT_DIR,
     id_suffix: str = "",
-) -> list[tuple[int, str, str, str]]:
-    """Parse numbered [NN] ID: <id> | <title> blocks and validate prompt text."""
+    require_attached_ref: bool | None = None,
+) -> list[tuple[int, str, str, str, Path | None]]:
+    """Parse numbered [NN] ID: <id> | <title> blocks and optional per-scene reference path."""
     if not prompts_path.exists():
         raise FileNotFoundError(f"Missing interiors prompt file: {prompts_path}")
 
     text = prompts_path.read_text(encoding="utf-8")
     pattern = re.compile(
-        r"^\[(\d+)\]\s+ID:\s+(\S+)\s+\|\s+([^\n]+)\n(?:# SAVE AS:[^\n]*\n)?-+\n--- COPY-PASTE PROMPT START ---\n(.*?)\n--- COPY-PASTE PROMPT END ---",
+        r"^\[(\d+)\]\s+ID:\s+(\S+)\s+\|\s+([^\n]+)\n((?:#[^\n]*\n)*)-+\n--- COPY-PASTE PROMPT START ---\n(.*?)\n--- COPY-PASTE PROMPT END ---",
         re.MULTILINE | re.DOTALL,
     )
     matches = pattern.findall(text)
@@ -89,10 +96,16 @@ def parse_interior_scenes(
     if skip_existing and out_dir.exists():
         existing_stems = {p.stem for p in out_dir.iterdir() if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}}
 
-    scenes: list[tuple[int, str, str, str]] = []
-    for num_str, raw_scene_id, label, body in matches:
+    scenes: list[tuple[int, str, str, str, Path | None]] = []
+    for num_str, raw_scene_id, label, meta_lines, body in matches:
         num = int(num_str)
         scene_id = f"{raw_scene_id}{id_suffix}"
+        ref_match = re.search(r"^#\s*ATTACH REFERENCE IMAGE:\s*(\S+)", meta_lines or "", re.MULTILINE)
+        attached_ref = (REPO_ROOT / ref_match.group(1).strip()) if ref_match else None
+        if require_attached_ref is True and attached_ref is None:
+            continue
+        if require_attached_ref is False and attached_ref is not None:
+            continue
         if selected is not None and num not in selected:
             continue
         if skip_existing and scene_id in existing_stems:
@@ -101,21 +114,25 @@ def parse_interior_scenes(
         clean_body = body.strip()
         if not clean_body:
             raise ValueError(f"Scene [{num:02d}] {scene_id} has an empty prompt.")
-        scenes.append((num, scene_id, label.strip(), clean_body))
+        scenes.append((num, scene_id, label.strip(), clean_body, attached_ref))
 
     return scenes
 
 
 def build_jsonl(
-    scenes: list[tuple[int, str, str, str]],
+    scenes: list[tuple[int, str, str, str, Path | None]],
     model: str,
-    ref_mime: str,
-    ref_b64: str,
+    default_ref_path: Path,
     out_path: Path,
 ) -> None:
-    """Write validated 16:9 4K Pro interior requests with inline style reference to JSONL."""
+    """Write validated 16:9 4K Pro interior requests with style or per-scene reference to JSONL."""
     lines: list[str] = []
-    for _, scene_id, _, prompt_text in scenes:
+    encoded_cache: dict[Path, tuple[str, str]] = {}
+    for _, scene_id, _, prompt_text, attached_ref in scenes:
+        ref_path = attached_ref if attached_ref is not None else default_ref_path
+        if ref_path not in encoded_cache:
+            encoded_cache[ref_path] = encode_reference_jpeg(ref_path)
+        ref_mime, ref_b64 = encoded_cache[ref_path]
         req_obj = {
             "customId": scene_id,
             "request": {
@@ -141,15 +158,15 @@ def build_jsonl(
 
     out_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     mb = out_path.stat().st_size / (1024 * 1024)
-    print(f"Wrote {len(lines)} batch request(s) (model={model}, 16:9 4K + style ref) -> {out_path} ({mb:.1f} MB)")
+    print(f"Wrote {len(lines)} batch request(s) (model={model}, 16:9 4K + ref) -> {out_path} ({mb:.1f} MB)")
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build & submit ROD 16:9 Hub Interior, Bard Tavern, Outpost, or Port scenes to Gemini Batch API (50% off).")
-    parser.add_argument("--target", choices=("hubs", "taverns", "outposts", "ports"), default="hubs", help="Which 16:9 prompt bank to submit (default: hubs).")
+    parser = argparse.ArgumentParser(description="Build & submit ROD 16:9 Hub Interior, Bard Tavern, Outpost, Port, or Portal scenes to Gemini Batch API (50% off).")
+    parser.add_argument("--target", choices=("hubs", "taverns", "outposts", "ports", "portals", "portals_sealed", "water_travel"), default="hubs", help="Which 16:9 prompt bank to submit (default: hubs).")
     parser.add_argument("--dry-run", action="store_true", help="Only build JSONL and inspect counts without uploading/submitting.")
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"Gemini image model (default: {DEFAULT_MODEL}).")
-    parser.add_argument("--reference", type=Path, default=DEFAULT_REF, help="Style reference image path.")
+    parser.add_argument("--reference", type=Path, default=DEFAULT_REF, help="Default style reference image path.")
     parser.add_argument("--all", action="store_true", help="Include all scenes even if already archived locally.")
     parser.add_argument(
         "--scenes",
@@ -160,12 +177,15 @@ def main() -> int:
     args = parser.parse_args()
 
     target_configs = {
-        "hubs": (INTERIORS_FILE, OUT_DIR, OUTPUT_JSONL, "", "rod-location-interiors", "INTERIORS"),
-        "taverns": (TAVERNS_FILE, TAVERNS_OUT_DIR, TAVERNS_JSONL, "_tavern", "rod-bard-taverns", "TAVERNS"),
-        "outposts": (OUTPOSTS_FILE, OUT_DIR, OUTPOSTS_JSONL, "", "rod-outpost-interiors", "OUTPOST INTERIORS"),
-        "ports": (PORTS_FILE, OUT_DIR, PORTS_JSONL, "", "rod-port-travel-interiors", "PORT HARBORS"),
+        "hubs": (INTERIORS_FILE, OUT_DIR, OUTPUT_JSONL, "", "rod-location-interiors", "INTERIORS", None),
+        "taverns": (TAVERNS_FILE, TAVERNS_OUT_DIR, TAVERNS_JSONL, "_tavern", "rod-bard-taverns", "TAVERNS", None),
+        "outposts": (OUTPOSTS_FILE, OUT_DIR, OUTPOSTS_JSONL, "", "rod-outpost-interiors", "OUTPOST INTERIORS", None),
+        "ports": (PORTS_FILE, OUT_DIR, PORTS_JSONL, "", "rod-port-travel-interiors", "PORT HARBORS", None),
+        "portals": (PORTALS_FILE, PORTALS_OUT_DIR, PORTALS_JSONL, "", "rod-portal-interiors-active", "PORTAL THRESHOLDS (WAVE 1 ACTIVE)", False),
+        "portals_sealed": (PORTALS_FILE, PORTALS_OUT_DIR, PORTALS_SEALED_JSONL, "", "rod-portal-interiors-sealed", "PORTAL THRESHOLDS (WAVE 2 SEALED)", True),
+        "water_travel": (WATER_TRAVEL_FILE, OUT_DIR, WATER_TRAVEL_JSONL, "", "rod-water-pass-travel", "WATER & PASS TRAVEL", None),
     }
-    prompts_file, out_dir, base_jsonl, id_suffix, name_prefix, banner_label = target_configs[args.target]
+    prompts_file, out_dir, base_jsonl, id_suffix, name_prefix, banner_label, req_ref_mode = target_configs[args.target]
 
     load_dotenv(REPO_ROOT / ".env")
     selected = parse_scene_selection(args.scenes)
@@ -176,19 +196,20 @@ def main() -> int:
         skip_existing=skip_existing,
         out_dir=out_dir,
         id_suffix=id_suffix,
+        require_attached_ref=req_ref_mode,
     )
 
     if not scenes:
         print("No scenes selected or remaining to submit.")
         return 0
 
-    for num, sid, label, _ in scenes:
-        print(f"  Queued [{num:02d}] {sid} | {label}")
+    for num, sid, label, _, ref_override in scenes:
+        ref_note = f" [ref={ref_override.name}]" if ref_override else ""
+        print(f"  Queued [{num:02d}] {sid} | {label}{ref_note}")
 
-    ref_mime, ref_b64 = encode_reference_jpeg(args.reference)
     selected_name = f"{base_jsonl.stem}_selected.jsonl"
     jsonl_path = base_jsonl.with_name(selected_name) if selected is not None else base_jsonl
-    build_jsonl(scenes, args.model, ref_mime, ref_b64, jsonl_path)
+    build_jsonl(scenes, args.model, args.reference, jsonl_path)
 
     if args.dry_run:
         print("Dry-run complete (skipped API upload/submission).")

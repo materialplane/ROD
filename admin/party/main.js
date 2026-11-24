@@ -1,111 +1,9 @@
 // Interactive Party, Sort Order, Gear, Runestones, Inventory & Menu Management Mockup
 
-const HEROES = [
-  {
-    id: "valen",
-    name: "Valen",
-    className: "Duelist",
-    shortTag: "Swords & Rapiers · Striker",
-    focus: ["force", "finesse"],
-    focusLabel: "Force & Finesse",
-    baseHp: 47,
-    baseMp: 0,
-    wounded50: "Below 50% HP: Strikes deal more damage and land more critical hits.",
-    wounded25: "Below 25% HP: Attacks strike harder still and gain counter/riposte readiness.",
-    bio: "Stripped of his royal title after Highcrown's arena fallout, Valen leads with relentless blade pressure.",
-  },
-  {
-    id: "ellowyn",
-    name: "Ellowyn",
-    className: "Sorceress",
-    shortTag: "Quarterstaves · Arcane Mage",
-    focus: ["arcana", "finesse"],
-    focusLabel: "Arcana & Finesse",
-    baseHp: 47,
-    baseMp: 19,
-    wounded50: "Below 50% HP: Attack spells hit harder and protective wards absorb more damage.",
-    wounded25: "Below 25% HP: Spell power surges sharply and MP costs drop.",
-    bio: "Keeper of Highcrown's hidden arcane scrolls, unlocking offensive magic and protective wards as she levels.",
-  },
-  {
-    id: "orin",
-    name: "Orin",
-    className: "Knight",
-    shortTag: "Axes, Maces & Spears · Guardian",
-    focus: ["grit", "force"],
-    focusLabel: "Grit & Force",
-    baseHp: 47,
-    baseMp: 0,
-    wounded50: "Below 50% HP: Takes less damage from all hits and holds enemy attention longer.",
-    wounded25: "Below 25% HP: Takes even less damage and steps in to shield allies from heavy blows.",
-    bio: "Rowan's father and veteran fortress defender who anchors the line with shields and heavy steel.",
-  },
-  {
-    id: "rowan",
-    name: "Rowan",
-    className: "Ranger",
-    shortTag: "Bows & Crossbows · Marksman",
-    focus: ["finesse", "force"],
-    focusLabel: "Finesse & Force",
-    baseHp: 47,
-    baseMp: 0,
-    wounded50: "Below 50% HP: Shots strike harder and pierce part of enemy armor.",
-    wounded25: "Below 25% HP: Critical rate spikes and he acts faster in the turn order.",
-    bio: "Sharp-eyed frontier scout trained to strike high-priority threats before they act.",
-  },
-  {
-    id: "mera",
-    name: "Mera",
-    className: "Druid",
-    shortTag: "Scimitars, Sickles & Staves · Nature",
-    focus: ["arcana", "presence"],
-    focusLabel: "Arcana & Presence",
-    baseHp: 47,
-    baseMp: 19,
-    wounded50: "Below 50% HP: Nature spells hit and heal harder, and she dodges incoming blows more often.",
-    wounded25: "Below 25% HP: Spell power surges sharply and she gains extra Critical Chance.",
-    bio: "Wild-magic channeler weaving storm, thorn, lightning, and mending spells to sustain the party.",
-  },
-  {
-    id: "harlan",
-    name: "Harlan",
-    className: "Sage",
-    shortTag: "Maces, Daggers & Staves · Healer",
-    focus: ["presence", "grit"],
-    focusLabel: "Presence & Grit",
-    baseHp: 47,
-    baseMp: 19,
-    wounded50: "Below 50% HP: Healing spells restore more HP and leave a brief healing salve on allies.",
-    wounded25: "Below 25% HP: Healing surges further and his poisons bite through resistant enemies.",
-    bio: "Alchemist and field surgeon pairing life-saving remedies with toxic venoms.",
-  },
-];
-
-const HERO_MAP = Object.fromEntries(HEROES.map((h) => [h.id, h]));
-
-const ATTRS = [
-  { key: "force", label: "Force", short: "FOR", hint: "Melee Power" },
-  { key: "finesse", label: "Finesse", short: "FIN", hint: "Dodge & Crit" },
-  { key: "grit", label: "Grit", short: "GRT", hint: "HP & Defense" },
-  { key: "arcana", label: "Arcana", short: "ARC", hint: "Magic & MP" },
-  { key: "presence", label: "Presence", short: "PRE", hint: "Heal & Ward" },
-];
-
-const WEAPON_MODES = {
-  Longsword: ["Quick Slash", "Heavy Cleave"],
-  Greatsword: ["Wide Sweep", "Overhead Rend"],
-  Rapier: ["Needle Thrust", "Heart Pierce"],
-  Battleaxe: ["Chopping Hack", "Execution Chop"],
-  Mace: ["Heavy Bash", "Armor Crush"],
-  Spear: ["Long Thrust", "Brace Sweep"],
-  Longbow: ["Snap Arrow", "Aimed Piercer"],
-  Shortbow: ["Quick Volley", "Wing Clip"],
-  Dagger: ["Quick Jab", "Vital Gouge"],
-  "Light Crossbow": ["Bolt Snap", "Siege Crank"],
-  Quarterstaff: ["Staff Sweep", "Crushing Vault"],
-  Scimitar: ["Crescent Cut", "Whirling Slash"],
-  Sickle: ["Reaping Hook", "Thorn Slash"],
-};
+let HEROES = [];
+let HERO_MAP = {};
+let ATTRS = [];
+let WEAPON_MODES = {};
 
 const TABS = [
   { id: "party", label: "Party & Stats", icon: "/assets/icons/ui/ui_21_party_hero_glyph.webp" },
@@ -1464,22 +1362,45 @@ function renderBody() {
 }
 
 async function init() {
-  const [itemsRes, spellsRes, runesRes, questsRes, worldRes, iconsRes] = await Promise.all([
+  const [itemsRes, spellsRes, runesRes, questsRes, worldRes, iconsRes, heroesRes, gearRulesRes] = await Promise.all([
     fetch("/data/items-catalog.json"),
     fetch("/data/spells-catalog.json"),
     fetch("/data/runestone-affixes.json"),
     fetch("/data/quests-catalog.json"),
     fetch("/data/world-locations.json"),
     fetch("/assets/icons/icons-manifest.json"),
+    fetch("/data/heroes-catalog.json"),
+    fetch("/data/gear-rules-catalog.json"),
   ]);
-  const [itemsData, spellsData, runesData, questsData, worldData, iconsData] = await Promise.all([
+  const [itemsData, spellsData, runesData, questsData, worldData, iconsData, heroesData, gearRulesData] = await Promise.all([
     itemsRes.json(),
     spellsRes.json(),
     runesRes.json(),
     questsRes.json(),
     worldRes.json(),
     iconsRes.json(),
+    heroesRes.json(),
+    gearRulesRes.json(),
   ]);
+
+  HEROES = (heroesData.heroes || []).map((h) => ({
+    ...h,
+    focus: h.focusAttributes || [],
+    bio: h.roleSummary || h.worldBio || "",
+  }));
+  HERO_MAP = Object.fromEntries(HEROES.map((h) => [h.id, h]));
+  ATTRS = (heroesData.attributeMeta || []).map((a) => ({
+    key: a.key,
+    label: a.label,
+    short: a.shortLabel,
+    hint: a.hint,
+  }));
+  WEAPON_MODES = Object.fromEntries(
+    Object.entries(gearRulesData.weaponModes || {}).map(([subType, pair]) => [
+      subType,
+      Array.isArray(pair) ? pair.map((p) => p.name) : [],
+    ])
+  );
 
   state.items = itemsData.items || [];
   state.itemsById = Object.fromEntries(state.items.map((x) => [x.id, x]));

@@ -7,6 +7,7 @@
     { label: "Disciplines", href: "/admin/disciplines/", desc: "Review class discipline pairs & approvals" },
     { label: "Battle Studio", href: "/admin/battles/", desc: "Preview encounters & stage layouts" },
     { label: "Combat Tester", href: "/admin/combat-test/", desc: "Play live zone encounters & track 10-fight grind" },
+    { label: "Economy Simulator", href: "/admin/simulator/", desc: "Visual 20-zone drop, attrition & quest telemetry" },
     { label: "VFX Tester", href: "/admin/vfx-test/", desc: "Test combat hit/spell strips & color tints" },
   ];
 

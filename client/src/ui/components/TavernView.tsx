@@ -54,7 +54,7 @@ function buildPatronTavernLine(role: string, townName: string, tavernName: strin
   if (quest) return quest.description;
   const r = role.toLowerCase();
   if (r.includes("bard") || r.includes("minstrel") || r.includes("skald")) {
-    return `Draw up a bench near the candles! Whenever travel-worn travelers step into ${tavernName}, the old tales of Highcrown and the roads beyond always find fresh ears.`;
+    return `Draw up a bench near the candles! Whenever road-weary travelers step into ${tavernName}, the old tales of Highcrown and the roads beyond always find fresh ears.`;
   }
   if (r.includes("armorer") || r.includes("smith") || r.includes("forgemaster") || r.includes("quartermaster")) {
     return `Off the anvil for the evening. Hammering iron for half the watches around ${townName} earns a man at least one slow mug by ${tavernName}'s fire.`;

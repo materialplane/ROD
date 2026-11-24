@@ -1,0 +1,588 @@
+{
+  "version": 1,
+  "metalArmorTypes": [
+    "Breastplate",
+    "Half Plate",
+    "Scale Mail",
+    "Ring Mail",
+    "Chain Mail",
+    "Splint",
+    "Plate"
+  ],
+  "robeTypes": [
+    "Simple Robes",
+    "Fine Robes",
+    "Padded Robes",
+    "Silk Robes",
+    "Widowsilk Robes"
+  ],
+  "tailorVestmentTypes": [
+    "Padded Bone",
+    "Reinforced Bone",
+    "Scale Plate",
+    "Dragonscale"
+  ],
+  "accessoryCategories": [
+    "cloak",
+    "orb",
+    "horn",
+    "quiver",
+    "crystal",
+    "tome"
+  ],
+  "statLabels": {
+    "attackPower": "Attack",
+    "magicPower": "Spell Power Mod",
+    "healPower": "Heal Power Mod",
+    "physDef": "Phys Def",
+    "magDef": "Magic Def",
+    "critBonusPct": "Crit %",
+    "spellCritPct": "Spell Crit %",
+    "critDmgPct": "Crit Damage %",
+    "piercePowerPct": "Armor Pierce %",
+    "dodgePct": "Dodge %",
+    "guardBonusPct": "Guard %",
+    "gritBonus": "Grit",
+    "maxHp": "Max HP",
+    "maxMp": "Max MP",
+    "statusPotencyPct": "Ailment Power %",
+    "statusResistPct": "Ailment Resist %"
+  },
+  "slotLabels": {
+    "right_hand": "Right Hand",
+    "left_hand": "Left Hand",
+    "body": "Body Armor",
+    "head": "Helmet",
+    "accessory": "Class Accessory"
+  },
+  "fallbackSkillIcons": [
+    "wpn_skill_longsword_quick_slash",
+    "wpn_skill_longsword_heavy_cleave"
+  ],
+  "weaponModes": {
+    "Longsword": [
+      {
+        "id": "wpn_skill_longsword_quick_slash",
+        "name": "Quick Slash",
+        "tag": "Ready",
+        "power": 1.0,
+        "critBonus": 0,
+        "cooldownTurns": 0,
+        "effect": "Reliable slashing strike usable every turn with crisp accuracy."
+      },
+      {
+        "id": "wpn_skill_longsword_heavy_cleave",
+        "name": "Heavy Cleave",
+        "tag": "Heavy",
+        "power": 1.4,
+        "critBonus": 0.15,
+        "cooldownTurns": 1,
+        "guardChip": 1,
+        "effect": "Heavy slash dealing high damage (+15% Crit) and chipping 1 Guard point. 1-Turn Cooldown."
+      }
+    ],
+    "Greatsword": [
+      {
+        "id": "wpn_skill_greatsword_wide_sweep",
+        "name": "Wide Sweep",
+        "tag": "Cleave",
+        "power": 0.95,
+        "critBonus": 0,
+        "cooldownTurns": 0,
+        "splashPct": 0.5,
+        "effect": "Broad arc dealing 95% damage to your target and 50% splash damage to neighboring enemies."
+      },
+      {
+        "id": "wpn_skill_greatsword_overhead_rend",
+        "name": "Overhead Rend",
+        "tag": "Heavy",
+        "power": 1.45,
+        "critBonus": 0.08,
+        "cooldownTurns": 1,
+        "guardChip": 1,
+        "effect": "Massive overhead chop dealing heavy damage (+8% Crit) and chipping 1 Guard point. 1-Turn Cooldown."
+      }
+    ],
+    "Rapier": [
+      {
+        "id": "wpn_skill_rapier_needle_thrust",
+        "name": "Needle Thrust",
+        "tag": "Crit",
+        "power": 1.0,
+        "critBonus": 0.08,
+        "cooldownTurns": 0,
+        "effect": "Precision lunge (+8% Crit) usable every turn."
+      },
+      {
+        "id": "wpn_skill_rapier_heart_pierce",
+        "name": "Heart Pierce",
+        "tag": "Pierce",
+        "power": 1.38,
+        "critBonus": 0.2,
+        "armorIgnore": 0.25,
+        "cooldownTurns": 1,
+        "effect": "Focused thrust (+20% Crit) ignoring 25% of enemy Physical Defense. 1-Turn Cooldown."
+      }
+    ],
+    "Battleaxe": [
+      {
+        "id": "wpn_skill_battleaxe_chopping_hack",
+        "name": "Chopping Hack",
+        "tag": "Ready",
+        "power": 1.02,
+        "critBonus": 0,
+        "cooldownTurns": 0,
+        "effect": "Dependable axe chop usable every turn for steady Slashing damage."
+      },
+      {
+        "id": "wpn_skill_battleaxe_execution_chop",
+        "name": "Execution Chop",
+        "tag": "Execute",
+        "power": 1.44,
+        "critBonus": 0.05,
+        "execCritBonus": 0.25,
+        "cooldownTurns": 1,
+        "effect": "Heavy chop gaining +25% Crit and bonus execution damage vs. enemies below 50% HP. 1-Turn Cooldown."
+      }
+    ],
+    "Mace": [
+      {
+        "id": "wpn_skill_mace_heavy_bash",
+        "name": "Heavy Bash",
+        "tag": "Guard",
+        "power": 1.02,
+        "critBonus": 0,
+        "cooldownTurns": 0,
+        "guardChip": 1,
+        "effect": "Dependable blunt bash that chips 1 Guard point off guarded enemies."
+      },
+      {
+        "id": "wpn_skill_mace_armor_crush",
+        "name": "Armor Crush",
+        "tag": "Break",
+        "power": 1.36,
+        "critBonus": 0,
+        "cooldownTurns": 1,
+        "debuff": "def_down",
+        "effect": "Heavy smash that cracks enemy armor (-25% Defense for 2 turns). 1-Turn Cooldown."
+      }
+    ],
+    "Spear": [
+      {
+        "id": "wpn_skill_spear_long_thrust",
+        "name": "Long Thrust",
+        "tag": "Aim",
+        "power": 1.04,
+        "critBonus": 0.12,
+        "cooldownTurns": 0,
+        "effect": "Long-reach thrust granting +12% Crit Chance every turn."
+      },
+      {
+        "id": "wpn_skill_spear_brace_sweep",
+        "name": "Brace Sweep",
+        "tag": "Break",
+        "power": 1.34,
+        "critBonus": 0,
+        "cooldownTurns": 1,
+        "guardChip": 1,
+        "debuff": "atk_down",
+        "effect": "Heavy sweeping strike chipping 1 Guard and lowering enemy Attack for 2 turns. 1-Turn Cooldown."
+      }
+    ],
+    "Longbow": [
+      {
+        "id": "wpn_skill_longbow_snap_arrow",
+        "name": "Snap Arrow",
+        "tag": "Ready",
+        "power": 1.0,
+        "critBonus": 0,
+        "cooldownTurns": 0,
+        "effect": "Crisp long-range shot usable every turn with reliable accuracy."
+      },
+      {
+        "id": "wpn_skill_longbow_aimed_piercer",
+        "name": "Aimed Piercer",
+        "tag": "Sniper",
+        "power": 1.42,
+        "critBonus": 0.25,
+        "armorIgnore": 0.25,
+        "cooldownTurns": 1,
+        "effect": "Aimed shot (+25% Crit) ignoring 25% of enemy Physical Defense. 1-Turn Cooldown."
+      }
+    ],
+    "Shortbow": [
+      {
+        "id": "wpn_skill_shortbow_quick_volley",
+        "name": "Quick Volley",
+        "tag": "Crit",
+        "power": 0.98,
+        "critBonus": 0.08,
+        "cooldownTurns": 0,
+        "effect": "Reliable bow shot (+8% Crit) usable every turn."
+      },
+      {
+        "id": "wpn_skill_shortbow_wing_clip",
+        "name": "Wing Clip",
+        "tag": "Blind",
+        "power": 1.3,
+        "critBonus": 0,
+        "cooldownTurns": 1,
+        "debuff": "blind",
+        "effect": "Pinning shot dealing solid damage and blinding the enemy for 2 turns. 1-Turn Cooldown."
+      }
+    ],
+    "Dagger": [
+      {
+        "id": "wpn_skill_dagger_quick_jab",
+        "name": "Quick Jab",
+        "tag": "Crit",
+        "power": 0.96,
+        "critBonus": 0.1,
+        "cooldownTurns": 0,
+        "effect": "Sharp dagger strike granting +10% Crit Chance every turn."
+      },
+      {
+        "id": "wpn_skill_dagger_vital_gouge",
+        "name": "Vital Gouge",
+        "tag": "Poison",
+        "power": 1.35,
+        "critBonus": 0.15,
+        "cooldownTurns": 1,
+        "debuff": "poison",
+        "effect": "Deep stab (+15% Crit) inflicting lingering Poison pressure. 1-Turn Cooldown."
+      }
+    ],
+    "Light Crossbow": [
+      {
+        "id": "wpn_skill_crossbow_bolt_snap",
+        "name": "Bolt Snap",
+        "tag": "Pierce",
+        "power": 1.02,
+        "critBonus": 0.05,
+        "armorIgnore": 0.15,
+        "cooldownTurns": 0,
+        "effect": "Steady bolt shot ignoring 15% of enemy Physical Defense every turn."
+      },
+      {
+        "id": "wpn_skill_crossbow_siege_crank",
+        "name": "Siege Crank",
+        "tag": "Break",
+        "power": 1.38,
+        "critBonus": 0.08,
+        "cooldownTurns": 1,
+        "guardChip": 1,
+        "effect": "Heavy cranked bolt dealing high damage and chipping 1 Guard point. 1-Turn Cooldown."
+      }
+    ],
+    "Quarterstaff": [
+      {
+        "id": "wpn_skill_staff_sweep",
+        "name": "Staff Sweep",
+        "tag": "MP+",
+        "power": 1.0,
+        "critBonus": 0,
+        "cooldownTurns": 0,
+        "restoreMp": 6,
+        "effect": "Two-handed staff strike restoring 6 MP on hit every turn."
+      },
+      {
+        "id": "wpn_skill_staff_crushing_vault",
+        "name": "Crushing Vault",
+        "tag": "Break",
+        "power": 1.36,
+        "critBonus": 0,
+        "cooldownTurns": 1,
+        "guardChip": 1,
+        "restoreMp": 4,
+        "effect": "Heavy overhead slam dealing strong damage, chipping 1 Guard point, and restoring 4 MP on hit. 1-Turn Cooldown."
+      }
+    ],
+    "Scimitar": [
+      {
+        "id": "wpn_skill_scimitar_crescent_cut",
+        "name": "Crescent Cut",
+        "tag": "Crit",
+        "power": 1.02,
+        "critBonus": 0.05,
+        "cooldownTurns": 0,
+        "effect": "Smooth curved slash (+5% Crit) usable every turn."
+      },
+      {
+        "id": "wpn_skill_scimitar_whirling_slash",
+        "name": "Whirling Slash",
+        "tag": "Heavy",
+        "power": 1.38,
+        "critBonus": 0.18,
+        "cooldownTurns": 1,
+        "effect": "Heavy spinning slash dealing high damage with +18% Crit Chance. 1-Turn Cooldown."
+      }
+    ],
+    "Sickle": [
+      {
+        "id": "wpn_skill_sickle_reaping_hook",
+        "name": "Reaping Hook",
+        "tag": "Poison",
+        "power": 1.0,
+        "critBonus": 0.05,
+        "cooldownTurns": 0,
+        "debuff": "poison",
+        "effect": "Hooked slice inflicting lingering Poison every turn."
+      },
+      {
+        "id": "wpn_skill_sickle_thorn_slash",
+        "name": "Thorn Slash",
+        "tag": "Weaken",
+        "power": 1.32,
+        "critBonus": 0,
+        "cooldownTurns": 1,
+        "debuff": "atk_down",
+        "effect": "Barbed cut that lowers the enemy's Attack for 2 turns. 1-Turn Cooldown."
+      }
+    ],
+    "Unarmed": [
+      {
+        "id": "unarmed_quick_strike",
+        "name": "Quick Strike",
+        "tag": "Unarmed",
+        "power": 0.85,
+        "critBonus": 0,
+        "cooldownTurns": 0,
+        "effect": "Bare-handed strike with no weapon equipped."
+      },
+      {
+        "id": "unarmed_heavy_blow",
+        "name": "Heavy Blow",
+        "tag": "Unarmed",
+        "power": 1.1,
+        "critBonus": 0.05,
+        "cooldownTurns": 1,
+        "effect": "Forceful bare-handed blow while fighting unarmed. 1-Turn Cooldown."
+      }
+    ]
+  },
+  "shopMeta": {
+    "weapon": {
+      "id": "weapon",
+      "label": "Weapon Shop",
+      "quote": "Blades, bows, staves, and steel—everything built for battle.",
+      "pills": [
+        [
+          "all",
+          "All Weapons"
+        ],
+        [
+          "1h",
+          "1-Handed"
+        ],
+        [
+          "2h",
+          "2-Handed"
+        ]
+      ]
+    },
+    "armor": {
+      "id": "armor",
+      "label": "Armor Shop",
+      "quote": "Leather, hide, mail, plate, and shields built to hold the line.",
+      "pills": [
+        [
+          "all",
+          "All Armor & Shields"
+        ],
+        [
+          "armor",
+          "Body Armor"
+        ],
+        [
+          "helm",
+          "Helmets"
+        ],
+        [
+          "shield",
+          "Shields"
+        ]
+      ]
+    },
+    "tailor": {
+      "id": "tailor",
+      "label": "Tailor",
+      "quote": "Woven robes, stitched bone, and hardened scale vestments—crafted without metal or battle leather.",
+      "pills": [
+        [
+          "all",
+          "All Tailored Gear"
+        ],
+        [
+          "robes",
+          "Robes"
+        ],
+        [
+          "vestments",
+          "Bone & Scale"
+        ],
+        [
+          "armor",
+          "Body Armor"
+        ],
+        [
+          "helm",
+          "Helmets"
+        ]
+      ]
+    },
+    "magic": {
+      "id": "magic",
+      "label": "Magic Shop",
+      "quote": "Studied incantations and spell scrolls ready for your casters to master.",
+      "pills": []
+    },
+    "arcanist": {
+      "id": "arcanist",
+      "label": "Arcanist",
+      "quote": "Every restorative draught alongside true orbs, crystals, arcane tomes, and discipline training.",
+      "pills": [
+        [
+          "all",
+          "Potions & Magic Items"
+        ],
+        [
+          "consumable",
+          "All Potions"
+        ],
+        [
+          "orb",
+          "Orbs"
+        ],
+        [
+          "crystal",
+          "Crystals"
+        ],
+        [
+          "tome",
+          "Tomes"
+        ],
+        [
+          "disciplines",
+          "Disciplines (Lv 1–90)"
+        ]
+      ]
+    },
+    "adventurer": {
+      "id": "adventurer",
+      "label": "Adventurer Shop",
+      "quote": "Travel cloaks, war-horns, archer quivers, and road kit for the wilds.",
+      "pills": [
+        [
+          "all",
+          "All Field Gear"
+        ],
+        [
+          "cloak",
+          "Cloaks"
+        ],
+        [
+          "horn",
+          "War-Horns"
+        ],
+        [
+          "quiver",
+          "Quivers"
+        ]
+      ]
+    },
+    "trade_goods": {
+      "id": "trade_goods",
+      "label": "Trade Goods Buyer",
+      "quote": "Drop any trade goods on the counter and I will weigh them out in Silver.",
+      "pills": []
+    }
+  },
+  "maxSpellsPerRegion": 2,
+  "tierColors": [
+    {
+      "maxStep": 6,
+      "color": "#6b8e6b"
+    },
+    {
+      "maxStep": 12,
+      "color": "#4e86b8"
+    },
+    {
+      "maxStep": 18,
+      "color": "#9d68c4"
+    },
+    {
+      "maxStep": 99,
+      "color": "#e0a943"
+    }
+  ],
+  "defaultTierColor": "#7d653c",
+  "zoneRegionCutoffs": [
+    3,
+    5,
+    8,
+    10,
+    13,
+    15,
+    18,
+    20
+  ],
+  "zoneMaxLevels": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    80,
+    85,
+    90,
+    95,
+    99
+  ],
+  "stepToDefaultZone": [
+    1,
+    2,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    14,
+    15,
+    16,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "regionStartingZones": [
+    1,
+    4,
+    6,
+    9,
+    11,
+    14,
+    16,
+    19
+  ]
+}

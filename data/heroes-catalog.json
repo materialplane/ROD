@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "defaultPartyOrder": [
+    "valen",
+    "ellowyn",
+    "orin",
+    "harlan"
+  ],
+  "attributeMeta": [
+    {
+      "key": "force",
+      "label": "Force",
+      "shortLabel": "FOR",
+      "hint": "Melee Power"
+    },
+    {
+      "key": "finesse",
+      "label": "Finesse",
+      "shortLabel": "FIN",
+      "hint": "Dodge & Crit"
+    },
+    {
+      "key": "grit",
+      "label": "Grit",
+      "shortLabel": "GRT",
+      "hint": "HP & Defense"
+    },
+    {
+      "key": "arcana",
+      "label": "Arcana",
+      "shortLabel": "ARC",
+      "hint": "Magic & MP"
+    },
+    {
+      "key": "presence",
+      "label": "Presence",
+      "shortLabel": "PRE",
+      "hint": "Heal & Ward"
+    }
+  ],
+  "baseStartingAttributes": {
+    "force": 1,
+    "finesse": 1,
+    "grit": 1,
+    "arcana": 1,
+    "presence": 1
+  },
+  "progression": {
+    "maxLevel": 99,
+    "xpCurve": {
+      "linear": 100,
+      "quadratic": 12
+    },
+    "pointsPerLevel": 2,
+    "milestoneLevelInterval": 5,
+    "milestoneBonusPoints": 1,
+    "hpPerLevel": 17.5,
+    "mpPerLevel": 3,
+    "gritHpPerPoint": 12,
+    "arcanaMpPerPoint": 4,
+    "forceAtkPerPoint": 1.5,
+    "arcanaMagPerPoint": 1.6,
+    "presenceHealPerPoint": 1.5,
+    "gritPdefPerPoint": 1,
+    "presenceMdefPerPoint": 1,
+    "finesseDodgePerPoint": 0.3,
+    "finesseCritPerPoint": 0.4,
+    "baseCritPct": 5,
+    "dodgeCapPct": 45,
+    "critCapPct": 45,
+    "dualWieldOffhandScale": 0.5,
+    "runestoneAttrScaling": {
+      "forceAtk": 1.5,
+      "finesseDodge": 0.3,
+      "finesseCrit": 0.4,
+      "gritHp": 12,
+      "gritPdef": 1,
+      "arcanaMag": 1.6,
+      "presenceMdef": 1,
+      "presenceHeal": 1.5
+    },
+    "runestoneEmptyIcon": "assets/icons/ui/ui_17_runestone_glyph.webp",
+    "ledgerTabs": [
+      {
+        "id": "party",
+        "label": "Party & Stats",
+        "icon": "assets/icons/ui/ui_21_party_hero_glyph.webp"
+      },
+      {
+        "id": "gear",
+        "label": "Gear & Runestones",
+        "icon": "assets/icons/ui/ui_04_body_armor_slot_glyph.webp"
+      },
+      {
+        "id": "skills",
+        "label": "Weapons & Spells",
+        "icon": "assets/icons/ui/ui_09_spells_magic_glyph.webp"
+      },
+      {
+        "id": "bag",
+        "label": "Inventory Bag",
+        "icon": "assets/icons/ui/ui_22_all_pack_bag_glyph.webp"
+      },
+      {
+        "id": "journal",
+        "label": "Quest Journal",
+        "icon": "assets/icons/ui/ui_06_quest_scroll_glyph.webp"
+      },
+      {
+        "id": "atlas",
+        "label": "World Map",
+        "icon": "assets/icons/ui/ui_25_world_atlas_glyph.webp"
+      }
+    ],
+    "slotConfig": [
+      {
+        "key": "right_hand",
+        "label": "Right Hand",
+        "fallbackIcon": "assets/icons/ui/ui_01_weapon_slot_glyph.webp"
+      },
+      {
+        "key": "left_hand",
+        "label": "Left Hand",
+        "fallbackIcon": "assets/icons/ui/ui_02_shield_slot_glyph.webp"
+      },
+      {
+        "key": "body",
+        "label": "Body Armor",
+        "fallbackIcon": "assets/icons/ui/ui_04_body_armor_slot_glyph.webp"
+      },
+      {
+        "key": "head",
+        "label": "Helmet",
+        "fallbackIcon": "assets/icons/ui/ui_03_helmet_slot_glyph.webp"
+      },
+      {
+        "key": "accessory",
+        "label": "Class Accessory",
+        "fallbackIcon": "assets/icons/ui/ui_05_accessory_slot_glyph.webp"
+      }
+    ],
+    "startingSilver": 1000
+  },
+  "heroes": [
+    {
+      "id": "valen",
+      "name": "Valen",
+      "fullName": "Prince Valen",
+      "className": "Duelist",
+      "shortTag": "Swords & Rapiers · Striker",
+      "worldBio": "Raised as Garrick's ruthless heir, Valen cut down his arena trainer Koren in a spiteful duel—only to watch two halves of a silver wolf pendant lock in the sand and realize he had killed his own father, who chose death over striking his son. Stripped of crown and armor and thrown into Koren's old cell, the broken prince steps into a bleeding Ethoria drowning in grief and unpayable guilt.",
+      "classStyle": "A versatile frontline fighter who wields longswords, 2H greatswords, or rapiers—paired with light or medium armor, cloaks, shields, or dual one-handed blades. Built for relentless single-target pressure and twin off-hand follow-ups, getting fiercer as he takes hits.",
+      "gearSummary": "Longswords, Greatswords, Rapiers · Global Shields · Light or Medium Armor · Cloaks",
+      "roleSummary": "Versatile frontline swordsman built around sharp single-target pressure and Dual Wield follow-up strikes.",
+      "focusAttributes": [
+        "force",
+        "finesse"
+      ],
+      "focusLabel": "Force & Finesse",
+      "startingAttributes": {
+        "force": 1,
+        "finesse": 1,
+        "grit": 1,
+        "arcana": 1,
+        "presence": 1
+      },
+      "wounded50": "Below 50% HP: Strikes deal more damage and land more critical hits.",
+      "wounded25": "Below 25% HP: Damage surges further and he automatically counters once per turn.",
+      "baseHp": 80,
+      "baseMp": 0,
+      "usesMp": false,
+      "canDualWield": true,
+      "starterWeaponSubType": "Longsword",
+      "starterShield": true,
+      "starterAccessoryCategory": "cloak",
+      "avatarPath": "assets/portraits/heroes/valen_avatar.webp",
+      "tokenPath": "assets/tokens/heroes/valen_hp1.webp"
+    },
+    {
+      "id": "ellowyn",
+      "name": "Ellowyn",
+      "fullName": "Queen Ellowyn",
+      "className": "Sorceress",
+      "shortTag": "Arcane · Spells & Wards",
+      "worldBio": "Enduring years in a loveless marriage to a tyrant, Ellowyn lost Koren—the only love she ever knew—the day he let their oblivious son run him through on the sands. Stripped of her silver crown and locked beneath Highcrown as Valen fell, the grieving Queen unleashes forbidden arcane magic kept hidden through decades of misery, marching into a torn Ethoria to keep her broken son alive.",
+      "classStyle": "A ranged spellcaster wielding quarterstaves, daggers, or light crossbows, alongside robes or dragonscale armor, crystal orbs, and shields when holding a dagger. Channels arcane spells learned as she levels to punish dangerous enemies while shielding companions with protective wards.",
+      "gearSummary": "Quarterstaves, Daggers, Light Crossbows · Global Shields · Robes & Dragonscale · Orbs",
+      "roleSummary": "Offensive spellcaster who unlocks arcane attack spells and protective party wards as she levels.",
+      "focusAttributes": [
+        "arcana",
+        "presence"
+      ],
+      "focusLabel": "Arcana & Presence",
+      "startingAttributes": {
+        "force": 1,
+        "finesse": 1,
+        "grit": 1,
+        "arcana": 1,
+        "presence": 1
+      },
+      "wounded50": "Below 50% HP: Attack spells hit harder and protective wards absorb more damage.",
+      "wounded25": "Below 25% HP: Spell power surges sharply and MP costs drop.",
+      "baseHp": 80,
+      "baseMp": 19,
+      "usesMp": true,
+      "canDualWield": false,
+      "starterWeaponSubType": "Quarterstaff",
+      "starterShield": false,
+      "starterAccessoryCategory": "orb",
+      "avatarPath": "assets/portraits/heroes/ellowyn_avatar.webp",
+      "tokenPath": "assets/tokens/heroes/ellowyn_hp1.webp"
+    },
+    {
+      "id": "orin",
+      "name": "Orin",
+      "fullName": "Commander Orin",
+      "className": "Knight",
+      "shortTag": "Heavy Arms · Protector",
+      "worldBio": "Orin swore Highcrown's marriage-forbidden Commander vow only after his wife died giving birth to Rowan. Worse, Koren was his close friend—Orin spotted Valen's matching wolf pendant and Ellowyn's secret years before the duel, yet held his tongue. Haunted by crushing grief that speaking to Valen sooner could have spared Koren's life, the weary veteran marches beside his own boy into a broken realm.",
+      "classStyle": "A sturdy frontline defender free to wield 2H spears for reach, or pair battleaxes and maces with a shield—clad in hide, scale, or heavy plate alongside war-horns. Built to absorb heavy blows, crack enemy guard, and steady the party.",
+      "gearSummary": "Battleaxes, Maces, 2H Spears · Global Shields · Medium or Heavy Armor · Horns",
+      "roleSummary": "Sturdy armored defender who draws enemy focus, cracks enemy guard, and steadies the party.",
+      "focusAttributes": [
+        "grit",
+        "force"
+      ],
+      "focusLabel": "Grit & Force",
+      "startingAttributes": {
+        "force": 1,
+        "finesse": 1,
+        "grit": 1,
+        "arcana": 1,
+        "presence": 1
+      },
+      "wounded50": "Below 50% HP: Takes less damage from all hits and holds enemy attention longer.",
+      "wounded25": "Below 25% HP: Takes even less damage and steps in to shield allies from heavy blows.",
+      "baseHp": 80,
+      "baseMp": 0,
+      "usesMp": false,
+      "canDualWield": false,
+      "starterWeaponSubType": "Battleaxe",
+      "starterShield": true,
+      "starterAccessoryCategory": "horn",
+      "avatarPath": "assets/portraits/heroes/orin_avatar.webp",
+      "tokenPath": "assets/tokens/heroes/orin_hp1.webp"
+    },
+    {
+      "id": "rowan",
+      "name": "Rowan",
+      "fullName": "Rowan",
+      "className": "Ranger",
+      "shortTag": "Bows · Precision Hunter",
+      "worldBio": "Left motherless at birth, Rowan grew up on cold, bloodied border patrols under a silent father scarred by loss rather than behind castle walls. As Garrick's Portals bleed Ethoria dry and remorse over his friend Koren's death hollows Orin from within, the quiet marksman rides out into the dark wilds refusing to let his father fall alone.",
+      "classStyle": "A sharp-eyed hunter comfortable with longbows, shortbows, or backup daggers (paired with shields if needed), wearing light or reinforced medium leather with arrow quivers. Picks off priority threats with high critical precision and weakens dangerous enemies.",
+      "gearSummary": "Longbows, Shortbows, Daggers · Global Shields · Light or Medium Leather · Quivers",
+      "roleSummary": "Long-range marksman focused on high-precision critical shots and debilitating debuffs.",
+      "focusAttributes": [
+        "finesse",
+        "force"
+      ],
+      "focusLabel": "Finesse & Force",
+      "startingAttributes": {
+        "force": 1,
+        "finesse": 1,
+        "grit": 1,
+        "arcana": 1,
+        "presence": 1
+      },
+      "wounded50": "Below 50% HP: Shots strike harder and pierce part of enemy armor.",
+      "wounded25": "Below 25% HP: Critical rate and precision damage surge sharply.",
+      "baseHp": 80,
+      "baseMp": 0,
+      "usesMp": false,
+      "canDualWield": false,
+      "starterWeaponSubType": "Longbow",
+      "starterShield": false,
+      "starterAccessoryCategory": "quiver",
+      "avatarPath": "assets/portraits/heroes/rowan_avatar.webp",
+      "tokenPath": "assets/tokens/heroes/rowan_hp1.webp"
+    },
+    {
+      "id": "mera",
+      "name": "Mera",
+      "fullName": "Mera",
+      "className": "Druid",
+      "shortTag": "Nature Magic · Thorns, Earth & Wind",
+      "worldBio": "Purchased from childhood slavery by Queen Ellowyn after her mother was sold away, Mera served as Ellowyn's loyal handmaid—and secretly wove the iron chisel and letter into Koren's bandages so the lovers could meet. Burdened by how that lifeline ended in Koren's blood and her Queen's ruin, she unleashes banned Druid nature magic across a grieving Ethoria while searching for her stolen mother.",
+      "classStyle": "A wild-magic Druid wielding quarterstaves, scimitars, or sickles—able to carry a shield alongside one-handed blades—clad in leather, widowsilk robes, or bone armor with nature crystals. Calls down earth, thorn, lightning, and mending spells as she levels.",
+      "gearSummary": "Quarterstaves, Scimitars, Sickles · Global Shields · Leather, Widowsilk & Bone · Crystals",
+      "roleSummary": "Wild nature spellcaster who entangles and bleeds foes while sustaining companions with regeneration.",
+      "focusAttributes": [
+        "arcana",
+        "finesse"
+      ],
+      "focusLabel": "Arcana & Finesse",
+      "startingAttributes": {
+        "force": 1,
+        "finesse": 1,
+        "grit": 1,
+        "arcana": 1,
+        "presence": 1
+      },
+      "wounded50": "Below 50% HP: Nature spells hit and heal harder, and she dodges incoming blows more often.",
+      "wounded25": "Below 25% HP: Spell power and critical spell surge rise sharply.",
+      "baseHp": 80,
+      "baseMp": 19,
+      "usesMp": true,
+      "canDualWield": false,
+      "starterWeaponSubType": "Scimitar",
+      "starterShield": true,
+      "starterAccessoryCategory": "crystal",
+      "avatarPath": "assets/portraits/heroes/mera_avatar.webp",
+      "tokenPath": "assets/tokens/heroes/mera_hp1.webp"
+    },
+    {
+      "id": "harlan",
+      "name": "Harlan",
+      "fullName": "Harlan",
+      "className": "Sage",
+      "shortTag": "Herbal Magic · Healer & Remedies",
+      "worldBio": "After losing his wife and daughter to a merciless plague in his youth, Harlan buried himself in Highcrown's dark undercroft—tending Koren's mangled arena wounds time and again as one of the gladiator's closest friends. Losing Koren on the sands reopened decades of sorrow; carrying healing herbs and bitter toxins into a dying Ethoria, the old apothecary vows no ally will fall unmended.",
+      "classStyle": "A supportive healer and alchemist carrying quarterstaves, maces, or daggers (plus shields with one-handed weapons) in robes or bone armor alongside field tomes. Unlocks restorative herbs, cleanses, and corrosive poison spells naturally as he levels.",
+      "gearSummary": "Quarterstaves, Maces, Daggers · Global Shields · Robes & Bone Armor · Tomes",
+      "roleSummary": "Party healer and poison caster who learns restorative spells and toxins as he levels.",
+      "focusAttributes": [
+        "presence",
+        "arcana"
+      ],
+      "focusLabel": "Presence & Arcana",
+      "startingAttributes": {
+        "force": 1,
+        "finesse": 1,
+        "grit": 1,
+        "arcana": 1,
+        "presence": 1
+      },
+      "wounded50": "Below 50% HP: Healing spells restore more HP and leave a brief healing salve on allies.",
+      "wounded25": "Below 25% HP: Healing surges further and his poisons bite through resistant enemies.",
+      "baseHp": 80,
+      "baseMp": 19,
+      "usesMp": true,
+      "canDualWield": false,
+      "starterWeaponSubType": "Mace",
+      "starterShield": true,
+      "starterAccessoryCategory": "tome",
+      "avatarPath": "assets/portraits/heroes/harlan_avatar.webp",
+      "tokenPath": "assets/tokens/heroes/harlan_hp1.webp"
+    }
+  ],
+  "openingCutscene": {
+    "addressForms": {
+      "valen": {
+        "ellowyn": "Mother"
+      },
+      "rowan": {
+        "orin": "Father"
+      },
+      "mera": {
+        "ellowyn": "Your Grace"
+      }
+    },
+    "openingCall": {
+      "valen": "Our horses are waiting at the outer gate. I hate leaving Highcrown short-handed, {addrA}, but someone has to track Garrick down—and someone has to keep this city standing.",
+      "ellowyn": "Everything is ready at the gate. Leaving Highcrown behind is no small thing, {addrA}—even knowing you and {addrB} will hold it.",
+      "orin": "We ride out at first light. I would rather have all six swords on the road, {addrA}, yet Highcrown cannot stand empty while Garrick runs loose.",
+      "rowan": "Gear is strapped and the road east is open. Feels strange walking out without you, {addrA}—keep watch over these walls for us.",
+      "mera": "The outer road is open, and even the stones here breathe easier with Garrick gone. Tend the city well, {addrA}—we will break his Portals before they choke the land.",
+      "harlan": "My satchels are full and the road waits for no one. Look after the people left inside these walls, {addrA}—we'll need a home worth coming back to."
+    },
+    "keepFirstPledge": {
+      "valen": "Don't worry about me. I know every stone and hidden passage in this castle—I'll rally whatever loyal guards are left and keep the gates shut tight.",
+      "ellowyn": "Highcrown won't fall while I'm here. I'll keep the inner wards up—and start digging through Garrick's sealed archives for whatever he hid from us.",
+      "orin": "Save your breath for the road. I've spent thirty years holding these walls—{partner} and I will whip the watch back into shape and keep the gates barred.",
+      "rowan": "You just watch the wilds—I'll take the high towers. Nothing walks down that northern road toward Highcrown without an arrow greeting it first.",
+      "mera": "Leave the courtyard to me. With Highcrown's overgrown palace gardens waking back to life, I'll weave living thorn-wards around the walls and keep watch until you return.",
+      "harlan": "Somebody has to mend the folks who can't swing a sword. I'll keep the infirmary open and make sure sickness doesn't finish what Garrick started."
+    },
+    "splitPairReactions": {
+      "valen": {
+        "ellowyn": "Stay behind these walls, Mother. After what happened in the Coliseum... I'm not losing anyone else I care about."
+      },
+      "ellowyn": {
+        "valen": "Don't carry the whole city on your shoulders alone, Valen. Trust the loyal captains inside these walls until we return.",
+        "mera": "Guard your own strength inside the Keep, Mera. You stood faithfully beside me through all those silent years under Garrick—do not spend yourself recklessly now."
+      },
+      "orin": {
+        "rowan": "Don't get reckless up on those walls, Rowan. Keep your eyes open until your old man marches back."
+      },
+      "rowan": {
+        "orin": "Watch those walls while we're gone, Father. Don't work yourself half to death drilling recruits—we'll handle the road."
+      },
+      "mera": {
+        "ellowyn": "Hold fast behind thick stone walls, Your Grace. You broke my chains when I was just a child—now let my thorns and stormwinds clear the wild road ahead for you."
+      }
+    },
+    "companionFallback": {
+      "valen": "And we won't take all season out there. Once we figure out how to shut those Portals down, we're coming straight back.",
+      "ellowyn": "If Garrick's scouts try testing the gates again, send word right away. We won't leave you cut off.",
+      "orin": "At least we won't be glancing over our shoulders every mile. Knowing you two have the Keep gives us room to breathe.",
+      "rowan": "Fair enough. Keep the fires lit on the watchtowers, and we'll thin out whatever's prowling the Crownlands.",
+      "mera": "Keep the palace courtyard green and standing until we return. Watch Highcrown's stones—we'll answer those Portals with earth, thorn, and storm.",
+      "harlan": "Try not to work yourselves to death while we're gone, either. Keep some broth warm for when we limp back in."
+    },
+    "keepSecondPledge": {
+      "valen": "Between {partner} and me, Garrick's banners won't touch this courtyard. Go shut those Portals—and when you march on his final stronghold, we'll meet you there.",
+      "ellowyn": "While {partner} keeps watch over the city, I'll piece together whatever Garrick left buried in the palace vaults. When you finally corner him, all six of us will finish it together.",
+      "orin": "You heard {partner}—Highcrown isn't falling. Clear the roads, break those Portals, and when it's time to storm Garrick's keep, we'll ride out behind you.",
+      "rowan": "With {partner} watching the city and my bow on the battlements, you've got nothing to worry about. Just leave a few fights for us when you hit the final gate.",
+      "mera": "Between {partner}'s steel on the battlements and my storm-wards over the gardens, nothing hostile crosses these gates. Send word when you march on Garrick's keep, and we will strike beside you.",
+      "harlan": "I'll keep {partner} standing and the town patched up until you're back. Just stay alive out there—all six of us are ending this together."
+    },
+    "closingCall": {
+      "valen": "Deal. Look after Highcrown, both of you—let's move out.",
+      "ellowyn": "Then it's time. Keep Highcrown safe—we ride out now.",
+      "orin": "That settles it. Hold the gates until we send word—let's march.",
+      "rowan": "All right, let's hit the road before we lose the daylight. See you soon.",
+      "mera": "Hold fast inside these walls, both of you. Nature answers us again—let's move out.",
+      "harlan": "Take care of yourselves, then. Time we stepped outside these walls."
+    }
+  }
+}

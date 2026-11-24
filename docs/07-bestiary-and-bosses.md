@@ -145,42 +145,42 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Dimension
 ### Portal #1 Realm: **Elemental Plane of Earth & Forge** *(Map 1 · Zones `1–3` | Lv `1–15`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Animated Flying Sword** | Construct | *Cross Slash, Viper Lunge* | Bludgeoning, Lightning | `6` | `8s` | Chipped Rune-Blade Shard |
-| 2 | **Animated Armor** | Construct | *Pommel Bash, Hold the Line* | Bludgeoning, Lightning | `8` | `9s` | Hollow Greave Plate |
-| 3 | **Flesh Golem** | Construct | *Crushing Blow, Scarred Gambit* | Fire, Lightning | `11` | `9s` | Iron-Sutured Hide |
-| 4 | **Clay Golem** | Construct | *Armor Crush, Phalanx Brace* | Bludgeoning, Radiant | `12` | `10s` | Carved Earthen Seal |
-| 5 | **Dust Mephit** | Elemental | *Choking Powder, Ember Spark* | Bludgeoning, Frost | `15` | `10s` | Jar of Cinder-Ash |
-| 6 | **Gargoyle** | Elemental | *Sandsweep, Phalanx Brace* | Bludgeoning, Frost | `20` | `11s` | Cracked Stone Horn |
-| 7 | **Rust Monster** | Monstrosity | *Armor Feint, Expose Seam* | Piercing, Frost | `23` | `12s` | Oxidized Antenna |
-| 8 | **Ankheg** | Monstrosity | *Acidic Flask, Ragged Cut* | Fire, Slashing | `27` | `12s` | Chitinous Mandible |
-| 9 | **Darkmantle** | Monstrosity | *Smokescreen, Shadowstep Ambush* | Radiant, Fire | `30` | `13s` | Shadow-Cowl Membrane |
-| 10 | **Grick** | Monstrosity | *Viper Lunge, Ankle Nick* | Fire, Bludgeoning | `36` | `14s` | Stone-Worm Beak |
-| 11 | **Roper** | Monstrosity | *Void Pull, Piercing Shot* | Fire, Slashing | `42` | `15s` | Petrous Tendril Core |
-| 12 | **Xorn** | Elemental | *Crushing Blow, Armor Crush* | Frost, Lightning | `48` | `16s` | Gem-Flecked Claw |
-| 13 | **Bulette** | Monstrosity | *Shield-Splitter, Earthshaker* | Frost, Piercing | `53` | `17s` | Landshark Armor Plate |
-| 14 | **Earth Elemental** | Elemental | *Concussive Bash, Phalanx Brace* | Lightning, Frost | `57` | `17s` | Dense Geode Heart |
-| 15 | **Shield Guardian** | Construct | *Intercept Stance, Iron Steadfast* | Lightning, Bludgeoning | `63` | `18s` | Runed Guardian Amulet |
+| 1 | **Animated Flying Sword** | Construct | *Cross Slash, Viper Lunge* | Bludgeoning, Lightning | `6` | `24s` | Chipped Rune-Blade Shard |
+| 2 | **Animated Armor** | Construct | *Pommel Bash, Hold the Line* | Bludgeoning, Lightning | `8` | `26s` | Hollow Greave Plate |
+| 3 | **Flesh Golem** | Construct | *Crushing Blow, Scarred Gambit* | Fire, Lightning | `11` | `27s` | Iron-Sutured Hide |
+| 4 | **Clay Golem** | Construct | *Armor Crush, Phalanx Brace* | Bludgeoning, Radiant | `12` | `29s` | Carved Earthen Seal |
+| 5 | **Dust Mephit** | Elemental | *Choking Powder, Ember Spark* | Bludgeoning, Frost | `15` | `30s` | Jar of Cinder-Ash |
+| 6 | **Gargoyle** | Elemental | *Sandsweep, Phalanx Brace* | Bludgeoning, Frost | `20` | `31s` | Cracked Stone Horn |
+| 7 | **Rust Monster** | Monstrosity | *Armor Feint, Expose Seam* | Piercing, Frost | `23` | `33s` | Oxidized Antenna |
+| 8 | **Ankheg** | Monstrosity | *Acidic Flask, Ragged Cut* | Fire, Slashing | `27` | `34s` | Chitinous Mandible |
+| 9 | **Darkmantle** | Monstrosity | *Smokescreen, Shadowstep Ambush* | Radiant, Fire | `30` | `35s` | Shadow-Cowl Membrane |
+| 10 | **Grick** | Monstrosity | *Viper Lunge, Ankle Nick* | Fire, Bludgeoning | `36` | `36s` | Stone-Worm Beak |
+| 11 | **Roper** | Monstrosity | *Void Pull, Piercing Shot* | Fire, Slashing | `42` | `37s` | Petrous Tendril Core |
+| 12 | **Xorn** | Elemental | *Crushing Blow, Armor Crush* | Frost, Lightning | `48` | `39s` | Gem-Flecked Claw |
+| 13 | **Bulette** | Monstrosity | *Shield-Splitter, Earthshaker* | Frost, Piercing | `53` | `40s` | Landshark Armor Plate |
+| 14 | **Earth Elemental** | Elemental | *Concussive Bash, Phalanx Brace* | Lightning, Frost | `57` | `41s` | Dense Geode Heart |
+| 15 | **Shield Guardian** | Construct | *Intercept Stance, Iron Steadfast* | Lightning, Bludgeoning | `63` | `43s` | Runed Guardian Amulet |
 
 ---
 
 ### Portal #2 Realm: **Elemental Plane of Water & Deep Trench** *(Map 1 · Zones `4–5` | Lv `16–25`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Reef Shark** | Beast | *Viper Lunge, Ragged Cut* | Lightning, Piercing | `53` | `14s` | Serrated Reef Fin |
-| 2 | **Black Dragon Wyrmling** | Dragon | *Acidic Flask (Breath), Sandsweep* | Lightning, Piercing | `63` | `16s` | Corrosive Trench Scale |
-| 3 | **Otyugh** | Aberration | *Void Pull, Concussive Bash* | Fire, Piercing | `72` | `18s` | Barbed Trench Tentacle |
-| 4 | **Hydra** | Monstrosity | *Crescent Cleave, Twin-Fang Cascade* | Fire, Slashing | `84` | `22s` | Severed Hydra Neck-Crest |
-| 5 | **Steam Mephit** | Elemental | *Ember Spark, Smokescreen* | Frost, Lightning | `95` | `25s` | Scalding Vapor Phial |
-| 6 | **Merrow** | Monstrosity | *Spearhead Lunge, Sandsweep* | Lightning, Fire | `108` | `28s` | Barbed Coral Harpoon |
-| 7 | **Sea Hag** | Fey | *Weakening Draught, Dawn Gleam (Hex)* | Lightning, Radiant | `122` | `31s` | Brine-Salt Talisman |
-| 8 | **Water Weird** | Elemental | *Intercept Stance, Void Pull* | Frost, Lightning | `137` | `34s` | Pure Abyssal Vial |
-| 9 | **Giant Octopus** | Beast | *Choking Powder (Ink), Twin-Fang Cascade* | Fire, Lightning | `152` | `38s` | Coiled Sucker Tendril |
-| 10 | **Killer Whale** | Beast | *Shield-Splitter, Skewer Thrust* | Lightning, Piercing | `167` | `42s` | Ivory Trench Tooth |
-| 11 | **Giant Shark** | Beast | *Artery Slice, Executioner's Arc* | Lightning, Slashing | `184` | `46s` | Pale Abyssal Jawbone |
-| 12 | **Gibbering Mouther** | Aberration | *Choking Powder, Nerve Strike* | Radiant, Fire | `200` | `50s` | Writhing Eye-Cluster |
-| 13 | **Chuul** | Aberration | *Neurotoxin Dart, Concussive Bash* | Lightning, Radiant | `215` | `54s` | Translucent Pincer |
-| 14 | **Water Elemental** | Elemental | *Earthshaker (Tidal), Iron Steadfast* | Frost, Lightning | `230` | `58s` | Living Tide-Core |
-| 15 | **Dragon Turtle** | Dragon | *Flame Wall (Steam), Titan Breaker* | Lightning, Piercing | `250` | `62s` | Steam-Scarred Scute |
+| 1 | **Reef Shark** | Beast | *Viper Lunge, Ragged Cut* | Lightning, Piercing | `53` | `38s` | Serrated Reef Fin |
+| 2 | **Black Dragon Wyrmling** | Dragon | *Acidic Flask (Breath), Sandsweep* | Lightning, Piercing | `63` | `40s` | Corrosive Trench Scale |
+| 3 | **Otyugh** | Aberration | *Void Pull, Concussive Bash* | Fire, Piercing | `72` | `42s` | Barbed Trench Tentacle |
+| 4 | **Hydra** | Monstrosity | *Crescent Cleave, Twin-Fang Cascade* | Fire, Slashing | `84` | `44s` | Severed Hydra Neck-Crest |
+| 5 | **Steam Mephit** | Elemental | *Ember Spark, Smokescreen* | Frost, Lightning | `95` | `46s` | Scalding Vapor Phial |
+| 6 | **Merrow** | Monstrosity | *Spearhead Lunge, Sandsweep* | Lightning, Fire | `108` | `48s` | Barbed Coral Harpoon |
+| 7 | **Sea Hag** | Fey | *Weakening Draught, Dawn Gleam (Hex)* | Lightning, Radiant | `122` | `50s` | Brine-Salt Talisman |
+| 8 | **Water Weird** | Elemental | *Intercept Stance, Void Pull* | Frost, Lightning | `137` | `52s` | Pure Abyssal Vial |
+| 9 | **Giant Octopus** | Beast | *Choking Powder (Ink), Twin-Fang Cascade* | Fire, Lightning | `152` | `54s` | Coiled Sucker Tendril |
+| 10 | **Killer Whale** | Beast | *Shield-Splitter, Skewer Thrust* | Lightning, Piercing | `167` | `56s` | Ivory Trench Tooth |
+| 11 | **Giant Shark** | Beast | *Artery Slice, Executioner's Arc* | Lightning, Slashing | `184` | `58s` | Pale Abyssal Jawbone |
+| 12 | **Gibbering Mouther** | Aberration | *Choking Powder, Nerve Strike* | Radiant, Fire | `200` | `60s` | Writhing Eye-Cluster |
+| 13 | **Chuul** | Aberration | *Neurotoxin Dart, Concussive Bash* | Lightning, Radiant | `215` | `62s` | Translucent Pincer |
+| 14 | **Water Elemental** | Elemental | *Earthshaker (Tidal), Iron Steadfast* | Frost, Lightning | `230` | `65s` | Living Tide-Core |
+| 15 | **Dragon Turtle** | Dragon | *Flame Wall (Steam), Titan Breaker* | Lightning, Piercing | `250` | `68s` | Steam-Scarred Scute |
 
 ---
 
@@ -317,9 +317,9 @@ Along Ethoria's wild roads and frontier biomes, players also encounter **natural
 ### Ethoria Natural Wildlife *(8 Beast Types)*
 | # | SRD 5.2 Beast | Map · Level Zones | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP *(By Zone)* | Silver *(By Zone)* | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Wolf** | `Z01–03` & `Z09–10` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `11` *(`Z01–03`)* / `435` *(`Z09–10`)* | `8s` *(`Z01–03`)* / `145s` *(`Z09–10`)* | Gray Wolf Pelt |
-| 2 | **Giant Boar** | `Z01–03` & `Z09–10` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `25` *(`Z01–03`)* / `625` *(`Z09–10`)* | `11s` *(`Z01–03`)* / `220s` *(`Z09–10`)* | Curved Ivory Tusk |
-| 3 | **Giant Spider** | `Z01–03` & `Z09–10` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `32` *(`Z01–03`)* / `740` *(`Z09–10`)* | `13s` *(`Z01–03`)* / `265s` *(`Z09–10`)* | Intact Venom Gland |
+| 1 | **Wolf** | `Z01–03` & `Z09–10` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `11` *(`Z01–03`)* / `435` *(`Z09–10`)* | `25s` *(`Z01–03`)* / `145s` *(`Z09–10`)* | Gray Wolf Pelt |
+| 2 | **Giant Boar** | `Z01–03` & `Z09–10` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `25` *(`Z01–03`)* / `625` *(`Z09–10`)* | `31s` *(`Z01–03`)* / `220s` *(`Z09–10`)* | Curved Ivory Tusk |
+| 3 | **Giant Spider** | `Z01–03` & `Z09–10` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `32` *(`Z01–03`)* / `740` *(`Z09–10`)* | `35s` *(`Z01–03`)* / `265s` *(`Z09–10`)* | Intact Venom Gland |
 | 4 | **Brown Bear** | `Z06–08` & `Z14–15` | *Heavy Cleave, Hold the Line* | Fire, Piercing | `335` *(`Z06–08`)* / `1,250` *(`Z14–15`)* | `94s` *(`Z06–08`)* / `690s` *(`Z14–15`)* | Thick Bear Hide |
 | 5 | **Giant Scorpion** | `Z11–13` | *Venom-Tipped Blade, Artery Slice* | Frost, Bludgeoning | `815` | `350s` | Amber Chitin Stinger |
 | 6 | **Polar Bear** | `Z14–15` & `Z16–18` | *Crushing Blow, Iron Steadfast* | Fire, Piercing | `1,480` *(`Z14–15`)* / `1,940` *(`Z16–18`)* | `830s` *(`Z14–15`)* / `1,440s` *(`Z16–18`)* | Snow-White Pelt |

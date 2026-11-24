@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Economy &amp; Attrition Simulator</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sim-bg">
+    <img src="/assets/ui/menu_background.webp" alt="" />
+  </div>
+  <div class="sim-vignette"></div>
+
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill" href="/admin/party/">Party Menu</a>
+        <a class="nav-pill" href="/admin/disciplines/">Disciplines</a>
+        <a class="nav-pill" href="/admin/battles/">Battle Encounters</a>
+        <a class="nav-pill" href="/admin/combat-test/">Combat Tester</a>
+        <a class="nav-pill active" href="/admin/simulator/">Economy Simulator</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+    <div class="studio-stats" id="simRunBadge">Ready to simulate</div>
+  </header>
+
+  <main class="sim-scroll">
+    <!-- Hero Telemetry Masthead -->
+    <section class="hero-masthead">
+      <img class="masthead-art" src="/assets/maps/battle_scenes/biome_01_crownland_meadows.webp" alt="" />
+      <div class="masthead-shade"></div>
+      <div class="masthead-inner">
+        <div class="masthead-left">
+          <div class="kicker-row">
+            <img src="/assets/icons/ui/ui_25_world_atlas_glyph.webp" alt="" />
+            <span>LIVE ENGINE &amp; PLAYTEST TELEMETRY · 20 ZONES (LV 1–99)</span>
+          </div>
+          <h1 class="font-display">Ethoria Economy &amp; Attrition Simulator</h1>
+          <p class="masthead-sub">
+            Compares live <code>battleLogic.ts</code> drops &amp; regional Trade Goods against real potion drain, shop bills, Hub Quests, and Outpost Hunts.
+          </p>
+        </div>
+
+        <div class="masthead-controls">
+          <div class="control-pill">
+            <label for="rngHunts">Outpost Hunts / Zone: <strong id="lblHuntsVal">1.0</strong></label>
+            <input id="rngHunts" type="range" min="0" max="3" step="0.5" value="1" />
+          </div>
+          <div class="control-row">
+            <select id="selMapFilter" class="sim-select" title="Filter by Continent">
+              <option value="all">All 20 Zones (Maps 1–4)</option>
+              <option value="1">Map 1 · Crownlands &amp; Saltmarsh (Z01–05)</option>
+              <option value="2">Map 2 · Thornwall &amp; Weald (Z06–10)</option>
+              <option value="3">Map 3 · Sun-Scorched &amp; Ironcrest (Z11–15)</option>
+              <option value="4">Map 4 · Frostbound &amp; Dreadwaste (Z16–20)</option>
+            </select>
+            <label class="toggle-chip">
+              <input type="checkbox" id="chkDeficitOnly" />
+              <span>Deficit Zones Only</span>
+            </label>
+            <button type="button" id="btnRerun" class="btn-gold">
+              <img src="/assets/icons/ui/ui_06_quest_scroll_glyph.webp" alt="" />
+              <span>Re-Run Simulator</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Campaign KPI & Playtest Check Strip -->
+    <section class="kpi-strip" id="kpiStrip"></section>
+
+    <!-- Visual Charts Row -->
+    <section class="charts-grid">
+      <article class="glass-card chart-card">
+        <div class="card-head">
+          <div class="card-title-wrap">
+            <img src="/assets/icons/ui/ui_20_trade_goods_glyph.webp" alt="" />
+            <div>
+              <h2>Cumulative Wallet Coverage (Z01 → Z20)</h2>
+              <p>100% dashed gold line = fully funded on schedule after gear, spells &amp; field potions</p>
+            </div>
+          </div>
+          <div class="chart-legend">
+            <span class="leg-dot leg-gold">1.0+ Hunts/Z</span>
+            <span class="leg-dot leg-blue">Zero Hunts</span>
+            <span class="leg-dot leg-red">Deficit (&lt;100%)</span>
+          </div>
+        </div>
+        <div id="chartWallet" class="svg-chart-host"></div>
+      </article>
+
+      <article class="glass-card chart-card">
+        <div class="card-head">
+          <div class="card-title-wrap">
+            <img src="/assets/icons/ui/ui_18_potion_flask_glyph.webp" alt="" />
+            <div>
+              <h2>Per-Fight Loot vs Real Potion Attrition</h2>
+              <p>Red deficit highlights zones where ordinary battles lose Silver just healing up</p>
+            </div>
+          </div>
+          <div class="chart-legend">
+            <span class="leg-dot leg-green">Fight Loot (s + TG)</span>
+            <span class="leg-dot leg-rose">Potion Cost / Fight</span>
+          </div>
+        </div>
+        <div id="chartFightNet" class="svg-chart-host"></div>
+      </article>
+    </section>
+
+    <!-- Visual 20-Zone Illustrated Grid -->
+    <section class="section-block">
+      <div class="section-hdr">
+        <div>
+          <h2 class="font-display">Zone-by-Zone Illustrated Breakdown</h2>
+          <p>Click any Zone card to inspect its Outpost Hunt, exported Quest Cards, and local Consumable / Trade Good pricing.</p>
+        </div>
+        <div class="view-tabs">
+          <button type="button" class="vtab active" data-view="cards">Visual Zone Cards</button>
+          <button type="button" class="vtab" data-view="table">20-Zone Ledger Table</button>
+        </div>
+      </div>
+
+      <div id="zonesCardsGrid" class="zones-grid"></div>
+      <div id="zonesTableWrap" class="table-wrap hidden"></div>
+    </section>
+  </main>
+
+  <!-- Slide-Over Zone Deep-Dive Drawer -->
+  <aside id="zoneDrawer" class="zone-drawer hidden" aria-label="Zone Details">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-panel">
+      <button type="button" class="drawer-close" id="btnCloseDrawer" title="Close">&times;</button>
+      <div id="drawerBody" class="drawer-body"></div>
+    </div>
+  </aside>
+
+  <script src="../nav.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

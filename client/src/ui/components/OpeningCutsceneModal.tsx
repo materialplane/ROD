@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
-import { getHeroById, HEROES, type HeroDefinition } from "../heroes";
+import { getHeroById, getHeroOpeningCutscene, HEROES, type HeroDefinition } from "../heroes";
 import type { HeroId } from "../types";
 
 interface OpeningCutsceneModalProps {
@@ -17,130 +17,23 @@ interface DialogueLine {
   text: string;
 }
 
+function formatLine(template: string | undefined, vars: Record<string, string>): string {
+  if (!template) return "";
+  return template.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
+}
+
 function addressHero(speakerId: HeroId, target: HeroDefinition): string {
-  if (speakerId === "valen" && target.id === "ellowyn") return "Mother";
-  if (speakerId === "rowan" && target.id === "orin") return "Father";
-  if (speakerId === "mera" && target.id === "ellowyn") return "Your Grace";
-  return target.name;
+  const custom = getHeroOpeningCutscene()?.addressForms?.[speakerId]?.[target.id];
+  return custom ?? target.name;
 }
 
-function buildOpeningCall(leader: HeroDefinition, defA: HeroDefinition, defB: HeroDefinition): string {
-  const addrA = addressHero(leader.id, defA);
-  const addrB = addressHero(leader.id, defB);
-  switch (leader.id) {
-    case "valen":
-      return `Our horses are waiting at the outer gate. I hate leaving Highcrown short-handed, ${addrA}, but someone has to track Garrick down—and someone has to keep this city standing.`;
-    case "ellowyn":
-      return `Everything is ready at the gate. Leaving Highcrown behind is no small thing, ${addrA}—even knowing you and ${addrB} will hold it.`;
-    case "orin":
-      return `We ride out at first light. I would rather have all six swords on the road, ${addrA}, yet Highcrown cannot stand empty while Garrick runs loose.`;
-    case "rowan":
-      return `Gear is strapped and the road east is open. Feels strange walking out without you, ${addrA}—keep watch over these walls for us.`;
-    case "mera":
-      return `The outer road is open, and even the stones here breathe easier with Garrick gone. Tend the city well, ${addrA}—we will break his Portals before they choke the land.`;
-    case "harlan":
-      return `My satchels are full and the road waits for no one. Look after the people left inside these walls, ${addrA}—we'll need a home worth coming back to.`;
-  }
-}
-
-function buildKeepFirstPledge(defA: HeroDefinition, defB: HeroDefinition): string {
-  const partner = addressHero(defA.id, defB);
-  switch (defA.id) {
-    case "valen":
-      return "Don't worry about me. I know every stone and hidden passage in this castle—I'll rally whatever loyal guards are left and keep the gates shut tight.";
-    case "ellowyn":
-      return "Highcrown won't fall while I'm here. I'll keep the inner wards up—and start digging through Garrick's sealed archives for whatever he hid from us.";
-    case "orin":
-      return `Save your breath for the road. I've spent thirty years holding these walls—${partner} and I will whip the watch back into shape and keep the gates barred.`;
-    case "rowan":
-      return "You just watch the wilds—I'll take the high towers. Nothing walks down that northern road toward Highcrown without an arrow greeting it first.";
-    case "mera":
-      return "Leave the courtyard to me. With Highcrown's overgrown palace gardens waking back to life, I'll weave living thorn-wards around the walls and keep watch until you return.";
-    case "harlan":
-      return "Somebody has to mend the folks who can't swing a sword. I'll keep the infirmary open and make sure sickness doesn't finish what Garrick started.";
-  }
-}
-
-const SPLIT_PAIR_REACTIONS: Partial<Record<HeroId, Partial<Record<HeroId, string>>>> = {
-  valen: {
-    ellowyn:
-      "Stay behind these walls, Mother. After what happened in the Coliseum... I'm not losing anyone else I care about.",
-  },
-  ellowyn: {
-    valen:
-      "Don't carry the whole city on your shoulders alone, Valen. Trust the loyal captains inside these walls until we return.",
-    mera:
-      "Guard your own strength inside the Keep, Mera. You stood faithfully beside me through all those silent years under Garrick—do not spend yourself recklessly now.",
-  },
-  orin: {
-    rowan:
-      "Don't get reckless up on those walls, Rowan. Keep your eyes open until your old man marches back.",
-  },
-  rowan: {
-    orin:
-      "Watch those walls while we're gone, Father. Don't work yourself half to death drilling recruits—we'll handle the road.",
-  },
-  mera: {
-    ellowyn:
-      "Hold fast behind thick stone walls, Your Grace. You broke my chains when I was just a child—now let my thorns and stormwinds clear the wild road ahead for you.",
-  },
-};
-
-const COMPANION_FALLBACK: Record<HeroId, string> = {
-  valen:
-    "And we won't take all season out there. Once we figure out how to shut those Portals down, we're coming straight back.",
-  ellowyn:
-    "If Garrick's scouts try testing the gates again, send word right away. We won't leave you cut off.",
-  orin:
-    "At least we won't be glancing over our shoulders every mile. Knowing you two have the Keep gives us room to breathe.",
-  rowan:
-    "Fair enough. Keep the fires lit on the watchtowers, and we'll thin out whatever's prowling the Crownlands.",
-  mera:
-    "Keep the palace courtyard green and standing until we return. Watch Highcrown's stones—we'll answer those Portals with earth, thorn, and storm.",
-  harlan:
-    "Try not to work yourselves to death while we're gone, either. Keep some broth warm for when we limp back in.",
-};
-
-function buildKeepSecondPledge(defB: HeroDefinition, defA: HeroDefinition): string {
-  const partner = addressHero(defB.id, defA);
-  switch (defB.id) {
-    case "valen":
-      return `Between ${partner} and me, Garrick's banners won't touch this courtyard. Go shut those Portals—and when you march on his final stronghold, we'll meet you there.`;
-    case "ellowyn":
-      return `While ${partner} keeps watch over the city, I'll piece together whatever Garrick left buried in the palace vaults. When you finally corner him, all six of us will finish it together.`;
-    case "orin":
-      return `You heard ${partner}—Highcrown isn't falling. Clear the roads, break those Portals, and when it's time to storm Garrick's keep, we'll ride out behind you.`;
-    case "rowan":
-      return `With ${partner} watching the city and my bow on the battlements, you've got nothing to worry about. Just leave a few fights for us when you hit the final gate.`;
-    case "mera":
-      return `Between ${partner}'s steel on the battlements and my storm-wards over the gardens, nothing hostile crosses these gates. Send word when you march on Garrick's keep, and we will strike beside you.`;
-    case "harlan":
-      return `I'll keep ${partner} standing and the town patched up until you're back. Just stay alive out there—all six of us are ending this together.`;
-  }
-}
-
-function buildClosingCall(leader: HeroDefinition): string {
-  switch (leader.id) {
-    case "valen":
-      return "Deal. Look after Highcrown, both of you—let's move out.";
-    case "ellowyn":
-      return "Then it's time. Keep Highcrown safe—we ride out now.";
-    case "orin":
-      return "That settles it. Hold the gates until we send word—let's march.";
-    case "rowan":
-      return "All right, let's hit the road before we lose the daylight. See you soon.";
-    case "mera":
-      return "Hold fast inside these walls, both of you. Nature answers us again—let's move out.";
-    case "harlan":
-      return "Take care of yourselves, then. Time we stepped outside these walls.";
-  }
-}
-
-function pickCompanionSpeaker(partyRest: HeroDefinition[], defA: HeroDefinition): HeroDefinition {
-  for (const hero of partyRest) {
-    const reactions = SPLIT_PAIR_REACTIONS[hero.id];
-    if (reactions && reactions[defA.id]) {
-      return hero;
+function pickCompanionSpeaker(partyRest: HeroDefinition[], defA?: HeroDefinition): HeroDefinition | undefined {
+  const splitReactions = getHeroOpeningCutscene()?.splitPairReactions ?? {};
+  if (defA) {
+    for (const hero of partyRest) {
+      if (splitReactions[hero.id]?.[defA.id]) {
+        return hero;
+      }
     }
   }
   return partyRest[0];
@@ -151,29 +44,38 @@ function buildOpeningScript(partyOrder: HeroId[]): {
   keepDefenders: HeroDefinition[];
   lines: DialogueLine[];
 } {
+  const dlg = getHeroOpeningCutscene();
   const partyHeroes = partyOrder.map((id) => getHeroById(id));
   const partySet = new Set(partyHeroes.map((h) => h.id));
   const keepDefenders = HEROES.filter((h) => !partySet.has(h.id));
 
+  if (!dlg || partyHeroes.length === 0 || keepDefenders.length < 2) {
+    return { partyHeroes, keepDefenders, lines: [] };
+  }
+
   const leader = partyHeroes[0];
   const [defA, defB] = keepDefenders;
-  const companion = pickCompanionSpeaker(partyHeroes.slice(1), defA);
+  const companion = pickCompanionSpeaker(partyHeroes.slice(1), defA) ?? leader;
 
-  // Prompt [3] always responds directly to defA (the speaker of Prompt [2])
-  const companionLine = SPLIT_PAIR_REACTIONS[companion.id]?.[defA.id] ?? COMPANION_FALLBACK[companion.id];
+  const addrA = addressHero(leader.id, defA);
+  const addrB = addressHero(leader.id, defB);
+  const companionLine =
+    dlg.splitPairReactions?.[companion.id]?.[defA.id] ??
+    dlg.companionFallback?.[companion.id] ??
+    "";
 
   const lines: DialogueLine[] = [
     {
       speaker: leader,
       group: "party",
       roleTag: "Riding Out",
-      text: buildOpeningCall(leader, defA, defB),
+      text: formatLine(dlg.openingCall?.[leader.id], { addrA, addrB }),
     },
     {
       speaker: defA,
       group: "keep",
       roleTag: "Holding Highcrown Keep",
-      text: buildKeepFirstPledge(defA, defB),
+      text: formatLine(dlg.keepFirstPledge?.[defA.id], { partner: addressHero(defA.id, defB) }),
     },
     {
       speaker: companion,
@@ -185,13 +87,13 @@ function buildOpeningScript(partyOrder: HeroId[]): {
       speaker: defB,
       group: "keep",
       roleTag: "Holding Highcrown Keep",
-      text: buildKeepSecondPledge(defB, defA),
+      text: formatLine(dlg.keepSecondPledge?.[defB.id], { partner: addressHero(defB.id, defA) }),
     },
     {
       speaker: leader,
       group: "party",
       roleTag: "Riding Out",
-      text: buildClosingCall(leader),
+      text: dlg.closingCall?.[leader.id] ?? "",
     },
   ];
 
@@ -203,10 +105,11 @@ export const OpeningCutsceneModal: React.FC<OpeningCutsceneModalProps> = ({ open
   const [visibleChars, setVisibleChars] = useState(0);
   const emberCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const { partyHeroes, keepDefenders, lines } = useMemo(() => buildOpeningScript(partyOrder), [partyOrder]);
+  const { partyHeroes, keepDefenders, lines } = useMemo(() => buildOpeningScript(partyOrder), [partyOrder, open]);
   const current = lines[stepIdx] ?? lines[0];
-  const isLast = stepIdx >= lines.length - 1;
-  const isTyping = visibleChars < current.text.length;
+  const isLast = stepIdx >= Math.max(0, lines.length - 1);
+  const currentTextLen = current?.text.length ?? 0;
+  const isTyping = Boolean(current) && visibleChars < currentTextLen;
 
   useEffect(() => {
     if (open) {
@@ -217,7 +120,7 @@ export const OpeningCutsceneModal: React.FC<OpeningCutsceneModalProps> = ({ open
 
   // Smooth single-player RPG typewriter reveal
   useEffect(() => {
-    if (!open) return;
+    if (!open || !current) return;
     setVisibleChars(0);
     const fullLen = current.text.length;
     const timer = window.setInterval(() => {
@@ -230,7 +133,7 @@ export const OpeningCutsceneModal: React.FC<OpeningCutsceneModalProps> = ({ open
       });
     }, 22);
     return () => window.clearInterval(timer);
-  }, [open, stepIdx, current.text]);
+  }, [open, stepIdx, current?.text]);
 
   // Subtle torchlight dust embers across the Great Hall backdrop
   useEffect(() => {
@@ -295,9 +198,10 @@ export const OpeningCutsceneModal: React.FC<OpeningCutsceneModalProps> = ({ open
   }, [open]);
 
   const handleAdvance = useCallback(() => {
+    if (!current) return;
     if (isTyping) {
       audioEngine.playUiClick(0.24);
-      setVisibleChars(current.text.length);
+      setVisibleChars(currentTextLen);
       return;
     }
     if (!isLast) {
@@ -306,7 +210,7 @@ export const OpeningCutsceneModal: React.FC<OpeningCutsceneModalProps> = ({ open
     } else {
       onComplete();
     }
-  }, [isTyping, current.text.length, isLast, onComplete]);
+  }, [current, isTyping, currentTextLen, isLast, onComplete]);
 
   useEffect(() => {
     if (!open) return;
@@ -325,7 +229,7 @@ export const OpeningCutsceneModal: React.FC<OpeningCutsceneModalProps> = ({ open
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open, handleAdvance, onComplete]);
 
-  if (!open) return null;
+  if (!open || !current) return null;
 
   const displayedText = current.text.slice(0, visibleChars);
 

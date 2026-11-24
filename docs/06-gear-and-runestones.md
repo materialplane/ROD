@@ -23,7 +23,7 @@ Every class uses **3 distinct D&D weapon types** (`1H` or `2H`, shared cleanly a
 | **8** | **Shortbow** | 2H | Piercing | Ranger (`Rowan`) | **Quick Volley** — Light volley with `+5%` Crit & steady accuracy (`No Cooldown`) | **Wing Clip** — Pinning arrow cutting enemy Attack & Accuracy (`1-Turn Cooldown`) |
 | **9** | **Dagger** | 1H | Piercing | Sorceress (`Ellowyn`), Ranger (`Rowan`), Sage (`Harlan`) | **Quick Jab** — Precise stab (`+6%` Crit) with high accuracy (`No Cooldown`) | **Vital Gouge** — Deep stab (`+15%` Crit Chance) with lingering Poison (`1-Turn Cooldown`) |
 | **10** | **Light Crossbow** | 2H | Piercing | Sorceress (`Ellowyn`) | **Bolt Snap** — Steady shot ignoring `15%` of Physical Defense (`No Cooldown`) | **Siege Crank** — Heavy cranked bolt + breaks 1 Guard point (`1-Turn Cooldown`) |
-| **11** | **Quarterstaff** | 2H | Bludgeoning *(+Caster)* | Sorceress (`Ellowyn`), Druid (`Mera`), Sage (`Harlan`) | **Staff Sweep** — Clean two-handed strike restoring 6 MP on hit (`No Cooldown`) | **Crushing Vault** — Heavy overhead slam, chips 1 Guard point (`1-Turn Cooldown`) |
+| **11** | **Quarterstaff** | 2H | Bludgeoning *(+Caster)* | Sorceress (`Ellowyn`), Druid (`Mera`), Sage (`Harlan`) | **Staff Sweep** — Clean two-handed strike restoring 6 MP on hit (`No Cooldown`) | **Crushing Vault** — Heavy overhead slam, chips 1 Guard point & restores 4 MP on hit (`1-Turn Cooldown`) |
 | **12** | **Scimitar** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Crescent Cut** — Smooth curved slash (`+5%` Crit, `No Cooldown`) | **Whirling Slash** — Spinning slash (`+15%` Crit Chance) & bonus power (`1-Turn Cooldown`) |
 | **13** | **Sickle** | 1H | Slashing *(+Nature)* | Druid (`Mera`) | **Reaping Hook** — Hooked slice (`+5%` Crit) with Poison chance (`No Cooldown`) | **Thorn Slash** — Barbed cut that lowers target Attack 2 turns (`1-Turn Cooldown`) |
 
@@ -35,17 +35,17 @@ Base values scale smoothly across all `20` Level Zones (`6` Gear Tiers per Map) 
 
 * **1H Weapons (`Longsword, Rapier, Battleaxe, Mace, Dagger, Scimitar, Sickle`):** Standard `1.0×` Attack Power and `1.0×` Silver Cost (`leaves Left Hand free for any Global Shield—or a second Longsword/Rapier on Valen for an automatic 50% off-hand follow-up strike`).
 * **2H Weapons (`Greatsword, Spear, Longbow, Shortbow, Light Crossbow, Quarterstaff`):** `+25%` higher Attack Power, `+20%` Silver Cost *(uses both hands—locks Left Hand slot)*.
-* **Caster Weapon Scaling (`Quarterstaff, Scimitar, Sickle`, plus `Dagger / Mace / Light Crossbow` on Casters):** Casters (**Ellowyn, Mera, Harlan**) get matching **Magic / Heal Power** from **`Quarterstaff, Scimitar, Sickle`** (`2H Quarterstaff` gives `+20%` more Magic/Heal Power than `1H`) and additional Spell Power from their Class Accessories (`Orbs`, `Crystals`, `Tomes`).
+* **Caster Weapon Scaling (`Quarterstaff, Scimitar, Sickle`, plus `Dagger / Mace / Light Crossbow` on Casters):** Casters (**Ellowyn, Mera, Harlan**) get **Magic / Heal Power** from **2H Quarterstaff** (`100%`), **Scimitar / Sickle** (`~83%` + `1H` Shield), **Light Crossbow** (`~85%` + Armor-Pierce), and **Dagger / Mace** (`~75%` + `1H` Shield), plus additional Spell Power from their Class Accessories (`Orbs`, `Crystals`, `Tomes`). Guarding also restores **`+10%` Max MP** for spellcasters.
 
-* **New Campaign Starting State:** Heroes begin unequipped with an empty pack (`no free weapons, armor, spells, or potions`) and **`250s` Silver**—enough to arm the party and make strategic early choices at **Highcrown**'s shops, but far short of outfitting every hero in all `5` slots (`~466s–500s` for base Tier 1 gear alone).
+* **New Campaign Starting State:** Heroes begin unequipped with an empty pack (`no free weapons, armor, spells, or potions`) and **`1,000s` Silver**—enough to arm all `4` party members with starter weapons (`~640s–700s`) and pick up a safety pack of potions plus early spells, armor, or Level 1 disciplines, while still staying well short of outfitting the full party in all Tier 1 slots (`~2,800s+` for full gear, spells, and Level 1 disciplines).
 
 | Gear Tier | Map · Level Zone | Target Levels | Base 1H Attack | Base 2H Attack | Caster Magic/Heal Power | Typical 1H Price (Silver) | Where Stocked |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | Map 1 · **Zone 1** | `1–5` | `6` | `8` | `+5` (`2H +6`) | `40s` | Highcrown / Oakhaven |
-| **2** | Map 1 · **Zone 2** *(entry)* | `6–8` | `10` | `13` | `+9` (`2H +11`) | `120s` | Meadowbrook Hamlet |
-| **3** | Map 1 · **Zone 2** *(frontier)* | `8–10` | `15` | `19` | `+14` (`2H +17`) | `260s` | Millbrook Crossing |
-| **4** | Map 1 · **Zone 3** | `11–15` | `21` | `26` | `+20` (`2H +24`) | `450s` | Crownlands Hill-Fort / Saltwind Harbor |
-| **5** | Map 1 · **Zone 4** | `16–20` | `28` | `35` | `+27` (`2H +32`) | `720s` | Brinecliff Watch-Fort / Reedfen Village |
+| **1** | Map 1 · **Zone 1** | `1–5` | `6` | `8` | `+5` (`2H +6`) | `160s` | Highcrown / Oakhaven |
+| **2** | Map 1 · **Zone 2** *(entry)* | `6–8` | `10` | `13` | `+9` (`2H +11`) | `265s` | Meadowbrook Hamlet |
+| **3** | Map 1 · **Zone 2** *(frontier)* | `8–10` | `15` | `19` | `+14` (`2H +17`) | `395s` | Millbrook Crossing |
+| **4** | Map 1 · **Zone 3** | `11–15` | `21` | `26` | `+20` (`2H +24`) | `565s` | Crownlands Hill-Fort / Saltwind Harbor |
+| **5** | Map 1 · **Zone 4** | `16–20` | `28` | `35` | `+27` (`2H +32`) | `780s` | Brinecliff Watch-Fort / Reedfen Village |
 | **6** | Map 1 · **Zone 5** | `21–25` | `36` | `45` | `+35` (`2H +42`) | `1,050s` | Mirewatch Post / Tidewater Keep |
 | **7** | Map 2 · **Zone 6** | `26–30` | `45` | `56` | `+44` (`2H +53`) | `1,500s` | Redmarch Bastion / Goldmoor Village |
 | **8** | Map 2 · **Zone 7** | `31–35` | `55` | `69` | `+54` (`2H +65`) | `2,100s` | Slatepeak Mining Fort / Thornwall Border Castle |
@@ -231,15 +231,15 @@ Each hero wears **Helmet** + **Body** (choosing from `6` Armor Types per class, 
 
 ### C. Combined Defense & Price Curve (`Gear Tiers 1–24` Across `Zones 1–20`)
 * **Armor Split Across Both Slots:** Values below show the **combined** Gear Tier total (`Body + Helmet`)—in town shops, **Body Armor** provides ~`65%` of the stats & price and **Helmets** provide ~`35%`, so equipping a matching pair hits the exact balanced baseline.
-* **Shield / Class Accessory Silver Cost:** Roughly `0.65×` of a 1H Weapon at the same Gear Tier (`25s` at Tier 1 $\to$ `55,000s` at Tier 24).
+* **Shield / Class Accessory Silver Cost:** Roughly `0.60×`–`0.65×` of a 1H Weapon at the same Gear Tier (`95s` at Tier 1 $\to$ `55,000s` at Tier 24).
 
 | Gear Tier | Map · Level Zone | Heavy P.Def / M.Def | Medium P.Def / M.Def | Light P.Def / M.Def *(+MP)* | Shield P.Def | Body + Helmet Price | Shield / Accessory Price |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **1** | Map 1 · **Zone 1** | `6 / 3` | `5 / 5` | `3 / 6` *(+5 MP)* | `+4` | `35s` | `25s` |
-| **2** | Map 1 · **Zone 2** *(entry)* | `10 / 5` | `8 / 8` | `5 / 10` *(+8 MP)* | `+6` | `110s` | `80s` |
-| **3** | Map 1 · **Zone 2** *(frontier)* | `15 / 7` | `12 / 12` | `7 / 15` *(+10 MP)* | `+9` | `230s` | `170s` |
-| **4** | Map 1 · **Zone 3** | `21 / 10` | `16 / 16` | `9 / 21` *(+13 MP)* | `+13` | `400s` | `290s` |
-| **5** | Map 1 · **Zone 4** | `28 / 14` | `21 / 21` | `13 / 28` *(+16 MP)* | `+17` | `650s` | `470s` |
+| **1** | Map 1 · **Zone 1** | `6 / 3` | `5 / 5` | `3 / 6` *(+5 MP)* | `+4` | `130s` | `95s` |
+| **2** | Map 1 · **Zone 2** *(entry)* | `10 / 5` | `8 / 8` | `5 / 10` *(+8 MP)* | `+6` | `215s` | `155s` |
+| **3** | Map 1 · **Zone 2** *(frontier)* | `15 / 7` | `12 / 12` | `7 / 15` *(+10 MP)* | `+9` | `330s` | `240s` |
+| **4** | Map 1 · **Zone 3** | `21 / 10` | `16 / 16` | `9 / 21` *(+13 MP)* | `+13` | `485s` | `355s` |
+| **5** | Map 1 · **Zone 4** | `28 / 14` | `21 / 21` | `13 / 28` *(+16 MP)* | `+17` | `690s` | `495s` |
 | **6** | Map 1 · **Zone 5** | `36 / 18` | `27 / 27` | `16 / 36` *(+19 MP)* | `+22` | `950s` | `680s` |
 | **7** | Map 2 · **Zone 6** | `45 / 22` | `34 / 34` | `20 / 45` *(+22 MP)* | `+27` | `1,350s` | `975s` |
 | **8** | Map 2 · **Zone 7** | `55 / 27` | `41 / 41` | `25 / 55` *(+25 MP)* | `+33` | `1,900s` | `1,360s` |

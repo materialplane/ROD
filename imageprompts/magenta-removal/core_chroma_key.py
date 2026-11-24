@@ -26,7 +26,9 @@ def key_magenta_sprite(
     t_high=140.0,
     crop_bbox=True,
     border_pad=0,
-    include_interior_voids=False
+    include_interior_voids=False,
+    smart_interior_voids=False,
+    despill_edge_only=False,
 ):
     if isinstance(img_or_arr, Image.Image):
         arr = np.array(img_or_arr.convert("RGB"), dtype=np.float32)
@@ -40,6 +42,7 @@ def key_magenta_sprite(
 
     # 1. Identify magenta pixels (RGB threshold and hue isolation)
     is_mag = (r > 130) & (b > 130) & (g < 140) & ((r - g) > 25) & ((b - g) > 25)
+    magenta_bleed = np.maximum(0.0, np.minimum(r - g, b - g))
 
     if include_interior_voids:
         # Include both outer perimeter and enclosed interior apertures (e.g. sword basket hilts, rings)
@@ -68,14 +71,29 @@ def key_magenta_sprite(
                               ((np.arange(ch)[:, None] < 50) | (np.arange(ch)[:, None] > ch - 50))
         bg_mask |= corner_mag.astype(np.uint8)
 
+        if smart_interior_voids:
+            # Key trapped #FF00FF studio holes inside limbs/weapons while preserving painted purples/crimsons
+            interior_mag = is_mag & (bg_mask == 0)
+            n_lbl, lbls, stats, _ = cv2.connectedComponentsWithStats(interior_mag.astype(np.uint8))
+            for k in range(1, n_lbl):
+                area = int(stats[k, cv2.CC_STAT_AREA])
+                comp_mask = (lbls == k)
+                comp_bleed = magenta_bleed[comp_mask]
+                comp_g = g[comp_mask]
+                if area >= 12:
+                    p90_bl = float(np.percentile(comp_bleed, 90))
+                    p10_g = float(np.percentile(comp_g, 10))
+                    is_void = (p90_bl >= 120.0 and p10_g <= 50.0) or (p90_bl >= 150.0 and p10_g <= 75.0)
+                else:
+                    is_void = (float(comp_bleed.max()) >= 140.0 and float(comp_g.min()) <= 40.0)
+                if is_void:
+                    bg_mask[comp_mask] = 1
+
     # 2. Outer rim transition zone: dilate bg_mask slightly into sprite edge
     kernel_rim = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
     rim_transition = cv2.dilate(bg_mask, kernel_rim, iterations=2) & (~bg_mask)
 
-    # 3. Mathematical magenta bleed: min(r - g, b - g)
-    magenta_bleed = np.maximum(0.0, np.minimum(r - g, b - g))
-
-    # 4. Anti-aliasing alpha ramp
+    # 4. Anti-aliasing alpha ramp (using precomputed mathematical magenta bleed)
     alpha = np.full((ch, cw), 255.0, dtype=np.float32)
     alpha[bg_mask == 1] = 0.0
 
@@ -96,12 +114,15 @@ def key_magenta_sprite(
     final_alpha = np.where(bg_mask == 1, 0.0, np.where(trans_pixels, blurred_alpha, alpha))
     final_alpha = np.where(final_alpha < 8.0, 0.0, final_alpha).clip(0, 255).astype(np.uint8)
 
-    # 6. De-spill & color correction: subtract bleed excess across all visible pixels
+    # 6. De-spill & color correction: subtract bleed excess along boundary/extreme hotspots
     new_r = r.copy()
     new_g = g.copy()
     new_b = b.copy()
 
-    despill_mask = (final_alpha > 0) & (magenta_bleed > 5.0)
+    if despill_edge_only:
+        despill_mask = (final_alpha > 0) & (((rim_transition == 1) & (magenta_bleed > 5.0)) | (magenta_bleed > 125.0))
+    else:
+        despill_mask = (final_alpha > 0) & (magenta_bleed > 5.0)
     new_r[despill_mask] = np.clip(new_r[despill_mask] - magenta_bleed[despill_mask], 0, 255)
     new_b[despill_mask] = np.clip(new_b[despill_mask] - magenta_bleed[despill_mask], 0, 255)
 

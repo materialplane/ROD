@@ -15,13 +15,16 @@ import {
   buildHeroWeaponActions,
   computeDamageOnEnemy,
   computeEnemyStrikeDamage,
+  finalizeBattleVictoryDrops,
   finishHeroTurnCooldowns,
   flushCombatLog,
   getAdjacentEnemies,
   getHeroResolveState,
   HERO_MAGIC_THEMES,
+  isAllTargetText,
   packEncounterIntoGrid,
   pickEnemyCombatMove,
+  pickMultiEnemyTargets,
   pickVfxKey,
   previewRoundOrder,
   STATUS_UI_META,
@@ -53,6 +56,7 @@ export interface BattleOutcomeResult {
   heroXpEarned: Partial<Record<HeroId, number>>;
   silverEarned: number;
   droppedTradeGoods: Record<string, number>;
+  droppedConsumables: Record<string, number>;
   defeatedMonsterIds: Record<string, number>;
   sealedPortalId: string | null;
 }
@@ -551,13 +555,16 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     advanceToNextTurnInRound(b);
     if (b.phase === "victory" || b.phase === "defeat") {
       if (b.phase === "victory") {
+        finalizeBattleVictoryDrops(b, itemsCatalog);
+        const dropEntries = [
+          ...Object.entries(b.droppedTradeGoods),
+          ...Object.entries(b.droppedConsumables ?? {}),
+        ];
         appendBattleLog(
           b,
           `VICTORY — +${b.totalXpEarned} XP, +${b.totalSilverEarned}s${
-            Object.keys(b.droppedTradeGoods).length > 0
-              ? `, Drops: ${Object.entries(b.droppedTradeGoods)
-                  .map(([id, q]) => `${itemsById[id]?.name ?? id} x${q}`)
-                  .join(", ")}`
+            dropEntries.length > 0
+              ? `, Drops: ${dropEntries.map(([id, q]) => `${itemsById[id]?.name ?? id} x${q}`).join(", ")}`
               : ""
           }`
         );
@@ -705,7 +712,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                   b,
                   `${hero.name} Arrow Storm hits ${foe.name} for ${res.damage} Piercing${res.isCrit ? " CRIT" : ""} -> ${foe.curHp}/${foe.maxHp} HP`
                 );
-                await playVfxAtElement(enemyElRefs.current.get(foe.instanceId), "piercing_arrow", `${res.damage} STORM`, "text-[#ffe066]", false);
+                await playVfxAtElement(enemyElRefs.current.get(foe.instanceId), "arrow_volley", `${res.damage} STORM`, "text-[#ffe066]", false);
                 if (foe.curHp <= 0) {
                   applyLootAndDropsForDefeatedEnemy(b, foe, itemsCatalog);
                   appendBattleLog(b, `  -> ${foe.name} defeated!`);
@@ -833,7 +840,10 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       // Boss Telegraphed Heavy Strike check
       const rawActions = enemy.rawDef.actions ?? [];
       if (enemy.isBoss && !enemy.telegraphedMove && Math.random() < 0.34) {
-        enemy.telegraphedMove = rawActions.find((a) => (a.target ?? "").toLowerCase().includes("all"))?.name ?? "Abyssal Cataclysm";
+        enemy.telegraphedMove =
+          rawActions.find((a) => a.telegraphed)?.name ??
+          rawActions.find((a) => isAllTargetText(a.target))?.name ??
+          "Abyssal Cataclysm";
         b.bannerText = `Warning: ${enemy.name} gathers power for ${enemy.telegraphedMove}!`;
         appendBattleLog(b, b.bannerText);
         forceRefresh();
@@ -1167,7 +1177,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         const gHeal = Math.max(1, Math.round((hero.maxHp * gp.guardHealPct) / 100));
         hero.curHp = Math.min(hero.maxHp, hero.curHp + gHeal);
       }
-      const guardMp = (gp.wardOrGuardMpPct > 0 && hero.hasMp ? Math.round((hero.maxMp * gp.wardOrGuardMpPct) / 100) : 0) + gp.guardMpGain;
+      const baseGuardMp = hero.hasMp ? Math.max(2, Math.round(hero.maxMp * 0.1)) : 0;
+      const guardMp =
+        baseGuardMp +
+        (gp.wardOrGuardMpPct > 0 && hero.hasMp ? Math.round((hero.maxMp * gp.wardOrGuardMpPct) / 100) : 0) +
+        gp.guardMpGain;
       if (guardMp > 0 && hero.hasMp) hero.curMp = Math.min(hero.maxMp, hero.curMp + guardMp);
       if (gp.guardSlamEnemy && hero.hasShield) {
         const slamFoe = b.enemies.find((e) => e.curHp > 0 && e.guardCur > 0) ?? b.enemies.find((e) => e.curHp > 0);
@@ -1188,10 +1202,10 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           }
         }
       }
-      b.bannerText = `${hero.name} braces behind Guard (+25% next strike Momentum)!`;
+      b.bannerText = `${hero.name} braces behind Guard (+25% next strike Momentum${guardMp > 0 && hero.hasMp ? `, +${guardMp} MP` : ""})!`;
       appendBattleLog(b, b.bannerText);
       forceRefresh();
-      await playVfxAtElement(heroElRefs.current.get(hero.heroId), "guard", "GUARD", "text-[#b8d4ff]", false);
+      await playVfxAtElement(heroElRefs.current.get(hero.heroId), "guard", guardMp > 0 && hero.hasMp ? `GUARD +${guardMp} MP` : "GUARD", "text-[#b8d4ff]", false);
       hero.actedThisRound = true;
       finishHeroTurnCooldowns(hero, action);
       onBattleSnapshotRef.current?.(cloneBattleSnapshot(b));
@@ -1222,13 +1236,16 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     if (
       action.targetScope === "ally" ||
       action.targetScope === "dead_ally" ||
+      action.targetScope === "any_ally" ||
       action.targetScope === "all_allies" ||
       action.targetScope === "self"
     ) {
       const primaryTarget =
         action.targetScope === "dead_ally"
           ? (b.heroes.find((h) => h.heroId === targetId && h.curHp <= 0) ?? b.heroes.find((h) => h.curHp <= 0))
-          : (b.heroes.find((h) => h.heroId === targetId && h.curHp > 0) ?? hero);
+          : action.targetScope === "any_ally"
+            ? (b.heroes.find((h) => h.heroId === targetId) ?? b.heroes.find((h) => h.curHp <= 0) ?? hero)
+            : (b.heroes.find((h) => h.heroId === targetId && h.curHp > 0) ?? hero);
       const secondTarget =
         action.targetScope === "ally" && action.secondAlly && primaryTarget
           ? pickSecondAllyForDualTarget(b.heroes, primaryTarget.heroId)
@@ -1252,10 +1269,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         targets.map(async (ally) => {
           const hEl = heroElRefs.current.get(ally.heroId);
           if (action.revive && ally.curHp <= 0) {
-            const revivePct = 0.45 + (hero.passives.quickeningBalmBonusPct ?? 0) / 100;
+            const revivePct = Math.min(1, (action.reviveHpPct ?? 0.45) + (hero.passives.quickeningBalmBonusPct ?? 0) / 100);
             ally.curHp = Math.max(1, Math.round(ally.maxHp * revivePct));
             ally.statuses = [];
-            if (hero.passives.quickeningBalmWardPct > 0) grantWardShield(ally, hero.passives.quickeningBalmWardPct);
+            const wardPct = Math.max(hero.passives.quickeningBalmWardPct, action.reviveWardPct ?? 0);
+            if (wardPct > 0) grantWardShield(ally, wardPct);
             if (action.grantStatus) {
               ally.statuses = upsertStatusEffect(ally.statuses, action.grantStatus.kind, action.grantStatus.turns);
             }
@@ -1288,21 +1306,33 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
               }
             }
           }
-          if (action.empowerNextSpell) {
+          const empowerSelfCast = Boolean(action.empowerNextSpell && (ally.heroId === hero.heroId || !ally.hasMp));
+          if (empowerSelfCast) {
             hero.nextSpellEmpower = true;
+            appendBattleLog(b, `  -> ${hero.name}: Next spell empowered (+35% DMG, +1 Guard Break)`);
+            await playVfxAtElement(hEl, "mana", "EMPOWERED!", "text-[#82c4ff]", false);
+            playedFx = true;
           }
           if (action.grantMomentum) {
             ally.momentum = true;
           }
-          if (action.restoreMp && ally.hasMp) {
+          if ((action.restoreMp || action.flatRestoreMp) && ally.hasMp && !empowerSelfCast) {
             const mpMult = action.kind === "item" ? 1 + hero.passives.potionBonusPct / 100 : 1;
-            const mpGain = Math.max(8, Math.round(ally.maxMp * (action.restoreMp / 100) * mpMult));
+            const mpGain = action.flatRestoreMp
+              ? Math.max(1, Math.round(action.flatRestoreMp * mpMult))
+              : Math.max(8, Math.round(ally.maxMp * ((action.restoreMp ?? 0) / 100) * mpMult));
             ally.curMp = Math.min(ally.maxMp, ally.curMp + mpGain);
             appendBattleLog(b, `  -> ${ally.name} +${mpGain} MP (${ally.curMp}/${ally.maxMp} MP)`);
             await playVfxAtElement(hEl, "mana", `+${mpGain} MP`, "text-[#7fc4ff]", false);
             playedFx = true;
           }
-          if (action.healPower !== undefined) {
+          if (action.fullHealLiving && ally.curHp > 0) {
+            const healed = Math.max(0, ally.maxHp - ally.curHp);
+            ally.curHp = ally.maxHp;
+            appendBattleLog(b, `  -> full-heals ${ally.name} +${healed} HP (${ally.curHp}/${ally.maxHp})`);
+            await playVfxAtElement(hEl, action.vfxKey, healed > 0 ? `+${healed}` : "FULL HP", "text-[#79f2a5]", false);
+            playedFx = true;
+          } else if (action.flatHeal !== undefined || action.healPower !== undefined) {
             const burned = ally.statuses.some((s) => s.kind === "burn");
             const cursedHeal = ally.statuses.some((s) => s.kind === "curse") ? 0.8 : 1.0;
             const allyBelowHalf = ally.curHp / Math.max(1, ally.maxHp) < 0.5;
@@ -1310,9 +1340,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
             const emerMul = ally.curHp / Math.max(1, ally.maxHp) < 0.3 && hero.passives.emergencyHealHalfMp30Pct > 0 ? 1 + hero.passives.emergencyHealHalfMp30Pct / 100 : 1;
             const potMul = action.kind === "item" ? 1 + hero.passives.potionBonusPct / 100 : 1;
             const rawHeal =
-              action.kind === "item"
-                ? Math.max(15, Math.round(ally.maxHp * action.healPower * potMul))
-                : Math.max(18, Math.round((12 + hero.heal) * 1.45 * action.healPower * resolve.healMul * hpCritMul * triageMul * emerMul));
+              action.flatHeal !== undefined
+                ? Math.max(1, Math.round(action.flatHeal * potMul))
+                : action.kind === "item"
+                  ? Math.max(15, Math.round(ally.maxHp * (action.healPower ?? 0.45) * potMul))
+                  : Math.max(18, Math.round((12 + hero.heal) * 1.45 * (action.healPower ?? 1) * resolve.healMul * hpCritMul * triageMul * emerMul));
             const finalHeal = Math.max(1, Math.round(rawHeal * (burned ? 0.75 : 1.0) * cursedHeal));
             const preHp = ally.curHp;
             ally.curHp = Math.min(ally.maxHp, ally.curHp + finalHeal);
@@ -1377,12 +1409,15 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
 
     // Offensive Attack / Spell against Enemy / All Enemies / Neighbor Splash
     const livingEnemies = b.enemies.filter((e) => e.curHp > 0);
+    const primaryEnemy = livingEnemies.find((e) => e.instanceId === targetId) ?? livingEnemies[0];
     const enemyTargets =
       action.targetScope === "all_enemies"
         ? livingEnemies
-        : [livingEnemies.find((e) => e.instanceId === targetId) ?? livingEnemies[0]].filter(
-            (x): x is BattleEnemyUnit => Boolean(x)
-          );
+        : action.targetScope === "enemy" && (action.maxEnemyTargets ?? 1) > 1 && primaryEnemy
+          ? pickMultiEnemyTargets(primaryEnemy, livingEnemies, action.maxEnemyTargets ?? 1)
+          : primaryEnemy
+            ? [primaryEnemy]
+            : [];
 
     const splashRate = action.targetScope === "enemy" && action.splashPct ? action.splashPct : 0;
     const hitEntries: Array<{ enemy: BattleEnemyUnit; act: BattleActionSpec; isSplash: boolean }> = [];
@@ -1557,7 +1592,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
             if (res.isCrit && act.kind === "attack" && hero.passives.critBouncePct > 0) {
               const bDmg = Math.max(1, Math.round((totalHit * hero.passives.critBouncePct) / 100));
               randOther.curHp = Math.max(0, randOther.curHp - bDmg);
-              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "piercing_arrow", `${bDmg} RICOCHET`, "text-[#ffd294]", false);
+              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "arrow_single", `${bDmg} RICOCHET`, "text-[#ffd294]", false);
             }
             if (act.kind === "attack" && hero.passives.runestoneSplash35Burn) {
               const sDmg = Math.max(1, Math.round(totalHit * 0.35));
@@ -1569,7 +1604,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
               const aDmg = Math.max(1, Math.round(totalHit * 0.3));
               randOther.curHp = Math.max(0, randOther.curHp - aDmg);
               randOther.statuses = upsertStatusEffect(randOther.statuses, "shock", 2);
-              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "lightning_single", `${aDmg} ARC`, "text-[#ffe885]", false);
+              await playVfxAtElement(enemyElRefs.current.get(randOther.instanceId), "lightning", `${aDmg} ARC`, "text-[#ffe885]", false);
             }
             if (hero.passives.vaporShatterPoisonSplashPct > 0 && act.damageType.toLowerCase().includes("poison") && act.targetScope === "enemy") {
               const vDmg = Math.max(1, Math.round((totalHit * hero.passives.vaporShatterPoisonSplashPct) / 100));
@@ -1612,7 +1647,22 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           if (a.curHp > 0) a.curHp = Math.min(a.maxHp, a.curHp + pHeal);
         }
       }
-      if (hero.passives.multiSpellMpRefundPct > 0 && action.targetScope === "all_enemies" && action.mpCost > 0) {
+      if (action.cleansePartyDebuff) {
+        let cleansedCount = 0;
+        for (const a of b.heroes) {
+          if (a.curHp <= 0) continue;
+          const curseIdx = a.statuses.findIndex((s) => s.kind === "curse");
+          const debuffIdx = curseIdx >= 0 ? curseIdx : a.statuses.findIndex((s) => !STATUS_UI_META[s.kind].isBuff);
+          if (debuffIdx >= 0) {
+            a.statuses = a.statuses.filter((_, idx) => idx !== debuffIdx);
+            cleansedCount += 1;
+          }
+        }
+        if (cleansedCount > 0) {
+          appendBattleLog(b, `  -> ${action.name} cleansed 1 ailment from ${cleansedCount} companion(s)`);
+        }
+      }
+      if (hero.passives.multiSpellMpRefundPct > 0 && (action.targetScope === "all_enemies" || (action.maxEnemyTargets ?? 1) >= 2) && action.mpCost > 0) {
         hero.curMp = Math.min(hero.maxMp, hero.curMp + Math.max(1, Math.round((action.mpCost * hero.passives.multiSpellMpRefundPct) / 100)));
       }
       if (hero.passives.galeWindPartyDodgePct > 0 && /wind|gale|lightning|tempest/i.test(`${action.name} ${action.damageType}`)) {
@@ -1669,7 +1719,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         const volRes = computeDamageOnEnemy(rowanAlly, volSpec, volleyTarget, undefined, { allHeroes: b.heroes });
         volleyTarget.curHp = Math.max(0, volleyTarget.curHp - volRes.damage);
         appendBattleLog(b, `  -> ${rowanAlly.name} Covering Volley hits ${volleyTarget.name} for ${volRes.damage} -> ${volleyTarget.curHp}/${volleyTarget.maxHp} HP`);
-        await playVfxAtElement(enemyElRefs.current.get(volleyTarget.instanceId), "piercing_arrow", `${volRes.damage} COVER!`, "text-[#ffe066]", false);
+        await playVfxAtElement(enemyElRefs.current.get(volleyTarget.instanceId), "arrow_single", `${volRes.damage} COVER!`, "text-[#ffe066]", false);
         if (volleyTarget.curHp <= 0) {
           applyLootAndDropsForDefeatedEnemy(b, volleyTarget, itemsCatalog);
           appendBattleLog(b, `  -> ${volleyTarget.name} defeated!`);
@@ -1759,7 +1809,9 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     power: 0,
     critBonus: 0,
     vfxKey: "guard",
-    effectText: "Halves incoming damage until your next turn and grants Momentum (+25% damage on your next strike).",
+    effectText: activeHero?.hasMp
+      ? "Halves incoming damage until your next turn, grants Momentum (+25% next action), and restores 10% Max MP."
+      : "Halves incoming damage until your next turn and grants Momentum (+25% damage on your next strike).",
   };
 
   const fleeAction: BattleActionSpec = {
@@ -1793,11 +1845,19 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     }
     setArmedAction(act);
     b.bannerText =
-      act.targetScope === "ally"
-        ? `${activeHero.name}: Click any companion panel to use ${act.name}`
-        : act.targetScope === "dead_ally"
-          ? `${activeHero.name}: Click a fallen companion to revive`
-          : `${activeHero.name}: Click an enemy to use ${act.name}`;
+      act.targetScope === "any_ally"
+        ? `${activeHero.name}: Click any living or fallen companion to use ${act.name}`
+        : act.targetScope === "ally"
+          ? act.empowerNextSpell
+            ? `${activeHero.name}: Click Self to empower next spell, or click a companion to restore MP`
+            : act.secondAlly
+              ? `${activeHero.name}: Click a companion to affect them + 1 ally with ${act.name}`
+              : `${activeHero.name}: Click any companion panel to use ${act.name}`
+          : act.targetScope === "dead_ally"
+            ? `${activeHero.name}: Click a fallen companion to revive`
+            : (act.maxEnemyTargets ?? 1) > 1
+              ? `${activeHero.name}: Click primary enemy to hit up to ${act.maxEnemyTargets} foes with ${act.name}`
+              : `${activeHero.name}: Click an enemy to use ${act.name}`;
     forceRefresh();
   };
 
@@ -1836,6 +1896,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       heroXpEarned,
       silverEarned: result === "victory" ? b.totalSilverEarned : 0,
       droppedTradeGoods: result === "victory" ? b.droppedTradeGoods : {},
+      droppedConsumables: result === "victory" ? (b.droppedConsumables ?? {}) : {},
       defeatedMonsterIds,
       sealedPortalId: result === "victory" && b.isBossBattle && b.portalLoc ? b.portalLoc.id : null,
     };
@@ -1913,15 +1974,17 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
               activeHero && armedAction && (armedAction.targetScope === "enemy" || armedAction.targetScope === "all_enemies")
             );
             const hoveredUnit =
-              isTargetable && hoveredEnemyId && (armedAction?.splashPct ?? 0) > 0
+              isTargetable && hoveredEnemyId && ((armedAction?.splashPct ?? 0) > 0 || (armedAction?.maxEnemyTargets ?? 1) > 1)
                 ? b.enemies.find((e) => e.instanceId === hoveredEnemyId && e.curHp > 0)
                 : undefined;
+            const livingForHover = hoveredUnit ? b.enemies.filter((e) => e.curHp > 0) : [];
             const isSplashTarget = Boolean(
               hoveredUnit &&
-                getAdjacentEnemies(
-                  hoveredUnit,
-                  b.enemies.filter((e) => e.curHp > 0)
-                ).some((n) => n.instanceId === unit.instanceId)
+                ((armedAction?.maxEnemyTargets ?? 1) > 1
+                  ? pickMultiEnemyTargets(hoveredUnit, livingForHover, armedAction?.maxEnemyTargets ?? 1).some(
+                      (t) => t.instanceId === unit.instanceId && t.instanceId !== hoveredUnit.instanceId
+                    )
+                  : getAdjacentEnemies(hoveredUnit, livingForHover).some((n) => n.instanceId === unit.instanceId))
             );
             return (
               <div
@@ -2031,6 +2094,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                 armedAction &&
                 ((armedAction.targetScope === "ally" && !isKo) ||
                   (armedAction.targetScope === "dead_ally" && isKo) ||
+                  armedAction.targetScope === "any_ally" ||
                   armedAction.targetScope === "all_allies")
             );
             const resolve = getHeroResolveState(hero);
@@ -2229,7 +2293,12 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                           ...(noMp ? [{ label: "Not Enough MP", tone: "warn" as const }] : []),
                         ],
                         effect: spAct.effectText,
-                        hint: spAct.targetScope === "all_enemies" || spAct.targetScope === "all_allies" ? "Click to cast immediately" : "Click to arm, then select target",
+                        hint:
+                          spAct.targetScope === "all_enemies" || spAct.targetScope === "all_allies" || spAct.targetScope === "self"
+                            ? "Click to cast immediately"
+                            : (spAct.maxEnemyTargets ?? 1) > 1
+                              ? `Click to arm, then pick primary foe (up to ${spAct.maxEnemyTargets})`
+                              : "Click to arm, then select target",
                       },
                       true
                     )
@@ -2549,6 +2618,29 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                               {it && <img src={assetUrl(it.iconPath)} alt="" className="w-5 h-5 object-contain" />}
                               <span>{it?.name ?? gid}</span>
                               <strong className="text-[#84f2b8]">×{qty}</strong>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {Object.keys(b.droppedConsumables ?? {}).length > 0 && (
+                    <div className="rounded border border-[#3a4860] bg-[#111722] p-2.5 text-left">
+                      <div className="text-[10.5px] uppercase tracking-wider text-[#8ec8ff] font-bold mb-1.5">
+                        Recovered Supplies
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {Object.entries(b.droppedConsumables ?? {}).map(([cid, qty]) => {
+                          const it = itemsById[cid];
+                          return (
+                            <div
+                              key={cid}
+                              className="flex items-center gap-1.5 rounded border border-[#3b5274] bg-[#0e141f] px-2 py-1 text-[11.5px] text-[#e6effa]"
+                            >
+                              {it && <img src={assetUrl(it.iconPath)} alt="" className="w-5 h-5 object-contain" />}
+                              <span>{it?.name ?? cid}</span>
+                              <strong className="text-[#8ec8ff]">×{qty}</strong>
                             </div>
                           );
                         })}

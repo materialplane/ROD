@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById, HEROES } from "../heroes";
-import type { HeroId, MapMeta, WorldLocation } from "../types";
+import type { ActiveOutpostHunt, HeroId, MapMeta, QuestEntry, TravelCatalog, WorldLocation } from "../types";
 import {
   findNearestClearPoint,
   isCircleClear,
@@ -11,6 +11,7 @@ import {
   type WorldCollisionIndex,
   type WorldTerritorySample,
 } from "../worldCollision";
+import { OverworldQuestTracker } from "./OverworldQuestTracker";
 import { ServiceChip } from "./ServiceChip";
 
 export interface PlayerRuntimeRef {
@@ -43,6 +44,7 @@ interface OverworldCanvasProps {
   mapMeta: MapMeta;
   worldLocations: WorldLocation[];
   worldCollision: WorldCollisionIndex | null;
+  travelCatalog?: TravelCatalog | null;
   partyOrder: HeroId[];
   level: number;
   heroLevels?: Partial<Record<HeroId, number>>;
@@ -50,6 +52,10 @@ interface OverworldCanvasProps {
   heroMpPct?: Partial<Record<HeroId, number>>;
   sealedPortalIds?: string[];
   activeQuestZones?: number[];
+  acceptedQuestIds?: string[];
+  completedQuestIds?: string[];
+  activeOutpostHunts?: ActiveOutpostHunt[];
+  questsCatalog?: QuestEntry[];
   startX: number;
   startY: number;
   startPlaytime: number;
@@ -59,6 +65,7 @@ interface OverworldCanvasProps {
   onEnterLocation: (loc: WorldLocation) => void;
   onTriggerEncounter?: (trigger: OverworldEncounterTrigger) => void;
   onOpenParty: () => void;
+  onOpenJournal?: () => void;
   onOpenPause: () => void;
   onToast: (msg: string) => void;
 }
@@ -73,6 +80,55 @@ const ENTER_ANIM_DURATION = 0.22;
 
 function clamp(val: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, val));
+}
+
+type ZoneThreatTier = "normal" | "danger" | "deadly";
+
+const PARTY_THREAT_WARNINGS: Record<HeroId, { danger: string; deadly: string }> = {
+  valen: {
+    danger: "Getting rougher past the safe roads — stay sharp and keep your blade ready.",
+    deadly: "We're way out of our depth out here! Let's fall back before we get wiped out.",
+  },
+  ellowyn: {
+    danger: "Feel that shift in the air? Tougher foes patrol this ground ahead.",
+    deadly: "The threat ahead is overwhelming — we need stronger gear and training before pushing this far.",
+  },
+  orin: {
+    danger: "Eyes up. Foes in this stretch hit a lot harder than back near town.",
+    deadly: "Hold on — we're outmatched here. We should turn back and prepare first!",
+  },
+  rowan: {
+    danger: "Heavy tracks ahead. Whatever hunts these wilds won't go down easy.",
+    deadly: "Deadly ground ahead! These monsters will tear right through us right now.",
+  },
+  mera: {
+    danger: "The wilds are growing hostile ahead. Watch our footing and save our strength.",
+    deadly: "This ground is far beyond us right now — pull back before something ambushes us!",
+  },
+  harlan: {
+    danger: "Keep healing drafts handy — battles out here are going to sting.",
+    deadly: "No tonic on Ethoria will patch us up if we fight out here right now — let's turn back!",
+  },
+};
+
+function getZoneThreatTier(territory: WorldTerritorySample | null, partyLevel: number): ZoneThreatTier {
+  if (!territory) return "normal";
+  const gap = territory.zoneMin - partyLevel;
+  if (gap >= 5) return "deadly";
+  if (gap >= 1) return "danger";
+  return "normal";
+}
+
+function pickThreatWarningCallout(
+  tier: "danger" | "deadly",
+  partyOrder: HeroId[]
+): { speakerId: HeroId; speakerName: string; line: string } {
+  const companions = partyOrder.length > 1 ? partyOrder.slice(1) : partyOrder;
+  const pool = companions.length > 0 ? companions : (["valen"] as HeroId[]);
+  const speakerId = pool[Math.floor(Math.random() * pool.length)];
+  const hero = getHeroById(speakerId);
+  const line = PARTY_THREAT_WARNINGS[speakerId]?.[tier] ?? PARTY_THREAT_WARNINGS.valen[tier];
+  return { speakerId, speakerName: hero.name, line };
 }
 
 function getEntryRadius(loc: WorldLocation): number {
@@ -410,6 +466,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   mapMeta,
   worldLocations,
   worldCollision,
+  travelCatalog = null,
   partyOrder,
   level,
   heroLevels,
@@ -417,6 +474,10 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   heroMpPct,
   sealedPortalIds = [],
   activeQuestZones = [],
+  acceptedQuestIds = [],
+  completedQuestIds = [],
+  activeOutpostHunts = [],
+  questsCatalog = [],
   startX,
   startY,
   startPlaytime,
@@ -426,6 +487,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   onEnterLocation,
   onTriggerEncounter,
   onOpenParty,
+  onOpenJournal,
   onOpenPause,
   onToast,
 }) => {
@@ -464,6 +526,12 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   const triggerEncounterCbRef = useRef(onTriggerEncounter);
   triggerEncounterCbRef.current = onTriggerEncounter;
 
+  const toastCbRef = useRef(onToast);
+  toastCbRef.current = onToast;
+
+  const travelCatalogRef = useRef<TravelCatalog | null>(travelCatalog);
+  travelCatalogRef.current = travelCatalog;
+
   const collisionRef = useRef<WorldCollisionIndex | null>(worldCollision);
   collisionRef.current = worldCollision;
 
@@ -483,11 +551,28 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   const leaderRef = useRef<HeroId>(leaderId);
   leaderRef.current = leaderId;
 
+  const partyOrderRef = useRef<HeroId[]>(partyOrder);
+  partyOrderRef.current = partyOrder;
+
   const [hoveredLoc, setHoveredLoc] = useState<{ loc: WorldLocation; x: number; y: number } | null>(null);
   const [nearbyLoc, setNearbyLoc] = useState<WorldLocation | null>(null);
   const nearbyLocRef = useRef<WorldLocation | null>(null);
   const [territoryHud, setTerritoryHud] = useState<WorldTerritorySample | null>(null);
+  const [inSafeZoneHud, setInSafeZoneHud] = useState(true);
+  const [zoneCallout, setZoneCallout] = useState<{
+    tier: "danger" | "deadly";
+    speakerName: string;
+    line: string;
+    key: number;
+  } | null>(null);
+  const zoneCalloutTimerRef = useRef<number | null>(null);
   const [encounterFlash, setEncounterFlash] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      if (zoneCalloutTimerRef.current !== null) window.clearTimeout(zoneCalloutTimerRef.current);
+    };
+  }, []);
 
   // Store mutable animation/input state inside refs so the 60fps loop triggers 0 React re-renders
   const stateRef = useRef({
@@ -503,6 +588,9 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     wildSteps: 0,
     lastHudBiome: "",
     lastHudZone: -1,
+    lastHudSafe: true,
+    lastThreatZone: -1,
+    lastCalloutAt: { danger: 0, deadly: 0 },
     lastAutoSaveMs: 0,
     lastSavedX: startX,
     lastSavedY: startY,
@@ -571,6 +659,24 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     }
     const ferryPartner = findLinkedFerryPartner(loc, worldLocations, mapMeta.id);
     const isPassExit = hasMountainPassExit(loc);
+    if (ferryPartner && ferryPartner.x !== null && ferryPartner.y !== null) {
+      const ferryGate = travelCatalogRef.current?.ferryPortalGates?.[mapMeta.id];
+      if (ferryGate && !sealedPortalSetRef.current.has(ferryGate.portalId)) {
+        st.suppressedLocId = loc.id;
+        audioEngine.playUiClick(0.24);
+        toastCbRef.current?.(`Ferry Closed · Seal ${ferryGate.portalName} First`);
+        return;
+      }
+    }
+    if (isPassExit) {
+      const passGate = travelCatalogRef.current?.mountainPassPortalGates?.[mapMeta.id];
+      if (passGate && !sealedPortalSetRef.current.has(passGate.portalId)) {
+        st.suppressedLocId = loc.id;
+        audioEngine.playUiClick(0.24);
+        toastCbRef.current?.(`Pass Blocked · Defeat ${passGate.portalName} First`);
+        return;
+      }
+    }
     if (
       (ferryPartner && ferryPartner.x !== null && ferryPartner.y !== null) ||
       isPassExit
@@ -677,10 +783,18 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     );
     st.suppressedLocId = spawnedAt?.id ?? null;
 
+    const initSafe = worldLocations.some(
+      (l) => l.mapId === mapMeta.id && isSafeSanctuaryLocation(l) && Math.hypot(st.x - (l.x as number), st.y - (l.y as number)) <= SAFE_TOWN_RADIUS_PX
+    );
+    st.lastHudSafe = initSafe;
+    setInSafeZoneHud(initSafe);
+    setZoneCallout(null);
+
     const initSample = sampleWorldTerritory(collisionRef.current, mapMeta.id, st.x, st.y);
     if (initSample) {
       st.lastHudBiome = initSample.biomeName;
       st.lastHudZone = initSample.zoneCode;
+      st.lastThreatZone = initSample.zoneCode;
       setTerritoryHud(initSample);
     }
 
@@ -720,6 +834,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     if (initSample) {
       st.lastHudBiome = initSample.biomeName;
       st.lastHudZone = initSample.zoneCode;
+      st.lastThreatZone = initSample.zoneCode;
       runtimeRef.current.regionLabel = initSample.regionName;
       setTerritoryHud(initSample);
     }
@@ -1008,6 +1123,43 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           st.lastHudZone = zCode;
           if (territory) runtimeRef.current.regionLabel = territory.regionName;
           setTerritoryHud(territory);
+        }
+        const prevSafe = st.lastHudSafe;
+        if (prevSafe !== inSafeZone) {
+          st.lastHudSafe = inSafeZone;
+          setInSafeZoneHud(inSafeZone);
+        }
+
+        if (territory && zCode !== -1) {
+          const prevZone = st.lastThreatZone;
+          const zoneChanged = prevZone !== -1 && zCode !== prevZone;
+          const leftSafeTown = prevSafe && !inSafeZone;
+          st.lastThreatZone = zCode;
+          if (moved && !inSafeZone && !insideLocRef.current && (zoneChanged || leftSafeTown)) {
+            const tier = getZoneThreatTier(territory, partyLevelRef.current);
+            const nowMs = performance.now();
+            if (tier !== "normal" && nowMs - st.lastCalloutAt[tier] >= 10000) {
+              st.lastCalloutAt[tier] = nowMs;
+              const callout = pickThreatWarningCallout(tier, partyOrderRef.current);
+              setZoneCallout({
+                tier,
+                speakerName: callout.speakerName,
+                line: callout.line,
+                key: nowMs,
+              });
+              if (zoneCalloutTimerRef.current !== null) window.clearTimeout(zoneCalloutTimerRef.current);
+              zoneCalloutTimerRef.current = window.setTimeout(() => {
+                setZoneCallout(null);
+                zoneCalloutTimerRef.current = null;
+              }, 4400);
+            } else if (tier === "normal" && zoneChanged) {
+              if (zoneCalloutTimerRef.current !== null) {
+                window.clearTimeout(zoneCalloutTimerRef.current);
+                zoneCalloutTimerRef.current = null;
+              }
+              setZoneCallout(null);
+            }
+          }
         }
       } else {
         audioEngine.setMovementLoop("none");
@@ -1370,6 +1522,9 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
 
   if (!active) return null;
 
+  const threatTier = getZoneThreatTier(territoryHud, level);
+  const showDeadlyVignette = !insideLocationId && !inSafeZoneHud && threatTier === "deadly";
+
   return (
     <main className="fixed inset-0">
       <canvas
@@ -1380,6 +1535,53 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         className="block w-full h-full cursor-crosshair"
       />
 
+      {/* Subtle Crimson Screen-Edge Vignette in Deadly Wilds */}
+      <div
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 62%, rgba(127, 29, 29, 0.22) 86%, rgba(153, 27, 27, 0.42) 100%)",
+        }}
+        className={[
+          "fixed inset-0 z-[4] pointer-events-none transition-opacity duration-500",
+          showDeadlyVignette ? "opacity-100" : "opacity-0",
+        ].join(" ")}
+      />
+
+      {/* Party Member Border-Crossing Callout (Zero icons, zero level numbers) */}
+      {zoneCallout && !insideLocationId && (
+        <div
+          key={zoneCallout.key}
+          className="fixed top-[22px] left-1/2 -translate-x-1/2 z-[15] max-w-[520px] pointer-events-none"
+        >
+          <div
+            className={[
+              "px-6 py-2.5 rounded-md shadow-2xl border text-center backdrop-blur-sm",
+              zoneCallout.tier === "deadly"
+                ? "bg-[#1a0b0e]/94 border-[#dc2626]/90 shadow-[0_0_28px_rgba(220,38,38,0.38)]"
+                : "bg-[#19130b]/94 border-[#e08b28]/90 shadow-[0_0_24px_rgba(224,139,40,0.28)]",
+            ].join(" ")}
+          >
+            <div
+              className={[
+                "font-display text-[12px] font-bold tracking-[0.14em] uppercase leading-tight",
+                zoneCallout.tier === "deadly" ? "text-[#fca5a5]" : "text-[#fcd34d]",
+              ].join(" ")}
+            >
+              {zoneCallout.speakerName} ·{" "}
+              {zoneCallout.tier === "deadly" ? "Deadly Wilds" : "Dangerous Wilds"}
+            </div>
+            <div
+              className={[
+                "mt-1 text-[12.5px] font-medium italic tracking-[0.01em] leading-snug",
+                zoneCallout.tier === "deadly" ? "text-[#fae1e1]" : "text-[#f5e7ce]",
+              ].join(" ")}
+            >
+              “{zoneCallout.line}”
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Brief FF-Style Ambush Transition Flash */}
       <div
         className={[
@@ -1388,9 +1590,18 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         ].join(" ")}
       />
 
-      {/* Top Right Unified Region & Live Terrain Plaque */}
-      <div className="fixed top-[18px] right-5 z-[5] pointer-events-none">
-        <div className="px-4 py-2 bg-[#10141d]/92 border border-[#7c653e]/85 rounded-md shadow-xl text-right backdrop-blur-sm">
+      {/* Top Right Unified Region, Live Terrain, Threat Meter & Quest Tracker Column */}
+      <div className="fixed top-[18px] right-5 z-[5] flex flex-col items-end gap-2 pointer-events-none">
+        <div
+          className={[
+            "px-4 py-2 rounded-md shadow-xl text-right backdrop-blur-sm border transition-colors duration-300",
+            threatTier === "deadly"
+              ? "bg-[#1b0c0f]/94 border-[#dc2626]/95 shadow-[0_0_22px_rgba(220,38,38,0.34)]"
+              : threatTier === "danger"
+                ? "bg-[#19140c]/94 border-[#e08b28]/90 shadow-[0_0_18px_rgba(224,139,40,0.24)]"
+                : "bg-[#10141d]/92 border-[#7c653e]/85",
+          ].join(" ")}
+        >
           <div className="font-display text-[13.5px] font-bold tracking-[0.09em] uppercase text-[#f4dfae] leading-tight">
             {territoryHud?.regionName ?? mapMeta.regionLabel}
           </div>
@@ -1399,7 +1610,55 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
               {territoryHud.biomeName}
             </div>
           )}
+          {threatTier !== "normal" && (
+            <div
+              className={[
+                "mt-1 text-[10px] font-bold tracking-[0.14em] uppercase leading-tight",
+                threatTier === "deadly" ? "text-[#f87171]" : "text-[#fbbf24]",
+              ].join(" ")}
+            >
+              {threatTier === "deadly" ? "Deadly Wilds" : "Dangerous Wilds"}
+            </div>
+          )}
+          <div className="mt-1.5 flex items-center justify-end gap-1">
+            {[0, 1, 2].map((pip) => {
+              const activeBars = threatTier === "deadly" ? 3 : threatTier === "danger" ? 2 : 1;
+              const lit = pip < activeBars;
+              return (
+                <span
+                  key={pip}
+                  className={[
+                    "h-[3px] w-7 rounded-full transition-colors duration-300",
+                    lit
+                      ? threatTier === "deadly"
+                        ? "bg-[#ef4444]"
+                        : threatTier === "danger"
+                          ? "bg-[#f59e0b]"
+                          : "bg-[#8d7449]/80"
+                      : "bg-[#222938]/90",
+                  ].join(" ")}
+                />
+              );
+            })}
+          </div>
         </div>
+
+        {/* Right Side Quest Tracker (up to 5 tracked quests) */}
+        {!insideLocationId && (
+          <OverworldQuestTracker
+            mapId={mapMeta.id}
+            currentZoneCode={territoryHud?.zoneCode ?? null}
+            acceptedQuestIds={acceptedQuestIds}
+            completedQuestIds={completedQuestIds}
+            activeOutpostHunts={activeOutpostHunts}
+            questsCatalog={questsCatalog}
+            worldLocations={worldLocations}
+            onOpenJournal={() => {
+              if (onOpenJournal) onOpenJournal();
+              else onOpenParty();
+            }}
+          />
+        )}
       </div>
 
       {/* Top Left Vertical Party Bar (Slots 1–4 top-to-bottom; Slot 1 = Overworld Leader) */}
@@ -1496,6 +1755,17 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
 
       {/* Bottom Right Quick Buttons */}
       <div className="fixed right-5 bottom-[18px] z-[5] flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => {
+            audioEngine.playUiClick();
+            if (onOpenJournal) onOpenJournal();
+            else onOpenParty();
+          }}
+          className="px-3.5 py-2.5 bg-[#12161f]/90 hover:bg-[#1a1f2c] border border-[#6b5a3c] hover:border-[#d7b267] rounded text-[#e9d9b4] hover:text-[#fff2cc] text-[13px] font-semibold tracking-wider uppercase cursor-pointer shadow-lg transition-colors"
+        >
+          Journal (J)
+        </button>
         <button
           type="button"
           onClick={() => {

@@ -69,61 +69,8 @@ const HERO_BASE = {
   },
 };
 
-// All 13 D&D weapon categories x 2 defined 0 MP attack modes (docs/06-gear-and-runestones.md)
-const WEAPON_ATTACK_MODES = {
-  Longsword: [
-    { id: "wpn_skill_longsword_quick_slash", name: "Quick Slash", tag: "Strike", power: 1.0, critBonus: 0, effect: "Clean slash with high hit accuracy; usable every turn." },
-    { id: "wpn_skill_longsword_heavy_cleave", name: "Heavy Cleave", tag: "Heavy", power: 1.4, critBonus: 0.15, effect: "Heavy slash dealing high damage (+15% Crit Chance) and breaking 1 Guard point. 1-Turn Cooldown." },
-  ],
-  Greatsword: [
-    { id: "wpn_skill_greatsword_wide_sweep", name: "Wide Sweep", tag: "Cleave", power: 0.95, critBonus: 0, effect: "Broad arc dealing 95% damage to your target and 50% splash damage to neighboring enemies." },
-    { id: "wpn_skill_greatsword_overhead_rend", name: "Overhead Rend", tag: "Heavy", power: 1.45, critBonus: 0.08, effect: "Heavy overhead chop dealing huge damage and breaking 1 extra Guard point. 1-Turn Cooldown." },
-  ],
-  Rapier: [
-    { id: "wpn_skill_rapier_needle_thrust", name: "Needle Thrust", tag: "Strike", power: 1.0, critBonus: 0.05, effect: "Crisp lunge with 98% hit accuracy (+5% Crit Chance); usable every turn." },
-    { id: "wpn_skill_rapier_heart_pierce", name: "Heart Pierce", tag: "Crit", power: 1.38, critBonus: 0.2, armorIgnore: 0.25, effect: "Focused thrust (+20% Crit Chance) that ignores 25% of enemy Physical Defense. 1-Turn Cooldown." },
-  ],
-  Battleaxe: [
-    { id: "wpn_skill_battleaxe_chopping_hack", name: "Chopping Hack", tag: "Strike", power: 1.02, critBonus: 0, effect: "Dependable axe chop with reliable accuracy and steady Slashing damage." },
-    { id: "wpn_skill_battleaxe_execution_chop", name: "Execution Chop", tag: "Execute", power: 1.44, critBonus: 0.05, execCritBonus: 0.25, effect: "Heavy chop gaining +25% Crit Chance vs. enemies below 50% HP. 1-Turn Cooldown." },
-  ],
-  Mace: [
-    { id: "wpn_skill_mace_heavy_bash", name: "Heavy Bash", tag: "Guard", power: 1.02, critBonus: 0, effect: "Blunt bash that chips 1 Guard point off guarded enemies." },
-    { id: "wpn_skill_mace_armor_crush", name: "Armor Crush", tag: "Break", power: 1.36, critBonus: 0, effect: "Heavy smash that lowers the target's Physical Defense for 1 turn. 1-Turn Cooldown." },
-  ],
-  Spear: [
-    { id: "wpn_skill_spear_long_thrust", name: "Long Thrust", tag: "Aim", power: 1.04, critBonus: 0.12, effect: "Long-reach thrust granting bonus hit accuracy and +12% Crit Chance." },
-    { id: "wpn_skill_spear_brace_sweep", name: "Brace Sweep", tag: "Weaken", power: 1.34, critBonus: 0, effect: "Sweeping polearm hit that lowers the enemy's Attack for 1 turn. 1-Turn Cooldown." },
-  ],
-  Longbow: [
-    { id: "wpn_skill_longbow_snap_arrow", name: "Snap Arrow", tag: "Strike", power: 1.0, critBonus: 0, effect: "Clean long-range arrow with high accuracy; usable every turn." },
-    { id: "wpn_skill_longbow_aimed_piercer", name: "Aimed Piercer", tag: "Sniper", power: 1.42, critBonus: 0.25, armorIgnore: 0.25, effect: "Aimed sniper shot granting +25% Crit Chance and ignoring 25% of enemy Physical Defense. 1-Turn Cooldown." },
-  ],
-  Shortbow: [
-    { id: "wpn_skill_shortbow_quick_volley", name: "Quick Volley", tag: "Aim", power: 0.98, critBonus: 0.05, effect: "Steady bow shot with +5% Crit Chance and high accuracy." },
-    { id: "wpn_skill_shortbow_wing_clip", name: "Wing Clip", tag: "Blind", power: 1.3, critBonus: 0, effect: "Pinning arrow that lowers the enemy's Accuracy for 1 turn. 1-Turn Cooldown." },
-  ],
-  Dagger: [
-    { id: "wpn_skill_dagger_quick_jab", name: "Quick Jab", tag: "Strike", power: 0.96, critBonus: 0.06, effect: "Crisp stab with high accuracy and +6% Crit Chance." },
-    { id: "wpn_skill_dagger_vital_gouge", name: "Vital Gouge", tag: "Bleed", power: 1.35, critBonus: 0.15, effect: "Deep stab (+15% Crit Chance) with a chance to inflict 2-turn Bleed. 1-Turn Cooldown." },
-  ],
-  "Light Crossbow": [
-    { id: "wpn_skill_crossbow_bolt_snap", name: "Bolt Snap", tag: "Pierce", power: 1.02, critBonus: 0.05, armorIgnore: 0.15, effect: "Steady bolt shot that ignores 15% of enemy Physical Defense." },
-    { id: "wpn_skill_crossbow_siege_crank", name: "Siege Crank", tag: "Break", power: 1.38, critBonus: 0.08, effect: "Heavy cranked bolt dealing high damage and chipping 1 Guard point. 1-Turn Cooldown." },
-  ],
-  Quarterstaff: [
-    { id: "wpn_skill_staff_sweep", name: "Staff Sweep", tag: "MP+", power: 1.0, critBonus: 0, effect: "Two-handed strike that restores a small amount of MP on hit." },
-    { id: "wpn_skill_staff_crushing_vault", name: "Crushing Vault", tag: "Break", power: 1.36, critBonus: 0, effect: "Heavy overhead staff slam that chips 1 Guard point. 1-Turn Cooldown." },
-  ],
-  Scimitar: [
-    { id: "wpn_skill_scimitar_crescent_cut", name: "Crescent Cut", tag: "Strike", power: 1.02, critBonus: 0.05, effect: "Smooth curved slash with high accuracy and +5% Crit Chance." },
-    { id: "wpn_skill_scimitar_whirling_slash", name: "Whirling Slash", tag: "Crit", power: 1.36, critBonus: 0.15, effect: "Spinning slash dealing heavy damage with +15% Crit Chance. 1-Turn Cooldown." },
-  ],
-  Sickle: [
-    { id: "wpn_skill_sickle_reaping_hook", name: "Reaping Hook", tag: "Bleed", power: 1.0, critBonus: 0.05, effect: "Hooked slice with a chance to inflict 2-turn Bleed." },
-    { id: "wpn_skill_sickle_thorn_slash", name: "Thorn Slash", tag: "Weaken", power: 1.32, critBonus: 0, effect: "Barbed cut that lowers the enemy's Attack for 1 turn. 1-Turn Cooldown." },
-  ],
-};
+// Populated at startup from /data/gear-rules-catalog.json (single source of truth for weapon attack modes)
+let WEAPON_ATTACK_MODES = {};
 
 const FOOTPRINT_PRESETS = [
   { label: "1×1 Standard", w: 1, h: 1, name: "Standard (1×1)" },
@@ -134,37 +81,8 @@ const FOOTPRINT_PRESETS = [
   { label: "3×2 Boss", w: 3, h: 2, name: "Boss (3×2)" },
 ];
 
-const VFX_MAP = {
-  slashing_fast: { folder: "sheet_01", row: 1, color: "#e5e7eb", shake: true, frames: 6 },
-  slashing_heavy: { folder: "sheet_01", row: 2, color: "#f59e0b", shake: true, frames: 6 },
-  slashing_twin: { folder: "sheet_01", row: 3, color: "#f5b041", shake: true, frames: 6 },
-  slashing_bleed: { folder: "sheet_01", row: 4, color: "#ef4444", shake: true, frames: 6 },
-  bludgeoning_fast: { folder: "sheet_01", row: 5, color: "#d97706", shake: true, frames: 6 },
-  bludgeoning_heavy: { folder: "sheet_01", row: 6, color: "#fb923c", shake: true, frames: 6 },
-  piercing_melee: { folder: "sheet_02", row: 1, color: "#67e8f9", shake: true, frames: 6 },
-  arrow_single: { folder: "sheet_02", row: 2, color: "#f59e0b", shake: true, frames: 6 },
-  arrow_volley: { folder: "sheet_02", row: 3, color: "#38bdf8", shake: true, frames: 6 },
-  fire_single: { folder: "sheet_02", row: 4, color: "#ff5722", shake: true, frames: 6 },
-  fire_aoe: { folder: "sheet_02", row: 5, color: "#f97316", shake: true, frames: 6 },
-  lightning: { folder: "sheet_02", row: 6, color: "#fde047", shake: true, frames: 6 },
-  frost_single: { folder: "sheet_03", row: 1, color: "#4dd0e1", shake: true, frames: 6 },
-  frost_aoe: { folder: "sheet_03", row: 2, color: "#38bdf8", shake: true, frames: 6 },
-  poison_acid: { folder: "sheet_03", row: 3, color: "#84cc16", shake: false, frames: 6 },
-  poison_spore: { folder: "sheet_03", row: 4, color: "#7ac74f", shake: false, frames: 5 }, // sheet_03 r4c6 empty
-  shadow_single: { folder: "sheet_03", row: 5, color: "#6366f1", shake: true, frames: 6 },
-  radiant: { folder: "sheet_03", row: 6, color: "#fde047", shake: true, frames: 6 },
-  heal_single: { folder: "sheet_04", row: 1, color: "#2ecc71", shake: false, frames: 6 },
-  heal_aoe: { folder: "sheet_04", row: 2, color: "#10b981", shake: false, frames: 6 },
-  revive: { folder: "sheet_04", row: 3, color: "#fbbf24", shake: false, frames: 6 },
-  ward: { folder: "sheet_04", row: 4, color: "#38d9c0", shake: false, frames: 6 },
-  guard: { folder: "sheet_04", row: 5, color: "#94a3b8", shake: false, frames: 6 },
-  mana: { folder: "sheet_04", row: 6, color: "#3b82f6", shake: false, frames: 6 },
-  nature_vine: { folder: "sheet_05", row: 1, color: "#22c55e", shake: true, frames: 6 },
-  cleanse: { folder: "sheet_05", row: 2, color: "#5eead4", shake: false, frames: 6 },
-  buff: { folder: "sheet_05", row: 3, color: "#eab308", shake: false, frames: 6 },
-  shadow_aoe: { folder: "sheet_05", row: 4, color: "#4f46e5", shake: true, frames: 6 },
-  wind: { folder: "sheet_05", row: 5, color: "#67e8f9", shake: true, frames: 6 },
-};
+// Populated at startup from /data/vfx-effects.json
+let VFX_MAP = {};
 
 const state = {
   config: null,
@@ -370,16 +288,16 @@ function pickVfxKey(damageType = "", target = "", name = "", isHeavy = false) {
   if (nm.includes("mana") || dt === "arcane") return "mana";
   if (nm.includes("ward") || nm.includes("aegis") || nm.includes("veil") || nm.includes("sanctuary")) return "ward";
   if (dt.includes("restor") || nm.includes("heal") || nm.includes("mend") || nm.includes("balm") || nm.includes("poultice") || nm.includes("salve") || nm.includes("elixir") || nm.includes("bloom") || nm.includes("rain")) {
-    return tg.includes("all") ? "heal_aoe" : "heal_single";
+    return /\ball\b/.test(tg) ? "heal_aoe" : "heal_single";
   }
   if (dt.includes("nature")) {
     return nm.includes("thorn") || nm.includes("briar") || nm.includes("vine") || nm.includes("snare") ? "nature_vine" : "buff";
   }
-  if (dt.includes("fire")) return tg.includes("all") || tg.includes("splash") || nm.includes("meteor") || nm.includes("fireball") || nm.includes("wall") ? "fire_aoe" : "fire_single";
-  if (dt.includes("frost")) return tg.includes("all") || nm.includes("blizzard") || nm.includes("prison") ? "frost_aoe" : "frost_single";
+  if (dt.includes("fire")) return /\ball\b/.test(tg) || tg.includes("splash") || nm.includes("meteor") || nm.includes("fireball") || nm.includes("wall") ? "fire_aoe" : "fire_single";
+  if (dt.includes("frost")) return /\ball\b/.test(tg) || nm.includes("blizzard") || nm.includes("prison") ? "frost_aoe" : "frost_single";
   if (dt.includes("lightning")) return "lightning";
   if (dt.includes("poison")) return nm.includes("spore") || nm.includes("cloud") || nm.includes("mist") ? "poison_spore" : "poison_acid";
-  if (dt.includes("shadow")) return tg.includes("all") || nm.includes("eclipse") || nm.includes("void") ? "shadow_aoe" : "shadow_single";
+  if (dt.includes("shadow")) return /\ball\b/.test(tg) || nm.includes("eclipse") || nm.includes("void") ? "shadow_aoe" : "shadow_single";
   if (dt.includes("radiant")) return "radiant";
   if (dt.includes("bludge")) return isHeavy ? "bludgeoning_heavy" : "bludgeoning_fast";
   if (dt.includes("pierc")) {
@@ -392,50 +310,8 @@ function pickVfxKey(damageType = "", target = "", name = "", isHeavy = false) {
   return "slashing_fast";
 }
 
-const HERO_MAGIC_THEMES = {
-  ellowyn: {
-    label: "Arcane Seal",
-    themeClass: "theme-ellowyn",
-    tierNames: [
-      "Initiate Sparks",
-      "Stormfire Adept",
-      "Sovereign Ward",
-      "High Conduit",
-      "Halo & Tempest",
-      "Solar & Void",
-      "Queen's Verdict",
-      "Astral Cataclysm",
-    ],
-  },
-  mera: {
-    label: "Druidic Totem",
-    themeClass: "theme-mera",
-    tierNames: [
-      "Briar Awakening",
-      "Spore & Gale",
-      "Stone & Brambles",
-      "Earth & Talon",
-      "Grove Tempest",
-      "Sunbeam Stag",
-      "Elder Fang",
-      "Primal Heart",
-    ],
-  },
-  harlan: {
-    label: "Alchemical Tier",
-    themeClass: "theme-harlan",
-    tierNames: [
-      "Field Satchel",
-      "Woodland Brewhouse",
-      "Combat Tinctures",
-      "Purge & Acid",
-      "Mist & Elixir",
-      "Master Alembic",
-      "Phoenix Panacea",
-      "Grand Opus",
-    ],
-  },
-};
+// Populated at startup from /data/vfx-effects.json
+let HERO_MAGIC_THEMES = {};
 
 function resolveWeaponSkillIcon(skillId, hero) {
   const custom = state.weaponSkillManifest?.cards?.[skillId];
@@ -2178,10 +2054,12 @@ btnSave.addEventListener("click", async () => {
 
 (async () => {
   const t = Date.now();
-  const [rBat, rSp, rIt, rDisc, rWpnSkills, rMagicTiers] = await Promise.all([
+  const [rBat, rSp, rIt, rGear, rVfx, rDisc, rWpnSkills, rMagicTiers] = await Promise.all([
     fetch(`/api/battles?t=${t}`),
     fetch(`/data/spells-catalog.json?t=${t}`),
     fetch(`/data/items-catalog.json?t=${t}`),
+    fetch(`/data/gear-rules-catalog.json?t=${t}`).catch(() => null),
+    fetch(`/data/vfx-effects.json?t=${t}`).catch(() => null),
     fetch(`/data/disciplines-catalog.json?t=${t}`).catch(() => null),
     fetch(`/assets/icons/weapon_abilities/weapon-abilities-manifest.json?t=${t}`).catch(() => null),
     fetch(`/assets/icons/magic_tiers/magic-tiers-manifest.json?t=${t}`).catch(() => null),
@@ -2191,6 +2069,15 @@ btnSave.addEventListener("click", async () => {
     return;
   }
   state.config = await rBat.json();
+  if (rGear && rGear.ok) {
+    const gJson = await rGear.json();
+    WEAPON_ATTACK_MODES = gJson.weaponModes || {};
+  }
+  if (rVfx && rVfx.ok) {
+    const vJson = await rVfx.json();
+    VFX_MAP = vJson.vfxMap || {};
+    HERO_MAGIC_THEMES = vJson.heroMagicThemes || {};
+  }
   if (rSp.ok) {
     const spJson = await rSp.json();
     state.spells = Array.isArray(spJson) ? spJson : spJson.spells || [];

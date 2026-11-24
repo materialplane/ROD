@@ -1,0 +1,210 @@
+# ROD — 16:9 Dimensional Portal Threshold Prompts (8 Active/Warded + 8 Defeated/Sealed = 16 Scenes)
+# Target Script: Google Gemini Batch API (`models/gemini-3-pro-image`, Pro 4K, 16:9, 50% Batch Tier)
+# Stage 1 [01–08] Active/Warded Portals: Attach `assets/ui/menu_background_16x9_4k_v2.png` as Style & Brushwork Anchor.
+# Stage 2 [09–16] Defeated/Sealed Portals: Run in Batch Wave 2 AFTER Stage 1 approval, attaching EACH corresponding Stage 1 output (`assets/maps/portals/<portal_id>.jpg`) as the direct layout & architecture reference image so camera angle, archway masonry, steps, and surroundings match identically while extinguishing the rift.
+# Art Style Anchor: Exact Runeterra / League of Legends / Summoner's Rift / Ruined King hand-painted 16:9 splash key art matching `imageprompts/location-interiors.txt`.
+# UI Layout Mandate: Keep the lower foreground (~25% height) calm darkly shadowed flagstones, tiered basalt steps, or wet coastal pier slabs so bottom HUD controls, Catalyst status warnings, and Enter/Step Back buttons sit cleanly.
+
+================================================================================
+STAGE 1 — ACTIVE / WARDED PORTAL THRESHOLDS (8 Scenes · Wave 1 Anchor: menu_background_16x9_4k_v2.png)
+================================================================================
+
+--------------------------------------------------------------------------------
+[01] ID: loc_05_the_ashen_gate | Portal #1: The Ashen Gate (Active / Warded · Zone 3)
+# SAVE AS: assets/maps/portals/loc_05_the_ashen_gate.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped and cracked charred basalt blocks, cinder-filled masonry fissures, scorched gnarled tree roots, deeply carved forge relief, crisp ember-amber rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic golden-amber and crimson twilight shafts in crystal-clear air.
+
+COMPOSITION & OMINOUS SCORCHED THRESHOLD: Still, uninhabited eye-level scenic splash illustration standing on the grim approach terrace directly before Portal #1, The Ashen Gate, tucked into jagged Crownlands basalt cliffs at dark fiery dusk. Broad, deeply shadowed tiers of scorched black-basalt steps and ash-dusted flagstones stretch calmly across the lower foreground cleanly anchoring the frame.
+
+CHARRED BASALT MONUMENT & BLAZING BRAZIERS (CENTER FOCAL POINT): Towering dead-center atop tiered basalt steps stands a colossal built standing archway of heat-cracked black basalt and obsidian ashlar blocks, gripped by etched ember-orange arcane lock-seals across its heavy carved lintel. Flanking the arch stand massive iron pedestal braziers pouring wild molten firelight against surrounding blackened granite cliff outcrops. Sealing the stone archway's inner doorway churns a blinding, terrifying vortex of molten ember-orange and deep blood-crimson dimensional fire, revealing silhouettes of jagged obsidian forge spires in the alien realm beyond.
+
+CINDER CLIFFS & BROODING SKY (LEFT & RIGHT BACKGROUND): Steep scarred Crownlands hill crags, twisted burnt oak silhouettes, and smoldering cinder outcrops crowd left and right against towering indigo-cobalt twilight storm clouds rimmed fiercely in furnace orange overhead.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[02] ID: loc_10_the_sunken_maw | Portal #2: The Sunken Maw (Active / Warded · Zone 5)
+# SAVE AS: assets/maps/portals/loc_10_the_sunken_maw.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—barnacle-crusted tidal granite blocks, brine-stained mossy masonry fissures, slick wet sea-stone crevices, deeply carved abyssal relief, crisp turquoise-amber rim highlights, and velvety dark espresso-and-indigo crevice shadows under dramatic storm-dusk shafts in crystal-clear sea air.
+
+COMPOSITION & FLOODED TIDAL ARCHWAY PIER: Still, uninhabited eye-level scenic splash illustration standing near the dark edge of a weathered stone sea-pier directly facing Portal #2, The Sunken Maw, crowning a drowned coastal headland at ominous twilight. Broad, rain-darkened wet coastal stone slabs and barnacle-rimmed tidal flagstones lie calm and deeply shadowed across the lower foreground.
+
+BARNACLED TIDAL MONOLITH & ABYSSAL VORTEX (CENTER FOCAL POINT): Rising powerfully at center over salt-slick coastal pier stones stands a monolithic ancient sea-carved stone archway crusted thickly with jagged white barnacles, trailing dark kelp strands, and glowing pale-teal abyssal ward runes across its cracked keystone. Framing a terrifying doorway inside the ancient tidal stone arch swirls a suffocating vortex of deep midnight-sapphire and luminous abyssal-teal trench water glowing faintly with distant sunken ruins inside the portal plane.
+
+SALTMARSH SEA ROCKS & TWILIGHT BAY (LEFT & RIGHT): Glossy black coastal reef boulders, bent storm-washed marsh cypress pilings, and mirror-dark still tidal pools frame the left and right edges under towering deep cobalt-and-amber dusk clouds.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[03] ID: loc_15_the_iron_rift | Portal #3: The Iron Rift (Active / Warded · Zone 8)
+# SAVE AS: assets/maps/portals/loc_15_the_iron_rift.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped red-gray highland granite slabs, riveted forged-iron plates, rusted chain-link reliefs, scarred warfront crags, deeply carved battle relief, crisp sunlit amber rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear dusk air.
+
+COMPOSITION & SCARRED IRON WARFRONT THRESHOLD: Still, uninhabited eye-level scenic splash illustration standing on a scarred stone war-terrace before Portal #3, The Iron Rift, embedded among jagged Thornwall gray-slate crags at fiery warfront dusk. Deeply shadowed scarred slate flagstones and broken iron shield plates stretch smoothly across the lower foreground.
+
+RIVETED IRON WAR-ARCHWAY & MOLTEN VORTEX (CENTER FOCAL POINT): Looming menacingly at center rises an immense riveted black forged-iron and dark highland granite war-archway reinforced with heavy iron chains, colossal bronze lock-runes burning crimson across the arch jambs, and spiked iron war-braziers roaring orange flame. Filling the interior doorway inside the massive iron pillars blazes a terrifying dimensional veil of molten bronze and blood-red warland fire hinting at jagged iron siege silhouettes beyond.
+
+SLATE WAR-CRAGS & RED-GOLD DUSK (LEFT & RIGHT): Rough ochre-and-gray Thornwall boulders, shattered stone pike markers, and weathered war banners frame the flanks beneath brooding iron-gray and sunset-crimson clouds.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[04] ID: loc_20_the_rotspire | Portal #4: The Rotspire (Active / Warded · Zone 10)
+# SAVE AS: assets/maps/portals/loc_20_the_rotspire.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—moss-strangled cracked fieldstone blocks, creeping root tendons, gnarled ancient tree bark, bioluminescent spore-cap shelves, deeply carved forest-shrine relief, crisp luminous rim highlights, and velvety dark espresso-and-indigo crevice shadows in dense twilight forest air.
+
+COMPOSITION & SHADOWY ROOT-CHOKED CLEARING: Still, uninhabited eye-level scenic splash illustration standing inside a dark, suffocating Plague Woods clearing facing Portal #4, The Rotspire, buried deep beneath tangled Verdant Weald elder boughs at haunted twilight. Dark mossy forest flagstones coiled closely by thin dark roots stretch quietly across the shadowed lower foreground.
+
+ROOT-WRAPPED ARCHWAY & VIRULENT SPORE VORTEX (CENTER FOCAL POINT): Strangled cleanly around tiered cracked stone steps at center looms an ancient carved monolith archway gripped tightly by colossal, twisted gnarled roots and weeping moss curtains, sealed by glowing violet-green elder runes carved into the arch keystone. Boiling fiercely inside the open stone doorway swirls a toxic dimensional maelstrom of virulent emerald-green mist and eerie corrupting violet spore light revealing twisted shadowy elder trunks inside.
+
+BLIGHTED ANCIENT CANOPY (LEFT & RIGHT): Crowding densely on both sides tower crooked dark elder oak trunks crusted with glowing amber-violet shelf fungi and thick fern thickets shutting out distant vistas beneath deep shadowy indigo forest gloom.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[05] ID: loc_25_the_scorched_chasm | Portal #5: The Scorched Chasm (Active / Warded · Zone 13)
+# SAVE AS: assets/maps/portals/loc_25_the_scorched_chasm.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—wind-carved golden sandstone strata, heat-cracked limestone blocks, hammered tarnished brass relief, wind-rippled desert sand crests, crisp fiery gold rim highlights, and velvety dark espresso-and-indigo crevice shadows under scorching amber-cobalt desert twilight in crystal-clear air.
+
+COMPOSITION & DESERT SUN-TEMPLE STEPS: Still, uninhabited eye-level scenic splash illustration standing before Portal #5, The Scorched Chasm, rising sharply from sun-baked golden desert dunes and sandstone canyon mesas at blazing sunset. Darkly shadowed cracked honey-sandstone courtyard steps drifted lightly at edges with cool shaded golden sand fill the calm lower foreground.
+
+BRASS-INLAID SANDSTONE GATE & FLAME VORTEX (CENTER FOCAL POINT): Ascending starkly at center rests a colossal sun-scorched sandstone and tarnished-brass temple archway flanked by fluted sun-carved pillars and hammered brass fire-bowls blazing fierce orange flame, barred by glowing amber-gold seal glyphs traced across its lintel. Churning powerfully inside the archway doorway rages a blinding vortex of molten brass fire and incandescent amber-gold heat shimmering around distant brass citadel silhouettes beyond.
+
+WEATHERED MESAS & BLAZING SKY (LEFT & RIGHT): Carved desert canyon sandstone buttresses and wind-scoured dry scrub anchor left and right beneath dramatic deep indigo twilight skies streaked with molten desert sunset clouds.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[06] ID: loc_30_storm_crowned_spire | Portal #6: The Storm-Crowned Spire (Active / Warded · Zone 15)
+# SAVE AS: assets/maps/portals/loc_30_storm_crowned_spire.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—rain-slick dark storm-gray mountain granite, chiseled stratified cliff faces, lightning-charred masonry fissures, deeply carved tempest relief, crisp electric-gold rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear high-altitude storm air.
+
+COMPOSITION & RAIN-SLICK SUMMIT TERRACE: Still, uninhabited eye-level scenic splash illustration standing high atop a wind-scoured bare gray granite Ironcrest summit terrace facing Portal #6, The Storm-Crowned Spire, amidst a roaring mountain tempest. Broad dark rain-glistened carved granite terrace flagstones stretch cleanly across the calm deeply shadowed lower foreground.
+
+LIGHTNING GRANITE ARCH & TEMPEST VORTEX (CENTER FOCAL POINT): Anchored fiercely onto flat mountain stone at center stands a massive weathered granite gateway with carved storm-dragon pillars, copper lightning rods, and glowing electric-blue ward seals snapping across the stone arch. Filling the doorway between the lightning-carved jambs surges a terrifying howling vortex of crackling storm-cobalt lightning and brilliant electric-gold cloud fire revealing floating high-altitude dragon crags inside.
+
+BARREN GRANITE PEAKS & STORM CLOUDS (LEFT & RIGHT): Rugged snowless gray alpine crags and rain-lashed mountain ledges frame left and right beneath colossal cobalt-indigo thunderheads lit by sharp golden lightning shafts overhead.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[07] ID: loc_35_the_pale_abyss | Portal #7: The Pale Abyss (Active / Warded · Zone 18)
+# SAVE AS: assets/maps/portals/loc_35_the_pale_abyss.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—frost-fractured black basalt strata, crystalline turquoise glacial ice shards, hoarfrost-crusted bronze reliefs, scarred arctic crags, crisp ice-blue and hellfire-amber rim highlights, and velvety dark espresso-and-indigo crevice shadows in freezing arctic twilight air.
+
+COMPOSITION & FROST-RIMMED ABYSSAL STAIRS: Still, uninhabited eye-level scenic splash illustration standing at the foot of icy black basalt stairs before Portal #7, The Pale Abyss, wedged between towering Frostbound glacier cliffs at bitter winter twilight. Smooth darkly shadowed black basalt threshold slabs edged gently with pale dry snow anchor the lower foreground calmly.
+
+FROSTED BASALT GATE & CRIMSON-VIOLET VORTEX (CENTER FOCAL POINT): Rising dramatically at center atop snow-dusted stone stairs looms a sinister frost-rimmed black basalt and tarnished bronze war-archway wrapped in spiked chains and glowing cold blood-crimson ward sigils burning frost into the stone. Roaring darkly inside the arch opening twists a terrifying swirling vortex of cold hellfire-crimson and abyssal-violet dimensional mist glimpsing jagged frost-hell citadel spires inside.
+
+GLACIAL CLIFFS & SNOWY PINES (LEFT & RIGHT): Translucent crystalline turquoise glacier bluffs and frost-crusted blackened pine silhouettes rise sharply on left and right under freezing midnight-cobalt aurora-stained twilight skies.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[08] ID: loc_39_the_eclipse_gate | Portal #8: The Eclipse Gate (Active / Warded · Zone 20)
+# SAVE AS: assets/maps/portals/loc_39_the_eclipse_gate.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—fractured volcanic black basalt strata, heat-cracked obsidian masonry fissures, blackened-silver royal carvings, wrought-iron strapping, deeply carved gothic eclipse relief, crisp molten ember and cold violet-silver rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear twilight air.
+
+COMPOSITION & OBSIDIAN ROYAL ECLIPSE THRESHOLD: Still, uninhabited eye-level scenic splash illustration standing inside the shattered volcanic sanctuary court directly before Portal #8, The Eclipse Gate, beneath Black Keep's towering obsidian battlements at total eclipse twilight. Broad, calm, deeply shadowed dark obsidian courtyard flags and low tiered black stone stairs fill the lower foreground cleanly.
+
+BLACKENED-SILVER ECLIPSE ARCH & SHADOWFELL VORTEX (CENTER FOCAL POINT): Dominating the center atop monumental obsidian steps rises a colossal blackened-silver and jagged volcanic-basalt royal temple gateway, featuring twin towering carved eclipse pillars, burning iron floor braziers throwing wild amber-crimson reflections, and glowing interlocking wolf-crest ward runes sealing its massive lintel. Blazing intensely within the grand archway doorway churns a haunting vortex of pitch-violet shadowfire and pale ghostly blue-white eclipse light revealing dead Shadowfell throne spires beyond.
+
+VOLCANIC BASALT WALLS & ECLIPSE SKY (LEFT & RIGHT): Jagged charred obsidian cathedral buttresses and shattered royal stone banners loom tightly on left and right beneath a towering dark indigo sky crowned by a sinister pale-rimmed black solar eclipse overhead.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 2 — DEFEATED / SEALED PORTAL MONUMENTS (8 Matched Scenes · Wave 2)
+# IMPORTANT WORKFLOW: Submit Wave 2 ONLY AFTER Stage 1 [01–08] are approved.
+# Attach EACH corresponding Wave 1 image (`assets/maps/portals/<portal_id>.jpg`)
+# as the image-to-image / reference input for its matching prompt below!
+================================================================================
+
+--------------------------------------------------------------------------------
+[09] ID: loc_05_the_ashen_gate_sealed | Portal #1: The Ashen Gate (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_05_the_ashen_gate_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_05_the_ashen_gate.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, STEPS & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shaded basalt step foreground, surrounding Crownlands cliffs, burnt oaks, iron braziers, and carved basalt archway silhouette from the attached reference image of The Ashen Gate, transforming ONLY its post-victory state into a calm defeated and sealed monument. Completely extinguish the fiery orange-crimson dimensional portal vortex inside the stone archway so the doorway frames only dark, silent, empty shadowed stone and clear calm distant sky behind the arch. Leave the flanking iron braziers cold, blackened, and unlit with faint gray ash instead of flames, dim and crack the glowing arcane ward seals into dead gray stone carvings, and clear the raging stormy dusk sky into peaceful golden-hour sunset clouds and calm clear Crownlands air.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[10] ID: loc_10_the_sunken_maw_sealed | Portal #2: The Sunken Maw (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_10_the_sunken_maw_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_10_the_sunken_maw.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, PIER & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shadowed wet coastal pier foreground, surrounding sea rocks, marsh cypress pilings, and barnacle-crusted tidal archway silhouette from the attached reference image of The Sunken Maw, transforming ONLY its post-victory state into a calm defeated and sealed monument. Completely extinguish the glowing abyssal-teal and sapphire portal vortex inside the archway so the stone opening reveals only quiet dark shadowed emptiness and serene coastal horizon air through the arch. Dim all glowing teal ward runes into weathered lifeless stone carvings, calm the foreground tidal pools into mirror-still golden sunset water, and lift the threatening storm-dusk clouds into peaceful warm golden-amber and cool cobalt coastal evening skies.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[11] ID: loc_15_the_iron_rift_sealed | Portal #3: The Iron Rift (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_15_the_iron_rift_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_15_the_iron_rift.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, TERRACE & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shaded slate flagstone foreground, surrounding Thornwall gray-slate crags, chains, and riveted forged-iron war-archway geometry from the attached reference image of The Iron Rift, transforming ONLY its post-victory state into a calm defeated and sealed monument. Completely extinguish the molten bronze and blood-red dimensional veil inside the iron pillars so the archway doorway frames only empty dark cool shadow and quiet slate highland crags behind it. Leave the war-braziers cold and unlit, turn all crimson lock-runes into dull unlit dark iron engravings, and clear the brooding fiery sky into serene sunlit amber-and-indigo highland twilight.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[12] ID: loc_20_the_rotspire_sealed | Portal #4: The Rotspire (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_20_the_rotspire_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_20_the_rotspire.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, ROOTS & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shadowed mossy stone step foreground, surrounding ancient forest trunks, gnarled root geometry, and carved stone archway silhouette from the attached reference image of The Rotspire, transforming ONLY its post-victory state into a peaceful healed and sealed monument. Completely extinguish the virulent green-and-violet spore vortex inside the stone arch so the doorway opens cleanly onto calm dark shadowed woods beyond. Remove eerie glowing spore light from the surrounding shelf fungi and elder runes, weave small crisp white woodland blossoms into the ivy and moss clinging to the stone steps, and let warm peaceful golden forest sunbeams filter cleanly down through rich emerald Verdant Weald leaves.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[13] ID: loc_25_the_scorched_chasm_sealed | Portal #5: The Scorched Chasm (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_25_the_scorched_chasm_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_25_the_scorched_chasm.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, STEPS & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shaded honey-sandstone steps foreground, surrounding sandstone mesas, brass fire-bowls, and fluted desert temple archway silhouette from the attached reference image of The Scorched Chasm, transforming ONLY its post-victory state into a calm defeated and sealed monument. Completely extinguish the blazing brass-flame and incandescent amber vortex inside the arch doorway so it frames only quiet deep shaded sandstone void and calm evening desert air. Leave the flanking brass fire-bowls unlit and cold, fade all glowing seal glyphs on the lintel into silent carved stone, and replace the searing fiery distortion with peaceful warm golden-sandstone twilight light.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[14] ID: loc_30_storm_crowned_spire_sealed | Portal #6: The Storm-Crowned Spire (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_30_storm_crowned_spire_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_30_storm_crowned_spire.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, TERRACE & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shadowed gray granite terrace foreground, surrounding barren alpine crags, copper lightning rods, and carved granite arch geometry from the attached reference image of The Storm-Crowned Spire, transforming ONLY its post-victory state into a calm defeated and sealed monument. Completely extinguish the howling storm-blue and electric-gold lightning vortex inside the arch so the granite doorway frames only empty cool dark shadow and clear peaceful mountain sky beyond. Turn all glowing electric ward runes dull and lifeless on the stone jambs, still the crackling bolts in the air, and clear the towering thunderheads into crisp clear high-altitude golden-and-cobalt Ironcrest evening air.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[15] ID: loc_35_the_pale_abyss_sealed | Portal #7: The Pale Abyss (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_35_the_pale_abyss_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_35_the_pale_abyss.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, STAIRS & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shadowed snow-edged basalt step foreground, surrounding glacier bluffs, snowy pine silhouettes, chains, and frost-rimmed basalt arch geometry from the attached reference image of The Pale Abyss, transforming ONLY its post-victory state into a calm defeated and sealed monument. Completely extinguish the swirling cold blood-crimson and abyssal-violet dimensional vortex inside the stone arch so the doorway stands empty, silent, and cold over dark quiet stone shadow. Extinguish the burning crimson ward sigils into dark frost-coated carved basalt and bronze, and soften the oppressive winter abyss twilight into peaceful crystal-clear arctic indigo dusk with gentle golden rim light on the glacial ridges.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[16] ID: loc_39_the_eclipse_gate_sealed | Portal #8: The Eclipse Gate (Defeated / Sealed)
+# SAVE AS: assets/maps/portals/loc_39_the_eclipse_gate_sealed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/portals/loc_39_the_eclipse_gate.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED SCENE VARIATION (KEEP EXACT ARCHITECTURE, CAMERA ANGLE, STEPS & COMPOSITION OF REFERENCE IMAGE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, camera framing, lower shadowed obsidian step foreground, surrounding shattered basalt cathedral buttresses, iron braziers, and colossal blackened-silver royal gateway geometry from the attached reference image of The Eclipse Gate, transforming ONLY its post-victory state into a quiet sealed monument after King Garrick's fall. Completely extinguish the churning pitch-violet and pale blue-white Shadowfell vortex inside the royal gateway so the tall archway frames only quiet empty twilight darkness and unbroken stone steps. Leave the floor braziers cold and dark with fading embers, dim the glowing interlocking wolf-crest runes into peaceful weathered silver stone, and break the dark black solar eclipse overhead into calm clearing golden-violet dawn rays piercing the dark Dreadwaste clouds.
+--- COPY-PASTE PROMPT END ---

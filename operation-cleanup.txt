@@ -1,0 +1,370 @@
+================================================================================
+OPERATION CLEANUP — ROD AUDIT OUTLINE & TOPIC-BY-TOPIC PLANNER
+================================================================================
+Status: DRAFT OUTLINE (Under Creative Director Review)
+Rule: Discuss topics one at a time. Update this file as decisions are made.
+      No code or data edits occur until final phase-by-phase approval.
+Live Client Preview: http://127.0.0.1:8766/
+
+--------------------------------------------------------------------------------
+0. MIGRATION AUDIT BASELINE (WHAT SUCCEEDED)
+--------------------------------------------------------------------------------
+- Data Extraction Completeness: ZERO truncation across migrated JSON catalogs.
+- Parity: All 16 shared runtime JSON files in data/ and client/assets/data/
+  match byte-for-byte (generated-quest-markers.json stays in data/ only).
+- Runtime Asset Compliance: client/assets/ holds only .webp, .ogg, and .json
+  runtime files (no bloated raw PNG/JPG masters).
+- Catalog Coverage Verified:
+  * 6 heroes, attributes, progression, opening cutscene (heroes-catalog.json)
+  * 13 weapon categories + Unarmed (14 modes) & 7 town shop types (gear-rules-catalog.json)
+  * 4 Runestone rarities, 12 weapon prefixes, 10 armor prefixes, 12 suffixes (runestone-affixes.json)
+  * 20 hunt zones, 8 region profiles, 120 mob lore entries (outpost-hunts-catalog.json)
+  * 49 audio asset links & 11 tavern ballads — zero missing/unused files (audio-catalog.json)
+  * 128 monsters (120 mobs + 8 Portal bosses) & 41 battle stages (battle-config.json)
+  * 236 VFX entries (vfx-effects.json) and 178 quests (quests-catalog.json)
+- Automated Checks Passed (exit code 0):
+  * Client TypeScript check
+  * Economy simulator (--hunts 1)
+  * Zone 1 combat simulator (50 runs)
+
+================================================================================
+SECTION A: MIGRATION BUGS & WIRING ERRORS
+================================================================================
+
+[A1] Overworld Portals Unclickable, Sealed Monument State & Catalysts
+- Status: DECIDED (Prompts Approved · Wave 1 In Progress · Docs Update Noted)
+- Target Phase: TBD (Art Batch + Overworld/Dungeon Wiring + Docs Sync)
+- Discovery:
+  * Overworld map logic (client/src/ui/components/OverworldCanvas.tsx) checks
+    for category === "portal", whereas data/world-locations.json marks all 8
+    Portals as category === "permanent" with isPortal: true (0 matches).
+  * Sealed Portals currently do not swap to a defeated monument view.
+  * Entering a Portal does not yet open a 16:9 threshold screen or check for
+    the Portal Catalyst quest item.
+- Approved Design:
+  * Stepping onto/clicking any Portal on the Overworld opens a 16:9 Portal
+    Threshold screen (never jumping straight to a flat battle popup).
+  * Before earning the Portal Catalyst: shows the scary Active/Warded Portal
+    16:9 scene, names the Portal & realm, displays the exact required
+    Catalyst item and where to earn it, and offers a Step Back exit.
+  * Once carrying the Catalyst: unlocks "Unseal & Enter" on that screen to
+    launch the Portal's 1:1 procedural Zelda-style dungeon culminating in its
+    Apex Boss.
+  * After defeating the Boss: Portal does NOT disappear from the Overworld!
+    Players can return to visit it to see their world accomplishments: it
+    opens the matched Sealed/Defeated 16:9 Portal Monument screen (and can
+    use the Closed Portal Overworld marker from Sheet 6).
+  * Docs Sync Note: docs/01, docs/02, docs/04, docs/08 & AGENTS.md updated for
+    16:9 Thresholds + persistent Sealed Portal Monuments (Wave 1/2 tracked).
+  * Prompts staged in imageprompts/portal-interiors.txt and approved by CD.
+  * Wave 1 Batch Completed (8/8 Active Portal Thresholds saved to
+    assets/maps/portals/ & approved): batches/r8dsojbv7jtovxlp01jbo1k5afjzbka9pl0n.
+  * Wave 2 Batch Completed (ALL 8/8 Defeated/Sealed matched variations saved
+    to assets/maps/portals/ & approved): batches/7e3ibamta7vh8eltdm5bzoml8jwnvinkcg48.
+
+[A2] Quest Journal & World Atlas Count 12 Portals Instead of 8
+- Status: FIXED & VERIFIED (Client Built Cleanly)
+- Target Phase: Completed Now (Quick Fix)
+- Fix Applied:
+  * client/src/ui/party/QuestAtlasTabs.tsx now filters Main Portals and
+    World Atlas Portal pins strictly by isPortal (8 Portals matching 0/8),
+    while Bestiary keeps all 12 boss entries (8 Portals + 4 Keeps).
+  * Note: Same admin/party/main.js filter remains logged under [B3].
+
+[A3] Sea-Port Locks, Coastal Hub "Ship Port" Tags, Ferries & Closed/Open Screens
+- Status: DECIDED (9/9 Art Downloaded Awaiting CD Check · Code Wiring Pending Plan)
+- Target Phase: TBD (Convert/Export .webp + Overworld/Harbor Wiring)
+- Discovery:
+  * Harbor travel (client/src/ui/components/LocationInteriorModal.tsx) only
+    checks the starting continent's Portal lock, so clearing Portal #2 on Map 1
+    opens voyages directly to Maps 3 and 4, bypassing Portals #4 and #6.
+  * Three non-Port coastal hubs (Saltwind Harbor, Port Veridia, Rimeport) still
+    include "Ship Port" in playerServices (data/world-locations.json).
+  * All 16 travel markers (4 Sea-Ports + duplicates, 4 Ferries, 4 Mountain
+    Pass Gates) currently have placed: false (Map 2 has 0 Ferry entries).
+- Approved Design:
+  * User will place Ferries/Ports for the maps that need them in Admin
+    (existing pier-to-pier Ferry crossing code stays intact when Open).
+  * Lock Sea-Port progression step-by-step (Portal #2 -> Map 2, Portal #4 ->
+    Map 3, Portal #6 -> Map 4; return trips always open).
+  * Remove "Ship Port" from Saltwind Harbor, Port Veridia, and Rimeport.
+  * Closed vs Open 16:9 Travel Visuals (9 prompts staged in
+    imageprompts/water-travel-interiors.txt; 8/9 [4 Open Ship Harbors + 4
+    Closed Ferries] approved; Pass Gate full-door re-roll downloaded via
+    batches/yroy6z4pub8o99eguv1zzzqfsc11wx31472d awaiting CD check):
+    - Existing 4 ship-less Sea-Port scenes (tr_port_map01..04) serve as the
+      CLOSED harbor state (empty docks, "Captains refuse open-sea voyages
+      until that map's 2nd Portal is completed").
+    - Generate 4 matched OPEN Active Sea-Port variants (using tr_port_map01..04
+      as direct references to add tall moored wooden sailing ships & warm
+      dock lanterns at the piers — strictly uninhabited with ZERO people/crew)
+      -> opens Sea Travel Menu (Arctic return-capable on Map 4).
+    - Generate 4 CLOSED Ferry Pier scenes (Maps 1-4) and 1 CLOSED Border
+      Mountain Pass Gate scene (Map 4): shown when locked ("too scared /
+      blocked until that map's 1st Portal is completed"). When Open, Ferries
+      and Pass port directly across with zero menu (+ play boat_sailing.ogg).
+
+[A4] Zones 8 & 18 Wrong Region Assignments & Outdated Region Names
+- Status: FIXED & VERIFIED
+- Target Phase: Completed Now (Quick Fix)
+- Discovery:
+  * data/travel-catalog.json used older draft Region names on Quest cards.
+  * admin/simulator/main.js assigned Zones 8 & 18 to Regions 4 & 8 instead
+    of Regions 3 & 7 (note: outpost-hunts-catalog.json frontier biome
+    flavors "weald"/"dreadwaste" on Fernbrook & Ashen Ridge match docs/04).
+- Fix Applied:
+  * Updated data/travel-catalog.json (synced to client/assets/data/) to the
+    8 locked Region names (The Crownlands, Saltmarsh Coast, Thornwall
+    Warfronts, The Verdant Weald, Sun-Scorched Isles, Ironcrest Highlands,
+    Frostbound Reach, The Dreadwaste).
+  * Fixed zoneRegionNum in admin/simulator/main.js for Zones 8 (R3) & 18 (R7).
+
+[A5] Enemy Trade Good Drops Mismatched (109 of 128 Monsters)
+- Status: FIXED & VERIFIED (All 128 Monsters Now Matched 1-to-1)
+- Target Phase: Completed Now (Quick Fix; docs/07 sync remains with [C2])
+- Discovery:
+  * 109 of 128 monsters in data/battle-config.json pointed to another
+    creature's Trade Good in data/items-catalog.json, including 7 Zone 13
+    (Lv 63-65) enemies pointing to Region 6 drops.
+- Fix Applied:
+  * Aligned data/items-catalog.json and data/battle-config.json (synced to
+    client/assets/data/) so all 128 battle monsters now drop their own named
+    Trade Good at their proper Region Silver value using visually fitting
+    .webp icons (zero Zone 1-8 price spikes, zero Pirate/Bug misfits).
+
+[A6] Misfiled Boss #6 Effects, Missing Test Sheet & Missing Combat Effect Keys
+- Status: FIXED & VERIFIED (Client Built Cleanly)
+- Target Phase: Completed Now (Quick Fix)
+- Fix Applied:
+  * Re-filed Boss #6 Storm Dragon moves (Lightning Breath, Gale Wing-Sweep,
+    Skyward Ascent, Dragon Rend) under boss_6_the_ancient_storm_dragon in
+    data/vfx-effects.json (synced to client).
+  * Repointed placeholderSheets to real .webp VFX frames and cleared the 4
+    deleted test-PNG customSheet links.
+  * Fixed BattleOverlay.tsx to use real arrow_volley / arrow_single and
+    lightning keys instead of missing piercing_arrow / lightning_single.
+
+[A7] Multi-Target Spells (2-3 Enemies), Phoenix Draught & Spell-Cap Text
+- Status: FIXED & VERIFIED
+- Target Phase: Completed Now (Quick Fix)
+- Discovery:
+  * 8 spells meant for 2 or 3 enemies (Chain Spark, Rime Curtain, Purifying
+    Halo, Gale Gust, Wildfire Burst, Razor Vines, Venom Mist, Rot-Cloud
+    Catalyst) only target 1 enemy in client/src/ui/battle/battleLogic.ts because
+    target parsing checks only for "all" or "party".
+  * Phoenix Draught forces fallen-ally targeting (blocking living-ally heal)
+    and revives at 45% HP instead of 75% HP + Ward (BattleOverlay.tsx).
+  * Reviving Tincture revived at 45% HP instead of its listed 35% HP.
+  * Arcane Conduit restored MP and empowered unconditionally without clear
+    Self vs Companion targeting guidance.
+  * Arcanist spell-cap toast reads "/3" instead of "/2" (client/src/ui/App.tsx).
+- Fix Applied:
+  * Added multi-enemy target parsing (maxEnemyTargets) + hover preview and
+    execution in battleLogic.ts / BattleOverlay.tsx for "2 Enemies" and
+    "Up to 3 Enemies" spells (plus Purifying Halo party ailment cleanse).
+  * Added "any_ally" targeting and parsed revive percentages/Ward shields so
+    Phoenix Draught targets living allies (full heal + Ward) or fallen allies
+    (revive at 75% HP + Ward), and Reviving Tincture revives at 35% HP.
+  * Updated Arcane Conduit so targeting Self empowers next spell (+35% damage,
+    +1 Guard break) while targeting a magic-using companion restores their MP
+    (falling back cleanly to empower if targeting a non-MP companion).
+  * Updated client/src/ui/App.tsx toast to use MAX_SPELLS_PER_REGION (/2).
+  * Fixed whole-word "all" target parsing in battleLogic.ts, BattleOverlay.tsx,
+    and admin/battles/main.js so "1 Ally" monster attacks and "1 Ally" /
+    "2 Allies" hero spells no longer misfire as full-party AoE.
+  * Updated procedural small-mob encounter counts in battleLogic.ts from
+    locked 3-5 swarms to varied 1-4 packs in Zone 1 and 1-5 packs afterward.
+  * Verified with npm --prefix client run build (exit code 0).
+
+[A8] Fail-Loud Data Loading, Explicit 0 Defense & Continue-Save Hunt Scale Sync
+- Status: FIXED & VERIFIED
+- Target Phase: Completed Now (Quick Fix)
+- Discovery:
+  * Core and world catalog loaders (coreCatalogs.ts / App.tsx) quietly
+    swallowed missing/corrupt JSON files as null or empty arrays instead of
+    failing loudly with the broken filename; skipped adding silent shop/battle
+    fallbacks per Creative Director rule ("let broken data break loudly").
+  * Out-of-zone monster defense check discards explicit JSON pDef/mDef when
+    either value is 0 or outside the creature's native zone.
+  * Continuing a save runs outpost hunt scaling with stale unloaded battle
+    config on the first pass (App.tsx enterWorld).
+- Fix Applied:
+  * Guarded current.text.length in OpeningCutsceneModal.tsx so React never
+    crashes on boot before heroes-catalog.json finishes loading.
+  * Added fetchRequiredJson in coreCatalogs.ts and removed silent catch/null
+    handling in App.tsx loadWorldAssets + boot loader so any missing or corrupt
+    JSON catalog throws immediately and shows a visible load-error screen naming
+    the broken file.
+  * Updated instantiateEnemyUnit in battleLogic.ts to preserve explicit 0
+    physical/magic defenses and scale custom defenses proportionally outside a
+    monster's home zone (while keeping boss defenses exact).
+  * Updated App.tsx loadWorldAssets -> enterWorld to return and apply freshly
+    loaded battleConfig directly when normalizing Continue-save outpost hunts.
+  * Verified with npm --prefix client run build (exit code 0).
+
+[A9] Runestone Text-Parsing & Stat-Scaling Bugs
+- Status: FIXED & VERIFIED
+- Target Phase: Completed Now (Quick Fix)
+- Discovery:
+  * client/src/ui/battle/combatEffects.ts pulls low-end single numbers instead
+    of tier-scaled ranges on several affixes, puts Dodge % into Accuracy for
+    "of Alacrity" (and Crit % into Accuracy for "of Precision"), hardcodes fixed
+    numbers for Venomous/Sanctified/Vanguard's, double-counts Phantom's Dodge,
+    and tracks Guard-Break % ("of Might") without applying it in battleLogic.ts.
+  * client/src/ui/party/partyLogic.ts misses Presence on "of Wisdom"
+    ("+X Arcana & Presence") and ignored Runestone tier on flat stat ranges.
+  * data/heroes-catalog.json uses slightly different Runestone Force/Presence
+    rates (1.6 / 1.2) than base Force/Presence scaling (1.5 / 1.5).
+- Fix Applied:
+  * Added shared getRunestoneTierRatio + range-aware regex parsing in
+    combatEffects.ts & partyLogic.ts across all 32 Runestone prefixes/suffixes.
+  * Fixed Venomous (10%-18%), Sanctified (3%-6% expire heal), Vanguard's
+    (4-10 MP), of Alacrity & of Precision Accuracy parsing, removed Phantom's
+    duplicate Dodge addition, and wired extraGuardPct ("of Might") in
+    battleLogic.ts Guard-break calculation.
+  * Updated parseRunestoneStatBonuses in partyLogic.ts to accept tier and parse
+    "Arcana & Presence" cleanly onto both attributes.
+  * Unified runestoneAttrScaling (forceAtk 1.5, presenceHeal 1.5) in
+    data/heroes-catalog.json, client/assets/data/heroes-catalog.json, heroes.ts,
+    and partyLogic.ts.
+  * Verified with npm --prefix client run build (exit code 0) & JSON parity.
+
+================================================================================
+SECTION B: ADMIN TOOLS & LEFTOVER HARDCODED TABLES
+================================================================================
+
+[B1] Admin Battle Tester Out of Sync (admin/battles/main.js)
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * Hardcodes HERO_BASE with arbitrary test HP/MP/stats and 5 starter weapon
+    IDs that do not exist in data/items-catalog.json.
+  * Uses different spell damage math (1.15 + step*0.12) and old /repo-assets/
+    VFX image URLs.
+
+[B2] Simulators Still Hardcoding Game Tables
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * admin/simulator/main.js hardcodes region profiles (with Zones 8 & 18 wrong),
+    portal metadata, backdrops, and potion IDs.
+  * tools/simulate_combat.mjs still hardcodes status buff tables, weapon speed
+    fallbacks, hero stat math, and regex enemy-move guessing instead of using
+    battle-config.json actions.
+  * Multi-enemy damage scaling (1.15 / 1.0 / 0.88 / 0.78 / 0.7) exists only in
+    client/src/ui/battle/battleLogic.ts (not in data/battle-config.json).
+
+[B3] Other Admin Suites Out of Sync With New JSON Catalogs
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * admin/catalog.html still shows "All 101 Markers" / Sheets 1-7 instead of
+    all 271 markers and Location A-D / Quest A-H sheets.
+  * admin/party/main.js labels Hunts as granting "Potions", calls the tab
+    "World Atlas" instead of "World Map", and sockets a non-existent Runestone.
+  * admin/shops/src/ defaults party to Rowan instead of Harlan, lacks the
+    Arcanist "Disciplines (Lv 1-90)" pill, and lacks Unarmed weapon modes.
+  * admin/combat-test/main.js unlocks all spells up to tier instead of 2/tier.
+  * admin/vfx-test/index.html still points to /repo-assets/ and .png hero files.
+
+[B4] Remaining Client Hardcoded Tables & Legacy Unused Fields
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * All 120 Discipline perks live in a switch block in combatEffects.ts (all
+    120 IDs currently match data/disciplines-catalog.json).
+  * TavernView.tsx hardcodes patron/hero dialogue, swaps Highcrown defender
+    names, and injects Corinne Bellamy + a duplicate Torvald Frost-Voice in
+    Rimeport (already in npcs-catalog.json).
+  * LocationInteriorModal.tsx retains legacy overview headings ("Armory &
+    Provisions", "Apothecary & Caster Goods") and fallback harbor shop tiers.
+  * OverworldCanvas.tsx draws faction emblems in canvas code instead of using
+    rendered banner assets.
+  * Unused starterWeaponSubType/starterShield/starterAccessory fields in
+    heroes-catalog.json and unused buildStarterEquipment helper in shopLogic.ts.
+
+================================================================================
+SECTION C: DESIGN DOC (docs/01-09) MISMATCHES & UNWIRED FEATURES
+================================================================================
+
+[C1] Portal Bosses & Enemy Combat Mechanics vs docs/07
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * Portals #1, #2, and #4 in battle-config.json use Earth Elemental, Otyugh,
+    and Aboleth instead of docs/07 & world-locations.json bosses (Ashen Iron
+    Golem, Abyssal Aboleth, Elder Blight-Treant).
+  * Portal #3 (Fire Giant) lacks its 2 Giant-kin guards & Warlord's Banner;
+    Portals #5-#7 have resistance/move omissions vs docs/07.
+  * Portal #8 (King Garrick) is single-phase (72,000 HP) instead of 2 phases
+    (~90,000 HP + Risen Vanguard summons & Phase 2 transition) and has no
+    dedicated Eclipse Gate stage (uses Charred Ash Plains).
+  * Monsters/bosses apply status effects (243/266 actions), but 0 have enemy
+    heals/regens, buffs, summons, counters, or elemental immunities.
+
+[C2] Non-Boss Bestiary Roster Alignment vs docs/07
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * battle-config.json kept the 120 creature list from monsters.txt (including
+    45 humanoids, extra dragons, and golems not in docs/07 tables), leaving out
+    53 creatures from docs/07 (4 Ethoria wildlife + 49 Portal creatures, 3 of
+    which only exist as bosses).
+
+[C3] Combat Formulas, Stat Scaling, Caps & Class Resolve vs docs/03 & docs/05
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * Force, Arcana, and Presence add flat points instead of percentage
+    multipliers + Level scaling; Finesse Accuracy/Piercing and Presence
+    Aura/Shadow Resist sub-effects are not implemented.
+  * Dodge/Crit caps use 45% in menus (75% Crit cap in battle) vs docs/03 35%.
+  * Resolve (<=50% / <=25% HP) uses generic shared party multipliers rather
+    than each hero's class-specific docs/05 numbers (Valen counter, Orin
+    intercept, and Ellowyn MP cut exist, though Ellowyn triggers at 50% too).
+  * Shock doesn't burst on shocked heroes; Poison doesn't weaken poisoned
+    monsters' physical attacks unless Harlan's aura is active.
+
+[C4] Weapon Modes, Tailor Shield Filter & Runestone Drop Wiring vs docs/05 & 06
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * 6 weapon modes in gear-rules-catalog.json differ slightly from docs/05/06
+    (Rapier/Shortbow/Dagger/Scimitar/Battleaxe crit bonuses; Shortbow Wing Clip
+    applies Blind only instead of Attack + Accuracy).
+  * Tailor shop pills in Villages lack a "Shields" filter pill.
+  * data/items-catalog.json has 0 Runestones and client/src/ does not yet roll
+    or drop Runestone prefixes/suffixes from data/runestone-affixes.json.
+
+[C5] Taverns, Sailing Audio, Quests, Hub Raids, Bestiary & HUD Rules (docs/04,08,09)
+- Status: PENDING DISCUSSION
+- Target Phase: TBD
+- Discovery:
+  * Taverns advertise "Free full party rest at the hearth" but hide the
+    Innkeeper and have no Free Rest button (TavernView.tsx).
+  * Ferry crossings mute movement audio instead of playing boat_sailing.ogg.
+  * Wilderness quest pins ("quest_active_only"), Hub Dungeon/Raid launches,
+    quest turn-ins, and full Bestiary tracking (beyond 12 bosses) are not
+    wired yet.
+  * Outpost & Quest screens still display Zone numbers and level ranges
+    (correctly hidden on the main Overworld HUD).
+  * data/vfx-effects.json hero skill tiers still label old 12-level bands
+    ("Lv 49-60") instead of 20-zone bands.
+
+================================================================================
+SECTION D: DEFERRED TASK 2 (SEPARATE TRACK AFTER CLEANUP REVIEW)
+================================================================================
+
+[D1] Combat Logs, Zone 1 Drop Rates vs Potion Costs & Mera Survivability
+- Status: QUEUED FOR DISCUSSION (Task 2)
+- Notes: Revisit combat logs and early-game survival/economy tuning from
+  previous session once Operation Cleanup topics are aligned.
+
+================================================================================
+SECTION E: PHASE-BY-PHASE EXECUTION PLAN
+================================================================================
+[TO BE PLANNED AFTER ALL TOPICS ARE REVIEWED AND APPROVED]
+Phase 1: TBD
+Phase 2: TBD
+Phase 3: TBD
+Phase 4: TBD

@@ -16,11 +16,13 @@ import type {
   QuestEntry,
   ShopType,
   SpellEntry,
+  TravelCatalog,
   WorldLocation,
 } from "../types";
 import { ShopCounterPanel, type BuyConfirmChoice } from "../shops/ShopCounterPanel";
 import { TradeGoodsCounter } from "../shops/TradeGoodsCounter";
-import { formatOutpostRewardLine, rollOutpostHuntOffer } from "../quests/outpostHunts";
+import { formatOutpostRewardLine, pluralizeMonsterName } from "../quests/outpostHunts";
+import { buildQuartermasterHuntDialogue, resolveOutpostHuntLore } from "../quests/outpostHuntLore";
 import { QuestCardThumb } from "./QuestCardThumb";
 import { TavernView } from "./TavernView";
 
@@ -45,6 +47,7 @@ interface LocationInteriorModalProps {
   location: WorldLocation | null;
   parentLocation?: WorldLocation | null;
   worldLocations?: WorldLocation[];
+  travelCatalog?: TravelCatalog | null;
   sealedPortalIds?: string[];
   npcsByLocation: Record<string, NpcLocationGroup>;
   questsByKey: Record<string, QuestEntry>;
@@ -54,6 +57,7 @@ interface LocationInteriorModalProps {
   acceptedQuestIds: string[];
   completedQuestIds?: string[];
   activeOutpostHunts?: ActiveOutpostHunt[];
+  outpostOffer?: ActiveOutpostHunt | null;
   battleConfig?: BattleConfigData | null;
   silver: number;
   items: ItemEntry[];
@@ -197,7 +201,7 @@ function buildNpcDialogue(npc: NpcEntry, role: string, locName: string, quest: Q
   if (r.includes("steward")) {
     return `${locName} stands calmer now that loyal watchmen walk these arches again. Rest as long as your company needs and take whatever comfort the garrison holds.`;
   }
-  return `Keep close watch once you step back past ${locName}'s walls—between turncoats on the roads and strange beasts near the wilds, every mile earns its toll.`;
+  return `Keep close watch once you step back past ${locName}'s walls—between bandits on the roads and wild monsters prowling the outlands, every mile earns its toll.`;
 }
 
 export function buildKeepMeta(highcrown: WorldLocation | null): WorldLocation {
@@ -368,23 +372,11 @@ function inferNpcServiceId(role: string): Exclude<ServicePanelSpec["id"], "keep"
   return null;
 }
 
-const PORT_ROUTES: Array<{ id: string; title: string; realm: string; mapId: string; order: number }> = [
-  { id: "tr_port_map01_royal_trade", title: "Royal Trade Port Town", realm: "The Crownlands", mapId: "map_01", order: 1 },
-  { id: "tr_port_map02_highland_cove", title: "Highland Cove Port Town", realm: "Thornwall Warfronts", mapId: "map_02", order: 2 },
-  { id: "tr_port_map03_desert_harbor", title: "Desert Harbor Port Town", realm: "Sun-Scorched Isles", mapId: "map_03", order: 3 },
-  { id: "tr_port_map04_arctic_seaport", title: "Arctic Sea-Port Town", realm: "Frostbound Reach", mapId: "map_04", order: 4 },
-];
-
-const OUTBOUND_PORTAL_GATE: Record<string, { portalId: string; portalName: string }> = {
-  map_01: { portalId: "loc_10_the_sunken_maw", portalName: "The Sunken Maw" },
-  map_02: { portalId: "loc_20_the_rotspire", portalName: "The Rotspire" },
-  map_03: { portalId: "loc_30_storm_crowned_spire", portalName: "The Storm-Crowned Spire" },
-};
-
 export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   location,
   parentLocation = null,
   worldLocations = [],
+  travelCatalog = null,
   sealedPortalIds = [],
   npcsByLocation,
   questsByKey,
@@ -394,6 +386,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   acceptedQuestIds,
   completedQuestIds = [],
   activeOutpostHunts = [],
+  outpostOffer = null,
   battleConfig = null,
   silver,
   items,
@@ -423,20 +416,9 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   const [openShopNpcId, setOpenShopNpcId] = useState<string | null>(null);
   const [harborShopMode, setHarborShopMode] = useState<"trade_goods" | "arcanist" | null>(null);
   const [showLore, setShowLore] = useState(false);
-  const [outpostOffersById, setOutpostOffersById] = useState<Record<string, ActiveOutpostHunt>>({});
 
   const isTavern = isTavernLocationId(location?.id);
   const isOutpostLocation = Boolean(location?.id.startsWith("outpost_"));
-
-  useEffect(() => {
-    if (!location || !isOutpostLocation || !battleConfig) return;
-    setOutpostOffersById((prev) => {
-      if (prev[location.id]) return prev;
-      const rolled = rollOutpostHuntOffer(location, battleConfig);
-      if (!rolled) return prev;
-      return { ...prev, [location.id]: rolled };
-    });
-  }, [location, isOutpostLocation, battleConfig]);
 
   const resolvedNpcs = useMemo<ResolvedNpc[]>(() => {
     if (!location || isTavern) return [];
@@ -577,22 +559,27 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   const activeOutpostHunt = isOutpostLocation
     ? activeOutpostHunts.find((h) => h.outpostId === location.id) ?? null
     : null;
-  const currentOutpostOffer = isOutpostLocation ? outpostOffersById[location.id] ?? null : null;
-  const displayedOutpostHunt = activeOutpostHunt ?? currentOutpostOffer;
+  const displayedOutpostHunt = activeOutpostHunt ?? outpostOffer;
   const isQuartermasterSelected = Boolean(
     isOutpostLocation && selectedNpc && selectedNpc.id.endsWith("_quartermaster")
   );
   const huntReadyToClaim = Boolean(
     activeOutpostHunt && activeOutpostHunt.killsProgress >= activeOutpostHunt.killsRequired
   );
-
-  const rerollOutpostOffer = () => {
-    if (!battleConfig) return;
-    const next = rollOutpostHuntOffer(location, battleConfig, currentOutpostOffer?.mobId);
-    if (!next) return;
-    audioEngine.playUiClick(0.35);
-    setOutpostOffersById((prev) => ({ ...prev, [location.id]: next }));
-  };
+  const outpostLore = displayedOutpostHunt
+    ? resolveOutpostHuntLore(
+        displayedOutpostHunt.mobId,
+        displayedOutpostHunt.mobName,
+        location.name,
+        displayedOutpostHunt.zoneNum,
+        displayedOutpostHunt.biomeHints
+      )
+    : null;
+  const displayedNpcDialogue =
+    isQuartermasterSelected && displayedOutpostHunt
+      ? buildQuartermasterHuntDialogue(displayedOutpostHunt, Boolean(activeOutpostHunt), huntReadyToClaim)
+      : selectedNpc?.dialogue ?? "";
+  void battleConfig;
 
   const stewardSvcId = selectedNpc && !selectedNpc.quest ? inferNpcServiceId(selectedNpc.displayRole) : null;
   const matchedStewardService = stewardSvcId ? hubServices.find((s) => s.id === stewardSvcId) ?? null : null;
@@ -897,10 +884,20 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                     <div
                       className={[
                         "text-[11.5px] leading-snug mt-0.5 line-clamp-2",
-                        npc.shopType ? "text-[#f2d084] font-semibold" : hasQuest ? "text-[#edd08b]" : "text-[#9caac0]",
+                        npc.shopType
+                          ? "text-[#f2d084] font-semibold"
+                          : hasQuest || (isOutpostLocation && npc.id.endsWith("_quartermaster") && outpostLore)
+                            ? "text-[#edd08b]"
+                            : "text-[#9caac0]",
                       ].join(" ")}
                     >
-                      {npc.shopLabel ? `${npc.shopLabel}${npc.quest ? ` · ${npc.quest.title}` : ""}` : npc.quest ? npc.quest.title : npc.displayRole}
+                      {npc.shopLabel
+                        ? `${npc.shopLabel}${npc.quest ? ` · ${npc.quest.title}` : ""}`
+                        : npc.quest
+                          ? npc.quest.title
+                          : isOutpostLocation && npc.id.endsWith("_quartermaster") && outpostLore
+                            ? outpostLore.contractTitle
+                            : npc.displayRole}
                     </div>
                   </div>
                 </button>
@@ -1085,15 +1082,18 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
 
                         {activeService.id === "port" ? (
                           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                            {PORT_ROUTES.filter((r) => r.mapId !== location.mapId).map((route) => {
-                              const destLoc =
-                                worldLocations.find((w) => w.id === route.id && w.placed && w.x !== null && w.y !== null) ??
-                                worldLocations.find((w) => w.id === `${route.id}_south` && w.placed && w.x !== null && w.y !== null);
-                              const curOrder = PORT_ROUTES.find((x) => x.mapId === location.mapId)?.order ?? 1;
-                              const isOutbound = route.order > curOrder;
-                              const gate = isOutbound ? OUTBOUND_PORTAL_GATE[location.mapId] : undefined;
-                              const portalSealed = gate ? sealedPortalIds.includes(gate.portalId) : true;
-                              const canSail = Boolean(destLoc && portalSealed && onSailToPort);
+                            {(travelCatalog?.seaPortRoutes ?? [])
+                              .filter((r) => r.mapId !== location.mapId)
+                              .map((route) => {
+                                const routes = travelCatalog?.seaPortRoutes ?? [];
+                                const destLoc =
+                                  worldLocations.find((w) => w.id === route.id && w.placed && w.x !== null && w.y !== null) ??
+                                  worldLocations.find((w) => w.id === `${route.id}_south` && w.placed && w.x !== null && w.y !== null);
+                                const curOrder = routes.find((x) => x.mapId === location.mapId)?.order ?? 1;
+                                const isOutbound = route.order > curOrder;
+                                const gate = isOutbound ? travelCatalog?.outboundSeaPortalGates?.[location.mapId] : undefined;
+                                const portalSealed = gate ? sealedPortalIds.includes(gate.portalId) : true;
+                                const canSail = Boolean(destLoc && portalSealed && onSailToPort);
 
                               return (
                                 <div
@@ -1157,11 +1157,11 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                           </div>
 
                           <p className="m-0 text-[15px] md:text-[15.5px] lg:text-[17px] leading-[1.62] text-[#eff3fa] border-l-2 border-[#c8a256] pl-4">
-                            “{selectedNpc.dialogue}”
+                            “{displayedNpcDialogue}”
                           </p>
                         </div>
 
-                        {isQuartermasterSelected && displayedOutpostHunt ? (
+                        {isQuartermasterSelected && displayedOutpostHunt && outpostLore ? (
                           <div className="border-t border-[#2c3446] pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <div className="min-w-0 flex items-center gap-3">
                               <div className="flex items-center gap-1.5 shrink-0">
@@ -1194,53 +1194,38 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                                   )}
                                 </div>
                                 <div className="text-[16px] lg:text-[18px] font-bold text-[#fbe3a6] mt-0.5 leading-snug">
-                                  Slay {displayedOutpostHunt.killsRequired} {displayedOutpostHunt.mobName}
+                                  {outpostLore.contractTitle}
                                 </div>
-                                <div className="text-[11.5px] text-[#9bb3cf] mt-0.5 truncate">
-                                  Habitat:{" "}
-                                  <span className="text-[#d3e2f5]">
-                                    {displayedOutpostHunt.biomeHints.length > 0
-                                      ? displayedOutpostHunt.biomeHints.join(" · ")
-                                      : location.playerRegion || "Surrounding Wilds"}
+                                <div className="text-[12px] text-[#cfdcf0] mt-0.5 truncate">
+                                  <span className="font-semibold text-[#f3dfb1]">
+                                    Slay {displayedOutpostHunt.killsRequired}{" "}
+                                    {pluralizeMonsterName(displayedOutpostHunt.mobName, displayedOutpostHunt.killsRequired)}
+                                  </span>
+                                  {" · "}
+                                  <span className="text-[#9fc0e6]">
+                                    {location.playerRegion || outpostLore.regionName} (Zone {displayedOutpostHunt.zoneNum}
+                                    {location.levelRange ? ` · ${location.levelRange}` : ""})
                                   </span>
                                 </div>
                                 <div className="text-[12.5px] text-[#b8c8df] mt-0.5">
                                   <span className="text-[#e3c27a] font-semibold">Reward:</span>{" "}
-                                  {formatOutpostRewardLine(
-                                    displayedOutpostHunt,
-                                    itemsById[displayedOutpostHunt.rewardConsumableId]?.name
-                                  )}
+                                  {formatOutpostRewardLine(displayedOutpostHunt)}
                                 </div>
                               </div>
                             </div>
                             <div className="flex flex-wrap items-center gap-2 shrink-0">
                               {!activeOutpostHunt ? (
-                                <>
-                                  <button
-                                    type="button"
-                                    onClick={rerollOutpostOffer}
-                                    className="px-3.5 py-2.5 rounded border border-[#4a546a] bg-[#161c28] hover:border-[#c9a356] text-[#d7e1f2] text-[12px] font-semibold uppercase tracking-wider cursor-pointer transition-colors"
-                                  >
-                                    Roll Another
-                                  </button>
-                                  <button
-                                    type="button"
-                                    onClick={() => onAcceptOutpostHunt?.(displayedOutpostHunt)}
-                                    className="px-5 py-2.5 rounded border border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_20px_rgba(226,190,115,0.22)]"
-                                  >
-                                    Accept Hunt
-                                  </button>
-                                </>
+                                <button
+                                  type="button"
+                                  onClick={() => onAcceptOutpostHunt?.(displayedOutpostHunt)}
+                                  className="px-5 py-2.5 rounded border border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_20px_rgba(226,190,115,0.22)]"
+                                >
+                                  Accept Hunt
+                                </button>
                               ) : huntReadyToClaim ? (
                                 <button
                                   type="button"
-                                  onClick={() => {
-                                    onCompleteOutpostHunt?.(location.id);
-                                    const nextOffer = rollOutpostHuntOffer(location, battleConfig, activeOutpostHunt.mobId);
-                                    if (nextOffer) {
-                                      setOutpostOffersById((prev) => ({ ...prev, [location.id]: nextOffer }));
-                                    }
-                                  }}
+                                  onClick={() => onCompleteOutpostHunt?.(location.id)}
                                   className="px-5 py-2.5 rounded border border-[#f2cf78] bg-[#b88628]/45 hover:bg-[#b88628]/65 text-[#fff6da] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_22px_rgba(242,207,120,0.3)]"
                                 >
                                   ★ Claim Reward

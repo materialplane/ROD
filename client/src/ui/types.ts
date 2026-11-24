@@ -90,6 +90,10 @@ export interface BattleEnemyDef {
     target?: string;
     effect?: string;
     power?: number;
+    inflictStatus?: string;
+    inflictTurns?: number;
+    inflictChance?: number;
+    telegraphed?: boolean;
   }>;
 }
 
@@ -117,14 +121,49 @@ export interface BattleStageConfig {
   zoneSpawns?: Record<string, string[]>;
   imagePath: string;
   isPortal?: boolean;
+  portalNum?: number;
+  bossId?: string;
   heroZone: BattleStageZoneRect;
   enemyGrid: BattleStageZoneRect;
+}
+
+export interface BattleCombatConfig {
+  biomeStageMap: Record<string, string>;
+  portalStageMap: Array<{ keys: string[]; portalNum: number; stageId: string; bossId?: string }>;
+  coastalChance: number;
+  coastalStageByMap: Record<string, string>;
+  inlandChance: number;
+  inlandStageByMap: Record<string, string>;
+  regionLevelCutoffs: number[];
+  levelBenchmarks: Array<[number, number, number]>;
+  packLootScale: { single: number; pair: number; groupTotal: number };
+  packHpScale: { single: number; pair: number; three: number; four: number; fivePlus: number };
+  earlyHpLift: { maxLevel: number; maxMultiplier: number };
+  bossHpBoost: Record<string, number>;
+  rewardCurve: {
+    xp: { minVal: number; base: number; lin: number; quad: number };
+    silver: { minVal: number; base: number; earlyMaxLv: number; earlyLift: number; earlyPower?: number; lin: number; cubic: number };
+    bossXpFallback: { minVal: number; base: number; lin: number; quad: number };
+    bossSilverFallback: { minVal: number; base: number; lin: number; quad: number };
+  };
+  speedConfig: {
+    heroBase: Record<string, number>;
+    lightArmorBonus: number;
+    heavyArmorPenalty: number;
+    shieldPenalty: number;
+    heroFinesseScale: number;
+    enemyRoleBase: Record<string, number>;
+    enemyDefault: number;
+    bossBase: number;
+    enemyLevelScale: number;
+  };
 }
 
 export interface BattleConfigData {
   version?: number;
   heroZoneDefault: BattleStageZoneRect;
   enemyGridDefault: BattleStageZoneRect;
+  combatConfig?: BattleCombatConfig;
   stages: BattleStageConfig[];
   monsters: BattleEnemyDef[];
 }
@@ -141,6 +180,7 @@ export interface SaveSlotData {
   acceptedQuestIds?: string[];
   completedQuestIds?: string[];
   activeOutpostHunts?: ActiveOutpostHunt[];
+  outpostOffers?: Record<string, ActiveOutpostHunt>;
   completedOutpostHunts?: number;
   sealedPortalIds?: string[];
   silver?: number;
@@ -342,8 +382,265 @@ export interface ActiveOutpostHunt {
   killsProgress: number;
   rewardSilver: number;
   rewardXp: number;
-  rewardConsumableId: string;
-  rewardConsumableQty: number;
+  rewardConsumableId?: string;
+  rewardConsumableQty?: number;
+}
+
+export interface OutpostZoneConfig {
+  silver: number;
+  xp: number;
+  regionKey: string;
+}
+
+export interface OutpostRegionProfile {
+  key: string;
+  titlePrefix: string;
+  settingPhrase: string;
+  roadPhrase: string;
+}
+
+export interface MobHuntLoreEntry {
+  threatSummary: string;
+  byRegion?: Record<string, string>;
+}
+
+export interface OutpostHuntsCatalog {
+  version: number;
+  globalActiveQuestLimit: number;
+  killsByCellSize: Record<string, number>;
+  eliteRewardMultiplier: number;
+  irregularPlurals: Record<string, string>;
+  zones: Record<string, OutpostZoneConfig>;
+  regionProfiles: Record<string, OutpostRegionProfile>;
+  loreByMobId: Record<string, MobHuntLoreEntry>;
+}
+
+export interface SeaPortRoute {
+  id: string;
+  title: string;
+  realm: string;
+  mapId: string;
+  order: number;
+}
+
+export interface TravelPortalGate {
+  portalId: string;
+  portalName: string;
+  portalNum?: number;
+}
+
+export interface TravelStoryChainEntry {
+  id: string;
+  cardId: string;
+  title: string;
+  route: string;
+  questIds: string[];
+}
+
+export interface TravelCatalog {
+  version: number;
+  seaPortRoutes: SeaPortRoute[];
+  outboundSeaPortalGates: Record<string, TravelPortalGate>;
+  ferryPortalGates?: Record<string, TravelPortalGate>;
+  mountainPassPortalGates?: Record<string, TravelPortalGate>;
+  realms?: Array<{ id: string; name: string }>;
+  regionNames?: Record<string, string>;
+  storyChains?: TravelStoryChainEntry[];
+}
+
+export interface HeroAttributeMeta {
+  key: HeroAttrKey;
+  label: string;
+  shortLabel: string;
+  hint: string;
+}
+
+export interface HeroCatalogEntry {
+  id: HeroId;
+  name: string;
+  fullName: string;
+  className: string;
+  shortTag: string;
+  worldBio: string;
+  classStyle: string;
+  gearSummary: string;
+  roleSummary: string;
+  focusAttributes: HeroAttrKey[];
+  focusLabel: string;
+  startingAttributes: Record<HeroAttrKey, number>;
+  wounded50: string;
+  wounded25: string;
+  baseHp: number;
+  baseMp: number;
+  usesMp?: boolean;
+  canDualWield?: boolean;
+  starterWeaponSubType?: string;
+  starterShield?: boolean;
+  starterAccessoryCategory?: string;
+  avatarPath: string;
+  tokenPath: string;
+}
+
+export interface HeroProgressionCatalog {
+  startingSilver?: number;
+  maxLevel: number;
+  xpCurve: { linear: number; quadratic: number };
+  pointsPerLevel: number;
+  milestoneLevelInterval: number;
+  milestoneBonusPoints: number;
+  hpPerLevel: number;
+  mpPerLevel: number;
+  gritHpPerPoint: number;
+  arcanaMpPerPoint: number;
+  forceAtkPerPoint: number;
+  arcanaMagPerPoint: number;
+  presenceHealPerPoint: number;
+  gritPdefPerPoint: number;
+  presenceMdefPerPoint: number;
+  finesseDodgePerPoint: number;
+  finesseCritPerPoint: number;
+  baseCritPct: number;
+  dodgeCapPct: number;
+  critCapPct: number;
+  dualWieldOffhandScale: number;
+  runestoneAttrScaling: {
+    forceAtk: number;
+    finesseDodge: number;
+    finesseCrit: number;
+    gritHp: number;
+    gritPdef: number;
+    arcanaMag: number;
+    presenceMdef: number;
+    presenceHeal: number;
+  };
+  runestoneEmptyIcon: string;
+  ledgerTabs: Array<{ id: string; label: string; icon: string }>;
+  slotConfig: Array<{ key: GearSlot; label: string; fallbackIcon: string }>;
+}
+
+export interface HeroOpeningCutsceneCatalog {
+  addressForms: Record<string, Record<string, string>>;
+  openingCall: Record<string, string>;
+  keepFirstPledge: Record<string, string>;
+  splitPairReactions: Record<string, Record<string, string>>;
+  companionFallback: Record<string, string>;
+  keepSecondPledge: Record<string, string>;
+  closingCall: Record<string, string>;
+}
+
+export interface HeroesCatalog {
+  version: number;
+  defaultPartyOrder: HeroId[];
+  attributeMeta: HeroAttributeMeta[];
+  baseStartingAttributes: Record<HeroAttrKey, number>;
+  progression: HeroProgressionCatalog;
+  heroes: HeroCatalogEntry[];
+  openingCutscene?: HeroOpeningCutsceneCatalog;
+}
+
+export interface GearWeaponModeEntry {
+  id: string;
+  name: string;
+  tag: string;
+  power: number;
+  critBonus: number;
+  cooldownTurns: number;
+  guardChip?: number;
+  armorIgnore?: number;
+  splashPct?: number;
+  execCritBonus?: number;
+  debuff?: "poison" | "def_down" | "atk_down" | "blind";
+  restoreMp?: number;
+  effect: string;
+}
+
+export interface GearShopMetaEntry {
+  id: ShopType;
+  label: string;
+  quote: string;
+  pills: Array<[string, string]>;
+}
+
+export interface GearRulesCatalog {
+  version: number;
+  metalArmorTypes: string[];
+  robeTypes: string[];
+  tailorVestmentTypes: string[];
+  accessoryCategories: string[];
+  statLabels: Record<string, string>;
+  slotLabels: Record<GearSlot, string>;
+  fallbackSkillIcons: [string, string];
+  weaponModes: Record<string, [GearWeaponModeEntry, GearWeaponModeEntry]>;
+  shopMeta: Record<ShopType, GearShopMetaEntry>;
+  maxSpellsPerRegion: number;
+  tierColors: Array<{ maxStep: number; color: string }>;
+  defaultTierColor: string;
+  zoneRegionCutoffs: number[];
+  zoneMaxLevels: number[];
+  stepToDefaultZone: number[];
+  regionStartingZones: number[];
+}
+
+export interface RunestoneRarityTier {
+  id: string;
+  tier: string;
+  tierOrder: number;
+  scale: number;
+  regions?: string;
+  zones?: string;
+  rollFormula?: string;
+  strengthScale?: string;
+}
+
+export interface RunestoneAffixesCatalog {
+  version: number;
+  socketRule?: string;
+  rarityTiers: RunestoneRarityTier[];
+  weaponPrefixes?: Array<{ id: string; name: string; socket: string; effect: string }>;
+  armorPrefixes?: Array<{ id: string; name: string; socket: string; effect: string }>;
+  universalSuffixes?: Array<{ id: string; name: string; effect: string }>;
+}
+
+export interface AudioTavernTrackEntry {
+  relPath: string;
+  chapterNum: number;
+  chapterLabel: string;
+  title: string;
+  shortTitle: string;
+  speaker: string;
+  overview: string;
+  worldHistory: string;
+}
+
+export interface AudioCatalog {
+  version: number;
+  headroom: { music: number; sfx: number; movementLoopGain: number };
+  menuMusic: {
+    titleStart: string;
+    titleLoop: string;
+    cutscene: string;
+    worldMap: string;
+    town: string;
+    inn: string;
+  };
+  explorationPlaylist: string[];
+  combatPlaylist: string[];
+  bossTrack: string;
+  tavernMapContextByMapId: Record<string, string>;
+  tavernPlaylists: Record<string, string[]>;
+  movementTracks: Record<"walk" | "boat", string>;
+  sfxPools: Record<string, string[]>;
+  defaultSfxGain: Record<string, number>;
+  sfxKeywordRules: Array<{ keywords: string[]; key: string }>;
+  tavernTracks: Record<string, AudioTavernTrackEntry>;
+}
+
+export interface VfxEffectsCatalog {
+  schemaVersion?: number;
+  battleStateIcons?: Record<string, { iconPath: string; label: string; tone: "state" | "warn" | "debuff" | "buff"; desc: string }>;
+  statusUiMeta?: Record<string, { kind: string; glyph: string; iconPath: string; label: string; isBuff: boolean; pillCls: string; desc: string }>;
+  vfxMap?: Record<string, { folder: string; row: number; color: string; shake: boolean; frames: number }>;
+  heroMagicThemes?: Record<string, { label: string; themeClass?: string; accentColor: string; tierNames: string[] }>;
 }
 
 export interface AudioSettings {

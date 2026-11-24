@@ -2,6 +2,7 @@ import type {
   ActiveOutpostHunt,
   BattleConfigData,
   BattleEnemyDef,
+  OutpostHuntsCatalog,
   WorldLocation,
 } from "../types";
 
@@ -10,106 +11,31 @@ export interface OutpostHuntCandidate {
   biomeHints: string[];
 }
 
-export const GLOBAL_ACTIVE_QUEST_LIMIT = 15;
+export let GLOBAL_ACTIVE_QUEST_LIMIT = 15;
 
-// Exact Zone Outpost Silver rewards calibrated per docs/03-combat-and-stats.md Section B
-const OUTPOST_SILVER_BY_ZONE: Record<number, number> = {
-  1: 50,
-  2: 90,
-  3: 140,
-  4: 380,
-  5: 720,
-  6: 1350,
-  7: 1950,
-  8: 2650,
-  9: 3850,
-  10: 5000,
-  11: 7200,
-  12: 8350,
-  13: 9500,
-  14: 14500,
-  15: 19500,
-  16: 26000,
-  17: 29500,
-  18: 33000,
-  19: 44000,
-  20: 62000,
-};
+let activeCatalog: OutpostHuntsCatalog | null = null;
 
-// Average single-hero fight XP from docs/03-combat-and-stats.md scaled by 3.5x as Hunt turn-in bonus
-const OUTPOST_XP_BY_ZONE: Record<number, number> = {
-  1: 55,
-  2: 140,
-  3: 280,
-  4: 490,
-  5: 1120,
-  6: 1200,
-  7: 1850,
-  8: 2600,
-  9: 2800,
-  10: 4500,
-  11: 4200,
-  12: 5600,
-  13: 7200,
-  14: 6600,
-  15: 10200,
-  16: 9000,
-  17: 11800,
-  18: 14000,
-  19: 13500,
-  20: 18000,
-};
+/** Store the fetched outpost-hunts-catalog.json payload once loaded by the client runtime. */
+export function setOutpostHuntsCatalog(catalog: OutpostHuntsCatalog | null): void {
+  activeCatalog = catalog;
+  GLOBAL_ACTIVE_QUEST_LIMIT = catalog?.globalActiveQuestLimit ?? 15;
+}
 
-const OUTPOST_CONSUMABLE_TIERS: Array<{ maxZone: number; pool: Array<{ itemId: string; qty: number }> }> = [
-  {
-    maxZone: 3,
-    pool: [
-      { itemId: "cons_minor_healing_potion", qty: 2 },
-      { itemId: "cons_minor_mana_potion", qty: 1 },
-      { itemId: "cons_antidote_potion", qty: 2 },
-    ],
-  },
-  {
-    maxZone: 5,
-    pool: [
-      { itemId: "cons_stout_healing_potion", qty: 2 },
-      { itemId: "cons_reviving_potion", qty: 1 },
-      { itemId: "cons_cooling_potion", qty: 2 },
-    ],
-  },
-  {
-    maxZone: 8,
-    pool: [
-      { itemId: "cons_stout_healing_potion", qty: 3 },
-      { itemId: "cons_greater_mana_potion", qty: 1 },
-      { itemId: "cons_clarity_potion", qty: 2 },
-    ],
-  },
-  {
-    maxZone: 12,
-    pool: [
-      { itemId: "cons_greater_healing_potion", qty: 2 },
-      { itemId: "cons_panacea_potion", qty: 1 },
-      { itemId: "cons_reviving_potion", qty: 2 },
-    ],
-  },
-  {
-    maxZone: 16,
-    pool: [
-      { itemId: "cons_supreme_healing_potion", qty: 2 },
-      { itemId: "cons_greater_mana_potion", qty: 2 },
-      { itemId: "cons_panacea_potion", qty: 2 },
-    ],
-  },
-  {
-    maxZone: 20,
-    pool: [
-      { itemId: "cons_supreme_healing_potion", qty: 3 },
-      { itemId: "cons_supreme_mana_potion", qty: 2 },
-      { itemId: "cons_phoenix_potion", qty: 1 },
-    ],
-  },
-];
+export function getOutpostHuntsCatalog(): OutpostHuntsCatalog | null {
+  return activeCatalog;
+}
+
+export function getGlobalActiveQuestLimit(): number {
+  return activeCatalog?.globalActiveQuestLimit ?? GLOBAL_ACTIVE_QUEST_LIMIT;
+}
+
+function getZoneReward(zoneNum: number): { silver: number; xp: number } {
+  const row = activeCatalog?.zones?.[String(zoneNum)];
+  return {
+    silver: row?.silver ?? 0,
+    xp: row?.xp ?? 0,
+  };
+}
 
 export function extractOutpostZoneNum(loc: WorldLocation): number {
   if (typeof loc.zoneNum === "number" && loc.zoneNum >= 1 && loc.zoneNum <= 20) {
@@ -164,20 +90,10 @@ export function buildOutpostHuntPool(zoneNum: number, config: BattleConfigData |
 
 function pickKillsRequired(mob: BattleEnemyDef): number {
   const cells = Math.max(1, (mob.gridW ?? 1) * (mob.gridH ?? 1));
-  if (cells >= 4) return 4;
-  if (cells >= 2) return 5;
-  return 6 + ((mob.name.length + Math.round(mob.level ?? 1)) % 3); // 6-8 for 1x1 mobs
-}
-
-function pickConsumableReward(zoneNum: number, mob: BattleEnemyDef): { itemId: string; qty: number } {
-  const tier = OUTPOST_CONSUMABLE_TIERS.find((t) => zoneNum <= t.maxZone) ?? OUTPOST_CONSUMABLE_TIERS[OUTPOST_CONSUMABLE_TIERS.length - 1];
-  const idx = Math.floor(Math.random() * tier.pool.length);
-  const picked = tier.pool[idx] ?? tier.pool[0];
-  const isElite = (mob.gridW ?? 1) * (mob.gridH ?? 1) > 1;
-  return {
-    itemId: picked.itemId,
-    qty: picked.qty + (isElite ? 1 : 0),
-  };
+  const table = activeCatalog?.killsByCellSize ?? { "4": 4, "2": 5, "1": 6 };
+  if (cells >= 4) return table["4"] ?? 4;
+  if (cells >= 2) return table["2"] ?? 5;
+  return table["1"] ?? 6;
 }
 
 export function rollOutpostHuntOffer(
@@ -193,11 +109,10 @@ export function rollOutpostHuntOffer(
   const pick = choices[Math.floor(Math.random() * choices.length)] ?? pool[0];
   const mob = pick.mob;
   const killsRequired = pickKillsRequired(mob);
-  const baseSilver = OUTPOST_SILVER_BY_ZONE[zoneNum] ?? 50;
-  const baseXp = OUTPOST_XP_BY_ZONE[zoneNum] ?? 55;
+  const { silver: baseSilver, xp: baseXp } = getZoneReward(zoneNum);
   const isElite = (mob.gridW ?? 1) * (mob.gridH ?? 1) > 1;
-  const silverBonusMul = isElite ? 1.15 : 1.0;
-  const cons = pickConsumableReward(zoneNum, mob);
+  const eliteMul = activeCatalog?.eliteRewardMultiplier ?? 1.15;
+  const silverBonusMul = isElite ? eliteMul : 1.0;
 
   return {
     huntId: `${outpost.id}::${mob.id}::${Date.now().toString(36)}`,
@@ -213,15 +128,57 @@ export function rollOutpostHuntOffer(
     killsProgress: 0,
     rewardSilver: Math.round(baseSilver * silverBonusMul),
     rewardXp: Math.round(baseXp * silverBonusMul),
-    rewardConsumableId: cons.itemId,
-    rewardConsumableQty: cons.qty,
   };
 }
 
-export function formatOutpostRewardLine(
-  hunt: ActiveOutpostHunt,
-  consumableName?: string
-): string {
-  const itemPart = consumableName ? ` · ${hunt.rewardConsumableQty}x ${consumableName}` : "";
-  return `${hunt.rewardSilver.toLocaleString()}s · ${hunt.rewardXp.toLocaleString()} XP Each${itemPart}`;
+/** Normalize saved hunt offers to current catalog kill counts, Silver/XP calibration, and zero consumable handouts. */
+export function normalizeOutpostOfferScale(
+  offer: ActiveOutpostHunt,
+  config: BattleConfigData | null
+): ActiveOutpostHunt {
+  const mob = config?.monsters.find((m) => m.id === offer.mobId);
+  const targetKills = mob ? pickKillsRequired(mob) : offer.isElite ? (activeCatalog?.killsByCellSize?.["4"] ?? 4) : (activeCatalog?.killsByCellSize?.["1"] ?? 6);
+  const { silver: baseSilver, xp: baseXp } = getZoneReward(offer.zoneNum);
+  const eliteMul = activeCatalog?.eliteRewardMultiplier ?? 1.15;
+  const mul = offer.isElite ? eliteMul : 1.0;
+  const targetSilver = baseSilver > 0 ? Math.round(baseSilver * mul) : offer.rewardSilver;
+  const targetXp = baseXp > 0 ? Math.round(baseXp * mul) : offer.rewardXp;
+  const nextProgress = Math.min(offer.killsProgress, targetKills);
+  const hasLegacyConsumable = offer.rewardConsumableId !== undefined || offer.rewardConsumableQty !== undefined;
+
+  if (
+    targetKills === offer.killsRequired &&
+    nextProgress === offer.killsProgress &&
+    targetSilver === offer.rewardSilver &&
+    targetXp === offer.rewardXp &&
+    !hasLegacyConsumable
+  ) {
+    return offer;
+  }
+
+  return {
+    ...offer,
+    killsRequired: targetKills,
+    killsProgress: nextProgress,
+    rewardSilver: targetSilver,
+    rewardXp: targetXp,
+    rewardConsumableId: undefined,
+    rewardConsumableQty: undefined,
+  };
+}
+
+export function formatOutpostRewardLine(hunt: ActiveOutpostHunt): string {
+  return `${hunt.rewardSilver.toLocaleString()}s · ${hunt.rewardXp.toLocaleString()} XP per hero`;
+}
+
+export function pluralizeMonsterName(name: string, count = 2): string {
+  if (count === 1) return name;
+  const irregular = activeCatalog?.irregularPlurals;
+  if (irregular?.[name]) return irregular[name];
+  if (name.endsWith("Wolf")) return `${name.slice(0, -4)}Wolves`;
+  if (name.endsWith("s") || name.endsWith("sh") || name.endsWith("ch") || name.endsWith("x") || name.endsWith("z")) {
+    return `${name}es`;
+  }
+  if (/[^aeiou]y$/i.test(name)) return `${name.slice(0, -1)}ies`;
+  return `${name}s`;
 }

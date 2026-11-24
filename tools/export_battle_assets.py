@@ -359,7 +359,15 @@ def slice_and_export_monsters(stats_map: dict[str, dict]) -> list[dict]:
                 x0, x1 = x_spans[item["col"]]
                 y0, y1 = y_spans[item["row"]]
                 cell_crop = rgb_im.crop((x0, y0, x1, y1))
-                keyed = key_magenta_sprite(cell_crop, t_low=15.0, t_high=140.0, crop_bbox=True, border_pad=4)
+                keyed = key_magenta_sprite(
+                    cell_crop,
+                    t_low=15.0,
+                    t_high=140.0,
+                    crop_bbox=True,
+                    border_pad=4,
+                    smart_interior_voids=True,
+                    despill_edge_only=True,
+                )
 
                 slice_png = MONSTER_SLICES_DIR / f"{item['slug']}.png"
                 keyed.save(slice_png, "PNG")
@@ -422,11 +430,10 @@ def slice_and_export_monsters(stats_map: dict[str, dict]) -> list[dict]:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Export ROD Battle Scenes & Monster sprites and build battle-config.json.")
     parser.add_argument("--reset-layout", action="store_true", help="Reset stage container positions and monster footprints to defaults.")
+    parser.add_argument("--monsters-only", action="store_true", help="Re-slice and export monster sprites only, preserving battle-config tuning and stages.")
     args = parser.parse_args()
 
     stats_map = parse_monsters_stats()
-    stages = export_battle_scenes()
-    monsters = slice_and_export_monsters(stats_map)
 
     prev = {}
     if OUT_CONFIG.exists() and not args.reset_layout:
@@ -434,6 +441,23 @@ def main() -> int:
             prev = json.loads(OUT_CONFIG.read_text(encoding="utf-8"))
         except Exception:
             prev = {}
+
+    if args.monsters_only and prev.get("monsters"):
+        monsters = slice_and_export_monsters(stats_map)
+        dims_by_id = {m["id"]: (m["spriteW"], m["spriteH"]) for m in monsters}
+        for existing in prev["monsters"]:
+            if isinstance(existing, dict) and existing.get("id") in dims_by_id:
+                existing["spriteW"], existing["spriteH"] = dims_by_id[existing["id"]]
+        text = json.dumps(prev, indent=2) + "\n"
+        OUT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
+        CLIENT_OUT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
+        OUT_CONFIG.write_text(text, encoding="utf-8")
+        CLIENT_OUT_CONFIG.write_text(text, encoding="utf-8")
+        print(f"Updated monster sprite dimensions in preserved config ({len(monsters)} monsters) -> {OUT_CONFIG}")
+        return 0
+
+    stages = export_battle_scenes()
+    monsters = slice_and_export_monsters(stats_map)
 
     prev_stages = {s["id"]: s for s in prev.get("stages", []) if isinstance(s, dict) and s.get("id")}
     prev_mobs = {m["id"]: m for m in prev.get("monsters", []) if isinstance(m, dict) and m.get("id")}
@@ -447,12 +471,15 @@ def main() -> int:
                 st["enemyGrid"] = old["enemyGrid"]
             if isinstance(old.get("zoneSpawns"), dict):
                 st["zoneSpawns"] = old["zoneSpawns"]
+            for k in ("bossId", "portalNum"):
+                if k in old:
+                    st[k] = old[k]
 
     for mob in monsters:
         old = prev_mobs.get(mob["id"])
         if old:
-            for k in ("gridW", "gridH", "sizePreset", "visualScale", "dropItemId", "xp", "silver"):
-                if k in old and k not in mob:
+            for k in ("actions", "pDef", "mDef", "gridW", "gridH", "sizePreset", "visualScale", "dropItemId", "xp", "silver"):
+                if k in old:
                     mob[k] = old[k]
 
     payload = {
@@ -462,6 +489,8 @@ def main() -> int:
         "stages": stages,
         "monsters": monsters,
     }
+    if isinstance(prev.get("combatConfig"), dict):
+        payload["combatConfig"] = prev["combatConfig"]
 
     OUT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
     CLIENT_OUT_CONFIG.parent.mkdir(parents=True, exist_ok=True)

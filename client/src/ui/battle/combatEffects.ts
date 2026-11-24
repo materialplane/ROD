@@ -3,30 +3,41 @@
  * Centralizes all 120 Discipline triggers, 32 Runestone prefixes/suffixes, and class passives
  * so UI battle loops and balance simulations share identical, zero-drift behavior.
  */
-import type { HeroDisciplinesEntry, HeroId, RunestoneItem } from "../types";
+import type { HeroDisciplinesEntry, HeroId, RunestoneAffixesCatalog, RunestoneItem } from "../types";
 import type { BattleHeroUnit, HeroCombatPassives, HeroDisciplineModifiers } from "./battleTypes";
 
-const TIER_SCALE_BY_NAME: Record<string, number> = {
-  lesser: 1.0,
-  refined: 1.5,
-  greater: 2.0,
-  mythic: 2.5,
-};
+const TIER_SCALE_BY_NAME: Record<string, number> = {};
 
-/** Estimate continuous Runestone potency scalar [0..1] from tier or explicit range midpoint. */
+/** Populate Runestone rarity scaling factors from data/runestone-affixes.json. */
+export function applyRunestoneAffixesCatalog(catalog: RunestoneAffixesCatalog | null | undefined): void {
+  if (!catalog || !Array.isArray(catalog.rarityTiers)) return;
+  for (const k of Object.keys(TIER_SCALE_BY_NAME)) delete TIER_SCALE_BY_NAME[k];
+  for (const tier of catalog.rarityTiers) {
+    const scale = Number(tier.scale ?? 1);
+    if (tier.tier) TIER_SCALE_BY_NAME[tier.tier.toLowerCase()] = scale;
+    if (tier.id) TIER_SCALE_BY_NAME[tier.id.toLowerCase()] = scale;
+  }
+}
+
+/** Return continuous Runestone tier ratio in [0..1] (Lesser=0, Refined=0.333, Greater=0.667, Mythic=1). */
+export function getRunestoneTierRatio(tier: string): number {
+  const tScale = TIER_SCALE_BY_NAME[(tier || "Lesser").toLowerCase()] ?? 1.0;
+  return Math.max(0, Math.min(1, (tScale - 1.0) / 1.5));
+}
+
+const PCT_RANGE_RE = /(\d+)%?(?:\s*(?:[–-]|to)\s*\+?(\d+)%)?/i;
+const MP_RANGE_RE = /(\d+)(?:\s*(?:[–-]|to)\s*(\d+))?\s*mp\b/i;
+
+/** Estimate continuous Runestone potency scalar [0..1] from tier or explicit single rolled value. */
 function pullRunestoneValue(affix: string, tier: string, re: RegExp, lo: number, hi: number): number {
+  const ratio = getRunestoneTierRatio(tier);
   const m = affix.match(re);
   if (m) {
     const a = Number(m[1]);
-    const b = m[2] !== undefined ? Number(m[2]) : a;
     if (m[2] === undefined) return a;
-    const tScale = TIER_SCALE_BY_NAME[tier.toLowerCase()] ?? 1.25;
-    const ratio = (tScale - 1.0) / 1.5;
-    return Math.round(a + (b - a) * Math.max(0, Math.min(1, ratio)));
+    return Math.round(a + (Number(m[2]) - a) * ratio);
   }
-  const tScale = TIER_SCALE_BY_NAME[tier.toLowerCase()] ?? 1.0;
-  const ratio = (tScale - 1.0) / 1.5;
-  return Math.round(lo + (hi - lo) * Math.max(0, Math.min(1, ratio)));
+  return Math.round(lo + (hi - lo) * ratio);
 }
 
 export function createEmptyModifiers(): HeroDisciplineModifiers {
@@ -210,7 +221,7 @@ export function applyRunestoneCombatEffects(
       passives.runestoneBonusElemType = "Fire";
       passives.runestoneBonusElemPct = Math.max(
         passives.runestoneBonusElemPct,
-        pullRunestoneValue(st.affix, tier, /(\d+)%/, 12, 25)
+        pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 12, 25)
       );
       passives.runestoneSplash35Burn = true;
     }
@@ -218,7 +229,7 @@ export function applyRunestoneCombatEffects(
       passives.runestoneBonusElemType = passives.runestoneBonusElemType ?? "Frost";
       passives.runestoneBonusElemPct = Math.max(
         passives.runestoneBonusElemPct,
-        pullRunestoneValue(st.affix, tier, /(\d+)%/, 12, 25)
+        pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 12, 25)
       );
       passives.runestoneChillOnHit = true;
     }
@@ -226,7 +237,7 @@ export function applyRunestoneCombatEffects(
       passives.runestoneBonusElemType = passives.runestoneBonusElemType ?? "Lightning";
       passives.runestoneBonusElemPct = Math.max(
         passives.runestoneBonusElemPct,
-        pullRunestoneValue(st.affix, tier, /(\d+)%/, 12, 25)
+        pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 12, 25)
       );
       passives.runestoneArcChainShock = true;
     }
@@ -234,22 +245,25 @@ export function applyRunestoneCombatEffects(
       passives.runestoneBonusElemType = passives.runestoneBonusElemType ?? "Poison";
       passives.runestoneBonusElemPct = Math.max(
         passives.runestoneBonusElemPct,
-        pullRunestoneValue(st.affix, tier, /(\d+)%/, 12, 25)
+        pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 12, 25)
       );
-      passives.runestonePoisonWeakenPct = Math.max(passives.runestonePoisonWeakenPct, 14);
+      passives.runestonePoisonWeakenPct = Math.max(
+        passives.runestonePoisonWeakenPct,
+        pullRunestoneValue(st.affix, tier, /poisoned\s+foes\s+deal\s+(\d+)%(?:\s*(?:[–-]|to)\s*(\d+)%)?/i, 10, 18)
+      );
     }
     if (text.includes("hallowed") || text.includes("bonus radiant damage")) {
-      passives.runestoneHallowedUndeadPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 15, 32);
+      passives.runestoneHallowedUndeadPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 15, 32);
       passives.runestoneHallowedCritStrip = true;
     }
     if (text.includes("detonating") || text.includes("detonates")) {
-      passives.runestoneDetonateDotPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 25, 50);
+      passives.runestoneDetonateDotPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 25, 50);
     }
     if (text.includes("vampiric") || (text.includes("heal the user") && text.includes("damage dealt"))) {
-      mods.lifestealPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 8, 18);
+      mods.lifestealPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 8, 18);
     }
     if (text.includes("siphoning") || text.includes("mp per hit")) {
-      passives.runestoneSiphonMpPerHit += pullRunestoneValue(st.affix, tier, /(\d+)\s*(?:[–-]\s*(\d+))?\s*mp/i, 2, 7);
+      passives.runestoneSiphonMpPerHit += pullRunestoneValue(st.affix, tier, MP_RANGE_RE, 2, 7);
     }
     if (text.includes("crushing") && text.includes("guard")) {
       passives.extraGuardChip += 1;
@@ -257,86 +271,119 @@ export function applyRunestoneCombatEffects(
     }
     if (text.includes("rending") && text.includes("bleed")) {
       passives.critInflictsBleedTurns = Math.max(passives.critInflictsBleedTurns, 3);
-      passives.vsBeastMonsterBonusPct = passives.vsBeastMonsterBonusPct; // bleed dmg bonus handled cleanly below
-      passives.runestoneBonusElemPct = Math.max(passives.runestoneBonusElemPct, 0);
-      mods.ailmentPowerPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 15, 32);
+      mods.ailmentPowerPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 15, 32);
     }
     if (text.includes("executioner")) {
-      passives.vsLowHp40ExecPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 20, 42);
+      passives.vsLowHp40ExecPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 20, 42);
     }
     if (text.includes("echoing") || text.includes("strike a second time")) {
       passives.runestoneEchoAttackChance = Math.min(
         0.5,
-        passives.runestoneEchoAttackChance + pullRunestoneValue(st.affix, tier, /(\d+)%/, 15, 32) / 100
+        passives.runestoneEchoAttackChance + pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 15, 32) / 100
       );
     }
 
     // Armor Prefixes
     if (text.includes("bastion")) {
-      passives.startWardShieldPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 12, 30);
+      passives.startWardShieldPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 12, 30);
     }
     if (text.includes("retaliating") || text.includes("reflect")) {
-      passives.runestoneRetaliateMeleePct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 18, 38);
+      passives.runestoneRetaliateMeleePct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 18, 38);
       if (text.includes("battered")) passives.runestoneRetaliateBatteredGuard = true;
     }
     if (text.includes("resolve-heart") || (text.includes("below 50%") && text.includes("potency"))) {
-      passives.runestoneBatteredPowerPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 18, 38);
+      passives.runestoneBatteredPowerPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 18, 38);
     }
     if (text.includes("sanctified")) {
-      mods.statusResistPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 25, 60);
-      passives.runestoneSanctifiedHealPct += 5;
+      mods.statusResistPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 25, 60);
+      passives.runestoneSanctifiedHealPct += pullRunestoneValue(
+        st.affix,
+        tier,
+        /heal\s+(\d+)%(?:\s*(?:[–-]|to)\s*(\d+)%)?/i,
+        3,
+        6
+      );
     }
     if (text.includes("vanguard") && text.includes("guard action")) {
-      passives.guardHealPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 6, 15);
-      passives.guardMpGain += 6;
+      passives.guardHealPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 6, 15);
+      passives.guardMpGain += pullRunestoneValue(st.affix, tier, MP_RANGE_RE, 4, 10);
       passives.guardDefTurn = true;
     }
     if (text.includes("unbreakable") && text.includes("fatal")) {
-      passives.unbreakableWardPct = Math.max(passives.unbreakableWardPct, pullRunestoneValue(st.affix, tier, /(\d+)%/, 10, 25));
+      passives.unbreakableWardPct = Math.max(passives.unbreakableWardPct, pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 10, 25));
     }
     if (text.includes("overflowing")) {
-      passives.overflowShieldMaxPct = Math.max(passives.overflowShieldMaxPct, pullRunestoneValue(st.affix, tier, /(\d+)%/, 15, 30));
+      passives.overflowShieldMaxPct = Math.max(passives.overflowShieldMaxPct, pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 15, 30));
     }
     if (text.includes("phantom") && text.includes("dodge")) {
-      mods.dodgePct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 6, 16);
       passives.dodgeGrantsMomentum = true;
     }
     if (text.includes("adaptive") && text.includes("elemental")) {
-      passives.runestoneAdaptiveMaxPct = Math.max(passives.runestoneAdaptiveMaxPct, pullRunestoneValue(st.affix, tier, /(\d+)%/, 25, 55));
+      passives.runestoneAdaptiveMaxPct = Math.max(passives.runestoneAdaptiveMaxPct, pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 25, 55));
     }
     if (text.includes("martyr")) {
-      passives.martyrInterceptPct = Math.max(passives.martyrInterceptPct, pullRunestoneValue(st.affix, tier, /(\d+)%/, 25, 40));
+      passives.martyrInterceptPct = Math.max(passives.martyrInterceptPct, pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 25, 40));
     }
 
     // Universal Suffixes
     if (text.includes("alacrity")) {
-      passives.accuracyBonusPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 3, 12);
+      passives.accuracyBonusPct += pullRunestoneValue(
+        st.affix,
+        tier,
+        /(\d+)%(?:\s*(?:[–-]|to)\s*\+?(\d+)%)?\s*accuracy/i,
+        3,
+        12
+      );
     }
     if (text.includes("of precision")) {
-      passives.accuracyBonusPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 5, 18);
+      passives.accuracyBonusPct += pullRunestoneValue(
+        st.affix,
+        tier,
+        /(\d+)%(?:\s*(?:[–-]|to)\s*\+?(\d+)%)?\s*accuracy/i,
+        5,
+        18
+      );
     }
     if (text.includes("brutality")) {
-      passives.critDamagePct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 12, 45);
+      passives.critDamagePct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 12, 45);
     }
     if (text.includes("of piercing") || (text.includes("ignore") && text.includes("defense"))) {
-      const val = pullRunestoneValue(st.affix, tier, /(\d+)%/, 10, 30);
+      const val = pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 10, 30);
       mods.armorPiercePct += val;
       passives.magicPiercePct += val;
     }
     if (text.includes("vitality") || text.includes("after battle")) {
-      passives.postBattleHealPct += pullRunestoneValue(st.affix, tier, /(\d+)%\s*hp\s*after/i, 3, 8);
+      passives.postBattleHealPct += pullRunestoneValue(
+        st.affix,
+        tier,
+        /(\d+)%(?:\s*(?:[–-]|to)\s*\+?(\d+)%)?\s*hp\s*after/i,
+        3,
+        8
+      );
     }
     if (text.includes("of the magus")) {
-      mods.mpCostReductionPct += pullRunestoneValue(st.affix, tier, /-(\d+)%/, 5, 15);
+      mods.mpCostReductionPct += pullRunestoneValue(
+        st.affix,
+        tier,
+        /-(\d+)%(?:\s*(?:[–-]|to)\s*-(\d+)%)?/i,
+        5,
+        15
+      );
     }
     if (text.includes("of momentum")) {
       passives.critGainMomentum = true;
     }
     if (text.includes("of mending")) {
-      mods.healPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 8, 28);
+      mods.healPct += pullRunestoneValue(st.affix, tier, PCT_RANGE_RE, 8, 28);
     }
     if (text.includes("guard-break power")) {
-      passives.extraGuardPct += pullRunestoneValue(st.affix, tier, /(\d+)%/, 3, 12);
+      passives.extraGuardPct += pullRunestoneValue(
+        st.affix,
+        tier,
+        /(\d+)%(?:\s*(?:[–-]|to)\s*\+?(\d+)%)?\s*guard[- ]break/i,
+        3,
+        12
+      );
     }
   }
 }

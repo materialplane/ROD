@@ -1,4 +1,5 @@
 import type {
+  BattleCombatConfig,
   BattleEnemyDef,
   BattleStageConfig,
   DisciplinePillar,
@@ -28,6 +29,13 @@ export interface StatusEffectState {
   kind: StatusAilmentKind;
   turns: number;
   potency: number;
+}
+
+export interface BattleStateIconSpec {
+  iconPath: string;
+  label: string;
+  tone: "state" | "warn" | "debuff" | "buff";
+  desc: string;
 }
 
 export interface BattleStatusUiMeta {
@@ -66,11 +74,12 @@ export interface WeaponModeSpec {
 
 export interface MagicThemeSpec {
   label: string;
+  themeClass?: string;
   accentColor: string;
   tierNames: string[];
 }
 
-export type ActionTargetScope = "enemy" | "all_enemies" | "ally" | "dead_ally" | "all_allies" | "self";
+export type ActionTargetScope = "enemy" | "all_enemies" | "ally" | "dead_ally" | "any_ally" | "all_allies" | "self";
 
 export interface BattleActionSpec {
   id: string;
@@ -98,9 +107,16 @@ export interface BattleActionSpec {
   grantBonusTurn?: boolean;
   stripEnemyBuffs?: boolean;
   restoreMp?: number;
+  flatRestoreMp?: number;
+  maxEnemyTargets?: number;
   healPower?: number;
+  flatHeal?: number;
   cleanse?: boolean;
+  cleansePartyDebuff?: boolean;
   revive?: boolean;
+  reviveHpPct?: number;
+  reviveWardPct?: number;
+  fullHealLiving?: boolean;
   secondAlly?: boolean;
   siphonHpPct?: number;
   siphonMpPct?: number;
@@ -413,6 +429,7 @@ export interface TurnTimelineEntry {
 export interface BattleState {
   battleId?: string;
   stage: BattleStageConfig;
+  combatConfig?: BattleCombatConfig;
   biomeName: string;
   zoneName: string;
   zoneCode: number;
@@ -428,6 +445,7 @@ export interface BattleState {
   totalXpEarned: number;
   totalSilverEarned: number;
   droppedTradeGoods: Record<string, number>;
+  droppedConsumables?: Record<string, number>;
   galeCanopyDodgeTurns?: number;
   turnCounter: number;
   combatLog?: string[];

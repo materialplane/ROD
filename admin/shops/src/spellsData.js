@@ -1,7 +1,7 @@
 // Canonical 72 Caster Spells (24 Ellowyn, 24 Mera, 24 Harlan) across Tiers 1-8 from docs/05-cast-and-skills.md.
 // Stocked in Town Magic Shops for Classic FF-style spell purchasing.
 
-const TIER_PRICES = [55, 150, 340, 680, 1280, 2350, 4200, 7400];
+const TIER_PRICES = [145, 235, 340, 680, 1280, 2350, 4200, 7400];
 
 const HERO_ICONS = {
   ellowyn: "assets/icons/ui/ui_09_spells_magic_glyph.webp",

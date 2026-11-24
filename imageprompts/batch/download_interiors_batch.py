@@ -16,6 +16,17 @@ from PIL import Image
 REPO_ROOT = Path(__file__).resolve().parents[2]
 OUT_DIR = REPO_ROOT / "assets" / "maps" / "interiors"
 TAVERNS_OUT_DIR = REPO_ROOT / "assets" / "maps" / "taverns"
+PORTALS_OUT_DIR = REPO_ROOT / "assets" / "maps" / "portals"
+PORTAL_STEM_PREFIXES = (
+    "loc_05_the_ashen_gate",
+    "loc_10_the_sunken_maw",
+    "loc_15_the_iron_rift",
+    "loc_20_the_rotspire",
+    "loc_25_the_scorched_chasm",
+    "loc_30_storm_crowned_spire",
+    "loc_35_the_pale_abyss",
+    "loc_39_the_eclipse_gate",
+)
 
 EXT_BY_MIME = {
     "image/png": ".png",
@@ -25,6 +36,8 @@ EXT_BY_MIME = {
 
 
 def resolve_out_dir(stem: str, target: str) -> Path:
+    if target == "portals" or stem.startswith(PORTAL_STEM_PREFIXES):
+        return PORTALS_OUT_DIR
     if target == "taverns" or stem.endswith("_tavern"):
         return TAVERNS_OUT_DIR
     return OUT_DIR
@@ -48,7 +61,7 @@ def save_image_bytes(raw_bytes: bytes, mime_type: str, stem: str, target: str = 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Download completed 16:9 Hub Interior or Bard Tavern scenes from Gemini Batch API.")
     parser.add_argument("job_name", help="Batch job ID (e.g. batches/...)")
-    parser.add_argument("--target", choices=("auto", "hubs", "taverns"), default="auto", help="Destination folder override (auto detects *_tavern).")
+    parser.add_argument("--target", choices=("auto", "hubs", "taverns", "portals"), default="auto", help="Destination folder override (auto detects *_tavern and portal IDs).")
     args = parser.parse_args()
 
     job_name = args.job_name.strip()
@@ -110,7 +123,7 @@ def main() -> int:
                     saved_paths.append(save_image_bytes(bytes(data), mime, stem, args.target))
                     break
 
-    final_dir = TAVERNS_OUT_DIR if (args.target == "taverns" or (saved_paths and saved_paths[0].parent == TAVERNS_OUT_DIR)) else OUT_DIR
+    final_dir = saved_paths[0].parent if saved_paths else (PORTALS_OUT_DIR if args.target == "portals" else TAVERNS_OUT_DIR if args.target == "taverns" else OUT_DIR)
     print(f"\nDone: {len(saved_paths)} scene(s) saved to {final_dir}")
     return 0
 

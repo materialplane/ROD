@@ -2,6 +2,7 @@ import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
+import { execFile } from "node:child_process";
 
 const PORT = 8766;
 const HOST = "127.0.0.1";
@@ -526,6 +527,30 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // --- Live Economy & Attrition Simulator API ---
+  if (urlPath === "/api/admin/simulator/run" && req.method === "GET") {
+    const reqUrl = new URL(req.url || "/api/admin/simulator/run", `http://${HOST}:${PORT}`);
+    const rawHunts = Number(reqUrl.searchParams.get("hunts") ?? "1");
+    const hunts = Number.isFinite(rawHunts) ? Math.max(0, Math.min(5, rawHunts)) : 1.0;
+    const simScript = path.join(ROOT, "tools", "simulate_economy.py");
+    execFile("python", [simScript, "--json", "--hunts", String(hunts)], { cwd: ROOT, timeout: 15_000 }, (err, stdout, stderr) => {
+      if (err) {
+        return sendJson(res, 500, { error: String(stderr || err.message || err) });
+      }
+      try {
+        const parsed = JSON.parse(stdout);
+        return sendJson(res, 200, {
+          ok: true,
+          ranAt: new Date().toISOString(),
+          ...parsed,
+        });
+      } catch (parseErr) {
+        return sendJson(res, 500, { error: `Invalid simulator JSON: ${String(parseErr)}` });
+      }
+    });
+    return;
+  }
+
   // --- Clean Trailing-Slash Redirects ---
   if (
     urlPath === "/client" ||
@@ -535,7 +560,8 @@ const server = http.createServer((req, res) => {
     urlPath === "/admin/party" ||
     urlPath === "/admin/disciplines" ||
     urlPath === "/admin/battles" ||
-    urlPath === "/admin/combat-test"
+    urlPath === "/admin/combat-test" ||
+    urlPath === "/admin/simulator"
   ) {
     res.writeHead(302, { Location: `${urlPath}/` });
     res.end();

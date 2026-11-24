@@ -1807,7 +1807,7 @@
         {
           "id": "npc_loc_13_hollowstone_keep_turncoat_gate_warden",
           "name": "Lydia Pike",
-          "roleTitle": "Turncoat Gate Warden",
+          "roleTitle": "Repentant Gate Warden",
           "category": "quest_giver",
           "servicesOffered": [
             "Local Hub Quest"
@@ -5117,7 +5117,7 @@
             "Local Hub Quest"
           ],
           "questsOffered": [
-            "Turncoat Patrols on the Ridge"
+            "Rogue Patrols on the Ridge"
           ],
           "portraitPath": "assets/portraits/npcs/npc_hub_cinderwatch_bastion_bastion_captain.webp",
           "shopType": "adventurer",

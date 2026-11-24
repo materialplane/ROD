@@ -475,10 +475,10 @@ def parse_trade_goods() -> list[dict]:
     # Preserve the 8 Ethorian humanoid trade goods whose icons live in client/assets/icons/items/
     # (tagged with exact primary numeric Region matching their Zone/sellSilver tier).
     humanoid_fallbacks = [
-        ("Road Bandit", "Regions 1–2", 1, "Rusty Coin Purse", 5),
-        ("Crossbow Poacher", "Regions 1–3", 1, "Fletched Bolt Case", 6),
-        ("Smuggler Cutthroat", "Regions 2, 5", 2, "Contraband Seal", 20),
-        ("Garrick Deserter", "Regions 1, 3", 1, "Torn Wolf Tabard", 9),
+        ("Road Bandit", "Regions 1–2", 1, "Rusty Coin Purse", 18),
+        ("Crossbow Poacher", "Regions 1–3", 1, "Fletched Bolt Case", 20),
+        ("Smuggler Cutthroat", "Regions 2, 5", 2, "Contraband Seal", 30),
+        ("Garrick Deserter", "Regions 1, 3", 1, "Torn Wolf Tabard", 24),
         ("Rival House Pikeman", "Regions 3, 7", 3, "Usurper Pennant", 59),
         ("Rival House Knight", "Regions 3, 7", 3, "Steel Crest Badge", 85),
         ("Gilded Slaver Enforcer", "Region 5", 5, "Brass Collar Key", 290),
@@ -589,9 +589,13 @@ def parse_runestone_affixes() -> dict:
             continue
 
         if section == "tiers" and cells[0] not in ("Tier", "Rarity Tier") and len(cells) >= 4:
+            m_scale = re.search(r"([\d.]+)\s*[x×]", cells[3])
+            scale_val = float(m_scale.group(1)) if m_scale else 1.0
             tiers.append({
                 "id": slugify(cells[0]),
                 "tier": cells[0],
+                "tierOrder": len(tiers) + 1,
+                "scale": scale_val,
                 "regions": cells[1],
                 "zones": cells[1],
                 "rollFormula": cells[2],

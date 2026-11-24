@@ -1,0 +1,113 @@
+# ROD — 16:9 Water & Pass Travel Prompts (4 Open Active Ship Harbors + 4 Closed Ferries + 1 Closed Mountain Pass = 9 Scenes)
+# Target Script: Google Gemini Batch API (`models/gemini-3-pro-image`, Pro 4K, 16:9, 50% Batch Tier) AFTER explicit Creative Director approval.
+# Stage A [01–04] Open Active Ship Harbors: Attach EACH existing closed/empty-pier Sea-Port image (`assets/maps/interiors/tr_port_map0X_*.jpg`) as its direct layout & architecture reference image so the cottages, lighthouse, crane, customhouse, breakwaters, piers, and camera match identically while adding tall wooden sailing ships moored ready at the piers.
+# Stage B [05–09] Closed Ferries (Maps 1–4) & Closed Mountain Pass (Map 4): Attach `assets/ui/menu_background_16x9_4k_v2.png` as Style & Brushwork Anchor.
+# Strictly Uninhabited: ZERO sailors, ferrymen, guards, or people anywhere in any scene; zero painted text or lettering.
+# UI Layout Mandate: Keep the lower foreground (~25% height) calm darkly shadowed flagstones, pier wood, sand, or cobbles so the travel lock notice, Captain/Keeper plates, and navigation buttons sit cleanly.
+
+================================================================================
+STAGE A — OPEN ACTIVE SEA-PORTS (4 Matched Variants · Attach Existing Empty Harbors as Reference)
+================================================================================
+
+--------------------------------------------------------------------------------
+[01] ID: tr_port_map01_royal_trade_open | Map 1 Open Sea-Port: Royal Trade Port Town (Moored Ships)
+# SAVE AS: assets/maps/interiors/tr_port_map01_royal_trade_open.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/interiors/tr_port_map01_royal_trade.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED OPEN HARBOR VARIATION (KEEP EXACT HARBOR ARCHITECTURE, COTTAGES, LIGHTHOUSE, PIERS & CAMERA OF REFERENCE IMAGE — STRICTLY UNINHABITED WITH ZERO PEOPLE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, eye-level coastal terrace camera framing, lower shadowed gray cobblestone foreground, left green-roofed timber cottages, low stone seawall, twin wooden piers, and right stone lighthouse from the attached reference image of Royal Trade Port Town, transforming ONLY the empty harbor waters into an active ready-to-sail port. Moored securely alongside the twin brown-oak wooden harbor piers floats a proud three-masted Ethorian oak sailing galleon with dark weathered timber planking, furled cream canvas sails lashed neatly along high wooden yardarms, taut hemp rigging catching warm golden-amber sunset highlights, and warm glowing brass deck and stern lanterns reflected over calm deep-blue bay water, plus a secondary merchant brig anchored softly out past the stone lighthouse headland and neat tied cargo barrels and rope coils staged along the near wooden pier ready for departure. Maintain peaceful clear golden twilight clouds overhead and strictly zero people, zero sailors, and zero lettering anywhere in the scene.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[02] ID: tr_port_map02_highland_cove_open | Map 2 Open Sea-Port: Highland Cove Port Town (Moored Ship)
+# SAVE AS: assets/maps/interiors/tr_port_map02_highland_cove_open.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/interiors/tr_port_map02_highland_cove.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED OPEN HARBOR VARIATION (KEEP EXACT HARBOR ARCHITECTURE, STOREHOUSES, CRANE, PIER & CAMERA OF REFERENCE IMAGE — STRICTLY UNINHABITED WITH ZERO PEOPLE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, eye-level sandy harbor yard camera framing, calm shaded packed ochre-sand lower foreground, flanking stone-and-plaster slate-roofed storehouses, and wooden pier with tall timber pulley crane from the attached reference image of Highland Cove Port Town, transforming ONLY the empty dockside water into an active ready-to-sail port. Moored cleanly right beside the timber pulley crane pier sits a stout deepwater Ethorian highland wooden carrack galleon with dark iron-braced oak hull, tall rigged masts with neatly furled canvas sails, glowing warm amber deck and stern lanterns lighting the calm deep-blue cove waves, a wooden boarding gangplank resting between hull and pier beside neatly strapped wooden supply crates, and distant calm open cove waters bathed in warm golden-violet twilight. Keep the entire dockside courtyard and ship deck strictly uninhabited with zero sailors, zero workers, and zero text anywhere in the scene.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[03] ID: tr_port_map03_desert_harbor_open | Map 3 Open Sea-Port: Desert Harbor Port Town (Moored Ships)
+# SAVE AS: assets/maps/interiors/tr_port_map03_desert_harbor_open.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/interiors/tr_port_map03_desert_harbor.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED OPEN HARBOR VARIATION (KEEP EXACT HARBOR ARCHITECTURE, MARKET STALLS, DOMED CUSTOMHOUSE, PIERS & CAMERA OF REFERENCE IMAGE — STRICTLY UNINHABITED WITH ZERO PEOPLE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, eye-level beach camera framing, smooth shadowed golden sand lower foreground, left striped awning market stall, right domed cream-sandstone customs house with striped awning, and three dark-oak wooden harbor piers from the attached reference image of Desert Harbor Port Town, transforming ONLY the empty offshore harbor into an active ready-to-sail desert port. Moored firmly alongside the main central and outer dark-oak wooden piers floats a majestic sun-weathered cedar and sea-teal trimmed Ethorian spice-trade sailing galleon with tall lateen and square masts, furled ivory linen sails, taut bronze-ringed rigging catching rich warm golden sunset rim light, glowing amber hull lanterns mirrored across translucent turquoise shallows and deep indigo bay water, a companion sleek desert sloop docked at the outer pier, and neat sealed spice casks staged along the pier planks. Keep the beach, market awnings, piers, and ships strictly uninhabited with zero people, zero merchants, and zero lettering anywhere in the frame.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[04] ID: tr_port_map04_arctic_seaport_open | Map 4 Open Sea-Port: Arctic Sea-Port Town (Moored Ship)
+# SAVE AS: assets/maps/interiors/tr_port_map04_arctic_seaport_open.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/interiors/tr_port_map04_arctic_seaport.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED OPEN HARBOR VARIATION (KEEP EXACT HARBOR ARCHITECTURE, SNOWY LODGES, POST LANTERN, BREAKWATERS & CAMERA OF REFERENCE IMAGE — STRICTLY UNINHABITED WITH ZERO PEOPLE): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, eye-level icy cove landing camera framing, calm shadowed snow-dusted gravel and packed stone lower foreground, left and right snow-draped steep-gabled northern lodges with glowing amber windows, lone center post lantern, and twin snow-capped stone harbor breakwaters from the attached reference image of Arctic Sea-Port Town, transforming ONLY the empty midnight-blue basin between the stone breakwaters into an active ready-to-sail northern port. Moored securely within the sheltered water between the snow-capped stone breakwaters floats a heavy ice-braced northern dark-pine ocean caravel with iron-reinforced prow, frost-kissed tall timber masts, neatly furled heavy storm sails, and bright warm-amber iron stern and deck lanterns spilling vivid golden light ripples across the calm dark indigo arctic water, with wrapped supply bundles staged beside the stone mooring edge. Keep the snowy landing path, piers, and ship strictly uninhabited with zero sailors, zero people, and zero signs or letters anywhere in the scene.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE B — CLOSED FERRIES (MAPS 1–4) & CLOSED MOUNTAIN PASS GATE (MAP 4)
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+================================================================================
+
+--------------------------------------------------------------------------------
+[05] ID: tr_ferry_map01_closed | Map 1 Closed Ferry Pier (Crownlands & Saltmarsh · Locked)
+# SAVE AS: assets/maps/interiors/tr_ferry_map01_closed.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—mossy cracked limestone riverbank stones, aged dark-oak timber planking, twisted hemp dock ropes, rusted wrought-iron chains, crisp amber-indigo twilight rim lighting, and velvety dark espresso crevice shadows in clear quiet air.
+
+COMPOSITION & QUIET CLOSED WOODLAND FERRY LANDING (STRICTLY UNINHABITED): Still, uninhabited eye-level scenic splash illustration standing along a hushed Crownlands coastal strait shore looking out across an empty dark waterway from a locked timber Ferry Pier at brooding early dusk. Calm, darkly shadowed mossy riverbank stone slabs and packed dirt shore edge stretch cleanly across the lower foreground.
+
+LOCKED EMPTY TIMBER PIER & EMPTY CHANNEL (CENTER & RIGHT): Extending out from center-left over still, empty midnight-sapphire strait water lies a weathered dark-oak timber ferry pier barred near its shore steps by a heavy iron chain slung between stout mooring bollards, a cold unlit wrought-iron lantern hanging still overhead, coiled weathered dock rope, and completely empty open water with no boat and no ferry raft present anywhere in the channel. Framed cleanly across the far misty shore under dark brooding indigo-and-pale-amber clouds sit distant silent Saltmarsh cliffs wrapped in tense twilight haze, strictly free of any ferrymen, soldiers, or boats.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[06] ID: tr_ferry_map02_closed | Map 2 Closed Ferry Pier (Thornwall & Verdant Weald · Locked)
+# SAVE AS: assets/maps/interiors/tr_ferry_map02_closed.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—chipped ochre-and-gray highland slate flagstones, dark walnut dock timbers, riveted iron mooring brackets, mossy river reeds, crisp dusk rim highlights, and velvety dark espresso-and-indigo crevice shadows in tense quiet air.
+
+COMPOSITION & QUIET CLOSED HIGHLAND RIVER FERRY DOCK (STRICTLY UNINHABITED): Still, uninhabited eye-level scenic splash illustration standing on a weathered stone-and-timber riverbank landing overlooking Map 2's silent central Thornwall-to-Weald strait at somber fiery dusk. Broad darkly shadowed golden-ochre cobble bank stones and mossy steps ground the calm lower foreground cleanly.
+
+CHAINED WALNUT PIER & DESERTED STRAIT WATER (CENTER & BACKGROUND): Stretching into deep empty slate-indigo channel water stands a stout dark-walnut and iron-bracketed ferry landing dock shut off by a locked timber dock gate and rusted iron padlock chain, beside motionless empty mooring rings, stacked unmoved oak supply casks, and an unlit iron lantern arm. Across the completely empty, boat-free water channel glow dark distant Verdant Weald tree silhouettes under tense brooding iron-slate and dusk-orange clouds—entirely silent and deserted with zero ferrymen, zero people, and zero barges in sight.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[07] ID: tr_ferry_map03_closed | Map 3 Closed Ferry Pier (Sun-Scorched Isles Strait · Locked)
+# SAVE AS: assets/maps/interiors/tr_ferry_map03_closed.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—sun-cracked honey sandstone masonry, weathered cedar dock beams, worn striped linen tarps, knotted hemp mooring lines, hammered tarnished bronze brackets, crisp sunset rim highlights, and velvety dark espresso-and-indigo crevice shadows in crystal-clear desert twilight air.
+
+COMPOSITION & QUIET CLOSED DESERT STRAIT PIER (STRICTLY UNINHABITED): Still, uninhabited eye-level scenic splash illustration standing along a sun-baked sandstone strait shore before a locked desert Ferry Landing looking across empty deep Prussian-blue water toward distant northern Ironcrest cliffs at late dusk. Cool shaded smooth golden-sand and cracked sandstone landing pavers anchor the calm lower foreground cleanly.
+
+SHUT DESERT JETTY & EMPTY STRAIT (CENTER & LEFT): Reaching outward over still, empty dark sapphire-blue strait water stretches a sun-bleached cedar ferry dock closed off across its entrance by a lashed timber barrier beam, heavy iron mooring chain, rolled-down faded rust-ochre dock awning canopy on the left, unlit brass dock lantern, and quiet tied clay amphorae resting untouched on the planks. Not a single boat or awning raft floats upon the wide empty channel under high brooding twilight indigo-and-amber desert clouds—strictly uninhabited with zero boatmen, zero guards, and zero writing anywhere.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[08] ID: tr_ferry_map04_closed | Map 4 Closed Ferry Pier (Frostbound Reach · Locked)
+# SAVE AS: assets/maps/interiors/tr_ferry_map04_closed.jpg
+# STYLE REF: assets/ui/menu_background_16x9_4k_v2.png
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact crisp hand-painted art style of League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) key art. Dense, razor-sharp opaque digital brushwork brimming with intricate weathered surface textures—frost-fractured dark granite pier blocks, snow-crusted dark pine dock timbers, hoarfrost crystals on heavy iron chains, frozen snow pine silhouettes, crisp icy-amber twilight rim highlights, and velvety dark espresso-and-indigo crevice shadows in freezing winter air.
+
+COMPOSITION & QUIET CLOSED ARCTIC FERRY PIER (STRICTLY UNINHABITED): Still, uninhabited eye-level scenic splash illustration standing on a snow-dusted dark pine-and-granite shoreline dock overlooking Map 4's freezing dark arctic water channel at grim winter twilight. Broad, darkly shadowed frost-fringed granite pier stones and packed cold gravel anchor the calm lower foreground cleanly.
+
+FROSTED EMPTY PIER & ICY EMPTY WATERWAY (CENTER & BACKGROUND): Extending out over still, cold dark navy-indigo arctic strait water lies a heavy frost-rimmed dark-pine northern ferry dock barred near the shore by thick padlocked wrought-iron chains slung across heavy timber posts, beside an unlit snow-topped iron lantern post, coiled frozen rope, and stacked wool-wrapped supply crates resting untouched on snow-dusted planks. Not a single boat or steel-prow ferry floats in the empty icy channel under brooding indigo northern storm clouds framing distant snowy headlands—completely uninhabited with zero ferrymen, zero people, and zero writing anywhere.
+--- COPY-PASTE PROMPT END ---
+
+--------------------------------------------------------------------------------
+[09] ID: tr_pass_map04_closed | Map 4 Closed Border Mountain Pass Gate (Dreadwaste Ridge · Locked — Full-Door Fix)
+# SAVE AS: assets/maps/interiors/tr_pass_map04_closed.jpg
+# ATTACH REFERENCE IMAGE: assets/maps/interiors/tr_pass_map04_closed.jpg
+--------------------------------------------------------------------------------
+--- COPY-PASTE PROMPT START ---
+MATCHED IMPASSABLE GATE FIX (PRESERVE EXACT ART STYLE, CLIFFS, COBBLE ROAD, TIMBER PARAPET & PADLOCKED CHAINS OF REFERENCE IMAGE — REPLACE SPLIT BARS WITH SOLID FULL-HEIGHT FORTRESS DOORS): Preserve the exact 16:9 League of Legends / Runeterra hand-painted key art brushwork, eye-level snowy mountain canyon camera angle, dark shadowed foreground cobblestones, flanking snow-covered gray granite cliff walls, unlit stone fire-braziers, upper frosted timber parapet, stone archway masonry, and heavy X-crossed wrought-iron chains with center steel padlock from the attached reference image of the Border Mountain Pass Gate. Completely remove the split open portcullis bars and open sky gap inside the stone archway and replace them entirely with massive, solid, heavy dark-oak fortress double doors reinforced edge-to-edge with thick riveted wrought-iron cross-straps and iron studs filling 100% of the stone arch opening seamlessly from the cobblestone threshold all the way up under the stone arch keystone—completely sealed tight with ZERO gaps, ZERO open holes, and ZERO sky visible between door planks, bound fast behind the heavy X-crossed iron chains and giant padlock. Strictly uninhabited with zero people and zero lettering.
+--- COPY-PASTE PROMPT END ---

@@ -1,0 +1,583 @@
+{
+  "version": 1,
+  "globalActiveQuestLimit": 15,
+  "killsByCellSize": {
+    "1": 6,
+    "2": 5,
+    "4": 4
+  },
+  "eliteRewardMultiplier": 1.15,
+  "irregularPlurals": {
+    "Wolf": "Wolves",
+    "Dire Wolf": "Dire Wolves",
+    "Winter Wolf": "Winter Wolves",
+    "Werewolf": "Werewolves",
+    "Mummy": "Mummies",
+    "Mummy Lord": "Mummy Lords",
+    "Harpy": "Harpies",
+    "Spy": "Spies",
+    "Lich": "Liches",
+    "Oni": "Oni",
+    "Behir": "Behirs",
+    "Sphinx of Lore": "Sphinxes of Lore"
+  },
+  "zones": {
+    "1": {
+      "silver": 200,
+      "xp": 90,
+      "regionKey": "crownlands"
+    },
+    "2": {
+      "silver": 300,
+      "xp": 180,
+      "regionKey": "crownlands"
+    },
+    "3": {
+      "silver": 420,
+      "xp": 350,
+      "regionKey": "crownlands"
+    },
+    "4": {
+      "silver": 580,
+      "xp": 620,
+      "regionKey": "saltmarsh"
+    },
+    "5": {
+      "silver": 800,
+      "xp": 1300,
+      "regionKey": "saltmarsh"
+    },
+    "6": {
+      "silver": 1150,
+      "xp": 1450,
+      "regionKey": "thornwall"
+    },
+    "7": {
+      "silver": 1650,
+      "xp": 2150,
+      "regionKey": "thornwall"
+    },
+    "8": {
+      "silver": 2150,
+      "xp": 3000,
+      "regionKey": "weald"
+    },
+    "9": {
+      "silver": 2950,
+      "xp": 3400,
+      "regionKey": "weald"
+    },
+    "10": {
+      "silver": 3850,
+      "xp": 5100,
+      "regionKey": "weald"
+    },
+    "11": {
+      "silver": 5200,
+      "xp": 4800,
+      "regionKey": "desert"
+    },
+    "12": {
+      "silver": 6500,
+      "xp": 6400,
+      "regionKey": "desert"
+    },
+    "13": {
+      "silver": 7800,
+      "xp": 8000,
+      "regionKey": "desert"
+    },
+    "14": {
+      "silver": 11000,
+      "xp": 7500,
+      "regionKey": "highlands"
+    },
+    "15": {
+      "silver": 14500,
+      "xp": 11200,
+      "regionKey": "highlands"
+    },
+    "16": {
+      "silver": 19000,
+      "xp": 10000,
+      "regionKey": "frostbound"
+    },
+    "17": {
+      "silver": 23000,
+      "xp": 13200,
+      "regionKey": "frostbound"
+    },
+    "18": {
+      "silver": 27000,
+      "xp": 15800,
+      "regionKey": "dreadwaste"
+    },
+    "19": {
+      "silver": 36000,
+      "xp": 15200,
+      "regionKey": "dreadwaste"
+    },
+    "20": {
+      "silver": 48000,
+      "xp": 20500,
+      "regionKey": "dreadwaste"
+    }
+  },
+  "regionProfiles": {
+    "crownlands": {
+      "key": "crownlands",
+      "titlePrefix": "Crownland",
+      "settingPhrase": "sunlit wheat roads, orchards, and green oak groves",
+      "roadPhrase": "farm carts and royal road couriers"
+    },
+    "saltmarsh": {
+      "key": "saltmarsh",
+      "titlePrefix": "Saltmarsh",
+      "settingPhrase": "fog-hung reeds, tidal sandbars, and brackish flats",
+      "roadPhrase": "fishing skiffs and marsh supply wagons"
+    },
+    "thornwall": {
+      "key": "thornwall",
+      "titlePrefix": "Thornwall",
+      "settingPhrase": "ochre highland hills, slate quarries, and stony passes",
+      "roadPhrase": "ore trains and border garrison patrols"
+    },
+    "weald": {
+      "key": "weald",
+      "titlePrefix": "Verdant Weald",
+      "settingPhrase": "dense mossy timber woods and shadowed clearings",
+      "roadPhrase": "timber sledges and apothecary convoys"
+    },
+    "desert": {
+      "key": "desert",
+      "titlePrefix": "Sun-Scorched",
+      "settingPhrase": "blistering golden dunes, sandstone mesas, and salt coves",
+      "roadPhrase": "water-bearers and spice caravans"
+    },
+    "highlands": {
+      "key": "highlands",
+      "titlePrefix": "Ironcrest",
+      "settingPhrase": "wind-scoured granite ridges, pine valleys, and storm peaks",
+      "roadPhrase": "star-iron wagons and mountain watch scouts"
+    },
+    "frostbound": {
+      "key": "frostbound",
+      "titlePrefix": "Frostbound",
+      "settingPhrase": "frozen snowfields, icebound pines, and glacial cliffs",
+      "roadPhrase": "winter fur-sleds and northern harbor convoys"
+    },
+    "dreadwaste": {
+      "key": "dreadwaste",
+      "titlePrefix": "Dreadwaste",
+      "settingPhrase": "charred ash plains, jagged basalt crags, and obsidian passes",
+      "roadPhrase": "siege-line pickets and vanguard supply columns"
+    }
+  },
+  "loreByMobId": {
+    "mob_bandit": {
+      "threatSummary": "Desperate Bandits slipped clear of capital watch patrols after King Garrick fled north. Now they ambush grain wagons along open dirt roads and plunder local harvests unless driven out."
+    },
+    "mob_acolyte": {
+      "threatSummary": "Disgraced temple Acolytes fell to whispers seeping through Ethoria's fractured Portals. They raise makeshift altars beside rural roads to prey on travelers and feed dark wards."
+    },
+    "mob_cultist": {
+      "threatSummary": "Hooded Cultists wearing blackened sigils shelter inside overgrown woods and roadside ruins. Left unchecked, their blood-rites call wild rift beasts straight toward town palisades."
+    },
+    "mob_wolf": {
+      "threatSummary": "Hungry Wolves were driven out of deep forest hollows by strange rift tremors. They now stalk grazing sheep, farm mules, and lone couriers at dusk."
+    },
+    "mob_giant_crab": {
+      "threatSummary": "Swollen offshore currents drove monstrous Giant Crabs onto dry ground. They crush coastal skiffs and snap crabbers' traps clean in half.",
+      "byRegion": {
+        "crownlands": "Swollen offshore currents drove monstrous Giant Crabs onto Crown Sea tide-flats. They crush fishermen's wicker traps and snip at wade-line patrols.",
+        "saltmarsh": "Monstrous Giant Crabs nest across muddy saltmarsh bars and tidal flats. They clamp onto stranded boats and ambush unwary marsh gatherers.",
+        "thornwall": "Rough tides drove Giant Crabs onto Thornwall's sheltered cove rocks. They crush cargo crates and scatter harbor haulers landing border iron."
+      }
+    },
+    "mob_skeleton": {
+      "threatSummary": "Restless Skeletons from forgotten skirmishes clawed their way out of hilltop barrows. Armed with rusted steel, they march blindly upon every living traveler."
+    },
+    "mob_zombie": {
+      "threatSummary": "Creeping necrotic haze off shallow graves dragged shambling Zombies back upright. Though slow, they swarm stubbornly over country trails until put down cleanly."
+    },
+    "mob_scout": {
+      "threatSummary": "Fleet-footed deserter Scouts traded royal garrison service for highway plunder. From hillside rises they spot passing supply wagons early and signal ambushers in."
+    },
+    "mob_thug": {
+      "threatSummary": "Heavy-shouldered Thugs stretch spiked chains across open crossroads. They shake down honest farmers for every silver piece before letting wagons pass."
+    },
+    "mob_spy": {
+      "threatSummary": "Poison-bladed Spies slip between rural inns and crossroads to map out garrison patrol schedules. Catching them in the wilds cuts the eyes and ears off outlaw rings."
+    },
+    "mob_shadow": {
+      "threatSummary": "Living Shadows peel free from stone hollows at twilight. Their numbing touch drains a traveler's warmth and leaves even stout sentries trembling."
+    },
+    "mob_worg": {
+      "threatSummary": "Cruel Worgs bark broken commands as they herd pack horses into narrow blind gullies. Travelers trapped inside rarely ride clear."
+    },
+    "mob_pirate": {
+      "threatSummary": "Salt-hardened Pirates beach stolen skiffs in quiet coves under cover of sea spray. They raid watch-posts and strip cargo barges to the ribs."
+    },
+    "mob_ghoul": {
+      "threatSummary": "Starved undead Ghouls haunt shadowed hollows and paralyze victims on contact with filthy claws. Rangers must clear their hunting grounds before trails close."
+    },
+    "mob_dire_wolf": {
+      "threatSummary": "Shoulder-high Dire Wolves can snap oak wagon shafts with a single bite. Their booming howls rally lesser packs into fearless assaults on patrols."
+    },
+    "mob_giant_spider": {
+      "threatSummary": "Horse-sized Giant Spiders string razor-tough silk traps between ancient trees. Unwary trappers vanish into the canopy without a cry."
+    },
+    "mob_brown_bear": {
+      "threatSummary": "Massive Brown Bears grew furious after foul Portal scents drifted across wild berry slopes. Cornered near grazing pastures, a single bear scatters an entire guard detail."
+    },
+    "mob_harpy": {
+      "threatSummary": "Screaming Harpies perch on high cliff ledges to lure watchmen and drovers toward steep drops. Travelers drawn in by their haunting song meet diving talons."
+    },
+    "mob_bandit_captain": {
+      "threatSummary": "Seasoned Bandit Captains whip loose highwaymen into disciplined ambush companies. Cutting down their leaders shatters outlaw morale across the county."
+    },
+    "mob_cultist_fanatic": {
+      "threatSummary": "Wild-eyed Cultist Fanatics channel twisted rift blessings and roar dark invocations over rocky ledges. Every fanatic left alive rallies fresh cells across the frontier."
+    },
+    "mob_gargoyle": {
+      "threatSummary": "Earth-Plane tremors woke winged granite Gargoyles perched atop high ridge spires. They stay motionless like broken statues until patrols march past below."
+    },
+    "mob_berserker": {
+      "threatSummary": "Scarred Berserkers drink stinging battle-brews and charge straight into shield walls heedless of steel or pain. Patrols cannot hold local trails while they roam free."
+    },
+    "mob_ghast": {
+      "threatSummary": "Putrid undead Ghasts reek of grave rot so foul it turns brave soldiers' stomachs mid-swing. Clearing them keeps vital marshland causeways open."
+    },
+    "mob_giant_constrictor_snake": {
+      "threatSummary": "Thirty-foot Giant Constrictor Snakes glide noiselessly through tall brush and waterways. They coil out of murky banks to drag wading scouts and pack mules under."
+    },
+    "mob_ogre": {
+      "threatSummary": "Nine-foot Ogres haul uprooted tree trunks down from rocky ridges. They smash supply wagons open for salted meat and scrap iron."
+    },
+    "mob_merrow": {
+      "threatSummary": "Barbed sea-born Merrow washed inland along coastal waters. Armed with jagged bone harpoons, they hunt fishermen and coastal scouts along wet shores."
+    },
+    "mob_werewolf": {
+      "threatSummary": "Cursed Werewolves prowl under dusk mist along marsh and woodland verges. No watch-post sleeps soundly while their howls circle nearby."
+    },
+    "mob_black_dragon_wyrmling": {
+      "threatSummary": "Cruel horned Black Dragon Wyrmlings crept out of murky coastal pools. They delight in melting armor plates and boat hulls with blistering green acid."
+    },
+    "mob_warrior_veteran": {
+      "threatSummary": "Hardened Warrior Veterans abandoned royal service to sell seasoned sword-work to smugglers and rival houses. Inexperienced county levies buckle whenever they charge."
+    },
+    "mob_knight": {
+      "threatSummary": "Full-plate rogue Knights ride through borderlands to impose illegal blood-tolls on passing merchants in King Garrick's darkest name."
+    },
+    "mob_minotaur": {
+      "threatSummary": "Towering bull-headed Minotaurs wandered into rugged defiles and forest ruins. They charge straight down narrow tracks where wagons have nowhere to turn."
+    },
+    "mob_manticore": {
+      "threatSummary": "Winged Manticores loose salvos of iron-hard tail quills from high cliff updrafts. Entire baggage convoys lie pinned down across exposed passes."
+    },
+    "mob_winter_wolf": {
+      "threatSummary": "Massive pale-furred Winter Wolves spilled out through unnatural cold rifts onto Thornwall's high crag passes. Their frost gusts freeze wary border patrols where they stand."
+    },
+    "mob_wight": {
+      "threatSummary": "Vengeful undead Wights clad in corroded border armor stalk disputed grasslands. Their chilling blades wither living vitality on contact."
+    },
+    "mob_vampire_familiar": {
+      "threatSummary": "Pale blood-bound Vampire Familiars slip across grasslands between dusk and dawn. They mark lonely homesteads for darker masters."
+    },
+    "mob_hell_hound": {
+      "threatSummary": "Coal-eyed Hell Hounds run loose across dry brush and forest margins. Their smoking tracks end at wooden watchtowers torched in seconds."
+    },
+    "mob_basilisk": {
+      "threatSummary": "Heavy eight-legged Basilisks squat silently among rocky outcrops. Their toxic yellow glare turns unwary prospectors into pale limestone statues."
+    },
+    "mob_mummy": {
+      "threatSummary": "Linen-shrouded Mummies woke inside cracked burial tombs. Their rotting touch drives ancient dust-blight straight into mortal veins."
+    },
+    "mob_red_dragon_wyrmling": {
+      "threatSummary": "Proud crimson Red Dragon Wyrmlings claimed nearby slate mine shafts. They scorch pick-gangs away to hoard bright iron and silver inside smoldering caves."
+    },
+    "mob_ettin": {
+      "threatSummary": "Snarling two-headed Ettins guard boulder choke-points with dual morningstars. Both heads bicker endlessly over which traveler gets roasted first."
+    },
+    "mob_bearded_devil": {
+      "threatSummary": "Spiteful iron-glaive Bearded Devils crawled out of warfront rifts. Their writhing serpent beards leave festering wounds no ordinary field bandage closes."
+    },
+    "mob_guard_captain": {
+      "threatSummary": "Ruthless rival Guard Captains drill hostile patrols across disputed border roads. Left in command, they cut loyalist settlements clean off from supplies."
+    },
+    "mob_green_hag": {
+      "threatSummary": "Cruel canopy-dwelling Green Hags mimic lost children's cries out of mist-filled hollows. Greenhorns who follow the voice wander straight into thorny snares."
+    },
+    "mob_owlbear": {
+      "threatSummary": "Ferocious feathered Owlbears tear timber carts to splinters whenever sawyers cross within half a league of their hollow-root nests."
+    },
+    "mob_wereboar": {
+      "threatSummary": "Stubborn scarred Wereboars gore straight through spear lines in wild fury. They flatten woodland fences and root cellars alike."
+    },
+    "mob_lamia": {
+      "threatSummary": "Trickster Lamias weave glittering illusions across overgrown clearings. Befuddled scouts drop their guard long before steel comes out."
+    },
+    "mob_ghost": {
+      "threatSummary": "Restless Ghosts cling to ruined forest shrines along quiet trails. Their bone-deep terror drains courage and scatters loyal patrols into the trees."
+    },
+    "mob_succubus": {
+      "threatSummary": "Winged Succubi slip along lonely woodland clearings to charm watch captains. One careless officer can unlock an entire garrison postern gate from within."
+    },
+    "mob_chuul": {
+      "threatSummary": "Gigantic lobster-plated Chuuls lurk motionless beneath murky channel banks. They paralyze armored scouts with venom-tipped feelers."
+    },
+    "mob_giant_crocodile": {
+      "threatSummary": "Twenty-foot Giant Crocodiles drift like mossy logs along ferry approaches. One snap splits oars and rowboats cleanly in two."
+    },
+    "mob_shadow_demon": {
+      "threatSummary": "Clawed Shadow Demons crept out of dark Rotspire fissures. They dart through blighted canopy gloom where torchlight barely reaches."
+    },
+    "mob_troll": {
+      "threatSummary": "Lanky moss-skinned Trolls haunt isolated clearings. Their torn flesh knits shut mid-battle unless seared cleanly with fire."
+    },
+    "mob_night_hag": {
+      "threatSummary": "Sinister blue-skinned Night Hags gather around toadstool rings. Their foul curses leave frontier sentries too drained by waking nightmares to stand watch."
+    },
+    "mob_gladiator": {
+      "threatSummary": "Pit-hardened Gladiators turned into merciless highway killers along wilderness clearings. Heavy arena blades let them carve straight through raw militia."
+    },
+    "mob_flesh_golem": {
+      "threatSummary": "Rotspire lightning shocks drove hulking patchwork Flesh Golems into motion. They march tirelessly through toxic mire with zero fear of pain."
+    },
+    "mob_wraith": {
+      "threatSummary": "Life-draining Wraiths crowned in cold embers glide straight through wooden stockade walls. They snuff out campfires and sentries without a sound."
+    },
+    "mob_vampire_spawn": {
+      "threatSummary": "Feral Vampire Spawn nest high inside blighted pine boughs. They drop silently onto twilight patrols passing quarantine markers."
+    },
+    "mob_hill_giant": {
+      "threatSummary": "Bumbling twelve-foot Hill Giants smash mountain cattle sheds and foothill windmills simply to devour everything inside in one sitting."
+    },
+    "mob_bulette": {
+      "threatSummary": "Plate-shelled Bulettes burst straight up through soft foothill turf like breaching whales, swallowing pack mules whole."
+    },
+    "mob_pirate_captain": {
+      "threatSummary": "Notorious Pirate Captains seize sheltered coves along coastal beaches. They turn quiet bays and wrecks into armed corsair dens."
+    },
+    "mob_salamander": {
+      "threatSummary": "Bronze-scaled fiery Salamanders slither out of scorched rock cracks. Their white-hot iron spears blister wooden shields on contact."
+    },
+    "mob_fire_elemental": {
+      "threatSummary": "Living Fire Elementals spilled out of The Scorched Chasm. They ignite caravan canvas and boil desert water springs dry."
+    },
+    "mob_barbed_devil": {
+      "threatSummary": "Spiny Barbed Devils prowl red sandstone mesas. Their razor hides shred careless swordsmen who close in blindly."
+    },
+    "mob_mage": {
+      "threatSummary": "Rogue Mages defied Highcrown's old arcane bans and fled to the frontier. Now they hurl volatile flame and storm spells across open mesas."
+    },
+    "mob_chimera": {
+      "threatSummary": "Triple-headed Chimeras combine lion fangs, goat horns, and flame-belching dragon jaws. They pick camel trains cleanly off cliff ledges."
+    },
+    "mob_wyvern": {
+      "threatSummary": "Venom-tailed Wyverns nest high along tall stone spires. Their dripping stingers drop armored cavalry in seconds."
+    },
+    "mob_water_elemental": {
+      "threatSummary": "Portal currents stirred up churning Water Elementals along local shores. They drag thirsty travelers under lakes and coastal shallows.",
+      "byRegion": {
+        "desert": "Portal currents stirred up churning Water Elementals inside desert oasis springs and coastal inlets. They drag parched caravans under warm surf.",
+        "highlands": "Portal currents stirred up churning Water Elementals across Ironcrest's alpine lake shores. They sweep fishermen and pack mules cleanly off rocky banks."
+      }
+    },
+    "mob_young_black_dragon": {
+      "threatSummary": "Cunning horned Young Black Dragons staked claims across sunken salt-lakes. They hoard caravan brass beneath clouds of blistering acid mist."
+    },
+    "mob_oni": {
+      "threatSummary": "Giant horned Oni shapeshifters disguise themselves as trail guides. They lure spice merchants straight into silent palm-grove ambushes."
+    },
+    "mob_vrock": {
+      "threatSummary": "Screeching vulture-feathered Vrocks dive over exposed ridges. They shake loose choking spore-clouds and deafening cries to scatter pack beasts.",
+      "byRegion": {
+        "desert": "Screeching vulture-feathered Vrocks dive over blazing desert dunes. They shake loose choking spore-clouds to scatter spice caravans.",
+        "highlands": "Screeching vulture-feathered Vrocks wheel down from granite Ironcrest crags. Their deafening shrieks scatter ore trains across narrow ledges."
+      }
+    },
+    "mob_invisible_stalker": {
+      "threatSummary": "Bound Invisible Stalkers drift unseen on hot swirling winds. They slit water-skins and pick off outriders without leaving a single footprint."
+    },
+    "mob_stone_giant": {
+      "threatSummary": "Stoic Stone Giants carve boulder ambushes atop mesas and granite peaks. Their hurled rocks shatter outpost walls from beyond bowshot range."
+    },
+    "mob_young_white_dragon": {
+      "threatSummary": "Savage Young White Dragons nest along windy granite passes. Their freezing breath turns copper storm-wards brittle as glass."
+    },
+    "mob_young_copper_dragon": {
+      "threatSummary": "Mining hammers roused territorial Young Copper Dragons along highland crags. They ambush ore carts with sizzling sprays of acid."
+    },
+    "mob_shield_guardian": {
+      "threatSummary": "Masterless iron Shield Guardians patrol abandoned foothill depots without sleep or mercy. They crush anyone approaching without ancient seals."
+    },
+    "mob_assassin": {
+      "threatSummary": "Poison-cloaked Assassins slip beneath pine canopies to silence envoys carrying star-iron treaties between mountain holds."
+    },
+    "mob_hydra": {
+      "threatSummary": "Multi-headed Hydras coil inside rocky shore coves. Every severed neck sprouts two snapping heads unless seared shut cleanly."
+    },
+    "mob_young_green_dragon": {
+      "threatSummary": "Calculating Young Green Dragons wrap pine valleys in choking poison clouds. Those who survive the fumes face silver-tongued threats to betray timber forts."
+    },
+    "mob_frost_giant": {
+      "threatSummary": "Eighteen-foot Frost Giants raid high passes for tempered steel ingots and salted cattle.",
+      "byRegion": {
+        "highlands": "Eighteen-foot Frost Giants wandered onto Ironcrest's highest chill passes. They smash smelter carts for tempered steel ingots and mountain cattle.",
+        "frostbound": "Eighteen-foot Frost Giants march down snowy Frostbound glaciers with ice-forged greataxes. They sack northern clan halls and coastal sled trains."
+      }
+    },
+    "mob_chain_devil": {
+      "threatSummary": "Infernal Chain Devils animate barbed iron chains out of thin air. They drag mountain miners away in clinking torment."
+    },
+    "mob_cloaker": {
+      "threatSummary": "Deceptive Cloakers fold like black wool capes over cave rocks. The moment a traveler steps close, they snap shut around head and shoulders."
+    },
+    "mob_clay_golem": {
+      "threatSummary": "Portal quakes drove ancient Clay Golems berserk. They pound forward with cursed fists whose wounds stubbornly resist healing."
+    },
+    "mob_hezrou": {
+      "threatSummary": "Bloated abyssal Hezrous swarm quiet lakesides. Foul skin fumes rot rope bridges and rust forged iron armor."
+    },
+    "mob_cloud_giant": {
+      "threatSummary": "Towering Cloud Giants gather inside whistling alpine mist below Stormhold. They levy steep iron-tribute tolls across every high pass."
+    },
+    "mob_young_silver_dragon": {
+      "threatSummary": "Storm-Crown sparks drove Young Silver Dragons half-mad atop high ridges. They rain freezing gales upon anyone climbing near their eyries."
+    },
+    "mob_young_blue_dragon": {
+      "threatSummary": "Sapphire-horned Young Blue Dragons circle storm-swept peaks and coves like living thunderclouds. They spear signal beacons with blinding arcs of lightning."
+    },
+    "mob_bone_devil": {
+      "threatSummary": "Insectoid Bone Devils bark cold orders to lesser fiends along mountain approaches. Their dripping tail-spikes skewer shield-men clean through mail."
+    },
+    "mob_glabrezu": {
+      "threatSummary": "Colossal four-armed Glabrezus stalk dark pine roads. They tear wagon teams apart while whispering dark bargains to terrified guards."
+    },
+    "mob_warrior_commander": {
+      "threatSummary": "Banner-bearing Warrior Commanders drill hostile shock companies across the heights. They drive coordinated assaults straight against loyalist mountain outposts."
+    },
+    "mob_cultist_hierophant": {
+      "threatSummary": "Crimson-stole Cultist Hierophants conduct midnight Portal rituals inside evergreen woods. Every completed rite pulls larger terrors into Ethoria."
+    },
+    "mob_stone_golem": {
+      "threatSummary": "Chiselled Stone Golems stomp across broken flagstones with relentless weight. Their crushing aura turns charging soldiers' legs as leaden as wet stone."
+    },
+    "mob_bandit_crime_lord": {
+      "threatSummary": "Cold-blooded Bandit Crime Lords choke frozen northern cargo routes with poisoned daggers and bands of hired raiders."
+    },
+    "mob_guardian_naga": {
+      "threatSummary": "Frozen rift magic twisted once-patient Guardian Nagas mad. Now they spit blinding venom across snowy taiga trails."
+    },
+    "mob_roc": {
+      "threatSummary": "Mountain-sized Rocs sweep low across northern ridges. Their wingbeats flatten pine stands before they pluck whole freight sleds clean off the trail."
+    },
+    "mob_remorhaz": {
+      "threatSummary": "Furnace-backed Remorhazes burn white-hot along their ridged spines. They melt solid glacier tunnels straight underneath passing sled patrols."
+    },
+    "mob_djinni": {
+      "threatSummary": "Storm-born Djinni duelists sweep across open snowfields. They trap entire sentry lines inside spinning tornadoes of biting sleet."
+    },
+    "mob_young_red_dragon": {
+      "threatSummary": "Fierce Young Red Dragons claim smoky crag lairs to roast patrols and hoard plundered steel.",
+      "byRegion": {
+        "frostbound": "Fierce Young Red Dragons melt wide steam-craters across Frostbound snowfields. They burn timber palisades down to guard stolen clan silver.",
+        "dreadwaste": "Fierce Young Red Dragons claim smoldering obsidian ledges in The Dreadwaste. They scorch vanguard scouts along Black Keep's outer approaches."
+      }
+    },
+    "mob_behir": {
+      "threatSummary": "Twelve-legged Behirs cling to jagged cliff faces and loose crackling lightning arcs straight through steel armor.",
+      "byRegion": {
+        "frostbound": "Twelve-legged sapphire Behirs slither down icy Frostbound crags. They snap blizzard convoys cleanly with crackling lightning arcs.",
+        "dreadwaste": "Twelve-legged Behirs coil along jagged Dreadwaste basalt ridges. They fry siege scouts with arcing bolts out of the ash fog."
+      }
+    },
+    "mob_horned_devil": {
+      "threatSummary": "Winged Horned Devils dive off steep cliffs with jagged iron forks that inflict searing infernal wounds.",
+      "byRegion": {
+        "frostbound": "Winged Horned Devils dive off snow-packed Frostbound cliffs with burning iron forks. They scatter glacier picket lines before relief arrives.",
+        "dreadwaste": "Winged Horned Devils wheel cleanly through Dreadwaste ash clouds. They harry supply trains along Black Keep's basalt perimeter."
+      }
+    },
+    "mob_sphinx_of_lore": {
+      "threatSummary": "Winged Sphinxes of Lore bar high ridge trails to test doomed frontier patrols. Anyone who fails their riddle faces warped time and shattering blows."
+    },
+    "mob_archmage": {
+      "threatSummary": "Rogue Archmages conjure protective wards and hurl devastating arcane blasts across the outer frontier.",
+      "byRegion": {
+        "frostbound": "Rogue Archmages conjure razor sleet and arcane wards inside Frostbound icefields. Northern relief columns shatter before reaching range.",
+        "dreadwaste": "Dark-robed Archmages hold Garrick's outer approaches atop Dreadwaste ash flats. They blanket vanguard camps in lethal meteoric fire."
+      }
+    },
+    "mob_erinyes": {
+      "threatSummary": "Cold-eyed winged Erinyes descend from stormy skies with blackened longbows and poisoned blades to hunt elite patrols."
+    },
+    "mob_pirate_admiral": {
+      "threatSummary": "Notorious Pirate Admirals blockade deep-water coves and outer bays with armored hulls and merciless saber crews."
+    },
+    "mob_rakshasa": {
+      "threatSummary": "Tiger-faced Rakshasas wear stolen nobles' silks and shrug off ordinary spells while tearing unwary scouts apart."
+    },
+    "mob_vampire": {
+      "threatSummary": "Immortal Vampires stalk shadowed ruins and border ridges to drain patrols before vanishing into bat-clouds.",
+      "byRegion": {
+        "frostbound": "Immortal Vampires stalk misty northern pines and frozen ruins. They drain Frostbound patrols dry before vanishing into bat-clouds.",
+        "dreadwaste": "Immortal Vampires stalk shadowed ruins and border ridges along Dreadwaste's north wall. Scouts vanish into the dark leaving only drained armor behind."
+      }
+    },
+    "mob_storm_giant": {
+      "threatSummary": "Titanic Storm Giants stride along shattered shores as tempest winds churn around their ankles. Their hurled thunderbolts split vanguard ships in half."
+    },
+    "mob_adult_black_dragon": {
+      "threatSummary": "Ancient-scarred Adult Black Dragons blanket frontier approaches in corrosive acid mist that melts steel walls and bone alike.",
+      "byRegion": {
+        "frostbound": "Ancient-scarred Adult Black Dragons smash straight up through Frostbound frozen lakes. They dissolve timber watch-posts inside steaming pools of emerald acid.",
+        "dreadwaste": "Ancient-scarred Adult Black Dragons roost amid charred Dreadwaste ash pools. They bathe Garrick's outer approaches in blistering acid mist."
+      }
+    },
+    "mob_ice_devil": {
+      "threatSummary": "Insectoid Ice Devils march out of The Pale Abyss to raise walls of razor-sharp black ice around marching columns.",
+      "byRegion": {
+        "frostbound": "Insectoid Ice Devils march straight off The Pale Abyss glacier walls. They seal frozen passes behind barriers of cursed black ice.",
+        "dreadwaste": "Insectoid Ice Devils sweep south from The Pale Abyss into Dreadwaste border passes. Their freezing spears turn ash dust into razor ice-barriers."
+      }
+    },
+    "mob_nalfeshnee": {
+      "threatSummary": "Monstrous boar-faced Nalfeshnees boom across charred ash plains. Their blinding nimbus flashes leave entire regiments paralyzed in the open."
+    },
+    "mob_purple_worm": {
+      "threatSummary": "House-wide Purple Worms churn straight through solid basalt beneath Dreadwaste roads. They burst out of the rock to swallow supply wagons whole."
+    },
+    "mob_marilith": {
+      "threatSummary": "Serpent-tailed Mariliths whirl six enchanted blades at once. Entire shield-wall formations buckle in moments whenever they close in."
+    },
+    "mob_mummy_lord": {
+      "threatSummary": "Crown-wearing undead Mummy Lords march across ash ridges wrapped in ancient curses and roaring necromantic storms."
+    },
+    "mob_adult_green_dragon": {
+      "threatSummary": "Cunning Adult Green Dragons blanket basalt passes in deadly fumes to choke vanguard companies before Black Keep's gates."
+    },
+    "mob_iron_golem": {
+      "threatSummary": "Black Keep's dark foundries forged towering solid-metal Iron Golems. They breathe toxic furnace gas while shrugging off steel and flame."
+    },
+    "mob_adult_silver_dragon": {
+      "threatSummary": "Shadowfell distortion twisted mighty Adult Silver Dragons into wrathful tyrants atop volcanic scree. Their paralyzing frost locks down every aerial approach."
+    },
+    "mob_adult_red_dragon": {
+      "threatSummary": "Imperious Adult Red Dragons claim smoldering Dreadwaste calderas. They incinerate vanguard camps beneath roaring walls of dragonfire."
+    },
+    "mob_balor": {
+      "threatSummary": "Towering horned Balors stalk the scarred approaches to Black Keep. They sweep aside whole pickets with lightning longswords and blazing whips."
+    },
+    "mob_ancient_black_dragon": {
+      "threatSummary": "Centuries-old Ancient Black Dragons melt obsidian ridges into bubbling pools of green death. Few beasts outside Black Keep are deadlier."
+    },
+    "mob_lich": {
+      "threatSummary": "Undying skeletal Liches cling to forbidden power inside Garrick's inner wasteland. They shatter advancing formations with swift death-spells."
+    },
+    "mob_dragon_turtle": {
+      "threatSummary": "Island-shelled Dragon Turtles rise off dark volcanic shores to scald blockade ships in jets of superheated steam."
+    }
+  }
+}

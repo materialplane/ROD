@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "seaPortRoutes": [
+    {
+      "id": "tr_port_map01_royal_trade",
+      "title": "Royal Trade Port Town",
+      "realm": "The Crownlands",
+      "mapId": "map_01",
+      "order": 1
+    },
+    {
+      "id": "tr_port_map02_highland_cove",
+      "title": "Highland Cove Port Town",
+      "realm": "Thornwall Warfronts",
+      "mapId": "map_02",
+      "order": 2
+    },
+    {
+      "id": "tr_port_map03_desert_harbor",
+      "title": "Desert Harbor Port Town",
+      "realm": "Sun-Scorched Isles",
+      "mapId": "map_03",
+      "order": 3
+    },
+    {
+      "id": "tr_port_map04_arctic_seaport",
+      "title": "Arctic Sea-Port Town",
+      "realm": "Frostbound Reach",
+      "mapId": "map_04",
+      "order": 4
+    }
+  ],
+  "outboundSeaPortalGates": {
+    "map_01": {
+      "portalId": "loc_10_the_sunken_maw",
+      "portalName": "The Sunken Maw",
+      "portalNum": 2
+    },
+    "map_02": {
+      "portalId": "loc_20_the_rotspire",
+      "portalName": "The Rotspire",
+      "portalNum": 4
+    },
+    "map_03": {
+      "portalId": "loc_30_storm_crowned_spire",
+      "portalName": "The Storm-Crowned Spire",
+      "portalNum": 6
+    }
+  },
+  "ferryPortalGates": {
+    "map_01": {
+      "portalId": "loc_05_the_ashen_gate",
+      "portalName": "The Ashen Gate",
+      "portalNum": 1
+    },
+    "map_02": {
+      "portalId": "loc_15_the_iron_rift",
+      "portalName": "The Iron Rift",
+      "portalNum": 3
+    },
+    "map_03": {
+      "portalId": "loc_25_the_scorched_chasm",
+      "portalName": "The Scorched Chasm",
+      "portalNum": 5
+    }
+  },
+  "mountainPassPortalGates": {
+    "map_04": {
+      "portalId": "loc_35_the_pale_abyss",
+      "portalName": "The Pale Abyss",
+      "portalNum": 7
+    }
+  },
+  "realms": [
+    {
+      "id": "map_01",
+      "name": "The Crownlands"
+    },
+    {
+      "id": "map_02",
+      "name": "Thornwall Warfronts"
+    },
+    {
+      "id": "map_03",
+      "name": "Sun-Scorched Isles"
+    },
+    {
+      "id": "map_04",
+      "name": "Frostbound Reach"
+    }
+  ],
+  "regionNames": {
+    "1": "The Crownlands",
+    "2": "Saltmarsh Coast",
+    "3": "Thornwall Warfronts",
+    "4": "The Verdant Weald",
+    "5": "Sun-Scorched Isles",
+    "6": "Ironcrest Highlands",
+    "7": "Frostbound Reach",
+    "8": "The Dreadwaste"
+  },
+  "storyChains": [
+    {
+      "id": "chain_a",
+      "cardId": "quest_chain_a_slavers",
+      "title": "Chain A — Mera's Mother Rescue",
+      "route": "Saltwind Harbor -> Port Veridia -> The Gilded Auction Manor -> Free Mera's Mother",
+      "questIds": [
+        "q023",
+        "q090",
+        "q108"
+      ]
+    },
+    {
+      "id": "chain_b",
+      "cardId": "quest_chain_b_blight",
+      "title": "Chain B — Harlan's Plague Woods Arc",
+      "route": "Briarstead -> Greenwarden Fort -> Blightwatch Keep -> Purge the Spore-Mire",
+      "questIds": [
+        "q068",
+        "q081",
+        "q086"
+      ]
+    },
+    {
+      "id": "chain_c",
+      "cardId": "quest_chain_c_conspiracy",
+      "title": "Chain C — Crown of Vultures",
+      "route": "Thornwall Castle -> Hollowstone Keep -> Bleakwatch Citadel -> Expose Garrick's War Pact",
+      "questIds": [
+        "q059",
+        "q063",
+        "q151"
+      ]
+    },
+    {
+      "id": "chain_d",
+      "cardId": "quest_chain_d_coliseum",
+      "title": "Chain D — Valen & Koren's Legacy",
+      "route": "Millbrook Crossing -> Ashvale Village -> Reclaim Koren's Arena Trophy",
+      "questIds": [
+        "q016",
+        "q166"
+      ]
+    }
+  ]
+}

@@ -22,15 +22,16 @@ const battleConfig = JSON.parse(
 const itemsCatalog = JSON.parse(
   fs.readFileSync(path.join(REPO_ROOT, "client/assets/data/items-catalog.json"), "utf8")
 ).items;
+const heroesCatalog = JSON.parse(
+  fs.readFileSync(path.join(REPO_ROOT, "client/assets/data/heroes-catalog.json"), "utf8")
+);
+const gearRulesCatalog = JSON.parse(
+  fs.readFileSync(path.join(REPO_ROOT, "client/assets/data/gear-rules-catalog.json"), "utf8")
+);
 
-const HERO_BASE = {
-  valen: { id: "valen", name: "Valen", baseHp: 47, baseMp: 0 },
-  ellowyn: { id: "ellowyn", name: "Ellowyn", baseHp: 47, baseMp: 19 },
-  orin: { id: "orin", name: "Orin", baseHp: 47, baseMp: 0 },
-  rowan: { id: "rowan", name: "Rowan", baseHp: 47, baseMp: 0 },
-  mera: { id: "mera", name: "Mera", baseHp: 47, baseMp: 19 },
-  harlan: { id: "harlan", name: "Harlan", baseHp: 47, baseMp: 19 },
-};
+const HERO_BASE = Object.fromEntries(
+  (heroesCatalog.heroes || []).map((h) => [h.id, { id: h.id, name: h.name, baseHp: h.baseHp, baseMp: h.baseMp }])
+);
 
 const STATUS_IS_BUFF = {
   burn: false,
@@ -51,74 +52,50 @@ const STATUS_IS_BUFF = {
   undying: true,
 };
 
-const WEAPON_MODE_SPECS = {
-  Longsword: [
-    { name: "Quick Slash", power: 1.0, critBonus: 0, delayPct: 0.78 },
-    { name: "Heavy Cleave", power: 1.4, critBonus: 0.15, delayPct: 1.12, guardChip: 1 },
-  ],
-  Greatsword: [
-    { name: "Wide Sweep", power: 1.05, critBonus: 0, delayPct: 0.92, targetDelayPush: 18 },
-    { name: "Overhead Rend", power: 1.45, critBonus: 0.08, delayPct: 1.18, guardChip: 1 },
-  ],
-  Rapier: [
-    { name: "Needle Thrust", power: 1.0, critBonus: 0.05, delayPct: 0.72 },
-    { name: "Heart Pierce", power: 1.38, critBonus: 0.2, armorIgnore: 0.25, delayPct: 1.05 },
-  ],
-  Battleaxe: [
-    { name: "Chopping Hack", power: 1.02, critBonus: 0, delayPct: 0.88 },
-    { name: "Execution Chop", power: 1.44, critBonus: 0.05, execCritBonus: 0.25, delayPct: 1.16 },
-  ],
-  Mace: [
-    { name: "Heavy Bash", power: 1.02, critBonus: 0, delayPct: 0.85, guardChip: 1 },
-    { name: "Armor Crush", power: 1.36, critBonus: 0, delayPct: 1.1, debuff: "def_down" },
-  ],
-  Spear: [
-    { name: "Long Thrust", power: 1.04, critBonus: 0.12, delayPct: 0.82 },
-    { name: "Brace Sweep", power: 1.34, critBonus: 0, delayPct: 1.06, targetDelayPush: 24 },
-  ],
-  Dagger: [
-    { name: "Quick Jab", power: 0.96, critBonus: 0.06, delayPct: 0.68 },
-    { name: "Vital Gouge", power: 1.35, critBonus: 0.15, delayPct: 1.0, debuff: "poison" },
-  ],
-  Quarterstaff: [
-    { name: "Staff Sweep", power: 1.0, critBonus: 0, delayPct: 0.82 },
-    { name: "Crushing Vault", power: 1.36, critBonus: 0, delayPct: 1.08, guardChip: 1 },
-  ],
-  Scimitar: [
-    { name: "Crescent Cut", power: 1.02, critBonus: 0.05, delayPct: 0.76 },
-    { name: "Whirling Slash", power: 1.36, critBonus: 0.15, delayPct: 0.88 },
-  ],
-  Sickle: [
-    { name: "Reaping Hook", power: 1.0, critBonus: 0.05, delayPct: 0.78, debuff: "poison" },
-    { name: "Thorn Slash", power: 1.32, critBonus: 0, delayPct: 1.04, debuff: "atk_down" },
-  ],
-};
+const WEAPON_MODE_SPECS = Object.fromEntries(
+  Object.entries(gearRulesCatalog.weaponModes || {}).map(([subType, pair]) => [
+    subType,
+    pair.map((spec) => ({
+      ...spec,
+      delayPct: spec.cooldownTurns > 0 ? 1.1 : 0.8,
+      targetDelayPush: spec.id.includes("wide_sweep") || spec.id.includes("brace_sweep") ? 18 : 0,
+    })),
+  ])
+);
+
+const PROG = heroesCatalog.progression || {};
 
 function xpRequiredForNextLevel(level) {
-  const safe = Math.max(1, Math.min(99, Math.floor(level)));
-  if (safe >= 99) return 0;
-  return 100 * safe + 12 * safe * safe;
+  const maxLv = PROG.maxLevel || 99;
+  const safe = Math.max(1, Math.min(maxLv, Math.floor(level)));
+  if (safe >= maxLv) return 0;
+  return (PROG.xpCurve?.linear ?? 100) * safe + (PROG.xpCurve?.quadratic ?? 12) * safe * safe;
 }
 
 function applyHeroXpGain(level, currentXp, gainedXp) {
-  let lv = Math.max(1, Math.min(99, Math.floor(level)));
+  const maxLv = PROG.maxLevel || 99;
+  let lv = Math.max(1, Math.min(maxLv, Math.floor(level)));
   let xp = Math.max(0, Math.floor(currentXp) + Math.max(0, Math.floor(gainedXp)));
-  while (lv < 99) {
+  while (lv < maxLv) {
     const req = xpRequiredForNextLevel(lv);
     if (req <= 0 || xp < req) break;
     xp -= req;
     lv += 1;
   }
-  if (lv >= 99) xp = 0;
+  if (lv >= maxLv) xp = 0;
   return { level: lv, xp };
 }
 
 function earnedPointsForLevel(level) {
   const safeLvl = Math.max(1, Math.floor(level));
   if (safeLvl <= 1) return 0;
-  let total = (safeLvl - 1) * 2;
-  for (let l = 5; l <= safeLvl; l += 5) {
-    if (l < 100) total += 1;
+  const perLv = PROG.pointsPerLevel ?? 2;
+  const interval = PROG.milestoneLevelInterval ?? 5;
+  const bonus = PROG.milestoneBonusPoints ?? 1;
+  const maxLv = PROG.maxLevel ?? 99;
+  let total = (safeLvl - 1) * perLv;
+  for (let l = interval; l <= safeLvl; l += interval) {
+    if (l <= maxLv) total += bonus;
   }
   return total;
 }

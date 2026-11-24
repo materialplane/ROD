@@ -165,23 +165,23 @@
   },
   "placeholderSheets": {
     "row1_cross_slash": {
-      "sheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png",
+      "sheet": "assets/vfx/sheet_01/row1_f1.webp",
       "row": 1,
       "frames": 6
     },
     "row2_ember_spark": {
-      "sheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png",
-      "row": 2,
+      "sheet": "assets/vfx/sheet_02/row4_f1.webp",
+      "row": 4,
       "frames": 6
     },
     "row3_frost_shard": {
-      "sheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png",
-      "row": 3,
+      "sheet": "assets/vfx/sheet_03/row1_f1.webp",
+      "row": 1,
       "frames": 6
     },
     "row4_stinging_salve": {
-      "sheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png",
-      "row": 4,
+      "sheet": "assets/vfx/sheet_04/row1_f1.webp",
+      "row": 1,
       "frames": 6
     }
   },
@@ -225,7 +225,7 @@
       "scale": 1.05,
       "additive": true,
       "placeholderVfx": "row1_cross_slash",
-      "customSheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png"
+      "customSheet": null
     },
     {
       "id": "valen_pommel_bash",
@@ -585,7 +585,7 @@
       "scale": 1.08,
       "additive": true,
       "placeholderVfx": "row2_ember_spark",
-      "customSheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png"
+      "customSheet": null
     },
     {
       "id": "ellowyn_frost_shard",
@@ -600,7 +600,7 @@
       "scale": 1.05,
       "additive": true,
       "placeholderVfx": "row3_frost_shard",
-      "customSheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png"
+      "customSheet": null
     },
     {
       "id": "ellowyn_crown_ward",
@@ -2025,7 +2025,7 @@
       "scale": 1.05,
       "additive": true,
       "placeholderVfx": "row4_stinging_salve",
-      "customSheet": "assets/ui/vfx_sheet_02_animated_test_4x6.png"
+      "customSheet": null
     },
     {
       "id": "harlan_bitterroot_vial",
@@ -3228,10 +3228,10 @@
       "customSheet": null
     },
     {
-      "id": "boss_5_the_efreeti_pasha_lightning_breath",
+      "id": "boss_6_the_ancient_storm_dragon_lightning_breath",
       "name": "Lightning Breath",
-      "source": "boss:boss_5_the_efreeti_pasha",
-      "tier": "boss_5_the_efreeti_pasha",
+      "source": "boss:boss_6_the_ancient_storm_dragon",
+      "tier": "boss_6_the_ancient_storm_dragon",
       "colorFamily": "lightning",
       "tintColor": "#FFE055",
       "tintStrength": 0.62,
@@ -3243,10 +3243,10 @@
       "customSheet": null
     },
     {
-      "id": "boss_5_the_efreeti_pasha_gale_wing_sweep",
+      "id": "boss_6_the_ancient_storm_dragon_gale_wing_sweep",
       "name": "Gale Wing-Sweep",
-      "source": "boss:boss_5_the_efreeti_pasha",
-      "tier": "boss_5_the_efreeti_pasha",
+      "source": "boss:boss_6_the_ancient_storm_dragon",
+      "tier": "boss_6_the_ancient_storm_dragon",
       "colorFamily": "shadow",
       "tintColor": "#9B59E6",
       "tintStrength": 0.6,
@@ -3258,10 +3258,10 @@
       "customSheet": null
     },
     {
-      "id": "boss_5_the_efreeti_pasha_skyward_ascent",
+      "id": "boss_6_the_ancient_storm_dragon_skyward_ascent",
       "name": "Skyward Ascent",
-      "source": "boss:boss_5_the_efreeti_pasha",
-      "tier": "boss_5_the_efreeti_pasha",
+      "source": "boss:boss_6_the_ancient_storm_dragon",
+      "tier": "boss_6_the_ancient_storm_dragon",
       "colorFamily": "slashing",
       "tintColor": "#F5B041",
       "tintStrength": 0.55,
@@ -3273,10 +3273,10 @@
       "customSheet": null
     },
     {
-      "id": "boss_5_the_efreeti_pasha_dragon_rend",
+      "id": "boss_6_the_ancient_storm_dragon_dragon_rend",
       "name": "Dragon Rend",
-      "source": "boss:boss_5_the_efreeti_pasha",
-      "tier": "boss_5_the_efreeti_pasha",
+      "source": "boss:boss_6_the_ancient_storm_dragon",
+      "tier": "boss_6_the_ancient_storm_dragon",
       "colorFamily": "piercing",
       "tintColor": "#E8F0F8",
       "tintStrength": 0.5,
@@ -3752,5 +3752,453 @@
       "placeholderVfx": "row1_cross_slash",
       "customSheet": null
     }
-  ]
+  ],
+  "battleStateIcons": {
+    "enemy_guard": {
+      "iconPath": "assets/icons/conditions/cond_enemy_guard.webp",
+      "label": "Enemy Guard",
+      "tone": "state",
+      "desc": "Active Guard shield points. Break all Guard points with Weaknesses or Guard-chip skills to Stagger."
+    },
+    "staggered": {
+      "iconPath": "assets/icons/conditions/cond_staggered.webp",
+      "label": "Staggered",
+      "tone": "warn",
+      "desc": "Guard broken! Takes 1.5x damage and loses its turn."
+    },
+    "boss_charging": {
+      "iconPath": "assets/icons/conditions/cond_boss_charging.webp",
+      "label": "Charging Attack",
+      "tone": "debuff",
+      "desc": "Gathering power for a heavy telegraphed attack next turn. Break Guard or Stagger to interrupt."
+    },
+    "hero_guard": {
+      "iconPath": "assets/icons/conditions/cond_hero_guard.webp",
+      "label": "Guarding",
+      "tone": "buff",
+      "desc": "Braced behind defense, halving incoming damage and empowering the next strike."
+    },
+    "momentum": {
+      "iconPath": "assets/icons/conditions/cond_momentum.webp",
+      "label": "Momentum",
+      "tone": "buff",
+      "desc": "Next attack or spell deals +25% bonus damage."
+    },
+    "resolve_battered": {
+      "iconPath": "assets/icons/conditions/cond_resolve_battered.webp",
+      "label": "Battered Resolve",
+      "tone": "warn",
+      "desc": "Under 50% HP: Tier 1 Wounded Resolve passive is active."
+    },
+    "resolve_critical": {
+      "iconPath": "assets/icons/conditions/cond_resolve_critical.webp",
+      "label": "Critical Resolve",
+      "tone": "debuff",
+      "desc": "Under 25% HP: Tier 2 Last-Stand Resolve passive is active."
+    },
+    "ko_fallen": {
+      "iconPath": "assets/icons/conditions/cond_ko_fallen.webp",
+      "label": "Fallen",
+      "tone": "debuff",
+      "desc": "Knocked out at 0 HP. Revive with healing draught or spell."
+    }
+  },
+  "statusUiMeta": {
+    "burn": {
+      "kind": "burn",
+      "glyph": "🔥",
+      "iconPath": "assets/icons/conditions/cond_burn.webp",
+      "label": "Burn",
+      "isBuff": false,
+      "pillCls": "border-[#c95b38] bg-[#2c150e] text-[#ffab85]",
+      "desc": "Takes Fire damage each turn and receives 25% less healing."
+    },
+    "bleed": {
+      "kind": "bleed",
+      "glyph": "🩸",
+      "iconPath": "assets/icons/conditions/cond_bleed.webp",
+      "label": "Bleed",
+      "isBuff": false,
+      "pillCls": "border-[#b83e4c] bg-[#2a1016] text-[#ffa1ad]",
+      "desc": "Loses HP each turn from bleeding wounds."
+    },
+    "poison": {
+      "kind": "poison",
+      "glyph": "☠",
+      "iconPath": "assets/icons/conditions/cond_poison.webp",
+      "label": "Poison",
+      "isBuff": false,
+      "pillCls": "border-[#6fa838] bg-[#16260f] text-[#b4f285]",
+      "desc": "Takes Poison damage each turn and deals 15% less physical damage."
+    },
+    "chill": {
+      "kind": "chill",
+      "glyph": "❄",
+      "iconPath": "assets/icons/conditions/cond_chill.webp",
+      "label": "Chill",
+      "isBuff": false,
+      "pillCls": "border-[#4b9ed4] bg-[#102233] text-[#9edbff]",
+      "desc": "Outgoing damage reduced by 15%; takes +15% Frost & Lightning damage."
+    },
+    "shock": {
+      "kind": "shock",
+      "glyph": "⚡",
+      "iconPath": "assets/icons/conditions/cond_shock.webp",
+      "label": "Shock",
+      "isBuff": false,
+      "pillCls": "border-[#d4b038] bg-[#29220e] text-[#ffe885]",
+      "desc": "Next hit taken deals +20% bonus burst damage."
+    },
+    "curse": {
+      "kind": "curse",
+      "glyph": "🌑",
+      "iconPath": "assets/icons/conditions/cond_curse.webp",
+      "label": "Curse",
+      "isBuff": false,
+      "pillCls": "border-[#835cc9] bg-[#1f1533] text-[#cbb6ff]",
+      "desc": "Outgoing damage and healing reduced by 20%."
+    },
+    "stun": {
+      "kind": "stun",
+      "glyph": "💫",
+      "iconPath": "assets/icons/conditions/cond_stun.webp",
+      "label": "Stun",
+      "isBuff": false,
+      "pillCls": "border-[#d48b38] bg-[#2e1e0e] text-[#ffd48a]",
+      "desc": "Skips next turn."
+    },
+    "def_down": {
+      "kind": "def_down",
+      "glyph": "💔",
+      "iconPath": "assets/icons/conditions/cond_def_down.webp",
+      "label": "Armor Break",
+      "isBuff": false,
+      "pillCls": "border-[#c25b68] bg-[#2b141a] text-[#ffb0bc]",
+      "desc": "Defense reduced by 25%."
+    },
+    "atk_down": {
+      "kind": "atk_down",
+      "glyph": "⬇",
+      "iconPath": "assets/icons/conditions/cond_atk_down.webp",
+      "label": "Weakened",
+      "isBuff": false,
+      "pillCls": "border-[#946eb8] bg-[#1f162b] text-[#d9c0ff]",
+      "desc": "Outgoing attack damage lowered by 22%."
+    },
+    "blind": {
+      "kind": "blind",
+      "glyph": "👁",
+      "iconPath": "assets/icons/conditions/cond_blind.webp",
+      "label": "Blinded",
+      "isBuff": false,
+      "pillCls": "border-[#7c879e] bg-[#1a1f2b] text-[#cbd5e8]",
+      "desc": "Attacks have a 22% chance to miss."
+    },
+    "ward": {
+      "kind": "ward",
+      "glyph": "🛡",
+      "iconPath": "assets/icons/conditions/cond_ward.webp",
+      "label": "Ward",
+      "isBuff": true,
+      "pillCls": "border-[#4aa3c8] bg-[#102633] text-[#9de6ff]",
+      "desc": "Reduces incoming damage by 25%."
+    },
+    "regen": {
+      "kind": "regen",
+      "glyph": "✨",
+      "iconPath": "assets/icons/conditions/cond_regen.webp",
+      "label": "Regen",
+      "isBuff": true,
+      "pillCls": "border-[#4ab87d] bg-[#11291d] text-[#92f5bf]",
+      "desc": "Restores 10% Max HP at the start of every turn."
+    },
+    "reflect": {
+      "kind": "reflect",
+      "glyph": "🪞",
+      "iconPath": "assets/icons/conditions/cond_reflect.webp",
+      "label": "Reflect",
+      "isBuff": true,
+      "pillCls": "border-[#7a82d9] bg-[#181b33] text-[#c2c9ff]",
+      "desc": "Reflects 25% of incoming damage back at attackers."
+    },
+    "immunity": {
+      "kind": "immunity",
+      "glyph": "🌿",
+      "iconPath": "assets/icons/conditions/cond_immunity.webp",
+      "label": "Ward Purity",
+      "isBuff": true,
+      "pillCls": "border-[#54b898] bg-[#122923] text-[#9df5dc]",
+      "desc": "Blocks incoming negative ailments."
+    },
+    "haste": {
+      "kind": "haste",
+      "glyph": "⚔",
+      "iconPath": "assets/icons/conditions/cond_haste.webp",
+      "label": "Empowered",
+      "isBuff": true,
+      "pillCls": "border-[#d4a644] bg-[#2b2110] text-[#ffe199]",
+      "desc": "+20% Attack and Magic Power."
+    },
+    "undying": {
+      "kind": "undying",
+      "glyph": "🕊",
+      "iconPath": "assets/icons/conditions/cond_undying.webp",
+      "label": "Undying",
+      "isBuff": true,
+      "pillCls": "border-[#e0c46c] bg-[#2e2712] text-[#fff0ad]",
+      "desc": "Prevents Knock Out once, surviving at 20% HP."
+    }
+  },
+  "vfxMap": {
+    "slashing_fast": {
+      "folder": "sheet_01",
+      "row": 1,
+      "color": "#e5e7eb",
+      "shake": true,
+      "frames": 6
+    },
+    "slashing_heavy": {
+      "folder": "sheet_01",
+      "row": 2,
+      "color": "#f59e0b",
+      "shake": true,
+      "frames": 6
+    },
+    "slashing_twin": {
+      "folder": "sheet_01",
+      "row": 3,
+      "color": "#f5b041",
+      "shake": true,
+      "frames": 6
+    },
+    "slashing_bleed": {
+      "folder": "sheet_01",
+      "row": 4,
+      "color": "#ef4444",
+      "shake": true,
+      "frames": 6
+    },
+    "bludgeoning_fast": {
+      "folder": "sheet_01",
+      "row": 5,
+      "color": "#d97706",
+      "shake": true,
+      "frames": 6
+    },
+    "bludgeoning_heavy": {
+      "folder": "sheet_01",
+      "row": 6,
+      "color": "#fb923c",
+      "shake": true,
+      "frames": 6
+    },
+    "piercing_melee": {
+      "folder": "sheet_02",
+      "row": 1,
+      "color": "#67e8f9",
+      "shake": true,
+      "frames": 6
+    },
+    "arrow_single": {
+      "folder": "sheet_02",
+      "row": 2,
+      "color": "#f59e0b",
+      "shake": true,
+      "frames": 6
+    },
+    "arrow_volley": {
+      "folder": "sheet_02",
+      "row": 3,
+      "color": "#38bdf8",
+      "shake": true,
+      "frames": 6
+    },
+    "fire_single": {
+      "folder": "sheet_02",
+      "row": 4,
+      "color": "#ff5722",
+      "shake": true,
+      "frames": 6
+    },
+    "fire_aoe": {
+      "folder": "sheet_02",
+      "row": 5,
+      "color": "#f97316",
+      "shake": true,
+      "frames": 6
+    },
+    "lightning": {
+      "folder": "sheet_02",
+      "row": 6,
+      "color": "#fde047",
+      "shake": true,
+      "frames": 6
+    },
+    "frost_single": {
+      "folder": "sheet_03",
+      "row": 1,
+      "color": "#4dd0e1",
+      "shake": true,
+      "frames": 6
+    },
+    "frost_aoe": {
+      "folder": "sheet_03",
+      "row": 2,
+      "color": "#38bdf8",
+      "shake": true,
+      "frames": 6
+    },
+    "poison_acid": {
+      "folder": "sheet_03",
+      "row": 3,
+      "color": "#84cc16",
+      "shake": false,
+      "frames": 6
+    },
+    "poison_spore": {
+      "folder": "sheet_03",
+      "row": 4,
+      "color": "#7ac74f",
+      "shake": false,
+      "frames": 6
+    },
+    "shadow_single": {
+      "folder": "sheet_03",
+      "row": 5,
+      "color": "#6366f1",
+      "shake": true,
+      "frames": 6
+    },
+    "radiant": {
+      "folder": "sheet_03",
+      "row": 6,
+      "color": "#fde047",
+      "shake": true,
+      "frames": 6
+    },
+    "heal_single": {
+      "folder": "sheet_04",
+      "row": 1,
+      "color": "#2ecc71",
+      "shake": false,
+      "frames": 6
+    },
+    "heal_aoe": {
+      "folder": "sheet_04",
+      "row": 2,
+      "color": "#10b981",
+      "shake": false,
+      "frames": 6
+    },
+    "revive": {
+      "folder": "sheet_04",
+      "row": 3,
+      "color": "#fbbf24",
+      "shake": false,
+      "frames": 6
+    },
+    "ward": {
+      "folder": "sheet_04",
+      "row": 4,
+      "color": "#38d9c0",
+      "shake": false,
+      "frames": 6
+    },
+    "guard": {
+      "folder": "sheet_04",
+      "row": 5,
+      "color": "#94a3b8",
+      "shake": false,
+      "frames": 6
+    },
+    "mana": {
+      "folder": "sheet_04",
+      "row": 6,
+      "color": "#3b82f6",
+      "shake": false,
+      "frames": 6
+    },
+    "nature_vine": {
+      "folder": "sheet_05",
+      "row": 1,
+      "color": "#22c55e",
+      "shake": true,
+      "frames": 6
+    },
+    "cleanse": {
+      "folder": "sheet_05",
+      "row": 2,
+      "color": "#5eead4",
+      "shake": false,
+      "frames": 6
+    },
+    "buff": {
+      "folder": "sheet_05",
+      "row": 3,
+      "color": "#eab308",
+      "shake": false,
+      "frames": 6
+    },
+    "shadow_aoe": {
+      "folder": "sheet_05",
+      "row": 4,
+      "color": "#4f46e5",
+      "shake": true,
+      "frames": 6
+    },
+    "wind": {
+      "folder": "sheet_05",
+      "row": 5,
+      "color": "#67e8f9",
+      "shake": true,
+      "frames": 6
+    }
+  },
+  "heroMagicThemes": {
+    "ellowyn": {
+      "label": "Arcane Seal",
+      "themeClass": "theme-ellowyn",
+      "accentColor": "#4f85c9",
+      "tierNames": [
+        "Initiate Sparks",
+        "Stormfire Adept",
+        "Sovereign Ward",
+        "High Conduit",
+        "Halo & Tempest",
+        "Solar & Void",
+        "Queen's Verdict",
+        "Astral Cataclysm"
+      ]
+    },
+    "mera": {
+      "label": "Druidic Totem",
+      "themeClass": "theme-mera",
+      "accentColor": "#479e6a",
+      "tierNames": [
+        "Briar Awakening",
+        "Spore & Gale",
+        "Stone & Brambles",
+        "Earth & Talon",
+        "Grove Tempest",
+        "Sunbeam Stag",
+        "Elder Fang",
+        "Primal Heart"
+      ]
+    },
+    "harlan": {
+      "label": "Sage Remedies",
+      "themeClass": "theme-harlan",
+      "accentColor": "#9e8a43",
+      "tierNames": [
+        "Field Satchel",
+        "Woodland Remedies",
+        "Combat Tinctures",
+        "Purge & Acid",
+        "Mist & Elixir",
+        "Master Conduit",
+        "Phoenix Panacea",
+        "Grand Opus"
+      ]
+    }
+  }
 }

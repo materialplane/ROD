@@ -75,21 +75,21 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 
 ### Exact Level `1`–`99` Interval Table
 * **Stat Points Earned:** `+2` per level, plus `+1` bonus point on every 5th level (`5, 10, 15... 95`). Total earned = **`215` points** (`220` total attribute points including the starting `1` in all 5 stats).
-* **Baseline Vitals (before Grit, Arcana, Class flavor & Gear):** Starts at `35 Base HP / 15 Base MP`, growing cleanly by `+18 HP / +3 MP` per level.
+* **Baseline Vitals (before Grit, Arcana, Class flavor & Gear):** Starts at `80 Base HP / 15 Base MP`, growing cleanly by `+17.5 HP / +3 MP` per level.
 
 | Level | Earned Points | Total Stat Budget | Base HP *(+Grit)* | Base MP *(+Arcana)* | Unlocks / Milestones |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| **1** | `0` | `5` *(all `1`s)* | `35` *(~47 total)* | `15` *(casters ~19 total)* | **Discipline Tier `1`**; **1 Accessory Slot**; equipped weapon attack modes |
-| **10** | `20` | `25` | `197` | `42` | **Discipline Tier `2`** (`1`-of-`2` Arcanist choice) |
-| **20** | `42` | `47` | `377` | `72` | **Discipline Tier `3`**; Map 1 second-half (`Zones 4–5`) gear milestone |
-| **30** | `64` | `69` | `557` | `102` | **Discipline Tier `4`** |
-| **40** | `86` | `91` | `737` | `132` | **Discipline Tier `5`**; Mid-game shop gear & Spell Tier 4 milestone |
-| **50** | `108` | `113` | `917` | `162` | **Discipline Tier `6`**; Map 3 arrival (`Zone 11`) gear milestone |
-| **60** | `130` | `135` | `1,097` | `192` | **Discipline Tier `7`**; High-tier shop gear & spell upgrades |
-| **70** | `152` | `157` | `1,277` | `222` | **Discipline Tier `8`** |
-| **80** | `174` | `179` | `1,457` | `252` | **Discipline Tier `9`**; Map 4 (`Gear Tier 20` / `Spell Tier 7`) milestone |
-| **90** | `196` | `201` | `1,637` | `282` | **Discipline Tier `10`** *(Final Arcanist Capstone Perk)* |
-| **99** | `215` | `220` | `1,799` *(~2,500–3,200+)* | `309` *(~450–700+)* | **Max Level Cap** |
+| **1** | `0` | `5` *(all `1`s)* | `80` | `15` *(casters ~19 total)* | **Discipline Tier `1`**; **1 Accessory Slot**; equipped weapon attack modes |
+| **10** | `20` | `25` | `238` | `42` | **Discipline Tier `2`** (`1`-of-`2` Arcanist choice) |
+| **20** | `42` | `47` | `413` | `72` | **Discipline Tier `3`**; Map 1 second-half (`Zones 4–5`) gear milestone |
+| **30** | `64` | `69` | `588` | `102` | **Discipline Tier `4`** |
+| **40** | `86` | `91` | `763` | `132` | **Discipline Tier `5`**; Mid-game shop gear & Spell Tier 4 milestone |
+| **50** | `108` | `113` | `938` | `162` | **Discipline Tier `6`**; Map 3 arrival (`Zone 11`) gear milestone |
+| **60** | `130` | `135` | `1,113` | `192` | **Discipline Tier `7`**; High-tier shop gear & spell upgrades |
+| **70** | `152` | `157` | `1,288` | `222` | **Discipline Tier `8`** |
+| **80** | `174` | `179` | `1,463` | `252` | **Discipline Tier `9`**; Map 4 (`Gear Tier 20` / `Spell Tier 7`) milestone |
+| **90** | `196` | `201` | `1,638` | `282` | **Discipline Tier `10`** *(Final Arcanist Capstone Perk)* |
+| **99** | `215` | `220` | `1,795` *(~2,500–3,200+)* | `309` *(~450–700+)* | **Max Level Cap** |
 
 * **Weapon Styles & Caster Spell Unlocks:** Martial heroes (**Valen, Orin, Rowan**) fight with their **equipped weapon's 2 unique `0 MP` Attack Modes** plus **10 Arcanist Discipline Perks** (`Lv 1, 10… 90`), Runestones, and Accessories; **Ellowyn (`Sorceress`), Mera (`Druid`), and Harlan (`Sage`)** also wield their own 8-tier spell pool unlocked across Ethoria's `8` campaign progression bands (detailed in `docs/05-cast-and-skills.md`).
 
@@ -187,18 +187,18 @@ Status ailments stay clean, readable, and impactful (never bloated):
 ### B. Zone XP, Silver & Trade Goods Economy
 * **Trade Goods Loop:** Roughly **`1/3`** of wilderness fight value drops as direct Silver and **`2/3`** drops as **Trade Goods** sold to dedicated Town **Trade Goods Buyers** (`zero crafting clutter`).
 * **Gear Sell-Back:** Replaced shop gear sells back for **`40%`** of its purchase price.
-* **Potions & Magic Shop Spells:** Shop healing, mana recovery, revives, and status cures come as **Potions** sold at town **Arcanists**, while Casters (**Ellowyn, Mera, Harlan**) purchase their Tier `1–8` class **Spells** at Town **Magic Shops**.
+* **Potions & Magic Shop Spells:** Shop healing, mana recovery, revives, and status cures come as **Potions** sold at town **Arcanists**, while Casters (**Ellowyn, Mera, Harlan**) purchase their Tier `1–8` class **Spells** at Town **Magic Shops**. Winning **`2+`-enemy** packs guarantees at least **`1` matching Trade Good**, and **`3+`-enemy** packs drop **`1–3` Minor Healing Potions** in Zone 1 (tapering off in Zone 2 and ending at Zone 3).
 
 | Map · Level Zones | Lv Band | Avg Fight XP *(Per Hero)* | Avg Fight Value *(Silver + Trade Goods)* | One-Time Quest Silver | Zone Outpost Hunt Silver | Avg Normal Mob HP | Portal Boss HP *(Target)* |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Map 1 (`Z01–03`)** | `1–15` | `10 – 95 XP` | `13s – 28s` | `18s – 375s` | `45s – 140s` | `32 – 140 HP` | `~650 HP` |
-| **Map 1 (`Z04–05`)** | `16–25` | `80 – 375 XP` | `21s – 93s` | `260s – 520s` | `300s – 790s` | `160 – 450 HP` | `~2,400 HP` |
-| **Map 2 (`Z06–08`)** | `26–40` | `275 – 795 XP` | `72s – 235s` | `690s – 1,450s` | `1,300s – 2,700s` | `500 – 1,050 HP` | `~6,000 HP` |
-| **Map 2 (`Z09–10`)** | `41–50` | `555 – 1,425 XP` | `180s – 520s` | `1,500s – 2,600s` | `3,750s – 5,100s` | `1,150 – 1,950 HP` | `~12,500 HP` |
-| **Map 3 (`Z11–13`)** | `51–65` | `940 – 2,175 XP` | `380s – 1,005s` | `3,000s – 5,350s` | `7,200s – 9,500s` | `2,100 – 3,200 HP` | `~22,000 HP` |
-| **Map 3 (`Z14–15`)** | `66–75` | `1,395 – 3,090 XP` | `720s – 1,875s` | `5,800s – 9,500s` | `12,500s – 20,000s` | `3,400 – 4,900 HP` | `~36,000 HP` |
-| **Map 4 (`Z16–18`)** | `76–90` | `1,935 – 4,110 XP` | `1,300s – 3,240s` | `10,500s – 16,800s` | `26,000s – 33,000s` | `5,100 – 7,200 HP` | `~55,000 HP` |
-| **Map 4 (`Z19–20`)** | `91–99` | `2,505 – 5,130 XP` | `2,200s – 5,520s` | `18,000s – 30,000s` | `41,500s – 64,500s` | `7,500 – 10,500 HP` | `~90,000 HP` *(2-Phase Garrick)* |
+| **Map 1 (`Z01–03`)** | `1–15` | `10 – 95 XP` | `73s – 79s` | `85s – 560s` | `200s – 420s` | `32 – 140 HP` | `~650 HP` |
+| **Map 1 (`Z04–05`)** | `16–25` | `80 – 375 XP` | `111s – 127s` | `380s – 650s` | `580s – 800s` | `160 – 450 HP` | `~2,400 HP` |
+| **Map 2 (`Z06–08`)** | `26–40` | `275 – 795 XP` | `165s – 369s` | `620s – 1,190s` | `1,150s – 2,150s` | `500 – 1,050 HP` | `~6,000 HP` |
+| **Map 2 (`Z09–10`)** | `41–50` | `555 – 1,425 XP` | `417s – 521s` | `1,260s – 2,050s` | `2,950s – 3,850s` | `1,150 – 1,950 HP` | `~12,500 HP` |
+| **Map 3 (`Z11–13`)** | `51–65` | `940 – 2,175 XP` | `786s – 1,384s` | `2,200s – 4,850s` | `5,200s – 7,800s` | `2,100 – 3,200 HP` | `~22,000 HP` |
+| **Map 3 (`Z14–15`)** | `66–75` | `1,395 – 3,090 XP` | `1,548s – 1,738s` | `5,050s – 7,100s` | `11,000s – 14,500s` | `3,400 – 4,900 HP` | `~36,000 HP` |
+| **Map 4 (`Z16–18`)** | `76–90` | `1,935 – 4,110 XP` | `2,446s – 3,924s` | `8,000s – 16,400s` | `19,000s – 27,000s` | `5,100 – 7,200 HP` | `~55,000 HP` |
+| **Map 4 (`Z19–20`)** | `91–99` | `2,505 – 5,130 XP` | `4,235s – 4,544s` | `16,800s – 23,400s` | `36,000s – 48,000s` | `7,500 – 10,500 HP` | `~90,000 HP` *(2-Phase Garrick)* |
 
 ---
 
