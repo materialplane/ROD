@@ -1,0 +1,689 @@
+# ROD — Illustrated Quest Journal & Contract Card Sheets (12 x 4x4 Sheets = 178 Handcrafted Quests + 14 Chain, Category & Outpost Seals)
+# Source: data/quests-catalog.json (q001-q178) & docs/08-quests-and-story.md (Story Chains A-D, Quest Categories, Zone Outpost Hunts)
+# Target Model: gemini-3-pro-image (Pro 4K, 1:1)
+# Art Style Anchor: Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy quest icon & emblem card art — bold focal object/threat/relic silhouette, dramatic chiaroscuro rim lighting, crisp metallic/organic/stone rendering, clean dark contour separation, and rich dark atmospheric vignette edges matching spell-cards.txt, weapon-abilities.txt, and disciplines.txt, zero pixel art, zero sketchiness, zero 3D plastic CGI, zero #FF00FF, zero card frames, zero human faces, and zero text or numbers.
+# Export Pipeline: Slice strict 4x4 into 16 equal 1024x1024 lossless PNGs (assets/quests/slices/) -> export 512x512 .webp in client/assets/icons/quests/
+
+================================================================================
+SHEET 01 OF 12 — R1 Crownlands (Highcrown, Oakhaven, Meadowbrook, Millbrook Crossing)
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q001                         | Seal the Aqueduct Grate | R1 Highcrown (Purge / Restore)
+#   R1C2 -> q002                         | Salvage Koren's Forge-Kit | R1 Highcrown (Retrieve)
+#   R1C3 -> q003                         | Highcrown Perimeter Watch | R1 Highcrown (Escort / Defend)
+#   R1C4 -> q004                         | Word to Oakhaven | R1 Highcrown (Deliver)
+#   R2C1 -> q005                         | Missing Grain Carts | R1 Oakhaven (Retrieve)
+#   R2C2 -> q006                         | Boy in the Fold | R1 Oakhaven (Rescue)
+#   R2C3 -> q007                         | Forged Rivets for the Palisade | R1 Oakhaven (Deliver)
+#   R2C4 -> q008                         | Bandits at the Old Orchard | R1 Oakhaven (Purge / Restore)
+#   R3C1 -> q009                         | Poachers on the Meadow Trail | R1 Oakhaven (Investigate)
+#   R3C2 -> q010                         | Wolves in the Sheepfold | R1 Meadowbrook Hamlet (Escort / Defend)
+#   R3C3 -> q011                         | Stolen Plough-Iron | R1 Meadowbrook Hamlet (Retrieve)
+#   R3C4 -> q012                         | Burned Granary Ledger | R1 Meadowbrook Hamlet (Investigate)
+#   R4C1 -> q013                         | Seed Caravan to Oakhaven | R1 Meadowbrook Hamlet (Escort / Defend)
+#   R4C2 -> q014                         | Hold the West Palisade | R1 Millbrook Crossing (Escort / Defend)
+#   R4C3 -> q015                         | Shattered Mill-Tower | R1 Millbrook Crossing (Purge / Restore)
+#   R4C4 -> q016                         | Chain D1: The Scarred Name | R1 Millbrook Crossing (Investigate)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Heavy rusted iron aqueduct culvert grate wedged half-ajar over dark subterranean masonry with a thick iron gate lever and fresh glowing wolf claw gouges under warm amber torchlight.
+- Row 1 Col 2: Cracked steel-bound oak armorer repair chest lying open amidst dry roadside brushwood, gleaming with a heavy blacksmith hammer, iron tongs, and oiled crimson whetstone at dusk.
+- Row 1 Col 3: Crumbling ivy-draped limestone wall beside stacked ash-wood spears, a brass-lathed crossbow, and smoldering campfire embers beneath a dropped gray wool war-cloak at twilight.
+- Row 1 Col 4: Folded crimson royal dispatch packet fastened with a gleaming gold crown wax seal resting beside an oak barricade shield pierced cleanly by iron crossbow bolts in dark shadow.
+
+- Row 2 Col 1: Splintered wooden cargo wagon wheel slumped beside a slashed burlap sack spilling bright golden wheat grain and a wicked curved bandit cleaver against moody twilight earth.
+- Row 2 Col 2: Carved wooden shepherd crook and tumbled woolen lamb scarf resting near a mossy earthen forest den glowing softly with fierce amber timber wolf eyes in dark oak shadows.
+- Row 2 Col 3: Open sturdy pine supply crate overflowing with gleaming hammered iron gate rivets beside a cracked hollow steel gauntlet sparking wild violet rift light on dark timber cobbles.
+- Row 2 Col 4: Overturned wooden cider barrel spilling bright crimson orchard apples beneath a hanging brass lantern and crossed highwayman short-swords under dark gnarled orchard boughs.
+
+- Row 3 Col 1: Snapped steel wire snare coiled around huge curving ivory-white dire boar tusks glinting ominously amid trampled dark emerald ferns and deep forest shadow.
+- Row 3 Col 2: Heavy iron-bolted oak sheepfold barn door glowing warmly from hearth lantern leaks while fierce wolf claw gashes and snapping gray timber wolf fangs press out of darkness.
+- Row 3 Col 3: Mud-streaked gleaming forged steel ploughshare half-wrapped inside shimmering pearlescent giant spider web strands stretched across a jagged dark hillside burrow mouth.
+- Row 3 Col 4: Scorched leather bailiff record tome clasped in blackened iron sitting atop cracked wooden strongbox hinges over bright glowing charcoal barn embers in dark shadow.
+
+- Row 4 Col 1: Sturdy tied canvas sacks of golden spring wheat seed shielded behind an oak wagon spoke while two hovering enchanted steel longswords crackle with pale violet sparks overhead.
+- Row 4 Col 2: Row of sharpened oak timber palisade stakes glowing fierce orange in night firelight beside a shattered terracotta oil flask splashing burning amber flame against dark gate stones.
+- Row 4 Col 3: Cracked weathered limestone windmill sail beams broken atop a bluff turret while a crouched winged stone gargoyle perches silently with glowing amber eyes against indigo night.
+- Row 4 Col 4: Crimson-wax-sealed leather arena transfer dossier strapped in brass buckles resting squarely atop crossed notched Coliseum steel daggers over smoldering woodland campfire logs.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 02 OF 12 — R1-R2 Crownlands Hill-Fort -> R2 Saltwind, Brinecliff & Reedfen Village
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q017                         | Dust Mephits in the Old Mine Shack | R1 Millbrook Crossing (Purge / Restore)
+#   R1C2 -> q018                         | Lost Courier on the North Ridge | R1 Millbrook Crossing (Rescue)
+#   R1C3 -> q019                         | The Stolen Ribbon | R1 Crownlands Hill-Fort (Rescue)
+#   R1C4 -> q020                         | Animated Sentinels of the Knoll | R1 Crownlands Hill-Fort (Purge / Restore)
+#   R2C1 -> q021                         | Rust Monsters at the Munitions Dump | R1 Crownlands Hill-Fort (Retrieve)
+#   R2C2 -> q022                         | Signal Fires on the Ridge | R1 Crownlands Hill-Fort (Escort / Defend)
+#   R2C3 -> q023                         | Chain A1: Ledgers in the Brine | R2 Saltwind Harbor (Investigate)
+#   R2C4 -> q024                         | Pier Three Blockade | R2 Saltwind Harbor (Escort / Defend)
+#   R3C1 -> q025                         | The Cracked Lighthouse | R2 Saltwind Harbor (Purge / Restore)
+#   R3C2 -> q026                         | Sunken Tide-Cargo | R2 Saltwind Harbor (Retrieve)
+#   R3C3 -> q027                         | Harbor-Master's Beach Salvage | R2 Saltwind Harbor (Retrieve)
+#   R3C4 -> q028                         | Tide-Watcher's Cache | R2 Brinecliff Watch-Fort (Retrieve)
+#   R4C1 -> q029                         | Merrow Raiders on the Breakwater | R2 Brinecliff Watch-Fort (Escort / Defend)
+#   R4C2 -> q030                         | Reef-Shattered Corsair Wreck | R2 Brinecliff Watch-Fort (Retrieve)
+#   R4C3 -> q031                         | Sea-Hag Hollow on the Cliffs | R2 Brinecliff Watch-Fort (Purge / Restore)
+#   R4C4 -> q032                         | Lanterns in the Bog | R2 Reedfen Village (Rescue)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Swirling billowing funnel of pale gray quarry ash dust erupting from a timber-shored mine shaft beam illuminated by twin glowing ember-eyed dust sprite silhouettes in shadow.
+- Row 1 Col 2: Torn leather dispatch rider saddlebag and splintered spear shaft lying beside a jagged earthen ankheg tunnel burrow rim dripping sizzling emerald acid in ridge gloom.
+- Row 1 Col 3: Tangled spiky blackthorn cave brambles parted neatly around a bright fluttering crimson woven silk keepsake ribbon resting beside a snapped iron padlock in warm torchlight.
+- Row 1 Col 4: Colossal carved granite-and-iron shield guardian core plate pulsing with fiery golden arcane power veins above shattered moss-grown stone flagstones on a dark upland knoll.
+
+- Row 2 Col 1: Rack of gleaming steel halberd heads dissolving into swirling clouds of fiery powdery orange iron rust dust beneath twitching feathery rust-monster antennae in dark cave gloom.
+- Row 2 Col 2: Heavy wrought-iron mountain watch brazier roaring cleanly with tall golden warning flames illuminating cracked cliff limestone and stone tentacle shadows curled below.
+- Row 2 Col 3: Brine-soaked crimson shipping logbook latched with tarnished green brass clasps resting on wet sunken belltower steps beside a huge glossy turquoise marsh chuul pincer.
+- Row 2 Col 4: Heavy rusted iron ship mooring chain, freshly adzed drydock oak ship ribs, rope pulley block, and curved cutlass wedged across slick wet pier planking in dusk lantern light.
+
+- Row 3 Col 1: Cracked golden brass lighthouse prism beacon roaring radiant amber-white inside steam-shrouded stone masonry with a jagged barbed bone harpoon planted diagonally below.
+- Row 3 Col 2: Waterproof ironbound merchant guild crate splashed by sizzling bright emerald acid droplets beside an ebony black dragon wyrmling wing tip silhouetted over dark beach sand.
+- Row 3 Col 3: Salt-crusted solid brass sea-chart cylinder embossed with wave rings resting beside a broken ship helm wheel half-buried in wet moonlit sandbar shadows.
+- Row 3 Col 4: Ornate brass naval gimbal compass glinting inside an open sandstone cave chest coiled tightly around by a translucent rearing serpent of churning deep-sea blue water.
+
+- Row 4 Col 1: Barnacle-crusted coastal limestone breakwater wall splashed by foaming dark sea mist as a barbed rust-iron merrow trident spear drives toward warm golden fort torchlight.
+- Row 4 Col 2: Barnacle-encrusted oak powder keg, cracked brass ship spyglass, and eerie hanging sea-bone charms nested against jagged coral-wrapped ship timbers in abyssal sea shadow.
+- Row 4 Col 3: Bubbling blackened iron cauldron oozing swirling emerald brine fumes beneath dangling driftwood bone chimes beside twisted dark sandstone coastal hollow walls.
+- Row 4 Col 4: Tall wrought-iron marsh beacon post lantern shedding warm pale amber light through dark foggy reeds where three sinuous scaled marsh hydra necks weave through mist.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 03 OF 12 — R2 Reedfen-Tidewater -> R3 Redmarch Bastion & Cove Supply
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q033                         | Watchtower Braziers | R2 Reedfen Village (Purge / Restore)
+#   R1C2 -> q034                         | Poachers of the Reed-Beds | R2 Reedfen Village (Investigate)
+#   R1C3 -> q035                         | Salt-Cured Rations to Mirewatch | R2 Reedfen Village (Deliver)
+#   R1C4 -> q036                         | Swamp-Fever Antitoxin | R2 Mirewatch Post (Deliver)
+#   R2C1 -> q037                         | Water Weirds in the Cistern | R2 Mirewatch Post (Purge / Restore)
+#   R2C2 -> q038                         | Chuul Nest in the Fen | R2 Mirewatch Post (Investigate)
+#   R2C3 -> q039                         | Ambush at the Ferry Landing | R2 Mirewatch Post (Rescue)
+#   R2C4 -> q040                         | Lost Admiralty Chest | R2 Mirewatch Post (Retrieve)
+#   R3C1 -> q041                         | Hold the Sea-Wall Gate | R2 Tidewater Keep (Escort / Defend)
+#   R3C2 -> q042                         | Gibbering Horror in the Cellar | R2 Tidewater Keep (Purge / Restore)
+#   R3C3 -> q043                         | Sabotage the Black-Market Dock | R2 Tidewater Keep (Investigate)
+#   R3C4 -> q044                         | Outer Abyssal Watch | R2 Tidewater Keep (Purge / Restore)
+#   R4C1 -> q045                         | Deserters' Armory | R3 Redmarch Bastion (Retrieve)
+#   R4C2 -> q046                         | Sealed Border Dispatches | R3 Redmarch Bastion (Deliver)
+#   R4C3 -> q047                         | Worg Packs on the Supply Trail | R3 Redmarch Bastion (Investigate)
+#   R4C4 -> q048                         | Cove Supply Convoy | R3 Redmarch Bastion (Escort / Defend)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Cracked coastal sandstone signal beacon pan heaped with glowing coal embers beside broken harpoon shafts and slimy creeping marsh tentacles under dark sea mist.
+- Row 1 Col 2: Coil of slashed hemp fishing nets, carved pine boat oar, and stolen oiled smuggler tarpaulin roll illuminated by a hooded brass dockside lantern over dark reed mud.
+- Row 1 Col 3: Iron-hooped oak ration barrel stamped with crimson wax anchor seal clutched tightly by thick suction-cupped deep crimson giant octopus tentacles in dark wet mud.
+- Row 1 Col 4: Two cushioned emerald glass apothecary vials glowing softly golden healing nectar cradled beside a snapped cartwheel spoke and armored blue-violet marsh chuul claw.
+
+- Row 2 Col 1: Circular carved sandstone garrison well cistern erupting with a luminous swirling cobalt-and-silver tempest vortex of animated pure water elemental power against dark slate.
+- Row 2 Col 2: Crushed steel soldier helm sinking into dark fen peat beside gleaming translucent pearl-green chitin clutch eggs and twin jagged mossy marsh lobster pincers.
+- Row 2 Col 3: Coiled thick hemp ferry landing ropes and stacked timber crates spattered with uncanny glowing yellow eyes and undulating protoplasmic tendrils in misty river torchlight.
+- Row 2 Col 4: Moss-grown sunken excise stone flagstones pried wide open revealing a heavy triple-locked brass-and-iron Admiralty silver coffer gleaming brightly beneath moonlit marsh shadows.
+
+- Row 3 Col 1: Heavy wet granite causeway sea-wall spiked with iron bars holding steady against a towering crashing crest of glowing cobalt-blue living water surf in midnight storm haze.
+- Row 3 Col 2: Moss-slick dark sandstone cellar steps descending into eerie pulsing pale violet darkness glowing softly with dozens of unblinking golden horror eyes amid shadowy slime.
+- Row 3 Col 3: Stacked black smuggler gunpowder kegs draped in damp dark kelp beside sparkling lit slow-match fuse embers and crossed iron boarding hooks in shadowy headland mist.
+- Row 3 Col 4: Luminous iridescent Abyssal Brine-Pearl keystone pulsing radiant turquoise-gold inside a giant barnacled shell resting atop a volcanic dragon-turtle carapace in warm steam.
+
+- Row 4 Col 1: Rack of gleaming highland steel halberds and embossed steel round shields standing behind colossal bronze-ringed minotaur bull horns in jagged dark slate canyon shadow.
+- Row 4 Col 2: Brass-capped highland troop cipher dispatch tube sealed in bright crimson Lion wax resting atop ochre grass boulders before snapping iron-gray worg fangs.
+- Row 4 Col 3: Torn leather mule pack-saddle straps lying across golden-ochre hillside stones beside massive clawed lupine tracks and fiercely glowing amber worg eyes in twilight.
+- Row 4 Col 4: Split-open ironbound sea-galleon supply crate overflowing with scarlet spice jars and forged iron ingots beside fallen desert-coast steel pikes at twilight.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 04 OF 12 — R3 Redmarch Highlands & Hollowstone Keep (Goldmoor, Slatepeak, Thornwall)
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q049                         | Salvage the Lost War-Wagons | R3 Redmarch Bastion (Retrieve)
+#   R1C2 -> q050                         | Burned Banners | R3 Goldmoor Village (Investigate)
+#   R1C3 -> q051                         | Cockatrices in the Pasture | R3 Goldmoor Village (Purge / Restore)
+#   R1C4 -> q052                         | Herders at Highland Camp | R3 Goldmoor Village (Rescue)
+#   R2C1 -> q053                         | Grain Harvest Guard | R3 Goldmoor Village (Escort / Defend)
+#   R2C2 -> q054                         | Collapsed Shaft Four | R3 Slatepeak Mining Fort (Rescue)
+#   R2C3 -> q055                         | Toll at Slate-Crag Pass | R3 Slatepeak Mining Fort (Escort / Defend)
+#   R2C4 -> q056                         | Abandoned Mine Watch-Shack | R3 Slatepeak Mining Fort (Purge / Restore)
+#   R3C1 -> q057                         | Stolen Iron Ingots | R3 Slatepeak Mining Fort (Retrieve)
+#   R3C2 -> q058                         | Brown Bears in the Upper Adit | R3 Slatepeak Mining Fort (Purge / Restore)
+#   R3C3 -> q059                         | Chain C1: Blood on the Watchtower | R3 Thornwall Border Castle (Retrieve)
+#   R3C4 -> q060                         | Cliffside Artillery | R3 Thornwall Border Castle (Purge / Restore)
+#   R4C1 -> q061                         | Hippogriff Eyrie Raid | R3 Thornwall Border Castle (Purge / Restore)
+#   R4C2 -> q062                         | Siege-Arrows to the Bailey | R3 Thornwall Border Castle (Deliver)
+#   R4C3 -> q063                         | Chain C2: Fall of House Hollowstone | R3 Hollowstone Keep (Purge / Restore)
+#   R4C4 -> q064                         | Prisoners in the Bailey Dungeon | R3 Hollowstone Keep (Rescue)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Heavy iron-rimmed wooden siege wagon wheel axle cracked beneath an enormous knotty iron-spiked ogre club lying across broken gray road cobbles in evening gloom.
+- Row 1 Col 2: Charred gold-trimmed crimson highland garrison war-banner torn diagonally beside Hollowstone dark steel pike heads glowing warmly over smoldering barn embers.
+- Row 1 Col 3: Half-petrified pale gray limestone pasture sheep bust streaked with cracking stone veins beside a wicked crimson-feathered crowing cockatrice beak breathing pale petrifying mist.
+- Row 1 Col 4: Plundered tied white wool bales stacked inside spiked pine log pen stakes beside a shattered silver ransom lockbox glowing in dark smoky highland camp shadows.
+
+- Row 2 Col 1: Tall golden autumn wheat harvest sheaves standing firmly behind a planted steel kite shield bristling with burning crossbow bolts against dusk sky gloom.
+- Row 2 Col 2: Derailing steel ore mine cart wedged sideways across splintered quarry beams as billowing green stone-breathing mist puffs past heavy armored iron gorgon bull horns.
+- Row 2 Col 3: Twin mismatched heavy bronze spiked ettin morningstars crossed tightly over a spilled leather silver toll pouch resting atop rough dark gray slate canyon rock.
+- Row 2 Col 4: Crushed weathered pine mine watch-shack timbers buckled down under an enormous gnarled mountain oak giant club dusted thick in pale quarry slate grit.
+
+- Row 3 Col 1: Neat pyramid stack of heavy gleaming tempered highland steel ingots bound in iron bands resting atop cold frost-rimed dark stone near giant bare frostbite prints.
+- Row 3 Col 2: Smashed pine quarry lunch crate spilling rich golden honeycomb and cured rations beside massive shaggy brown bear forepaws unsheathing heavy curved black claws.
+- Row 3 Col 3: Tattered crimson loyalist wolf-fang tower pennant stretched defiantly across battered stone watchtower merlons beside a shattered dark rival knight steel helm.
+- Row 3 Col 4: Heavy bronze hilltop fortress catapult throwing-arm wrapped in torn sandbags bristling with black barbed manticore tail-spikes against dark cliff twilight.
+
+- Row 4 Col 1: Windswept jagged slate spire nest woven from pine boughs cradling gleaming hooked bronze griffon talons and scattered chestnut-gold raptor plumes in dark mist.
+- Row 4 Col 2: Armored oak frame packed with thick iron-tipped ballista bolts threatened diagonally by sharp warty green granite-troll claws in misty boulder-bend shadows.
+- Row 4 Col 3: Heavy gold signet ring embossed with a fractured crimson castle tower emblem resting beside shattered steel war gauntlets upon dark war-hall flagstones.
+- Row 4 Col 4: Heavy forged black iron castle prison keyring holding jagged dungeon turnkeys hovering warmly illuminated before opened iron bailey cell bars in stair torchlight.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 05 OF 12 — R3 Hollowstone Secrets -> R4 Whispering Weald (Briarstead, Timberfall, Mosswood)
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q065                         | Secret War-Pact Ledgers | R3 Hollowstone Keep (Investigate)
+#   R1C2 -> q066                         | Rogue Troll Patrol | R3 Hollowstone Keep (Purge / Restore)
+#   R1C3 -> q067                         | Shatter the Stone-Giant Picket | R3 Hollowstone Keep (Purge / Restore)
+#   R1C4 -> q068                         | Chain B1: The Spreading Blight | R4 Briarstead (Investigate)
+#   R2C1 -> q069                         | Poultices for the Sawyers | R4 Briarstead (Deliver)
+#   R2C2 -> q070                         | Blink-Dog Ambush on the Herb Trail | R4 Briarstead (Escort / Defend)
+#   R2C3 -> q071                         | Briar-Root Harvest | R4 Briarstead (Retrieve)
+#   R2C4 -> q072                         | Wolves in the Apiary Woods | R4 Briarstead (Purge / Restore)
+#   R3C1 -> q073                         | Shelter the Timber Yard | R4 Timberfall Village (Escort / Defend)
+#   R3C2 -> q074                         | Caught in the Canopy | R4 Timberfall Village (Rescue)
+#   R3C3 -> q075                         | Clear the Woodland Beast Den | R4 Timberfall Village (Purge / Restore)
+#   R3C4 -> q076                         | Poachers at Outlaw Stockade | R4 Timberfall Village (Investigate)
+#   R4C1 -> q077                         | The Forgotten Pillar | R4 Mosswood Hamlet (Purge / Restore)
+#   R4C2 -> q078                         | The Wandering Relic | R4 Mosswood Hamlet (Retrieve)
+#   R4C3 -> q079                         | Nightmare Howls in the Glade | R4 Mosswood Hamlet (Investigate)
+#   R4C4 -> q080                         | Pure Spring-Vials to Greenwarden | R4 Mosswood Hamlet (Deliver)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Stack of secret black-wax-sealed frontier quarantine ledgers crossed obliquely by a curved Oni glaive steel blade trailing eerie cold blue mist in dark archive gloom.
+- Row 1 Col 2: Overturned wooden slate-gully supply cart axle smeared with glowing emerald regenerating beast-blood droplets beside knotted jagged troll bone fetishes.
+- Row 1 Col 3: Forged molten-veined Blood-Iron Keystone anvil wedge burning fiercely fiery orange-red atop cracked granite highland redoubt boulders under storm shadow.
+- Row 1 Col 4: Old mossy stone roadside chapel wellhead erupting cleanly with glowing pulsing violet fungal tendrils and bright chartreuse spore haze in shadowed woods.
+
+- Row 2 Col 1: Neat linen-wrapped bundle of herb fever poultices strapped with hemp twine lying cleanly clear of a steaming black corrosive slime pool on dark forest pine needles.
+- Row 2 Col 2: Spilled cedar herbalist apothecary chest glowing with icy blue-silver teleport mist trails framing leaping ghostly blink-dog silhouettes along a dark forest trail.
+- Row 2 Col 3: Woven willow harvest basket brimming with luminous pale silvery-white briar roots set before menacing gnarled twisting ancient bark roots glowing warm amber eyes.
+- Row 2 Col 4: Cracked woven golden straw honeybee skep leaking glistening wild amber honey onto forest moss beside fierce snapping yellow wolf teeth and white boar tusks.
+
+- Row 3 Col 1: Lantern-lit heavy oak timber yard gate scarred by deep hooked beak gashes and colossal feathered bear claws rising dramatically from deep emerald dusk.
+- Row 3 Col 2: Gleaming steel logger felling axe wedged tightly inside shimmering violet-white ghostly phase spider silk webs draped thickly across dark twilight pine trunks.
+- Row 3 Col 3: Moss-draped gnarled oak root woodland cave arch littered with white antler bones framing glowing huge golden owlbear eyes peering straight out of dark cavern gloom.
+- Row 3 Col 4: Stacked freshly sawed pale golden oak lumber planks fortified with jagged stakes and feathered green poaching arrows under dim canopy shadow.
+
+- Row 4 Col 1: Ancient moss-clad forest standing monolith carved with spiral vine grooves cradling a radiant glowing emerald seed-stone heart free of dark rot tendrils.
+- Row 4 Col 2: Heavy gleaming golden brass consecrated abbey bell suspended sharply at the dead center of a glowing translucent chartreuse gelatinous slime cube over wet cobblestones.
+- Row 4 Col 3: Ring of eerie glowing crimson toadstools circling a deep clawed werewolf track and smoky pale violet soul-stone orb under haunting midnight canopy gloom.
+- Row 4 Col 4: Sturdy wicker hamper filled with glowing sapphire crystal-clear pure spring water vials resting cleanly above a creeping gray ooze puddle etching dark stone.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 06 OF 12 — R4 Greenwarden & Blightwatch -> R5 Golden Sands (Port Veridia & Dunes)
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q081                         | Chain B2: Ghosts of Oakhollow | R4 Greenwarden Fort (Retrieve)
+#   R1C2 -> q082                         | Trapped Rangers in the Copse | R4 Greenwarden Fort (Rescue)
+#   R1C3 -> q083                         | Purge the Blighted Thicket | R4 Greenwarden Fort (Purge / Restore)
+#   R1C4 -> q084                         | Fortify the Outer Palisade | R4 Greenwarden Fort (Escort / Defend)
+#   R2C1 -> q085                         | Stolen Antitoxin Crates | R4 Greenwarden Fort (Retrieve)
+#   R2C2 -> q086                         | Chain B3: Heart of the Mire | R4 Blightwatch Keep (Purge / Restore)
+#   R2C3 -> q087                         | Voices in the Roots | R4 Blightwatch Keep (Investigate)
+#   R2C4 -> q088                         | Burn the Spore Pits | R4 Blightwatch Keep (Purge / Restore)
+#   R3C1 -> q089                         | Hold the Quarantine Gate | R4 Blightwatch Keep (Escort / Defend)
+#   R3C2 -> q090                         | Chain A2: The Smuggler's Crossing | R5 Port Veridia (Investigate)
+#   R3C3 -> q091                         | Silk & Cinders | R5 Port Veridia (Purge / Restore)
+#   R3C4 -> q092                         | Stone-Eyed Coast | R5 Port Veridia (Rescue)
+#   R4C1 -> q093                         | Break the Corsair Pier | R5 Port Veridia (Escort / Defend)
+#   R4C2 -> q094                         | Scorpion Infestation in the Docks | R5 Port Veridia (Investigate)
+#   R4C3 -> q095                         | Water-Casks Across the Dune | R5 Sunstone Caravan Post (Deliver)
+#   R4C4 -> q096                         | Desert Nomad Raider Camp | R5 Sunstone Caravan Post (Purge / Restore)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Tarnished heirloom brass cottage hearth bell glowing warm soft amber gold amidst charred mossy oak cottage foundation ashes and bubbling ochre slime.
+- Row 1 Col 2: Torn dark green hooded ranger cloak and silver-fletched quiver resting safely beneath luminous translucent amber spider web pods in blighted pine shadow.
+- Row 1 Col 3: Swelling toxic violet fungal stalks erupting under bright purifying golden torch flames pushing back sizzling black acidic forest ooze over dark loam.
+- Row 1 Col 4: Freshly driven sharpened oak fortification palisade stakes holding tightly against grasping animated thorny blight vines and pulsing green woodland spore eyes.
+
+- Row 2 Col 1: Ironbound medical antitoxin chest sealed in green wax straps sizzling mildly at its corner boots from glowing translucent amber-ochre slime globules in limestone gloom.
+- Row 2 Col 2: Colossal tangled crimson-and-chartreuse blighted heartwood root mass splitting cleanly apart in radiant golden purifying firelight inside a dark cavern mire.
+- Row 2 Col 3: Twisted hollow dead willow tree opening illuminated by wicked chartreuse hag-fire flames beside a dangling bone-and-twig fetish doll in haunting weald mist.
+- Row 2 Col 4: Jagged steaming forest sink-fissure burning brightly with fierce golden pitch-fire searing creeping translucent chartreuse slime and gray ooze back in darkness.
+
+- Row 3 Col 1: Luminous hexagonal Spore-Heart Amber catalyst crystal glowing intense emerald-gold perched triumphantly atop ironbound stone quarantine gate spikes over creeping vines.
+- Row 3 Col 2: Lantern-lit sandstone smuggling pier bollard coiled with thick forged iron slave chains beside a gilt-bordered shipping ledger glowing softly in indigo sea night.
+- Row 3 Col 3: Flowing bolts of gleaming scarlet and turquoise fine desert silk fluttering untouched above a jagged blazing magma floor crack coiled by an ember serpent tail.
+- Row 3 Col 4: Half-petrified limestone fisherman bronze harbor lantern beside gleaming toxic emerald multi-legged basilisk scales glinting fiercely across amber coastal cliffs.
+
+- Row 4 Col 1: Torn pitch-black corsair galleon sailcloth falling behind a shattered gilded lion bowsprit surrounded by bright sea spray and burning golden fuse sparks at twilight.
+- Row 4 Col 2: Split woven spice bale spilling fragrant cinnamon sticks beside a huge arching dark-armored desert giant scorpion tail stinger dripping emerald venom in shadow.
+- Row 4 Col 3: Heavy iron-hooped oak desert water cask glistening cleanly with cool sapphire droplets behind fierce blazing molten-fanged hell-hound jaws in sandstone twilight.
+- Row 4 Col 4: Bright crimson-and-gold striped nomad tent canvas slashed open beside a smashed iron desert holding lock and coiled leather slaver whip over dark canyon sand.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 07 OF 12 — R5 Dunespire Oasis, Sandwall Citadel & Gilded Manor -> R6 Highpass Refuge
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q097                         | Fire Snakes at the Dry Wash | R5 Sunstone Caravan Post (Investigate)
+#   R1C2 -> q098                         | Wrecked Spice Carts | R5 Sunstone Caravan Post (Retrieve)
+#   R1C3 -> q099                         | Tremors Under the Sand | R5 Dunespire Oasis (Investigate)
+#   R1C4 -> q100                         | Prism Echoes | R5 Dunespire Oasis (Retrieve)
+#   R2C1 -> q101                         | Guard the Oasis Spring | R5 Dunespire Oasis (Escort / Defend)
+#   R2C2 -> q102                         | Mummy Tomb Beneath the Dunes | R5 Dunespire Oasis (Purge / Restore)
+#   R2C3 -> q103                         | Lost Desert Travelers | R5 Dunespire Oasis (Rescue)
+#   R2C4 -> q104                         | Scorched Dragon Lair | R5 Sandwall Citadel (Purge / Restore)
+#   R3C1 -> q105                         | Relight the Dune Beacons | R5 Sandwall Citadel (Escort / Defend)
+#   R3C2 -> q106                         | Break the Hell-Hound Pack | R5 Sandwall Citadel (Purge / Restore)
+#   R3C3 -> q107                         | Munitions to Gilded Approach | R5 Sandwall Citadel (Deliver)
+#   R3C4 -> q108                         | Chain A3: Broken Shackles | R5 The Gilded Auction Manor (Rescue)
+#   R4C1 -> q109                         | Seize the Collar Ledgers | R5 The Gilded Auction Manor (Retrieve)
+#   R4C2 -> q110                         | Disable the Holding Pens | R5 The Gilded Auction Manor (Purge / Restore)
+#   R4C3 -> q111                         | Guard Against Efreeti Scouts | R5 The Gilded Auction Manor (Purge / Restore)
+#   R4C4 -> q112                         | Granite Scree Pass | R6 Highpass Refuge (Investigate)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Wind-carved desert sand melted into jagged black volcanic glass spikes coiled tightly by radiant white-hot elemental fire snakes inside a parched rock canyon.
+- Row 1 Col 2: Solid polished brass merchant spice strongbox rescued cleanly intact atop smoldering burnt caravan spokes surrounded by glowing red magma mephit embers.
+- Row 1 Col 3: Cracked circular carved sandstone desert wellhead splitting apart as towering violet plated armor ridges and white fang maw of a giant purple worm surge upward.
+- Row 1 Col 4: Faceted radiant amber-and-ruby storm-glass prism core levitating brilliantly above an ancient bronze elemental smithy anvil amid dancing white furnace embers.
+
+- Row 2 Col 1: Limestone desert oasis spring wall brimming with cool sparkling turquoise water rippling calmly back against a towering roaring wall of crimson fire elemental flame.
+- Row 2 Col 2: Cracked sandstone burial stair block shedding gold sand over unwinding ancient bleached linen mummy wraps and a gleaming gilded scarab relic in dark tomb gloom.
+- Row 2 Col 3: Dropped gleaming copper canteen and sunlit linen desert traveler scarf huddled beneath a sandstone arch under menacing three-headed chimera shadow silhouette.
+- Row 2 Col 4: Glittering mound of gleaming silver Ethorian trade coins and silver chalices heaped inside black volcanic basalt cavern walls shadowed by fierce crimson dragon wings.
+
+- Row 3 Col 1: Ornate polished bronze parabolic desert sun-mirror tower beacon flaring blazing golden amber light cleanly above dropped flaming elemental bronze spearheads.
+- Row 3 Col 2: Smoldering brimstone-scorched canine tracks burned straight into black basalt stone leading toward glowing ember hell-hound eyes beside an iron cavalry spur.
+- Row 3 Col 3: Heavy brass-latched war box of steel armor-piercing scorpion siege bolts gleaming starkly beneath sweeping feathered-and-scaled chimera wings in canyon dark.
+- Row 3 Col 4: Heavy forged iron slave shackles shattered violently open in blinding radiant golden sunlight beside an overturned gilded Baron crest vault key in rich shadow.
+
+- Row 4 Col 1: Tall bound bundle of black gilt-trimmed buyer auction ledgers pierced cleanly upright through the spine by a gleaming steel longsword under dark colonnade shadows.
+- Row 4 Col 2: Heavy forged bronze ring of glowing ember-hot jailer master keys raised triumphantly before swung-open iron dungeon cage bars cooling into desert night.
+- Row 4 Col 3: Ornate Brass Cinder-Seal catalyst medallion burning bright fierce ruby-gold atop dark volcanic desert soot beside shattered jagged fiery efreeti crown shards.
+- Row 4 Col 4: Tumbling jagged gray alpine granite boulders cracking loudly beside swirling cobalt storm-cloud wisps and scattered dark feathered harpy plumes in mountain mist.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 08 OF 12 — R6 Stormcrag Mountains (Highpass, Clearwater Lake, Anvilhall, Cragwatch)
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q113                         | Star-Iron Ingots | R6 Highpass Refuge (Deliver)
+#   R1C2 -> q114                         | Blood-Hawk Roosts | R6 Highpass Refuge (Purge / Restore)
+#   R1C3 -> q115                         | Missing Foothill Caravan | R6 Highpass Refuge (Rescue)
+#   R1C4 -> q116                         | Guard the Highland Storehouses | R6 Highpass Refuge (Escort / Defend)
+#   R2C1 -> q117                         | Lightning at Cragwater Storm-Stone | R6 Clearwater Lake Village (Purge / Restore)
+#   R2C2 -> q118                         | Sanctuary of the Lake | R6 Clearwater Lake Village (Escort / Defend)
+#   R2C3 -> q119                         | Wyverns on the Lake Shore | R6 Clearwater Lake Village (Purge / Restore)
+#   R2C4 -> q120                         | Cornered Lakeside Foragers | R6 Clearwater Lake Village (Rescue)
+#   R3C1 -> q121                         | The Missing Envoy | R6 Anvilhall Forge (Retrieve)
+#   R3C2 -> q122                         | Meteoric Core Slabs | R6 Anvilhall Forge (Retrieve)
+#   R3C3 -> q123                         | Defend the Granite Foundry | R6 Anvilhall Forge (Escort / Defend)
+#   R3C4 -> q124                         | Clear the High-Ridge Ore Track | R6 Anvilhall Forge (Purge / Restore)
+#   R4C1 -> q125                         | Chimney-Vent Tempests | R6 Anvilhall Forge (Purge / Restore)
+#   R4C2 -> q126                         | Stranded on Crag-Ledge | R6 Cragwatch Fort (Rescue)
+#   R4C3 -> q127                         | Clear the Alpine Crag Bear Den | R6 Cragwatch Fort (Purge / Restore)
+#   R4C4 -> q128                         | Highland Marauder Camp | R6 Cragwatch Fort (Investigate)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Heavy rough jet-black meteoric star-iron ore ingot streaked with glowing silvery starlight dust beneath a colossal falling golden sky-roc primary pinion feather.
+- Row 1 Col 2: Razor-curved scarlet-feathered blood-hawk talons gripping a jagged pale mountain granite pinnacle above swirling stormy alpine pasture clouds at dusk.
+- Row 1 Col 3: Overturned mountain oak merchant wheel wedged under gray scree boulders encircled by fierce spinning translucent pale cyan air-elemental gale rings.
+- Row 1 Col 4: Bolted ironbound alpine storehouse doors illuminated by warm defending amber lantern light bristling with snapped jagged manticore spines in mountain gale mist.
+
+- Row 2 Col 1: Ancient carved granite storm-stone circle beside foggy lake water sizzling fiercely with crackling sapphire lightning bolts arcing from twelve-legged behir coils.
+- Row 2 Col 2: Weathered carved granite lake sanctuary temple pillar glowing warm protective golden light as jagged sapphire blue-dragon lightning splinters softly overhead.
+- Row 2 Col 3: Splintered weathered wooden lakeshore fishing boat landing post dripping thick gleaming toxic green venom from a curved barbed wyvern stinger tip in twilight.
+- Row 2 Col 4: Woven willow lakeside foraging basket piled with crisp mountain herbs resting calmly beside cracked wet boulders speckled in sparkling sapphire frost-sparks.
+
+- Row 3 Col 1: Tarnished silver royal treaty signet ring and folded navy wool envoy cloak resting cleanly on blue-veined granite cavern floor ringed by invisible wind ripples.
+- Row 3 Col 2: Smoking jagged granite impact crater cradling a colossal glowing electric-blue star-iron meteoric core slab crackling cleanly with sharp static discharge arcs.
+- Row 3 Col 3: Carved monumental mountain granite foundry terrace steps glowing fiery warm orange hearth embers defying a fierce silver-cyan spinning djinni tornado funnel.
+- Row 3 Col 4: Snapped ironbound mountain charcoal mule harness resting beside twin gleaming ivory curved nine-inch saber-toothed ridge tiger fangs in twilight pines.
+
+- Row 4 Col 1: Tall stone mountain foundry chimney flue cap howling with swirling ghostly pale gale drafts while bright orange forge sparks fight upward out of dark slate.
+- Row 4 Col 2: Warm golden lantern-lit alpine timber cabin window peeking bravely through freezing cobalt storm clouds beneath soaring horned wyvern wing shadows above.
+- Row 4 Col 3: Jagged shadowed alpine granite cave overhang lip scarred deeply by colossal bear claws beside pale mountain goat bones and fiercely gleaming amber predator eyes.
+- Row 4 Col 4: Stacked crimson marauder war-banners and notched steel halberds clustered beside a crackling stone canyon campfire swirling with wind-driven embers in dusk gloom.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 09 OF 12 — R6 Stormhold Citadel -> R7 Frostfall & Pale Reach (Rimeport, Frostmere, Glacierwatch)
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q129                         | Storm-Wards to Stormhold | R6 Cragwatch Fort (Deliver)
+#   R1C2 -> q130                         | Storm-Crag Dragon Roost | R6 Stormhold Citadel (Purge / Restore)
+#   R1C3 -> q131                         | Behir Tunnel Breach | R6 Stormhold Citadel (Purge / Restore)
+#   R1C4 -> q132                         | Battlements of Lightning | R6 Stormhold Citadel (Escort / Defend)
+#   R2C1 -> q133                         | Silence the Storm-Giant Warband | R6 Stormhold Citadel (Purge / Restore)
+#   R2C2 -> q134                         | Frozen Beacon | R7 Rimeport (Purge / Restore)
+#   R2C3 -> q135                         | Hellfire on the Sea-Wall | R7 Rimeport (Escort / Defend)
+#   R2C4 -> q136                         | Sunken Warships | R7 Rimeport (Retrieve)
+#   R3C1 -> q137                         | Supply Ledgers to Frostmere | R7 Rimeport (Deliver)
+#   R3C2 -> q138                         | Shadows in the Drydock | R7 Rimeport (Purge / Restore)
+#   R3C3 -> q139                         | Coal & Fur Crates | R7 Frostmere Village (Deliver)
+#   R3C4 -> q140                         | Frost-Bound Shoreline Wreck | R7 Frostmere Village (Retrieve)
+#   R4C1 -> q141                         | Trappers at the Frozen Shoreline | R7 Frostmere Village (Rescue)
+#   R4C2 -> q142                         | Abyssal Blight in the Pelts | R7 Frostmere Village (Purge / Restore)
+#   R4C3 -> q143                         | Heart of the Ice | R7 Glacierwatch Fort (Investigate)
+#   R4C4 -> q144                         | Overrun Cliff Watch-Post | R7 Glacierwatch Fort (Rescue)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Bundle of gleaming forged solid copper lightning-rod ward poles bound tight in stout leather slings cleanly channeling roaring sapphire dragon bolts safely down.
+- Row 1 Col 2: Woven high-pine mountain dragon roost gleaming with scattered iridescent royal-blue dragon scales and cracked giant azure eggshell shards amid storm haze.
+- Row 1 Col 3: Massive granite castle cellar floor slab chewed jaggedly open revealing a glowing electric-cobalt subterranean fissure humming with crackling behir sparks.
+- Row 1 Col 4: Heavy copper-warded castle granite battlements glowing intensely sapphire amidst roaring thunderhead clouds and swooping horned wyvern silhouettes above.
+
+- Row 2 Col 1: Hovering Storm-Crown Lodestone catalyst crystal blazing radiant electric cobalt-and-gold light atop cracked terrace flagstones and shattered storm-giant bronze spear.
+- Row 2 Col 2: Frost-crusted granite harbor headland lighthouse pan roaring brightly with tall golden whale-oil firelight above spiked dark icy devil tail spines in fog.
+- Row 2 Col 3: Snow-packed cobbled sea-wall portcullis archway glowing hot crimson hellfire hoofprints smoking cleanly across frozen blue winter stone cobbles at night.
+- Row 2 Col 4: Frost-draped shattered naval stern ship timbers protecting a heavy iron-clamped dark encrypted leather fleet cipher tome wrapped tightly in blue winter ice.
+
+- Row 3 Col 1: Heavy brass-buckled leather winter supply courier satchel lashed securely to gleaming steel sleigh runners spattered with frosted white winter-wolf breath haze.
+- Row 3 Col 2: Icy pine shipwright drydock scaffolding beside overturned glossy black ship-pitch buckets and drifting charred midnight-black winged feathers in cold frost torchlight.
+- Row 3 Col 3: Open pine snow-freight crate packed with jet-black stove coal lumps beside thick fluffy silver-gray wolf pelts warmed gently against frosted twilight pine boards.
+- Row 3 Col 4: Jagged frozen cobalt sea-ice gripping an oak longship prow stuffed warmly with snow-white ermine fur bundles and stamped silver bars in icy dusk.
+
+- Row 4 Col 1: Frost-caked knotted linen ice-fishing nets heaped over frozen pine shoreline boulders scarred deeply by gigantic white polar bear and snow-cat claw marks.
+- Row 4 Col 2: Wooden furrier curing frame draped in furs stained darkly with toxic emerald demon slime beside snapped crimson barbed iron chains in icy cave gloom.
+- Row 4 Col 3: Colossal faceted glacial cobalt crystalline infernal heartstone engine cracked cleanly open inside icy cavern walls leaking swirling frost vapor.
+- Row 4 Col 4: Cold frost-rimmed stone beacon watchroom doorframe draped in tattered dark crimson velvet beside a cold unlit silver watch torch in snowy dusk mist.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 10 OF 12 — R7 Glacierwatch & Bleakwatch Citadel -> R8 Ashenford War-Camp
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q145                         | Vrock Screechers on the Wall | R7 Glacierwatch Fort (Purge / Restore)
+#   R1C2 -> q146                         | Hold the Glacier Ramparts | R7 Glacierwatch Fort (Escort / Defend)
+#   R1C3 -> q147                         | The Frozen Labor Camp | R7 Icecrest Holdfast (Rescue)
+#   R1C4 -> q148                         | Saber-Tooth Trail | R7 Icecrest Holdfast (Purge / Restore)
+#   R2C1 -> q149                         | Chain-Devil Slaver Convoy | R7 Icecrest Holdfast (Investigate)
+#   R2C2 -> q150                         | Clan Brazier Relics | R7 Icecrest Holdfast (Retrieve)
+#   R2C3 -> q151                         | Chain C3: The Northern Pretender | R7 Bleakwatch Citadel (Purge / Restore)
+#   R2C4 -> q152                         | Garrison Hostages in the Keep | R7 Bleakwatch Citadel (Rescue)
+#   R3C1 -> q153                         | Shatter the Nightmare Stables | R7 Bleakwatch Citadel (Purge / Restore)
+#   R3C2 -> q154                         | Infernal Pact Braziers | R7 Bleakwatch Citadel (Investigate)
+#   R3C3 -> q155                         | Gatekeepers of the Abyss | R7 Bleakwatch Citadel (Purge / Restore)
+#   R3C4 -> q156                         | Hold the Ash-Wall | R8 Ashenford War-Camp (Escort / Defend)
+#   R4C1 -> q157                         | Consecrate the Sentry Posts | R8 Ashenford War-Camp (Purge / Restore)
+#   R4C2 -> q158                         | Siege-Alchemist's Powder | R8 Ashenford War-Camp (Deliver)
+#   R4C3 -> q159                         | Intercept Eclipse Supply Carts | R8 Ashenford War-Camp (Investigate)
+#   R4C4 -> q160                         | Clear the Burned Ridge | R8 Ashenford War-Camp (Purge / Restore)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Jagged pale blue glacier shelf crusted with bristling dark vulture feathers and pale segmented bone-devil spine spikes rattling amidst swirling alpine snow.
+- Row 1 Col 2: Frozen snow-trench pine rampart stakes braced behind gleaming northern steel halberds pushing back against towering four-armed abyssal pincer shadows in storm light.
+- Row 1 Col 3: Cold frost-covered spiked iron mining pickaxes leaning against shattered barbed iron devil chains breaking wide open beneath warm freeing golden light.
+- Row 1 Col 4: Tipped timber mountain firewood sleigh spilling split birch logs across deep snowdrift beside enormous clawed white saber-tooth paw prints in pale moonlit gloom.
+
+- Row 2 Col 1: Heavy iron-barred frozen prisoner sleigh cage door smashed cleanly off its hinges with broken cold-iron shackles resting softly upon pure clean snow.
+- Row 2 Col 2: Ornate hammered antique bronze northern clan hearth-bowl blazing steadily with warm sacred amber flame atop snow-dusted elder stone cairns.
+- Row 2 Col 3: Jagged radiant silver Ethorian Crown-Shard lying cleanly atop torn ice-bordered marshals parchment crossed diagonally by a shattered dark frostblade in icy gloom.
+- Row 2 Col 4: Rime-caked wooden castle drawbridge winch chain beside an iron dungeon gate ring holding thick cold-iron prison keys glowing softly in orange gatehouse firelight.
+
+- Row 3 Col 1: Steaming snow puddles melting brightly around a red-hot blazing iron horseshoe burned deeply into frosty timber stable planks amidst swirling fiery cinders.
+- Row 3 Col 2: Three blackened wrought-iron ritual summoning braziers guttering softly out as dying crimson Nine-Hells embers dissolve silently into cold arctic winter ash.
+- Row 3 Col 3: Luminous ice-veined sapphire Pale-Abyss Ice-Seal catalyst diamond pulsing fiercely bright glacial blue light atop broken horned-devil redoubt stones.
+- Row 3 Col 4: Row of blackened forged steel pikes grounded cleanly behind ash sandbag trenches deflecting crackling violet necromantic lich bolts in dark volcanic dust.
+
+- Row 4 Col 1: Consecrated brass perimeter sentry brazier blazing radiant pale gold firelight cutting cleanly through eerie ghostly swirling cyan will-o'-wisp orbs in mist.
+- Row 4 Col 2: Reinforced iron-hooped black gunpowder siege keg stamped with a bright crimson diamond guard emblem sheltered cleanly behind crossed kite shields in volcanic ash.
+- Row 4 Col 3: Shattered midnight-black Eclipse acolyte crate spilling sealed pale bone-powder canisters beneath torn violet-hemmed dark cultist robes in volcanic soot.
+- Row 4 Col 4: Solemn row of consecrated steel infantry helmets resting respectfully atop upright ash-charred broadswords along cooled black volcanic hillside dirt at twilight.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 11 OF 12 — R8 Dreadwaste & Garrick's Black Keep (Cinderwatch, Ashvale, Scorchwall, Black Keep)
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q161                         | Eclipse Cultist Cliff Altar | R8 Cinderwatch Bastion (Purge / Restore)
+#   R1C2 -> q162                         | Turncoat Patrols on the Ridge | R8 Cinderwatch Bastion (Investigate)
+#   R1C3 -> q163                         | Ghouls in the Ash Quarry | R8 Cinderwatch Bastion (Purge / Restore)
+#   R1C4 -> q164                         | Hold the Ridge Signal Tower | R8 Cinderwatch Bastion (Escort / Defend)
+#   R2C1 -> q165                         | The Fallen Banner | R8 Ashvale Village (Retrieve)
+#   R2C2 -> q166                         | Chain D2: Shattered Sands | R8 Ashvale Village (Purge / Restore)
+#   R2C3 -> q167                         | Escort Ashvale Survivors | R8 Ashvale Village (Rescue)
+#   R2C4 -> q168                         | Spectral Wails in the Ruins | R8 Ashvale Village (Purge / Restore)
+#   R3C1 -> q169                         | Recover Fallen Knight Medallions | R8 Ashvale Village (Retrieve)
+#   R3C2 -> q170                         | Prisoners of the Oathbreakers | R8 Scorchwall Fort (Rescue)
+#   R3C3 -> q171                         | Lord of the Crypt | R8 Scorchwall Fort (Investigate)
+#   R3C4 -> q172                         | Wreck of the Shadow-Fleet | R8 Scorchwall Fort (Retrieve)
+#   R4C1 -> q173                         | Hold the Bay Watch-Wall | R8 Scorchwall Fort (Escort / Defend)
+#   R4C2 -> q174                         | Breach the Outer Obsidian Gate | R8 Garrick's Black Keep (Purge / Restore)
+#   R4C3 -> q175                         | Destroy the Three Necrotic Obelisks | R8 Garrick's Black Keep (Purge / Restore)
+#   R4C4 -> q176                         | Hunt the Undead Lich Lieutenants | R8 Garrick's Black Keep (Investigate)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Cracked jagged black obsidian cliff altar slab broken right through the center as swirling violet cult mist dissipates brightly under dawn light.
+- Row 1 Col 2: Shattered spiked basalt ridge checkpoint timber barrier draped with torn leathery black shadow-cloaker folds and rolled wax-sealed treason dispatches.
+- Row 1 Col 3: Heavy iron obsidian quarrying sledgehammer and notched stone chisel resting atop stepped black volcanic pit ledges scarred by jagged pale ghoul claws.
+- Row 1 Col 4: Tall iron cage ridge signal fire-basket blazing bright fierce orange-gold flame from a jagged basalt turret burning back creeping obsidian shadows below.
+
+- Row 2 Col 1: Torn crimson Royal Coliseum silk guard banner planted proudly upright beside scarred black obsidian arena bleachers in glowing victory torchlight.
+- Row 2 Col 2: Glowing crimson Coliseum Blood-Stone medallion inlaid in dark scarred bronze resting upon cracked ash-pit stone between crossed notched gladiator blades.
+- Row 2 Col 3: Sturdy wooden refugee wagon wheel sheltered cleanly behind a black basalt road wall while shattered undead cavalry bone spears fall outside in ash dusk.
+- Row 2 Col 4: Charred stone ruined chapel arch cradling a glowing golden sacred censer spilling gentle incense dispersing translucent pale cyan spectral mist trails.
+
+- Row 3 Col 1: Cluster of four tarnished silver knight house medallions embossed cleanly with hawk shield crests resting gently atop black volcanic ash cairn stones.
+- Row 3 Col 2: Heavy iron catacomb gate bars bent cleanly wide open around fading translucent ghostly cyan mist retreating cleanly before warm bright rescuing torch glow.
+- Row 3 Col 3: Carved heavy dark ashwood stake lying sharply beside a shattered crystal crimson goblet and obsidian crypt throne pillar deep beneath desolate basalt vault stone.
+- Row 3 Col 4: Black-timbered cursed flagship bow smashed upon jagged volcanic obsidian coastal reefs around an opened iron treasury chest sparkling bright silver trade bars.
+
+- Row 4 Col 1: Lonely jagged cliff sea-wall parapet burning twin steady consecrated brass fire braziers pushing a clean warm amber light wall against dark bay fog.
+- Row 4 Col 2: Colossal black iron-and-obsidian outer fortress portcullis gate rising cleanly upward as two warm amber hero shield lights meet inside gothic black arches.
+- Row 4 Col 3: Three towering jagged black Shadowfell obsidian plaza obelisks shattering violently downward as tight violet necrotic ward rings snap open cleanly in bright gold sparks.
+- Row 4 Col 4: Three distinct crowned blackened iron undead knight helm crests shattered apart in triangle formation over dark castle parade flagstones under pale silver moonlight.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 12 OF 12 — R8 Black Keep Finale (q177-q178) + Story Chains A-D, Category Crests & Outpost Hunt Seals
+================================================================================
+# SLOT MANIFEST (Row,Col -> questId | Title | Region & Hub / Role):
+#   R1C1 -> q177                         | Honor Fallen Loyalist Banners | R8 Garrick's Black Keep (Retrieve)
+#   R1C2 -> q178                         | Unbind the Final Ward-Seal | R8 Garrick's Black Keep (Purge / Restore)
+#   R1C3 -> quest_chain_a_slavers        | Chain A Crest: Broken Shackles | Story Chain A Emblem (Mera & Slavers)
+#   R1C4 -> quest_chain_b_blight         | Chain B Crest: Heart of the Blight | Story Chain B Emblem (Harlan & Oakhollow)
+#   R2C1 -> quest_chain_c_conspiracy     | Chain C Crest: Sundered Dispatch | Story Chain C Emblem (Rowan & Border Pact)
+#   R2C2 -> quest_chain_d_coliseum       | Chain D Crest: Shattered Sands | Story Chain D Emblem (Valen & Koren Arena)
+#   R2C3 -> quest_cat_purge              | Category Seal: Purge & Restore | Quest Category Icon (Purge / Restore)
+#   R2C4 -> quest_cat_retrieve           | Category Seal: Retrieve Relic | Quest Category Icon (Retrieve)
+#   R3C1 -> quest_cat_rescue             | Category Seal: Rescue & Liberate | Quest Category Icon (Rescue)
+#   R3C2 -> quest_cat_deliver            | Category Seal: Royal Courier | Quest Category Icon (Deliver)
+#   R3C3 -> quest_cat_defend             | Category Seal: Hold & Defend | Quest Category Icon (Escort / Defend)
+#   R3C4 -> quest_cat_investigate        | Category Seal: Investigate Threat | Quest Category Icon (Investigate)
+#   R4C1 -> quest_outpost_hunt_board     | Outpost Hunts: Monster Bounty Crest | Zone Outpost Repeatable Hunt Seal
+#   R4C2 -> quest_outpost_elite_contract | Outpost Hunts: Champion Trophy Seal | Zone Outpost Elite Hunt Contract
+#   R4C3 -> quest_portal_catalyst_seal   | Portal Gate: Catalyst Seal | Dimensional Portal Catalyst Emblem
+#   R4C4 -> quest_complete_royal_seal    | Quest Complete: Highcrown Seal | Completed Quest Royal Victory Emblem
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG quest icon card illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO text, ZERO numbers, ZERO human portrait faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ITEM & QUEST ICONS & LEGENDS OF RUNETERRA ART):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy quest icon illustration — bold central readable relic, hazard, beast silhouette, weapon, vessel, or symbolic landmark per cell, dramatic directional lighting, crisp painted stone/metal/organic textures, vivid rim light, clean dark contour separation, and smooth painterly depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry soft airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or close-up portraits inside any card, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight slate, indigo shadow, or warm ember gloom tailored to the region) so every focal relic, weapon, chest, potion, beast silhouette, or banner pops cleanly inside its own square.
+- FRAMING: Keep every quest icon's primary focal subject boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square cards never clips the focal art.
+
+Render these exact 16 distinct quest icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Crisp restored cobalt-blue and gleaming silver royal loyalist war banners hanging proudly in radiant torchlight above shredded crimson vampire cape tatters.
+- Row 1 Col 2: Gleaming solid silver joined Interlocking Wolf Pendant (two intricately sculpted silver wolf heads facing each other biting a shared circular silver ring) hovering radiantly amidst shattered violet obsidian Eclipse ward chains at top of blackened sanctum steps.
+- Row 1 Col 3: Snapped thick iron slave shackle links crossed behind a brine-stained crimson shipping ledger bound in tarnished brass buckles on deep twilight indigo slate.
+- Row 1 Col 4: Cracked tarnished brass apothecary bell tangled amidst glowing chartreuse spore roots and delicate white healed briar blossoms against shadowy forest earth.
+
+- Row 2 Col 1: Torn black-wax royal border dispatch scroll pierced diagonally by a crimson wolf-fang war pennant beside a gleaming split silver crown shard over dark slate.
+- Row 2 Col 2: Faceted crimson-veined Coliseum Blood-Stone jewel clasped firmly between crossed scarred bronze gladiator spears and tarnished silver chain links over soot shadow.
+- Row 2 Col 3: Radiant golden sunlit broadsword cleaving cleanly downward through shattering violet shadow-thorns and dark rift wisps on polished dark iron slate.
+- Row 2 Col 4: Ornate bronze-banded relic chest cracked warmly open beside an outstretched armored steel gauntlet lifting a gleaming amber jewel out of deep shadow.
+
+- Row 3 Col 1: Warm glowing amber garrison watch-lantern illuminating snapped iron dungeon grate bars and trailing edge of a crimson traveler cloak in midnight blue.
+- Row 3 Col 2: Heavy crimson wax-sealed royal courier satchel strapped with gleaming brass buckles resting beside a polished golden stirrup against dark umber saddle leather.
+- Row 3 Col 3: Sturdy oak-and-steel knight kite shield braced cleanly before crossed sharpened timber palisade stakes glowing warmly with crackling watchfire embers.
+- Row 3 Col 4: Ornate brass navigator spyglass resting atop a half-unrolled blank weathered parchment route chart pinned squarely by a glowing silver dagger over indigo night.
+
+- Row 4 Col 1: Nail-pinned scarred thick leather bounty trophy tag hanging crisply beneath a crossed silver hunting dagger and ivory wolf fang against dark oak.
+- Row 4 Col 2: Gilded horned bronze beast-champion trophy medallion wrapped in rich crimson war-ribbons beside twin notched steel hunting spearheads in deep shadow.
+- Row 4 Col 3: Levitating faceted iridescent astral prism keystone ringed smoothly in gleaming gold-and-sapphire dimensional astrolabe rings over deep cosmic violet.
+- Row 4 Col 4: Gleaming solid gold royal laurel wreath cradling a polished silver sun-shield emblem burning softly with warm celebratory triumph light against midnight slate.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square fantasy quest icon cards), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+

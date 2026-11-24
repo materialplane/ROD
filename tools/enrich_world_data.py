@@ -49,12 +49,12 @@ HUB_CUSTOM_DETAILS: dict[str, dict] = {
         "services": ["Free Inn", "Armory (Gear Tier 3)", "Tier-1 Spells", "5 Local Quests"],
     },
     "hub_crownlands_hill_fort": {
-        "zoneNum": 2,
-        "levelRange": "Lv 6–10",
-        "gearTiers": [3],
+        "zoneNum": 3,
+        "levelRange": "Lv 11–15",
+        "gearTiers": [4],
         "spellTier": 1,
-        "description": "Timber-and-stone eastern border watch-fort guarding the hills near The Ashen Gate.",
-        "services": ["Free Rest Barracks", "Garrison Armory (Gear Tier 3)", "4 Local Quests"],
+        "description": "Timber-and-stone northern border watch-fort guarding the rocky uplands approaching The Ashen Gate.",
+        "services": ["Free Rest Barracks", "Garrison Armory (Gear Tier 4)", "4 Local Quests"],
     },
     "loc_05_the_ashen_gate": {
         "zoneNum": 3,

@@ -27,6 +27,45 @@ const SAVES_DIR = path.join(
   "rod-game-client",
   "saves"
 );
+const LOGS_DIR = path.join(path.dirname(SAVES_DIR), "logs");
+const COMBAT_LOG_JSONL = path.join(LOGS_DIR, "combat-log.jsonl");
+const COMBAT_LOG_TXT = path.join(LOGS_DIR, "combat-log.txt");
+const ADMIN_TEST_JSON = path.join(LOGS_DIR, "admin-combat-test.json");
+const ADMIN_TEST_TXT = path.join(LOGS_DIR, "admin-combat-test.txt");
+
+function ensureLogsDir() {
+  if (!fs.existsSync(LOGS_DIR)) {
+    fs.mkdirSync(LOGS_DIR, { recursive: true });
+  }
+}
+
+function readCombatRecords() {
+  ensureLogsDir();
+  if (!fs.existsSync(COMBAT_LOG_JSONL)) return [];
+  const out = [];
+  for (const line of fs.readFileSync(COMBAT_LOG_JSONL, "utf-8").split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    try {
+      out.push(JSON.parse(line));
+    } catch {
+      // Ignore malformed entry
+    }
+  }
+  return out;
+}
+
+function formatCombatLogText(records) {
+  const blocks = [];
+  for (const r of records) {
+    const hdr = `=== [${r.updatedAt || r.startedAt || ""}] ${r.zoneName || ""} — ${r.biomeName || ""}${r.isBossBattle ? " (BOSS)" : ""} | Outcome: ${String(r.outcome || "ongoing").toUpperCase()} ===`;
+    const partyStr = Array.isArray(r.party) ? r.party.join(" | ") : "";
+    const enemyStr = Array.isArray(r.enemies) ? r.enemies.join(" | ") : "";
+    const lootStr = `Spoils: ${r.totalXpEarned ?? 0} XP, ${r.totalSilverEarned ?? 0}s Silver${Array.isArray(r.tradeGoods) && r.tradeGoods.length ? `, Trade Goods: ${r.tradeGoods.join(", ")}` : ""}`;
+    const body = Array.isArray(r.lines) ? r.lines.map((l) => `  ${l}`).join("\n") : "";
+    blocks.push([hdr, partyStr ? `Party  : ${partyStr}` : "", enemyStr ? `Enemies: ${enemyStr}` : "", body, lootStr].filter(Boolean).join("\n"));
+  }
+  return blocks.join("\n\n") + (blocks.length ? "\n" : "");
+}
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -148,6 +187,42 @@ const server = http.createServer((req, res) => {
         ensureSavesDir();
         fs.writeFileSync(path.join(SAVES_DIR, `${safeId}.json`), JSON.stringify(saveObj, null, 2), "utf-8");
         return sendJson(res, 200, saveObj);
+      } catch {
+        return sendJson(res, 400, { error: "Bad JSON" });
+      }
+    });
+    return;
+  }
+
+  if (urlPath === "/api/combat-log/latest" && req.method === "GET") {
+    ensureLogsDir();
+    const txt = fs.existsSync(COMBAT_LOG_TXT) ? fs.readFileSync(COMBAT_LOG_TXT, "utf-8") : "No fights logged yet.\n";
+    res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" });
+    res.end(txt);
+    return;
+  }
+  if (urlPath === "/api/combat-log/write" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 2_000_000) req.destroy();
+    });
+    req.on("end", () => {
+      try {
+        const entry = JSON.parse(body);
+        if (!entry || typeof entry.battleId !== "string") {
+          return sendJson(res, 400, { error: "Missing battleId" });
+        }
+        const existing = readCombatRecords();
+        const record = { ...entry, updatedAt: new Date().toISOString() };
+        const idx = existing.findIndex((r) => r.battleId === record.battleId);
+        if (idx >= 0) existing[idx] = record;
+        else existing.push(record);
+        const trimmed = existing.slice(-150);
+        ensureLogsDir();
+        fs.writeFileSync(COMBAT_LOG_JSONL, trimmed.map((r) => JSON.stringify(r)).join("\n") + "\n", "utf-8");
+        fs.writeFileSync(COMBAT_LOG_TXT, formatCombatLogText(trimmed), "utf-8");
+        return sendJson(res, 200, { ok: true, count: trimmed.length });
       } catch {
         return sendJson(res, 400, { error: "Bad JSON" });
       }
@@ -391,6 +466,66 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // --- Admin Zone Combat Playtest Log API ---
+  if (urlPath === "/api/admin/combat-test/latest" && req.method === "GET") {
+    ensureLogsDir();
+    if (!fs.existsSync(ADMIN_TEST_JSON)) {
+      return sendJson(res, 200, { ok: true, session: null, text: "", logPath: ADMIN_TEST_TXT });
+    }
+    try {
+      const session = JSON.parse(fs.readFileSync(ADMIN_TEST_JSON, "utf-8"));
+      const text = fs.existsSync(ADMIN_TEST_TXT) ? fs.readFileSync(ADMIN_TEST_TXT, "utf-8") : "";
+      return sendJson(res, 200, { ok: true, session, text, logPath: ADMIN_TEST_TXT });
+    } catch (err) {
+      return sendJson(res, 500, { error: String(err) });
+    }
+  }
+  if (urlPath === "/api/admin/combat-test/session" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 5_000_000) req.destroy();
+    });
+    req.on("end", () => {
+      try {
+        const parsed = JSON.parse(body);
+        ensureLogsDir();
+        const fights = Array.isArray(parsed.fights) ? parsed.fights : [];
+        const lines = [
+          `=== ROD ADMIN ZONE COMBAT TEST REPORT (${new Date().toISOString()}) ===`,
+          `Zone         : Zone ${parsed.zoneCode ?? "?"} (${parsed.zoneLabel ?? ""})`,
+          `Start Loadout: ${parsed.loadoutSummary ?? ""}`,
+          `Fights Logged: ${fights.length}`,
+        ];
+        if (parsed.stats) {
+          lines.push(
+            `Averages     : ${parsed.stats.avgXp ?? 0} XP/fight | ${parsed.stats.avgDirectSilver ?? 0}s direct + ${parsed.stats.avgTradeSilver ?? 0}s trade goods = ${parsed.stats.avgTotalSilver ?? 0}s total/fight`,
+            `Combat Pace  : ${parsed.stats.avgRounds ?? 0} rounds/fight | ${parsed.stats.avgSec ?? 0}s real time/fight | Win Rate ${parsed.stats.winPct ?? 0}%`
+          );
+        }
+        if (parsed.grind) {
+          lines.push(
+            `Zone Max Bill: ${parsed.grind.totalBill ?? 0}s (Gear Upgrade ${parsed.grind.gearCost ?? 0}s + Spells ${parsed.grind.spellCost ?? 0}s + Disciplines ${parsed.grind.discCost ?? 0}s)`,
+            `Pure Grind   : ~${parsed.grind.fightsNeeded ?? "?"} fights (~${parsed.grind.estMinutes ?? "?"} mins at your pace) to max Zone ${parsed.zoneCode ?? "?"} without quests`
+          );
+        }
+        lines.push("", "--- Fight Breakdown ---");
+        fights.forEach((f, idx) => {
+          lines.push(
+            `#${idx + 1} [${String(f.result || "").toUpperCase()}] ${f.biomeName || ""} | Foes: ${f.enemiesLabel || ""} | Rounds: ${f.rounds ?? "?"} | ${f.elapsedSec ?? "?"}s | +${f.xpEarned ?? 0} XP | +${f.silverEarned ?? 0}s + ${f.tradeSilverEarned ?? 0}s goods (${f.tradeGoodsText || "none"})`
+          );
+        });
+        const formattedTxt = lines.join("\n") + "\n";
+        fs.writeFileSync(ADMIN_TEST_JSON, JSON.stringify({ ...parsed, updatedAt: new Date().toISOString() }, null, 2), "utf-8");
+        fs.writeFileSync(ADMIN_TEST_TXT, formattedTxt, "utf-8");
+        return sendJson(res, 200, { ok: true, count: fights.length, logPath: ADMIN_TEST_TXT });
+      } catch (err) {
+        return sendJson(res, 400, { error: String(err) });
+      }
+    });
+    return;
+  }
+
   // --- Clean Trailing-Slash Redirects ---
   if (
     urlPath === "/client" ||
@@ -400,7 +535,7 @@ const server = http.createServer((req, res) => {
     urlPath === "/admin/party" ||
     urlPath === "/admin/disciplines" ||
     urlPath === "/admin/battles" ||
-    urlPath === "/admin/world-scale"
+    urlPath === "/admin/combat-test"
   ) {
     res.writeHead(302, { Location: `${urlPath}/` });
     res.end();

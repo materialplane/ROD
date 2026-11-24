@@ -22,6 +22,9 @@ export interface SaveSlotData {
   partyOrder?: string[];
   discoveredLocations?: string[];
   acceptedQuestIds?: string[];
+  completedQuestIds?: string[];
+  activeOutpostHunts?: unknown[];
+  completedOutpostHunts?: number;
   sealedPortalIds?: string[];
   silver?: number;
   equippedByHero?: Record<string, Record<string, string>>;

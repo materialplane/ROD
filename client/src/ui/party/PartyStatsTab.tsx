@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { ATTRIBUTE_META, getHeroById } from "../heroes";
+import { hideClientItemTooltip, infoTooltipHandlers, type InfoTooltipRow } from "../shops/itemTooltip";
 import type {
   ChosenDisciplinesMap,
   EquippedGearMap,
@@ -51,6 +52,8 @@ export const PartyStatsTab: React.FC<PartyStatsTabProps> = ({
   onAdjustStat,
   onResetStats,
 }) => {
+  useEffect(() => () => hideClientItemTooltip(), []);
+
   const hero = getHeroById(heroId);
   const heroLv = getHeroLevel(heroLevels, heroId, level);
   const curXp = heroXp ? getHeroXp(heroXp, heroId) : partyXp;
@@ -69,21 +72,118 @@ export const PartyStatsTab: React.FC<PartyStatsTabProps> = ({
     })
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
-  const derivedStats = [
-    { label: "Attack", val: vitals.dualWielding ? `${vitals.atk} (+${vitals.offhandAtk} Off-Hand)` : vitals.atk },
-    { label: "Spell Power", val: vitals.mag },
-    { label: "Phys Defense", val: vitals.pDef },
-    { label: "Magic Defense", val: vitals.mDef },
-    { label: "Dodge Chance", val: `${vitals.dodge}%` },
-    { label: "Crit Chance", val: `${vitals.crit}%` },
-    { label: "Heal Power", val: vitals.heal },
-    { label: "Party Position", val: slotIdx === 0 ? "Leader (#1)" : `Slot #${slotIdx + 1}` },
+  const attrTooltipSpec = (statKey: HeroAttrKey, label: string, val: number, spentVal: number, isFocus: boolean) => {
+    const baseVal = val - spentVal;
+    const rows: InfoTooltipRow[] = [
+      { label: "Base + Spent", value: `${baseVal} + ${spentVal} = ${val}` },
+    ];
+    let effect = "";
+    if (statKey === "force") {
+      rows.push({ label: "Physical Attack", value: `+${Math.round(Math.max(0, val - 1) * 1.5)}` });
+      effect = "Raises Physical Attack (+1.5 per point above 1) and fuels heavy melee & bow strikes.";
+    } else if (statKey === "finesse") {
+      rows.push({ label: "Dodge Bonus", value: `+${Math.round(Math.max(0, val - 1) * 0.3)}%` });
+      rows.push({ label: "Crit Bonus", value: `+${Math.round(Math.max(0, val - 1) * 0.4)}%` });
+      effect = "Improves Dodge Chance (+0.3% per point) and Critical Hit Chance (+0.4% per point), both capped at 45% with gear.";
+    } else if (statKey === "grit") {
+      rows.push({ label: "Max HP Bonus", value: `+${val * 12}` });
+      rows.push({ label: "Phys Defense", value: `+${Math.max(0, val - 1)}` });
+      effect = "Increases Maximum HP (+12 HP per point) and Physical Defense (+1 per point above 1).";
+    } else if (statKey === "arcana") {
+      rows.push({ label: "Spell Power", value: `+${Math.round(Math.max(0, val - 1) * 1.6)}` });
+      rows.push({ label: "Max MP Bonus", value: vitals.hasMp ? `+${val * 4}` : "N/A (No MP)" });
+      effect = "Raises Spell Power (+1.6 per point above 1) and enlarges MP reserves (+4 MP per point) for spellcasters.";
+    } else {
+      rows.push({ label: "Heal Power", value: `+${Math.round(Math.max(0, val - 1) * 1.5)}` });
+      rows.push({ label: "Magic Defense", value: `+${Math.max(0, val - 1)}` });
+      effect = "Strengthens Healing Spells (+1.5 per point above 1) and raises Magic Defense (+1 per point above 1).";
+    }
+    return {
+      key: `attr:${heroId}:${statKey}:${val}:${spentVal}`,
+      eyebrow: isFocus ? `${hero.name} Focus Attribute ★` : "Spendable Attribute",
+      title: `${label} (${val})`,
+      badges: isFocus ? [{ label: "Natural Focus ★", tone: "gold" as const }] : undefined,
+      statsTitle: "Current Scaling",
+      rows,
+      effect,
+      notes: ["Click - / +1 / +5 to adjust spent points freely outside combat."],
+    };
+  };
+
+  const derivedStats: Array<{ label: string; val: string | number; tipTitle: string; tipDesc: string }> = [
+    {
+      label: "Attack",
+      val: vitals.dualWielding ? `${vitals.atk} (+${vitals.offhandAtk} Off-Hand)` : vitals.atk,
+      tipTitle: "Physical Attack",
+      tipDesc: "Combined weapon Attack, Level growth, Force scaling, and Carved Runestones. Dual-wielding strikes twice (main + 50% off-hand).",
+    },
+    {
+      label: "Spell Power",
+      val: vitals.mag,
+      tipTitle: "Spell Power",
+      tipDesc: vitals.hasMp
+        ? "Scales offensive spell damage from equipped Staves/Talismans, Level, Arcana, and Runestones."
+        : "Spell Power from gear and Arcana. This martial hero does not cast MP spells.",
+    },
+    {
+      label: "Phys Defense",
+      val: vitals.pDef,
+      tipTitle: "Physical Defense",
+      tipDesc: "Reduces incoming Slashing, Piercing, and Bludgeoning damage using Body Armor, Helm, Shield, Grit, and Runestones.",
+    },
+    {
+      label: "Magic Defense",
+      val: vitals.mDef,
+      tipTitle: "Magic Defense",
+      tipDesc: "Reduces incoming elemental and Shadow spell damage using Attire, Presence, and Carved Runestones.",
+    },
+    {
+      label: "Dodge Chance",
+      val: `${vitals.dodge}%`,
+      tipTitle: "Dodge Chance (Cap 45%)",
+      tipDesc: "Chance to completely evade incoming strikes. Built from Finesse, light attire/gear, and Runestones.",
+    },
+    {
+      label: "Crit Chance",
+      val: `${vitals.crit}%`,
+      tipTitle: "Critical Hit Chance (Cap 45%)",
+      tipDesc: "Base 5% plus Finesse scaling, weapons/gear, and Runestones. Critical hits amplify damage and trigger crit passives.",
+    },
+    {
+      label: "Heal Power",
+      val: vitals.heal,
+      tipTitle: "Healing Power",
+      tipDesc: "Scales healing spells and restorative wards using Staff/Talisman bonuses, Presence, and Runestones.",
+    },
+    {
+      label: "Party Position",
+      val: slotIdx === 0 ? "Leader (#1)" : `Slot #${slotIdx + 1}`,
+      tipTitle: "Formation & Leader Order",
+      tipDesc: "Slot #1 leads the party on the world map and takes point in formation. Reorder heroes anytime using the ▲ ★ ▼ buttons on the left rail.",
+    },
   ];
 
   return (
     <section className="flex-1 min-w-0 rounded border border-[#323a4b] bg-[#11151f]/95 p-4 flex flex-col gap-3 overflow-y-auto">
       {/* Hero Banner */}
-      <div className="flex items-center gap-3 border-b border-[#293040] pb-3">
+      <div
+        {...infoTooltipHandlers({
+          key: `stats-hero:${heroId}:${heroLv}:${vitals.curHp}`,
+          eyebrow: `${hero.className} · Level ${heroLv}`,
+          title: hero.name,
+          iconPath: hero.avatarPath,
+          badges: [
+            { label: `${vitals.curHp}/${vitals.maxHp} HP`, tone: "up" },
+            ...(vitals.hasMp ? [{ label: `${vitals.curMp}/${vitals.maxMp} MP`, tone: "mp" as const }] : []),
+          ],
+          rows: [
+            { label: "Natural Focus", value: hero.focusLabel },
+            { label: "XP Progress", value: nextLevelXp > 0 ? `${curXp.toLocaleString()} / ${nextLevelXp.toLocaleString()}` : "Max Level" },
+          ],
+          effect: hero.worldBio,
+        })}
+        className="flex items-center gap-3 border-b border-[#293040] pb-3 cursor-default"
+      >
         <img
           src={assetUrl(hero.avatarPath)}
           alt={hero.name}
@@ -141,11 +241,12 @@ export const PartyStatsTab: React.FC<PartyStatsTabProps> = ({
             return (
               <div
                 key={stat.key}
+                {...infoTooltipHandlers(attrTooltipSpec(stat.key, stat.label, val, spentVal, isFocus))}
                 className={[
-                  "rounded border p-2 flex flex-col items-center text-center gap-1",
+                  "rounded border p-2 flex flex-col items-center text-center gap-1 cursor-help transition-colors",
                   isFocus
-                    ? "bg-gradient-to-b from-[#231d12] to-[#151822] border-[#a88547]/80"
-                    : "bg-[#151924] border-[#2c3446]",
+                    ? "bg-gradient-to-b from-[#231d12] to-[#151822] border-[#a88547]/80 hover:border-[#e6c170]"
+                    : "bg-[#151924] border-[#2c3446] hover:border-[#687594]",
                 ].join(" ")}
               >
                 <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#d9b86c]">
@@ -198,7 +299,16 @@ export const PartyStatsTab: React.FC<PartyStatsTabProps> = ({
       {/* Derived Totals */}
       <div className="grid grid-cols-4 gap-2">
         {derivedStats.map((d) => (
-          <div key={d.label} className="rounded border border-[#293040] bg-[#0e1219] px-2.5 py-1.5 flex items-center justify-between">
+          <div
+            key={d.label}
+            {...infoTooltipHandlers({
+              key: `derived:${heroId}:${d.label}:${d.val}`,
+              eyebrow: `${hero.name} Derived Combat Stat`,
+              title: `${d.tipTitle}: ${d.val}`,
+              effect: d.tipDesc,
+            })}
+            className="rounded border border-[#293040] hover:border-[#6a5b3e] bg-[#0e1219] px-2.5 py-1.5 flex items-center justify-between cursor-help transition-colors"
+          >
             <span className="text-[11px] text-[#96a6bf]">{d.label}</span>
             <strong className="text-[13px] text-[#f3dfb1]">{d.val}</strong>
           </div>
@@ -207,11 +317,27 @@ export const PartyStatsTab: React.FC<PartyStatsTabProps> = ({
 
       {/* Resolve Passives */}
       <div
+        {...infoTooltipHandlers({
+          key: `resolve:${heroId}:${Math.round(vitals.hpRatio)}`,
+          eyebrow: `${hero.name} Innate Comeback Trait`,
+          title: "Resolve (Wounded Thresholds)",
+          badges: [
+            {
+              label: vitals.hpRatio < 25 ? "Desperate (<25% HP Active)" : vitals.hpRatio < 50 ? "Wounded (<50% HP Active)" : "Standing Ready",
+              tone: vitals.hpRatio < 50 ? "gold" : "default",
+            },
+          ],
+          rows: [
+            { label: "Below 50% HP", value: vitals.hpRatio < 50 ? "ACTIVE" : "Inactive", tone: vitals.hpRatio < 50 ? "up" : "flat" },
+            { label: "Below 25% HP", value: vitals.hpRatio < 25 ? "ACTIVE" : "Inactive", tone: vitals.hpRatio < 25 ? "up" : "flat" },
+          ],
+          effect: `${hero.wounded50}\n${hero.wounded25}`,
+        })}
         className={[
-          "rounded border px-3 py-2 text-[11.5px] leading-relaxed",
+          "rounded border px-3 py-2 text-[11.5px] leading-relaxed cursor-help transition-colors",
           vitals.hpRatio < 50
-            ? "border-[#b57b30] bg-[#241b10]/90 text-[#f7e5be]"
-            : "border-[#2a3142] bg-[#0e1219]/90 text-[#c2cde0]",
+            ? "border-[#b57b30] hover:border-[#e6b360] bg-[#241b10]/90 text-[#f7e5be]"
+            : "border-[#2a3142] hover:border-[#6a5b3e] bg-[#0e1219]/90 text-[#c2cde0]",
         ].join(" ")}
       >
         <strong className="text-[#fae2aa]">Resolve (Wounded Comeback Traits):</strong>
@@ -238,9 +364,25 @@ export const PartyStatsTab: React.FC<PartyStatsTabProps> = ({
             {chosenDiscEntries.map(({ tier, opt }) => (
               <div
                 key={opt.id}
-                className="rounded border border-[#3e4f38] bg-[#131d19] px-2 py-1 flex items-start gap-1.5"
+                {...infoTooltipHandlers({
+                  key: `disc:${heroId}:${tier}:${opt.id}`,
+                  eyebrow: `Arcanist Discipline · Lv ${tier} Tier (${opt.pillar.toUpperCase()})`,
+                  title: opt.name,
+                  iconPath: opt.iconPath,
+                  badges: [{ label: opt.tag, tone: "up" }],
+                  effect: opt.effect,
+                })}
+                className="rounded border border-[#3e4f38] hover:border-[#86c98e] bg-[#131d19] px-2 py-1 flex items-center gap-2 cursor-help transition-colors"
               >
-                <span className="text-[10px] font-bold text-[#9de6bc] shrink-0 mt-0.5">Lv {tier}</span>
+                {opt.iconPath && (
+                  <img
+                    src={assetUrl(opt.iconPath)}
+                    alt={opt.name}
+                    className="w-[24px] h-[24px] rounded border border-[#4e6646] bg-[#0b100e] object-cover shrink-0"
+                    draggable={false}
+                  />
+                )}
+                <span className="text-[10px] font-bold text-[#9de6bc] shrink-0">Lv {tier}</span>
                 <div className="min-w-0">
                   <div className="text-[11.5px] font-bold text-[#fae4b0] leading-tight truncate">{opt.name}</div>
                   <div className="text-[10px] text-[#bfd2c9] leading-snug line-clamp-1">{opt.effect}</div>

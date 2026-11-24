@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById, HEROES } from "../heroes";
+import { hideClientItemTooltip, infoTooltipHandlers } from "../shops/itemTooltip";
 import type { EquippedGearMap, HeroAttrMap, HeroId, HeroSocketsMap, ItemEntry } from "../types";
 import { computeHeroVitals, getHeroAttributes, getHeroLevel } from "./partyLogic";
 
@@ -34,6 +35,8 @@ export const PartyRail: React.FC<PartyRailProps> = ({
   onSelectHero,
   onChangeOrder,
 }) => {
+  useEffect(() => () => hideClientItemTooltip(), []);
+
   const activeSet = new Set(partyOrder);
   const keepDefenders = HEROES.filter((h) => !activeSet.has(h.id));
 
@@ -79,9 +82,34 @@ export const PartyRail: React.FC<PartyRailProps> = ({
               ? "shadow-[0_0_10px_rgba(233,179,74,0.16)] border-[#9a7230]"
               : "";
 
+        const heroEq = equippedByHero[hid] ?? {};
+        const heroStones = socketsByHero[hid] ?? {};
+        const wpnName = heroEq.right_hand ? itemsById[heroEq.right_hand]?.name ?? "Equipped" : "Unarmed";
+        const bodyName = heroEq.body ? itemsById[heroEq.body]?.name ?? "Equipped" : "Unarmored";
+
         return (
           <div
             key={hid}
+            {...infoTooltipHandlers({
+              key: `rail:${hid}:${heroLv}:${idx}:${vitals.curHp}:${vitals.curMp}:${attrs.unspent}`,
+              eyebrow: `${hero.className} · ${idx === 0 ? "Party Leader (#1)" : `Slot #${idx + 1}`}`,
+              title: `${hero.name} (Lv ${heroLv})`,
+              iconPath: hero.avatarPath,
+              badges: [
+                { label: `${vitals.curHp}/${vitals.maxHp} HP`, tone: "up" },
+                ...(vitals.hasMp ? [{ label: `${vitals.curMp}/${vitals.maxMp} MP`, tone: "mp" as const }] : []),
+                ...(attrs.unspent > 0 ? [{ label: `+${attrs.unspent} Stat Pts`, tone: "gold" as const }] : []),
+              ],
+              rows: [
+                { label: "Attack / Spell", value: vitals.hasMp ? `${vitals.atk} / ${vitals.mag}` : `${vitals.atk}` },
+                { label: "Phys / Mag Def", value: `${vitals.pDef} / ${vitals.mDef}` },
+                { label: "Main Hand", value: wpnName },
+                { label: "Body Attire", value: bodyName },
+                ...(heroStones.weapon ? [{ label: "Weapon Stone", value: heroStones.weapon.name }] : []),
+                ...(heroStones.armor ? [{ label: "Armor Stone", value: heroStones.armor.name }] : []),
+              ],
+              effect: hero.worldBio,
+            })}
             onClick={() => {
               audioEngine.playUiClick(0.3);
               onSelectHero(hid);
@@ -189,7 +217,20 @@ export const PartyRail: React.FC<PartyRailProps> = ({
         </div>
         <div className="grid grid-cols-2 gap-1.5">
           {keepDefenders.map((h) => (
-            <div key={h.id} className="flex items-center gap-2 p-1.5 rounded border border-[#242a38] bg-[#141923]/90">
+            <div
+              key={h.id}
+              {...infoTooltipHandlers({
+                key: `keep-defender:${h.id}`,
+                eyebrow: `Highcrown Keep Reserve · ${h.className}`,
+                title: h.name,
+                iconPath: h.avatarPath,
+                badges: [{ label: h.shortTag }],
+                rows: [{ label: "Natural Focus", value: h.focusLabel }],
+                effect: h.worldBio,
+                notes: ["Guarding Highcrown Keep. Party companions can be swapped at Highcrown Keep Sanctuary."],
+              })}
+              className="flex items-center gap-2 p-1.5 rounded border border-[#242a38] hover:border-[#6a5b3e] bg-[#141923]/90 cursor-help transition-colors"
+            >
               <img
                 src={assetUrl(h.avatarPath)}
                 alt={h.name}

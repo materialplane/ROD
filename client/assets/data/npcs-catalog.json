@@ -857,10 +857,10 @@
         {
           "id": "npc_hub_crownlands_hill_fort_armorer",
           "name": "Barnaby Yeoman",
-          "roleTitle": "Fort Armorer & Gear Merchant (Gear Tier 3)",
+          "roleTitle": "Fort Armorer & Gear Merchant (Gear Tier 4)",
           "category": "service",
           "servicesOffered": [
-            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 3)",
+            "Weapons, Helmets, Body Armor, Shields & Accessories (Gear Tier 4)",
             "Potions",
             "Buy Trade Goods"
           ],

@@ -2,7 +2,7 @@
 
 > **Status:** Complete (Synced to `classes.txt`: `13` D&D Weapons, `23` Shared Armor & Helmet Types, `6` Global Shields, `6` Class Accessories, Procedural Runestones & Town Potions)  
 > **Equipment Slots (`5` Core Slots Per Hero):** **Right Hand** (Main `1H`/`2H` Weapon), **Left Hand** (Global Shield when wielding `1H`, or a second `1H` Longsword/Rapier when **Valen [`Duelist`]** Dual Wields), **Body** (Armor), **Helmet**, plus **1 Class Accessory Slot** (`Cloak`, `Orb`, `Horn`, `Quiver`, `Crystal`, or `Tome`).
-> **Town Shop Structure (`6` Shop Types + Dedicated Trade Goods Buyer):** **Weapon Shop** (`all 13 weapons`), **Armor Shop** (`forged plate, mail, splint, hide, bone, reinforced armor & helmets + shields`; stocks all armor at Forts & Keeps), **Tailor** (`all cloth robes & light leather attire`; stocks all armor & shields at Villages), **Magic Shop** (`caster spells`), **Arcanist** (`all potions + Orbs, Crystals, Tomes`), **Adventurer Shop** (`Cloaks, War-Horns, Quivers`), plus dedicated **Trade Goods Buyer NPCs** (`weigh & sell all trade goods for Silver — no buy list`).
+> **Town Shop Structure (`6` Shop Types + Dedicated Trade Goods Buyer):** **Weapon Shop** (`all 13 weapons`), **Armor Shop** (`leather, hide, mail, splint & plate armor + helmets + shields`; stocks all armor at Forts & Keeps), **Tailor** (`cloth robes plus stitched bone and hardened scale caster sets`; stocks all armor & shields at Villages), **Magic Shop** (`caster spells`), **Arcanist** (`all potions + Orbs, Crystals, Tomes`), **Adventurer Shop** (`Cloaks, War-Horns, Quivers`), plus dedicated **Trade Goods Buyer NPCs** (`weigh & sell all trade goods for Silver — no buy list`).
 > **Progression Structure:** Each Weapon, Shield, Armor Set progression, and Class Accessory climbs **`24` Gear Tiers (`Tier 1`–`Tier 24`)** mapped directly across Ethoria's **`20` Level Zones (`Z01–Z20`, `6` Gear Tiers per Map)**: **`1` base tier per Zone, plus `1` extra mid-zone upgrade tier inside each Map's sole `3`-town Zone (`Z02`, `Z09`, `Z14`, `Z16`)**. Each class wears **6 Armor Types** (`4` progressive Body pieces + `4` Helmets per type = `24` Gear Tiers; shared types use the exact same `4`-item set cleanly without duplication). Weapons and Body Armor carry **1 Permanent Runestone Socket** (inserting a new Runestone overwrites and destroys the previous one).
 
 ---
@@ -43,8 +43,8 @@ Base values scale smoothly across all `20` Level Zones (`6` Gear Tiers per Map) 
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | **1** | Map 1 · **Zone 1** | `1–5` | `6` | `8` | `+5` (`2H +6`) | `40s` | Highcrown / Oakhaven |
 | **2** | Map 1 · **Zone 2** *(entry)* | `6–8` | `10` | `13` | `+9` (`2H +11`) | `120s` | Meadowbrook Hamlet |
-| **3** | Map 1 · **Zone 2** *(frontier)* | `8–10` | `15` | `19` | `+14` (`2H +17`) | `260s` | Millbrook Crossing / Crownlands Hill-Fort |
-| **4** | Map 1 · **Zone 3** | `11–15` | `21` | `26` | `+20` (`2H +24`) | `450s` | Saltwind Harbor |
+| **3** | Map 1 · **Zone 2** *(frontier)* | `8–10` | `15` | `19` | `+14` (`2H +17`) | `260s` | Millbrook Crossing |
+| **4** | Map 1 · **Zone 3** | `11–15` | `21` | `26` | `+20` (`2H +24`) | `450s` | Crownlands Hill-Fort / Saltwind Harbor |
 | **5** | Map 1 · **Zone 4** | `16–20` | `28` | `35` | `+27` (`2H +32`) | `720s` | Brinecliff Watch-Fort / Reedfen Village |
 | **6** | Map 1 · **Zone 5** | `21–25` | `36` | `45` | `+35` (`2H +42`) | `1,050s` | Mirewatch Post / Tidewater Keep |
 | **7** | Map 2 · **Zone 6** | `26–30` | `45` | `56` | `+44` (`2H +53`) | `1,500s` | Redmarch Bastion / Goldmoor Village |

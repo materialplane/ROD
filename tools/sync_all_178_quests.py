@@ -304,60 +304,61 @@ def main() -> None:
     print(f"Wrote data/generated-quest-markers.json ({len(gen_marker_defs)} marker entries)")
 
     # 4) Update docs/08-quests-and-story.md master roster with unique site name & unique description per quest
-    doc_path = ROOT / "docs" / "08-quests-and-story.md"
-    doc_text = doc_path.read_text(encoding="utf-8")
-    split_hdr = "## Layer 3 + 2 Hub-by-Hub Master Quest Roster"
-    assert split_hdr in doc_text
-    doc_head = doc_text.split(split_hdr)[0].rstrip()
-    doc_head = doc_head.replace(
-        "All **Caves, Ruins, Ancient Shrines, Animal Dens, Dragon Lairs, Shipwrecks, Outlaw Camps, & Road Ambushes** (`~60` illustrated diorama tokens)",
-        "All **`178` Unique Quest Field Sites** (one unique diorama marker & unique description per quest)",
-    )
+    if "--skip-docs" not in sys.argv:
+        doc_path = ROOT / "docs" / "08-quests-and-story.md"
+        doc_text = doc_path.read_text(encoding="utf-8")
+        split_hdr = "## Layer 3 + 2 Hub-by-Hub Master Quest Roster"
+        assert split_hdr in doc_text
+        doc_head = doc_text.split(split_hdr)[0].rstrip()
+        doc_head = doc_head.replace(
+            "All **Caves, Ruins, Ancient Shrines, Animal Dens, Dragon Lairs, Shipwrecks, Outlaw Camps, & Road Ambushes** (`~60` illustrated diorama tokens)",
+            "All **`178` Unique Quest Field Sites** (one unique diorama marker & unique description per quest)",
+        )
 
-    region_titles = {
-        1: "### Map 1 — Region 1: The Crownlands *(`22` Quests | `Lv 1–12` | `18s–85s` | `80–265 XP` | Lesser Draft)*",
-        2: "### Map 1 — Region 2: The Saltmarsh & Westward Coast *(`22` Quests | `Lv 12–25` | `260s–520s` | `360–780 XP` | Lesser Draft)*",
-        3: "### Map 2 — Region 3: Thornwall Warfronts *(`23` Quests | `Lv 25–39` | `690s–1,450s` | `810–1,750 XP` | Refined Draft)*",
-        4: "### Map 2 — Region 4: The Verdant Weald & Plague Woods *(`22` Quests | `Lv 37–50` | `1,500s–2,600s` | `1,750–3,000 XP` | Refined Draft)*",
-        5: "### Map 3 — Region 5: The Sun-Scorched Isles *(`22` Quests | `Lv 49–64` | `3,000s–5,350s` | `2,800–4,750 XP` | Greater Draft)*",
-        6: "### Map 3 — Region 6: The Ironcrest Highlands *(`22` Quests | `Lv 61–75` | `5,800s–9,500s` | `4,800–7,200 XP` | Greater Draft)*",
-        7: "### Map 4 — Region 7: The Frostbound Reach *(`22` Quests | `Lv 73–89` | `10,500s–16,800s` | `7,400–10,800 XP` | Mythic Draft)*",
-        8: "### Map 4 — Region 8: The Dreadwaste & Black Keep *(`23` Quests | `Lv 86–99` | `18,000s–30,000s` | `10,800–15,000 XP` | Mythic Draft)*",
-    }
+        region_titles = {
+            1: "### Map 1 — Region 1: The Crownlands *(`22` Quests | `Lv 1–14` | `18s–210s` | `80–350 XP` | Lesser Draft)*",
+            2: "### Map 1 — Region 2: The Saltmarsh & Westward Coast *(`22` Quests | `Lv 12–25` | `260s–520s` | `360–780 XP` | Lesser Draft)*",
+            3: "### Map 2 — Region 3: Thornwall Warfronts *(`23` Quests | `Lv 25–39` | `690s–1,450s` | `810–1,750 XP` | Refined Draft)*",
+            4: "### Map 2 — Region 4: The Verdant Weald & Plague Woods *(`22` Quests | `Lv 37–50` | `1,500s–2,600s` | `1,750–3,000 XP` | Refined Draft)*",
+            5: "### Map 3 — Region 5: The Sun-Scorched Isles *(`22` Quests | `Lv 49–64` | `3,000s–5,350s` | `2,800–4,750 XP` | Greater Draft)*",
+            6: "### Map 3 — Region 6: The Ironcrest Highlands *(`22` Quests | `Lv 61–75` | `5,800s–9,500s` | `4,800–7,200 XP` | Greater Draft)*",
+            7: "### Map 4 — Region 7: The Frostbound Reach *(`22` Quests | `Lv 73–89` | `10,500s–16,800s` | `7,400–10,800 XP` | Mythic Draft)*",
+            8: "### Map 4 — Region 8: The Dreadwaste & Black Keep *(`23` Quests | `Lv 86–99` | `18,000s–30,000s` | `10,800–15,000 XP` | Mythic Draft)*",
+        }
 
-    roster_lines = [
-        "",
-        "## Layer 3 + 2 Hub-by-Hub Master Quest Roster (`178` Unique Quests & `178` Unique Field Markers Across `40` Hubs)",
-        "",
-    ]
+        roster_lines = [
+            "",
+            "## Layer 3 + 2 Hub-by-Hub Master Quest Roster (`178` Unique Quests & `178` Unique Field Markers Across `40` Hubs)",
+            "",
+        ]
 
-    # Group sequentially by region -> hub
-    cur_reg = None
-    cur_hub = None
-    hub_num = 0
-    # Precompute hub quest counts
-    hub_groups: list[tuple[int, str, str, str, list[dict]]] = []
-    for q in all_quests:
-        if not hub_groups or hub_groups[-1][1] != q["hubId"]:
-            hub_groups.append((q["region"], q["hubId"], q["hubName"], q["levelRange"], []))
-        hub_groups[-1][4].append(q)
+        # Group sequentially by region -> hub
+        cur_reg = None
+        cur_hub = None
+        hub_num = 0
+        # Precompute hub quest counts
+        hub_groups: list[tuple[int, str, str, str, list[dict]]] = []
+        for q in all_quests:
+            if not hub_groups or hub_groups[-1][1] != q["hubId"]:
+                hub_groups.append((q["region"], q["hubId"], q["hubName"], q["levelRange"], []))
+            hub_groups[-1][4].append(q)
 
-    for reg, hid, hname, lvl_band, hqs in hub_groups:
-        hub_num += 1
-        if reg != cur_reg:
-            if cur_reg is not None:
-                roster_lines.extend(["---", ""])
-            cur_reg = reg
-            roster_lines.extend([region_titles[reg], ""])
-        roster_lines.append(f"#### {hub_num}. {hname} *({len(hqs)} Quests · `{lvl_band}`)*")
-        for q in hqs:
-            roster_lines.append(
-                f"{q['questNum']}. **`[{q['category']}]` {q['title']}** *({q['giver']} · Marker: **{q['markerName']}**)* — {q['description']} | **Mini-Boss:** {q['miniBoss']} | `{q['reward']}`"
-            )
-        roster_lines.append("")
+        for reg, hid, hname, lvl_band, hqs in hub_groups:
+            hub_num += 1
+            if reg != cur_reg:
+                if cur_reg is not None:
+                    roster_lines.extend(["---", ""])
+                cur_reg = reg
+                roster_lines.extend([region_titles[reg], ""])
+            roster_lines.append(f"#### {hub_num}. {hname} *({len(hqs)} Quests · `{lvl_band}`)*")
+            for q in hqs:
+                roster_lines.append(
+                    f"{q['questNum']}. **`[{q['category']}]` {q['title']}** *({q['giver']} · Marker: **{q['markerName']}**)* — {q['description']} | **Mini-Boss:** {q['miniBoss']} | `{q['reward']}`"
+                )
+            roster_lines.append("")
 
-    doc_path.write_text(doc_head + "\n" + "\n".join(roster_lines).rstrip() + "\n", encoding="utf-8")
-    print("Updated docs/08-quests-and-story.md with all 178 unique descriptions & 1-to-1 markers.")
+        doc_path.write_text(doc_head + "\n" + "\n".join(roster_lines).rstrip() + "\n", encoding="utf-8")
+        print("Updated docs/08-quests-and-story.md with all 178 unique descriptions & 1-to-1 markers.")
 
 
 if __name__ == "__main__":

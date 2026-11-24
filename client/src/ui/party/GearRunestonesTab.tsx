@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById } from "../heroes";
-import { hideClientItemTooltip, itemTooltipHandlers } from "../shops/itemTooltip";
+import { hideClientItemTooltip, infoTooltipHandlers, itemTooltipHandlers, runestoneTooltipHandlers } from "../shops/itemTooltip";
 import { WeaponAttackIconsRow } from "../shops/WeaponAttackIconsRow";
 import { canDualWieldItem, itemSlotFor } from "../shops/shopLogic";
 import type { EquippedGearMap, GearSlot, HeroId, HeroSocketsMap, ItemEntry, RunestoneItem } from "../types";
@@ -90,15 +90,24 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
               <div
                 key={slot.key}
                 className="rounded border border-[#2d3546] bg-[#141925]/95 p-2.5 flex flex-col gap-2"
-                {...(equippedItem
-                  ? itemTooltipHandlers(equippedItem, {
-                      activeHeroId: heroId,
-                      equippedByHero,
-                      itemsById,
-                    })
-                  : {})}
               >
-                <div className="flex items-center gap-2.5">
+                <div
+                  className="flex items-center gap-2.5"
+                  {...(equippedItem
+                    ? itemTooltipHandlers(equippedItem, {
+                        activeHeroId: heroId,
+                        equippedByHero,
+                        itemsById,
+                      })
+                    : infoTooltipHandlers({
+                        key: `empty-slot:${heroId}:${slot.key}`,
+                        eyebrow: "Equipment Slot",
+                        title: `${slot.label} — Empty`,
+                        iconPath: slot.fallbackIcon,
+                        badges: [{ label: "No Item Equipped" }],
+                        effect: `Choose a compatible item from the Bag tab on the right to equip it into ${getHeroById(heroId).name}'s ${slot.label}.`,
+                      }))}
+                >
                   <div className="w-[42px] h-[42px] rounded border border-[#5d4c30] bg-[#0b0e14] flex items-center justify-center shrink-0">
                     <img
                       src={assetUrl(equippedItem ? equippedItem.iconPath : slot.fallbackIcon)}
@@ -168,6 +177,18 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
                         ? "border-[#5d4b7a] bg-[#191526]/90"
                         : "border-dashed border-[#343c4f] bg-[#0e121a]/80",
                     ].join(" ")}
+                    {...(curStone
+                      ? runestoneTooltipHandlers(curStone, {
+                          hint: `Carved permanently into ${equippedItem?.name ?? slot.label}. Socketing another Runestone will overwrite and destroy this one.`,
+                        })
+                      : infoTooltipHandlers({
+                          key: `empty-socket:${heroId}:${socketKey}`,
+                          eyebrow: "Carved Runestone Socket",
+                          title: `Open ${slot.key === "right_hand" ? "Weapon" : "Armor"} Socket`,
+                          iconPath: RUNESTONE_EMPTY_ICON,
+                          badges: [{ label: "Empty Socket", tone: "socket" }],
+                          effect: "Open the Carved Runestones tab on the right and click Socket to engrave a Runestone permanently into this slot.",
+                        }))}
                   >
                     <img
                       src={assetUrl(curStone ? curStone.iconPath : RUNESTONE_EMPTY_ICON)}
@@ -308,6 +329,7 @@ export const GearRunestonesTab: React.FC<GearRunestonesTabProps> = ({
                 <div
                   key={stone.id}
                   className="rounded border border-[#3a3250] bg-[#151322] hover:border-[#8e74c4] p-2 flex items-center gap-2.5"
+                  {...runestoneTooltipHandlers(stone)}
                 >
                   <img
                     src={assetUrl(stone.iconPath || RUNESTONE_EMPTY_ICON)}

@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "count": 32,
+  "dimensions": "512x512",
+  "cards": {
+    "cond_burn": "assets/icons/conditions/cond_burn.webp",
+    "cond_bleed": "assets/icons/conditions/cond_bleed.webp",
+    "cond_poison": "assets/icons/conditions/cond_poison.webp",
+    "cond_chill": "assets/icons/conditions/cond_chill.webp",
+    "cond_shock": "assets/icons/conditions/cond_shock.webp",
+    "cond_curse": "assets/icons/conditions/cond_curse.webp",
+    "cond_stun": "assets/icons/conditions/cond_stun.webp",
+    "cond_def_down": "assets/icons/conditions/cond_def_down.webp",
+    "cond_atk_down": "assets/icons/conditions/cond_atk_down.webp",
+    "cond_blind": "assets/icons/conditions/cond_blind.webp",
+    "cond_ward": "assets/icons/conditions/cond_ward.webp",
+    "cond_regen": "assets/icons/conditions/cond_regen.webp",
+    "cond_reflect": "assets/icons/conditions/cond_reflect.webp",
+    "cond_immunity": "assets/icons/conditions/cond_immunity.webp",
+    "cond_haste": "assets/icons/conditions/cond_haste.webp",
+    "cond_undying": "assets/icons/conditions/cond_undying.webp",
+    "cond_hero_guard": "assets/icons/conditions/cond_hero_guard.webp",
+    "cond_momentum": "assets/icons/conditions/cond_momentum.webp",
+    "cond_enemy_guard": "assets/icons/conditions/cond_enemy_guard.webp",
+    "cond_staggered": "assets/icons/conditions/cond_staggered.webp",
+    "cond_boss_charging": "assets/icons/conditions/cond_boss_charging.webp",
+    "cond_resolve_battered": "assets/icons/conditions/cond_resolve_battered.webp",
+    "cond_resolve_critical": "assets/icons/conditions/cond_resolve_critical.webp",
+    "cond_dual_wield": "assets/icons/conditions/cond_dual_wield.webp",
+    "cond_weakness_hit": "assets/icons/conditions/cond_weakness_hit.webp",
+    "cond_resist_blocked": "assets/icons/conditions/cond_resist_blocked.webp",
+    "cond_crit_strike": "assets/icons/conditions/cond_crit_strike.webp",
+    "cond_dodge_evade": "assets/icons/conditions/cond_dodge_evade.webp",
+    "cond_counter_ready": "assets/icons/conditions/cond_counter_ready.webp",
+    "cond_intercept": "assets/icons/conditions/cond_intercept.webp",
+    "cond_ko_fallen": "assets/icons/conditions/cond_ko_fallen.webp",
+    "cond_flee_blocked": "assets/icons/conditions/cond_flee_blocked.webp"
+  },
+  "slots": [
+    {
+      "id": "cond_burn",
+      "name": "Burn",
+      "detail": "Debuff (6% Fire DoT, -25% healing)",
+      "iconPath": "assets/icons/conditions/cond_burn.webp"
+    },
+    {
+      "id": "cond_bleed",
+      "name": "Bleed",
+      "detail": "Debuff (5% Bleed DoT)",
+      "iconPath": "assets/icons/conditions/cond_bleed.webp"
+    },
+    {
+      "id": "cond_poison",
+      "name": "Poison",
+      "detail": "Debuff (5% Poison DoT, -15% phys dmg)",
+      "iconPath": "assets/icons/conditions/cond_poison.webp"
+    },
+    {
+      "id": "cond_chill",
+      "name": "Chill",
+      "detail": "Debuff (-15% dmg, +15% Frost/Lightning taken)",
+      "iconPath": "assets/icons/conditions/cond_chill.webp"
+    },
+    {
+      "id": "cond_shock",
+      "name": "Shock",
+      "detail": "Debuff (+20% next hit taken)",
+      "iconPath": "assets/icons/conditions/cond_shock.webp"
+    },
+    {
+      "id": "cond_curse",
+      "name": "Curse",
+      "detail": "Debuff (-20% dmg & healing dealt)",
+      "iconPath": "assets/icons/conditions/cond_curse.webp"
+    },
+    {
+      "id": "cond_stun",
+      "name": "Stun",
+      "detail": "Debuff (Skips next turn)",
+      "iconPath": "assets/icons/conditions/cond_stun.webp"
+    },
+    {
+      "id": "cond_def_down",
+      "name": "Armor Break",
+      "detail": "Debuff (-25% P.Def & M.Def)",
+      "iconPath": "assets/icons/conditions/cond_def_down.webp"
+    },
+    {
+      "id": "cond_atk_down",
+      "name": "Weakened",
+      "detail": "Debuff (-22% outgoing attack dmg)",
+      "iconPath": "assets/icons/conditions/cond_atk_down.webp"
+    },
+    {
+      "id": "cond_blind",
+      "name": "Blinded",
+      "detail": "Debuff (22% attack miss chance)",
+      "iconPath": "assets/icons/conditions/cond_blind.webp"
+    },
+    {
+      "id": "cond_ward",
+      "name": "Ward",
+      "detail": "Buff (-25% incoming damage)",
+      "iconPath": "assets/icons/conditions/cond_ward.webp"
+    },
+    {
+      "id": "cond_regen",
+      "name": "Regen",
+      "detail": "Buff (+10% Max HP each turn)",
+      "iconPath": "assets/icons/conditions/cond_regen.webp"
+    },
+    {
+      "id": "cond_reflect",
+      "name": "Reflect",
+      "detail": "Buff (Reflects 25% dmg back)",
+      "iconPath": "assets/icons/conditions/cond_reflect.webp"
+    },
+    {
+      "id": "cond_immunity",
+      "name": "Ward Purity",
+      "detail": "Buff (Blocks negative ailments)",
+      "iconPath": "assets/icons/conditions/cond_immunity.webp"
+    },
+    {
+      "id": "cond_haste",
+      "name": "Empowered",
+      "detail": "Buff (+20% Attack & Magic Power)",
+      "iconPath": "assets/icons/conditions/cond_haste.webp"
+    },
+    {
+      "id": "cond_undying",
+      "name": "Undying",
+      "detail": "Buff (Prevents KO once at 20% HP)",
+      "iconPath": "assets/icons/conditions/cond_undying.webp"
+    },
+    {
+      "id": "cond_hero_guard",
+      "name": "Hero Guard",
+      "detail": "Stance (-50%+ dmg, next-turn shield)",
+      "iconPath": "assets/icons/conditions/cond_hero_guard.webp"
+    },
+    {
+      "id": "cond_momentum",
+      "name": "Momentum",
+      "detail": "Stance (+25% next strike dmg)",
+      "iconPath": "assets/icons/conditions/cond_momentum.webp"
+    },
+    {
+      "id": "cond_enemy_guard",
+      "name": "Enemy Guard",
+      "detail": "Stance (Intact Boss/Foe Guard shield)",
+      "iconPath": "assets/icons/conditions/cond_enemy_guard.webp"
+    },
+    {
+      "id": "cond_staggered",
+      "name": "Staggered",
+      "detail": "State (Guard broken: +50% dmg & skip turn)",
+      "iconPath": "assets/icons/conditions/cond_staggered.webp"
+    },
+    {
+      "id": "cond_boss_charging",
+      "name": "Telegraphed Charge",
+      "detail": "Enemy State (Boss gathering AOE power)",
+      "iconPath": "assets/icons/conditions/cond_boss_charging.webp"
+    },
+    {
+      "id": "cond_resolve_battered",
+      "name": "Battered Resolve",
+      "detail": "Resolve (<=50% HP fighting surge)",
+      "iconPath": "assets/icons/conditions/cond_resolve_battered.webp"
+    },
+    {
+      "id": "cond_resolve_critical",
+      "name": "Critical Resolve",
+      "detail": "Resolve (<=25% HP last-stand surge)",
+      "iconPath": "assets/icons/conditions/cond_resolve_critical.webp"
+    },
+    {
+      "id": "cond_dual_wield",
+      "name": "Dual Wield",
+      "detail": "Stance (Valen twin blades follow-up)",
+      "iconPath": "assets/icons/conditions/cond_dual_wield.webp"
+    },
+    {
+      "id": "cond_weakness_hit",
+      "name": "Weakness Exposed",
+      "detail": "Trigger (1.5x vulnerability pierced)",
+      "iconPath": "assets/icons/conditions/cond_weakness_hit.webp"
+    },
+    {
+      "id": "cond_resist_blocked",
+      "name": "Damage Resisted",
+      "detail": "Trigger (0.5x warded deflection)",
+      "iconPath": "assets/icons/conditions/cond_resist_blocked.webp"
+    },
+    {
+      "id": "cond_crit_strike",
+      "name": "Critical Strike",
+      "detail": "Trigger (1.55x piercing burst hit)",
+      "iconPath": "assets/icons/conditions/cond_crit_strike.webp"
+    },
+    {
+      "id": "cond_dodge_evade",
+      "name": "Evasion",
+      "detail": "Trigger (Agile dodge sidestep)",
+      "iconPath": "assets/icons/conditions/cond_dodge_evade.webp"
+    },
+    {
+      "id": "cond_counter_ready",
+      "name": "Riposte Counter",
+      "detail": "Resolve Stance (Valen <25% HP counter)",
+      "iconPath": "assets/icons/conditions/cond_counter_ready.webp"
+    },
+    {
+      "id": "cond_intercept",
+      "name": "Veteran Intercept",
+      "detail": "Resolve Stance (Orin <25% HP ally block)",
+      "iconPath": "assets/icons/conditions/cond_intercept.webp"
+    },
+    {
+      "id": "cond_ko_fallen",
+      "name": "Fallen",
+      "detail": "Hero State (0 HP Knocked Out)",
+      "iconPath": "assets/icons/conditions/cond_ko_fallen.webp"
+    },
+    {
+      "id": "cond_flee_blocked",
+      "name": "Escape Blocked",
+      "detail": "State (Blocked retreat / Boss lock)",
+      "iconPath": "assets/icons/conditions/cond_flee_blocked.webp"
+    }
+  ]
+}

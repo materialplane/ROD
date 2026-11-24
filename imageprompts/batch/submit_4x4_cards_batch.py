@@ -39,6 +39,13 @@ CARD_SETS = {
         "display_prefix": "rod-conditions",
         "out_dir_rel": "assets/conditions/batch_sheets",
     },
+    "quest_cards": {
+        "prompts_file": REPO_ROOT / "imageprompts" / "quest-cards.txt",
+        "jsonl_file": BATCH_DIR / "quest_cards_batch.jsonl",
+        "sheet_prefix": "rod_quest_cards_sheet",
+        "display_prefix": "rod-quest-cards",
+        "out_dir_rel": "assets/quests/batch_sheets",
+    },
 }
 
 

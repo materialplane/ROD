@@ -3,6 +3,8 @@ import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { HEROES, getHeroById } from "../heroes";
 import type {
+  ActiveOutpostHunt,
+  BattleConfigData,
   ChosenDisciplinesMap,
   DisciplineOption,
   EquippedGearMap,
@@ -18,6 +20,8 @@ import type {
 } from "../types";
 import { ShopCounterPanel, type BuyConfirmChoice } from "../shops/ShopCounterPanel";
 import { TradeGoodsCounter } from "../shops/TradeGoodsCounter";
+import { formatOutpostRewardLine, rollOutpostHuntOffer } from "../quests/outpostHunts";
+import { QuestCardThumb } from "./QuestCardThumb";
 import { TavernView } from "./TavernView";
 
 export const HIGHCROWN_ID = "loc_01_overgrown_garden_sanctuary";
@@ -48,6 +52,9 @@ interface LocationInteriorModalProps {
   partyLevel: number;
   heroLevels?: Partial<Record<HeroId, number>>;
   acceptedQuestIds: string[];
+  completedQuestIds?: string[];
+  activeOutpostHunts?: ActiveOutpostHunt[];
+  battleConfig?: BattleConfigData | null;
   silver: number;
   items: ItemEntry[];
   itemsById: Record<string, ItemEntry>;
@@ -61,6 +68,9 @@ interface LocationInteriorModalProps {
   onBuyShopEntry: (choice: BuyConfirmChoice) => void;
   onSellAllTradeGoods: () => void;
   onAcceptQuest: (quest: QuestEntry) => void;
+  onAcceptOutpostHunt?: (hunt: ActiveOutpostHunt) => void;
+  onCompleteOutpostHunt?: (outpostId: string) => void;
+  onAbandonOutpostHunt?: (outpostId: string) => void;
   onFreeRest: (hubName: string) => void;
   onSailToPort?: (destPort: WorldLocation) => void;
   onOpenParty: () => void;
@@ -105,6 +115,7 @@ export function sanitizeRoleTitle(raw: string): string {
     .replace(/\(\s*Inscribed Stone Tablet\s*\)/gi, "")
     .replace(/\bSanctuary\s+Apothecary\s*&\s*Caster\s+Outfitter\b/gi, "Sanctuary Apothecary & Outfitter")
     .replace(/\bApothecary\s*&\s*Caster\s+Outfitter\b/gi, "Apothecary & Outfitter")
+    .replace(/\bZone\s+\d+\s+Hunt\s+Quartermaster\b/gi, "Hunt Quartermaster")
     .replace(/\bLocal Hub Quest\b/gi, "Town Request")
     .replace(/\s+\(\s*\)/g, "")
     .replace(/\s{2,}/g, " ")
@@ -381,6 +392,9 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   partyLevel,
   heroLevels,
   acceptedQuestIds,
+  completedQuestIds = [],
+  activeOutpostHunts = [],
+  battleConfig = null,
   silver,
   items,
   itemsById,
@@ -394,6 +408,9 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   onBuyShopEntry,
   onSellAllTradeGoods,
   onAcceptQuest,
+  onAcceptOutpostHunt,
+  onCompleteOutpostHunt,
+  onAbandonOutpostHunt,
   onFreeRest,
   onSailToPort,
   onOpenParty,
@@ -406,8 +423,20 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   const [openShopNpcId, setOpenShopNpcId] = useState<string | null>(null);
   const [harborShopMode, setHarborShopMode] = useState<"trade_goods" | "arcanist" | null>(null);
   const [showLore, setShowLore] = useState(false);
+  const [outpostOffersById, setOutpostOffersById] = useState<Record<string, ActiveOutpostHunt>>({});
 
   const isTavern = isTavernLocationId(location?.id);
+  const isOutpostLocation = Boolean(location?.id.startsWith("outpost_"));
+
+  useEffect(() => {
+    if (!location || !isOutpostLocation || !battleConfig) return;
+    setOutpostOffersById((prev) => {
+      if (prev[location.id]) return prev;
+      const rolled = rollOutpostHuntOffer(location, battleConfig);
+      if (!rolled) return prev;
+      return { ...prev, [location.id]: rolled };
+    });
+  }, [location, isOutpostLocation, battleConfig]);
 
   const resolvedNpcs = useMemo<ResolvedNpc[]>(() => {
     if (!location || isTavern) return [];
@@ -524,6 +553,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
         partyOrder={partyOrder}
         partyLevel={partyLevel}
         acceptedQuestIds={acceptedQuestIds}
+        completedQuestIds={completedQuestIds}
         onAcceptQuest={onAcceptQuest}
         onOpenParty={onOpenParty}
         onReturnToTown={() => {
@@ -541,7 +571,28 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   const safeIdx = Math.min(selectedIdx, Math.max(0, resolvedNpcs.length - 1));
   const selectedNpc = resolvedNpcs[safeIdx] ?? null;
   const acceptedSet = new Set(acceptedQuestIds);
+  const completedSet = new Set(completedQuestIds);
+  const questCompleted = Boolean(selectedNpc?.quest && completedSet.has(selectedNpc.quest.questId));
   const questAccepted = Boolean(selectedNpc?.quest && acceptedSet.has(selectedNpc.quest.questId));
+  const activeOutpostHunt = isOutpostLocation
+    ? activeOutpostHunts.find((h) => h.outpostId === location.id) ?? null
+    : null;
+  const currentOutpostOffer = isOutpostLocation ? outpostOffersById[location.id] ?? null : null;
+  const displayedOutpostHunt = activeOutpostHunt ?? currentOutpostOffer;
+  const isQuartermasterSelected = Boolean(
+    isOutpostLocation && selectedNpc && selectedNpc.id.endsWith("_quartermaster")
+  );
+  const huntReadyToClaim = Boolean(
+    activeOutpostHunt && activeOutpostHunt.killsProgress >= activeOutpostHunt.killsRequired
+  );
+
+  const rerollOutpostOffer = () => {
+    if (!battleConfig) return;
+    const next = rollOutpostHuntOffer(location, battleConfig, currentOutpostOffer?.mobId);
+    if (!next) return;
+    audioEngine.playUiClick(0.35);
+    setOutpostOffersById((prev) => ({ ...prev, [location.id]: next }));
+  };
 
   const stewardSvcId = selectedNpc && !selectedNpc.quest ? inferNpcServiceId(selectedNpc.displayRole) : null;
   const matchedStewardService = stewardSvcId ? hubServices.find((s) => s.id === stewardSvcId) ?? null : null;
@@ -769,7 +820,9 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
             {resolvedNpcs.map((npc, idx) => {
               const isSelected = !showLore && idx === safeIdx;
               const hasQuest = Boolean(npc.quest);
-              const done = Boolean(npc.quest && acceptedSet.has(npc.quest.questId));
+              const qCompleted = Boolean(npc.quest && completedSet.has(npc.quest.questId));
+              const qAccepted = Boolean(npc.quest && acceptedSet.has(npc.quest.questId));
+              const done = qCompleted || qAccepted;
               return (
                 <button
                   key={npc.id}
@@ -812,12 +865,32 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                         <span
                           className={[
                             "px-1.5 py-0.5 rounded-sm border text-[10px] font-bold uppercase shrink-0",
-                            done
-                              ? "bg-[#162a21] border-[#3c7358] text-[#8be0b2]"
-                              : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
+                            qCompleted
+                              ? "bg-[#2a2214] border-[#96783b] text-[#f5d88f]"
+                              : done
+                                ? "bg-[#162a21] border-[#3c7358] text-[#8be0b2]"
+                                : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
                           ].join(" ")}
                         >
-                          {done ? "✓" : "!"}
+                          {qCompleted ? "★" : done ? "✓" : "!"}
+                        </span>
+                      )}
+                      {!hasQuest && isOutpostLocation && npc.id.endsWith("_quartermaster") && (
+                        <span
+                          className={[
+                            "px-1.5 py-0.5 rounded-sm border text-[10px] font-bold uppercase shrink-0",
+                            huntReadyToClaim
+                              ? "bg-[#2a2214] border-[#e6c170] text-[#fff1b8]"
+                              : activeOutpostHunt
+                                ? "bg-[#162a21] border-[#3c7358] text-[#8be0b2]"
+                                : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
+                          ].join(" ")}
+                        >
+                          {huntReadyToClaim
+                            ? "★"
+                            : activeOutpostHunt
+                              ? `${activeOutpostHunt.killsProgress}/${activeOutpostHunt.killsRequired}`
+                              : "!"}
                         </span>
                       )}
                     </div>
@@ -1088,21 +1161,129 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                           </p>
                         </div>
 
-                        {selectedNpc.quest ? (
+                        {isQuartermasterSelected && displayedOutpostHunt ? (
                           <div className="border-t border-[#2c3446] pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div className="min-w-0">
-                              <div className="flex items-center gap-2">
-                                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#d9b468]">
-                                  Contract Offer
-                                </span>
-                                <span className="text-[11.5px] text-[#8f9eb5]">· {selectedNpc.quest.category}</span>
+                            <div className="min-w-0 flex items-center gap-3">
+                              <div className="flex items-center gap-1.5 shrink-0">
+                                <QuestCardThumb
+                                  cardId={displayedOutpostHunt.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board"}
+                                  fallbackPath={displayedOutpostHunt.mobIconPath}
+                                  badgeCardId={huntReadyToClaim ? "quest_complete_royal_seal" : undefined}
+                                  className="w-[60px] h-[60px] rounded border border-[#967741] bg-[#090c12] shrink-0 shadow-[0_0_16px_rgba(226,184,96,0.2)]"
+                                />
+                                <img
+                                  src={assetUrl(displayedOutpostHunt.mobIconPath)}
+                                  alt={displayedOutpostHunt.mobName}
+                                  draggable={false}
+                                  className="w-[60px] h-[60px] rounded border border-[#4a576f] bg-[#0b0e15] object-contain p-1 shrink-0"
+                                />
                               </div>
-                              <div className="text-[16px] lg:text-[18px] font-bold text-[#fbe3a6] mt-0.5 leading-snug">
-                                {selectedNpc.quest.title}
+                              <div className="min-w-0">
+                                <div className="flex flex-wrap items-center gap-2">
+                                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#d9b468]">
+                                    {activeOutpostHunt
+                                      ? huntReadyToClaim
+                                        ? "Hunt Complete · Ready to Claim"
+                                        : `Active Outpost Hunt (${activeOutpostHunt.killsProgress}/${activeOutpostHunt.killsRequired})`
+                                      : "Outpost Hunt Contract"}
+                                  </span>
+                                  {displayedOutpostHunt.isElite && (
+                                    <span className="px-1.5 py-0.5 rounded border border-[#8e6732] bg-[#2a1f10] text-[10px] font-semibold text-[#f8d78e]">
+                                      Elite Beast
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="text-[16px] lg:text-[18px] font-bold text-[#fbe3a6] mt-0.5 leading-snug">
+                                  Slay {displayedOutpostHunt.killsRequired} {displayedOutpostHunt.mobName}
+                                </div>
+                                <div className="text-[11.5px] text-[#9bb3cf] mt-0.5 truncate">
+                                  Habitat:{" "}
+                                  <span className="text-[#d3e2f5]">
+                                    {displayedOutpostHunt.biomeHints.length > 0
+                                      ? displayedOutpostHunt.biomeHints.join(" · ")
+                                      : location.playerRegion || "Surrounding Wilds"}
+                                  </span>
+                                </div>
+                                <div className="text-[12.5px] text-[#b8c8df] mt-0.5">
+                                  <span className="text-[#e3c27a] font-semibold">Reward:</span>{" "}
+                                  {formatOutpostRewardLine(
+                                    displayedOutpostHunt,
+                                    itemsById[displayedOutpostHunt.rewardConsumableId]?.name
+                                  )}
+                                </div>
                               </div>
-                              <div className="text-[12.5px] text-[#b8c8df] mt-0.5">
-                                <span className="text-[#e3c27a] font-semibold">Reward:</span>{" "}
-                                {formatRewardLine(selectedNpc.quest.reward)}
+                            </div>
+                            <div className="flex flex-wrap items-center gap-2 shrink-0">
+                              {!activeOutpostHunt ? (
+                                <>
+                                  <button
+                                    type="button"
+                                    onClick={rerollOutpostOffer}
+                                    className="px-3.5 py-2.5 rounded border border-[#4a546a] bg-[#161c28] hover:border-[#c9a356] text-[#d7e1f2] text-[12px] font-semibold uppercase tracking-wider cursor-pointer transition-colors"
+                                  >
+                                    Roll Another
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => onAcceptOutpostHunt?.(displayedOutpostHunt)}
+                                    className="px-5 py-2.5 rounded border border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_20px_rgba(226,190,115,0.22)]"
+                                  >
+                                    Accept Hunt
+                                  </button>
+                                </>
+                              ) : huntReadyToClaim ? (
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    onCompleteOutpostHunt?.(location.id);
+                                    const nextOffer = rollOutpostHuntOffer(location, battleConfig, activeOutpostHunt.mobId);
+                                    if (nextOffer) {
+                                      setOutpostOffersById((prev) => ({ ...prev, [location.id]: nextOffer }));
+                                    }
+                                  }}
+                                  className="px-5 py-2.5 rounded border border-[#f2cf78] bg-[#b88628]/45 hover:bg-[#b88628]/65 text-[#fff6da] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_22px_rgba(242,207,120,0.3)]"
+                                >
+                                  ★ Claim Reward
+                                </button>
+                              ) : (
+                                <>
+                                  <div className="px-3.5 py-2 rounded border border-[#3c785b] bg-[#142920] text-[#91e3b8] text-[12.5px] font-bold">
+                                    {activeOutpostHunt.killsProgress} / {activeOutpostHunt.killsRequired} Slain
+                                  </div>
+                                  <button
+                                    type="button"
+                                    onClick={() => onAbandonOutpostHunt?.(location.id)}
+                                    className="px-3.5 py-2 rounded border border-[#5e3b44] bg-[#211317] hover:border-[#d46974] text-[#f2b5bc] text-[12px] font-semibold uppercase tracking-wider cursor-pointer transition-colors"
+                                  >
+                                    Abandon
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        ) : selectedNpc.quest ? (
+                          <div className="border-t border-[#2c3446] pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div className="min-w-0 flex items-center gap-3">
+                              <QuestCardThumb
+                                cardId={selectedNpc.quest.questId}
+                                fallbackPath={selectedNpc.quest.assetPath}
+                                badgeCardId={questCompleted ? "quest_complete_royal_seal" : undefined}
+                                className="w-[62px] h-[62px] rounded border border-[#967741] bg-[#090c12] shrink-0 shadow-[0_0_16px_rgba(226,184,96,0.2)]"
+                              />
+                              <div className="min-w-0">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#d9b468]">
+                                    Contract Offer
+                                  </span>
+                                  <span className="text-[11.5px] text-[#8f9eb5]">· {selectedNpc.quest.category}</span>
+                                </div>
+                                <div className="text-[16px] lg:text-[18px] font-bold text-[#fbe3a6] mt-0.5 leading-snug">
+                                  {selectedNpc.quest.title}
+                                </div>
+                                <div className="text-[12.5px] text-[#b8c8df] mt-0.5">
+                                  <span className="text-[#e3c27a] font-semibold">Reward:</span>{" "}
+                                  {formatRewardLine(selectedNpc.quest.reward)}
+                                </div>
                               </div>
                             </div>
                             <div className="flex flex-wrap items-center gap-2 shrink-0">
@@ -1120,16 +1301,18 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                               )}
                               <button
                                 type="button"
-                                disabled={questAccepted}
+                                disabled={questAccepted || questCompleted}
                                 onClick={() => onAcceptQuest(selectedNpc.quest!)}
                                 className={[
                                   "px-5 py-2.5 rounded border text-[13px] font-bold uppercase tracking-wider shrink-0 transition-colors",
-                                  questAccepted
-                                    ? "border-[#3c785b] bg-[#142920] text-[#91e3b8] cursor-default"
-                                    : "border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] cursor-pointer shadow-[0_0_20px_rgba(226,190,115,0.22)]",
+                                  questCompleted
+                                    ? "border-[#96783b] bg-[#261f12] text-[#f5d88f] cursor-default"
+                                    : questAccepted
+                                      ? "border-[#3c785b] bg-[#142920] text-[#91e3b8] cursor-default"
+                                      : "border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] cursor-pointer shadow-[0_0_20px_rgba(226,190,115,0.22)]",
                                 ].join(" ")}
                               >
-                                {questAccepted ? "✓ Quest Accepted" : "Accept Quest"}
+                                {questCompleted ? "★ Completed" : questAccepted ? "✓ Quest Accepted" : "Accept Quest"}
                               </button>
                             </div>
                           </div>

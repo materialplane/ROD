@@ -475,10 +475,10 @@ def parse_trade_goods() -> list[dict]:
     # Preserve the 8 Ethorian humanoid trade goods whose icons live in client/assets/icons/items/
     # (tagged with exact primary numeric Region matching their Zone/sellSilver tier).
     humanoid_fallbacks = [
-        ("Road Bandit", "Regions 1–2", 1, "Rusty Coin Purse", 3),
-        ("Crossbow Poacher", "Regions 1–3", 1, "Fletched Bolt Case", 4),
+        ("Road Bandit", "Regions 1–2", 1, "Rusty Coin Purse", 5),
+        ("Crossbow Poacher", "Regions 1–3", 1, "Fletched Bolt Case", 6),
         ("Smuggler Cutthroat", "Regions 2, 5", 2, "Contraband Seal", 20),
-        ("Garrick Deserter", "Regions 1, 3", 1, "Torn Wolf Tabard", 6),
+        ("Garrick Deserter", "Regions 1, 3", 1, "Torn Wolf Tabard", 9),
         ("Rival House Pikeman", "Regions 3, 7", 3, "Usurper Pennant", 59),
         ("Rival House Knight", "Regions 3, 7", 3, "Steel Crest Badge", 85),
         ("Gilded Slaver Enforcer", "Region 5", 5, "Brass Collar Key", 290),

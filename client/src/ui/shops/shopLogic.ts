@@ -9,8 +9,6 @@ export const METAL_ARMOR_TYPES = new Set([
   "Chain Mail",
   "Splint",
   "Plate",
-  "Scale Plate",
-  "Dragonscale",
 ]);
 
 export const ROBE_TYPES = new Set([
@@ -23,10 +21,10 @@ export const ROBE_TYPES = new Set([
 
 export const TAILOR_ARMOR_TYPES = new Set([
   ...ROBE_TYPES,
-  "Leather",
-  "Padded Leather",
-  "Studded Leather",
-  "Spiked Leather",
+  "Padded Bone",
+  "Reinforced Bone",
+  "Scale Plate",
+  "Dragonscale",
 ]);
 
 export const STAT_LABELS: Record<string, string> = {
@@ -450,14 +448,14 @@ export const SHOP_META: Record<ShopType, ShopMetaSpec> = {
   armor: {
     id: "armor",
     label: "Armor Shop",
-    quote: "Mail, plate, hardened hides, reinforced armor, and shields built to hold the line.",
+    quote: "Leather, hide, mail, plate, and shields built to hold the line.",
     pills: [["all", "All Armor & Shields"], ["armor", "Body Armor"], ["helm", "Helmets"], ["shield", "Shields"]],
   },
   tailor: {
     id: "tailor",
     label: "Tailor",
-    quote: "Woven robes and tailored leathers—light protection with no metal.",
-    pills: [["all", "All Cloth & Leather"], ["robes", "Robes"], ["leather", "Leather"], ["armor", "Body Armor"], ["helm", "Helmets"]],
+    quote: "Woven robes, stitched bone, and hardened scale vestments—crafted without metal or battle leather.",
+    pills: [["all", "All Tailored Gear"], ["robes", "Robes"], ["vestments", "Bone & Scale"], ["armor", "Body Armor"], ["helm", "Helmets"]],
   },
   magic: {
     id: "magic",
@@ -679,7 +677,7 @@ export function getStockForHero(
   if (shopType === "weapon") return pool.filter((x) => (catFilter === "1h" ? x.handed === "1H" : x.handed === "2H"));
   if (shopType === "tailor") {
     if (catFilter === "robes") return pool.filter((x) => ROBE_TYPES.has(x.subType));
-    if (catFilter === "leather") return pool.filter((x) => TAILOR_ARMOR_TYPES.has(x.subType) && !ROBE_TYPES.has(x.subType));
+    if (catFilter === "vestments") return pool.filter((x) => TAILOR_ARMOR_TYPES.has(x.subType) && !ROBE_TYPES.has(x.subType));
     return pool.filter((x) => x.category === catFilter);
   }
   return pool.filter((x) => x.category === catFilter);

@@ -1,7 +1,7 @@
 # ROD — Combat System & Stat Tuning Spec
 
 > **Status:** Locked Core Spec  
-> **Scope:** Damage types, the `1`–`99` stat system, round-based turn order (no initiative), top-to-bottom Party Order (`Slots 1–4`), Resolve hurt-state passives, and shop-gear scaling rules.
+> **Scope:** Damage types, the `1`–`99` stat system, speed-interleaved round turn order, top-to-bottom Party Order (`Slots 1–4`), Resolve hurt-state passives, and shop-gear scaling rules.
 
 ---
 
@@ -97,8 +97,9 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 
 ## 4. Battle Flow & Tactical Rules
 
-### Straightforward Round Order *(No Initiative / No Speed Stats)*
-* Each Round moves cleanly in two phases shown at the top of battle: first all living **Party Heroes act top-to-bottom (`Slots 1 → 4`)**, then all living **Enemies take 1 turn each** before the next Round begins.
+### Speed-Interleaved Round Order *(Agility / Role Turn Mixing)*
+* Each Round gives every living hero and enemy **1 action** (`plus Bonus Turns`), ordered at the top of battle by **Agility / Role Speed** *(Hero Speed driven by class agility, armor weight, and `Finesse`; Enemy Speed driven by monster role & level, modified by `Haste`/`Chill` and slight round jitter)* so quick enemies act mid-round instead of always waiting behind all 4 heroes.
+* Normal encounters procedurally spawn **`3–5` small enemies** or **big/medium centerpieces flanked by biome escorts** across the `4×3` battlefield grid (`zero tile overflow`), scaling per-foe durability & rewards smoothly across all 20 Zones (`Lv 1–99`).
 * Light weapon attacks stay usable **every turn (`0` Cooldown)**; Heavy weapon skills pack higher damage and Guard/Armor breaks with a **`1-Turn Cooldown`** after use.
 * When a hero's turn arrives, the player immediately chooses: **Attack (`Weapon Mode A or B`)**, **Magic / Remedies (`MP` — Ellowyn, Mera & Harlan)**, **Item**, **Guard**, or **Flee** *(disabled in Boss fights)*.
 
@@ -110,7 +111,7 @@ Every single `+1` point you invest gives an immediate combat improvement (zero "
 ### Telegraphed Attacks, Guarding & Guard Break
 * **Telegraphed Boss Moves:** Dangerous enemy attacks display a warning marker on the enemy & turn strip one round before firing.
 * **Meaningful Guard:** Selecting **Guard** halves incoming damage until that hero's next round (plus extra mitigation from `Grit`) and grants **Momentum** (`+25%` damage on the hero's next Weapon Attack or Spell).
-* **Enemy Guard Gauge & Stagger:** Elite foes and Portal Bosses carry **2–5 Guard points**. Hitting their **Weaknesses** breaks a point; breaking all points **Staggers** the enemy for 1 full turn (**skips their next action** and increases all damage they take by **`1.5×`**).
+* **Enemy Guard Gauge & Stagger:** Elite foes and Portal Bosses carry **2–5 Guard points**. Hitting their **Weaknesses** breaks a point; breaking all points **Staggers** the enemy for 1 full turn (**skips their next action** and increases all damage they take by **`1.5×`**), after which their Guard recovers cleanly for at least 1 active action before it can be broken again.
 
 ---
 
@@ -190,7 +191,7 @@ Status ailments stay clean, readable, and impactful (never bloated):
 
 | Map · Level Zones | Lv Band | Avg Fight XP *(Per Hero)* | Avg Fight Value *(Silver + Trade Goods)* | One-Time Quest Silver | Zone Outpost Hunt Silver | Avg Normal Mob HP | Portal Boss HP *(Target)* |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Map 1 (`Z01–03`)** | `1–15` | `10 – 95 XP` | `4s – 21s` | `18s – 85s` | `45s – 140s` | `32 – 140 HP` | `~650 HP` |
+| **Map 1 (`Z01–03`)** | `1–15` | `10 – 95 XP` | `13s – 28s` | `18s – 375s` | `45s – 140s` | `32 – 140 HP` | `~650 HP` |
 | **Map 1 (`Z04–05`)** | `16–25` | `80 – 375 XP` | `21s – 93s` | `260s – 520s` | `300s – 790s` | `160 – 450 HP` | `~2,400 HP` |
 | **Map 2 (`Z06–08`)** | `26–40` | `275 – 795 XP` | `72s – 235s` | `690s – 1,450s` | `1,300s – 2,700s` | `500 – 1,050 HP` | `~6,000 HP` |
 | **Map 2 (`Z09–10`)** | `41–50` | `555 – 1,425 XP` | `180s – 520s` | `1,500s – 2,600s` | `3,750s – 5,100s` | `1,150 – 1,950 HP` | `~12,500 HP` |

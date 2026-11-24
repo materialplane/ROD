@@ -145,21 +145,21 @@ Every creature below is drawn from **D&D SRD 5.2** and belongs to that Dimension
 ### Portal #1 Realm: **Elemental Plane of Earth & Forge** *(Map 1 · Zones `1–3` | Lv `1–15`)*
 | # | SRD 5.2 Mob | Type | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP | Silver | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| 1 | **Animated Flying Sword** | Construct | *Cross Slash, Viper Lunge* | Bludgeoning, Lightning | `6` | `3s` | Chipped Rune-Blade Shard |
-| 2 | **Animated Armor** | Construct | *Pommel Bash, Hold the Line* | Bludgeoning, Lightning | `8` | `3s` | Hollow Greave Plate |
-| 3 | **Flesh Golem** | Construct | *Crushing Blow, Scarred Gambit* | Fire, Lightning | `11` | `4s` | Iron-Sutured Hide |
-| 4 | **Clay Golem** | Construct | *Armor Crush, Phalanx Brace* | Bludgeoning, Radiant | `12` | `4s` | Carved Earthen Seal |
-| 5 | **Dust Mephit** | Elemental | *Choking Powder, Ember Spark* | Bludgeoning, Frost | `15` | `5s` | Jar of Cinder-Ash |
-| 6 | **Gargoyle** | Elemental | *Sandsweep, Phalanx Brace* | Bludgeoning, Frost | `20` | `6s` | Cracked Stone Horn |
-| 7 | **Rust Monster** | Monstrosity | *Armor Feint, Expose Seam* | Piercing, Frost | `23` | `7s` | Oxidized Antenna |
-| 8 | **Ankheg** | Monstrosity | *Acidic Flask, Ragged Cut* | Fire, Slashing | `27` | `8s` | Chitinous Mandible |
-| 9 | **Darkmantle** | Monstrosity | *Smokescreen, Shadowstep Ambush* | Radiant, Fire | `30` | `8s` | Shadow-Cowl Membrane |
-| 10 | **Grick** | Monstrosity | *Viper Lunge, Ankle Nick* | Fire, Bludgeoning | `36` | `9s` | Stone-Worm Beak |
-| 11 | **Roper** | Monstrosity | *Void Pull, Piercing Shot* | Fire, Slashing | `42` | `10s` | Petrous Tendril Core |
-| 12 | **Xorn** | Elemental | *Crushing Blow, Armor Crush* | Frost, Lightning | `48` | `11s` | Gem-Flecked Claw |
-| 13 | **Bulette** | Monstrosity | *Shield-Splitter, Earthshaker* | Frost, Piercing | `53` | `12s` | Landshark Armor Plate |
-| 14 | **Earth Elemental** | Elemental | *Concussive Bash, Phalanx Brace* | Lightning, Frost | `57` | `13s` | Dense Geode Heart |
-| 15 | **Shield Guardian** | Construct | *Intercept Stance, Iron Steadfast* | Lightning, Bludgeoning | `63` | `14s` | Runed Guardian Amulet |
+| 1 | **Animated Flying Sword** | Construct | *Cross Slash, Viper Lunge* | Bludgeoning, Lightning | `6` | `8s` | Chipped Rune-Blade Shard |
+| 2 | **Animated Armor** | Construct | *Pommel Bash, Hold the Line* | Bludgeoning, Lightning | `8` | `9s` | Hollow Greave Plate |
+| 3 | **Flesh Golem** | Construct | *Crushing Blow, Scarred Gambit* | Fire, Lightning | `11` | `9s` | Iron-Sutured Hide |
+| 4 | **Clay Golem** | Construct | *Armor Crush, Phalanx Brace* | Bludgeoning, Radiant | `12` | `10s` | Carved Earthen Seal |
+| 5 | **Dust Mephit** | Elemental | *Choking Powder, Ember Spark* | Bludgeoning, Frost | `15` | `10s` | Jar of Cinder-Ash |
+| 6 | **Gargoyle** | Elemental | *Sandsweep, Phalanx Brace* | Bludgeoning, Frost | `20` | `11s` | Cracked Stone Horn |
+| 7 | **Rust Monster** | Monstrosity | *Armor Feint, Expose Seam* | Piercing, Frost | `23` | `12s` | Oxidized Antenna |
+| 8 | **Ankheg** | Monstrosity | *Acidic Flask, Ragged Cut* | Fire, Slashing | `27` | `12s` | Chitinous Mandible |
+| 9 | **Darkmantle** | Monstrosity | *Smokescreen, Shadowstep Ambush* | Radiant, Fire | `30` | `13s` | Shadow-Cowl Membrane |
+| 10 | **Grick** | Monstrosity | *Viper Lunge, Ankle Nick* | Fire, Bludgeoning | `36` | `14s` | Stone-Worm Beak |
+| 11 | **Roper** | Monstrosity | *Void Pull, Piercing Shot* | Fire, Slashing | `42` | `15s` | Petrous Tendril Core |
+| 12 | **Xorn** | Elemental | *Crushing Blow, Armor Crush* | Frost, Lightning | `48` | `16s` | Gem-Flecked Claw |
+| 13 | **Bulette** | Monstrosity | *Shield-Splitter, Earthshaker* | Frost, Piercing | `53` | `17s` | Landshark Armor Plate |
+| 14 | **Earth Elemental** | Elemental | *Concussive Bash, Phalanx Brace* | Lightning, Frost | `57` | `17s` | Dense Geode Heart |
+| 15 | **Shield Guardian** | Construct | *Intercept Stance, Iron Steadfast* | Lightning, Bludgeoning | `63` | `18s` | Runed Guardian Amulet |
 
 ---
 
@@ -317,9 +317,9 @@ Along Ethoria's wild roads and frontier biomes, players also encounter **natural
 ### Ethoria Natural Wildlife *(8 Beast Types)*
 | # | SRD 5.2 Beast | Map · Level Zones | Shared-Pool Skills *(2–3 Max)* | Weaknesses | XP *(By Zone)* | Silver *(By Zone)* | Trade Good Drop |
 | :---: | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Wolf** | `Z01–03` & `Z09–10` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `11` *(`Z01–03`)* / `435` *(`Z09–10`)* | `4s` *(`Z01–03`)* / `145s` *(`Z09–10`)* | Gray Wolf Pelt |
-| 2 | **Giant Boar** | `Z01–03` & `Z09–10` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `25` *(`Z01–03`)* / `625` *(`Z09–10`)* | `7s` *(`Z01–03`)* / `220s` *(`Z09–10`)* | Curved Ivory Tusk |
-| 3 | **Giant Spider** | `Z01–03` & `Z09–10` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `32` *(`Z01–03`)* / `740` *(`Z09–10`)* | `9s` *(`Z01–03`)* / `265s` *(`Z09–10`)* | Intact Venom Gland |
+| 1 | **Wolf** | `Z01–03` & `Z09–10` | *Ankle Nick, Viper Lunge* | Fire, Slashing | `11` *(`Z01–03`)* / `435` *(`Z09–10`)* | `8s` *(`Z01–03`)* / `145s` *(`Z09–10`)* | Gray Wolf Pelt |
+| 2 | **Giant Boar** | `Z01–03` & `Z09–10` | *Crushing Blow, Bloodied Fury* | Piercing, Fire | `25` *(`Z01–03`)* / `625` *(`Z09–10`)* | `11s` *(`Z01–03`)* / `220s` *(`Z09–10`)* | Curved Ivory Tusk |
+| 3 | **Giant Spider** | `Z01–03` & `Z09–10` | *Pinning Arrow (Web), Bitterroot Vial (Venom)* | Fire, Slashing | `32` *(`Z01–03`)* / `740` *(`Z09–10`)* | `13s` *(`Z01–03`)* / `265s` *(`Z09–10`)* | Intact Venom Gland |
 | 4 | **Brown Bear** | `Z06–08` & `Z14–15` | *Heavy Cleave, Hold the Line* | Fire, Piercing | `335` *(`Z06–08`)* / `1,250` *(`Z14–15`)* | `94s` *(`Z06–08`)* / `690s` *(`Z14–15`)* | Thick Bear Hide |
 | 5 | **Giant Scorpion** | `Z11–13` | *Venom-Tipped Blade, Artery Slice* | Frost, Bludgeoning | `815` | `350s` | Amber Chitin Stinger |
 | 6 | **Polar Bear** | `Z14–15` & `Z16–18` | *Crushing Blow, Iron Steadfast* | Fire, Piercing | `1,480` *(`Z14–15`)* / `1,940` *(`Z16–18`)* | `830s` *(`Z14–15`)* / `1,440s` *(`Z16–18`)* | Snow-White Pelt |

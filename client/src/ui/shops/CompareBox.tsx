@@ -77,6 +77,10 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
   const regionCapped = Boolean(spell && !alreadyLearned && regionLearnedCount >= MAX_SPELLS_PER_REGION);
   const canAfford = silver >= item.priceSilver;
 
+  const heroIdsMap = equippedByHero[activeHeroId] ?? {};
+  const equippedLeft = heroIdsMap.left_hand ? itemsById[heroIdsMap.left_hand] : null;
+  const equippedRight = heroIdsMap.right_hand ? itemsById[heroIdsMap.right_hand] : null;
+
   let badgeTxt = delta.headline;
   let badgeCls = "border-[#3f4a62] bg-[#171d2c] text-[#dce5f4]";
   if (isSpell && spell) {
@@ -92,6 +96,9 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
     }
   } else if (!isGear) {
     badgeTxt = item.subType;
+  } else if (delta.leftHandBlockedBy2H) {
+    badgeCls = "border-[#9b773b] bg-[#2c210e] text-[#f5cb75]";
+    badgeTxt = "Needs 1H Weapon";
   } else if (sameEquipped) {
     badgeCls = "border-[#8c703b] bg-[#2c2313] text-[#f6dca0]";
     badgeTxt = "= Already Wearing";
@@ -106,10 +113,6 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
     badgeTxt = "★ Empty Slot";
   }
 
-  const heroIdsMap = equippedByHero[activeHeroId] ?? {};
-  const equippedLeft = heroIdsMap.left_hand ? itemsById[heroIdsMap.left_hand] : null;
-  const equippedRight = heroIdsMap.right_hand ? itemsById[heroIdsMap.right_hand] : null;
-
   let footNote = item.subType;
   if (spell) {
     footNote = alreadyLearned
@@ -117,6 +120,8 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
       : regionCapped
         ? `Tier ${spell.region} limit reached (2 of 3 per Region)`
         : `Teaches ${focusHero.name} (Tier ${spell.region} · ${regionLearnedCount}/${MAX_SPELLS_PER_REGION})`;
+  } else if (delta.leftHandBlockedBy2H) {
+    footNote = `Cannot equip with ${equippedRight?.name ?? "2H weapon"} — bag purchase only`;
   } else if (sameEquipped) {
     footNote = `${focusHero.name} already wears this item`;
   } else if (isGear && delta.comparedItem && delta.comparedItem.sellSilver > 0 && item.priceSilver > 0) {
@@ -132,9 +137,11 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
       : regionCapped
         ? `Tier ${spell.region} Full (${MAX_SPELLS_PER_REGION}/2)`
         : `Learn Spell (${item.priceSilver.toLocaleString()}s) →`
-    : isGear
-      ? `Buy for ${focusHero.name} (${item.priceSilver.toLocaleString()}s) →`
-      : `Buy (${item.priceSilver.toLocaleString()}s) →`;
+    : delta.leftHandBlockedBy2H
+      ? `Buy to Party Bag (${item.priceSilver.toLocaleString()}s) →`
+      : isGear
+        ? `Buy for ${focusHero.name} (${item.priceSilver.toLocaleString()}s) →`
+        : `Buy (${item.priceSilver.toLocaleString()}s) →`;
 
   const gridCols = delta.rows.length === 1 ? "grid-cols-1" : delta.rows.length === 3 ? "grid-cols-3" : "grid-cols-2";
 
@@ -160,26 +167,36 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
 
       {/* Scroll-safe Body */}
       <div className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-1.5 pr-0.5">
-        {isGear && (
+        {isGear && (() => {
+          const leftSlotDisplay = delta.leftHandBlockedBy2H && equippedRight ? equippedRight : delta.comparedItem;
+          return (
           <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
             <div
-              {...itemTooltipHandlers(delta.comparedItem, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+              {...itemTooltipHandlers(leftSlotDisplay, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
               className="flex items-center gap-2.5 p-1.5 px-2 rounded border border-[#2b3448] bg-[#121723]/92 min-w-0"
             >
-              {delta.comparedItem ? (
-                <img src={assetUrl(delta.comparedItem.iconPath)} alt="" className="w-11 h-11 sm:w-12 sm:h-12 p-0.5 rounded object-contain border border-[#59492d] bg-[#141822] shrink-0" />
+              {leftSlotDisplay ? (
+                <img src={assetUrl(leftSlotDisplay.iconPath)} alt="" className="w-11 h-11 sm:w-12 sm:h-12 p-0.5 rounded object-contain border border-[#59492d] bg-[#141822] shrink-0" />
               ) : (
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded border border-dashed border-[#3c465c] flex items-center justify-center text-[#6b7892] shrink-0">—</div>
               )}
               <div className="min-w-0 flex-1">
-                <div className="text-[10px] uppercase tracking-wider text-[#96a7c2] font-bold">Currently Wearing</div>
-                <div className="text-[13px] font-bold text-[#f6ebd5] truncate">{delta.comparedItem?.name ?? "Empty Slot"}</div>
+                <div className="text-[10px] uppercase tracking-wider text-[#96a7c2] font-bold">
+                  {delta.leftHandBlockedBy2H ? "Both Hands (2H)" : "Currently Wearing"}
+                </div>
+                <div className="text-[13px] font-bold text-[#f6ebd5] truncate">{leftSlotDisplay?.name ?? "Empty Slot"}</div>
                 <div className="text-[11px] text-[#a7b6ce] truncate">
-                  {delta.comparedItem ? `Equipped · Sell +${delta.comparedItem.sellSilver}s` : "No gear equipped"}
+                  {delta.leftHandBlockedBy2H && equippedRight
+                    ? "2H Weapon blocks Left Hand"
+                    : delta.comparedItem
+                      ? `Equipped · Sell +${delta.comparedItem.sellSilver}s`
+                      : "No gear equipped"}
                 </div>
               </div>
             </div>
-            <span className={`text-[18px] font-extrabold ${delta.primaryDiff > 0 ? "text-[#7aeeb0]" : "text-[#c9a760]"}`}>→</span>
+            <span className={`text-[18px] font-extrabold ${delta.leftHandBlockedBy2H ? "text-[#d99b43]" : delta.primaryDiff > 0 ? "text-[#7aeeb0]" : "text-[#c9a760]"}`}>
+              {delta.leftHandBlockedBy2H ? "✕" : "→"}
+            </span>
             <div
               {...itemTooltipHandlers(item, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
               className={`flex items-center gap-2.5 p-1.5 px-2 rounded border min-w-0 ${sameEquipped ? "border-[#5b6985] bg-[#141925]/92" : "border-[#9e7f47] bg-gradient-to-br from-[#2c2211]/90 to-[#141926]/95"}`}
@@ -192,7 +209,8 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
               </div>
             </div>
           </div>
-        )}
+          );
+        })()}
 
         {showDualWieldToggle && onChangePreferredSlot && (
           <div className="flex items-center justify-between gap-2 px-2 py-1.5 rounded border border-[#3a4256] bg-[#121724]">

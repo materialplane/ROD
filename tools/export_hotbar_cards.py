@@ -41,6 +41,15 @@ SETS = {
         "rel_prefix": "assets/icons/conditions",
         "manifest_name": "conditions-manifest.json",
     },
+    "quest_cards": {
+        "sheets_txt": ROOT / "imageprompts" / "quest-cards.txt",
+        "batch_dir": ROOT / "assets" / "quests" / "batch_sheets",
+        "sheet_prefix": "rod_quest_cards_sheet_",
+        "slices_dir": ROOT / "assets" / "quests" / "slices",
+        "client_dir": ROOT / "client" / "assets" / "icons" / "quests",
+        "rel_prefix": "assets/icons/quests",
+        "manifest_name": "quest-cards-manifest.json",
+    },
 }
 
 

@@ -51,10 +51,36 @@ export const WeaponsSpellsTab: React.FC<WeaponsSpellsTabProps> = ({
             {hero.name}&apos;s Weapon Attacks &amp; Spells
           </h3>
           <div className="text-[12px] text-[#aebad0]">
-            Active Weapon: <strong className="text-[#fae2aa]">{wpn ? wpn.name : "None Equipped (Unarmed)"}</strong> ({dmgLabel})
+            Active Weapon:{" "}
+            {wpn ? (
+              <strong
+                {...itemTooltipHandlers(wpn, {
+                  activeHeroId: heroId,
+                  equippedByHero,
+                  itemsById,
+                })}
+                className="text-[#fae2aa] underline decoration-dotted decoration-[#8c703b] cursor-pointer"
+              >
+                {wpn.name}
+              </strong>
+            ) : (
+              <strong className="text-[#fae2aa]">None Equipped (Unarmed)</strong>
+            )}{" "}
+            ({dmgLabel})
             {offhandWpn && (
               <>
-                {" "}· Off-Hand: <strong className="text-[#fae2aa]">{offhandWpn.name}</strong> ({cleanDamageTypeLabel(offhandWpn.damageType ?? "Physical")})
+                {" "}· Off-Hand:{" "}
+                <strong
+                  {...itemTooltipHandlers(offhandWpn, {
+                    activeHeroId: heroId,
+                    equippedByHero,
+                    itemsById,
+                  })}
+                  className="text-[#fae2aa] underline decoration-dotted decoration-[#8c703b] cursor-pointer"
+                >
+                  {offhandWpn.name}
+                </strong>{" "}
+                ({cleanDamageTypeLabel(offhandWpn.damageType ?? "Physical")})
               </>
             )}
           </div>
@@ -64,11 +90,12 @@ export const WeaponsSpellsTab: React.FC<WeaponsSpellsTabProps> = ({
       {/* 0 MP Weapon Attack Modes */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
         {attackModes.map((mode) => (
-          <div key={mode.spec.id} className="rounded border border-[#343c4e] bg-[#141925] p-3 flex items-center gap-3">
-            <div
-              {...weaponAttackTooltipHandlers(wpn?.subType, mode.slot, wpn?.damageType)}
-              className="w-[46px] h-[46px] rounded border border-[#8c703b] hover:border-[#f4d182] bg-[#0b0e14] overflow-hidden flex items-center justify-center shrink-0 cursor-pointer transition-colors"
-            >
+          <div
+            key={mode.spec.id}
+            {...weaponAttackTooltipHandlers(wpn?.subType, mode.slot, wpn?.damageType)}
+            className="rounded border border-[#343c4e] hover:border-[#8c703b] bg-[#141925] p-3 flex items-center gap-3 cursor-pointer transition-colors"
+          >
+            <div className="w-[46px] h-[46px] rounded border border-[#8c703b] bg-[#0b0e14] overflow-hidden flex items-center justify-center shrink-0">
               <img
                 src={assetUrl(mode.iconPath)}
                 alt={mode.spec.name}
@@ -89,7 +116,14 @@ export const WeaponsSpellsTab: React.FC<WeaponsSpellsTabProps> = ({
 
       {/* Dual Wielding Follow-Up Note */}
       {offhandWpn && (
-        <div className="rounded border border-[#725b34] bg-[#211a0f]/90 p-2.5 px-3 flex items-center gap-3">
+        <div
+          {...itemTooltipHandlers(offhandWpn, {
+            activeHeroId: heroId,
+            equippedByHero,
+            itemsById,
+          })}
+          className="rounded border border-[#725b34] hover:border-[#e6c170] bg-[#211a0f]/90 p-2.5 px-3 flex items-center gap-3 cursor-pointer transition-colors"
+        >
           <img src={assetUrl(offhandWpn.iconPath)} alt={offhandWpn.name} className="w-9 h-9 object-contain rounded border border-[#5d4c30] bg-[#0b0e14] p-0.5 shrink-0" draggable={false} />
           <div className="min-w-0">
             <div className="text-[10.5px] font-bold uppercase tracking-wider text-[#e5c273]">

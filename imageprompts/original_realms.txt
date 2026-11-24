@@ -1,0 +1,93 @@
+# ROD -- Pure-Terrain 4K Realm Overworld Prompts (Option B: Zero Baked-In Locations)
+# Target Script: imageprompts/premium/generate_image_1x1_4k_pro.py (1:1 aspect ratio, 4K -> doubled to 8192x8192)
+# Art Mandate: Crisp 90-degree straight-down 2.5D digital elevation relief. ZERO buildings, roads, ships, text, or grids.
+# Navigable Scale Rule: Keep 85-90%+ of land open & playable; mountains/cliffs appear ONLY as small, purposeful hills or cliff outcrops (for caves, passes, or ridges--NEVER massive mountain blobs covering 20-30% of the map).
+
+================================================================================
+MAP 1: SOUTHERN HEARTLANDS & SALTMARSH COAST (Regions 1 & 2)
+================================================================================
+A direct 90-degree straight-down overhead top-down high-fantasy overland map in a 1:1 square aspect ratio at maximum 4K high-definition clarity, featuring rich 2.5D topological elevation relief. A large continent landmass filling 80-85% of the square frame (with only a narrow ocean border around all four sides, never a small shrunken island) encircled by calm, glassy, deep navy-sapphire ocean water transitioning smoothly into clear turquoise coastal shallows (ZERO crashing waves, ZERO white seafoam splashes, and ZERO frozen ripples).
+
+ORGANIC TERRAIN & BIOME LAYOUT (SMALL PURPOSEFUL ROCK HILLS ONLY, NO STRUCTURES):
+- Eastern & Central Heartland: Rolling emerald grasslands and golden meadows filled naturally with several mid-sized forests AND smaller scattered tree groves in between across the grass (never one huge empty grassy void). Make all trees much smaller--compact miniature top-down oak and pine crowns with ZERO visible brown trunks, with clear walkable paths between groves. In the eastern hills, add one small, compact rocky slate hill cluster (strictly NO sprawling mountain range).
+- Central River & Valleys: A wide crystal sapphire-blue river winds south across the green valleys into a sheltered southern harbor bay, flanked by flat walkable riverbanks.
+- Western & Southwestern Saltmarsh Coast: Solid, connected, walkable coastal marshland turf of emerald wetlands and mossy ground threaded by small shallow streams and marsh ponds (MUST be continuous walkable land--NO broken archipelago of floating islands) ending in a sheltered coastal bay. Keep surrounding ocean clean, uniform deep navy-sapphire. (Strictly NO brown mud puddles or washed-out beige sludge.)
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA CONTINENT-SCALE DIGITAL ART):
+- Crisp, high-definition stylized high-fantasy overland cartography inspired by League of Legends / Runeterra: bold readable terrain shapes, sculpted cliffs with clean chiseled stone planes, vibrant emerald grass and sapphire river colors, and much smaller miniature top-down forests & scattered tree groves (ZERO giant oversized trees, ZERO visible brown trunks, and ZERO blurry smudge mats).
+- Dramatic warm golden-hour directional sunlight rim-lighting hill crests, cliff faces, tree canopies, and shorelines, casting crisp chiaroscuro shadows across valleys so every terrain step pops with rich 2.5D physical elevation.
+- STRICTLY ZERO SKETCHY LINES, ZERO COLORED PENCIL, ZERO GRAIN: Strictly NO scratchy ink outlines, NO colored-pencil or crayon texture, NO messy watercolor bleed, NO canvas weave, NO stippling, NO film grain, NO glossy plastic 3D toy shine, and NO blur. Pure silky-smooth, crisp stylized digital clarity engineered to stay crystal clear when doubled to 8192x8192 under close-up game zoom.
+
+STRICT VISUAL NEGATIVES (PURE UNBLEMISHED TERRAIN -- LOCATIONS ADDED BY ENGINE):
+- PURE 90-DEGREE STRAIGHT-DOWN TOP-DOWN ONLY: Zero isometric tilt, zero 3/4 wall angles, zero horizon, zero sky, zero clouds.
+- NO LAND TOUCHING BORDERS: 100% surrounded by open ocean water on all four sides.
+- ZERO BUILDINGS OR STRUCTURES: Strictly NO castles, NO towns, NO huts, NO towers, NO ruins, NO caves, NO docks, NO bridges, and NO portals.
+- ZERO INFRASTRUCTURE OR LIVING BEINGS: Strictly NO roads, NO dirt paths, NO fences, NO ships, NO boats, NO characters, and NO monsters.
+- ZERO TEXT, WAVES, OR GRIDS: Strictly NO crashing white waves, NO seafoam splashes, NO place names, NO labels, NO compass rose, NO decorative borders, NO square grid lines, NO hex grid lines, and NO pixel art.
+
+
+================================================================================
+MAP 2: THORNWALL HIGHLANDS & VERDANT WEALD (Regions 3 & 4)
+================================================================================
+A direct 90-degree straight-down overhead top-down high-fantasy overland map in a 1:1 square aspect ratio at maximum 4K high-definition clarity, featuring rich 2.5D topological elevation relief. A large continent landmass filling 80-85% of the square frame (with only a narrow ocean border around all four sides, never a small shrunken island) encircled by calm, glassy, deep navy-sapphire ocean water transitioning smoothly into clear turquoise coastal shallows (ZERO crashing waves, ZERO white seafoam splashes, and ZERO frozen ripples).
+
+ORGANIC TERRAIN & BIOME LAYOUT (REAL CONNECTED BIOMES, NATURAL SLOPED HILLS ONLY, NO STRUCTURES):
+- Western Thornwall Highland Moors: Smooth, clean golden-ochre highland grasslands, warm olive hills, gently sloped stony ridges, and compact chiseled gray-slate rock hill outcrops (solid rock slopes with NO dark holes, NO caves, and NO sheer flat-top tabletop plateaus).
+- Central Valley & River: A crystal sapphire-blue river winds north-to-south from open coastal inlets across rolling olive-and-emerald meadows between the western highlands and eastern woods, flanked by flat walkable riverbanks (never flowing out from underneath rocks or cliffs).
+- Eastern Verdant Weald Temperate Forest: Varied, organic woodland groves and smaller scattered connecting copses --compact miniature 90-degree oak and pine crowns curving naturally around mossy glades, sunlit clearings, and gentle green hills (ZERO giant oversized trees, ZERO visible brown trunks, ZERO uniform tree grids). One quiet eastern hollow holds slightly deeper emerald-and-moss shade. (Strictly NO brown mud puddles or washed-out beige sludge.)
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA CONTINENT-SCALE DIGITAL ART):
+- Crisp, high-definition stylized high-fantasy overland cartography inspired by League of Legends / Runeterra: bold readable terrain shapes, sculpted cliffs with clean chiseled stone planes, smooth golden-olive highland plains grading organically into deep emerald woods, and compact miniature top-down forests & scattered tree groves (ZERO giant oversized trees, ZERO visible brown trunks, and ZERO blurry smudge mats).
+- Dramatic warm golden-hour directional sunlight rim-lighting hill crests, cliff faces, tree canopies, and shorelines, casting crisp chiaroscuro shadows across valleys so every terrain step pops with rich 2.5D physical elevation.
+- STRICTLY ZERO SKETCHY LINES, ZERO COLORED PENCIL, ZERO GRAIN: Strictly NO scratchy ink outlines, NO colored-pencil or crayon texture, NO messy watercolor bleed, NO canvas weave, NO stippling, NO film grain, NO glossy plastic 3D toy shine, and NO blur. Pure silky-smooth, crisp stylized digital clarity engineered to stay crystal clear when doubled to 8192x8192 under close-up game zoom.
+
+STRICT VISUAL NEGATIVES (PURE UNBLEMISHED TERRAIN -- LOCATIONS ADDED BY ENGINE):
+- PURE 90-DEGREE STRAIGHT-DOWN TOP-DOWN ONLY: Zero isometric tilt, zero 3/4 wall angles, zero horizon, zero sky, zero clouds.
+- NO LAND TOUCHING BORDERS: 100% surrounded by open ocean water on all four sides.
+- ZERO BUILDINGS OR STRUCTURES: Strictly NO castles, NO towns, NO keeps, NO towers, NO mines, NO shrines, NO ruins, NO caves, NO rock holes, NO bridges, and NO portals.
+- ZERO INFRASTRUCTURE OR LIVING BEINGS: Strictly NO roads, NO trails, NO fences, NO ships, NO boats, NO people, and NO monsters.
+- ZERO TEXT, WAVES, OR GRIDS: Strictly NO crashing white waves, NO seafoam splashes, NO place names, NO labels, NO compass rose, NO decorative borders, NO square grid lines, NO hex grid lines, and NO pixel art.
+
+
+================================================================================
+MAP 3: SUN-SCORCHED ISLES & IRONCREST HIGHLANDS (Regions 5 & 6)
+================================================================================
+A direct 90-degree straight-down overhead top-down high-fantasy overland map in a 1:1 square aspect ratio at maximum 4K high-definition clarity, featuring rich 2.5D topological elevation relief. A large continent landmass filling 80-85% of the square frame (with only a narrow ocean border around all four sides, never a small shrunken island) encircled by calm, glassy, deep navy-sapphire ocean water transitioning smoothly into clear turquoise coastal shallows (ZERO crashing waves, ZERO white seafoam splashes, and ZERO frozen ripples).
+
+ORGANIC TERRAIN & BIOME LAYOUT (SMALL PURPOSEFUL ROCK HILLS ONLY, NO STRUCTURES):
+- Southern Sun-Scorched Peninsula (lower half): Smooth warm golden-sand plains and gentle undulating desert hills, compact weathered sandstone rock outcrops, and one small emerald grassy oasis pond ringed by compact miniature 90-degree overhead trees (keeping 85%+ open navigable sand and hills).
+- Central Coastal Strait: A winding crystal turquoise sea channel cuts across the middle, cleanly separating the southern desert peninsula from the northern green highlands.
+- Northern Ironcrest Highlands (upper half): Rolling green-and-olive highland valleys, clear sapphire mountain lakes, scattered woodland groves & smaller copses of compact miniature 90-degree oak and pine crowns (ZERO visible brown trunks), and compact chiseled gray granite hill outcrops (strictly NO sprawling mountain range).
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA CONTINENT-SCALE DIGITAL ART):
+- Crisp, high-definition stylized high-fantasy overland cartography inspired by League of Legends / Runeterra: bold readable terrain shapes, sculpted cliffs with clean chiseled stone planes, smooth golden sand and emerald highland colors, and compact miniature top-down tree groves (ZERO giant oversized trees, ZERO visible brown trunks, and ZERO blurry smudge mats).
+- Dramatic warm golden-hour directional sunlight rim-lighting hill crests, cliff faces, tree canopies, and shorelines, casting crisp chiaroscuro shadows across valleys so every terrain step pops with rich 2.5D physical elevation.
+- STRICTLY ZERO SKETCHY LINES, ZERO COLORED PENCIL, ZERO GRAIN: Strictly NO scratchy ink outlines, NO colored-pencil or crayon texture, NO messy watercolor bleed, NO canvas weave, NO stippling, NO film grain, NO glossy plastic 3D toy shine, and NO blur. Pure silky-smooth, crisp stylized digital clarity engineered to stay crystal clear when doubled to 8192x8192 under close-up game zoom.
+
+STRICT VISUAL NEGATIVES (PURE UNBLEMISHED TERRAIN -- LOCATIONS ADDED BY ENGINE):
+- PURE 90-DEGREE STRAIGHT-DOWN TOP-DOWN ONLY: Zero isometric tilt, zero 3/4 wall angles, zero horizon, zero sky, zero clouds.
+- NO LAND TOUCHING BORDERS: 100% surrounded by open ocean water on all four sides.
+- ZERO BUILDINGS OR STRUCTURES: Strictly NO castles, NO towns, NO harbors, NO piers, NO forts, NO forges, NO bridges, NO caves, NO rock holes, NO tunnels, and NO portals.
+- ZERO INFRASTRUCTURE OR LIVING BEINGS: Strictly NO roads, NO trails, NO fences, NO ships, NO boats, NO characters, and NO monsters.
+- ZERO TEXT, WAVES, OR GRIDS: Strictly NO crashing white waves, NO seafoam splashes, NO place names, NO labels, NO compass rose, NO decorative borders, NO square grid lines, NO hex grid lines, and NO pixel art.
+
+================================================================================
+MAP 4: FROSTBOUND TUNDRA & VOLCANIC ASHLANDS (Regions 7 & 8)
+================================================================================
+A direct 90-degree straight-down overhead top-down high-fantasy overland map in a 1:1 square aspect ratio at maximum 4K high-definition clarity, featuring rich 2.5D topological elevation relief. A large northern continent landmass filling 80-85% of the square frame (with only a narrow ocean border around all four sides, never a small shrunken island) encircled by calm, still, deep navy-indigo arctic ocean water smoothly lightening toward icy coastal shallows with scattered flat sea ice along the northern shores (ZERO crashing waves, ZERO white seafoam splashes, and ZERO frozen surf).
+
+ORGANIC TERRAIN & BIOME LAYOUT (REAL SUB-ARCTIC TUNDRA TO VOLCANIC BASALT BIOME TRANSITION):
+- Western & Northern Frostbound Tundra & Taiga: Smooth sculpted white snowfields and undulating frozen tundra valleys broken naturally by frozen lakes, compact crystalline turquoise-slate glacier bluffs along sheltered icy fjords, and organic varied groves + scattered smaller copses of miniature frost-dusted black conifer crowns (ZERO visible brown trunks, ZERO giant oversized trees).
+- Central Pass & Eastern Volcanic Ashlands: Compact dark slate and basalt rock hills (~8-10% max, smoothly sloped solid rock with NO dark holes or caves) mark a natural highland divide where snow melts cleanly into smooth charcoal-gray ash plains, weathered dark basalt terraces, and a broad obsidian coastal headland with calm dark slate and basalt plains.
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA CONTINENT-SCALE DIGITAL ART):
+- Crisp, high-definition stylized high-fantasy overland cartography inspired by League of Legends / Runeterra: bold readable terrain shapes, smooth snow-and-ash terrain gradients, sculpted cliffs with clean chiseled basalt and ice planes, and compact miniature top-down conifer groves (ZERO giant oversized trunked trees and ZERO blurry smudge mats).
+- Dramatic cool-gold directional sunlight rim-lighting glacier bluffs, snowdrifts, coastal cliffs, and basalt ridges, casting crisp chiaroscuro shadows across valleys so every terrain step pops with rich 2.5D physical elevation.
+- STRICTLY ZERO SKETCHY LINES, ZERO COLORED PENCIL, ZERO GRAIN: Strictly NO scratchy ink outlines, NO colored-pencil or crayon texture, NO messy watercolor bleed, NO canvas weave, NO stippling, NO film grain, NO glossy plastic 3D toy shine, and NO blur. Pure silky-smooth, crisp stylized digital clarity engineered to stay crystal clear when doubled to 8192x8192 under close-up game zoom.
+
+STRICT VISUAL NEGATIVES (PURE UNBLEMISHED TERRAIN -- LOCATIONS ADDED BY ENGINE):
+- PURE 90-DEGREE STRAIGHT-DOWN TOP-DOWN ONLY: Zero isometric tilt, zero 3/4 wall views, zero horizon, zero sky, zero clouds.
+- NO LAND TOUCHING BORDERS: 100% surrounded by open ocean water on all four sides.
+- ZERO BUILDINGS OR STRUCTURES: Strictly NO castles, NO keeps, NO towns, NO docks, NO coliseums, NO crypts, NO caves, NO tents, NO ruins, and NO portals.
+- ZERO INFRASTRUCTURE OR LIVING BEINGS: Strictly NO roads, NO trails, NO walls, NO ships, NO shipwrecks, NO characters, and NO monsters.
+- ZERO TEXT, WAVES, OR GRIDS: Strictly NO crashing white waves, NO seafoam splashes, NO place names, NO labels, NO compass rose, NO decorative borders, NO square grid lines, NO hex grid lines, and NO pixel art.

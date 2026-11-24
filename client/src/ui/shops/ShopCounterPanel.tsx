@@ -328,6 +328,9 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                     } else if (!itemSlotFor(selected)) {
                       badge = "Usable";
                       badgeColor = "text-[#f1d99d] font-extrabold";
+                    } else if (d.leftHandBlockedBy2H) {
+                      badge = "Needs 1H";
+                      badgeColor = "text-[#f5c266] font-extrabold";
                     } else if (d.primaryDiff > 0) {
                       badge = `▲ +${d.primaryDiff}`;
                       badgeColor = "text-[#79f0b0] font-extrabold";
@@ -452,34 +455,41 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
               <div className="min-w-0 flex-1">
                 <div className="text-[13.5px] font-bold text-[#f6e7c3]">
                   {activeHero.name}{" "}
-                  <span className="text-[12px] text-[#84f3ba] ml-1">{confirmDelta?.headline ?? ""}</span>
+                  <span className={`text-[12px] ml-1 ${confirmDelta?.leftHandBlockedBy2H ? "text-[#f5c266]" : "text-[#84f3ba]"}`}>
+                    {confirmDelta?.leftHandBlockedBy2H ? "Needs 1H Weapon" : confirmDelta?.headline ?? ""}
+                  </span>
                 </div>
                 <div className="text-[11.5px] text-[#9aa8be] truncate">
-                  {confirmSlot === "left_hand" && confirmEntry.category === "weapon" ? "Off-Hand (Dual Wield) · " : ""}
-                  Replaces: {confirmOldItem?.name ?? "Empty Slot"}
+                  {confirmDelta?.leftHandBlockedBy2H
+                    ? `Blocked by 2H weapon in Right Hand — buy to Shared Party Bag`
+                    : `${confirmSlot === "left_hand" && confirmEntry.category === "weapon" ? "Off-Hand (Dual Wield) · " : ""}Replaces: ${confirmOldItem?.name ?? "Empty Slot"}`}
                 </div>
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  onBuy({ entry: confirmEntry, mode: "equip", heroId: activeHeroId, oldItem: confirmOldItem, targetSlot: confirmSlot ?? undefined });
-                  setConfirmEntry(null);
-                }}
-                className="px-3 py-1.5 rounded border border-[#e6c170] bg-[#7f5d22] hover:brightness-110 text-[#fff4d4] text-[12px] font-bold cursor-pointer"
-              >
-                Equip Now
-              </button>
-              {confirmOldItem && confirmOldItem.sellSilver > 0 && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    onBuy({ entry: confirmEntry, mode: "equip_sell_old", heroId: activeHeroId, oldItem: confirmOldItem, targetSlot: confirmSlot ?? undefined });
-                    setConfirmEntry(null);
-                  }}
-                  className="px-3 py-1.5 rounded border border-[#4aa376] bg-[#153526] hover:brightness-110 text-[#b4f5d2] text-[12px] font-bold cursor-pointer"
-                >
-                  Equip &amp; Sell Old (+{confirmOldItem.sellSilver}s)
-                </button>
+              {!confirmDelta?.leftHandBlockedBy2H && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onBuy({ entry: confirmEntry, mode: "equip", heroId: activeHeroId, oldItem: confirmOldItem, targetSlot: confirmSlot ?? undefined });
+                      setConfirmEntry(null);
+                    }}
+                    className="px-3 py-1.5 rounded border border-[#e6c170] bg-[#7f5d22] hover:brightness-110 text-[#fff4d4] text-[12px] font-bold cursor-pointer"
+                  >
+                    Equip Now
+                  </button>
+                  {confirmOldItem && confirmOldItem.sellSilver > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onBuy({ entry: confirmEntry, mode: "equip_sell_old", heroId: activeHeroId, oldItem: confirmOldItem, targetSlot: confirmSlot ?? undefined });
+                        setConfirmEntry(null);
+                      }}
+                      className="px-3 py-1.5 rounded border border-[#4aa376] bg-[#153526] hover:brightness-110 text-[#b4f5d2] text-[12px] font-bold cursor-pointer"
+                    >
+                      Equip &amp; Sell Old (+{confirmOldItem.sellSilver}s)
+                    </button>
+                  )}
+                </>
               )}
             </div>
 

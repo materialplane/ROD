@@ -33,6 +33,7 @@ export interface StatusEffectState {
 export interface BattleStatusUiMeta {
   kind: StatusAilmentKind;
   glyph: string;
+  iconPath: string;
   label: string;
   isBuff: boolean;
   pillCls: string;
@@ -291,6 +292,7 @@ export interface BattleHeroUnit {
   className: string;
   level: number;
   slotIdx: number;
+  speed?: number;
   maxHp: number;
   curHp: number;
   maxMp: number;
@@ -377,6 +379,9 @@ export interface BattleEnemyUnit {
   flipX: boolean;
   iconPath: string;
   actedThisRound: boolean;
+  speed?: number;
+  packDamageMul?: number;
+  staggerImmuneUntilAction?: boolean;
   struckThisRoundByOrin?: boolean;
   markedByRegalCommand?: boolean;
   armorBrokenByOrinTurns?: number;
@@ -406,6 +411,7 @@ export interface TurnTimelineEntry {
 }
 
 export interface BattleState {
+  battleId?: string;
   stage: BattleStageConfig;
   biomeName: string;
   zoneName: string;
@@ -416,6 +422,7 @@ export interface BattleState {
   enemies: BattleEnemyUnit[];
   consumedPotions: Record<string, number>;
   activeActor: { kind: "hero"; heroId: HeroId } | { kind: "enemy"; instanceId: string };
+  roundQueue?: Array<{ kind: "hero"; heroId: HeroId } | { kind: "enemy"; instanceId: string }>;
   phase: "player_turn" | "animating" | "victory" | "defeat" | "fled";
   bannerText: string;
   totalXpEarned: number;
@@ -423,4 +430,5 @@ export interface BattleState {
   droppedTradeGoods: Record<string, number>;
   galeCanopyDodgeTurns?: number;
   turnCounter: number;
+  combatLog?: string[];
 }

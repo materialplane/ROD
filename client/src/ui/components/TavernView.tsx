@@ -5,6 +5,7 @@ import { getHeroById } from "../heroes";
 import type { TavernTrackInfo } from "../tavernLore";
 import type { HeroId, NpcLocationGroup, QuestEntry, WorldLocation } from "../types";
 import { CornerFiligree, HIGHCROWN_ID, formatRewardLine, sanitizeRoleTitle } from "./LocationInteriorModal";
+import { QuestCardThumb } from "./QuestCardThumb";
 
 interface TavernPerson {
   id: string;
@@ -24,6 +25,7 @@ interface TavernViewProps {
   partyOrder: HeroId[];
   partyLevel: number;
   acceptedQuestIds: string[];
+  completedQuestIds?: string[];
   onAcceptQuest: (quest: QuestEntry) => void;
   onOpenParty: () => void;
   onReturnToTown: () => void;
@@ -82,6 +84,7 @@ export const TavernView: React.FC<TavernViewProps> = ({
   partyOrder,
   partyLevel,
   acceptedQuestIds,
+  completedQuestIds = [],
   onAcceptQuest,
   onOpenParty,
   onReturnToTown,
@@ -197,12 +200,16 @@ export const TavernView: React.FC<TavernViewProps> = ({
   );
 
   const acceptedSet = new Set(acceptedQuestIds);
+  const completedSet = new Set(completedQuestIds);
+  const questCompleted = Boolean(selectedPerson?.quest && completedSet.has(selectedPerson.quest.questId));
   const questAccepted = Boolean(selectedPerson?.quest && acceptedSet.has(selectedPerson.quest.questId));
 
   const renderPersonButton = (person: TavernPerson) => {
     const isSelected = selectedPersonId === person.id;
     const hasQuest = Boolean(person.quest);
-    const done = Boolean(person.quest && acceptedSet.has(person.quest.questId));
+    const qCompleted = Boolean(person.quest && completedSet.has(person.quest.questId));
+    const qAccepted = Boolean(person.quest && acceptedSet.has(person.quest.questId));
+    const done = qCompleted || qAccepted;
     return (
       <button
         key={person.id}
@@ -240,10 +247,14 @@ export const TavernView: React.FC<TavernViewProps> = ({
               <span
                 className={[
                   "px-1.5 py-0.5 rounded-sm border text-[10px] font-bold uppercase shrink-0",
-                  done ? "bg-[#162a21] border-[#3c7358] text-[#8be0b2]" : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
+                  qCompleted
+                    ? "bg-[#2a2214] border-[#96783b] text-[#f5d88f]"
+                    : done
+                      ? "bg-[#162a21] border-[#3c7358] text-[#8be0b2]"
+                      : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
                 ].join(" ")}
               >
-                {done ? "✓" : "!"}
+                {qCompleted ? "★" : done ? "✓" : "!"}
               </span>
             )}
           </div>
@@ -532,26 +543,36 @@ export const TavernView: React.FC<TavernViewProps> = ({
 
                   {selectedPerson.quest && (
                     <div className="border-t border-[#2c3446] pt-2.5 mt-1 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                      <div className="min-w-0">
-                        <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#d9b468]">
-                          {selectedPerson.quest.title}
-                        </div>
-                        <div className="text-[12px] text-[#b8c8df] mt-0.5">
-                          Reward: {formatRewardLine(selectedPerson.quest.reward)}
+                      <div className="min-w-0 flex items-center gap-2.5">
+                        <QuestCardThumb
+                          cardId={selectedPerson.quest.questId}
+                          fallbackPath={selectedPerson.quest.assetPath}
+                          badgeCardId={questCompleted ? "quest_complete_royal_seal" : undefined}
+                          className="w-[54px] h-[54px] rounded border border-[#967741] bg-[#090c12] shrink-0"
+                        />
+                        <div className="min-w-0">
+                          <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#d9b468]">
+                            {selectedPerson.quest.title}
+                          </div>
+                          <div className="text-[12px] text-[#b8c8df] mt-0.5">
+                            Reward: {formatRewardLine(selectedPerson.quest.reward)}
+                          </div>
                         </div>
                       </div>
                       <button
                         type="button"
-                        disabled={questAccepted}
+                        disabled={questAccepted || questCompleted}
                         onClick={() => onAcceptQuest(selectedPerson.quest!)}
                         className={[
                           "px-4 py-2 rounded border text-[12px] font-bold uppercase tracking-wider shrink-0 transition-colors",
-                          questAccepted
-                            ? "border-[#3c785b] bg-[#142920] text-[#91e3b8] cursor-default"
-                            : "border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] cursor-pointer",
+                          questCompleted
+                            ? "border-[#96783b] bg-[#261f12] text-[#f5d88f] cursor-default"
+                            : questAccepted
+                              ? "border-[#3c785b] bg-[#142920] text-[#91e3b8] cursor-default"
+                              : "border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] cursor-pointer",
                         ].join(" ")}
                       >
-                        {questAccepted ? "✓ Quest Accepted" : "Accept Quest"}
+                        {questCompleted ? "★ Completed" : questAccepted ? "✓ Quest Accepted" : "Accept Quest"}
                       </button>
                     </div>
                   )}

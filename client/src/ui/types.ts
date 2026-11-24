@@ -139,6 +139,9 @@ export interface SaveSlotData {
   partyOrder?: HeroId[];
   discoveredLocations?: string[];
   acceptedQuestIds?: string[];
+  completedQuestIds?: string[];
+  activeOutpostHunts?: ActiveOutpostHunt[];
+  completedOutpostHunts?: number;
   sealedPortalIds?: string[];
   silver?: number;
   equippedByHero?: EquippedGearMap;
@@ -323,6 +326,24 @@ export interface QuestEntry {
   markerId?: string;
   markerName?: string;
   assetPath?: string;
+}
+
+export interface ActiveOutpostHunt {
+  huntId: string;
+  outpostId: string;
+  outpostName: string;
+  zoneNum: number;
+  mobId: string;
+  mobName: string;
+  mobIconPath: string;
+  isElite?: boolean;
+  biomeHints: string[];
+  killsRequired: number;
+  killsProgress: number;
+  rewardSilver: number;
+  rewardXp: number;
+  rewardConsumableId: string;
+  rewardConsumableQty: number;
 }
 
 export interface AudioSettings {

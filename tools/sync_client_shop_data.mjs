@@ -163,12 +163,12 @@ for (const group of npcsDoc.locations) {
       const copy = { ...n };
       delete copy.shopType;
       delete copy.shopLabel;
-      if (tierLabel && typeof copy.roleTitle === "string" && /Steps?\s*\d+/i.test(copy.roleTitle)) {
-        copy.roleTitle = copy.roleTitle.replace(/\(\s*(?:Gear\s+)?Steps?\s*\d+(?:\s*[–-]\s*\d+)?([^)]*)\)/gi, `(${tierLabel}$1)`);
+      if (tierLabel && typeof copy.roleTitle === "string" && /(?:Gear\s+)?(?:Steps?|Tiers?)\s*\d+/i.test(copy.roleTitle)) {
+        copy.roleTitle = copy.roleTitle.replace(/\(\s*(?:Gear\s+)?(?:Steps?|Tiers?)\s*\d+(?:\s*[–-]\s*\d+)?([^)]*)\)/gi, `(${tierLabel}$1)`);
       }
       if (tierLabel && Array.isArray(copy.servicesOffered)) {
         copy.servicesOffered = copy.servicesOffered.map((s) =>
-          s.replace(/\(\s*(?:Gear\s+)?Steps?\s*\d+(?:\s*[–-]\s*\d+)?([^)]*)\)/gi, `(${tierLabel}$1)`)
+          s.replace(/\(\s*(?:Gear\s+)?(?:Steps?|Tiers?)\s*\d+(?:\s*[–-]\s*\d+)?([^)]*)\)/gi, `(${tierLabel}$1)`)
         );
       }
       if (spTierLabel && typeof copy.roleTitle === "string" && /Caster Outfitter/i.test(copy.roleTitle)) {

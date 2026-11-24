@@ -385,6 +385,9 @@ interface PartyMenuModalProps {
   disciplinesByHero?: Partial<Record<HeroId, import("../types").HeroDisciplinesEntry>>;
   chosenDisciplinesByHero?: import("../types").ChosenDisciplinesMap;
   acceptedQuestIds: string[];
+  completedQuestIds?: string[];
+  activeOutpostHunts?: import("../types").ActiveOutpostHunt[];
+  completedOutpostHunts?: number;
   questsCatalog: QuestEntry[];
   worldLocations: WorldLocation[];
   discoveredLocations: string[];
@@ -398,6 +401,7 @@ interface PartyMenuModalProps {
   onResetHeroStats: (heroId: HeroId) => void;
   onChangeOrder: (nextOrder: HeroId[]) => void;
   onAbandonQuest: (questId: string) => void;
+  onAbandonOutpostHunt?: (outpostId: string) => void;
   onSaveGame: () => void;
   onOpenSettings: () => void;
   onClose: () => void;
@@ -428,6 +432,9 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
   disciplinesByHero,
   chosenDisciplinesByHero,
   acceptedQuestIds,
+  completedQuestIds = [],
+  activeOutpostHunts = [],
+  completedOutpostHunts = 0,
   questsCatalog,
   worldLocations,
   discoveredLocations,
@@ -441,6 +448,7 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
   onResetHeroStats,
   onChangeOrder,
   onAbandonQuest,
+  onAbandonOutpostHunt,
   onSaveGame,
   onOpenSettings,
   onClose,
@@ -643,6 +651,12 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
             <InventoryBagTab
               partyOrder={partyOrder}
               selectedHeroId={selectedHeroId}
+              level={level}
+              heroLevels={heroLevels}
+              heroSpentAttrs={heroSpentAttrs}
+              socketsByHero={socketsByHero}
+              heroHpPct={heroHpPct}
+              heroMpPct={heroMpPct}
               bagCounts={bagCounts}
               tradeGoodCounts={tradeGoodCounts}
               itemsById={itemsById}
@@ -657,10 +671,15 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
           {activeTab === "journal" && (
             <QuestJournalTab
               acceptedQuestIds={acceptedQuestIds}
+              completedQuestIds={completedQuestIds}
+              activeOutpostHunts={activeOutpostHunts}
+              completedOutpostHunts={completedOutpostHunts}
               questsCatalog={questsCatalog}
               worldLocations={worldLocations}
               sealedPortalIds={sealedPortalIds}
+              itemsById={itemsById}
               onAbandonQuest={onAbandonQuest}
+              onAbandonOutpostHunt={onAbandonOutpostHunt}
             />
           )}
 

@@ -22,6 +22,7 @@ import type { BattleState } from "./battle/battleTypes";
 import { DEFAULT_PARTY_ORDER, getHeroById, normalizePartyOrder } from "./heroes";
 import {
   applyHeroXpGain,
+  computeHeroVitals,
   getAveragePartyLevel,
   getHeroAttributes,
   getHeroLevel,
@@ -34,7 +35,9 @@ import {
 } from "./party/partyLogic";
 import type { BuyConfirmChoice } from "./shops/ShopCounterPanel";
 import { countRegionSpellsForHero, itemSlotForHero, MAX_SPELLS_PER_REGION } from "./shops/shopLogic";
+import { GLOBAL_ACTIVE_QUEST_LIMIT } from "./quests/outpostHunts";
 import type {
+  ActiveOutpostHunt,
   AudioSettings,
   BattleConfigData,
   ChosenDisciplinesMap,
@@ -86,14 +89,35 @@ function computeHighcrownSpawn(
 export const STARTING_CAMPAIGN_SILVER = 250;
 
 export const App: React.FC = () => {
+  const isCombatSandbox =
+    typeof window !== "undefined" &&
+    !window.rodApi &&
+    window.location.protocol.startsWith("http") &&
+    new URLSearchParams(window.location.search).get("sandbox") === "combat";
+
   const [screen, setScreen] = useState<"title" | "game">("title");
   const [restoringSession, setRestoringSession] = useState<boolean>(() => {
+    if (isCombatSandbox) return false;
     try {
       return typeof window !== "undefined" && !window.rodApi && sessionStorage.getItem(SESSION_ACTIVE_KEY) === "1";
     } catch {
       return false;
     }
   });
+  const [sandboxBattle, setSandboxBattle] = useState<BattleState | null>(null);
+  const [sandboxViewCfg, setSandboxViewCfg] = useState<{
+    partyLevel: number;
+    heroLevels: Partial<Record<HeroId, number>>;
+    learnedSpellIds: string[];
+    bagCounts: Record<string, number>;
+  } | null>(null);
+  const sandboxSnapshotRef = useRef<BattleState | null>(null);
+  const sandboxMetaRef = useRef<{
+    zoneCode: number;
+    biomeName: string;
+    startMs: number;
+    enemies: Array<{ name: string; level: number; maxHp: number }>;
+  } | null>(null);
   const [fading, setFading] = useState(false);
 
   const [latestSave, setLatestSave] = useState<SaveSlotData | null>(null);
@@ -144,6 +168,9 @@ export const App: React.FC = () => {
   const [interiorTrail, setInteriorTrail] = useState<string[]>([]);
   const [innResting, setInnResting] = useState(false);
   const [acceptedQuestIds, setAcceptedQuestIds] = useState<string[]>([]);
+  const [completedQuestIds, setCompletedQuestIds] = useState<string[]>([]);
+  const [activeOutpostHunts, setActiveOutpostHunts] = useState<ActiveOutpostHunt[]>([]);
+  const [completedOutpostHunts, setCompletedOutpostHunts] = useState<number>(0);
   const [initialDiscovered, setInitialDiscovered] = useState<string[]>([]);
   const [spawnState, setSpawnState] = useState<{ x: number; y: number; playtime: number }>({
     x: 5429,
@@ -296,6 +323,9 @@ export const App: React.FC = () => {
     heroXp: save.heroXp,
     partyXp: save.partyXp,
     sealedPortalIds: save.sealedPortalIds,
+    completedQuestIds: save.completedQuestIds,
+    activeOutpostHunts: save.activeOutpostHunts,
+    completedOutpostHunts: save.completedOutpostHunts,
     mapId: save.mapId,
     activeBattle: save.activeBattle ?? null,
   });
@@ -313,6 +343,9 @@ export const App: React.FC = () => {
         lvl?: number;
         discovered?: string[];
         acceptedQuests?: string[];
+        completedQuestIds?: string[];
+        activeOutpostHunts?: ActiveOutpostHunt[];
+        completedOutpostHunts?: number;
         sealedPortalIds?: string[];
         silver?: number;
         equippedByHero?: EquippedGearMap;
@@ -359,6 +392,9 @@ export const App: React.FC = () => {
         partyOrder: order,
         discoveredLocations: discovered,
         acceptedQuestIds: quests,
+        completedQuestIds: override?.completedQuestIds ?? completedQuestIds,
+        activeOutpostHunts: override?.activeOutpostHunts ?? activeOutpostHunts,
+        completedOutpostHunts: override?.completedOutpostHunts ?? completedOutpostHunts,
         sealedPortalIds: override?.sealedPortalIds ?? sealedPortalIds,
         silver: override?.silver ?? silver,
         equippedByHero: override?.equippedByHero ?? equippedByHero,
@@ -389,6 +425,9 @@ export const App: React.FC = () => {
       heroLevels,
       heroXp,
       acceptedQuestIds,
+      completedQuestIds,
+      activeOutpostHunts,
+      completedOutpostHunts,
       sealedPortalIds,
       silver,
       equippedByHero,
@@ -417,6 +456,9 @@ export const App: React.FC = () => {
         lvl?: number;
         discovered?: string[];
         acceptedQuests?: string[];
+        completedQuestIds?: string[];
+        activeOutpostHunts?: ActiveOutpostHunt[];
+        completedOutpostHunts?: number;
         sealedPortalIds?: string[];
         silver?: number;
         equippedByHero?: EquippedGearMap;
@@ -470,6 +512,9 @@ export const App: React.FC = () => {
         heroXp?: Partial<Record<HeroId, number>>;
         partyXp?: number;
         sealedPortalIds?: string[];
+        completedQuestIds?: string[];
+        activeOutpostHunts?: ActiveOutpostHunt[];
+        completedOutpostHunts?: number;
         mapId?: string;
         activeBattle?: BattleState | null;
       }
@@ -491,12 +536,18 @@ export const App: React.FC = () => {
         const initHpPct = inventoryOverride?.heroHpPct ?? {};
         const initMpPct = inventoryOverride?.heroMpPct ?? {};
         const initSealedPortals = inventoryOverride?.sealedPortalIds ?? [];
+        const initCompletedQuests = inventoryOverride?.completedQuestIds ?? [];
+        const initOutpostHuntsList = inventoryOverride?.activeOutpostHunts ?? [];
+        const initOutpostHunts = inventoryOverride?.completedOutpostHunts ?? 0;
 
         setPartyOrder(nextOrder);
         setHeroLevels(initLevels);
         setHeroXp(initXpMap);
         setInitialDiscovered(discoveredOverride);
         setAcceptedQuestIds(acceptedQuestsOverride);
+        setCompletedQuestIds(initCompletedQuests);
+        setActiveOutpostHunts(initOutpostHuntsList);
+        setCompletedOutpostHunts(initOutpostHunts);
         setSealedPortalIds(initSealedPortals);
         setSilver(initSilver);
         setEquippedByHero(initEquip);
@@ -539,6 +590,9 @@ export const App: React.FC = () => {
             heroXp: initXpMap,
             discovered: discoveredOverride,
             acceptedQuests: acceptedQuestsOverride,
+            completedQuestIds: initCompletedQuests,
+            activeOutpostHunts: initOutpostHuntsList,
+            completedOutpostHunts: initOutpostHunts,
             sealedPortalIds: initSealedPortals,
             silver: initSilver,
             equippedByHero: initEquip,
@@ -566,6 +620,45 @@ export const App: React.FC = () => {
   // Restore active browser play session cleanly on F5 refresh, otherwise check latest save for Title Screen
   useEffect(() => {
     let active = true;
+    if (isCombatSandbox) {
+      void (async () => {
+        const bust = Date.now();
+        try {
+          const [iResp, sResp, dResp, bResp] = await Promise.all([
+            fetch(assetUrl(`assets/data/items-catalog.json?t=${bust}`)),
+            fetch(assetUrl(`assets/data/spells-catalog.json?t=${bust}`)),
+            fetch(assetUrl(`assets/data/disciplines-catalog.json?t=${bust}`)),
+            fetch(assetUrl(`assets/data/battle-config.json?t=${bust}`)),
+          ]);
+          if (!active) return;
+          if (iResp.ok) {
+            const parsed = (await iResp.json()) as { items?: ItemEntry[] };
+            setItemsCatalog(parsed.items ?? []);
+          }
+          if (sResp.ok) {
+            const parsed = (await sResp.json()) as { spells?: SpellEntry[] };
+            setSpellsCatalog(parsed.spells ?? []);
+          }
+          if (dResp.ok) {
+            const parsed = (await dResp.json()) as { heroes?: HeroDisciplinesEntry[] };
+            const dMap: Partial<Record<HeroId, HeroDisciplinesEntry>> = {};
+            for (const hEntry of parsed.heroes ?? []) dMap[hEntry.heroId] = hEntry;
+            setDisciplinesByHero(dMap);
+          }
+          if (bResp.ok) {
+            const parsed = (await bResp.json()) as BattleConfigData;
+            setBattleConfig(parsed);
+          }
+          window.parent?.postMessage({ type: "rod:combat-sandbox-ready" }, window.location.origin);
+        } catch {
+          // Ignore network glitches on sandbox bootstrap
+        }
+      })();
+      return () => {
+        active = false;
+      };
+    }
+
     void (async () => {
       const latest = await refreshLatest();
       if (!active) return;
@@ -604,6 +697,89 @@ export const App: React.FC = () => {
     // Run once on startup
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (!isCombatSandbox || !battleConfig || itemsCatalog.length === 0) return;
+    window.parent?.postMessage({ type: "rod:combat-sandbox-ready" }, window.location.origin);
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin) return;
+      const msg = event.data as {
+        type?: string;
+        payload?: {
+          zoneCode: number;
+          biomeName?: string;
+          portalLoc?: WorldLocation | null;
+          partyOrder?: HeroId[];
+          heroLevels?: Partial<Record<HeroId, number>>;
+          heroSpentAttrs?: Partial<Record<HeroId, HeroAttrMap>>;
+          equippedByHero?: EquippedGearMap;
+          learnedSpellIds?: string[];
+          chosenDisciplinesByHero?: ChosenDisciplinesMap;
+          bagCounts?: Record<string, number>;
+          heroHpPct?: Partial<Record<HeroId, number>>;
+          heroMpPct?: Partial<Record<HeroId, number>>;
+        };
+      };
+      if (msg?.type !== "rod:combat-sandbox-start" || !msg.payload) return;
+      const p = msg.payload;
+      const z = Math.max(1, Math.min(20, Number(p.zoneCode) || 1));
+      const zMin = (z - 1) * 5 + 1;
+      const zMax = z === 20 ? 99 : z * 5;
+      const nextOrder = normalizePartyOrder(p.partyOrder, p.partyOrder?.[0] ?? "valen");
+      const nextLevels = normalizeHeroLevelsMap(p.heroLevels, zMin);
+      const avgLv = getAveragePartyLevel(nextLevels, nextOrder, zMin);
+      const matchingStages = battleConfig.stages.filter(
+        (s) => !s.isPortal && s.zoneSpawns && Boolean(s.zoneSpawns[String(z)])
+      );
+      const pickedStage =
+        (p.biomeName
+          ? matchingStages.find((s) => s.name === p.biomeName || s.id === p.biomeName) ??
+            battleConfig.stages.find((s) => s.name === p.biomeName || s.id === p.biomeName)
+          : undefined) ??
+        matchingStages[Math.floor(Math.random() * Math.max(1, matchingStages.length))] ??
+        battleConfig.stages.find((s) => !s.isPortal);
+      const biomeLabel = pickedStage?.name ?? p.biomeName ?? "Meadow";
+
+      const bState = createBattleState({
+        config: battleConfig,
+        partyOrder: nextOrder,
+        level: avgLv,
+        heroLevels: nextLevels,
+        heroSpentAttrs: p.heroSpentAttrs ?? {},
+        equippedByHero: p.equippedByHero ?? {},
+        itemsById,
+        socketsByHero: {},
+        heroHpPct: p.heroHpPct ?? {},
+        heroMpPct: p.heroMpPct ?? {},
+        disciplinesByHero,
+        chosenDisciplinesByHero: p.chosenDisciplinesByHero ?? {},
+        mapId: `map_0${Math.ceil(z / 5)}`,
+        biomeName: biomeLabel,
+        zoneName: `Zone ${z}`,
+        zoneCode: z,
+        zoneMin: zMin,
+        zoneMax: zMax,
+        nearWaterKind: null,
+        portalLoc: p.portalLoc ?? null,
+      });
+      sandboxSnapshotRef.current = bState;
+      sandboxMetaRef.current = {
+        zoneCode: z,
+        biomeName: bState.biomeName,
+        startMs: Date.now(),
+        enemies: bState.enemies.map((e) => ({ name: e.name, level: e.level, maxHp: e.maxHp })),
+      };
+      setSandboxViewCfg({
+        partyLevel: avgLv,
+        heroLevels: nextLevels,
+        learnedSpellIds: p.learnedSpellIds ?? [],
+        bagCounts: p.bagCounts ?? {},
+      });
+      setSandboxBattle(bState);
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [battleConfig, disciplinesByHero, isCombatSandbox, itemsById, itemsCatalog.length]);
 
   // Flush exact position & party state on browser refresh / tab close / backgrounding
   useEffect(() => {
@@ -885,24 +1061,147 @@ export const App: React.FC = () => {
 
   const handleAcceptQuest = useCallback(
     (quest: QuestEntry) => {
-      setAcceptedQuestIds((prev) => {
-        if (prev.includes(quest.questId)) return prev;
-        const next = [...prev, quest.questId];
-        if (mapMeta) {
-          void persistSave("autosave", "Auto-Save", {
-            x: runtimeRef.current.x,
-            y: runtimeRef.current.y,
-            playtime: runtimeRef.current.playtime,
-            meta: mapMeta,
-            acceptedQuests: next,
-          });
-        }
-        return next;
-      });
+      if (completedQuestIds.includes(quest.questId)) {
+        showToast("Quest already completed");
+        return;
+      }
+      if (acceptedQuestIds.includes(quest.questId)) return;
+      if (acceptedQuestIds.length + activeOutpostHunts.length >= GLOBAL_ACTIVE_QUEST_LIMIT) {
+        showToast(`Journal full (${GLOBAL_ACTIVE_QUEST_LIMIT}/${GLOBAL_ACTIVE_QUEST_LIMIT} active quests)`);
+        return;
+      }
+      const next = [...acceptedQuestIds, quest.questId];
+      setAcceptedQuestIds(next);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          acceptedQuests: next,
+        });
+      }
       audioEngine.playSave();
       showToast(`Quest Accepted: ${quest.title}`);
     },
-    [mapMeta, persistSave, showToast]
+    [acceptedQuestIds, activeOutpostHunts.length, completedQuestIds, mapMeta, persistSave, showToast]
+  );
+
+  const handleAcceptOutpostHunt = useCallback(
+    (hunt: ActiveOutpostHunt) => {
+      if (activeOutpostHunts.some((h) => h.outpostId === hunt.outpostId)) {
+        showToast("Finish or abandon your active hunt at this Outpost first");
+        return;
+      }
+      if (acceptedQuestIds.length + activeOutpostHunts.length >= GLOBAL_ACTIVE_QUEST_LIMIT) {
+        showToast(`Journal full (${GLOBAL_ACTIVE_QUEST_LIMIT}/${GLOBAL_ACTIVE_QUEST_LIMIT} active quests)`);
+        return;
+      }
+      const nextHunts = [...activeOutpostHunts, { ...hunt, killsProgress: 0 }];
+      setActiveOutpostHunts(nextHunts);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          activeOutpostHunts: nextHunts,
+        });
+      }
+      audioEngine.playSave();
+      showToast(`Hunt Accepted: Slay ${hunt.killsRequired} ${hunt.mobName}`);
+    },
+    [acceptedQuestIds.length, activeOutpostHunts, mapMeta, persistSave, showToast]
+  );
+
+  const handleAbandonOutpostHunt = useCallback(
+    (outpostId: string) => {
+      const nextHunts = activeOutpostHunts.filter((h) => h.outpostId !== outpostId);
+      setActiveOutpostHunts(nextHunts);
+      showToast("Outpost hunt abandoned");
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          activeOutpostHunts: nextHunts,
+        });
+      }
+    },
+    [activeOutpostHunts, mapMeta, persistSave, showToast]
+  );
+
+  const handleCompleteOutpostHunt = useCallback(
+    (outpostId: string) => {
+      const hunt = activeOutpostHunts.find((h) => h.outpostId === outpostId);
+      if (!hunt || hunt.killsProgress < hunt.killsRequired) return;
+
+      const nextHunts = activeOutpostHunts.filter((h) => h.outpostId !== outpostId);
+      const nextCompleted = completedOutpostHunts + 1;
+      const nextSilver = silver + hunt.rewardSilver;
+      const nextBag = { ...bagCounts };
+      if (hunt.rewardConsumableId && hunt.rewardConsumableQty > 0) {
+        nextBag[hunt.rewardConsumableId] = (nextBag[hunt.rewardConsumableId] ?? 0) + hunt.rewardConsumableQty;
+      }
+
+      const nextLevels: Partial<Record<HeroId, number>> = { ...heroLevels };
+      const nextXpMap: Partial<Record<HeroId, number>> = { ...heroXp };
+      const leveledNames: string[] = [];
+      for (const hid of partyOrder) {
+        const prevLv = getHeroLevel(heroLevels, hid, 1);
+        const prevXp = getHeroXp(heroXp, hid);
+        const res = applyHeroXpGain(prevLv, prevXp, hunt.rewardXp);
+        nextLevels[hid] = res.level;
+        nextXpMap[hid] = res.xp;
+        if (res.leveledUp) leveledNames.push(`${getHeroById(hid).name} Lv ${res.level}`);
+      }
+      const nextAvgLv = getAveragePartyLevel(nextLevels, partyOrder, 1);
+
+      setActiveOutpostHunts(nextHunts);
+      setCompletedOutpostHunts(nextCompleted);
+      setSilver(nextSilver);
+      setBagCounts(nextBag);
+      setHeroLevels(nextLevels);
+      setHeroXp(nextXpMap);
+
+      const consName = itemsById[hunt.rewardConsumableId]?.name;
+      audioEngine.playDiscovery();
+      showToast(
+        leveledNames.length > 0
+          ? `Hunt Complete! ${leveledNames.join(", ")} (+${hunt.rewardSilver.toLocaleString()}s)`
+          : `Hunt Complete: +${hunt.rewardSilver.toLocaleString()}s · +${hunt.rewardXp.toLocaleString()} XP${consName ? ` · ${hunt.rewardConsumableQty}x ${consName}` : ""}`
+      );
+
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          lvl: nextAvgLv,
+          heroLevels: nextLevels,
+          heroXp: nextXpMap,
+          silver: nextSilver,
+          bagCounts: nextBag,
+          activeOutpostHunts: nextHunts,
+          completedOutpostHunts: nextCompleted,
+        });
+      }
+    },
+    [
+      activeOutpostHunts,
+      bagCounts,
+      completedOutpostHunts,
+      heroLevels,
+      heroXp,
+      itemsById,
+      mapMeta,
+      partyOrder,
+      persistSave,
+      showToast,
+      silver,
+    ]
   );
 
   const handleFreeRest = useCallback(
@@ -1197,33 +1496,78 @@ export const App: React.FC = () => {
       const sid = sourceIds.find((id) => (bagCounts[id] ?? 0) > 0) ?? item.id;
       if ((bagCounts[sid] ?? 0) <= 0) return;
 
+      const heroDef = getHeroById(targetHeroId);
+      const heroLv = getHeroLevel(heroLevels, targetHeroId, partyLevel);
+      const vitals = computeHeroVitals(
+        targetHeroId,
+        heroLv,
+        heroSpentAttrs,
+        equippedByHero,
+        itemsById,
+        socketsByHero,
+        heroHpPct,
+        heroMpPct
+      );
+
+      const effectTxt = item.effect ?? "";
+      const isPureMp = /mana|mp/i.test(item.name) && !/elixir|phoenix/i.test(item.name);
+      const isCureOnly = /antidote|cooling|warming|clarity|panacea/i.test(item.name);
+      if (isCureOnly) {
+        showToast("Status cures are used during combat when afflicted");
+        return;
+      }
+
+      const curHpPct = heroHpPct[targetHeroId] ?? 100;
+      const curMpPctVal = heroMpPct[targetHeroId] ?? 100;
+
+      if (isPureMp) {
+        if (!vitals.hasMp) {
+          showToast(`${heroDef.name} does not use MP`);
+          return;
+        }
+        if (curMpPctVal >= 100) {
+          showToast(`${heroDef.name} is already at full MP`);
+          return;
+        }
+      } else if (curHpPct >= 100) {
+        showToast(`${heroDef.name} is already at full HP`);
+        return;
+      }
+
+      const hpMatch = effectTxt.match(/Restores?\s+([\d,]+)\s*HP/i);
+      const mpMatch = effectTxt.match(/Restores?\s+([\d,]+)\s*MP/i);
+      const hpGainPct = hpMatch
+        ? Math.max(1, Math.round((Number(hpMatch[1].replace(/,/g, "")) / Math.max(1, vitals.maxHp)) * 100))
+        : /reviv/i.test(item.name)
+          ? 30
+          : /phoenix/i.test(item.name)
+            ? 75
+            : /greater|full|elixir|supreme/i.test(item.name)
+              ? 100
+              : 40;
+      const mpGainPct = mpMatch
+        ? Math.max(1, Math.round((Number(mpMatch[1].replace(/,/g, "")) / Math.max(1, vitals.maxMp)) * 100))
+        : /greater|full|elixir|supreme/i.test(item.name)
+          ? 100
+          : 40;
+
       const nextBag = { ...bagCounts };
       nextBag[sid] = Math.max(0, (nextBag[sid] ?? 1) - 1);
       if (nextBag[sid] <= 0) delete nextBag[sid];
 
-      const curPct = heroHpPct[targetHeroId] ?? 100;
-      const curMp = heroMpPct[targetHeroId] ?? 100;
-      const isMpPotion = /mana|mp/i.test(item.name) && !/elixir|phoenix/i.test(item.name);
-      const healPct = /greater|full|elixir|supreme/i.test(item.name) ? 100 : 40;
-      const nextHp: Partial<Record<HeroId, number>> = isMpPotion
+      const nextHp: Partial<Record<HeroId, number>> = isPureMp
         ? heroHpPct
-        : {
-            ...heroHpPct,
-            [targetHeroId]: Math.min(100, curPct + healPct),
-          };
+        : { ...heroHpPct, [targetHeroId]: Math.min(100, curHpPct + hpGainPct) };
       const nextMp: Partial<Record<HeroId, number>> =
-        isMpPotion || /elixir|supreme/i.test(item.name)
-          ? {
-              ...heroMpPct,
-              [targetHeroId]: Math.min(100, curMp + healPct),
-            }
+        isPureMp || /elixir|supreme/i.test(item.name)
+          ? { ...heroMpPct, [targetHeroId]: Math.min(100, curMpPctVal + mpGainPct) }
           : heroMpPct;
 
       setBagCounts(nextBag);
       setHeroHpPct(nextHp);
       setHeroMpPct(nextMp);
       audioEngine.playDiscovery();
-      showToast(`Used ${item.name} on ${getHeroById(targetHeroId).name}`);
+      showToast(`Used ${item.name} on ${heroDef.name}`);
       if (mapMeta) {
         void persistSave("autosave", "Auto-Save", {
           x: runtimeRef.current.x,
@@ -1236,7 +1580,20 @@ export const App: React.FC = () => {
         });
       }
     },
-    [bagCounts, heroHpPct, heroMpPct, mapMeta, persistSave, showToast]
+    [
+      bagCounts,
+      equippedByHero,
+      heroHpPct,
+      heroLevels,
+      heroMpPct,
+      heroSpentAttrs,
+      itemsById,
+      mapMeta,
+      partyLevel,
+      persistSave,
+      showToast,
+      socketsByHero,
+    ]
   );
 
   const handleTriggerEncounter = useCallback(
@@ -1401,6 +1758,22 @@ export const App: React.FC = () => {
           ? [...sealedPortalIds, outcome.sealedPortalId]
           : sealedPortalIds;
 
+      let huntsChanged = false;
+      let completedHuntToast: string | null = null;
+      const nextHunts = activeOutpostHunts.map((h) => {
+        if (h.zoneNum !== outcome.zoneCode || h.killsProgress >= h.killsRequired) return h;
+        const slain = outcome.defeatedMonsterIds[h.mobId] ?? 0;
+        if (slain <= 0) return h;
+        huntsChanged = true;
+        const nextKills = Math.min(h.killsRequired, h.killsProgress + slain);
+        if (nextKills >= h.killsRequired) {
+          completedHuntToast = `Outpost Hunt Complete: ${h.mobName} (${nextKills}/${h.killsRequired}) — Return to ${h.outpostName}!`;
+        } else {
+          completedHuntToast = `Outpost Hunt: ${h.mobName} (${nextKills}/${h.killsRequired})`;
+        }
+        return { ...h, killsProgress: nextKills };
+      });
+
       setBagCounts(nextBag);
       setHeroHpPct(outcome.heroHpPct);
       setHeroMpPct(outcome.heroMpPct);
@@ -1409,11 +1782,14 @@ export const App: React.FC = () => {
       setSilver(nextSilver);
       setTradeGoodCounts(nextTrade);
       setSealedPortalIds(nextSealed);
+      if (huntsChanged) setActiveOutpostHunts(nextHunts);
       audioEngine.playSave();
       showToast(
-        leveledNames.length > 0
-          ? `Level Up: ${leveledNames.join(", ")}! (+${outcome.silverEarned}s)`
-          : `Victory! +${outcome.xpEarned} XP · +${outcome.silverEarned}s`
+        completedHuntToast
+          ? completedHuntToast
+          : leveledNames.length > 0
+            ? `Level Up: ${leveledNames.join(", ")}! (+${outcome.silverEarned}s)`
+            : `Victory! +${outcome.xpEarned} XP · +${outcome.silverEarned}s`
       );
       if (mapMeta) {
         void persistSave("autosave", "Auto-Save", {
@@ -1428,14 +1804,44 @@ export const App: React.FC = () => {
           bagCounts: nextBag,
           tradeGoodCounts: nextTrade,
           sealedPortalIds: nextSealed,
+          activeOutpostHunts: huntsChanged ? nextHunts : activeOutpostHunts,
           heroHpPct: outcome.heroHpPct,
           heroMpPct: outcome.heroMpPct,
           activeBattle: null,
         });
       }
     },
-    [bagCounts, heroLevels, heroXp, mapMeta, partyOrder, persistSave, sealedPortalIds, showToast, silver, tradeGoodCounts, worldLocations]
+    [
+      activeOutpostHunts,
+      bagCounts,
+      heroLevels,
+      heroXp,
+      mapMeta,
+      partyOrder,
+      persistSave,
+      sealedPortalIds,
+      showToast,
+      silver,
+      tradeGoodCounts,
+      worldLocations,
+    ]
   );
+
+  const activeQuestZones = useMemo(() => {
+    const zones = new Set<number>();
+    for (const h of activeOutpostHunts) {
+      if (h.zoneNum >= 1 && h.zoneNum <= 20) zones.add(h.zoneNum);
+    }
+    for (const qid of acceptedQuestIds) {
+      const q = questsCatalog.find((entry) => entry.questId === qid);
+      if (!q) continue;
+      const hub = worldLocations.find((loc) => loc.id === q.hubId);
+      if (typeof hub?.zoneNum === "number" && hub.zoneNum >= 1 && hub.zoneNum <= 20) {
+        zones.add(hub.zoneNum);
+      }
+    }
+    return Array.from(zones);
+  }, [acceptedQuestIds, activeOutpostHunts, questsCatalog, worldLocations]);
 
   const handleAbandonQuest = useCallback(
     (questId: string) => {
@@ -1454,6 +1860,65 @@ export const App: React.FC = () => {
     },
     [acceptedQuestIds, mapMeta, persistSave, showToast]
   );
+
+  if (isCombatSandbox) {
+    return (
+      <div className="fixed inset-0 bg-[#080a0f] text-[#e6edf7] flex items-center justify-center">
+        {sandboxBattle && sandboxViewCfg ? (
+          <BattleOverlay
+            open={true}
+            initialBattle={sandboxBattle}
+            partyLevel={sandboxViewCfg.partyLevel}
+            partyXp={0}
+            heroLevels={sandboxViewCfg.heroLevels}
+            heroXp={{}}
+            spells={spellsCatalog}
+            learnedSpellIds={sandboxViewCfg.learnedSpellIds}
+            bagCounts={sandboxViewCfg.bagCounts}
+            itemsById={itemsById}
+            itemsCatalog={itemsCatalog}
+            onBattleSnapshot={(snap) => {
+              sandboxSnapshotRef.current = snap;
+            }}
+            onComplete={(outcome) => {
+              const meta = sandboxMetaRef.current;
+              const elapsedSec = meta ? Math.max(1, Math.round((Date.now() - meta.startMs) / 1000)) : 1;
+              const rounds = sandboxSnapshotRef.current?.turnCounter ?? 1;
+              let tradeSilverEarned = 0;
+              const tradeGoodsDetail = Object.entries(outcome.droppedTradeGoods).map(([gid, qty]) => {
+                const it = itemsById[gid];
+                const sellEach = it?.sellSilver ?? 0;
+                tradeSilverEarned += sellEach * qty;
+                return { id: gid, name: it?.name ?? gid, qty, sellEach };
+              });
+              setSandboxBattle(null);
+              window.parent?.postMessage(
+                {
+                  type: "rod:combat-sandbox-complete",
+                  outcome,
+                  meta,
+                  rounds,
+                  elapsedSec,
+                  tradeSilverEarned,
+                  tradeGoodsDetail,
+                },
+                window.location.origin
+              );
+            }}
+          />
+        ) : (
+          <div className="text-center px-6 py-4 rounded border border-[#2c3345] bg-[#10141f]/90">
+            <div className="font-display text-[18px] text-[#fae2aa] tracking-wide">
+              Real Game Combat Engine Ready
+            </div>
+            <div className="text-[12.5px] text-[#9eb0c9] mt-1">
+              Select a Danger Zone and click Start Battle to load a live procedural encounter.
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <>
@@ -1498,6 +1963,7 @@ export const App: React.FC = () => {
           heroHpPct={heroHpPct}
           heroMpPct={heroMpPct}
           sealedPortalIds={sealedPortalIds}
+          activeQuestZones={activeQuestZones}
           startX={spawnState.x}
           startY={spawnState.y}
           startPlaytime={spawnState.playtime}
@@ -1527,6 +1993,9 @@ export const App: React.FC = () => {
           partyLevel={partyLevel}
           heroLevels={heroLevels}
           acceptedQuestIds={acceptedQuestIds}
+          completedQuestIds={completedQuestIds}
+          activeOutpostHunts={activeOutpostHunts}
+          battleConfig={battleConfig}
           silver={silver}
           items={itemsCatalog}
           itemsById={itemsById}
@@ -1540,6 +2009,9 @@ export const App: React.FC = () => {
           onBuyShopEntry={handleBuyShopEntry}
           onSellAllTradeGoods={handleSellAllTradeGoods}
           onAcceptQuest={handleAcceptQuest}
+          onAcceptOutpostHunt={handleAcceptOutpostHunt}
+          onCompleteOutpostHunt={handleCompleteOutpostHunt}
+          onAbandonOutpostHunt={handleAbandonOutpostHunt}
           onFreeRest={handleFreeRest}
           onSailToPort={(dest) => void handleSailToPort(dest)}
           onOpenParty={() => {
@@ -1609,6 +2081,9 @@ export const App: React.FC = () => {
         disciplinesByHero={disciplinesByHero}
         chosenDisciplinesByHero={chosenDisciplinesByHero}
         acceptedQuestIds={acceptedQuestIds}
+        completedQuestIds={completedQuestIds}
+        activeOutpostHunts={activeOutpostHunts}
+        completedOutpostHunts={completedOutpostHunts}
         questsCatalog={questsCatalog}
         worldLocations={worldLocations}
         discoveredLocations={Array.from(new Set([...initialDiscovered, ...runtimeRef.current.discoveredLocations]))}
@@ -1649,6 +2124,7 @@ export const App: React.FC = () => {
           }
         }}
         onAbandonQuest={handleAbandonQuest}
+        onAbandonOutpostHunt={handleAbandonOutpostHunt}
         onSaveGame={async () => {
           await persistSave("manual_1", "Manual Save");
           audioEngine.playSave();

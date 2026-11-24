@@ -2,13 +2,23 @@ import React, { useEffect, useMemo, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById } from "../heroes";
-import { hideClientItemTooltip, itemTooltipHandlers } from "../shops/itemTooltip";
+import { hideClientItemTooltip, itemTooltipHandlers, runestoneTooltipHandlers } from "../shops/itemTooltip";
 import { WeaponAttackIconsRow } from "../shops/WeaponAttackIconsRow";
 import { canDualWieldItem } from "../shops/shopLogic";
-import type { EquippedGearMap, GearSlot, HeroId, ItemEntry, RunestoneItem } from "../types";
+import type {
+  EquippedGearMap,
+  GearSlot,
+  HeroAttrMap,
+  HeroId,
+  HeroSocketsMap,
+  ItemEntry,
+  RunestoneItem,
+} from "../types";
 import {
   type BagFilterGroup,
   type BagSortMode,
+  computeHeroVitals,
+  getHeroLevel,
   mergeBagEntries,
   type MergedBagEntry,
   summarizeItemStats,
@@ -17,6 +27,12 @@ import {
 interface InventoryBagTabProps {
   partyOrder: HeroId[];
   selectedHeroId: HeroId;
+  level?: number;
+  heroLevels?: Partial<Record<HeroId, number>>;
+  heroSpentAttrs?: Partial<Record<HeroId, HeroAttrMap>>;
+  socketsByHero?: HeroSocketsMap;
+  heroHpPct?: Partial<Record<HeroId, number>>;
+  heroMpPct?: Partial<Record<HeroId, number>>;
   bagCounts: Record<string, number>;
   tradeGoodCounts: Record<string, number>;
   itemsById: Record<string, ItemEntry>;
@@ -26,6 +42,13 @@ interface InventoryBagTabProps {
   onUseConsumable: (sourceIds: string[], targetHeroId: HeroId, item: ItemEntry) => void;
   onRequestSocketRunestone: (heroId: HeroId, stone: RunestoneItem) => void;
 }
+
+const HEALTH_STATE_LABELS: Record<1 | 2 | 3 | 4, { label: string; colorClass: string }> = {
+  1: { label: "Healthy", colorClass: "text-[#8be0b2]" },
+  2: { label: "Wounded", colorClass: "text-[#f2d379]" },
+  3: { label: "Battered", colorClass: "text-[#f59f5b]" },
+  4: { label: "Critical", colorClass: "text-[#f27986]" },
+};
 
 const FILTER_PILLS: Array<{ id: BagFilterGroup; label: string }> = [
   { id: "all", label: "All" },
@@ -39,6 +62,12 @@ const FILTER_PILLS: Array<{ id: BagFilterGroup; label: string }> = [
 export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
   partyOrder,
   selectedHeroId,
+  level = 1,
+  heroLevels,
+  heroSpentAttrs = {},
+  socketsByHero = {},
+  heroHpPct,
+  heroMpPct,
   bagCounts,
   tradeGoodCounts,
   itemsById,
@@ -182,7 +211,9 @@ export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
                         equippedByHero,
                         itemsById,
                       })
-                    : {})}
+                    : entry.runestone
+                      ? runestoneTooltipHandlers(entry.runestone)
+                      : {})}
                 >
                   <img
                     src={assetUrl(entry.iconPath)}
@@ -211,7 +242,18 @@ export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
           </div>
         ) : (
           <>
-            <div className="flex items-center gap-3 border-b border-[#293040] pb-3">
+            <div
+              className="flex items-center gap-3 border-b border-[#293040] pb-3 rounded p-1 -m-1"
+              {...(activeEntry.item
+                ? itemTooltipHandlers(activeEntry.item, {
+                    activeHeroId: selectedHeroId,
+                    equippedByHero,
+                    itemsById,
+                  })
+                : activeEntry.runestone
+                  ? runestoneTooltipHandlers(activeEntry.runestone)
+                  : {})}
+            >
               <img
                 src={assetUrl(activeEntry.iconPath)}
                 alt={activeEntry.name}
@@ -251,39 +293,136 @@ export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
               </div>
             )}
 
-            {activeEntry.group === "potions" && activeEntry.item && (
-              <div className="mt-1 rounded border border-[#2c3445] bg-[#0d1119] p-3 flex flex-col gap-2.5">
-                <div className="text-[11px] text-[#9bb0c8]">
-                  Identical consumables combine into a single unlimited stack.
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <select
-                    value={targetHero}
-                    onChange={(e) => setTargetHero(e.target.value as HeroId)}
-                    className="px-2.5 py-1.5 rounded border border-[#353d50] bg-[#141925] text-[12px] text-[#eaeff8] cursor-pointer"
-                  >
+            {activeEntry.group === "potions" && activeEntry.item && (() => {
+              const pItem = activeEntry.item;
+              const isPureMp = /mana|mp/i.test(pItem.name) && !/elixir|phoenix/i.test(pItem.name);
+              const isCureOnly = /antidote|cooling|warming|clarity|panacea/i.test(pItem.name);
+              const chosenHero = partyOrder.includes(targetHero) ? targetHero : partyOrder[0];
+              const chosenMeta = chosenHero ? getHeroById(chosenHero) : null;
+              const chosenLv = chosenHero ? getHeroLevel(heroLevels, chosenHero, level) : 1;
+              const chosenVitals = chosenHero
+                ? computeHeroVitals(chosenHero, chosenLv, heroSpentAttrs, equippedByHero, itemsById, socketsByHero, heroHpPct, heroMpPct)
+                : null;
+              const chosenDisabled =
+                !chosenVitals ||
+                isCureOnly ||
+                (isPureMp ? !chosenVitals.hasMp || chosenVitals.curMp >= chosenVitals.maxMp : chosenVitals.hpRatio >= 100);
+
+              return (
+                <div className="mt-1 rounded border border-[#2c3445] bg-[#0d1119] p-3 flex flex-col gap-2.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#d9b468]">
+                      Select Companion
+                    </span>
+                    <span className="text-[10.5px] text-[#8d9cb5]">Identical consumables stack automatically</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {partyOrder.map((hid) => {
                       const h = getHeroById(hid);
+                      const hLv = getHeroLevel(heroLevels, hid, level);
+                      const v = computeHeroVitals(hid, hLv, heroSpentAttrs, equippedByHero, itemsById, socketsByHero, heroHpPct, heroMpPct);
+                      const isTarget = chosenHero === hid;
+                      const healthInfo = HEALTH_STATE_LABELS[v.hpTokenState];
+                      const hpFill =
+                        v.hpRatio > 75 ? "bg-[#3fb97c]" : v.hpRatio > 50 ? "bg-[#d9b24c]" : v.hpRatio > 25 ? "bg-[#e37f3b]" : "bg-[#d94d5c]";
+                      const mpPct = v.hasMp && v.maxMp > 0 ? Math.min(100, Math.round((v.curMp / v.maxMp) * 100)) : 0;
+
                       return (
-                        <option key={hid} value={hid}>
-                          {h.name} ({h.className})
-                        </option>
+                        <button
+                          key={hid}
+                          type="button"
+                          onClick={() => {
+                            audioEngine.playUiClick(0.28);
+                            setTargetHero(hid);
+                          }}
+                          className={[
+                            "rounded border p-2 flex items-center gap-2.5 text-left transition cursor-pointer",
+                            isTarget
+                              ? "border-[#e5c170] bg-gradient-to-br from-[#282012] to-[#131824] shadow-[0_0_14px_rgba(229,193,112,0.22)]"
+                              : "border-[#2a3142] bg-[#141925] hover:border-[#6a5b3e]",
+                          ].join(" ")}
+                        >
+                          <img
+                            src={assetUrl(`assets/tokens/heroes/${hid}_hp${v.hpTokenState}.webp`)}
+                            alt={`${h.name} (${healthInfo.label})`}
+                            draggable={false}
+                            className="w-[46px] h-[46px] rounded-full object-cover shrink-0 bg-[#080a0f]"
+                          />
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-1">
+                              <span className="text-[12.5px] font-bold text-[#fae4b0] truncate">{h.name}</span>
+                              <span className={`text-[10px] font-bold uppercase ${healthInfo.colorClass}`}>
+                                {healthInfo.label}
+                              </span>
+                            </div>
+
+                            <div className="mt-1">
+                              <div className="flex justify-between text-[10px] text-[#cfe0f5] leading-none mb-0.5">
+                                <span>HP</span>
+                                <span>
+                                  {v.curHp} / {v.maxHp}
+                                </span>
+                              </div>
+                              <div className="h-[5px] w-full rounded-full bg-[#1a202e] overflow-hidden border border-[#2d3648]">
+                                <div className={`h-full ${hpFill} transition-all`} style={{ width: `${v.hpRatio}%` }} />
+                              </div>
+                            </div>
+
+                            {v.hasMp ? (
+                              <div className="mt-1">
+                                <div className="flex justify-between text-[10px] text-[#b4ccf0] leading-none mb-0.5">
+                                  <span>MP</span>
+                                  <span>
+                                    {v.curMp} / {v.maxMp}
+                                  </span>
+                                </div>
+                                <div className="h-[5px] w-full rounded-full bg-[#1a202e] overflow-hidden border border-[#2d3648]">
+                                  <div className="h-full bg-[#4b92e6] transition-all" style={{ width: `${mpPct}%` }} />
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="mt-1 text-[9.5px] text-[#7887a0]">Martial · No MP</div>
+                            )}
+                          </div>
+                        </button>
                       );
                     })}
-                  </select>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      audioEngine.playUiClick(0.4);
-                      onUseConsumable(activeEntry.sourceIds, targetHero, activeEntry.item!);
-                    }}
-                    className="px-3.5 py-1.5 rounded border border-[#56a874] bg-[#21613d]/60 hover:bg-[#2a7d4e]/80 text-[11.5px] font-bold uppercase tracking-wider text-[#eafff2] cursor-pointer"
-                  >
-                    Use on Hero
-                  </button>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-2 pt-0.5">
+                    <span className="text-[11px] text-[#9fb0c8]">
+                      {isCureOnly
+                        ? "Cure potions apply in combat when afflicted."
+                        : isPureMp && chosenVitals && !chosenVitals.hasMp
+                          ? `${chosenMeta?.name ?? "Hero"} does not use MP.`
+                          : isPureMp && chosenVitals && chosenVitals.curMp >= chosenVitals.maxMp
+                            ? `${chosenMeta?.name ?? "Hero"} is already at full MP.`
+                            : !isPureMp && chosenVitals && chosenVitals.hpRatio >= 100
+                              ? `${chosenMeta?.name ?? "Hero"} is already at full HP.`
+                              : `Ready to use on ${chosenMeta?.name ?? "Hero"}.`}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={chosenDisabled}
+                      onClick={() => {
+                        if (!chosenHero || chosenDisabled) return;
+                        audioEngine.playUiClick(0.4);
+                        onUseConsumable(activeEntry.sourceIds, chosenHero, pItem);
+                      }}
+                      className={[
+                        "px-4 py-1.5 rounded border text-[11.5px] font-bold uppercase tracking-wider shrink-0 transition-colors",
+                        chosenDisabled
+                          ? "border-[#2f3648] bg-[#161b26] text-[#6d7a91] cursor-default"
+                          : "border-[#56a874] bg-[#21613d]/65 hover:bg-[#2a7d4e]/85 text-[#eafff2] cursor-pointer",
+                      ].join(" ")}
+                    >
+                      Use on {chosenMeta?.name ?? "Hero"}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {activeEntry.group === "gear" && activeEntry.item && (
               <div className="mt-1 rounded border border-[#2c3445] bg-[#0d1119] p-3 flex flex-col gap-2.5">
@@ -294,56 +433,82 @@ export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
                   </strong>
                 </div>
                 {compatGearParty.length > 0 ? (
-                  <div className="flex flex-wrap items-center gap-2">
-                    <select
-                      value={chosenEquipHero}
-                      onChange={(e) => setTargetHero(e.target.value as HeroId)}
-                      className="px-2.5 py-1.5 rounded border border-[#353d50] bg-[#141925] text-[12px] text-[#eaeff8] cursor-pointer"
-                    >
-                      {compatGearParty.map((hid) => (
-                        <option key={hid} value={hid}>
-                          {getHeroById(hid).name}
-                        </option>
-                      ))}
-                    </select>
-                    {chosenEquipHero && canDualWieldItem(chosenEquipHero, activeEntry.item) && itemsById[equippedByHero[chosenEquipHero]?.right_hand ?? ""]?.handed === "1H" ? (
-                      <>
+                  <div className="flex flex-col gap-2.5">
+                    <div className="grid grid-cols-2 gap-1.5">
+                      {compatGearParty.map((hid) => {
+                        const h = getHeroById(hid);
+                        const hLv = getHeroLevel(heroLevels, hid, level);
+                        const v = computeHeroVitals(hid, hLv, heroSpentAttrs, equippedByHero, itemsById, socketsByHero, heroHpPct, heroMpPct);
+                        const isTarget = chosenEquipHero === hid;
+                        return (
+                          <button
+                            key={hid}
+                            type="button"
+                            onClick={() => {
+                              audioEngine.playUiClick(0.28);
+                              setTargetHero(hid);
+                            }}
+                            className={[
+                              "rounded border p-2 flex items-center gap-2 text-left transition cursor-pointer",
+                              isTarget
+                                ? "border-[#e5c170] bg-[#282012]"
+                                : "border-[#2a3142] bg-[#141925] hover:border-[#6a5b3e]",
+                            ].join(" ")}
+                          >
+                            <img
+                              src={assetUrl(`assets/tokens/heroes/${hid}_hp${v.hpTokenState}.webp`)}
+                              alt={h.name}
+                              draggable={false}
+                              className="w-[34px] h-[34px] rounded-full object-cover shrink-0"
+                            />
+                            <div className="min-w-0">
+                              <div className="text-[12px] font-bold text-[#fae4b0] truncate">{h.name}</div>
+                              <div className="text-[10px] text-[#98a7bf] truncate">{h.className}</div>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <div className="flex flex-wrap items-center justify-end gap-2">
+                      {chosenEquipHero && canDualWieldItem(chosenEquipHero, activeEntry.item) && itemsById[equippedByHero[chosenEquipHero]?.right_hand ?? ""]?.handed === "1H" ? (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!chosenEquipHero) return;
+                              audioEngine.playUiClick(0.38);
+                              onEquipFromBag(chosenEquipHero, activeEntry.item!.id, "right_hand");
+                            }}
+                            className="px-3 py-1.5 rounded border border-[#c7a052] bg-[#c49848]/30 hover:bg-[#c49848]/50 text-[11px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
+                          >
+                            Equip Main ({getHeroById(chosenEquipHero).name})
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!chosenEquipHero) return;
+                              audioEngine.playUiClick(0.38);
+                              onEquipFromBag(chosenEquipHero, activeEntry.item!.id, "left_hand");
+                            }}
+                            className="px-3 py-1.5 rounded border border-[#56a874] bg-[#21613d]/55 hover:bg-[#2a7d4e]/75 text-[11px] font-bold uppercase tracking-wider text-[#eafff2] cursor-pointer"
+                          >
+                            Equip Off-Hand
+                          </button>
+                        </>
+                      ) : (
                         <button
                           type="button"
                           onClick={() => {
                             if (!chosenEquipHero) return;
                             audioEngine.playUiClick(0.38);
-                            onEquipFromBag(chosenEquipHero, activeEntry.item!.id, "right_hand");
+                            onEquipFromBag(chosenEquipHero, activeEntry.item!.id);
                           }}
-                          className="px-3 py-1.5 rounded border border-[#c7a052] bg-[#c49848]/30 hover:bg-[#c49848]/50 text-[11px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
+                          className="px-3.5 py-1.5 rounded border border-[#c7a052] bg-[#c49848]/30 hover:bg-[#c49848]/50 text-[11.5px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
                         >
-                          Equip Main
+                          Equip on {chosenEquipHero ? getHeroById(chosenEquipHero).name : "Hero"}
                         </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (!chosenEquipHero) return;
-                            audioEngine.playUiClick(0.38);
-                            onEquipFromBag(chosenEquipHero, activeEntry.item!.id, "left_hand");
-                          }}
-                          className="px-3 py-1.5 rounded border border-[#56a874] bg-[#21613d]/55 hover:bg-[#2a7d4e]/75 text-[11px] font-bold uppercase tracking-wider text-[#eafff2] cursor-pointer"
-                        >
-                          Equip Off-Hand
-                        </button>
-                      </>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          if (!chosenEquipHero) return;
-                          audioEngine.playUiClick(0.38);
-                          onEquipFromBag(chosenEquipHero, activeEntry.item!.id);
-                        }}
-                        className="px-3.5 py-1.5 rounded border border-[#c7a052] bg-[#c49848]/30 hover:bg-[#c49848]/50 text-[11.5px] font-bold uppercase tracking-wider text-[#fff1cb] cursor-pointer"
-                      >
-                        Equip on Hero
-                      </button>
-                    )}
+                      )}
+                    </div>
                   </div>
                 ) : (
                   <div className="text-[11.5px] text-[#98a6bc]">
@@ -353,40 +518,69 @@ export const InventoryBagTab: React.FC<InventoryBagTabProps> = ({
               </div>
             )}
 
-            {activeEntry.group === "runestones" && activeEntry.runestone && (
-              <div className="mt-1 rounded border border-[#3b3252] bg-[#141120] p-3 flex flex-col gap-2.5">
-                <div className="text-[11.5px] text-[#cdc1ec]">
-                  Fits <strong>{activeEntry.runestone.target === "weapon" ? "Right Hand Weapon" : "Body Armor"}</strong>{" "}
-                  socket. Permanently binds to the selected companion&apos;s slot.
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <select
-                    value={targetHero}
-                    onChange={(e) => setTargetHero(e.target.value as HeroId)}
-                    className="px-2.5 py-1.5 rounded border border-[#43395d] bg-[#191529] text-[12px] text-[#eaeff8] cursor-pointer"
-                  >
+            {activeEntry.group === "runestones" && activeEntry.runestone && (() => {
+              const rs = activeEntry.runestone;
+              const chosenHero = partyOrder.includes(targetHero) ? targetHero : partyOrder[0];
+              return (
+                <div className="mt-1 rounded border border-[#3b3252] bg-[#141120] p-3 flex flex-col gap-2.5">
+                  <div className="text-[11.5px] text-[#cdc1ec]">
+                    Fits <strong>{rs.target === "weapon" ? "Right Hand Weapon" : "Body Armor"}</strong>{" "}
+                    socket. Permanently binds to the selected companion&apos;s slot.
+                  </div>
+                  <div className="grid grid-cols-2 gap-1.5">
                     {partyOrder.map((hid) => {
                       const h = getHeroById(hid);
+                      const hLv = getHeroLevel(heroLevels, hid, level);
+                      const v = computeHeroVitals(hid, hLv, heroSpentAttrs, equippedByHero, itemsById, socketsByHero, heroHpPct, heroMpPct);
+                      const isTarget = chosenHero === hid;
+                      const occupied = Boolean(socketsByHero?.[hid]?.[rs.target]);
                       return (
-                        <option key={hid} value={hid}>
-                          {h.name} ({h.className})
-                        </option>
+                        <button
+                          key={hid}
+                          type="button"
+                          onClick={() => {
+                            audioEngine.playUiClick(0.28);
+                            setTargetHero(hid);
+                          }}
+                          className={[
+                            "rounded border p-2 flex items-center gap-2 text-left transition cursor-pointer",
+                            isTarget
+                              ? "border-[#b594f0] bg-[#241c38]"
+                              : "border-[#302845] bg-[#171324] hover:border-[#6f5b9e]",
+                          ].join(" ")}
+                        >
+                          <img
+                            src={assetUrl(`assets/tokens/heroes/${hid}_hp${v.hpTokenState}.webp`)}
+                            alt={h.name}
+                            draggable={false}
+                            className="w-[34px] h-[34px] rounded-full object-cover shrink-0"
+                          />
+                          <div className="min-w-0">
+                            <div className="text-[12px] font-bold text-[#f1e7ff] truncate">{h.name}</div>
+                            <div className="text-[10px] text-[#b4a6d4] truncate">
+                              {occupied ? "Occupied (Overwrites)" : "Open Socket"}
+                            </div>
+                          </div>
+                        </button>
                       );
                     })}
-                  </select>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      audioEngine.playUiClick(0.4);
-                      onRequestSocketRunestone(targetHero, activeEntry.runestone!);
-                    }}
-                    className="px-3.5 py-1.5 rounded border border-[#9d7ee0] bg-[#694da8]/35 hover:bg-[#694da8]/55 text-[11.5px] font-bold uppercase tracking-wider text-[#f3ebff] cursor-pointer"
-                  >
-                    Socket on Hero
-                  </button>
+                  </div>
+                  <div className="flex justify-end">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (!chosenHero) return;
+                        audioEngine.playUiClick(0.4);
+                        onRequestSocketRunestone(chosenHero, rs);
+                      }}
+                      className="px-3.5 py-1.5 rounded border border-[#9d7ee0] bg-[#694da8]/35 hover:bg-[#694da8]/55 text-[11.5px] font-bold uppercase tracking-wider text-[#f3ebff] cursor-pointer"
+                    >
+                      Socket on {chosenHero ? getHeroById(chosenHero).name : "Hero"}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {activeEntry.group === "trade_goods" && (
               <div className="mt-1 rounded border border-[#5b492c] bg-[#1a150e] p-3 text-[12px] text-[#dfcfb0] leading-relaxed">

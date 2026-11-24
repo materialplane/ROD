@@ -1,7 +1,7 @@
 // Canonical 6 Shop Types + Trade Goods Buyer NPC, Zero-Duplicate Unique NPC Assignment across 41 Hubs.
 
 export const METAL_ARMOR_TYPES = new Set([
-  "Breastplate", "Half Plate", "Scale Mail", "Ring Mail", "Chain Mail", "Splint", "Plate", "Scale Plate", "Dragonscale",
+  "Breastplate", "Half Plate", "Scale Mail", "Ring Mail", "Chain Mail", "Splint", "Plate",
 ]);
 
 export const ROBE_TYPES = new Set([
@@ -9,7 +9,7 @@ export const ROBE_TYPES = new Set([
 ]);
 
 export const TAILOR_ARMOR_TYPES = new Set([
-  ...ROBE_TYPES, "Leather", "Padded Leather", "Studded Leather", "Spiked Leather",
+  ...ROBE_TYPES, "Padded Bone", "Reinforced Bone", "Scale Plate", "Dragonscale",
 ]);
 
 export function zoneToProgressionTier(zoneNum) {
@@ -40,15 +40,15 @@ export const SHOP_META = {
     id: "armor",
     label: "Armor Shop",
     badge: "Armor Shop",
-    quote: "Mail, plate, hardened hides, reinforced armor, and shields built to hold the line.",
+    quote: "Leather, hide, mail, plate, and shields built to hold the line.",
     pills: [["all", "All Armor & Shields"], ["armor", "Body Armor"], ["helm", "Helmets"], ["shield", "Shields"]],
   },
   tailor: {
     id: "tailor",
     label: "Tailor",
     badge: "Tailor",
-    quote: "Woven robes and tailored leathers—light protection with no metal.",
-    pills: [["all", "All Cloth & Leather"], ["robes", "Robes"], ["leather", "Leather"], ["armor", "Body Armor"], ["helm", "Helmets"]],
+    quote: "Woven robes, stitched bone, and hardened scale vestments—crafted without metal or battle leather.",
+    pills: [["all", "All Tailored Gear"], ["robes", "Robes"], ["vestments", "Bone & Scale"], ["armor", "Body Armor"], ["helm", "Helmets"]],
   },
   magic: {
     id: "magic",
@@ -248,7 +248,7 @@ export function applyShopCatFilter(items, shopType, catFilter) {
   if (shopType === "weapon") return items.filter((x) => (catFilter === "1h" ? x.handed === "1H" : x.handed === "2H"));
   if (shopType === "tailor") {
     if (catFilter === "robes") return items.filter((x) => ROBE_TYPES.has(x.subType));
-    if (catFilter === "leather") return items.filter((x) => TAILOR_ARMOR_TYPES.has(x.subType) && !ROBE_TYPES.has(x.subType));
+    if (catFilter === "vestments") return items.filter((x) => TAILOR_ARMOR_TYPES.has(x.subType) && !ROBE_TYPES.has(x.subType));
     return items.filter((x) => x.category === catFilter);
   }
   if (shopType === "magic") return items.filter((x) => x.usableBy?.includes(catFilter));

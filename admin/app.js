@@ -345,7 +345,8 @@
       (l) => l.category === "quest_field" && l.mapId === activeMapId && !isJournalOnlyQuest(l)
     );
     const placedMapQ = mapOverworldQ.filter((l) => l.placed).length;
-    progressPill.textContent = `Map: ${placedMap}/${mapPerm.length} Perm · ${placedMapQ}/${mapOverworldQ.length} Quests · World: ${placedAll}/${allPerm.length}`;
+    progressPill.textContent = `${placedMap}/${mapPerm.length} Loc · ${placedMapQ}/${mapOverworldQ.length} Quests`;
+    progressPill.title = `Active Map: ${placedMap}/${mapPerm.length} Permanent, ${placedMapQ}/${mapOverworldQ.length} Quests · Entire World: ${placedAll}/${allPerm.length} Permanent`;
   }
 
   function showTooltipFor(loc, clientX, clientY) {

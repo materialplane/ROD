@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Live Combat &amp; Zone Grind Tester</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill" href="/admin/party/">Party Menu</a>
+        <a class="nav-pill" href="/admin/disciplines/">Disciplines</a>
+        <a class="nav-pill" href="/admin/battles/">Battle Encounters</a>
+        <a class="nav-pill active" href="/admin/combat-test/">Combat Tester</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+    <div class="studio-stats" id="statusPill">Loading live game catalogs...</div>
+  </header>
+
+  <section class="test-toolbar">
+    <div class="ctrl-group">
+      <label for="selZone">Danger Zone</label>
+      <select id="selZone" class="ctrl-select"></select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selBiome">Encounter</label>
+      <select id="selBiome" class="ctrl-select"></select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selParty">Party</label>
+      <select id="selParty" class="ctrl-select">
+        <option value="valen,ellowyn,orin,rowan">Valen · Ellowyn · Orin · Rowan (Default)</option>
+        <option value="valen,ellowyn,orin,harlan">Valen · Ellowyn · Orin · Harlan (Sage Healer)</option>
+        <option value="valen,ellowyn,mera,harlan">Valen · Ellowyn · Mera · Harlan (3 Casters)</option>
+        <option value="valen,orin,rowan,harlan">Valen · Orin · Rowan · Harlan (Physical + Heal)</option>
+      </select>
+    </div>
+
+    <label class="chk-pill" title="Restore party HP & MP back to 100% before every fight">
+      <input type="checkbox" id="chkAutoRest" checked />
+      <span>Auto-Rest Between Fights</span>
+    </label>
+
+    <div class="btn-row">
+      <button type="button" id="btnStartBattle" class="btn-primary">Start Battle (0 / 10)</button>
+      <button type="button" id="btnRestNow" class="btn-secondary">Rest Party</button>
+      <button type="button" id="btnResetSession" class="btn-secondary">Reset Session</button>
+    </div>
+  </section>
+
+  <main class="workspace">
+    <section class="stage-pane">
+      <div class="loadout-bar" id="loadoutBar">Loading Zone early-start gear loadout...</div>
+      <div class="frame-shell">
+        <iframe
+          id="combatSandboxFrame"
+          src="/client/?sandbox=combat"
+          title="Live Game Combat Engine"
+        ></iframe>
+      </div>
+      <div class="log-panel">
+        <div class="panel-hdr">
+          <span>Latest Turn-by-Turn Combat Log</span>
+          <span class="muted-path" id="logFileHint">Saves to %APPDATA%\rod-game-client\logs\combat-log.txt &amp; admin-combat-test.txt</span>
+        </div>
+        <pre id="combatLogTail" class="log-pre">Start a battle above to record live combat turns...</pre>
+      </div>
+    </section>
+
+    <aside class="telemetry-pane">
+      <div class="card">
+        <div class="card-title">Zone Grind Summary <span id="lblFightCounter" class="pill-count">0 / 10 Fights</span></div>
+        <div class="kpi-grid" id="kpiGrid">
+          <div class="kpi"><span class="k-lbl">Avg XP / Fight</span><strong class="k-val" id="kpiXp">0</strong></div>
+          <div class="kpi"><span class="k-lbl">Avg Direct Silver</span><strong class="k-val" id="kpiSilver">0s</strong></div>
+          <div class="kpi"><span class="k-lbl">Avg Trade Goods</span><strong class="k-val" id="kpiTrade">0s</strong></div>
+          <div class="kpi k-gold"><span class="k-lbl">Total Income / Fight</span><strong class="k-val" id="kpiTotalS">0s</strong></div>
+          <div class="kpi"><span class="k-lbl">Avg Rounds</span><strong class="k-val" id="kpiRounds">0.0</strong></div>
+          <div class="kpi"><span class="k-lbl">Avg Fight Time</span><strong class="k-val" id="kpiSec">0s</strong></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Pure Grind Estimate <span class="muted-sub">(No Quests · Max Zone Gear &amp; Spells)</span></div>
+        <div id="grindBreakdown" class="grind-box">Loading catalog costs...</div>
+      </div>
+
+      <div class="card card-grow">
+        <div class="card-title">Fight Log &amp; Drops</div>
+        <div id="fightList" class="fight-list">
+          <div class="empty-msg">No fights finished in this session yet.</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="../nav.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

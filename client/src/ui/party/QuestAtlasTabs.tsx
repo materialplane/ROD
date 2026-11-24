@@ -1,59 +1,124 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
-import type { QuestEntry, WorldLocation } from "../types";
+import { formatRewardLine } from "../components/LocationInteriorModal";
+import { QuestCardThumb } from "../components/QuestCardThumb";
+import { GLOBAL_ACTIVE_QUEST_LIMIT, formatOutpostRewardLine } from "../quests/outpostHunts";
+import type { ActiveOutpostHunt, ItemEntry, QuestEntry, WorldLocation } from "../types";
 
 interface QuestJournalTabProps {
   acceptedQuestIds: string[];
+  completedQuestIds?: string[];
+  activeOutpostHunts?: ActiveOutpostHunt[];
+  completedOutpostHunts?: number;
   questsCatalog: QuestEntry[];
   worldLocations: WorldLocation[];
   sealedPortalIds: string[];
+  itemsById?: Record<string, ItemEntry>;
   onAbandonQuest: (questId: string) => void;
+  onAbandonOutpostHunt?: (outpostId: string) => void;
 }
 
-type JournalSubTab = "active" | "portals" | "chains" | "hunts" | "bestiary";
+type JournalSubTab = "active" | "completed" | "chains" | "portals" | "hunts" | "bestiary";
+
+const REGION_NAMES: Record<number, string> = {
+  1: "Crownlands",
+  2: "Saltwind Coast",
+  3: "Redmarch Highlands",
+  4: "Whispering Weald",
+  5: "Golden Sands",
+  6: "Stormcrag Mountains",
+  7: "Frostfall Reach",
+  8: "Dreadwaste",
+};
 
 const STORY_CHAINS = [
   {
+    id: "chain_a",
+    cardId: "quest_chain_a_slavers",
     title: "Chain A — Mera's Mother Rescue",
     route: "Saltwind Harbor -> Port Veridia -> The Gilded Auction Manor -> Free Mera's Mother",
+    questIds: ["q023", "q090", "q108"],
   },
   {
+    id: "chain_b",
+    cardId: "quest_chain_b_blight",
     title: "Chain B — Harlan's Plague Woods Arc",
     route: "Briarstead -> Greenwarden Fort -> Blightwatch Keep -> Purge the Spore-Mire",
+    questIds: ["q068", "q081", "q086"],
   },
   {
+    id: "chain_c",
+    cardId: "quest_chain_c_conspiracy",
     title: "Chain C — Crown of Vultures",
     route: "Thornwall Castle -> Hollowstone Keep -> Bleakwatch Citadel -> Expose Garrick's War Pact",
+    questIds: ["q059", "q063", "q151"],
   },
   {
+    id: "chain_d",
+    cardId: "quest_chain_d_coliseum",
     title: "Chain D — Valen & Koren's Legacy",
     route: "Millbrook Crossing -> Ashvale Village -> Reclaim Koren's Arena Trophy",
+    questIds: ["q016", "q166"],
   },
 ];
 
 export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
   acceptedQuestIds,
+  completedQuestIds = [],
+  activeOutpostHunts = [],
+  completedOutpostHunts = 0,
   questsCatalog,
   worldLocations,
   sealedPortalIds,
+  itemsById,
   onAbandonQuest,
+  onAbandonOutpostHunt,
 }) => {
   const [subTab, setSubTab] = useState<JournalSubTab>("active");
+  const [regionFilter, setRegionFilter] = useState<number | "all">("all");
 
   const portals = useMemo(() => worldLocations.filter((l) => Boolean(l.bossInfo)), [worldLocations]);
   const outposts = useMemo(() => worldLocations.filter((l) => l.id.startsWith("outpost_")), [worldLocations]);
   const sealedSet = useMemo(() => new Set(sealedPortalIds), [sealedPortalIds]);
+  const acceptedSet = useMemo(() => new Set(acceptedQuestIds), [acceptedQuestIds]);
+  const completedSet = useMemo(() => new Set(completedQuestIds), [completedQuestIds]);
+
+  const questsById = useMemo(
+    () => new Map(questsCatalog.map((q) => [q.questId, q])),
+    [questsCatalog]
+  );
 
   const activeQuests = useMemo(
-    () => acceptedQuestIds.map((qid) => questsCatalog.find((q) => q.questId === qid)).filter((x): x is QuestEntry => Boolean(x)),
-    [acceptedQuestIds, questsCatalog]
+    () => acceptedQuestIds.map((qid) => questsById.get(qid)).filter((x): x is QuestEntry => Boolean(x)),
+    [acceptedQuestIds, questsById]
+  );
+
+  const completedQuests = useMemo(
+    () =>
+      completedQuestIds
+        .map((qid) => questsById.get(qid))
+        .filter((x): x is QuestEntry => Boolean(x))
+        .sort((a, b) => a.questNum - b.questNum),
+    [completedQuestIds, questsById]
+  );
+
+  const filteredCompleted = useMemo(
+    () => (regionFilter === "all" ? completedQuests : completedQuests.filter((q) => q.region === regionFilter)),
+    [completedQuests, regionFilter]
+  );
+
+  const totalActiveCount = acceptedQuestIds.length + activeOutpostHunts.length;
+  const activeHuntByOutpost = useMemo(
+    () => new Map(activeOutpostHunts.map((h) => [h.outpostId, h])),
+    [activeOutpostHunts]
   );
 
   const subTabs: Array<{ id: JournalSubTab; label: string }> = [
-    { id: "active", label: `Active Quests (${acceptedQuestIds.length}/15)` },
-    { id: "portals", label: `Main Portals (${sealedSet.size}/8)` },
+    { id: "active", label: `Active (${totalActiveCount}/${GLOBAL_ACTIVE_QUEST_LIMIT})` },
+    { id: "completed", label: `Completed (${completedQuests.length}/${questsCatalog.length || 178})` },
     { id: "chains", label: "Story Chains (4)" },
+    { id: "portals", label: `Main Portals (${sealedSet.size}/8)` },
     { id: "hunts", label: `Zone Outposts (${outposts.length})` },
     { id: "bestiary", label: "Bestiary" },
   ];
@@ -81,32 +146,170 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
         ))}
       </div>
 
+      {subTab === "completed" && (
+        <div className="shrink-0 flex flex-wrap items-center justify-between gap-2 rounded border border-[#2f3647] bg-[#121621]/95 px-3 py-2">
+          <div className="flex items-center gap-2.5">
+            <QuestCardThumb
+              cardId="quest_complete_royal_seal"
+              className="w-[34px] h-[34px] rounded border border-[#96783b] bg-[#0b0e14] shrink-0"
+            />
+            <div className="text-[12px] text-[#e7cf96] font-semibold">
+              Completed Hub Quests:{" "}
+              <span className="text-[#fff0c2]">
+                {completedQuests.length} / {questsCatalog.length || 178}
+              </span>
+              {completedOutpostHunts > 0 && (
+                <span className="text-[#9fb2cb] font-normal ml-2.5">
+                  · Outpost Hunts: {completedOutpostHunts}
+                </span>
+              )}
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-1">
+            <button
+              type="button"
+              onClick={() => {
+                audioEngine.playUiClick(0.25);
+                setRegionFilter("all");
+              }}
+              className={[
+                "px-2 py-0.5 rounded border text-[10.5px] font-semibold cursor-pointer",
+                regionFilter === "all"
+                  ? "border-[#d7b267] bg-[#2a2214] text-[#fae2aa]"
+                  : "border-[#2f3648] bg-[#161b26] text-[#9eb0c8] hover:border-[#6a5b3e]",
+              ].join(" ")}
+            >
+              All
+            </button>
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((reg) => (
+              <button
+                key={reg}
+                type="button"
+                onClick={() => {
+                  audioEngine.playUiClick(0.25);
+                  setRegionFilter(reg);
+                }}
+                className={[
+                  "px-2 py-0.5 rounded border text-[10.5px] font-semibold cursor-pointer",
+                  regionFilter === reg
+                    ? "border-[#d7b267] bg-[#2a2214] text-[#fae2aa]"
+                    : "border-[#2f3648] bg-[#161b26] text-[#9eb0c8] hover:border-[#6a5b3e]",
+                ].join(" ")}
+              >
+                R{reg}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="flex-1 min-h-0 overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-2.5 content-start pr-1">
         {subTab === "active" &&
-          (activeQuests.length === 0 ? (
+          (activeQuests.length === 0 && activeOutpostHunts.length === 0 ? (
             <div className="col-span-full py-8 text-center text-[12.5px] text-[#8d99b0]">
-              No active quests yet. Speak with townsfolk inside settlements and fortresses to accept quests.
+              No active quests or hunts yet. Speak with townsfolk in settlements or Hunt Quartermasters at Zone Outposts.
             </div>
           ) : (
-            activeQuests.map((q) => (
+            <>
+              {activeOutpostHunts.map((h) => {
+                const ready = h.killsProgress >= h.killsRequired;
+                const pct = Math.min(100, Math.round((h.killsProgress / Math.max(1, h.killsRequired)) * 100));
+                return (
+                  <div
+                    key={h.huntId}
+                    className={[
+                      "rounded border bg-[#121621]/95 p-3 flex gap-3 items-start",
+                      ready ? "border-[#c49c48]" : "border-[#2f3647]",
+                    ].join(" ")}
+                  >
+                    <div className="flex flex-col gap-1 shrink-0">
+                      <QuestCardThumb
+                        cardId={h.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board"}
+                        fallbackPath={h.mobIconPath}
+                        badgeCardId={ready ? "quest_complete_royal_seal" : undefined}
+                        alt={h.mobName}
+                        className="w-[74px] h-[74px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0 shadow"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">
+                          Hunt: {h.killsRequired} {h.mobName}
+                        </div>
+                        <span
+                          className={[
+                            "px-1.5 py-0.5 rounded border text-[10px] font-semibold shrink-0",
+                            ready
+                              ? "border-[#e6c170] bg-[#2d2311] text-[#ffe9ad]"
+                              : "border-[#3c6a5c] bg-[#132620] text-[#95e2be]",
+                          ].join(" ")}
+                        >
+                          {ready ? "★ Return to Outpost" : `${h.killsProgress}/${h.killsRequired} Slain`}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 mt-1">
+                        <img
+                          src={assetUrl(h.mobIconPath)}
+                          alt=""
+                          draggable={false}
+                          className="w-[22px] h-[22px] rounded border border-[#404b62] bg-[#0b0e15] object-contain shrink-0"
+                        />
+                        <div className="text-[11px] text-[#9db0c8] truncate">{h.outpostName}</div>
+                      </div>
+                      <div className="mt-1.5 h-[6px] w-full rounded-full bg-[#1a202d] overflow-hidden border border-[#2d3648]">
+                        <div
+                          className={[
+                            "h-full transition-all",
+                            ready ? "bg-[#f0c76e]" : "bg-[#4ebd8c]",
+                          ].join(" ")}
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                      <p className="m-0 mt-1.5 text-[11.5px] text-[#cfd8e8] leading-snug">
+                        Habitat: {h.biomeHints.length > 0 ? h.biomeHints.join(" · ") : "Surrounding Zone Wilds"}
+                      </p>
+                      <div className="mt-2 flex items-center justify-between gap-2">
+                        <span className="text-[11px] font-bold text-[#f4cf80] truncate">
+                          {formatOutpostRewardLine(h, itemsById?.[h.rewardConsumableId]?.name)}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            audioEngine.playUiClick(0.35);
+                            onAbandonOutpostHunt?.(h.outpostId);
+                          }}
+                          className="px-2.5 py-0.5 rounded border border-[#4f566a] hover:border-[#d46974] bg-[#1b202d] text-[10.5px] font-semibold text-[#d7dfee] hover:text-[#ffb4bc] cursor-pointer shrink-0"
+                        >
+                          Abandon
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              {activeQuests.map((q) => (
               <div key={q.questId} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-start">
-                <img
-                  src={assetUrl(q.assetPath || "assets/icons/ui/ui_06_quest_scroll_glyph.webp")}
-                  alt=""
-                  className="w-[46px] h-[46px] rounded border border-[#5a492e] bg-[#0b0e14] object-cover shrink-0"
-                  draggable={false}
+                <QuestCardThumb
+                  cardId={q.questId}
+                  fallbackPath={q.assetPath}
+                  alt={q.title}
+                  className="w-[74px] h-[74px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0 shadow"
                 />
                 <div className="min-w-0 flex-1">
-                  <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">
-                    {q.title} <span className="text-[11px] font-normal text-[#93a3ba]">({q.levelRange})</span>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">{q.title}</div>
+                    <span className="px-1.5 py-0.5 rounded border border-[#454f63] bg-[#171d2a] text-[10px] font-semibold text-[#bfd0e8] shrink-0">
+                      {q.category}
+                    </span>
                   </div>
                   <div className="text-[11px] text-[#9db0c8] mt-0.5">
+                    {REGION_NAMES[q.region] ? `${REGION_NAMES[q.region]} · ` : ""}
                     {q.hubName} · {q.giver}
                     {q.miniBoss ? ` · Threat: ${q.miniBoss}` : ""}
                   </div>
                   <p className="m-0 mt-1.5 text-[11.5px] text-[#cfd8e8] leading-snug">{q.description}</p>
                   <div className="mt-2 flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-bold text-[#f4cf80] truncate">{q.reward}</span>
+                    <span className="text-[11px] font-bold text-[#f4cf80] truncate">{formatRewardLine(q.reward)}</span>
                     <button
                       type="button"
                       onClick={() => {
@@ -120,6 +323,42 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                   </div>
                 </div>
               </div>
+            ))}
+            </>
+          ))}
+
+        {subTab === "completed" &&
+          (filteredCompleted.length === 0 ? (
+            <div className="col-span-full py-8 text-center text-[12.5px] text-[#8d99b0]">
+              {completedQuests.length === 0
+                ? "No completed quests yet. Finished hub contracts are archived here with their Quest Cards and Royal Victory Seals."
+                : `No completed quests recorded in Region ${regionFilter} (${REGION_NAMES[Number(regionFilter)] ?? ""}) yet.`}
+            </div>
+          ) : (
+            filteredCompleted.map((q) => (
+              <div key={q.questId} className="rounded border border-[#4b4028] bg-[#121621]/95 p-3 flex gap-3 items-start">
+                <QuestCardThumb
+                  cardId={q.questId}
+                  fallbackPath={q.assetPath}
+                  badgeCardId="quest_complete_royal_seal"
+                  alt={q.title}
+                  className="w-[74px] h-[74px] rounded border border-[#9a7b3f] bg-[#0b0e14] shrink-0 shadow"
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="text-[13.5px] font-bold text-[#f7dfa4] leading-snug">{q.title}</div>
+                    <span className="px-1.5 py-0.5 rounded border border-[#96783b] bg-[#2a2214] text-[10px] font-bold text-[#f5d88f] shrink-0">
+                      ★ Completed
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-[#9db0c8] mt-0.5">
+                    {REGION_NAMES[q.region] ? `${REGION_NAMES[q.region]} · ` : ""}
+                    {q.hubName} · {q.giver}
+                  </div>
+                  <p className="m-0 mt-1.5 text-[11.5px] text-[#b9c5d8] leading-snug">{q.description}</p>
+                  <div className="mt-2 text-[11px] font-semibold text-[#d9bd7c] truncate">Earned: {formatRewardLine(q.reward)}</div>
+                </div>
+              </div>
             ))
           ))}
 
@@ -131,7 +370,7 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                 <img
                   src={assetUrl(p.assetPath)}
                   alt={p.name}
-                  className="w-[48px] h-[48px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
+                  className="w-[54px] h-[54px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
                   draggable={false}
                 />
                 <div className="min-w-0 flex-1">
@@ -144,8 +383,15 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                   <div className="text-[11.5px] text-[#b4c2d7] mt-0.5">
                     Boss: {p.bossInfo?.boss} ({p.bossInfo?.plane})
                   </div>
-                  <div className="text-[11px] text-[#95a6be] mt-0.5">
-                    Catalyst: {p.catalyst?.name || "Regional Key"} · Weaknesses: {p.bossInfo?.weaknesses}
+                  <div className="mt-1 flex items-center gap-1.5 text-[11px] text-[#95a6be]">
+                    <QuestCardThumb
+                      cardId="quest_portal_catalyst_seal"
+                      fallbackPath="assets/icons/ui/ui_18_key_glyph.webp"
+                      className="w-[20px] h-[20px] rounded border border-[#4a5770] bg-[#0b0e14] shrink-0"
+                    />
+                    <span className="truncate">
+                      Catalyst: {p.catalyst?.name || "Regional Key"} · Weaknesses: {p.bossInfo?.weaknesses}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -153,40 +399,119 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
           })}
 
         {subTab === "chains" &&
-          STORY_CHAINS.map((c) => (
-            <div key={c.title} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-center">
-              <img
-                src={assetUrl("assets/icons/ui/ui_06_quest_scroll_glyph.webp")}
-                alt=""
-                className="w-[42px] h-[42px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
-                draggable={false}
-              />
-              <div className="min-w-0">
-                <div className="text-[13.5px] font-bold text-[#fae2aa]">{c.title}</div>
-                <div className="text-[11.5px] text-[#cfd8e8] mt-1 leading-snug">{c.route}</div>
+          STORY_CHAINS.map((c) => {
+            const doneCount = c.questIds.filter((qid) => completedSet.has(qid)).length;
+            return (
+              <div key={c.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-start">
+                <QuestCardThumb
+                  cardId={c.cardId}
+                  alt={c.title}
+                  className="w-[68px] h-[68px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0 shadow"
+                />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">{c.title}</div>
+                    <span className="px-1.5 py-0.5 rounded border border-[#4b566c] bg-[#182030] text-[10px] font-semibold text-[#dce5f5] shrink-0">
+                      {doneCount}/{c.questIds.length}
+                    </span>
+                  </div>
+                  <div className="text-[11.5px] text-[#cfd8e8] mt-1 leading-snug">{c.route}</div>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {c.questIds.map((qid, idx) => {
+                      const entry = questsById.get(qid);
+                      const isDone = completedSet.has(qid);
+                      const isActive = acceptedSet.has(qid);
+                      return (
+                        <span
+                          key={qid}
+                          className={[
+                            "px-2 py-0.5 rounded border text-[10.5px] font-semibold",
+                            isDone
+                              ? "border-[#96783b] bg-[#2a2214] text-[#f5d88f]"
+                              : isActive
+                                ? "border-[#3c785b] bg-[#142920] text-[#91e3b8]"
+                                : "border-[#31384a] bg-[#171c28] text-[#96a6be]",
+                          ].join(" ")}
+                        >
+                          {isDone ? "★ " : isActive ? "• " : ""}
+                          Part {idx + 1}
+                          {entry ? `: ${entry.title}` : ""}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
-        {subTab === "hunts" &&
-          outposts.map((o) => (
-            <div key={o.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-center">
-              <img
-                src={assetUrl(o.assetPath)}
-                alt={o.name}
-                className="w-[44px] h-[44px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
-                draggable={false}
-              />
-              <div className="min-w-0">
-                <div className="text-[13.5px] font-bold text-[#fae2aa]">
-                  {o.name} <span className="text-[11px] font-normal text-[#9eb0c8]">({o.levelRange || ""})</span>
-                </div>
-                <div className="text-[11px] text-[#9bb0c9] mt-0.5">
-                  {o.playerRegion || o.mapId} · Repeatable Zone Monster Hunt
+        {subTab === "hunts" && (
+          <>
+            <div className="col-span-full rounded border border-[#3a4254] bg-[#121621]/95 p-3 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 min-w-0">
+                <QuestCardThumb
+                  cardId="quest_outpost_hunt_board"
+                  className="w-[52px] h-[52px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0"
+                />
+                <div className="min-w-0">
+                  <div className="text-[13.5px] font-bold text-[#fae2aa]">Zone Outpost Monster Hunts</div>
+                  <div className="text-[11.5px] text-[#b4c2d7] mt-0.5">
+                    Speak with an Outpost Quartermaster to hunt monsters naturally found in that zone&apos;s wilds—no map markers are placed.
+                  </div>
                 </div>
               </div>
+              <div className="px-3 py-1.5 rounded border border-[#6e5832] bg-[#1d1912] text-right shrink-0">
+                <div className="text-[10px] uppercase tracking-wider text-[#bba476]">Completed</div>
+                <div className="text-[15px] font-bold text-[#fae2aa]">{completedOutpostHunts}</div>
+              </div>
             </div>
-          ))}
+            {outposts.map((o, idx) => {
+              const activeHunt = activeHuntByOutpost.get(o.id);
+              const ready = Boolean(activeHunt && activeHunt.killsProgress >= activeHunt.killsRequired);
+              return (
+                <div
+                  key={o.id}
+                  className={[
+                    "rounded border bg-[#121621]/95 p-3 flex gap-3 items-center",
+                    ready ? "border-[#c49c48]" : activeHunt ? "border-[#3c6a5c]" : "border-[#2f3647]",
+                  ].join(" ")}
+                >
+                  <QuestCardThumb
+                    cardId={activeHunt?.isElite || idx % 2 === 1 ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board"}
+                    fallbackPath={activeHunt?.mobIconPath || o.assetPath}
+                    badgeCardId={ready ? "quest_complete_royal_seal" : undefined}
+                    alt={o.name}
+                    className="w-[52px] h-[52px] rounded border border-[#5a492e] bg-[#0b0e14] shrink-0"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="text-[13.5px] font-bold text-[#fae2aa] truncate">{o.name}</div>
+                      {activeHunt && (
+                        <span
+                          className={[
+                            "px-1.5 py-0.5 rounded border text-[10px] font-semibold shrink-0",
+                            ready
+                              ? "border-[#e6c170] bg-[#2d2311] text-[#ffe9ad]"
+                              : "border-[#3c6a5c] bg-[#132620] text-[#95e2be]",
+                          ].join(" ")}
+                        >
+                          {ready
+                            ? `★ ${activeHunt.mobName} Ready`
+                            : `${activeHunt.mobName} ${activeHunt.killsProgress}/${activeHunt.killsRequired}`}
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-[11px] text-[#9bb0c9] mt-0.5 truncate">
+                      {activeHunt
+                        ? `Habitat: ${activeHunt.biomeHints.join(" · ") || o.playerRegion || "Surrounding Wilds"}`
+                        : `${o.playerRegion || o.mapId} · Repeatable Zone Monster Hunt`}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </>
+        )}
 
         {subTab === "bestiary" &&
           portals.map((p) => (

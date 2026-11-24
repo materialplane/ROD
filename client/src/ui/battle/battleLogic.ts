@@ -33,10 +33,62 @@ import type {
 } from "./battleTypes";
 import { buildFullDisciplineProfile, getPartyCombatAuras, grantWardShield } from "./combatEffects";
 
+export const BATTLE_STATE_ICONS = {
+  enemy_guard: {
+    iconPath: "assets/icons/conditions/cond_enemy_guard.webp",
+    label: "Enemy Guard",
+    tone: "state" as const,
+    desc: "Active Guard shield points. Break all Guard points with Weaknesses or Guard-chip skills to Stagger.",
+  },
+  staggered: {
+    iconPath: "assets/icons/conditions/cond_staggered.webp",
+    label: "Staggered",
+    tone: "warn" as const,
+    desc: "Guard broken! Takes 1.5x damage and loses its turn.",
+  },
+  boss_charging: {
+    iconPath: "assets/icons/conditions/cond_boss_charging.webp",
+    label: "Charging Attack",
+    tone: "debuff" as const,
+    desc: "Gathering power for a heavy telegraphed attack next turn. Break Guard or Stagger to interrupt.",
+  },
+  hero_guard: {
+    iconPath: "assets/icons/conditions/cond_hero_guard.webp",
+    label: "Guarding",
+    tone: "buff" as const,
+    desc: "Braced behind defense, halving incoming damage and empowering the next strike.",
+  },
+  momentum: {
+    iconPath: "assets/icons/conditions/cond_momentum.webp",
+    label: "Momentum",
+    tone: "buff" as const,
+    desc: "Next attack or spell deals +25% bonus damage.",
+  },
+  resolve_battered: {
+    iconPath: "assets/icons/conditions/cond_resolve_battered.webp",
+    label: "Battered Resolve",
+    tone: "warn" as const,
+    desc: "Under 50% HP: Tier 1 Wounded Resolve passive is active.",
+  },
+  resolve_critical: {
+    iconPath: "assets/icons/conditions/cond_resolve_critical.webp",
+    label: "Critical Resolve",
+    tone: "debuff" as const,
+    desc: "Under 25% HP: Tier 2 Last-Stand Resolve passive is active.",
+  },
+  ko_fallen: {
+    iconPath: "assets/icons/conditions/cond_ko_fallen.webp",
+    label: "Fallen",
+    tone: "debuff" as const,
+    desc: "Knocked out at 0 HP. Revive with healing draught or spell.",
+  },
+};
+
 export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   burn: {
     kind: "burn",
     glyph: "🔥",
+    iconPath: "assets/icons/conditions/cond_burn.webp",
     label: "Burn",
     isBuff: false,
     pillCls: "border-[#c95b38] bg-[#2c150e] text-[#ffab85]",
@@ -45,6 +97,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   bleed: {
     kind: "bleed",
     glyph: "🩸",
+    iconPath: "assets/icons/conditions/cond_bleed.webp",
     label: "Bleed",
     isBuff: false,
     pillCls: "border-[#b83e4c] bg-[#2a1016] text-[#ffa1ad]",
@@ -53,6 +106,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   poison: {
     kind: "poison",
     glyph: "☠",
+    iconPath: "assets/icons/conditions/cond_poison.webp",
     label: "Poison",
     isBuff: false,
     pillCls: "border-[#6fa838] bg-[#16260f] text-[#b4f285]",
@@ -61,6 +115,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   chill: {
     kind: "chill",
     glyph: "❄",
+    iconPath: "assets/icons/conditions/cond_chill.webp",
     label: "Chill",
     isBuff: false,
     pillCls: "border-[#4b9ed4] bg-[#102233] text-[#9edbff]",
@@ -69,6 +124,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   shock: {
     kind: "shock",
     glyph: "⚡",
+    iconPath: "assets/icons/conditions/cond_shock.webp",
     label: "Shock",
     isBuff: false,
     pillCls: "border-[#d4b038] bg-[#29220e] text-[#ffe885]",
@@ -77,6 +133,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   curse: {
     kind: "curse",
     glyph: "🌑",
+    iconPath: "assets/icons/conditions/cond_curse.webp",
     label: "Curse",
     isBuff: false,
     pillCls: "border-[#835cc9] bg-[#1f1533] text-[#cbb6ff]",
@@ -85,6 +142,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   stun: {
     kind: "stun",
     glyph: "💫",
+    iconPath: "assets/icons/conditions/cond_stun.webp",
     label: "Stun",
     isBuff: false,
     pillCls: "border-[#d48b38] bg-[#2e1e0e] text-[#ffd48a]",
@@ -93,6 +151,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   def_down: {
     kind: "def_down",
     glyph: "💔",
+    iconPath: "assets/icons/conditions/cond_def_down.webp",
     label: "Armor Break",
     isBuff: false,
     pillCls: "border-[#c25b68] bg-[#2b141a] text-[#ffb0bc]",
@@ -101,6 +160,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   atk_down: {
     kind: "atk_down",
     glyph: "⬇",
+    iconPath: "assets/icons/conditions/cond_atk_down.webp",
     label: "Weakened",
     isBuff: false,
     pillCls: "border-[#946eb8] bg-[#1f162b] text-[#d9c0ff]",
@@ -109,6 +169,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   blind: {
     kind: "blind",
     glyph: "👁",
+    iconPath: "assets/icons/conditions/cond_blind.webp",
     label: "Blinded",
     isBuff: false,
     pillCls: "border-[#7c879e] bg-[#1a1f2b] text-[#cbd5e8]",
@@ -117,6 +178,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   ward: {
     kind: "ward",
     glyph: "🛡",
+    iconPath: "assets/icons/conditions/cond_ward.webp",
     label: "Ward",
     isBuff: true,
     pillCls: "border-[#4aa3c8] bg-[#102633] text-[#9de6ff]",
@@ -125,6 +187,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   regen: {
     kind: "regen",
     glyph: "✨",
+    iconPath: "assets/icons/conditions/cond_regen.webp",
     label: "Regen",
     isBuff: true,
     pillCls: "border-[#4ab87d] bg-[#11291d] text-[#92f5bf]",
@@ -133,6 +196,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   reflect: {
     kind: "reflect",
     glyph: "🪞",
+    iconPath: "assets/icons/conditions/cond_reflect.webp",
     label: "Reflect",
     isBuff: true,
     pillCls: "border-[#7a82d9] bg-[#181b33] text-[#c2c9ff]",
@@ -141,6 +205,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   immunity: {
     kind: "immunity",
     glyph: "🌿",
+    iconPath: "assets/icons/conditions/cond_immunity.webp",
     label: "Ward Purity",
     isBuff: true,
     pillCls: "border-[#54b898] bg-[#122923] text-[#9df5dc]",
@@ -149,6 +214,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   haste: {
     kind: "haste",
     glyph: "⚔",
+    iconPath: "assets/icons/conditions/cond_haste.webp",
     label: "Empowered",
     isBuff: true,
     pillCls: "border-[#d4a644] bg-[#2b2110] text-[#ffe199]",
@@ -157,6 +223,7 @@ export const STATUS_UI_META: Record<StatusAilmentKind, BattleStatusUiMeta> = {
   undying: {
     kind: "undying",
     glyph: "🕊",
+    iconPath: "assets/icons/conditions/cond_undying.webp",
     label: "Undying",
     isBuff: true,
     pillCls: "border-[#e0c46c] bg-[#2e2712] text-[#fff0ad]",
@@ -558,10 +625,40 @@ export function packEncounterIntoGrid(
   }
 
   unplaced.sort((a, b) => b.gw * b.gh - a.gw * a.gh);
+  const staggeredSmallSlots: Array<[number, number]> =
+    cols >= 4 && rows >= 3
+      ? [
+          [1, 0],
+          [0, 1],
+          [2, 1],
+          [1, 2],
+          [2, 2],
+          [0, 2],
+          [1, 3],
+          [0, 3],
+          [2, 3],
+          [0, 0],
+          [2, 0],
+          [1, 1],
+        ]
+      : [];
+
   for (const unit of unplaced) {
     const gw = Math.min(cols, Math.max(1, unit.gw));
     const gh = Math.min(rows, Math.max(1, unit.gh));
     let placed = false;
+    if (gw === 1 && gh === 1 && staggeredSmallSlots.length > 0) {
+      for (const [r0, c0] of staggeredSmallSlots) {
+        if (fitsAt(r0, c0, 1, 1)) {
+          occupy(r0, c0, 1, 1);
+          unit.r0 = r0;
+          unit.c0 = c0;
+          placements.push(buildPlacement(unit, r0, c0, 1, 1, cols, rows, eg, false));
+          placed = true;
+          break;
+        }
+      }
+    }
     for (let c0 = 0; c0 <= cols - gw && !placed; c0++) {
       for (let r0 = 0; r0 <= rows - gh && !placed; r0++) {
         if (fitsAt(r0, c0, gw, gh)) {
@@ -654,7 +751,43 @@ function sampleZoneBenchmark(level: number): { hp: number; off: number } {
   return { hp: 12100, off: 384 };
 }
 
-function instantiateEnemyUnit(def: BattleEnemyDef, zoneMin: number, zoneMax: number): BattleEnemyUnit {
+function computeHeroBattleSpeed(
+  heroId: HeroId,
+  finesse: number,
+  heroEq: Partial<Record<string, string>>,
+  itemsById: Record<string, ItemEntry>
+): number {
+  const armor = heroEq.body ? itemsById[heroEq.body] : undefined;
+  const offhand = heroEq.left_hand ? itemsById[heroEq.left_hand] : undefined;
+  let base =
+    heroId === "rowan" || heroId === "valen"
+      ? 17
+      : heroId === "ellowyn" || heroId === "harlan" || heroId === "mera"
+        ? 15
+        : 13;
+  if (armor?.weight === "Light") base += 2;
+  else if (armor?.weight === "Heavy") base -= 2;
+  if (offhand?.category === "shield") base -= 1;
+  return base + Math.round(Math.max(0, finesse - 1) * 0.45);
+}
+
+function computeEnemyBattleSpeed(def: BattleEnemyDef, lv: number, isBoss: boolean): number {
+  const role = (def.role ?? "").toLowerCase();
+  let base = 15;
+  if (role.includes("skirmish") || role.includes("beast")) base = 19;
+  else if (role.includes("caster") || role.includes("hybrid")) base = 16;
+  else if (role.includes("fighter")) base = 15;
+  else if (role.includes("heavy")) base = 12;
+  if (isBoss) base = 20;
+  return base + Math.round(Math.max(0, lv - 1) * 0.42);
+}
+
+function instantiateEnemyUnit(
+  def: BattleEnemyDef,
+  zoneMin: number,
+  zoneMax: number,
+  packOpts?: { packCount: number; isBossFight: boolean }
+): BattleEnemyUnit {
   const zoneMid = Math.round((zoneMin + zoneMax) / 2);
   const rawLv = Math.max(1, def.level ?? zoneMid);
   const inNativeZone = !def.isBoss && rawLv >= zoneMin && rawLv <= zoneMax;
@@ -680,13 +813,44 @@ function instantiateEnemyUnit(def: BattleEnemyDef, zoneMin: number, zoneMax: num
     scaledGuard = lv <= 10 ? 0 : lv <= 30 ? Math.min(1, scaledGuard) : Math.min(2, scaledGuard);
   }
 
-  const maxHp = def.isBoss ? Math.max(250, def.hp) : scaledHp;
-  const xpReward = def.isBoss
+  const nPack = Math.max(1, packOpts?.packCount ?? 1);
+  const isBossFight = Boolean(packOpts?.isBossFight || def.isBoss);
+  const hpPackScale = isBossFight
+    ? 1.0
+    : nPack === 1
+      ? 1.35
+      : nPack === 2
+        ? 1.05
+        : nPack === 3
+          ? 0.92
+          : nPack === 4
+            ? 0.8
+            : 0.72;
+  const dmgPackScale = isBossFight
+    ? 1.15
+    : nPack <= 2
+      ? 1.0
+      : nPack === 3
+        ? 0.88
+        : nPack === 4
+          ? 0.78
+          : 0.7;
+  const lootScale = isBossFight ? 1.0 : nPack === 1 ? 1.85 : nPack === 2 ? 1.15 : 2.45 / nPack;
+
+  // Smooth early Lv 1-6 enemy HP lift & Portal #1-#2 durability so packs take real multi-round exchanges
+  const earlyLift = !def.isBoss && lv <= 6 ? 1 + ((7 - lv) / 6) * 0.42 : 1.0;
+  const bossBoost = def.isBoss && def.portalNum === 1 ? 1.4 : def.isBoss && def.portalNum === 2 ? 1.2 : 1.0;
+
+  const maxHp = def.isBoss
+    ? Math.max(250, Math.round(def.hp * bossBoost))
+    : Math.max(28, Math.round(scaledHp * earlyLift * hpPackScale));
+  const rawXp = def.isBoss
     ? (def.xp ?? Math.max(400, Math.round(120 + lv * 140 + lv * lv * 6.2)))
-    : Math.max(4, Math.round(3 + lv * 0.9 + lv * lv * 0.19));
-  const silverReward = def.isBoss
+    : Math.max(4, Math.round((3 + lv * 0.9 + lv * lv * 0.19) * lootScale));
+  const earlySilverLift = lv <= 15 ? ((16 - lv) / 15) * 2.5 : 0;
+  const rawSilver = def.isBoss
     ? (def.silver ?? Math.max(300, Math.round(50 + lv * 80 + lv * lv * 11.5)))
-    : Math.max(1, Math.round(0.7 + lv * 0.22 + lv * lv * lv * 0.0014));
+    : Math.max(2, Math.round((0.7 + earlySilverLift + lv * 0.22 + lv * lv * lv * 0.0014) * lootScale));
   const pDef = def.pDef && inNativeZone ? def.pDef : Math.round(2 + lv * 0.85);
   const mDef = def.mDef && inNativeZone ? def.mDef : Math.round(2 + lv * 0.8);
 
@@ -702,8 +866,8 @@ function instantiateEnemyUnit(def: BattleEnemyDef, zoneMin: number, zoneMax: num
     mag: Math.max(0, Math.round(scaledMag)),
     pDef,
     mDef,
-    xpReward,
-    silverReward,
+    xpReward: rawXp,
+    silverReward: rawSilver,
     weakTypes: parseDamageTypeList(def.weak),
     resistTypes: parseDamageTypeList(def.resist),
     revealedWeaknesses: [],
@@ -721,9 +885,157 @@ function instantiateEnemyUnit(def: BattleEnemyDef, zoneMin: number, zoneMax: num
     flipX: Boolean(def.flipX),
     iconPath: def.iconPath,
     actedThisRound: false,
+    speed: computeEnemyBattleSpeed(def, lv, Boolean(def.isBoss)),
+    packDamageMul: dmgPackScale,
+    staggerImmuneUntilAction: false,
     statuses: [],
     rawDef: def,
   };
+}
+
+function pickProceduralEncounterDefs(
+  config: BattleConfigData,
+  stage: BattleStageConfig,
+  zoneCode: number,
+  zoneMin: number,
+  zoneMax: number
+): BattleEnemyDef[] {
+  const byName = new Map(config.monsters.filter((m) => !m.isBoss).map((m) => [m.name.toLowerCase(), m]));
+  const curatedNames = stage.zoneSpawns?.[String(zoneCode)] ?? [];
+  let pool = curatedNames.map((n) => byName.get(n.toLowerCase())).filter((m): m is BattleEnemyDef => Boolean(m));
+
+  const spawnNames = new Set((stage.spawnNames ?? []).map((n) => n.toLowerCase()));
+  if (pool.length === 0 && spawnNames.size > 0) {
+    pool = config.monsters.filter(
+      (m) =>
+        !m.isBoss &&
+        spawnNames.has(m.name.toLowerCase()) &&
+        typeof m.level === "number" &&
+        m.level >= zoneMin &&
+        m.level <= zoneMax
+    );
+  }
+  if (pool.length === 0 && spawnNames.size > 0) {
+    pool = config.monsters.filter((m) => !m.isBoss && spawnNames.has(m.name.toLowerCase()));
+  }
+  if (pool.length === 0) {
+    pool = config.monsters.filter(
+      (m) =>
+        !m.isBoss &&
+        typeof m.level === "number" &&
+        m.level >= Math.max(1, zoneMin - 4) &&
+        m.level <= zoneMax + 4
+    );
+  }
+  if (pool.length === 0) {
+    pool = config.monsters.filter((m) => !m.isBoss);
+  }
+
+  let smallPool = pool.filter((m) => (m.gridW ?? 1) === 1 && (m.gridH ?? 1) === 1);
+  if (smallPool.length === 0 && spawnNames.size > 0) {
+    smallPool = config.monsters.filter(
+      (m) => !m.isBoss && spawnNames.has(m.name.toLowerCase()) && (m.gridW ?? 1) === 1 && (m.gridH ?? 1) === 1
+    );
+  }
+  if (smallPool.length === 0) {
+    smallPool = config.monsters.filter(
+      (m) =>
+        !m.isBoss &&
+        (m.gridW ?? 1) === 1 &&
+        (m.gridH ?? 1) === 1 &&
+        typeof m.level === "number" &&
+        m.level >= Math.max(1, zoneMin - 5) &&
+        m.level <= zoneMax + 5
+    );
+  }
+  if (smallPool.length === 0) {
+    smallPool = config.monsters.filter((m) => !m.isBoss && (m.gridW ?? 1) === 1 && (m.gridH ?? 1) === 1);
+  }
+
+  const cols = Math.max(2, stage.enemyGrid.cols ?? 4);
+  const rows = Math.max(2, stage.enemyGrid.rows ?? 3);
+  const grid = Array.from({ length: rows }, () => Array(cols).fill(false));
+  const placeDef = (def: BattleEnemyDef): boolean => {
+    const gw = Math.min(cols, Math.max(1, def.gridW ?? 1));
+    const gh = Math.min(rows, Math.max(1, def.gridH ?? 1));
+    for (let c0 = 0; c0 <= cols - gw; c0++) {
+      for (let r0 = 0; r0 <= rows - gh; r0++) {
+        let fits = true;
+        for (let r = r0; r < r0 + gh && fits; r++) {
+          for (let c = c0; c < c0 + gw && fits; c++) {
+            if (grid[r][c]) fits = false;
+          }
+        }
+        if (fits) {
+          for (let r = r0; r < r0 + gh; r++) {
+            for (let c = c0; c < c0 + gw; c++) grid[r][c] = true;
+          }
+          return true;
+        }
+      }
+    }
+    return false;
+  };
+
+  const randOf = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+  const midZoneLv = Math.round((zoneMin + zoneMax) / 2);
+  const medPool = pool.filter((m) => (m.gridW ?? 1) === 2 || (m.gridH ?? 1) === 2);
+
+  const chosenDefs: BattleEnemyDef[] = [];
+  const lead = randOf(pool);
+  const lw = lead.gridW ?? 1;
+  const lh = lead.gridH ?? 1;
+
+  if (lw >= 3 || lh >= 3) {
+    if (placeDef(lead)) chosenDefs.push(lead);
+    if (smallPool.length > 0 && Math.random() < 0.78) {
+      const escorts = 2 + Math.floor(Math.random() * 2);
+      for (let i = 0; i < escorts; i++) {
+        const s = randOf(smallPool);
+        if (placeDef(s)) chosenDefs.push(s);
+      }
+    }
+  } else if (lw === 2 || lh === 2) {
+    if (placeDef(lead)) chosenDefs.push(lead);
+    if (medPool.length > 0 && Math.random() < 0.4) {
+      const s2 = randOf(medPool);
+      if (placeDef(s2)) chosenDefs.push(s2);
+      if (smallPool.length > 0) {
+        const extra = 1 + Math.floor(Math.random() * 2);
+        for (let i = 0; i < extra; i++) {
+          const s = randOf(smallPool);
+          if (placeDef(s)) chosenDefs.push(s);
+        }
+      }
+    } else if (smallPool.length > 0) {
+      const escorts = 2 + Math.floor(Math.random() * 2);
+      for (let i = 0; i < escorts; i++) {
+        const s = randOf(smallPool);
+        if (placeDef(s)) chosenDefs.push(s);
+      }
+    }
+  } else {
+    const roll = Math.random();
+    const target =
+      midZoneLv <= 4
+        ? roll < 0.3
+          ? 3
+          : roll < 0.8
+            ? 4
+            : 5
+        : roll < 0.25
+          ? 3
+          : roll < 0.75
+            ? 4
+            : 5;
+    const activeSmallPool = smallPool.length >= 2 ? smallPool : pool;
+    for (let i = 0; i < target; i++) {
+      const pick = activeSmallPool.length > 0 ? randOf(activeSmallPool) : lead;
+      if (placeDef(pick)) chosenDefs.push(pick);
+    }
+  }
+
+  return chosenDefs.length > 0 ? chosenDefs : [lead];
 }
 
 export function createBattleState(params: {
@@ -803,6 +1115,7 @@ export function createBattleState(params: {
       className: heroDef.className,
       level: heroLv,
       slotIdx,
+      speed: computeHeroBattleSpeed(hid, attrs.finesse, params.equippedByHero[hid] ?? {}, params.itemsById),
       maxHp,
       curHp,
       maxMp,
@@ -846,8 +1159,7 @@ export function createBattleState(params: {
     return unit;
   });
 
-  // Pick enemies matched cleanly to Portal Boss or Zone level & stage pool
-  const midZoneLv = Math.round((params.zoneMin + params.zoneMax) / 2);
+  // Pick enemies matched cleanly to Portal Boss or procedural biome/zone encounter
   let chosenDefs: BattleEnemyDef[] = [];
 
   if (portalNum !== null) {
@@ -856,62 +1168,15 @@ export function createBattleState(params: {
       params.config.monsters.find((m) => m.isBoss);
     if (boss) chosenDefs = [boss];
   } else {
-    const zoneKey = String(params.zoneCode);
-    const curatedNames = stage.zoneSpawns?.[zoneKey] ?? [];
-    const curatedSet = new Set(curatedNames.map((n) => n.toLowerCase()));
-    const spawnNames = new Set((stage.spawnNames ?? []).map((n) => n.toLowerCase()));
-
-    // 1. Exact curated Zone × Biome roster from battle-config.json
-    let pool =
-      curatedSet.size > 0
-        ? params.config.monsters.filter((m) => !m.isBoss && curatedSet.has(m.name.toLowerCase()))
-        : [];
-
-    // 2. Native biome spawns that belong to this Danger Zone's level band
-    if (pool.length === 0 && spawnNames.size > 0) {
-      pool = params.config.monsters.filter(
-        (m) =>
-          !m.isBoss &&
-          spawnNames.has(m.name.toLowerCase()) &&
-          typeof m.level === "number" &&
-          m.level >= params.zoneMin &&
-          m.level <= params.zoneMax
-      );
-    }
-
-    // 3. Fallback preserving biome ecology (scaled cleanly by instantiateEnemyUnit to zoneMin..zoneMax)
-    if (pool.length === 0 && spawnNames.size > 0) {
-      pool = params.config.monsters.filter((m) => !m.isBoss && spawnNames.has(m.name.toLowerCase()));
-    }
-
-    // 4. Last-resort Zone level band fallback
-    if (pool.length === 0) {
-      pool = params.config.monsters.filter(
-        (m) =>
-          !m.isBoss &&
-          typeof m.level === "number" &&
-          m.level >= Math.max(1, params.zoneMin - 4) &&
-          m.level <= params.zoneMax + 4
-      );
-    }
-    if (pool.length === 0) {
-      pool = params.config.monsters.filter((m) => !m.isBoss);
-    }
-
-    // Fill enemy grid nicely up to 1–3 foes (never exceeding 4×3 grid capacity)
-    const countTarget = midZoneLv <= 4 ? 2 : 2 + Math.floor(Math.random() * 2); // 2 or 3 foes
-    let usedCells = 0;
-    const maxCells = (stage.enemyGrid.cols ?? 4) * (stage.enemyGrid.rows ?? 3);
-    for (let i = 0; i < countTarget; i++) {
-      const def = pool[Math.floor(Math.random() * pool.length)];
-      const area = Math.max(1, def.gridW ?? 1) * Math.max(1, def.gridH ?? 1);
-      if (chosenDefs.length > 0 && usedCells + area > maxCells) break;
-      chosenDefs.push(def);
-      usedCells += area;
-    }
+    chosenDefs = pickProceduralEncounterDefs(params.config, stage, params.zoneCode, params.zoneMin, params.zoneMax);
   }
 
-  const enemies = chosenDefs.map((d) => instantiateEnemyUnit(d, params.zoneMin, params.zoneMax));
+  const enemies = chosenDefs.map((d) =>
+    instantiateEnemyUnit(d, params.zoneMin, params.zoneMax, {
+      packCount: chosenDefs.length,
+      isBossFight: portalNum !== null,
+    })
+  );
   packEncounterIntoGrid(enemies, stage);
 
   // Orin Lv10 Rallying Horn: opening party Empowered buff at start of battle
@@ -922,8 +1187,10 @@ export function createBattleState(params: {
     }
   }
 
-  // Start Round 1 cleanly from Party Slot #1
+  // Build Speed-Interleaved Round 1 Turn Order
+  const battleId = `b_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
   const state: BattleState = {
+    battleId,
     stage,
     biomeName: params.biomeName,
     zoneName: params.zoneName,
@@ -934,16 +1201,81 @@ export function createBattleState(params: {
     enemies,
     consumedPotions: {},
     activeActor: { kind: "hero", heroId: heroes[0]?.heroId ?? "valen" },
+    roundQueue: [],
     phase: "player_turn",
     bannerText: `${heroes[0]?.name ?? "Party"}'s turn — choose an action`,
     totalXpEarned: 0,
     totalSilverEarned: 0,
     droppedTradeGoods: {},
     turnCounter: 1,
+    combatLog: [
+      `[R1] Encounter started in ${params.zoneName} (${params.biomeName})${portalNum !== null ? ` · Portal Boss #${portalNum}` : ""}`,
+    ],
   };
 
+  state.roundQueue = buildRoundQueue(state, true);
   advanceToNextTurnInRound(state);
+  if (state.activeActor.kind === "hero") {
+    const firstHero = heroes.find((h) => h.heroId === (state.activeActor as { heroId: HeroId }).heroId);
+    state.phase = "player_turn";
+    if (firstHero) state.bannerText = `${firstHero.name}'s turn — choose an action`;
+  } else {
+    const firstEnemy = enemies.find((e) => e.instanceId === (state.activeActor as { instanceId: string }).instanceId);
+    state.phase = "animating";
+    if (firstEnemy) state.bannerText = `${firstEnemy.name} moves quickly!`;
+  }
   return state;
+}
+
+export function appendBattleLog(state: BattleState, message: string): void {
+  if (!state.combatLog) state.combatLog = [];
+  state.combatLog.push(`[R${Math.max(1, state.turnCounter)}] ${message}`);
+  if (state.combatLog.length > 350) {
+    state.combatLog.splice(0, state.combatLog.length - 350);
+  }
+}
+
+export function flushCombatLog(
+  state: BattleState,
+  outcome: string,
+  itemsById: Record<string, ItemEntry>
+): void {
+  if (typeof window === "undefined" || !window.location?.protocol?.startsWith("http")) return;
+  try {
+    const battleId = state.battleId || `b_${state.zoneCode}_${state.enemies.map((e) => e.mobId).join("_")}`;
+    state.battleId = battleId;
+    const party = state.heroes.map(
+      (h) => `${h.name} Lv${h.level} (${h.curHp}/${h.maxHp} HP, ${h.weaponName})`
+    );
+    const enemies = state.enemies.map(
+      (e) => `${e.name} Lv${e.level} (${e.curHp}/${e.maxHp} HP, +${e.silverReward}s/+${e.xpReward}XP)`
+    );
+    const tradeGoods = Object.entries(state.droppedTradeGoods).map(([gid, qty]) => {
+      const it = itemsById[gid];
+      return it ? `${it.name} x${qty} (${it.sellSilver ?? 0}s ea)` : `${gid} x${qty}`;
+    });
+    void fetch("/api/combat-log/write", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        battleId,
+        zoneName: state.zoneName,
+        biomeName: state.biomeName,
+        isBossBattle: state.isBossBattle,
+        outcome,
+        party,
+        enemies,
+        totalXpEarned: state.totalXpEarned,
+        totalSilverEarned: state.totalSilverEarned,
+        tradeGoods,
+        lines: state.combatLog ?? [],
+      }),
+    }).catch(() => {
+      // Ignore outside local dev server (e.g. standalone Electron build)
+    });
+  } catch {
+    // Never disrupt combat UI
+  }
 }
 
 export function finishHeroTurnCooldowns(hero: BattleHeroUnit, usedAction?: BattleActionSpec): void {
@@ -955,6 +1287,49 @@ export function finishHeroTurnCooldowns(hero: BattleHeroUnit, usedAction?: Battl
   if (usedAction?.cooldownTurns && usedAction.cooldownTurns > 0) {
     hero.skillCooldowns[usedAction.id] = usedAction.cooldownTurns;
   }
+}
+
+function effectiveActorInitiative(
+  baseSpeed: number,
+  statuses: StatusEffectState[],
+  jitter = 0
+): number {
+  const haste = statuses.some((s) => s.kind === "haste") ? 1.22 : 1.0;
+  const chill = statuses.some((s) => s.kind === "chill") ? 0.82 : 1.0;
+  return baseSpeed * haste * chill + jitter;
+}
+
+export function buildRoundQueue(
+  state: BattleState,
+  isOpeningRound = false
+): Array<{ kind: "hero"; heroId: HeroId } | { kind: "enemy"; instanceId: string }> {
+  const entries: Array<{
+    actor: { kind: "hero"; heroId: HeroId } | { kind: "enemy"; instanceId: string };
+    score: number;
+  }> = [];
+
+  for (const h of state.heroes) {
+    if (h.curHp <= 0 || h.actedThisRound) continue;
+    const spd = h.speed ?? 15;
+    // Slight opening slot edge for #1 leader so party feels responsive while fast enemies still weave in Round 1
+    const leaderNudge = isOpeningRound && h.slotIdx === 0 ? 1.5 : 0;
+    entries.push({
+      actor: { kind: "hero", heroId: h.heroId },
+      score: effectiveActorInitiative(spd, h.statuses, Math.random() * 4 + leaderNudge),
+    });
+  }
+
+  for (const e of state.enemies) {
+    if (e.curHp <= 0 || e.actedThisRound) continue;
+    const spd = e.speed ?? computeEnemyBattleSpeed(e.rawDef, e.level, e.isBoss);
+    entries.push({
+      actor: { kind: "enemy", instanceId: e.instanceId },
+      score: effectiveActorInitiative(spd, e.statuses, Math.random() * 4),
+    });
+  }
+
+  entries.sort((a, b) => b.score - a.score);
+  return entries.map((x) => x.actor);
 }
 
 export function advanceToNextTurnInRound(state: BattleState): void {
@@ -971,15 +1346,43 @@ export function advanceToNextTurnInRound(state: BattleState): void {
     return;
   }
 
-  const nextHero = livingHeroes.find((h) => !h.actedThisRound);
-  if (nextHero) {
-    state.activeActor = { kind: "hero", heroId: nextHero.heroId };
+  // Immediate Bonus Turn takes priority before returning to round queue
+  const bonusHero = livingHeroes.find((h) => h.bonusTurnUsedThisRound && !h.actedThisRound);
+  if (bonusHero) {
+    state.activeActor = { kind: "hero", heroId: bonusHero.heroId };
     return;
   }
 
-  const nextEnemy = livingEnemies.find((e) => !e.actedThisRound);
-  if (nextEnemy) {
-    state.activeActor = { kind: "enemy", instanceId: nextEnemy.instanceId };
+  if (!state.roundQueue || state.roundQueue.length === 0) {
+    state.roundQueue = buildRoundQueue(state, false);
+  }
+
+  while (state.roundQueue.length > 0) {
+    const next = state.roundQueue.shift()!;
+    if (next.kind === "hero") {
+      const h = livingHeroes.find((x) => x.heroId === next.heroId && !x.actedThisRound);
+      if (h) {
+        state.activeActor = { kind: "hero", heroId: h.heroId };
+        return;
+      }
+    } else {
+      const e = livingEnemies.find((x) => x.instanceId === next.instanceId && !x.actedThisRound);
+      if (e) {
+        state.activeActor = { kind: "enemy", instanceId: e.instanceId };
+        return;
+      }
+    }
+  }
+
+  // Catch any unacted living unit missed by an old snapshot queue before rolling next round
+  const strayHero = livingHeroes.find((h) => !h.actedThisRound);
+  if (strayHero) {
+    state.activeActor = { kind: "hero", heroId: strayHero.heroId };
+    return;
+  }
+  const strayEnemy = livingEnemies.find((e) => !e.actedThisRound);
+  if (strayEnemy) {
+    state.activeActor = { kind: "enemy", instanceId: strayEnemy.instanceId };
     return;
   }
 
@@ -1020,7 +1423,10 @@ export function advanceToNextTurnInRound(state: BattleState): void {
     if (e.armorBrokenByOrinTurns && e.armorBrokenByOrinTurns > 0) e.armorBrokenByOrinTurns -= 1;
     if (e.rotCloudDoubleTurns && e.rotCloudDoubleTurns > 0) e.rotCloudDoubleTurns -= 1;
   }
-  state.activeActor = { kind: "hero", heroId: livingHeroes[0].heroId };
+
+  state.roundQueue = buildRoundQueue(state, false);
+  const firstNext = state.roundQueue.shift();
+  state.activeActor = firstNext ?? { kind: "hero", heroId: livingHeroes[0].heroId };
 }
 
 export function previewRoundOrder(state: BattleState, count = 10): TurnTimelineEntry[] {
@@ -1035,26 +1441,45 @@ export function previewRoundOrder(state: BattleState, count = 10): TurnTimelineE
     if (out.length < count) out.push(entry);
   };
 
+  const seenCurrent = new Set<string>();
+  const pushCurrentActor = (actor: { kind: "hero"; heroId: HeroId } | { kind: "enemy"; instanceId: string }) => {
+    if (actor.kind === "hero") {
+      if (seenCurrent.has(`h:${actor.heroId}`)) return;
+      const h = livingHeroes.find((x) => x.heroId === actor.heroId && !x.actedThisRound);
+      if (!h) return;
+      seenCurrent.add(`h:${h.heroId}`);
+      pushEntry({
+        kind: "hero",
+        id: h.heroId,
+        name: h.name,
+        iconPath: h.avatarPath,
+        isActive: state.activeActor.kind === "hero" && h.heroId === activeId,
+      });
+    } else {
+      if (seenCurrent.has(`e:${actor.instanceId}`)) return;
+      const e = livingEnemies.find((x) => x.instanceId === actor.instanceId && !x.actedThisRound);
+      if (!e) return;
+      seenCurrent.add(`e:${e.instanceId}`);
+      pushEntry({
+        kind: "enemy",
+        id: e.instanceId,
+        name: e.name,
+        iconPath: e.iconPath,
+        isActive: state.activeActor.kind === "enemy" && e.instanceId === activeId,
+        isTelegraphed: Boolean(e.telegraphedMove),
+      });
+    }
+  };
+
+  pushCurrentActor(state.activeActor);
+  for (const q of state.roundQueue ?? []) {
+    pushCurrentActor(q);
+  }
   for (const h of livingHeroes) {
-    if (h.actedThisRound) continue;
-    pushEntry({
-      kind: "hero",
-      id: h.heroId,
-      name: h.name,
-      iconPath: h.avatarPath,
-      isActive: state.activeActor.kind === "hero" && h.heroId === activeId,
-    });
+    if (!h.actedThisRound) pushCurrentActor({ kind: "hero", heroId: h.heroId });
   }
   for (const e of livingEnemies) {
-    if (e.actedThisRound) continue;
-    pushEntry({
-      kind: "enemy",
-      id: e.instanceId,
-      name: e.name,
-      iconPath: e.iconPath,
-      isActive: state.activeActor.kind === "enemy" && e.instanceId === activeId,
-      isTelegraphed: Boolean(e.telegraphedMove),
-    });
+    if (!e.actedThisRound) pushCurrentActor({ kind: "enemy", instanceId: e.instanceId });
   }
 
   if (out.length > 0 && out.length < count) {
@@ -1067,26 +1492,36 @@ export function previewRoundOrder(state: BattleState, count = 10): TurnTimelineE
     });
   }
 
+  const nextRoundSorted: Array<{ init: number; entry: TurnTimelineEntry }> = [];
   for (const h of livingHeroes) {
-    if (out.length >= count) break;
-    pushEntry({
-      kind: "hero",
-      id: `${h.heroId}_next`,
-      name: h.name,
-      iconPath: h.avatarPath,
-      isActive: false,
+    nextRoundSorted.push({
+      init: effectiveActorInitiative(h.speed ?? 15, h.statuses, -h.slotIdx * 0.05),
+      entry: {
+        kind: "hero",
+        id: `${h.heroId}_next`,
+        name: h.name,
+        iconPath: h.avatarPath,
+        isActive: false,
+      },
     });
   }
   for (const e of livingEnemies) {
-    if (out.length >= count) break;
-    pushEntry({
-      kind: "enemy",
-      id: `${e.instanceId}_next`,
-      name: e.name,
-      iconPath: e.iconPath,
-      isActive: false,
-      isTelegraphed: Boolean(e.telegraphedMove),
+    nextRoundSorted.push({
+      init: effectiveActorInitiative(e.speed ?? computeEnemyBattleSpeed(e.rawDef, e.level, e.isBoss), e.statuses, 0),
+      entry: {
+        kind: "enemy",
+        id: `${e.instanceId}_next`,
+        name: e.name,
+        iconPath: e.iconPath,
+        isActive: false,
+        isTelegraphed: Boolean(e.telegraphedMove),
+      },
     });
+  }
+  nextRoundSorted.sort((a, b) => b.init - a.init);
+  for (const item of nextRoundSorted) {
+    if (out.length >= count) break;
+    pushEntry(item.entry);
   }
 
   return out;
@@ -1426,6 +1861,7 @@ export function computeEnemyStrikeDamage(params: {
   isMagicMove: boolean;
   movePower: number;
   offenseMul?: number;
+  packDamageMul?: number;
   defVal: number;
   guarding?: boolean;
   guardMitigationPct?: number;
@@ -1437,10 +1873,11 @@ export function computeEnemyStrikeDamage(params: {
     4,
     (params.isMagicMove ? Math.max(params.atk, params.mag) : params.atk) *
       params.movePower *
-      (params.offenseMul ?? 1)
+      (params.offenseMul ?? 1) *
+      (params.packDamageMul ?? 1)
   );
-  const rawStrike = baseOffense * 2.4;
-  const mitigation = 1 / (1 + Math.max(0, params.defVal) / Math.max(3.5, baseOffense * 0.48));
+  const rawStrike = baseOffense * 2.45;
+  const mitigation = 1 / (1 + Math.max(0, params.defVal) / Math.max(4, baseOffense * 0.68));
   let dmg = Math.max(2, Math.round(rawStrike * mitigation));
   if (params.guarding) {
     const mit = 0.5 - Math.min(0.2, (params.guardMitigationPct ?? 0) / 100);
@@ -1534,7 +1971,7 @@ export function computeDamageOnEnemy(
 
   const usedAtk = atkOverride ?? hero.atk;
   const statMul = 1 + atkBonusPct / 100;
-  const baseStat = (isMagic ? (14 + hero.mag) * resolve.magMul : (12 + usedAtk) * resolve.atkMul) * hasteMul * statMul;
+  const baseStat = (isMagic ? (5 + hero.mag * 1.05) * resolve.magMul : (4 + usedAtk * 1.05) * resolve.atkMul) * hasteMul * statMul;
 
   const hasBleedOrShock = enemy.statuses.some((s) => s.kind === "bleed" || s.kind === "shock");
   let extraPen = (eHpRatio < 0.35 ? p?.vsLowHp35PenPct ?? 0 : 0) + (hasBleedOrShock && auras ? auras.bleedShockPenPct : 0);
@@ -1581,7 +2018,7 @@ export function computeDamageOnEnemy(
     enemy.statuses = enemy.statuses.filter((s) => s.kind !== "shock");
   }
 
-  let raw = Math.max(baseStat * 0.45, baseStat * 1.45 - effDef * 0.55) * action.power * elemMul * momentumMul * cursedMul * weakMul * chillMul * poisonMul;
+  let raw = Math.max(baseStat * 0.45, baseStat * 1.42 - effDef * 0.5) * action.power * elemMul * momentumMul * cursedMul * weakMul * chillMul * poisonMul;
   const critMult = 1.55 + ((p?.critDamagePct ?? 0) + (hero.hasShield ? p?.shieldCritDamagePct ?? 0 : 0)) / 100;
   if (isCrit) raw *= critMult;
   raw *= 0.94 + Math.random() * 0.12;
@@ -1609,7 +2046,7 @@ export function computeDamageOnEnemy(
   if (isMagic && hero.nextSpellEmpower) extraChip += 1;
 
   const chip = (isWeak ? 1 : 0) + (action.guardChip ?? 0) + extraChip;
-  if (chip > 0 && enemy.guardCur > 0) {
+  if (chip > 0 && enemy.guardCur > 0 && !enemy.staggerImmuneUntilAction) {
     enemy.guardCur = Math.max(0, enemy.guardCur - chip);
     brokeGuard = true;
     if (enemy.guardCur === 0) {
@@ -1653,7 +2090,9 @@ export function applyLootAndDropsForDefeatedEnemy(
   const tradeGoods = itemsCatalog.filter((it) => it.category === "trade_good");
   if (tradeGoods.length === 0) return;
 
-  const dropChance = enemy.isBoss ? 1.0 : 0.42;
+  const nPack = Math.max(1, state.enemies.length);
+  const packLootMul = enemy.isBoss || nPack <= 2 ? 1.0 : 2.45 / nPack;
+  const dropChance = enemy.isBoss ? 1.0 : Math.min(0.6, 0.55 * packLootMul);
   if (Math.random() <= dropChance) {
     const regionNum = levelToRegionNum(enemy.level);
     const regionalPool = tradeGoods.filter((tg) => (tg.region ?? 1) === regionNum);
