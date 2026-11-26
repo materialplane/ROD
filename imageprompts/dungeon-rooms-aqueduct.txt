@@ -1,0 +1,111 @@
+# ROD — Theme #1: Stone Undercroft & Aqueduct 5-Room Classic-FF Kit (Streamlined Ship-Ready Set)
+# Usage: Powers Quest #1 (Dry Aqueduct) plus Crypts, Vaults & Keep Dungeons (reusable & shuffleable).
+# Target Model: models/gemini-3-pro-image (16:9 Aspect Ratio, 4K) via Gemini Batch API (50% off) after test/approval
+# Browser / Batch Mode: 100% Text-Only (NO reference images, ZERO lore names inside prompts).
+# Export Target: client/assets/maps/dungeons/aqueduct/aq_room_01..05.webp (2560x1440 .webp)
+
+================================================================================
+ROOM 01 OF 05 (aq_room_01_entry_landing) — [ENTRY ROOM: NORTH DOOR ONLY]
+================================================================================
+--- COPY PROMPT START ---
+Direct 90-degree flat top-down overhead perspective from a comfortable high interior dungeon view (pure orthographic bird's-eye architectural floorplan looking strictly straight down at the full enclosed subterranean stone chamber floor). Wide-angle 4k quality 16:9 widescreen fantasy tactical battlemap.
+
+BASE ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA UNDERCROFT CARTOGRAPHY):
+- A 16:9 stylized high-fantasy 4k quality digital painting in the crisp hand-painted aesthetic of League of Legends (Legends of Runeterra / Ruined King) environments—weathered pale slate-gray cut-limestone perimeter walls, worn warm sandy-buff flagstone pavers with crisp dark-charcoal mortar seams, sparse dried dark-olive moss tufts in masonry corners, faint chalky stone dust, and warm glowing amber iron wall-torches lighting the entire stone floor cleanly with soft grounded contact shadows strictly under walls and corner crates (100% matte bone-dry stone surfaces; NO black corner voids, NO photorealism, NO sketchy ink outlines, NO watercolor bleed, NO pixel art, NO glossy 3D plastic).
+- PURE UNDERGROUND CHAMBER ONLY (STRICTLY ZERO indoor houses or cottages, ZERO outdoor grass, ZERO sky, ZERO horizon).
+
+WALLS & SINGLE CLOSED NORTH DOOR (EXACT EXIT ONLY):
+- West, East, and South perimeter walls: Solid unbroken thick cut-limestone walls closing left, right, and bottom boundaries completely cleanly without any doors or gaps.
+- North perimeter wall: Solid limestone masonry with ONE centered solid CLOSED heavy ironbound dark-oak plank dungeon door fitted cleanly flush inside the exact horizontal center of the north wall thickness (zero open doorway holes, zero swinging door panels lying flat on the floor).
+
+INTERIOR FLOOR & PROPS (CLEAN LANDING ROOM):
+- Open wide sandy-buff limestone flagstones keep 80%+ of the center floor wide clear for character movement (keep center-south flagstones clean and unobstructed so dynamic exit-stairs or grate props overlay cleanly).
+- Far southwest and southeast corners ONLY: Neat idle wooden supply crates, two iron-banded oak barrels, coiled hemp rope, and wall-mounted iron torch brackets tucked tightly into far corners.
+
+CRITICAL RULES: 90-degree flat top-down view; strictly bone-dry; strictly 1 closed oak door centered in North wall only (West/East/South walls completely solid); zero people, monsters, chests, baked stairs/grates, grids, or text.
+--- COPY PROMPT END ---
+
+================================================================================
+ROOM 02 OF 05 (aq_room_02_aqueduct_crossroads) — [4-WAY HUB: N + S + E + W DOORS | TOP-15% AQUEDUCT ARCHES]
+================================================================================
+--- COPY PROMPT START ---
+Direct 90-degree flat top-down overhead perspective from a comfortable high interior dungeon view (pure orthographic bird's-eye architectural floorplan looking strictly straight down at the full enclosed subterranean stone chamber floor). Wide-angle 4k quality 16:9 widescreen fantasy tactical battlemap.
+
+BASE ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA UNDERCROFT CARTOGRAPHY):
+- A 16:9 stylized high-fantasy 4k quality digital painting in the crisp hand-painted aesthetic of League of Legends (Legends of Runeterra / Ruined King) environments—weathered pale slate-gray cut-limestone perimeter walls, worn warm sandy-buff flagstone pavers with crisp dark-charcoal mortar seams, sparse dried dark-olive moss tufts in masonry corners, faint chalky stone dust, and warm glowing amber iron wall-torches lighting the entire stone floor cleanly with soft grounded contact shadows strictly under walls and pillars (100% matte bone-dry stone surfaces; NO black corner voids, NO photorealism, NO sketchy ink outlines, NO watercolor bleed, NO pixel art, NO glossy 3D plastic).
+- PURE UNDERGROUND CHAMBER ONLY (STRICTLY ZERO indoor houses or cottages, ZERO outdoor grass, ZERO sky, ZERO horizon).
+
+WALLS, TOP-15% NORTH AQUEDUCT ARCADES & FOUR CLOSED WALL DOORS:
+- Top ~15% NORTH Aqueduct Wall Strip: Along the left and right wings of ONLY the upper ~15% North wall stand ornate carved pale-limestone aqueduct sluice arches & dry recessed stone masonry channels framing ONE centered solid CLOSED ironbound dark-oak plank door fitted cleanly flush inside the exact horizontal center of the north wall (`all aqueduct stonework sits cleanly in ONLY the top 15% wall edge—85% below is open floor`).
+- South wall (exact center), West wall (exact middle), & East wall (exact middle): Each holds ONE centered solid CLOSED ironbound dark-oak plank dungeon door fitted cleanly flush inside the stone wall thickness (`strictly NO black doorway gaps or flat door slabs on the floor`).
+
+FOUR-PILLAR CROSSROADS FLOOR:
+- Centered cleanly around an inlaid octagonal sandy stone paving medallion sit four modest crisp square cut-limestone support pillars spaced generously apart so wide open flagstone walking lanes run cleanly between North, South, West, and East doors.
+- Small iron brazier stands and neatly stacked stone repair blocks sit tucked safely into ONLY the four diagonal room corners.
+
+CRITICAL RULES: 90-degree flat top-down view; strictly bone-dry stone; exactly 4 closed oak wall doors centered cleanly in N, S, E, and W walls; elaborate dry aqueduct arches along ONLY top 15% North strip; zero people, monsters, chests, grids, or text.
+--- COPY PROMPT END ---
+
+================================================================================
+ROOM 03 OF 05 (aq_room_03_kennel_guardroom) — [SIDE WING: EAST DOOR ONLY | KENNEL & WATCHROOM]
+================================================================================
+--- COPY PROMPT START ---
+Direct 90-degree flat top-down overhead perspective from a comfortable high interior dungeon view (pure orthographic bird's-eye architectural floorplan looking strictly straight down at the full enclosed subterranean stone chamber floor). Wide-angle 4k quality 16:9 widescreen fantasy tactical battlemap.
+
+BASE ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA UNDERCROFT CARTOGRAPHY):
+- A 16:9 stylized high-fantasy 4k quality digital painting in the crisp hand-painted aesthetic of League of Legends (Legends of Runeterra / Ruined King) environments—weathered pale slate-gray cut-limestone perimeter walls, worn warm sandy-buff flagstone pavers with crisp dark-charcoal mortar seams, sparse dried dark-olive moss tufts in masonry corners, warm glowing amber iron wall-torches lighting every corner cleanly with soft grounded contact shadows strictly under walls and furniture (100% matte bone-dry interior; NO black corner voids, NO photorealism, NO sketchy ink outlines, NO watercolor bleed, NO pixel art).
+- PURE UNDERGROUND CHAMBER ONLY (STRICTLY ZERO indoor houses or cottages, ZERO outdoor grass, ZERO sky, ZERO horizon).
+
+WALLS & SINGLE CLOSED EAST DOOR (EXACT EXIT ONLY):
+- North, West, and South perimeter walls: Solid unbroken weathered cut-limestone walls closing top, left, and bottom borders cleanly without doors; wall slits sealed with CLOSED wooden shutters.
+- East perimeter wall (exact vertical middle only): ONE centered solid CLOSED ironbound dark-oak plank door fitted cleanly flush inside the east wall thickness (`NO black doorway voids, NO door slab lying on floor`).
+
+KENNEL & GUARDROOM ZONES (100% EMPTY OF ANIMALS OR PEOPLE):
+- Western Wall Wing: Partitioned neatly along ONLY the far left wall by two rustic wooden slatted hound-kennel pens filled with dry golden straw bedding, empty metal feed pans, leather collars, and wall iron tether rings (`100% empty of hounds or wolves`).
+- North Masonry Hearth: Rugged glowing amber brick hearth alcove flanked by compact wooden spear racks holding hunting spears and crossbows.
+- Southwest Corner: Two narrow wooden guard cots with wool blankets beside a compact oak planning desk holding parchment trail maps & brass lantern—leaving 70%+ worn flagstones wide open toward the closed East door (`and clean northeast corner floor spot open for a Chest overlay`).
+
+CRITICAL RULES: 90-degree flat top-down view; bone-dry room; strictly 1 closed oak door centered in East wall only; zero dogs/wolves/people/chests/grids/text.
+--- COPY PROMPT END ---
+
+================================================================================
+ROOM 04 OF 05 (aq_room_04_treasury_vault) — [1-DOOR CHAMBER: WEST EXTERIOR DOOR ONLY | PROVISION & TREASURY VAULT]
+================================================================================
+--- COPY PROMPT START ---
+Direct 90-degree flat straight-down orthographic top-down overhead perspective from high above the room (strictly vertical 90-degree bird's-eye floorplan looking straight down onto the flat top caps of the perimeter walls and flat stone floor — ZERO 3/4 tilt, ZERO side wall elevation, ZERO dividing interior walls). Wide-angle 4k quality 16:9 widescreen fantasy tactical battlemap.
+
+BASE ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA UNDERCROFT CARTOGRAPHY):
+- A 16:9 stylized high-fantasy 4k quality digital painting in the crisp hand-painted aesthetic of League of Legends (Legends of Runeterra / Ruined King) environments—weathered pale slate-gray cut-limestone perimeter wall caps enclosing warm sandy-buff flagstone floor pavers with crisp dark-charcoal mortar seams, sparse dried dark-olive moss in corners, and glowing amber iron wall-torches lighting the entire bone-dry stone room cleanly (100% matte stone; NO black corner voids, NO photorealism, NO sketchy ink outlines, NO watercolor bleed, NO pixel art).
+- PURE UNDERGROUND CHAMBER ONLY (ZERO outdoor grass, ZERO sky, ZERO horizon).
+
+PERIMETER WALLS & FLUSH EXTERIOR WEST DOOR (FAR LEFT OUTER WALL):
+- North, East, and South outer perimeter borders: Thick unbroken flat-topped cut-limestone walls closing top, right, and bottom edges of the image completely cleanly (`zero north, east, or south doors`).
+- Left (`West`) outer perimeter border (`far left edge of the 16:9 image`): Solid flat-topped limestone border wall running vertically along the far left margin with ONE centered doorway opening cut straight through that far-left West outer wall itself—showing a recessed flat pale threshold sill and closed iron-and-oak door flush inside the left exterior border wall (`CRITICAL: the door sits 100% IN the far-left West outer boundary wall opening westward outside the room — strictly ONE continuous open room inside, ZERO interior dividing stone walls!`).
+
+PROVISION & VAULT INTERIOR (WIDE OPEN SINGLE CHAMBER):
+- Far East & Southeast Edges Only: Neat wooden cellar bottle shelves, iron-hooped oak barrels, tied burlap grain sacks, ceramic amphorae, and coiled hemp rope tucked tightly against ONLY the outer right wall masonry—leaving 80%+ broad open sandy-buff limestone flagstones running uninterrupted to the centered West outer door ready for chests and stairs.
+
+CRITICAL RULES: Strict 90-degree flat straight-down top-down view; strictly bone-dry; 1 exterior door ONLY flush in far-left West outer wall; zero interior dividing walls; zero open black flue/pit holes; zero baked people/monsters/chests/stairs/grids/text.
+--- COPY PROMPT END ---
+
+================================================================================
+ROOM 05 OF 05 (aq_room_05_boss_sanctum) — [1-DOOR CHAMBER: SOUTH DOOR ONLY | SLUICE CONTROL CHAMBER]
+================================================================================
+--- COPY PROMPT START ---
+STYLE & SCALE REFERENCE ANCHOR: Strictly match the exact League of Legends / Legends of Runeterra hand-painted art style, crisp weathered ink-and-paint texture detail, warm flickering orange wall-torch pools, fine small brick perimeter wall courses, and small ~12x7 square sandy-buff flagstone floor paver scale of the attached reference chamber (do NOT draw huge wide rectangular cartoon slabs or smooth flat mobile-vector lighting).
+
+Direct 90-degree flat top-down overhead perspective from a comfortable high interior dungeon view (pure orthographic bird's-eye architectural floorplan looking strictly straight down at the full enclosed subterranean stone chamber floor). Wide-angle 4k quality 16:9 widescreen fantasy tactical battlemap.
+
+BASE ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA UNDERCROFT CARTOGRAPHY):
+- Weathered pale slate-gray cut-limestone multi-course brick perimeter walls with beveled masonry blocks, worn warm sandy-buff square flagstone pavers (small ~12x7 floor tiles matching the reference room) with crisp dark-charcoal mortar seams, tiny surface cracks, sparse dried dark-olive moss tufts in masonry corners, faint chalky stone dust, and 6+ warm glowing amber iron wall-torches mounted along North, West, East, and South walls casting rich warm orange pools of torchlight across the floor (100% matte bone-dry stone; NO black corner voids, NO vector smoothness, NO giant bricks, NO pixel art).
+- PURE UNDERGROUND CHAMBER ONLY (ZERO outdoor grass, ZERO sky, ZERO horizon).
+
+PERIMETER WALLS, TOP SLUICE WINCHES & SINGLE FLUSH SOUTH DOOR (MATCHING REFERENCE BOTTOM DOOR):
+- West, East, and North perimeter walls: Detailed multi-brick limestone walls closing left, right, and top margins cleanly (`zero north/west/east doors`). Along ONLY the upper ~15% North wall strip sit three recessed arched limestone sluice alcoves holding weathered antique-bronze spoked gears, iron chains, and counterweight stone drums recessed tightly into the North wall border.
+- South perimeter wall (bottom margin ONLY): Match the bottom wall doorway construction of the attached reference image—a slender multi-brick bottom limestone perimeter rim broken in the exact horizontal center by ONE flush recessed pale stone threshold step & closed heavy ironbound dark-oak door plank inset inside the bottom wall rim thickness itself (`strictly flush in the bottom outer wall rim — NEVER standing upright inside the floor pavers!`).
+
+OPEN TEXTURED CHAMBER FLOOR:
+- Center Floor: Expansive ~12x7 small square worn limestone flagstones running uninterrupted across 85% of the room (`NO baked central boss medallion, NO giant stone bricks, NO crates tipped sideways`), accented lightly in far diagonal corners ONLY by two small stone repair block stacks & corner iron braziers matching the reference room.
+
+CRITICAL RULES: Match exact reference Runeterra texture & small ~12x7 tile scale; 90-degree flat top-down view; strictly bone-dry; 1 closed oak door inset flush in bottom South outer wall border ONLY; top North sluice winches only; zero baked chests/people/monsters/sigils/stairs/grids/text.
+--- COPY PROMPT END ---

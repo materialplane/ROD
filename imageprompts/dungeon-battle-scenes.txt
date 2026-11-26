@@ -1,0 +1,77 @@
+# ROD — Indoor Dungeon 16:9 Turn-Based Battle Stage Backdrops
+# Art Style: High-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) matching battle-scenes.txt
+# Camera/Split: ~85% open flat walkable combat floor (BATTLESCENE MANDATE), ~15% top solid masonry wall rim.
+# Target Model: models/gemini-3-pro-image (16:9 Aspect Ratio, 4K) via Gemini Batch API (50% off) after review
+# Browser / Batch Mode: 100% Text-Only (NO reference images, ZERO characters/mobs/chests/boulders).
+# Export Target: client/assets/maps/battle_scenes/dungeon_*.webp
+
+================================================================================
+DUNGEON STAGE 01 (dungeon_01_stone_aqueduct) — DRY STONE AQUEDUCT UNDERCROFT
+================================================================================
+--- COPY PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted subterranean surface textures matching a dry stone storm-drainage aqueduct: weathered pale slate-gray cut-limestone blocks, worn warm sandy-buff flagstone pavers, deep dark-charcoal mortar seams accented by sparse dried dark-olive moss tufts, pale chalky dry runoff dust across strictly dry stone (zero standing water or puddles), and warm glowing amber wall torchlight contrasted against rich deep cobalt-slate shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, level subterranean dry stone aqueduct chamber—push the far vaulted masonry wall HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable stone battleground floor and ONLY the top ~15% strip holds the arched culvert wall and ceiling rim.
+
+LOWER ~85% — EXPANSIVE CHISELED AQUEDUCT BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed battleground floor paved in worn warm sandy-buff and cool pale-gray rectangular limestone flagstones with deep dark-charcoal mortar seams, faint dry runoff dust, sparse dried moss cracks, and warm pools of golden-amber torchlight across flat stone—strictly flat and unobstructed across both the left hero side and right enemy side with NO protruding pillars, boulders, crates, levers, or raised walls blocking the combat floor.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — ARCHED SUBTERRANEAN AQUEDUCT WALL & TORCH SCONCES:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a heavy cut-limestone culvert wall lined with shadowy arched drainage recesses and dark wrought-iron wall brackets holding warm glowing amber torches casting golden rim highlights toward the stone floor, framed along the top margin by dark stone arch ribs.
+--- COPY PROMPT END ---
+
+
+================================================================================
+BASE STONE STAGE 01 (dungeon_02_stone_hearth_arena) — CUT-LIMESTONE KEEP FLAGSTONE ARENA
+================================================================================
+--- COPY PROMPT START (BASE STONE BATTLE 01: KEEP FLAGSTONE HALL) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with intricate painted stonework textures matching an Ethorian stone-brick keep undercroft: crisp chiseled warm-gray limestone flagstones, worn deep charcoal-indigo mortar seams, subtle golden-amber iron-brazier glow contrasted against deep velvety indigo shadow pools (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level cut stone-brick keep undercroft floor—push the solid rear masonry wall HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds wall trim and sconces.
+
+LOWER ~85% — EXPANSIVE CHISELED LIMESTONE KEEP BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a broad, flat, unobstructed battleground floor paved cleanly in fitted warm pale-slate and chiseled ashlar limestone flagstones with recessed charcoal mortar grooves, scattered fine grit and flush worn stone seams, bathed cleanly in alternating warm golden-amber flame glow and deep indigo shadow pools across both the left enemy zone and right hero zone—strictly flat, level, and completely open across the entire combat floor for clear battle placement.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — SOLID MASONRY WALL TRIM, BANNERS & TORCHES:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a solid dressed limestone rear wall cropped near the ceiling edge, dressed with shallow fluted stone pilasters, small cropped edges of tattered wine-crimson heraldic banners, and dark wrought-iron wall torches shedding warm golden rim highlights across the upper masonry.
+--- COPY PROMPT END (BASE STONE BATTLE 01: KEEP FLAGSTONE HALL) ---
+
+
+================================================================================
+BASE STONE STAGE 02 (dungeon_03_basalt_vault_arena) — HERRINGBONE ARCHIVE & CANDELABRA STONE ARENA
+================================================================================
+--- COPY PROMPT START (BASE STONE BATTLE 02: ARCHIVE STONE VAULT) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork matching weathered gray-limestone and smoky charcoal-slate Ethorian stone-brick masonry, set inside a distinct stone guardroom archive: tightly fitted diagonal herringbone and curved radial stone-brick pavers, dusty chalked mortar seams, warm golden candelabra flame pools contrasted sharply against cool indigo-violet vault shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, level stone-brick archive guardroom floor—push the far solid stone-brick rear wall HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the carved rear wall details.
+
+LOWER ~85% — EXPANSIVE HERRINGBONE & RADIAL STONE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unbroken combat floor laid in distinctive weathered smoky-slate herringbone cut-brick courses framing broad concentric pale-limestone paver rings (flush carved stone tiles, visually distinct from plain rectangular flagstones) with dark recessed mortar grooves, fine settling stone dust, and dramatic pools of warm candelabra gold meeting cool deep-violet masonry shadows across both the left enemy side and right hero side—completely flat, solid, seamlessly laid level floor stones across the entire open arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — RECESSED STONE ARCHIVE SHELVES, URN RIMS & CANDELABRAS:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a continuous chiseled stone-brick rear wall cropped neatly along the ceiling edge, carved with recessed stone library wall-shelves holding dusty leather tomes and cracked ceramic urns, a barred dark-iron niche grate, and heavy forged iron multi-candle wall candelabras casting golden rim highlights down onto the floor.
+--- COPY PROMPT END (BASE STONE BATTLE 02: ARCHIVE STONE VAULT) ---
+
+
+================================================================================
+BASE STONE STAGE 03 (dungeon_04_moss_cistern_arena) — MOSS-SEAMED STONE & IRON SCONCE ARENA
+================================================================================
+--- COPY PROMPT START (BASE STONE BATTLE 03: MOSS-SEAMED STONE FLOOR) ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Summoner's Rift / Ruined King) character splash art. Richly crafted digital brushwork with rich damp stone textures matching an old fortress cistern and moss-seamed stone hall: cool granite-gray and storm-slate cut flagstones with damp-sheen brushwork, low flush tufts of dark emerald moss along stone joints, scattered fine pebbles flush in stone, and fierce glowing orange iron wall torchlight contrasted against rich slate-cobalt shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, level moss-seamed stone-brick dungeon arena floor—push the far solid masonry wall HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the lower masonry wall rim.
+
+LOWER ~85% — EXPANSIVE CHISELED MOSS-SEAMED STONE BATTLE FLOOR:
+Covering the entire lower ~85% from the bottom edge nearly to the top rim lies an expansive, level, dry-to-damp textured stone flagstone battleground paved evenly in fitted cool storm-gray granite and dark slate flagstones veined with clean dark-emerald moss seams along flush stone joints and bright orange torch pools catching damp stone highlights across both the left enemy side and right hero side—strictly level, dry, and completely clear across the entire combat floor.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — SOLID DAMP MASONRY WALL, IRON RINGS & ORANGE SCONCES:
+Tucked tightly along ONLY the top ~15% band of the 16:9 frame runs a continuous weathered stone-brick masonry wall cropped cleanly at the top edge, fitted with heavy bolted dark iron wall rings, damp moss-trimmed stone corbel joints, and blazing orange wrought-iron sconces casting rich amber reflections down onto the top edge of the flagstones.
+--- COPY PROMPT END (BASE STONE BATTLE 03: MOSS-SEAMED STONE FLOOR) ---

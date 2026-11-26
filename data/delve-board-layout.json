@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-25T22:04:44.648Z",
+  "blurbBottomPct": 11,
+  "cardsBottomPct": 29.5,
+  "chooseBottomPct": 80.5,
+  "partyLeftPct": 2.0,
+  "partyCenterYPct": 50.0,
+  "cardScalePct": 44,
+  "cardGapPx": 32,
+  "roomKey": "hollowstone",
+  "backPath": "random_3_of_4_basalt",
+  "showHud": true
+}

@@ -21,6 +21,7 @@ import { hideClientItemTooltip, itemTooltipHandlers } from "./itemTooltip";
 import {
   computeHeroDelta,
   countRegionSpellsForHero,
+  getPreferredDualWieldSlot,
   getStockForHero,
   itemSlotFor,
   itemSlotForHero,
@@ -92,16 +93,21 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
   useEffect(() => {
     hideClientItemTooltip();
     setCatFilter("all");
-    setSelectedId(null);
     setConfirmEntry(null);
     const allCatStock = getStockForHero(items, spells, hub, shopType, "all", null, townShopTypes);
+    let nextHero = activeHeroId;
     const curHasStock = allCatStock.some((x) => !x.usableBy || x.usableBy.includes(activeHeroId));
     if (!curHasStock) {
       const firstUsableHero = partyOrder.find((hid) =>
         allCatStock.some((x) => !x.usableBy || x.usableBy.includes(hid))
       );
-      if (firstUsableHero) setActiveHeroId(firstUsableHero);
+      if (firstUsableHero) {
+        nextHero = firstUsableHero;
+        setActiveHeroId(firstUsableHero);
+      }
     }
+    const initialStock = getStockForHero(items, spells, hub, shopType, "all", nextHero, townShopTypes);
+    setSelectedId(initialStock[0]?.id ?? null);
     return () => hideClientItemTooltip();
   }, [hub.id, shopType, npc.id]);
 
@@ -113,12 +119,42 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
   const activeHeroLevel = heroLevels?.[activeHeroId] ?? partyLevel;
   const activeChosenDiscs = chosenDisciplinesByHero?.[activeHeroId] ?? {};
   const activeHeroDiscTiers = disciplinesByHero?.[activeHeroId]?.tiers ?? [];
+  const activeRightId = equippedByHero[activeHeroId]?.right_hand ?? "";
+  const activeLeftId = equippedByHero[activeHeroId]?.left_hand ?? "";
+
+  useEffect(() => {
+    setPreferredSlot(getPreferredDualWieldSlot(selected, activeHeroId, equippedByHero, itemsById));
+  }, [selected?.id, activeHeroId, activeRightId, activeLeftId]);
+
   const handleHeroPick = (hid: HeroId) => {
     audioEngine.playUiClick(0.28);
     setActiveHeroId(hid);
     setSelectedId(null);
     setConfirmEntry(null);
-    setPreferredSlot("right_hand");
+  };
+
+  const handleCategoryPick = (cid: string) => {
+    audioEngine.playUiClick(0.24);
+    setCatFilter(cid);
+    setConfirmEntry(null);
+    if (cid === "disciplines") {
+      setSelectedId(null);
+      return;
+    }
+    const curStock = getStockForHero(items, spells, hub, shopType, cid, activeHeroId, townShopTypes);
+    if (curStock.length > 0) {
+      setSelectedId(curStock[0].id);
+      return;
+    }
+    for (const hid of partyOrder) {
+      const nextStock = getStockForHero(items, spells, hub, shopType, cid, hid, townShopTypes);
+      if (nextStock.length > 0) {
+        setActiveHeroId(hid);
+        setSelectedId(nextStock[0].id);
+        return;
+      }
+    }
+    setSelectedId(null);
   };
 
   const handleAction = (entry: ShopCatalogEntry, chosenSlot?: GearSlot) => {
@@ -176,11 +212,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
             <button
               key={cid}
               type="button"
-              onClick={() => {
-                audioEngine.playUiClick(0.24);
-                setCatFilter(cid);
-                setSelectedId(null);
-              }}
+              onClick={() => handleCategoryPick(cid)}
               className={`px-2.5 py-1 rounded border text-[12px] font-semibold cursor-pointer ${
                 catFilter === cid
                   ? "border-[#ebca7e] bg-[#292112] text-[#fae4b0]"
@@ -209,30 +241,38 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
               onSelectDiscipline={onSelectDiscipline ?? (() => {})}
             />
           ) : heroStock.length === 0 ? (
-            <div className="h-full min-h-[200px] flex flex-col items-center justify-center text-center p-4 gap-2.5">
-              <div className="text-[16px] font-bold text-[#fae2aa]">No {activeHero.name} Stock Here</div>
-              <div className="text-[13px] text-[#b7c6dd] max-w-[340px]">
-                {activeHero.name} ({activeHero.className}) has nothing usable in {meta.label}. Select another hero on the right:
-              </div>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {partyOrder
-                  .map((hid) => ({
-                    hero: getHeroById(hid),
-                    cnt: anyHeroStock.filter((x) => !x.usableBy || x.usableBy.includes(hid)).length,
-                  }))
-                  .filter((x) => x.cnt > 0)
-                  .map((x) => (
-                    <button
-                      key={x.hero.id}
-                      type="button"
-                      onClick={() => handleHeroPick(x.hero.id)}
-                      className="px-3 py-1.5 rounded border border-[#e0ba6c] bg-[#2f2514] hover:bg-[#48371c] text-[#fff2ce] text-[12.5px] font-bold cursor-pointer"
-                    >
-                      Shop for {x.hero.name} ({x.cnt}) →
-                    </button>
-                  ))}
-              </div>
-            </div>
+            (() => {
+              const usablePartyHeroes = partyOrder
+                .map((hid) => ({
+                  hero: getHeroById(hid),
+                  cnt: anyHeroStock.filter((x) => !x.usableBy || x.usableBy.includes(hid)).length,
+                }))
+                .filter((x) => x.cnt > 0);
+              return (
+                <div className="h-full min-h-[200px] flex flex-col items-center justify-center text-center p-4 gap-2.5">
+                  <div className="text-[16px] font-bold text-[#fae2aa]">No {activeHero.name} Stock Here</div>
+                  <div className="text-[13px] text-[#b7c6dd] max-w-[340px]">
+                    {usablePartyHeroes.length > 0
+                      ? `${activeHero.name} (${activeHero.className}) has nothing usable in this tab. Select another hero on the right:`
+                      : "No companion in your active 4-hero party can use items in this tab."}
+                  </div>
+                  {usablePartyHeroes.length > 0 && (
+                    <div className="flex flex-wrap gap-2 justify-center">
+                      {usablePartyHeroes.map((x) => (
+                        <button
+                          key={x.hero.id}
+                          type="button"
+                          onClick={() => handleHeroPick(x.hero.id)}
+                          className="px-3 py-1.5 rounded border border-[#e0ba6c] bg-[#2f2514] hover:bg-[#48371c] text-[#fff2ce] text-[12.5px] font-bold cursor-pointer"
+                        >
+                          Shop for {x.hero.name} ({x.cnt}) →
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })()
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {heroStock.map((it) => {
@@ -245,17 +285,25 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                 );
                 const gear = !isSpell ? (it as ItemEntry) : null;
                 const subLine = sp
-                  ? `${sp.mpCost} MP · ${sp.damageType}`
-                  : `${gear?.handed ? `${gear.handed} · ` : ""}${it.subType}`;
+                  ? `T${sp.region} · ${sp.mpCost} MP · ${sp.damageType}`
+                  : `${gear?.step ? `T${gear.step} · ` : ""}${gear?.handed ? `${gear.handed} · ` : ""}${it.subType}`;
                 return (
                   <button
                     key={it.id}
                     type="button"
-                    {...itemTooltipHandlers(it, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+                    {...itemTooltipHandlers(it, {
+                      activeHeroId,
+                      equippedByHero,
+                      itemsById,
+                      learnedSpellIds,
+                      preferredSlot: isSel
+                        ? preferredSlot
+                        : getPreferredDualWieldSlot(it, activeHeroId, equippedByHero, itemsById),
+                    })}
                     onClick={() => {
                       audioEngine.playUiClick(0.22);
                       setSelectedId(it.id);
-                      setPreferredSlot("right_hand");
+                      setPreferredSlot(getPreferredDualWieldSlot(it, activeHeroId, equippedByHero, itemsById));
                     }}
                     className={`flex items-center gap-2.5 p-2 rounded border text-left cursor-pointer transition-colors ${
                       isSel
@@ -317,7 +365,7 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                     badge = `${heroDiscCount}/10 Bound`;
                     badgeColor = "text-[#f2d084] font-extrabold";
                   } else if (selected) {
-                    const d = computeHeroDelta(selected, equippedByHero, itemsById, hid);
+                    const d = computeHeroDelta(selected, equippedByHero, itemsById, hid, preferredSlot);
                     if (selected.category === "spell") {
                       const sp = selected as SpellEntry;
                       const isKnown = learnedSpellIds.includes(selected.id);
@@ -337,6 +385,9 @@ export const ShopCounterPanel: React.FC<ShopCounterPanelProps> = ({
                     } else if (d.primaryDiff < 0) {
                       badge = `▼ ${d.primaryDiff}`;
                       badgeColor = "text-[#f28b95] font-extrabold";
+                    } else if (!d.comparedItem) {
+                      badge = "★ Empty";
+                      badgeColor = "text-[#79f0b0] font-extrabold";
                     } else {
                       badge = "= Same";
                       badgeColor = "text-[#f1d99d] font-extrabold";

@@ -1,0 +1,285 @@
+# ROD — Hold-the-Line · Timber Palisade Defense Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_timber_hold_line_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Hold-the-Line · Timber Palisade Defense Base Deck):
+# - sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters)
+# - SIEGE MECHANIC RULE: Majority Assault Waves (Sheet 5 x3 = 12 cards), minimal lateral Sector Rotations (2–3 rolled per siege, ZERO endless upward stairs/ladders), Resupplies & Frontier Siege Arrivals, and Boss shuffled into bottom half of deck.
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — PALISADE SECTOR ROTATIONS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place inside a fortified wooden palisade outpost and sharpened oak stockade under siege (NO stone castle merlons, NO endless staircases, NO people, NO monsters).
+IMPORTANT: Horizontal lateral rotations around a wooden stockade perimeter (Stockade Yard, Firing-Step, Log Gatehouse, Stake Flank—NEVER climbing endless ladders/stairs). Every card shows uninhabited timber fort architecture.
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Stockade Yard Arch"
+  Body Text: "Falling back across trampled earth, defenders regroup behind an open timber arch."
+  Artwork: Level horizontal dirt stockade yard view looking straight ahead through a heavy braced peeled-oak inner gateway opening onto the torchlit central yard beyond (horizontal rotation—zero upward ladders or stairs).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Log Firing-Step Walk"
+  Body Text: "Pivoting laterally along stout oak planks, defenders bolster the threatened wall line."
+  Artwork: Level horizontal wooden wall-walk perspective looking straight down a broad timber firing-step walkway lined by tall sharpened oak palisade logs and glowing pitch braziers into smoky evening air beyond.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Timber Gatehouse Bay"
+  Body Text: "Shifting across packed earth, defenders anchor the heavy iron-bound log gatehouse."
+  Artwork: Level horizontal courtyard view looking straight across braced earthen bailey ground into a massive iron-strapped peeled-oak timber gatehouse lit warmly by iron wall lanterns (level ground—zero stairs).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Stake-Trench Flank"
+  Body Text: "Moving along braced oak defense stakes, defenders seal off the exposed side trench."
+  Artwork: Level horizontal defense trench corridor perspective lined by sturdy split-log palisade bracing and iron-tipped oak stakes leading straight toward glowing amber braziers on the opposite flank wing.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Sector Rotations matching Wooden Palisade Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — PALISADE RESUPPLIES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place inside a fortified wooden palisade outpost and sharpened oak stockade under siege (NO stone castle merlons, NO endless staircases, NO people, NO monsters).
+IMPORTANT: Every crate, barrel, lockbox, or chest sits centered facing straight forward toward the viewer flush against a solid lit peeled-oak log palisade wall filling the gothic window cleanly (bare wood & iron/brass only—no ropes, no cloth; parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Quartermaster Ration Crate"
+  Body Text: "Banded tightly with forged iron straps, fresh frontier rations and tallow wait stacked."
+  Artwork: Torchlit wooden stockade supply bay filling the arch cleanly: centered front-facing nailed pine-and-oak ration crate strapped with black iron bands resting flush against solid peeled-oak palisade logs.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Fletched Arrow Cask"
+  Body Text: "Feathered ash-wood war arrows bristle upright inside an iron-hooped timber barrel."
+  Artwork: Warm lantern-lit stockade corner filling the arch cleanly: centered front-facing heavy iron-hooped weathered timber munitions barrel bristling upright with fletched war arrows flush against peeled-oak wall timbers.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Pitch & Flame Lockbox"
+  Body Text: "Sealed cleanly inside riveted iron plate, fire-oil flasks and whetstones sit ready."
+  Artwork: Shadowed log gatehouse nook filling the arch cleanly: centered front-facing closed riveted dark-iron munitions lockbox with heavy bronze front lockplate sitting squarely on packed dirt against solid timber logs.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Field Medic Chest"
+  Body Text: "Tucked beside timber bracing, a brass-clasped field surgeon box waits stocked."
+  Artwork: Warm lantern-lit wooden fort lean-to: centered front-facing dark lacquered wood-and-brass surgeon chest with tarnished keyhole clasp resting undisturbed on dry planks against peeled-oak wall logs.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Front-Facing Palisade Resupplies matching Wooden Stockade Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — PALISADE ARRIVALS & DISCOVERIES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place inside a fortified wooden palisade outpost and sharpened oak stockade under siege (NO stone castle merlons, NO endless staircases, NO people, NO monsters).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Scout's Bread Wagon"
+  Body Text: "A scout slips through the timber postern with a bread cart, restoring the party's HP."
+  Artwork: Sheltered dusk timber postern archway lit warmly by iron lanterns: an unattended wooden handcart heaped cleanly with warm golden crusted bread loaves, bound cheese wheels, and full water casks inside log walls (zero people).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Runner's Mana Satchel"
+  Body Text: "A forest runner drops sapphire flasks onto the log firing-step, restoring the party's MP."
+  Artwork: Quiet timber firing-step shelf beside a glowing oil lantern: an open buckled leather dispatch pack spilling luminous cobalt-blue glass flasks, wax-sealed scrolls, and herb bundles catching azure glow (zero people).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Timber-Yard Buckler Rack"
+  Body Text: "Militia reserves haul fresh iron-rimmed shields to the stakes, bracing one hero."
+  Artwork: Torchlit stockade yard beside log gate bracing: a freshly wheeled heavy oak equipment rack packed neatly with riveted oak-and-iron round shields and oiled leather arm-bracers gleaming warm bronze light (zero people).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Chapel Ward-Lanterns"
+  Body Text: "Blessed ward-lanterns swing along sharpened timbers, shielding one hero from magic."
+  Artwork: Sheltered timber palisade corner post washed in soft amethyst twilight: three ornate hanging silver-and-amber ward lanterns and consecrated dried sage bundles dangling from iron brackets along heavy oak logs (zero people).
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Bread Wagon, Courier Flasks, Buckler Rack & Ward-Lanterns matching Wooden Palisade Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — SIEGE FIRE VS. TIMBER (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place inside a fortified wooden palisade outpost and sharpened oak stockade under siege (NO stone castle merlons, NO endless staircases, NO people, NO monsters).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Flaming Arrow Volley"
+  Body Text: "Pitch-wrapped enemy fire arrows rain into wooden planks and dry palisade stakes."
+  Artwork: Wooden firing-step planks and sharpened log wall face at the exact instant dozens of blazing orange pitch-lit iron war arrows slam steeply down in flaming diagonal streaks igniting splinters (zero people).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Rolling Fire-Pitch Barrel"
+  Body Text: "An iron-hooped burning pitch keg smashes against log stakes in roaring flame."
+  Artwork: Timber stockade breach corner mid-blast: a smashed burning pitch-coated wooden barrel erupts fiercely in rolling orange-and-gold liquid fire and thick black smoke across oak planks and mud.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Splintering Log Ram"
+  Body Text: "A heavy timber ram slams the barred stockade gates, spraying sharp wood splinters."
+  Artwork: Inside log gatehouse view the exact split-second massive barred peeled-oak gates bow violently inward from a unseen battering impact, blasting jagged oak splinters, snapped iron bolts, and kicking dirt across the yard.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Shrapnel Boulder Strike"
+  Body Text: "A hurled boulder shatters sharpened palisade tips into flying splinters and rock."
+  Artwork: Top sharpened peeled-oak palisade logs mid-impact: a massive jagged hurled stone boulder crushes top log tips cleanly apart, sending sharp oak stakes and rock fragments flying through glowing ember sparks.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Flaming Arrows, Pitch Barrel Fire, Log Ram & Boulder Strike matching Wooden Palisade Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — PALISADE ASSAULT WAVES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place inside a fortified wooden palisade outpost and sharpened oak stockade under siege (NO stone castle merlons, NO endless staircases, NO people, NO monsters).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless shadowy siege raiders poised along wooden palisade tops, splintered stake breaches, night grappling hooks, and smoky gate yards traced softly by warm fire rim-light (calm menacing siege poise, zero recognizable faces; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Raiders vault ladders over sharpened log tips onto the firing step—hold the wall!"
+  Artwork: Smoky dusk wooden palisade firing-step lit fiercely by glowing fire braziers: ladder tips hook across notched log stakes as stark pitch-black faceless silhouettes crest poised atop the timber wall.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Enemy shadows swarm straight through splintered log stakes into the stockade yard!"
+  Artwork: Torchlit dirt stockade bailey torn by fiery amber blaze: coiled pitch-black faceless silhouettes crouch poised inside a ragged split-log palisade gap framed by splintered defense stakes.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Hooked ropes catch top log timbers as flankers drop along the shadowed firing walk!"
+  Artwork: Timber palisade corner tower washed in forest twilight and ember sparks: rusted iron grappling hooks bite notched log tips while taut pitch-black silhouettes crouch ready inside timber shadows.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Stalking shock-raiders surge forward out of thick fire-smoke at the log gate!"
+  Artwork: Dramatic dirt stockade courtyard choked with swirling gray fire-smoke and fierce orange backlight: broad-shouldered pitch-black shadowy silhouettes crouch poised behind dark shield rims ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Palisade Assault Waves titled "Assault" matching Wooden Stockade Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 TIMBER PALISADE DEFENSE SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — TIMBER PALISADE SCENE 1 (Main Stockade Yard)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Broad trampled brown-earth fort yard surrounded along the back rim by tall sharpened peeled-oak palisade logs, hung timber shields, and glowing fire braziers above calm shadowed dirt.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — TIMBER PALISADE SCENE 2 (Barred Log Gatehouse)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Heavy iron-bound double peeled-oak timber gates braced tightly inside stacked log gateposts flanked by burning pitch torches above flat packed dirt.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — TIMBER PALISADE SCENE 3 (Timber Parapet Firing-Step)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Elevated wide planked oak walkway backed cleanly by notched sharpened vertical palisade stakes backlit by smoky twilight and amber wall lanterns above shadowed planks.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — TIMBER PALISADE SCENE 4 (Watch-Corner Timber Deck)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Braced wooden palisade bastion corner built of fitted oak beams and arrow-slit log shield screens lit softly by suspended brass lanterns above clear timber planks.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — TIMBER PALISADE SCENE 5 (Spiked Abatis Breach Line)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Partially splintered log palisade section reinforced tightly from behind with angled sharpened iron-tipped oak defense stakes and earth bags above calm shadowed dirt.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — TIMBER PALISADE SCENE 6 (Pitch-Kettle Supply Shed)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Roofed heavy open timber lean-to along the back palisade wall neatly holding empty water casks, coil ropes, stacked spare timber rails, and warm wall lanterns above dirt.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — TIMBER PALISADE SCENE 7 (Signal Bell Timber Post)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Joined heavy oak corner timber frame suspending a weathered bronze warning bell beside a blazing iron watch brazier against sharpened log wall and dusk forest.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — TIMBER PALISADE SCENE 8 (Scorched Split-Log Corner)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sharpened peeled-oak wooden palisade stockade walls, heavy braced timber firing-steps, iron-bound log double gates, trampled siege dirt courtyards, drifting gray fire-smoke contrasted sharply against blazing orange pitch braziers and forest dusk sky (strictly uninhabited wooden palisade fortification under siege, NO carved castle limestone walls, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed wooden fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Smoke-darkened corner timber palisade wall braced with extra angled oak shore-posts and fresh charred arrows overhead above clean dark trampled earth.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_35_timber_stockade_arena (Battleground 1 · Trampled Stockade Yard)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching trampled frontier earth and weathered dark oak planks illuminated warmly by amber watch-torch glow against smoky forest dusk shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open wooden stockade ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top strip lies ONE continuous, flat, unobstructed trampled brown-earth and fine crushed-gravel stockade yard floor across both sides—STRICTLY ZERO wooden fences, ZERO sharpened stakes, ZERO crates, and ZERO side log walls inside the bottom 85%.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top margin runs ONE straight continuous horizontal west-to-east wall of tall sharpened peeled-oak palisade logs with warm glowing watch torches—never angling downward onto left or right sides.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_36_timber_walkway_arena (Battleground 2 · Wide Timber Firing-Deck)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching trampled frontier earth and weathered dark oak planks illuminated warmly by amber watch-torch glow against smoky forest dusk shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open wooden stockade ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies a wide, completely flat level floor of tight-fitted weathered dark-oak timber planks pegged cleanly underfoot across both sides—strictly flat and bare with zero bottom rails, zero barrels, and zero diagonal beams in the bottom 85%.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top edge runs ONE straight west-to-east line of notched sharpened wooden palisade tips silhouetted against smoky evening sky.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_37_timber_gate_arena (Battleground 3 · Inner Log Gate Yard)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching trampled frontier earth and weathered dark oak planks illuminated warmly by amber watch-torch glow against smoky forest dusk shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open wooden stockade ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top strip lies a wide, flat, continuous packed-earth bailey ground inside the log gatehouse across both combat sides—strictly open underfoot with zero crates, zero stakes, and zero side walls in the lower 85% area.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top margin runs ONE straight horizontal east-to-west peeled-oak stockade log wall centered by closed barred heavy timber gates and iron lanterns.
+--- COPY-PASTE PROMPT END ---

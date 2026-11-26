@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — 3-Card Dungeon Stage Preview</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill" href="/admin/party/">Party Menu</a>
+        <a class="nav-pill" href="/admin/disciplines/">Disciplines</a>
+        <a class="nav-pill" href="/admin/decks/">Proposed Decks</a>
+        <a class="nav-pill active" href="/admin/delve-preview/">Board &amp; Tray Test</a>
+        <a class="nav-pill" href="/admin/battles/">Battle Encounters</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+    <div class="studio-stats" id="studioStats">Loading 3-card preview...</div>
+  </header>
+
+  <section class="studio-toolbar">
+    <div class="ctrl-group">
+      <label for="selBg">16:9 Room</label>
+      <select id="selBg" class="ctrl-select">
+        <option value="room_01">Room 1 · Great Hearth Undercroft</option>
+        <option value="room_02">Room 2 · Chandelier Vault</option>
+        <option value="room_03">Room 3 · Sunken Garden Cistern</option>
+        <option value="room_04">Room 4 · Garrison Undercroft</option>
+        <option value="room_05">Room 5 · Cliffside Statue Vault</option>
+        <option value="room_06">Room 6 · Lower Aqueduct Cistern</option>
+        <option value="room_07">Room 7 · Under-Keep Record Vault</option>
+        <option value="room_08">Room 8 · Deep Basalt Vault</option>
+        <option value="hollowstone">Hollowstone Keep (Pro 3 Interior)</option>
+        <option value="blightwatch">Blightwatch Keep (Pro 3 Interior)</option>
+        <option value="highcrown">Highcrown Keep (Pro 3 Interior)</option>
+        <option value="blackkeep">Black Keep (Pro 3 Interior)</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selBack">Card Back</label>
+      <select id="selBack" class="ctrl-select">
+        <option value="random_3_of_4_basalt">Random 3 of 4 · Basalt Circular Sigils (Default)</option>
+        <option value="/assets/ui/dungeons/backs/back_sigil_01.webp">Basalt Sigil 1 · Sapphire Ward</option>
+        <option value="/assets/ui/dungeons/backs/back_sigil_02.webp">Basalt Sigil 2 · Verdigris Jade</option>
+        <option value="/assets/ui/dungeons/backs/back_sigil_03.webp">Basalt Sigil 3 · Dusk Amber</option>
+        <option value="/assets/ui/dungeons/backs/back_sigil_04.webp">Basalt Sigil 4 · Twilight Amethyst</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="rngCardScale">Card Size</label>
+      <input type="range" id="rngCardScale" min="24" max="56" step="1" value="44" />
+      <span id="lblCardScale" class="val-readout">44%</span>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="rngSpread">Gap</label>
+      <input type="range" id="rngSpread" min="12" max="60" step="2" value="32" />
+      <span id="lblSpread" class="val-readout">32px</span>
+    </div>
+
+    <div class="ctrl-group" style="margin-left:auto;">
+      <button type="button" class="rpg-btn secondary" id="btnToggleGuides">Hide Move Frames</button>
+      <button type="button" class="rpg-btn secondary" id="btnToggleHud">Hide Hero HUD</button>
+      <button type="button" class="rpg-btn secondary" id="btnDealThree">Deal 3 Fresh Cards</button>
+      <button type="button" class="rpg-btn secondary" id="btnFlipAll">Flip 3 Cards</button>
+      <button type="button" class="rpg-btn secondary" id="btnFullscreen">&#x26F6; Fullscreen</button>
+      <button type="button" class="rpg-btn primary" id="btnSaveTop">Save Positions</button>
+    </div>
+  </section>
+
+  <main class="preview-workspace">
+    <div class="stage-viewport" id="stageViewport">
+      <div class="stage-16x9" id="stage16x9">
+        <img id="bgImg" class="stage-bg-img" src="/assets/maps/interiors/loc_13_hollowstone_keep.webp" alt="16:9 Dungeon Background" />
+        <div class="stage-vignette"></div>
+
+        <!-- Top-Right Deck Counter Pill -->
+        <div class="mock-hud" id="mockHud">
+          <div class="hud-deck-pill" id="hudStatusPill">17 Cards Remaining</div>
+        </div>
+
+        <!-- Freely Draggable World Map Vertical Hero Avatar Panel -->
+        <div class="drag-container free-drag-wrap" id="partyDragWrap" title="Drag anywhere on stage to move Hero Panel">
+          <div class="drag-pill-bar" id="partyHandle">&#x2725; Move Hero Panel <span id="partyPosTag">1.6%, 2.5%</span></div>
+          <div class="world-party-bar" id="worldPartyBar" aria-label="4-Hero Vertical Party Bar">
+            <div class="world-hero-card leader">
+              <img class="world-hero-avatar" src="/assets/portraits/heroes/valen_avatar.webp" alt="Valen" draggable="false" />
+              <div class="world-hero-info">
+                <div class="world-hero-top">
+                  <span class="world-hero-name">Valen</span>
+                  <span class="world-hero-slot">&#9733; Lead</span>
+                </div>
+                <div class="world-hero-sub">Duelist &middot; Lv 5</div>
+                <div class="world-bar-track hp"><div class="world-hp-fill" style="width:100%"></div></div>
+              </div>
+            </div>
+
+            <div class="world-hero-card">
+              <img class="world-hero-avatar" src="/assets/portraits/heroes/ellowyn_avatar.webp" alt="Ellowyn" draggable="false" />
+              <div class="world-hero-info">
+                <div class="world-hero-top">
+                  <span class="world-hero-name">Ellowyn</span>
+                  <span class="world-hero-slot">#2</span>
+                </div>
+                <div class="world-hero-sub">Sorceress &middot; Lv 5</div>
+                <div class="world-bar-track hp"><div class="world-hp-fill" style="width:92%"></div></div>
+                <div class="world-bar-track mp"><div class="world-mp-fill" style="width:84%"></div></div>
+              </div>
+            </div>
+
+            <div class="world-hero-card">
+              <img class="world-hero-avatar" src="/assets/portraits/heroes/orin_avatar.webp" alt="Orin" draggable="false" />
+              <div class="world-hero-info">
+                <div class="world-hero-top">
+                  <span class="world-hero-name">Orin</span>
+                  <span class="world-hero-slot">#3</span>
+                </div>
+                <div class="world-hero-sub">Knight &middot; Lv 5</div>
+                <div class="world-bar-track hp"><div class="world-hp-fill" style="width:96%"></div></div>
+              </div>
+            </div>
+
+            <div class="world-hero-card">
+              <img class="world-hero-avatar" src="/assets/portraits/heroes/harlan_avatar.webp" alt="Harlan" draggable="false" />
+              <div class="world-hero-info">
+                <div class="world-hero-top">
+                  <span class="world-hero-name">Harlan</span>
+                  <span class="world-hero-slot">#4</span>
+                </div>
+                <div class="world-hero-sub">Sage &middot; Lv 5</div>
+                <div class="world-bar-track hp"><div class="world-hp-fill" style="width:88%"></div></div>
+                <div class="world-bar-track mp"><div class="world-mp-fill" style="width:76%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Container 1: Vertically Draggable Centered Room Blurb (Matches Exact Width of Cards) -->
+        <div class="drag-container centered-blurb-wrap" id="blurbDragWrap" title="Drag up or down to reposition Room Blurb (locked centered)">
+          <div class="drag-pill-bar" id="blurbHandle">&#x2195; Drag Room Blurb Up/Down <span id="blurbYTag">41%</span></div>
+          <div class="room-blurb-box" id="roomBlurbBox">
+            <p class="room-blurb-text" id="roomBlurbText"></p>
+          </div>
+        </div>
+
+        <!-- Container 2: Vertically Draggable Centered 3-Cards Row -->
+        <div class="drag-container centered-cards-wrap" id="cardsDragWrap" title="Drag up or down to reposition the 3 Cards (locked centered)">
+          <div class="drag-pill-bar" id="cardsHandle">&#x2195; Drag 3 Cards Up/Down <span id="cardsYTag">20.5%</span></div>
+          <div class="floating-cards-row" id="floatingCardsRow"></div>
+        </div>
+
+        <!-- Container 3: Vertically Draggable Centered Choose a Card Button -->
+        <div class="drag-container centered-choose-wrap" id="chooseDragWrap" title="Drag up or down to reposition Choose a Card button (locked centered)">
+          <div class="drag-pill-bar" id="chooseHandle">&#x2195; Drag Button Up/Down <span id="chooseYTag">11.0%</span></div>
+          <button type="button" class="rpg-stage-cta" id="btnChooseCard">Choose a Card</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="inspector-panel">
+      <div class="panel-sec">
+        <h3>Drag Vertically to Position</h3>
+        <p>Both containers stay <strong>locked horizontally dead-center</strong> and match width cleanly. Grab either container (or its top handle) and drag straight up or down to show exact placement.</p>
+      </div>
+
+      <div class="panel-sec">
+        <h3>Controls</h3>
+        <ul class="tip-list">
+          <li><strong>Drag Blurb / Cards Up &amp; Down</strong> directly on the <code>16:9</code> stage (`Y`-locked, strictly centered).</li>
+          <li><strong>Click any card</strong> to flip it face-up without moving the container.</li>
+          <li>Use <strong>Hide Move Frames</strong> to preview cleanly without guide borders once positioned.</li>
+        </ul>
+      </div>
+
+      <div class="panel-sec">
+        <h3>Centered Container Positions</h3>
+        <div id="slotReadout" class="slot-readout">Loading layout...</div>
+        <button type="button" class="rpg-btn primary full" id="btnSaveSide" style="margin-top:8px;">Save Positions</button>
+        <button type="button" class="rpg-btn secondary full" id="btnResetTuning" style="margin-top:6px;">Reset Default Positions</button>
+      </div>
+
+      <div class="panel-sec">
+        <h3>Test Card Fronts</h3>
+        <div class="front-picker">
+          <label for="selFront1">Left Card</label>
+          <select id="selFront1" class="ctrl-select full"></select>
+          <label for="selFront2">Center Card</label>
+          <select id="selFront2" class="ctrl-select full"></select>
+          <label for="selFront3">Right Card</label>
+          <select id="selFront3" class="ctrl-select full"></select>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="toast-banner hidden" id="toastBanner">Saved</div>
+
+  <script src="/admin/nav.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

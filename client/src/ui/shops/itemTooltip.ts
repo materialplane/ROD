@@ -1,7 +1,8 @@
 import type React from "react";
 import { assetUrl } from "../api";
+import { resolveDamageTypeIcons } from "../battle/battleLogic";
 import { getHeroById } from "../heroes";
-import type { EquippedGearMap, HeroId, ItemEntry, RunestoneItem, SpellEntry } from "../types";
+import type { EquippedGearMap, GearSlot, HeroId, ItemEntry, RunestoneItem, SpellEntry } from "../types";
 import {
   cleanDamageTypeLabel,
   computeHeroDelta,
@@ -19,6 +20,7 @@ export interface TooltipContext {
   equippedByHero?: EquippedGearMap;
   itemsById?: Record<string, ItemEntry>;
   learnedSpellIds?: string[];
+  preferredSlot?: GearSlot;
   isSellMode?: boolean;
 }
 
@@ -198,9 +200,21 @@ function buildAttackStatsChips(info: WeaponAttackDisplayInfo): Array<{ label: st
   return chips;
 }
 
+function buildDamageTypeInlineHtml(raw?: string, sizePx = 14): string {
+  const icons = resolveDamageTypeIcons(raw);
+  if (icons.length === 0) return "";
+  return icons
+    .map(
+      (dt) =>
+        `<img src="${escHtml(assetUrl(dt.iconPath))}" alt="${escHtml(dt.label)}" width="${sizePx}" height="${sizePx}" style="width:${sizePx}px;height:${sizePx}px;border-radius:3px;object-fit:cover;display:inline-block;vertical-align:middle;margin-right:3px;border:1px solid rgba(255,255,255,0.22);" />`
+    )
+    .join("");
+}
+
 function buildAttackTooltipHtml(info: WeaponAttackDisplayInfo, subTypeLabel: string): string {
   const chips = buildAttackStatsChips(info);
   const iconSrc = assetUrl(info.iconPath);
+  const dtIcons = buildDamageTypeInlineHtml(info.damageTypeLabel, 13);
   const pillsHtml = chips
     .map((c) => `<span class="tip-pill${c.cls ? ` ${c.cls}` : ""}">${escHtml(c.label)}</span>`)
     .join("");
@@ -211,7 +225,7 @@ function buildAttackTooltipHtml(info: WeaponAttackDisplayInfo, subTypeLabel: str
         <img src="${escHtml(iconSrc)}" alt="${escHtml(info.spec.name)}" width="56" height="56" />
       </div>
       <div class="tip-head-meta">
-        <div class="tip-eyebrow">${escHtml(subTypeLabel)} · 0 MP Attack · ${escHtml(info.damageTypeLabel)}</div>
+        <div class="tip-eyebrow">${escHtml(subTypeLabel)} · 0 MP Attack · ${dtIcons}${escHtml(info.damageTypeLabel)}</div>
         <div class="atk-tip-title font-display">${escHtml(info.spec.name)}</div>
         <div class="tip-badges" style="margin-top:4px">
           <span class="tip-pill is-gold">${escHtml(info.spec.tag)}</span>
@@ -353,6 +367,12 @@ function buildTooltipHtml(entry: ShopCatalogEntry, ctx: TooltipContext): string 
   if (entry.damageType) metaParts.push(escHtml(cleanDamageTypeLabel(entry.damageType)));
 
   const badges: string[] = [];
+  if (entry.damageType) {
+    const dtIcons = buildDamageTypeInlineHtml(entry.damageType, 13);
+    if (dtIcons) {
+      badges.push(`<span class="tip-pill is-gold" style="display:inline-flex;align-items:center;">${dtIcons}${escHtml(cleanDamageTypeLabel(entry.damageType))}</span>`);
+    }
+  }
   if (spell) {
     const learned = Boolean(ctx.learnedSpellIds?.includes(spell.id));
     badges.push(`<span class="tip-pill is-mp">${spell.mpCost} MP</span>`);
@@ -374,7 +394,7 @@ function buildTooltipHtml(entry: ShopCatalogEntry, ctx: TooltipContext): string 
   if (isGear && gearItem) {
     const hasHeroCmp = Boolean(ctx.activeHeroId && ctx.equippedByHero && ctx.itemsById);
     const delta = hasHeroCmp
-      ? computeHeroDelta(gearItem, ctx.equippedByHero!, ctx.itemsById!, ctx.activeHeroId!)
+      ? computeHeroDelta(gearItem, ctx.equippedByHero!, ctx.itemsById!, ctx.activeHeroId!, ctx.preferredSlot)
       : null;
     const heroName = ctx.activeHeroId ? getHeroById(ctx.activeHeroId).name : "";
     const ownRows = itemOwnStatRows(gearItem);
@@ -466,7 +486,7 @@ function buildTooltipHtml(entry: ShopCatalogEntry, ctx: TooltipContext): string 
         <div class="tip-sec-hdr">Spell Details</div>
         <div class="tip-stat-grid">
           <div class="tip-stat-row"><span class="tip-stat-lbl">MP Cost</span><span class="tip-stat-val">${spell.mpCost} MP</span></div>
-          <div class="tip-stat-row"><span class="tip-stat-lbl">Element</span><span class="tip-stat-val">${escHtml(spell.damageType)}</span></div>
+          <div class="tip-stat-row"><span class="tip-stat-lbl">Element</span><span class="tip-stat-val">${buildDamageTypeInlineHtml(spell.damageType, 13)}${escHtml(spell.damageType)}</span></div>
           <div class="tip-stat-row"><span class="tip-stat-lbl">Target</span><span class="tip-stat-val">${escHtml(spell.target)}</span></div>
           <div class="tip-stat-row"><span class="tip-stat-lbl">Tier</span><span class="tip-stat-val">Tier ${spell.region}</span></div>
         </div>

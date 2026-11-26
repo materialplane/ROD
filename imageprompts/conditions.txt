@@ -116,3 +116,60 @@ Render these exact 16 distinct combat stance, resolve, and trigger icons from Ro
 
 FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square combat stance and state icons), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
 --- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+SHEET 03 OF 03 — Damage Types #01–#09 & Additional Combat Effects #33–#39
+================================================================================
+# SLOT MANIFEST (Row,Col -> condId | Name | Type):
+#   R1C1 -> dmg_slashing         | Slashing         | Damage Type (Blade arc)
+#   R1C2 -> dmg_piercing         | Piercing         | Damage Type (Spear / arrow thrust)
+#   R1C3 -> dmg_bludgeoning      | Bludgeoning      | Damage Type (Heavy mace impact)
+#   R1C4 -> dmg_fire             | Fire             | Damage Type (Pyromancy flame core)
+#   R2C1 -> dmg_frost            | Frost            | Damage Type (Glacial ice crystal)
+#   R2C2 -> dmg_lightning        | Lightning        | Damage Type (Storm bolt)
+#   R2C3 -> dmg_poison           | Poison           | Damage Type (Venom vial drop)
+#   R2C4 -> dmg_shadow           | Shadow           | Damage Type (Dark eclipse wisp)
+#   R3C1 -> dmg_radiant          | Radiant          | Damage Type (Celestial sunbeam star)
+#   R3C2 -> cond_ward_shield     | Ward Shield      | Buff (Absorbing barrier HP)
+#   R3C3 -> cond_spell_empowered | Spell Empowered  | Buff (Next spell +35% power & Guard break)
+#   R3C4 -> cond_marked_target   | Marked Target    | Debuff (Priority target marked)
+#   R4C1 -> cond_taunt           | Taunt            | Stance (Drawing enemy attacks)
+#   R4C2 -> cond_adaptive_guard  | Adaptive Guard   | Buff (Reduced damage vs last element hit)
+#   R4C3 -> cond_immunity_null   | Damage Immunity  | Enemy State (0x full damage immunity)
+#   R4C4 -> cond_boss_enraged    | Boss Enraged     | Enemy State (Phase 2 / Enraged boss surge)
+
+--- COPY-PASTE PROMPT START ---
+1:1 square sheet showing a STRICT 4x4 grid of 16 evenly spaced equal square fantasy RPG damage type and combat effect emblem illustrations (EXACTLY 4 columns across by 4 rows down — Row 1 Col 1 through Row 4 Col 4 — NEVER 5x5, NEVER 3x3, NEVER overlapping across cell edges) arranged cleanly edge-to-edge across the full 1:1 canvas with ZERO white/black grid divider lines, ZERO ornamental borders or metallic card frames baked around cells, ZERO numbers, ZERO text, ZERO human faces, and ZERO readable alphabet letters or rune inscriptions anywhere.
+
+ART STYLE (MATCH LEAGUE OF LEGENDS ABILITY & STATUS ICONS / LEGENDS OF RUNETERRA):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted digital high-fantasy RPG icon illustration — one unmistakable bold central iconic silhouette per cell designed to read crisply even at small HUD badge size, dramatic high-contrast elemental and metallic color identity, crisp sculpted painted highlights, clean dark contour separation, and smooth atmospheric depth. Strictly ZERO pixel art, ZERO scratchy ink crosshatching, ZERO colored-pencil sketchiness, ZERO blurry airbrush mush, ZERO 3D plastic CGI toy gloss, ZERO human faces or characters inside any icon, ZERO flat hot-pink #FF00FF backgrounds, ZERO frames, ZERO numbers, and ZERO text anywhere.
+
+CELL BACKGROUND & COMPOSITION LOCK (ALL 16 PANELS):
+- BACKGROUND: Each 1:1 square cell fills edge-to-edge on a rich deep dark atmospheric vignette (deep obsidian charcoal, midnight navy, or dark iron soot) so every elemental crest, weapon head, and combat seal pops cleanly without spilling into neighboring cells.
+- FRAMING: Keep every icon's primary focal shape boldly centered (~75% inside its square panel) with darker moody atmosphere near all four square edges so slicing cleanly into 16 individual 1:1 square icons never clips the focal art.
+
+Render these exact 16 distinct damage-type and combat-effect icons from Row 1 to Row 4, left to right:
+
+- Row 1 Col 1: Gleaming curved forged steel broadsword blade sweeping through a sharp glowing warm-amber diagonal slash arc over dark iron gloom.
+- Row 1 Col 2: Razor-sharp polished steel spearhead thrusting cleanly diagonally upward trailing bright silver-white piercing speed lines against midnight charcoal.
+- Row 1 Col 3: Heavy forged bronze-and-iron flanged war-mace head striking straight downward into a forceful warm copper-orange impact shockwave ring over dark soot.
+- Row 1 Col 4: Blazing symmetrical scarlet-orange and bright gold elemental fireball orb swirling upward inside warm glowing ember heat waves against pitch obsidian black.
+
+- Row 2 Col 1: Crisp six-pointed faceted cobalt-cyan and glacial ice-blue diamond frost crystal star radiating clean pale arctic mist over deep midnight navy.
+- Row 2 Col 2: Thick jagged electric golden-yellow forked lightning bolt flashing brightly across deep dark stormcloud indigo with crisp static arcs.
+- Row 2 Col 3: Tilted emerald-glass alchemical venom vial pouring a bright glowing chartreuse-green acid drop into swirling toxic vapor mist over dark forest soot.
+- Row 2 Col 4: Sinister sweeping obsidian-black and dark amethyst shadow crescent vortex rimmed with eerie glowing violet smoke wisps against midnight darkness.
+
+- Row 3 Col 1: Brilliant celestial pure ivory-white and warm gold eight-point sunbeam star radiating clean straight shafts of sacred light over deep twilight indigo.
+- Row 3 Col 2: Luminous translucent sky-cyan faceted hexagonal barrier dome shielding a small gleaming golden heater-crest core against deep sapphire gloom.
+- Row 3 Col 3: Glowing incandescent sapphire-and-gold double arcane energy ring surging brightly around a hovering radiant mana orb over midnight navy.
+- Row 3 Col 4: Crisp glowing crimson-and-gold circular hunter's crosshair ring framing a sharp scarlet diamond target core against dark iron shadow.
+
+- Row 4 Col 1: Heavy spiked dark-steel knight shield paired behind a burnished bronze war-horn sounding bright golden-amber radial battle rings in charcoal gloom.
+- Row 4 Col 2: Faceted octagonal steel prism shield shifting smoothly across warm ember crimson, glacial cyan, and storm gold elemental crystal facets over obsidian slate.
+- Row 4 Col 3: Solid impervious gleaming platinum-silver and pure white unbroken diamond barrier seal deflecting incoming fiery sparks cleanly outward in darkness.
+- Row 4 Col 4: Menacing forged black-iron horned battle crown crest erupting with fierce molten scarlet-and-amber fury flames against pitch obsidian black.
+
+FINAL CHECK: STRICTLY 4x4 grid (16 flush full-bleed dark-backed 1:1 square damage-type and combat-effect icons), ZERO divider lines, ZERO borders/frames, ZERO human faces, ZERO #FF00FF pink, ZERO text or numbers anywhere.
+--- COPY-PASTE PROMPT END ---

@@ -1,0 +1,275 @@
+# ROD — Marshes & Fens Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_marsh_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Marshes & Fens Base Deck):
+# - twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, pale marsh mist contrasted against warm amber lantern light (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — MARSH CROSSINGS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, pale marsh mist contrasted against warm amber lantern light (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). All scenes take place outdoors inside murky misty cypress marshes, reed banks, and mossy bog wetlands (NO dry pine forests, NO indoor castles, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Sinking Reed Path"
+  Body Text: "Narrow packed mud and woven rushes wind deeper into the fog-choked bog."
+  Artwork: Eye-level ground perspective from the dry bank looking straight ahead down a narrow packed-peat path lined by tall cattail reeds curving into warm distant lantern glow through bog fog.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Rotted Boardwalk"
+  Body Text: "Moss-slick cypress planks bridge a deep channel of murky marsh water."
+  Artwork: Elevated three-quarter bank perspective showing two solid dry mossy earth landmasses separated by a narrow dark marsh water channel: a weathered moss-stained timber plank boardwalk clearly begins on solid dry foreground earth and connects visibly all the way onto a wide solid dry mossy earth shoreline landmass across the water (not a dead-end pier).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Cypress Root Causeway"
+  Body Text: "Gnarled exposed tree roots knot across a wide deep channel into deeper reeds."
+  Artwork: Elevated three-quarter bank perspective showing two distinct solid dry mossy earth landmasses separated by a narrow olive marsh water channel: thick interwoven bald-cypress roots span visibly from the foreground earth bank all the way across the water to anchor into solid dry mossy dirt ground on the opposite landmass.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Sunken Stepping Stones"
+  Body Text: "Flat algae-slick stones span a deep reed-ringed bog channel."
+  Artwork: Eye-level ground perspective from the wet peat bank looking straight forward across broad flat mossy limestone stepping stones spanning a wide deep murky swamp channel toward glowing amber lantern light.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Paths & Crossings matching Misty Cypress Fen.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — BOG STASHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, pale marsh mist contrasted against warm amber lantern light (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). All scenes take place outdoors inside murky misty cypress marshes, reed banks, and mossy bog wetlands (NO dry pine forests, NO indoor castles, NO people).
+IMPORTANT: Every cache container (pack, stash, crate, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Driftwood Stash"
+  Body Text: "Tucked inside twisted cypress roots above dark mire, oilskin wraps wait dry."
+  Artwork: Lantern-lit cypress hummock: centered front-facing hollow driftwood pocket cradling pitch-sealed oilskin pouches tied neatly with hemp cord above damp moss.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Oilskin Pack"
+  Body Text: "Hung beside gnarled cypress knees, a tarred canvas pack stays sealed against wet."
+  Artwork: Misty marsh root mound: centered front-facing pitched dark canvas-and-leather pack with brass latches resting cleanly on dry bog moss beside tall cattail reeds.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Rusted Lockbox"
+  Body Text: "Settled cleanly on dry bog peat, a weathered iron lockbox sits above the water."
+  Artwork: Shadowed fen platform: centered front-facing heavy tar-coated rusted iron lockbox with forged padlock resting squarely on dry peat bank between cypress knees.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Marsh Supply Crate"
+  Body Text: "Hidden among cattail reeds, a tarred wooden crate rests solidly on dry peat."
+  Artwork: Warm mist-filtered cypress nook: centered front-facing tarred weathered timber supply crate bound in rope and iron strapping set cleanly among tall cattails.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Misty Cypress Fen.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — MIRE SPRINGS & SHRINES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, pale marsh mist contrasted against warm amber lantern light (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). All scenes take place outdoors inside murky misty cypress marshes, reed banks, and mossy bog wetlands (NO dry pine forests, NO indoor castles, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Cypress Hollow Well"
+  Body Text: "Cool clear water pools inside a mossy cypress root bowl, restoring the party's HP."
+  Artwork: Warm lantern-lit mossy peat mound: a natural upturned bowl formed by braided white bald-cypress roots holds crystal-clear turquoise spring water glistening under soft amber light, cleanly rimmed with bright green bog moss above murky marsh reeds.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Bog-Lotus Lantern"
+  Body Text: "Luminous blue mire-lotus blooms open along a floating drift, restoring the party's MP."
+  Artwork: Still twilight fen cove bathed in cool sapphire glow: an ancient weathered driftwood cradle moored among cattail reeds holds three wide glowing sapphire water-lotus blossoms trailing gentle blue wisps across dark mirror-like marsh water.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Iron Bog-Bell"
+  Body Text: "A salt-stained iron bell hangs from crossed marsh timbers, steeling one hero for battle."
+  Artwork: Mist-veiled cypress hummock: two heavy water-darkened cypress timber posts bound with thick hemp rope suspend a tall verdigris-and-bronze bog bell etched with bold hammering marks, catching warm amber lantern glow along its heavy iron yoke.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Willow Spirit-Bough"
+  Body Text: "Braided glass charms chime softly from a weeping willow arch, shielding one hero from spells."
+  Artwork: Deep misty wetland bend at twilight: an arched weeping-willow bough festooned with dangling hand-blown pale teal and lavender bottle-glass ward charms gently swaying above floating cattails and drifting marsh mist.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Cypress Root Springs, Bog-Lotus Lanterns & Bog Shrines matching Misty Cypress Fen.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — MARSH HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, pale marsh mist contrasted against warm amber lantern light (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). All scenes take place outdoors inside murky misty cypress marshes, reed banks, and mossy bog wetlands (NO dry pine forests, NO indoor castles, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Sinking Peat Mire"
+  Body Text: "Firm-looking moss turf gives way suddenly underfoot into deep sucking bog mud."
+  Artwork: Misty damp marsh earth splitting open suddenly as thick dark sucking olive-black peat mud churns around sunken mossy reeds underfoot.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Razor Saw-Sedge Cut"
+  Body Text: "Tall serrated marsh sawgrass whips cleanly across boots along thick foggy reeds."
+  Artwork: Dense foggy marsh reed bank close-up: tall serrated razor-sharp green sawgrass blades snapping back violently across wet peat turf under amber lantern light (zero people or body parts).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Thorny Briervine Snag"
+  Body Text: "Thick barbed swamp briar-vines lash taut underfoot across damp mud, pinning steps."
+  Artwork: Damp muddy marsh bank as thick dark green thorny swamp briar-vines coil upward out of wet moss, snapping tight in tangled barbed loops across dark peat.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Acidic Bog Sap-Pod"
+  Body Text: "Swollen yellow bog blisters burst underfoot, spraying stinging acidic marsh sap."
+  Artwork: Damp mossy marsh ground as bulbous glowing chartreuse-yellow bog blisters rupture open cleanly beneath mist, splashing glowing acid droplets across dark peat.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Misty Cypress Fen.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — MARSH AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, pale marsh mist contrasted against warm amber lantern light (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). All scenes take place outdoors inside murky misty cypress marshes, reed banks, and mossy bog wetlands (NO dry pine forests, NO indoor castles, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes rise quietly from behind cypress knees to force a fight."
+  Artwork: Foggy cypress marsh torn by warm amber lantern glow: two ink-black faceless shrouded silhouettes crouch motionless behind thick gnarled cypress trunks.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from moss-hung branches overhead, barring the crossing."
+  Artwork: Dim swamp clearing lit upward by lantern glow: perched quietly along a thick mossy cypress limb overhead, two poised pitch-black shadowy silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the causeway from tall reeds—stand ready!"
+  Artwork: Moody reed-bank marsh lit along the central peat path by warm lantern glow: coiled pitch-black shadowy silhouettes wait tucked inside left and right tall cattail banks.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of dense bog fog, forcing battle."
+  Artwork: Dramatic marsh bank softened by thick drifting gray bog-fog and warm amber backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Misty Cypress Fen.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 MISTY CYPRESS FEN SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — MISTY CYPRESS FEN SCENE 1 (Misty Cypress Bayou)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Monumental twisted bald-cypress trees draped in hanging moss flanking a calm mirror-like marsh channel in natural midday light behind a calm dry dark-peat foreground bank.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — MISTY CYPRESS FEN SCENE 2 (Fog-Draped Reed Bank)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Tall dense cattail reeds and misted willow roots arching across the far backdrop in soft midday light behind wide packed-earth marsh turf.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — MISTY CYPRESS FEN SCENE 3 (Drowned Root-Arch Clearing)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Natural archway of ancient gnarled cypress roots rising out of murky water in the background at midday while dry mossy mud fills the calm lower foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — MISTY CYPRESS FEN SCENE 4 (Sunken Mossy Mud Knoll)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Raised dry peat hummock walled cleanly behind by gnarled swamp trees, thin midday mist, and shallow water pools along the far rim.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — MISTY CYPRESS FEN SCENE 5 (Willow-Curtained Bog Pool)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Drooping weeping-willow branches framing a quiet foggy marsh inlet along the back edge at midday with firm dark earth and moss stones center-front.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — MISTY CYPRESS FEN SCENE 6 (Old Stilt-Piling Bank)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Weathered moss-rotted timber pilings and worn mooring ropes lined across the distant bank in natural midday light above calm marsh flats.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — MISTY CYPRESS FEN SCENE 7 (Toadstool & Peat Hollow)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Damp swamp earth wall studded with shelf fungi and creeping marsh vines lit cleanly by filtered midday canopy light and thin mist.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — MISTY CYPRESS FEN SCENE 8 (Misty Deadwood Fen)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Thin midday mist drifting around towering deadwood snags and quiet murky bog pools far behind a dark level peat bank foreground.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_11_marsh_peat_arena (Battleground 1 · Packed Peat-Bank Arena)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level misty cypress fen combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Broad level firm dark-peat and mossy turf marsh island floor dusted with flush dry rushes in natural midday light across both sides—completely level and dry with zero standing water puddles, protruding cypress knees, or boulders across the battleground; top 15% rim only shows cattail reed stalks and mossy cypress bases.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_12_marsh_cypress_arena (Battleground 2 · Cypress-Root Mud Flat)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level misty cypress fen combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Wide flat firm dark mudflat ground veined neatly with flush embedded root ridges in soft midday light—strictly solid and obstacle-free across both combat sides; top 15% rim only shows distant misty cypress trunks draped in hanging moss.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_13_marsh_reed_arena (Battleground 3 · Fog-Lined Reed Shoal)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring twisted moss-hung bald cypress trees, murky olive-slate standing marsh water, dense cattail reeds, damp peat banks, and pale marsh mist at midday (strictly swamp/fen wetland environment, NO indoor stone walls, NO dry pine forests, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level misty cypress fen combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Expansive level firm gray-brown sand-and-peat marsh shoal floor bathed in cool mist and natural midday light—strictly flat and unobstructed across the entire battleground; top 15% rim only shows distant cattail reeds and mossy cypress trunks.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---

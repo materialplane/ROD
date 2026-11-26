@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { assetUrl } from "../api";
+import { resolveDamageTypeIcons } from "../battle/battleLogic";
 import { getHeroById } from "../heroes";
 import { hideClientItemTooltip, itemTooltipHandlers, weaponAttackTooltipHandlers } from "../shops/itemTooltip";
 import { canDualWieldItem, cleanDamageTypeLabel, getWeaponAttackSpecs, MAX_SPELLS_PER_REGION } from "../shops/shopLogic";
@@ -181,8 +182,19 @@ export const WeaponsSpellsTab: React.FC<WeaponsSpellsTabProps> = ({
                       T{sp.region} · {sp.mpCost} MP
                     </span>
                   </div>
-                  <div className="text-[10.5px] text-[#9eb0c9]">
-                    {sp.subType} · {cleanDamageTypeLabel(sp.damageType)}
+                  <div className="text-[10.5px] text-[#9eb0c9] flex items-center gap-1">
+                    {resolveDamageTypeIcons(sp.damageType).map((dt) => (
+                      <img
+                        key={dt.id}
+                        src={assetUrl(dt.iconPath)}
+                        alt=""
+                        className="w-3.5 h-3.5 rounded-[2px] border border-white/20 object-cover shrink-0"
+                        draggable={false}
+                      />
+                    ))}
+                    <span>
+                      {sp.subType} · {cleanDamageTypeLabel(sp.damageType)}
+                    </span>
                   </div>
                   <div className="text-[11px] text-[#c6d1e3] mt-0.5 line-clamp-2">{sp.effect}</div>
                 </div>

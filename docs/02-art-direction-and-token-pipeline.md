@@ -75,3 +75,11 @@ Baking decorative frames directly around all 4 portraits in a `2×2` sheet cause
 ```text
 Wide cinematic 16:9 fantasy RPG key art banner illustration, hand-inked painterly fantasy style with crisp dark ink linework, rich layered brushwork, dramatic volumetric lighting, and vibrant elemental color accents. On a wind-swept cliffside overlooking a vast, sprawling fantasy realm at golden dusk, a seasoned party of four distinct adventurers stands silhouetted and battle-ready—a scarred knight with a socketed glowing blade, a hooded arcane mage holding a radiant sigil, an agile dual-blade rogue, and a heavy-armored warden—gazing out toward a distant walled port town, ancient crumbling ruins, jagged mountain passes, and a docked galleon ship on a shimmering sea. Leave open atmospheric sky in the upper-left third for title placement. Moody cobalt shadows contrasted with warm amber sunset highlights and faint cyan arcane mist. High-detail modern indie RPG promotional art, clean sharp edges, zero pixel art, no 3D render look, no text, no logos, no watermarks.
 ```
+
+---
+
+## 6. Card-Driven Dungeon Delve Visual Standard *(Universal Basalt Rule)*
+
+* **One Identical Basalt Stone Frame Across All Decks & Quests:** Every Delve card (`Doors & Stairs`, `Chests`, `Springs & Shrines`, `Traps`, `Ambushes`, and every quest-specific card in every future quest pack) MUST use the **exact same chiseled Dark Basalt-Gray stone frame, continuous gray stone inlay trim, centered notched dark basalt nameplate ribbon, muted cream-tan parchment body-text box, and the `4` universal Abstract Circular Basalt Sigil card backs (`back_sigil_01..04.webp`)**.
+* **Zero Spoiler Borders or Quest Tags:** Never give quest-specific cards a separate border color, emblem, or visual cue—players must never be able to tell from the card back or frame whether a drawn card came from the shared Base Pack or from the active Quest Pack.
+* **No Specific Mob Art on Standard Encounter Cards:** Reusable **Ambush** cards show ambiguous, still, faceless pitch-black shadowy silhouettes in dark room gloom (`Sheet 5`) so any zone or quest enemy pool fits seamlessly, paired with the `3` shared **85% floor / 15% top wall** Stone-Brick combat battlegrounds (`dungeon-battle-scenes.txt`).

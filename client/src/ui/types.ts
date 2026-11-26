@@ -70,6 +70,7 @@ export interface BattleEnemyDef {
   silver?: number;
   weak?: string;
   resist?: string;
+  immune?: string;
   guard?: number;
   isBoss?: boolean;
   portalNum?: number | null;
@@ -168,6 +169,8 @@ export interface BattleConfigData {
   monsters: BattleEnemyDef[];
 }
 
+export type DiscoveredMonsterTraitsMap = Record<string, { weak?: string[]; resist?: string[]; immune?: string[] }>;
+
 export interface SaveSlotData {
   slotId: string;
   label: string;
@@ -177,8 +180,11 @@ export interface SaveSlotData {
   heroName: string;
   partyOrder?: HeroId[];
   discoveredLocations?: string[];
+  discoveredMonsterTraits?: DiscoveredMonsterTraitsMap;
   acceptedQuestIds?: string[];
   completedQuestIds?: string[];
+  questProgressById?: Record<string, ActiveQuestProgress>;
+  trackedQuestKeys?: string[];
   activeOutpostHunts?: ActiveOutpostHunt[];
   outpostOffers?: Record<string, ActiveOutpostHunt>;
   completedOutpostHunts?: number;
@@ -366,6 +372,16 @@ export interface QuestEntry {
   markerId?: string;
   markerName?: string;
   assetPath?: string;
+}
+
+export type QuestProgressStage = "active" | "objective_cleared" | "ready_to_turn_in";
+
+export interface ActiveQuestProgress {
+  questId: string;
+  stage: QuestProgressStage;
+  acceptedAtPlaytime?: number;
+  clearedSite?: boolean;
+  clearedBoss?: boolean;
 }
 
 export interface ActiveOutpostHunt {
@@ -638,6 +654,7 @@ export interface AudioCatalog {
 export interface VfxEffectsCatalog {
   schemaVersion?: number;
   battleStateIcons?: Record<string, { iconPath: string; label: string; tone: "state" | "warn" | "debuff" | "buff"; desc: string }>;
+  damageTypeIcons?: Record<string, { id: string; label: string; iconPath: string; accentColor: string }>;
   statusUiMeta?: Record<string, { kind: string; glyph: string; iconPath: string; label: string; isBuff: boolean; pillCls: string; desc: string }>;
   vfxMap?: Record<string, { folder: string; row: number; color: string; shake: boolean; frames: number }>;
   heroMagicThemes?: Record<string, { label: string; themeClass?: string; accentColor: string; tierNames: string[] }>;

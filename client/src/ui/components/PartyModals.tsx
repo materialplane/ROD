@@ -4,16 +4,23 @@ import { audioEngine } from "../audio";
 import { ATTRIBUTE_META, DEFAULT_PARTY_ORDER, getHeroById, HEROES } from "../heroes";
 import { hideClientItemTooltip } from "../shops/itemTooltip";
 import type {
+  ActiveOutpostHunt,
+  ActiveQuestProgress,
+  BattleEnemyDef,
+  ChosenDisciplinesMap,
+  DiscoveredMonsterTraitsMap,
   EquippedGearMap,
   GearSlot,
   HeroAttrKey,
   HeroAttrMap,
+  HeroDisciplinesEntry,
   HeroId,
   HeroSocketsMap,
   ItemEntry,
   QuestEntry,
   RunestoneItem,
   SpellEntry,
+  TravelCatalog,
   WorldLocation,
 } from "../types";
 import { GearRunestonesTab } from "../party/GearRunestonesTab";
@@ -382,16 +389,22 @@ interface PartyMenuModalProps {
   partyXp?: number;
   heroLevels?: Partial<Record<HeroId, number>>;
   heroXp?: Partial<Record<HeroId, number>>;
-  disciplinesByHero?: Partial<Record<HeroId, import("../types").HeroDisciplinesEntry>>;
-  chosenDisciplinesByHero?: import("../types").ChosenDisciplinesMap;
+  disciplinesByHero?: Partial<Record<HeroId, HeroDisciplinesEntry>>;
+  chosenDisciplinesByHero?: ChosenDisciplinesMap;
   acceptedQuestIds: string[];
   completedQuestIds?: string[];
-  activeOutpostHunts?: import("../types").ActiveOutpostHunt[];
+  questProgressById?: Record<string, ActiveQuestProgress>;
+  trackedQuestKeys?: string[];
+  travelCatalog?: TravelCatalog | null;
+  journalFocusRequest?: { key: string; seq: number } | null;
+  activeOutpostHunts?: ActiveOutpostHunt[];
   completedOutpostHunts?: number;
   questsCatalog: QuestEntry[];
   worldLocations: WorldLocation[];
   discoveredLocations: string[];
   sealedPortalIds: string[];
+  discoveredMonsterTraits?: DiscoveredMonsterTraitsMap;
+  battleMonsters?: BattleEnemyDef[];
   onEquipFromBag: (heroId: HeroId, itemId: string, targetSlot?: GearSlot) => void;
   onUnequipSlot: (heroId: HeroId, slot: GearSlot) => void;
   onSwapHands?: (heroId: HeroId) => void;
@@ -402,6 +415,8 @@ interface PartyMenuModalProps {
   onChangeOrder: (nextOrder: HeroId[]) => void;
   onAbandonQuest: (questId: string) => void;
   onAbandonOutpostHunt?: (outpostId: string) => void;
+  onToggleTrackQuest?: (trackKey: string) => void;
+  onToast?: (msg: string) => void;
   onSaveGame: () => void;
   onOpenSettings: () => void;
   onClose: () => void;
@@ -436,12 +451,18 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
   chosenDisciplinesByHero,
   acceptedQuestIds,
   completedQuestIds = [],
+  questProgressById = {},
+  trackedQuestKeys = [],
+  travelCatalog = null,
+  journalFocusRequest = null,
   activeOutpostHunts = [],
   completedOutpostHunts = 0,
   questsCatalog,
   worldLocations,
   discoveredLocations,
   sealedPortalIds,
+  discoveredMonsterTraits,
+  battleMonsters,
   onEquipFromBag,
   onUnequipSlot,
   onSwapHands,
@@ -452,6 +473,8 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
   onChangeOrder,
   onAbandonQuest,
   onAbandonOutpostHunt,
+  onToggleTrackQuest,
+  onToast,
   onSaveGame,
   onOpenSettings,
   onClose,
@@ -466,6 +489,7 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
     onTabChange?.(tab);
   };
   const [selectedHeroId, setSelectedHeroId] = useState<HeroId>(partyOrder[0] ?? "valen");
+  const [atlasFocusRequest, setAtlasFocusRequest] = useState<{ locId: string; mapId: string; seq: number } | null>(null);
   const [pendingOverwrite, setPendingOverwrite] = useState<{
     heroId: HeroId;
     stone: RunestoneItem;
@@ -479,10 +503,30 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
       }
       setSelectedHeroId((prev) => (partyOrder.includes(prev) ? prev : partyOrder[0] ?? "valen"));
       setPendingOverwrite(null);
+      setAtlasFocusRequest(null);
     } else {
       hideClientItemTooltip();
     }
   }, [open, initialTab, controlledTab, partyOrder]);
+
+  const handleLocateInAtlas = (locId: string, mapId: string) => {
+    const discoveredSet = new Set(discoveredLocations);
+    const unlockedMaps = new Set<string>([currentMapId || "map_01"]);
+    for (const wl of worldLocations) {
+      if (wl.mapId && discoveredSet.has(wl.id)) unlockedMaps.add(wl.mapId);
+    }
+    if (!unlockedMaps.has(mapId)) {
+      onToast?.("Reach that continent first to chart its locations on the World Map");
+      return;
+    }
+    const loc = worldLocations.find((w) => w.id === locId);
+    if (!loc || !loc.placed || loc.x === null || loc.y === null) {
+      onToast?.("Location coordinates not yet charted on the World Map");
+      return;
+    }
+    setAtlasFocusRequest({ locId, mapId, seq: Date.now() });
+    setActiveTab("atlas");
+  };
 
   useEffect(() => {
     if (!partyOrder.includes(selectedHeroId) && partyOrder[0]) {
@@ -687,14 +731,23 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
             <QuestJournalTab
               acceptedQuestIds={acceptedQuestIds}
               completedQuestIds={completedQuestIds}
+              questProgressById={questProgressById}
+              trackedQuestKeys={trackedQuestKeys}
+              travelCatalog={travelCatalog}
+              initialFocusRequest={journalFocusRequest}
               activeOutpostHunts={activeOutpostHunts}
               completedOutpostHunts={completedOutpostHunts}
               questsCatalog={questsCatalog}
               worldLocations={worldLocations}
+              discoveredLocations={discoveredLocations}
               sealedPortalIds={sealedPortalIds}
               itemsById={itemsById}
+              discoveredMonsterTraits={discoveredMonsterTraits}
+              battleMonsters={battleMonsters}
               onAbandonQuest={onAbandonQuest}
               onAbandonOutpostHunt={onAbandonOutpostHunt}
+              onToggleTrackQuest={onToggleTrackQuest}
+              onLocateInAtlas={handleLocateInAtlas}
             />
           )}
 
@@ -708,8 +761,11 @@ export const PartyMenuModal: React.FC<PartyMenuModalProps> = ({
               worldLocations={worldLocations}
               discoveredLocations={discoveredLocations}
               acceptedQuestIds={acceptedQuestIds}
+              questProgressById={questProgressById}
+              activeOutpostHunts={activeOutpostHunts}
               questsCatalog={questsCatalog}
               sealedPortalIds={sealedPortalIds}
+              focusRequest={atlasFocusRequest}
             />
           )}
         </div>

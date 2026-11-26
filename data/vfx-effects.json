@@ -3801,6 +3801,110 @@
       "label": "Fallen",
       "tone": "debuff",
       "desc": "Knocked out at 0 HP. Revive with healing draught or spell."
+    },
+    "ward_shield": {
+      "iconPath": "assets/icons/conditions/cond_ward_shield.webp",
+      "label": "Ward Shield",
+      "tone": "buff",
+      "desc": "Absorbing shield barrier protecting HP from incoming damage."
+    },
+    "spell_empowered": {
+      "iconPath": "assets/icons/conditions/cond_spell_empowered.webp",
+      "label": "Spell Empowered",
+      "tone": "buff",
+      "desc": "Next spell deals bonus damage and extra Guard break."
+    },
+    "marked_target": {
+      "iconPath": "assets/icons/conditions/cond_marked_target.webp",
+      "label": "Marked Target",
+      "tone": "debuff",
+      "desc": "Priority target marked by Valen; takes +10% incoming physical damage."
+    },
+    "taunt": {
+      "iconPath": "assets/icons/conditions/cond_taunt.webp",
+      "label": "Taunt",
+      "tone": "buff",
+      "desc": "Drawing single-target enemy attacks toward this protector."
+    },
+    "adaptive_guard": {
+      "iconPath": "assets/icons/conditions/cond_adaptive_guard.webp",
+      "label": "Adaptive Guard",
+      "tone": "buff",
+      "desc": "Elemental barrier reducing repeat damage from the last element hit."
+    },
+    "immunity_null": {
+      "iconPath": "assets/icons/conditions/cond_immunity_null.webp",
+      "label": "Damage Immunity",
+      "tone": "state",
+      "desc": "Immune to specific damage types (0x damage)."
+    },
+    "boss_enraged": {
+      "iconPath": "assets/icons/conditions/cond_boss_enraged.webp",
+      "label": "Enraged",
+      "tone": "warn",
+      "desc": "Boss entered heightened Phase 2 fury (+15% Attack & Magic Power)."
+    },
+    "flee_blocked": {
+      "iconPath": "assets/icons/conditions/cond_flee_blocked.webp",
+      "label": "Escape Blocked",
+      "tone": "debuff",
+      "desc": "Cannot retreat from a Dimensional Portal Guardian."
+    }
+  },
+  "damageTypeIcons": {
+    "Slashing": {
+      "id": "dmg_slashing",
+      "label": "Slashing",
+      "iconPath": "assets/icons/conditions/dmg_slashing.webp",
+      "accentColor": "#e8b468"
+    },
+    "Piercing": {
+      "id": "dmg_piercing",
+      "label": "Piercing",
+      "iconPath": "assets/icons/conditions/dmg_piercing.webp",
+      "accentColor": "#c7d8eb"
+    },
+    "Bludgeoning": {
+      "id": "dmg_bludgeoning",
+      "label": "Bludgeoning",
+      "iconPath": "assets/icons/conditions/dmg_bludgeoning.webp",
+      "accentColor": "#d98b52"
+    },
+    "Fire": {
+      "id": "dmg_fire",
+      "label": "Fire",
+      "iconPath": "assets/icons/conditions/dmg_fire.webp",
+      "accentColor": "#ff874f"
+    },
+    "Frost": {
+      "id": "dmg_frost",
+      "label": "Frost",
+      "iconPath": "assets/icons/conditions/dmg_frost.webp",
+      "accentColor": "#72d0ff"
+    },
+    "Lightning": {
+      "id": "dmg_lightning",
+      "label": "Lightning",
+      "iconPath": "assets/icons/conditions/dmg_lightning.webp",
+      "accentColor": "#ffe066"
+    },
+    "Poison": {
+      "id": "dmg_poison",
+      "label": "Poison",
+      "iconPath": "assets/icons/conditions/dmg_poison.webp",
+      "accentColor": "#94e85c"
+    },
+    "Shadow": {
+      "id": "dmg_shadow",
+      "label": "Shadow",
+      "iconPath": "assets/icons/conditions/dmg_shadow.webp",
+      "accentColor": "#b88cff"
+    },
+    "Radiant": {
+      "id": "dmg_radiant",
+      "label": "Radiant",
+      "iconPath": "assets/icons/conditions/dmg_radiant.webp",
+      "accentColor": "#fff0a8"
     }
   },
   "statusUiMeta": {

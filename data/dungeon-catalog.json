@@ -1,0 +1,91 @@
+{
+  "version": 6,
+  "themes": [
+    {
+      "id": "aqueduct_sewer_crypt",
+      "name": "Stone Undercrofts, Aqueducts & Crypts",
+      "battleStageId": "dungeon_01_stone_aqueduct",
+      "battleStagePool": [
+        "dungeon_02_stone_hearth_arena",
+        "dungeon_03_basalt_vault_arena",
+        "dungeon_04_moss_cistern_arena"
+      ],
+      "fallbackBattleStageId": "biome_01_crownland_meadows"
+    },
+    {
+      "id": "cave_mine_tunnel",
+      "name": "Caverns, Mines & Monster Dens",
+      "battleStageId": "biome_04_upland_foothills",
+      "fallbackBattleStageId": "biome_04_upland_foothills"
+    },
+    {
+      "id": "forest_marsh_wilds",
+      "name": "Woods, Groves & Wetlands",
+      "battleStageId": "biome_02_oakleaf_groves",
+      "fallbackBattleStageId": "biome_02_oakleaf_groves"
+    },
+    {
+      "id": "ruin_shrine_temple",
+      "name": "Ancient Ruins & Shrines",
+      "battleStageId": "biome_04_upland_foothills",
+      "fallbackBattleStageId": "biome_04_upland_foothills"
+    },
+    {
+      "id": "coast_pier_wreck",
+      "name": "Coasts, Piers & Shipwrecks",
+      "battleStageId": "biome_03_coastal_shore_crown_sea",
+      "fallbackBattleStageId": "biome_03_coastal_shore_crown_sea"
+    },
+    {
+      "id": "camp_fort_keep_barricade",
+      "name": "Outlaw Camps, Forts & Watchposts",
+      "battleStageId": "biome_01_crownland_meadows",
+      "fallbackBattleStageId": "biome_01_crownland_meadows"
+    }
+  ],
+  "propSprites": {
+    "chest_closed": "assets/tokens/dungeon_props/prop_chest_closed.webp",
+    "chest_open": "assets/tokens/dungeon_props/prop_chest_open.webp"
+  },
+  "rooms": [],
+  "questDungeons": {
+    "q001": {
+      "questId": "q001",
+      "themeId": "aqueduct_sewer_crypt",
+      "chestCount": 2,
+      "encounterChancePct": 38,
+      "encounterPool": [
+        "mob_wolf",
+        "mob_bandit"
+      ],
+      "chestLoot": {
+        "silverMin": 110,
+        "silverMax": 155,
+        "potionIds": [
+          "cons_minor_healing_potion",
+          "cons_stout_healing_potion",
+          "cons_minor_mana_potion"
+        ],
+        "potionCount": 2,
+        "tradeGoodIds": [
+          "tg_native_wolf_gray_wolf_pelt",
+          "tg_r1_bandit_rusty_coin_purse"
+        ],
+        "tradeGoodCount": 2
+      },
+      "objectiveLabel": "Defeat Garrick Houndmaster & Wolves",
+      "completionBanner": "Aqueduct Breach Cleared!",
+      "bossEncounter": {
+        "title": "Garrick Houndmaster & Wolves",
+        "enemies": [
+          "mob_bandit",
+          "mob_wolf",
+          "mob_wolf"
+        ],
+        "bossLeadName": "Garrick Houndmaster",
+        "bossLeadHpMul": 2.35,
+        "bossLeadAtkMul": 1.35
+      }
+    }
+  }
+}

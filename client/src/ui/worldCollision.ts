@@ -21,14 +21,32 @@ const OUTER_RING_DIRS: ReadonlyArray<readonly [number, number]> = Array.from({ l
   return [Math.cos(a), Math.sin(a)] as const;
 });
 
-const SLIDE_ANGLES_RAD: ReadonlyArray<number> = [
-  15, -15, 30, -30, 45, -45, 60, -60, 75, -75,
+const SLIDE_MAG_ANGLES_RAD: ReadonlyArray<number> = [
+  10, 20, 30, 42, 54, 66, 76, 83, 88,
 ].map((deg) => (deg * Math.PI) / 180);
 
 const CLEAR_RING_DIRS: ReadonlyArray<readonly [number, number]> = Array.from({ length: 32 }, (_, i) => {
   const a = (i * Math.PI * 2) / 32;
   return [Math.cos(a), Math.sin(a)] as const;
 });
+
+const ODD_R_NEIGHBORS_EVEN: ReadonlyArray<readonly [number, number]> = [
+  [1, 0],
+  [-1, 0],
+  [0, -1],
+  [-1, -1],
+  [0, 1],
+  [-1, 1],
+];
+
+const ODD_R_NEIGHBORS_ODD: ReadonlyArray<readonly [number, number]> = [
+  [1, 0],
+  [-1, 0],
+  [1, -1],
+  [0, -1],
+  [1, 1],
+  [0, 1],
+];
 
 interface RawBiomeEntry {
   id?: string;
@@ -113,6 +131,7 @@ export interface WorldCollisionIndex {
   zoneCodesByMap: Record<string, Uint8Array>;
   biomeByMapCode: Record<string, Record<number, WorldBiomeMeta>>;
   zoneByCode: Record<number, WorldZoneMeta>;
+  clearMaskCache: Map<string, Uint8Array>;
 }
 
 const COAST_SAMPLE_DIRS: ReadonlyArray<readonly [number, number]> = Array.from({ length: 8 }, (_, i) => {
@@ -213,10 +232,11 @@ export function buildWorldCollisionIndex(
     zoneCodesByMap,
     biomeByMapCode,
     zoneByCode,
+    clearMaskCache: new Map<string, Uint8Array>(),
   };
 }
 
-function worldPointToCellIdx(index: WorldCollisionIndex, wx: number, wy: number): number {
+function worldPointToCellCoords(index: WorldCollisionIndex, wx: number, wy: number): { col: number; row: number; idx: number } | null {
   const hr = index.hexRadius;
   const q = ((SQRT3 / 3) * wx - (1 / 3) * wy) / hr;
   const r = ((2 / 3) * wy) / hr;
@@ -232,8 +252,20 @@ function worldPointToCellIdx(index: WorldCollisionIndex, wx: number, wy: number)
 
   const row = rr;
   const col = rq + ((rr - (rr & 1)) >> 1);
-  if (col < 0 || row < 0 || col >= index.cols || row >= index.rows) return -1;
-  return row * index.cols + col;
+  if (col < 0 || row < 0 || col >= index.cols || row >= index.rows) return null;
+  return { col, row, idx: row * index.cols + col };
+}
+
+function worldPointToCellIdx(index: WorldCollisionIndex, wx: number, wy: number): number {
+  return worldPointToCellCoords(index, wx, wy)?.idx ?? -1;
+}
+
+function cellToWorldPoint(index: WorldCollisionIndex, col: number, row: number): { x: number; y: number } {
+  const hr = index.hexRadius;
+  return {
+    x: hr * SQRT3 * (col + 0.5 * (row & 1)),
+    y: hr * 1.5 * row,
+  };
 }
 
 function isWorldPointImpassable(index: WorldCollisionIndex, mask: Uint8Array, wx: number, wy: number): boolean {
@@ -378,9 +410,53 @@ export function findNearestClearPoint(
   return { x: cx, y: cy };
 }
 
+/** Computes normalized inward boundary repulsion vector away from impassable hexes touching `(cx, cy)`. */
+function estimateBoundaryRepulsionNormal(
+  index: WorldCollisionIndex | null,
+  mapId: string,
+  cx: number,
+  cy: number,
+  radius: number,
+  mapWidth: number,
+  mapHeight: number
+): { nx: number; ny: number } | null {
+  let nx = 0;
+  let ny = 0;
+
+  if (cx < radius) nx += 1;
+  if (cx > mapWidth - radius) nx -= 1;
+  if (cy < radius) ny += 1;
+  if (cy > mapHeight - radius) ny -= 1;
+
+  if (index) {
+    const mask = index.impassableByMap[mapId];
+    if (mask) {
+      for (let i = 0; i < OUTER_RING_DIRS.length; i++) {
+        const [dx, dy] = OUTER_RING_DIRS[i];
+        if (isWorldPointImpassable(index, mask, cx + dx * radius, cy + dy * radius)) {
+          nx -= dx;
+          ny -= dy;
+        }
+      }
+      const innerR = radius * 0.55;
+      for (let i = 0; i < INNER_RING_DIRS.length; i++) {
+        const [dx, dy] = INNER_RING_DIRS[i];
+        if (isWorldPointImpassable(index, mask, cx + dx * innerR, cy + dy * innerR)) {
+          nx -= dx * 1.4;
+          ny -= dy * 1.4;
+        }
+      }
+    }
+  }
+
+  const len = Math.hypot(nx, ny);
+  if (len < 1e-4) return null;
+  return { nx: nx / len, ny: ny / len };
+}
+
 /**
  * Resolves candidate movement `(candX, candY)` against impassable hexes using the full token radius,
- * sliding smoothly along curved coastlines when direct travel clips water or cliffs.
+ * projecting onto the exact coastline tangent and searching fine angles up to 88deg for butter-smooth sliding.
  */
 export function resolveCircleMove(
   index: WorldCollisionIndex | null,
@@ -407,21 +483,64 @@ export function resolveCircleMove(
     const ux = dx / stepDist;
     const uy = dy / stepDist;
 
-    for (let i = 0; i < SLIDE_ANGLES_RAD.length; i++) {
-      const ang = SLIDE_ANGLES_RAD[i];
-      const cosA = Math.cos(ang);
-      const sinA = Math.sin(ang);
-      const scale = Math.abs(cosA);
-      const rx = ux * cosA - uy * sinA;
-      const ry = ux * sinA + uy * cosA;
-      const sx = curX + rx * stepDist * scale;
-      const sy = curY + ry * stepDist * scale;
-      if (isCircleClear(index, mapId, sx, sy, radius, mapWidth, mapHeight)) {
-        return { x: sx, y: sy, slid: true };
+    // 1. Project movement directly along smoothed shore/cliff normal tangent first
+    let sideBias = 1;
+    const normal = estimateBoundaryRepulsionNormal(index, mapId, tx, ty, radius, mapWidth, mapHeight);
+    if (normal) {
+      const nDot = ux * normal.nx + uy * normal.ny;
+      if (nDot < 0) {
+        const rawTanX = ux - nDot * normal.nx;
+        const rawTanY = uy - nDot * normal.ny;
+        const tanLen = Math.hypot(rawTanX, rawTanY);
+        if (tanLen > 0.06) {
+          const tanX = rawTanX / tanLen;
+          const tanY = rawTanY / tanLen;
+          // Cross product chooses which rotational sweep (+ or -) matches the coastline slope
+          sideBias = ux * tanY - uy * tanX >= 0 ? 1 : -1;
+          const slideDist = stepDist * Math.max(0.32, tanLen);
+          for (const mult of [1, 0.55]) {
+            const px = curX + tanX * slideDist * mult;
+            const py = curY + tanY * slideDist * mult;
+            if (isCircleClear(index, mapId, px, py, radius, mapWidth, mapHeight)) {
+              return { x: px, y: py, slid: true };
+            }
+            // Gentle 1.5px wall separation nudge prevents catching on hex corner teeth
+            const gx = px + normal.nx * 1.5;
+            const gy = py + normal.ny * 1.5;
+            if (isCircleClear(index, mapId, gx, gy, radius, mapWidth, mapHeight)) {
+              return { x: gx, y: gy, slid: true };
+            }
+          }
+        }
       }
     }
 
-    // Fallback pure-axis slide for crisp edge scraping when nearly perpendicular
+    // 2. Sweep progressive angles up to +-88deg, testing the tangent-aligned side first
+    for (let i = 0; i < SLIDE_MAG_ANGLES_RAD.length; i++) {
+      const mag = SLIDE_MAG_ANGLES_RAD[i];
+      for (const sgn of [sideBias, -sideBias]) {
+        const ang = mag * sgn;
+        const cosA = Math.cos(ang);
+        const sinA = Math.sin(ang);
+        const scale = Math.max(0.28, Math.abs(cosA));
+        const rx = ux * cosA - uy * sinA;
+        const ry = ux * sinA + uy * cosA;
+        const sx = curX + rx * stepDist * scale;
+        const sy = curY + ry * stepDist * scale;
+        if (isCircleClear(index, mapId, sx, sy, radius, mapWidth, mapHeight)) {
+          return { x: sx, y: sy, slid: true };
+        }
+      }
+    }
+
+    // 3. Fallback partial forward / axis checks so token glides right up to shorelines
+    for (const frac of [0.5, 0.25]) {
+      const hx = curX + dx * frac;
+      const hy = curY + dy * frac;
+      if (isCircleClear(index, mapId, hx, hy, radius, mapWidth, mapHeight)) {
+        return { x: hx, y: hy, slid: true };
+      }
+    }
     if (Math.abs(dx) > 0.2 && isCircleClear(index, mapId, tx, curY, radius, mapWidth, mapHeight)) {
       return { x: tx, y: curY, slid: true };
     }
@@ -447,4 +566,285 @@ export function resolveCircleMove(
   }
 
   return { x: curX, y: curY, slid: true };
+}
+
+/** Returns true if a circle of `radius` can move linearly from `(x0, y0)` to `(x1, y1)` without clipping obstacles. */
+export function isLineClear(
+  index: WorldCollisionIndex | null,
+  mapId: string,
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+  radius: number,
+  mapWidth = DEFAULT_MAP_SIZE,
+  mapHeight = DEFAULT_MAP_SIZE,
+  stepPx = 16
+): boolean {
+  const dist = Math.hypot(x1 - x0, y1 - y0);
+  if (dist < 1e-3) {
+    return isCircleClear(index, mapId, x1, y1, radius, mapWidth, mapHeight);
+  }
+  const steps = Math.max(1, Math.ceil(dist / stepPx));
+  for (let i = 1; i <= steps; i++) {
+    const t = i / steps;
+    if (!isCircleClear(index, mapId, x0 + (x1 - x0) * t, y0 + (y1 - y0) * t, radius, mapWidth, mapHeight)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function getOrBuildClearMask(
+  index: WorldCollisionIndex,
+  mapId: string,
+  radius: number,
+  mapWidth: number,
+  mapHeight: number
+): Uint8Array | null {
+  const rawMask = index.impassableByMap[mapId];
+  if (!rawMask) return null;
+  const cacheKey = `${mapId}:${Math.round(radius)}:${mapWidth}x${mapHeight}`;
+  const cached = index.clearMaskCache.get(cacheKey);
+  if (cached) return cached;
+
+  const total = index.cols * index.rows;
+  const clear = new Uint8Array(total);
+  for (let row = 0; row < index.rows; row++) {
+    for (let col = 0; col < index.cols; col++) {
+      const idx = row * index.cols + col;
+      if (rawMask[idx] === 1) continue;
+      const pt = cellToWorldPoint(index, col, row);
+      if (isCircleClear(index, mapId, pt.x, pt.y, radius, mapWidth, mapHeight)) {
+        clear[idx] = 1;
+      }
+    }
+  }
+  index.clearMaskCache.set(cacheKey, clear);
+  return clear;
+}
+
+/**
+ * Finds a clean, smoothed overland path between walkable coordinates `(startX, startY)` and `(goalX, goalY)`.
+ * Returns `null` when the target itself or the path to it is blocked by water, cliffs, or locked terrain.
+ */
+export function findWorldPath(
+  index: WorldCollisionIndex | null,
+  mapId: string,
+  startX: number,
+  startY: number,
+  goalX: number,
+  goalY: number,
+  radius: number,
+  mapWidth = DEFAULT_MAP_SIZE,
+  mapHeight = DEFAULT_MAP_SIZE
+): Array<{ x: number; y: number }> | null {
+  if (!isCircleClear(index, mapId, goalX, goalY, radius, mapWidth, mapHeight)) {
+    return null;
+  }
+  if (!index || isLineClear(index, mapId, startX, startY, goalX, goalY, radius, mapWidth, mapHeight)) {
+    return [{ x: goalX, y: goalY }];
+  }
+
+  const clearMask = getOrBuildClearMask(index, mapId, radius, mapWidth, mapHeight);
+  if (!clearMask) {
+    return [{ x: goalX, y: goalY }];
+  }
+
+  const cols = index.cols;
+  const rows = index.rows;
+  const total = cols * rows;
+
+  const collectSeedCells = (wx: number, wy: number, checkFromStart: boolean): number[] => {
+    const center = worldPointToCellCoords(index, wx, wy);
+    if (!center) return [];
+    const seeds: number[] = [];
+    const tryAddCell = (c: number, r: number) => {
+      if (c < 0 || r < 0 || c >= cols || r >= rows) return;
+      const idx = r * cols + c;
+      if (clearMask[idx] !== 1) return;
+      const cpt = cellToWorldPoint(index, c, r);
+      if (
+        isLineClear(
+          index,
+          mapId,
+          checkFromStart ? wx : cpt.x,
+          checkFromStart ? wy : cpt.y,
+          checkFromStart ? cpt.x : wx,
+          checkFromStart ? cpt.y : wy,
+          radius,
+          mapWidth,
+          mapHeight
+        )
+      ) {
+        seeds.push(idx);
+      }
+    };
+
+    tryAddCell(center.col, center.row);
+    const nbrs = (center.row & 1) === 0 ? ODD_R_NEIGHBORS_EVEN : ODD_R_NEIGHBORS_ODD;
+    for (let i = 0; i < nbrs.length; i++) {
+      tryAddCell(center.col + nbrs[i][0], center.row + nbrs[i][1]);
+    }
+
+    // Ring-2 fallback handles narrow shoreline cusps where the clicked point sits clear between hex centers
+    if (seeds.length === 0) {
+      for (let dr = -2; dr <= 2; dr++) {
+        for (let dc = -2; dc <= 2; dc++) {
+          if (Math.abs(dc) <= 1 && Math.abs(dr) <= 1) continue;
+          tryAddCell(center.col + dc, center.row + dr);
+        }
+      }
+    }
+    return seeds;
+  };
+
+  const startSeeds = collectSeedCells(startX, startY, true);
+  const goalSeeds = collectSeedCells(goalX, goalY, false);
+  if (startSeeds.length === 0 || goalSeeds.length === 0) {
+    return null;
+  }
+  const goalSet = new Set(goalSeeds);
+
+  const gScore = new Float32Array(total);
+  gScore.fill(Infinity);
+  const cameFrom = new Int32Array(total);
+  cameFrom.fill(-1);
+  const closed = new Uint8Array(total);
+
+  // Compact typed-array binary min-heap
+  const heapIdx = new Int32Array(total);
+  const heapF = new Float32Array(total);
+  let heapLen = 0;
+
+  const pushHeap = (cellIdx: number, fVal: number) => {
+    let cur = heapLen++;
+    heapIdx[cur] = cellIdx;
+    heapF[cur] = fVal;
+    while (cur > 0) {
+      const parent = (cur - 1) >> 1;
+      if (heapF[parent] <= heapF[cur]) break;
+      const ti = heapIdx[parent];
+      const tf = heapF[parent];
+      heapIdx[parent] = heapIdx[cur];
+      heapF[parent] = heapF[cur];
+      heapIdx[cur] = ti;
+      heapF[cur] = tf;
+      cur = parent;
+    }
+  };
+
+  const popHeap = (): number => {
+    const top = heapIdx[0];
+    const last = --heapLen;
+    if (last > 0) {
+      heapIdx[0] = heapIdx[last];
+      heapF[0] = heapF[last];
+      let cur = 0;
+      while (true) {
+        const left = (cur << 1) + 1;
+        if (left >= last) break;
+        const right = left + 1;
+        const best = right < last && heapF[right] < heapF[left] ? right : left;
+        if (heapF[cur] <= heapF[best]) break;
+        const ti = heapIdx[cur];
+        const tf = heapF[cur];
+        heapIdx[cur] = heapIdx[best];
+        heapF[cur] = heapF[best];
+        heapIdx[best] = ti;
+        heapF[best] = tf;
+        cur = best;
+      }
+    }
+    return top;
+  };
+
+  for (let i = 0; i < startSeeds.length; i++) {
+    const sIdx = startSeeds[i];
+    const sc = sIdx % cols;
+    const sr = (sIdx / cols) | 0;
+    const spt = cellToWorldPoint(index, sc, sr);
+    const g0 = Math.hypot(spt.x - startX, spt.y - startY);
+    const h0 = Math.hypot(goalX - spt.x, goalY - spt.y);
+    gScore[sIdx] = g0;
+    pushHeap(sIdx, g0 + h0);
+  }
+
+  const hexStep = index.hexRadius * SQRT3;
+  let reachedGoalCell = -1;
+
+  while (heapLen > 0) {
+    const curIdx = popHeap();
+    if (closed[curIdx] === 1) continue;
+    closed[curIdx] = 1;
+
+    if (goalSet.has(curIdx)) {
+      reachedGoalCell = curIdx;
+      break;
+    }
+
+    const col = curIdx % cols;
+    const row = (curIdx / cols) | 0;
+    const curG = gScore[curIdx];
+    const nbrs = (row & 1) === 0 ? ODD_R_NEIGHBORS_EVEN : ODD_R_NEIGHBORS_ODD;
+
+    for (let i = 0; i < 6; i++) {
+      const nc = col + nbrs[i][0];
+      const nr = row + nbrs[i][1];
+      if (nc < 0 || nr < 0 || nc >= cols || nr >= rows) continue;
+      const nIdx = nr * cols + nc;
+      if (closed[nIdx] === 1 || clearMask[nIdx] !== 1) continue;
+      const tentG = curG + hexStep;
+      if (tentG < gScore[nIdx]) {
+        gScore[nIdx] = tentG;
+        cameFrom[nIdx] = curIdx;
+        const npt = cellToWorldPoint(index, nc, nr);
+        const h = Math.hypot(goalX - npt.x, goalY - npt.y);
+        pushHeap(nIdx, tentG + h);
+      }
+    }
+  }
+
+  if (reachedGoalCell < 0) return null;
+
+  // Reconstruct raw hex-center polyline from start to goal
+  const revCells: Array<{ x: number; y: number }> = [{ x: goalX, y: goalY }];
+  let trace = reachedGoalCell;
+  while (trace >= 0) {
+    const tc = trace % cols;
+    const tr = (trace / cols) | 0;
+    revCells.push(cellToWorldPoint(index, tc, tr));
+    trace = cameFrom[trace];
+  }
+  revCells.reverse();
+
+  // Greedy line-of-sight string-pulling so paths hug coastlines cleanly instead of zig-zagging hexes
+  const full = [{ x: startX, y: startY }, ...revCells];
+  const smoothed: Array<{ x: number; y: number }> = [];
+  let anchor = 0;
+  while (anchor < full.length - 1) {
+    let farthest = anchor + 1;
+    for (let probe = full.length - 1; probe > anchor + 1; probe--) {
+      if (
+        isLineClear(
+          index,
+          mapId,
+          full[anchor].x,
+          full[anchor].y,
+          full[probe].x,
+          full[probe].y,
+          radius,
+          mapWidth,
+          mapHeight
+        )
+      ) {
+        farthest = probe;
+        break;
+      }
+    }
+    smoothed.push(full[farthest]);
+    anchor = farthest;
+  }
+
+  return smoothed.length > 0 ? smoothed : [{ x: goalX, y: goalY }];
 }

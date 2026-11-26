@@ -32,8 +32,8 @@ SECTION A: MIGRATION BUGS & WIRING ERRORS
 ================================================================================
 
 [A1] Overworld Portals Unclickable, Sealed Monument State & Catalysts
-- Status: DECIDED (Prompts Approved · Wave 1 In Progress · Docs Update Noted)
-- Target Phase: TBD (Art Batch + Overworld/Dungeon Wiring + Docs Sync)
+- Status: FIXED & VERIFIED (16 Threshold WebPs + 8 Closed Markers + Portal UI Wired; Procedural 1:1 Dungeon Grid Pending Future Phase)
+- Target Phase: Completed Now (Portal Threshold & Monument Wiring)
 - Discovery:
   * Overworld map logic (client/src/ui/components/OverworldCanvas.tsx) checks
     for category === "portal", whereas data/world-locations.json marks all 8
@@ -41,26 +41,19 @@ SECTION A: MIGRATION BUGS & WIRING ERRORS
   * Sealed Portals currently do not swap to a defeated monument view.
   * Entering a Portal does not yet open a 16:9 threshold screen or check for
     the Portal Catalyst quest item.
-- Approved Design:
-  * Stepping onto/clicking any Portal on the Overworld opens a 16:9 Portal
-    Threshold screen (never jumping straight to a flat battle popup).
-  * Before earning the Portal Catalyst: shows the scary Active/Warded Portal
-    16:9 scene, names the Portal & realm, displays the exact required
-    Catalyst item and where to earn it, and offers a Step Back exit.
-  * Once carrying the Catalyst: unlocks "Unseal & Enter" on that screen to
-    launch the Portal's 1:1 procedural Zelda-style dungeon culminating in its
-    Apex Boss.
-  * After defeating the Boss: Portal does NOT disappear from the Overworld!
-    Players can return to visit it to see their world accomplishments: it
-    opens the matched Sealed/Defeated 16:9 Portal Monument screen (and can
-    use the Closed Portal Overworld marker from Sheet 6).
-  * Docs Sync Note: docs/01, docs/02, docs/04, docs/08 & AGENTS.md updated for
-    16:9 Thresholds + persistent Sealed Portal Monuments (Wave 1/2 tracked).
-  * Prompts staged in imageprompts/portal-interiors.txt and approved by CD.
-  * Wave 1 Batch Completed (8/8 Active Portal Thresholds saved to
-    assets/maps/portals/ & approved): batches/r8dsojbv7jtovxlp01jbo1k5afjzbka9pl0n.
-  * Wave 2 Batch Completed (ALL 8/8 Defeated/Sealed matched variations saved
-    to assets/maps/portals/ & approved): batches/7e3ibamta7vh8eltdm5bzoml8jwnvinkcg48.
+- Fix Applied:
+  * Exported all 16 Portal Threshold 16:9 scenes (8 Active + 8 Sealed) to
+    2560x1440 .webp in client/assets/maps/portals/ via tools/export_interiors.py
+    (--portals-only).
+  * Exported all 8 Closed Portal Overworld Markers from Sheet 6 to
+    client/assets/tokens/markers/*_closed.webp via tools/export_markers_and_maps.py.
+  * Fixed OverworldCanvas.tsx to detect Portals via isPortal, open their 16:9
+    Threshold screen when clicked/entered (never jumping straight to battle),
+    and swap sealed Portals permanently to their _closed.webp marker.
+  * Wired LocationInteriorModal.tsx + App.tsx with the 16:9 Portal Threshold
+    screen checking Catalyst ownership (bag item or completed catalyst quest),
+    enabling "Unseal & Enter" once ready, and showing the matched _sealed.webp
+    Sealed Monument accomplishment screen after boss defeat.
 
 [A2] Quest Journal & World Atlas Count 12 Portals Instead of 8
 - Status: FIXED & VERIFIED (Client Built Cleanly)

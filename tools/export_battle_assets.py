@@ -65,11 +65,11 @@ def slugify(name: str) -> str:
 
 def parse_monster_prompts() -> list[dict]:
     text = MONSTER_PROMPTS_FILE.read_text(encoding="utf-8")
-    parts = re.split(r"={10,}\s*\nSHEET\s+(\d+)\s+OF\s+8[^\n]*\n={10,}", text)
+    parts = re.split(r"={10,}\s*\r?\nSHEET\s+(\d+)\s+OF\s+\d+[^\r\n]*\r?\n={10,}", text)
     entries: list[dict] = []
     for i in range(1, len(parts), 2):
         sheet_num = int(parts[i])
-        slots = re.findall(r"^#\s*R(\d)C(\d)\s*->\s*([^(\n]+?)\s*\(([^)\n]+)\)", parts[i + 1], re.M)
+        slots = re.findall(r"^#\s*R(\d)C(\d)\s*->\s*([^(\r\n]+?)\s*\(([^)\r\n]+)\)", parts[i + 1], re.M)
         if len(slots) != 16:
             raise ValueError(f"Monster Sheet {sheet_num:02d} has {len(slots)} manifest slots (expected 16).")
         for r_str, c_str, nm, pose in slots:
@@ -174,6 +174,141 @@ def parse_monsters_stats() -> dict[str, dict]:
             "resist": "Shadow, Fire",
         },
     )
+
+    # Seed fallback stats for Sheets 09-12 quest monsters & named bosses using quest-level & baseline curve
+    quests_file = ROOT / "data" / "quests-catalog.json"
+    if quests_file.exists():
+        try:
+            q_list = json.loads(quests_file.read_text(encoding="utf-8")).get("quests", [])
+        except Exception:
+            q_list = []
+
+        # Reference curve interpolated from existing monsters.txt entries
+        ref_curve = sorted(
+            (m["level"], m["hp"], m["atk"], m["mag"])
+            for m in stats.values()
+            if "Boss" not in m.get("role", "")
+        )
+
+        def interp_base(lv: int) -> tuple[int, int]:
+            if not ref_curve:
+                return max(40, lv * 28), max(6, lv * 3)
+            below = [r for r in ref_curve if r[0] <= lv]
+            above = [r for r in ref_curve if r[0] >= lv]
+            lo = below[-1] if below else ref_curve[0]
+            hi = above[0] if above else ref_curve[-1]
+            if hi[0] == lo[0]:
+                return lo[1], max(lo[2], lo[3])
+            t = (lv - lo[0]) / (hi[0] - lo[0])
+            hp = round(lo[1] + t * (hi[1] - lo[1]))
+            off = round(max(lo[2], lo[3]) + t * (max(hi[2], hi[3]) - max(lo[2], lo[3])))
+            return hp, off
+
+        quest_meta = {
+            "animated armor": (5, "Heavy", False, "Lightning", "Poison", "1"),
+            "animated flying sword": (5, "Skirmisher", False, "Lightning", "Poison", "1/4"),
+            "dust mephit": (9, "Caster", False, "Wind", "Earth", "1/2"),
+            "ankheg": (10, "Beast", False, "Fire", "Acid", "2"),
+            "rust monster": (12, "Beast", False, "None", "Steel", "1/2"),
+            "grick": (13, "Skirmisher", False, "Fire", "Physical", "2"),
+            "giant boar": (8, "Beast", False, "None", "None", "2"),
+            "cockatrice": (28, "Beast", False, "Fire", "Poison", "1/2"),
+            "gorgon": (31, "Heavy", False, "Lightning", "Poison", "5"),
+            "hippogriff": (32, "Beast", False, "Lightning", "None", "1"),
+            "griffon": (33, "Beast", False, "Lightning", "None", "2"),
+            "steam mephit": (14, "Caster", False, "Cold", "Fire", "1/4"),
+            "blood hawk": (63, "Skirmisher", False, "Wind", "None", "1/8"),
+            "giant eagle": (64, "Beast", False, "Lightning", "Wind", "1"),
+            "polar bear": (77, "Beast", False, "Fire", "Cold", "2"),
+            "saber-toothed tiger": (68, "Beast", False, "Fire", "None", "2"),
+            "water weird": (17, "Caster", False, "Lightning", "Water", "3"),
+            "sea hag": (18, "Caster", False, "Radiant", "Cold", "2"),
+            "giant octopus": (19, "Beast", False, "Lightning", "Water", "1"),
+            "gibbering mouther": (21, "Hybrid", False, "Radiant", "None", "2"),
+            "violet fungus": (39, "Skirmisher", False, "Fire", "Poison", "1/4"),
+            "black pudding": (40, "Heavy", False, "Radiant", "Acid", "4"),
+            "blink dog": (39, "Skirmisher", False, "Shadow", "None", "1/4"),
+            "awakened tree": (40, "Heavy", False, "Fire", "Physical", "2"),
+            "ettercap": (41, "Skirmisher", False, "Fire", "Poison", "2"),
+            "phase spider": (42, "Skirmisher", False, "Radiant", "Shadow", "3"),
+            "corrupted dryad": (43, "Caster", False, "Fire", "Poison", "3"),
+            "awakened blight": (43, "Hybrid", False, "Fire", "Shadow", "2"),
+            "gelatinous cube": (42, "Heavy", False, "Fire", "Acid", "2"),
+            "gray ooze": (42, "Skirmisher", False, "Lightning", "Acid", "1/2"),
+            "ochre jelly": (45, "Heavy", False, "Cold", "Acid", "2"),
+            "shambling mound": (45, "Heavy", False, "Cold", "Lightning", "5"),
+            "magma mephit": (52, "Caster", False, "Cold", "Fire", "1/2"),
+            "giant scorpion": (52, "Beast", False, "Cold", "Poison", "3"),
+            "fire snake": (54, "Skirmisher", False, "Cold", "Fire", "1"),
+            "magmin": (54, "Skirmisher", False, "Cold", "Fire", "1/2"),
+            "azer": (56, "Heavy", False, "Cold", "Fire", "2"),
+            "storm mephit": (63, "Caster", False, "Earth", "Lightning", "1"),
+            "air elemental": (64, "Hybrid", False, "Earth", "Wind", "5"),
+            "blue dragon wyrmling": (66, "Beast", False, "Cold", "Lightning", "3"),
+            "spined devil": (75, "Skirmisher", False, "Radiant", "Fire", "2"),
+            "nightmare": (44, "Beast", False, "Cold", "Fire", "3"),
+            "ice mephit": (77, "Caster", False, "Fire", "Cold", "1/2"),
+            "will-o'-wisp": (89, "Caster", False, "Radiant", "Lightning", "2"),
+            "specter": (91, "Skirmisher", False, "Radiant", "Shadow", "1"),
+            "crimson vampire spawn captain": (93, "Hybrid", True, "Radiant", "Shadow", "8"),
+            "arena lich": (94, "Caster", True, "Radiant", "Shadow", "14"),
+            "elder vampire lord": (97, "Hybrid", True, "Radiant", "Shadow", "16"),
+            "garrick houndmaster": (4, "Skirmisher", True, "None", "None", "1"),
+            "crossbow poacher": (3, "Skirmisher", False, "None", "None", "1/2"),
+            "garrick deserter sergeant": (9, "Heavy", True, "None", "None", "2"),
+            "arena bounty-captain": (10, "Hybrid", True, "None", "None", "3"),
+            "bramblewatch ringleader": (13, "Skirmisher", True, "None", "None", "3"),
+            "hollowstone pikeman commander": (29, "Heavy", True, "None", "Physical", "5"),
+            "rival house deserter captain": (29, "Fighter", True, "None", "None", "5"),
+            "rival house knight-captain": (33, "Heavy", True, "Lightning", "Physical", "6"),
+            "lord hollowstone": (34, "Hybrid", True, "Shadow", "Physical", "7"),
+            "gilded slaver quartermaster": (52, "Fighter", True, "None", "None", "7"),
+            "gilded corsair commodore": (53, "Skirmisher", True, "Lightning", "Water", "8"),
+            "gilded slaver enforcers": (54, "Skirmisher", False, "None", "None", "4"),
+            "slaver baron": (62, "Heavy", True, "None", "Fire", "10"),
+            "slaver captain": (62, "Heavy", True, "None", "None", "8"),
+            "marshal bleakwatch": (87, "Heavy", True, "Fire", "Cold", "13"),
+            "abyssal eclipse guard": (98, "Heavy", True, "Radiant", "Shadow", "17"),
+        }
+
+        for nm_key, (lv, role, is_boss, weak, resist, cr_s) in quest_meta.items():
+            if nm_key in stats:
+                continue
+            hp, off = interp_base(lv)
+            role_mult = {"Heavy": 1.32, "Beast": 1.05, "Hybrid": 1.12, "Caster": 0.78, "Fighter": 1.0, "Skirmisher": 0.90}.get(role, 1.0)
+            if is_boss:
+                role_mult *= 1.55
+            hp_val = max(30, round(hp * role_mult))
+            atk_val = round(off * (0.65 if role == "Caster" else 1.08 if is_boss else 1.0))
+            mag_val = round(off * (1.12 if role == "Caster" else 0.92 if role == "Hybrid" else 0.0))
+            grd_val = (1 if lv >= 20 else 0) + (1 if role == "Heavy" or lv >= 50 else 0) + (1 if is_boss and lv >= 45 else 0)
+
+            zone_txt = "Quest Encounter"
+            for q in q_list:
+                if nm_key in json.dumps(q).lower():
+                    zone_txt = f"Map {q.get('mapId', 1)} - {q.get('hubName', 'Quest Site')}"
+                    break
+
+            display_name = " ".join(
+                w if w in {"of", "and"} else (w.capitalize() if "-" not in w else "-".join(p.capitalize() for p in w.split("-")))
+                for w in nm_key.split()
+            )
+            stats[nm_key] = {
+                "name": display_name,
+                "cr": cr_s,
+                "level": lv,
+                "isBoss": is_boss,
+                "portalNum": None,
+                "role": f"{role} Boss" if is_boss else role,
+                "zone": zone_txt,
+                "homeBiome": zone_txt,
+                "hp": hp_val,
+                "atk": atk_val,
+                "mag": mag_val,
+                "guard": grd_val,
+                "weak": weak,
+                "resist": resist,
+            }
     return stats
 
 
@@ -197,9 +332,10 @@ COLOSSAL_3X3_MOBS = {
 LARGE_2X2_MOBS = {
     "ogre", "ettin", "troll", "oni", "hill giant", "stone giant",
     "shield guardian", "clay golem", "stone golem", "iron golem",
-    "earth elemental", "fire elemental", "water elemental", "efreeti",
-    "manticore", "chuul", "giant crocodile", "bulette", "chimera",
-    "wyvern", "hydra", "otyugh", "remorhaz", "behir", "sphinx of lore",
+    "earth elemental", "fire elemental", "water elemental", "air elemental", "efreeti",
+    "manticore", "chuul", "giant crocodile", "giant octopus", "giant scorpion",
+    "bulette", "chimera", "wyvern", "hydra", "otyugh", "remorhaz", "behir", "sphinx of lore",
+    "gorgon", "awakened tree", "shambling mound", "nightmare", "polar bear", "saber-toothed tiger",
     "young black dragon", "young white dragon", "young copper dragon",
     "young green dragon", "young silver dragon", "young blue dragon", "young red dragon",
     "hezrou", "glabrezu", "bone devil", "horned devil", "ice devil", "nalfeshnee", "marilith",
@@ -217,6 +353,20 @@ LOW_ANIMAL_1X1_SCALE = {
     "basilisk": 0.82,
     "black dragon wyrmling": 0.82,
     "red dragon wyrmling": 0.84,
+    "blue dragon wyrmling": 0.84,
+    "animated flying sword": 0.84,
+    "ankheg": 0.88,
+    "rust monster": 0.82,
+    "grick": 0.84,
+    "cockatrice": 0.78,
+    "blood hawk": 0.80,
+    "violet fungus": 0.82,
+    "blink dog": 0.82,
+    "phase spider": 0.86,
+    "gray ooze": 0.82,
+    "fire snake": 0.80,
+    "magmin": 0.84,
+    "will-o'-wisp": 0.76,
 }
 
 BULKY_1X1_SCALE = {
@@ -224,10 +374,23 @@ BULKY_1X1_SCALE = {
     "owlbear": 1.02,
     "minotaur": 1.02,
     "wereboar": 1.00,
+    "giant boar": 1.02,
     "gargoyle": 0.98,
     "flesh golem": 1.02,
     "salamander": 1.00,
     "king garrick": 1.04,
+    "animated armor": 1.00,
+    "water weird": 1.00,
+    "black pudding": 1.02,
+    "gelatinous cube": 1.02,
+    "ochre jelly": 1.00,
+    "griffon": 1.02,
+    "hippogriff": 1.00,
+    "giant eagle": 1.02,
+    "slaver baron": 1.02,
+    "marshal bleakwatch": 1.02,
+    "abyssal eclipse guard": 1.04,
+    "elder vampire lord": 1.02,
 }
 
 
@@ -332,13 +495,15 @@ PORTAL_BOSS_REWARDS = {
 }
 
 
-def slice_and_export_monsters(stats_map: dict[str, dict]) -> list[dict]:
+def slice_and_export_monsters(stats_map: dict[str, dict], sheet_filter: set[int] | None = None) -> list[dict]:
     MONSTER_SLICES_DIR.mkdir(parents=True, exist_ok=True)
     CLIENT_ENEMIES_DIR.mkdir(parents=True, exist_ok=True)
 
     manifest = parse_monster_prompts()
     by_sheet: dict[int, list[dict]] = {}
     for entry in manifest:
+        if sheet_filter and entry["sheet"] not in sheet_filter:
+            continue
         by_sheet.setdefault(entry["sheet"], []).append(entry)
 
     monsters_out: list[dict] = []
@@ -431,7 +596,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Export ROD Battle Scenes & Monster sprites and build battle-config.json.")
     parser.add_argument("--reset-layout", action="store_true", help="Reset stage container positions and monster footprints to defaults.")
     parser.add_argument("--monsters-only", action="store_true", help="Re-slice and export monster sprites only, preserving battle-config tuning and stages.")
+    parser.add_argument("--sheets", type=str, default="", help="Comma-separated sheet numbers to slice/export (e.g. 9,10,11,12).")
     args = parser.parse_args()
+
+    sheet_filter = None
+    if args.sheets.strip():
+        sheet_filter = {int(s.strip()) for s in args.sheets.split(",") if s.strip()}
 
     stats_map = parse_monsters_stats()
 
@@ -443,21 +613,33 @@ def main() -> int:
             prev = {}
 
     if args.monsters_only and prev.get("monsters"):
-        monsters = slice_and_export_monsters(stats_map)
-        dims_by_id = {m["id"]: (m["spriteW"], m["spriteH"]) for m in monsters}
+        monsters = slice_and_export_monsters(stats_map, sheet_filter=sheet_filter)
+        new_by_id = {m["id"]: m for m in monsters}
+        seen_ids = set()
+        merged = []
         for existing in prev["monsters"]:
-            if isinstance(existing, dict) and existing.get("id") in dims_by_id:
-                existing["spriteW"], existing["spriteH"] = dims_by_id[existing["id"]]
+            if not isinstance(existing, dict) or not existing.get("id"):
+                continue
+            eid = existing["id"]
+            seen_ids.add(eid)
+            if eid in new_by_id:
+                existing["spriteW"] = new_by_id[eid]["spriteW"]
+                existing["spriteH"] = new_by_id[eid]["spriteH"]
+            merged.append(existing)
+        for m in monsters:
+            if m["id"] not in seen_ids:
+                merged.append(m)
+        prev["monsters"] = merged
         text = json.dumps(prev, indent=2) + "\n"
         OUT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
         CLIENT_OUT_CONFIG.parent.mkdir(parents=True, exist_ok=True)
         OUT_CONFIG.write_text(text, encoding="utf-8")
         CLIENT_OUT_CONFIG.write_text(text, encoding="utf-8")
-        print(f"Updated monster sprite dimensions in preserved config ({len(monsters)} monsters) -> {OUT_CONFIG}")
+        print(f"Merged {len(monsters)} monster sprites into config ({len(merged)} total) -> {OUT_CONFIG}")
         return 0
 
     stages = export_battle_scenes()
-    monsters = slice_and_export_monsters(stats_map)
+    monsters = slice_and_export_monsters(stats_map, sheet_filter=sheet_filter)
 
     prev_stages = {s["id"]: s for s in prev.get("stages", []) if isinstance(s, dict) and s.get("id")}
     prev_mobs = {m["id"]: m for m in prev.get("monsters", []) if isinstance(m, dict) and m.get("id")}

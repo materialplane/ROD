@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "count": 32,
+  "count": 48,
   "dimensions": "512x512",
   "cards": {
     "cond_burn": "assets/icons/conditions/cond_burn.webp",
@@ -34,7 +34,23 @@
     "cond_counter_ready": "assets/icons/conditions/cond_counter_ready.webp",
     "cond_intercept": "assets/icons/conditions/cond_intercept.webp",
     "cond_ko_fallen": "assets/icons/conditions/cond_ko_fallen.webp",
-    "cond_flee_blocked": "assets/icons/conditions/cond_flee_blocked.webp"
+    "cond_flee_blocked": "assets/icons/conditions/cond_flee_blocked.webp",
+    "dmg_slashing": "assets/icons/conditions/dmg_slashing.webp",
+    "dmg_piercing": "assets/icons/conditions/dmg_piercing.webp",
+    "dmg_bludgeoning": "assets/icons/conditions/dmg_bludgeoning.webp",
+    "dmg_fire": "assets/icons/conditions/dmg_fire.webp",
+    "dmg_frost": "assets/icons/conditions/dmg_frost.webp",
+    "dmg_lightning": "assets/icons/conditions/dmg_lightning.webp",
+    "dmg_poison": "assets/icons/conditions/dmg_poison.webp",
+    "dmg_shadow": "assets/icons/conditions/dmg_shadow.webp",
+    "dmg_radiant": "assets/icons/conditions/dmg_radiant.webp",
+    "cond_ward_shield": "assets/icons/conditions/cond_ward_shield.webp",
+    "cond_spell_empowered": "assets/icons/conditions/cond_spell_empowered.webp",
+    "cond_marked_target": "assets/icons/conditions/cond_marked_target.webp",
+    "cond_taunt": "assets/icons/conditions/cond_taunt.webp",
+    "cond_adaptive_guard": "assets/icons/conditions/cond_adaptive_guard.webp",
+    "cond_immunity_null": "assets/icons/conditions/cond_immunity_null.webp",
+    "cond_boss_enraged": "assets/icons/conditions/cond_boss_enraged.webp"
   },
   "slots": [
     {
@@ -228,6 +244,102 @@
       "name": "Escape Blocked",
       "detail": "State (Blocked retreat / Boss lock)",
       "iconPath": "assets/icons/conditions/cond_flee_blocked.webp"
+    },
+    {
+      "id": "dmg_slashing",
+      "name": "Slashing",
+      "detail": "Damage Type (Blade arc)",
+      "iconPath": "assets/icons/conditions/dmg_slashing.webp"
+    },
+    {
+      "id": "dmg_piercing",
+      "name": "Piercing",
+      "detail": "Damage Type (Spear / arrow thrust)",
+      "iconPath": "assets/icons/conditions/dmg_piercing.webp"
+    },
+    {
+      "id": "dmg_bludgeoning",
+      "name": "Bludgeoning",
+      "detail": "Damage Type (Heavy mace impact)",
+      "iconPath": "assets/icons/conditions/dmg_bludgeoning.webp"
+    },
+    {
+      "id": "dmg_fire",
+      "name": "Fire",
+      "detail": "Damage Type (Pyromancy flame core)",
+      "iconPath": "assets/icons/conditions/dmg_fire.webp"
+    },
+    {
+      "id": "dmg_frost",
+      "name": "Frost",
+      "detail": "Damage Type (Glacial ice crystal)",
+      "iconPath": "assets/icons/conditions/dmg_frost.webp"
+    },
+    {
+      "id": "dmg_lightning",
+      "name": "Lightning",
+      "detail": "Damage Type (Storm bolt)",
+      "iconPath": "assets/icons/conditions/dmg_lightning.webp"
+    },
+    {
+      "id": "dmg_poison",
+      "name": "Poison",
+      "detail": "Damage Type (Venom vial drop)",
+      "iconPath": "assets/icons/conditions/dmg_poison.webp"
+    },
+    {
+      "id": "dmg_shadow",
+      "name": "Shadow",
+      "detail": "Damage Type (Dark eclipse wisp)",
+      "iconPath": "assets/icons/conditions/dmg_shadow.webp"
+    },
+    {
+      "id": "dmg_radiant",
+      "name": "Radiant",
+      "detail": "Damage Type (Celestial sunbeam star)",
+      "iconPath": "assets/icons/conditions/dmg_radiant.webp"
+    },
+    {
+      "id": "cond_ward_shield",
+      "name": "Ward Shield",
+      "detail": "Buff (Absorbing barrier HP)",
+      "iconPath": "assets/icons/conditions/cond_ward_shield.webp"
+    },
+    {
+      "id": "cond_spell_empowered",
+      "name": "Spell Empowered",
+      "detail": "Buff (Next spell +35% power & Guard break)",
+      "iconPath": "assets/icons/conditions/cond_spell_empowered.webp"
+    },
+    {
+      "id": "cond_marked_target",
+      "name": "Marked Target",
+      "detail": "Debuff (Priority target marked)",
+      "iconPath": "assets/icons/conditions/cond_marked_target.webp"
+    },
+    {
+      "id": "cond_taunt",
+      "name": "Taunt",
+      "detail": "Stance (Drawing enemy attacks)",
+      "iconPath": "assets/icons/conditions/cond_taunt.webp"
+    },
+    {
+      "id": "cond_adaptive_guard",
+      "name": "Adaptive Guard",
+      "detail": "Buff (Reduced damage vs last element hit)",
+      "iconPath": "assets/icons/conditions/cond_adaptive_guard.webp"
+    },
+    {
+      "id": "cond_immunity_null",
+      "name": "Damage Immunity",
+      "detail": "Enemy State (0x full damage immunity)",
+      "iconPath": "assets/icons/conditions/cond_immunity_null.webp"
+    },
+    {
+      "id": "cond_boss_enraged",
+      "name": "Boss Enraged",
+      "detail": "Enemy State (Phase 2 / Enraged boss surge)",
+      "iconPath": "assets/icons/conditions/cond_boss_enraged.webp"
     }
   ]
 }

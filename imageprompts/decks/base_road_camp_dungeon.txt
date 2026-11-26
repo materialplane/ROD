@@ -1,0 +1,283 @@
+# ROD — Roads & Waysides Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_road_camp_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Roads & Waysides Base Deck):
+# - packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, blooming twilight hedgerows, and warm brass roadside lanterns contrasted against soft golden-indigo meadow dusk (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — ROADS & WAYSIDE CROSSINGS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, blooming twilight hedgerows, and warm brass roadside lanterns contrasted against soft golden-indigo meadow dusk (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). All scenes take place in overland dirt roads, split-rail fences, fieldstone walls, and rural wayside clearings (NO military forts, NO palisades, NO canvas tents, NO castle masonry, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Roadside Wagon Track"
+  Body Text: "Deep iron-rimmed wheel ruts wind forward past split-rail fences and lanterns."
+  Artwork: Open twilight country road vista looking straight ahead down packed-earth wagon ruts flanked by weathered wooden split-rail fences and warm trail lanterns curving into meadow dusk.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Split-Rail Pasture Gate"
+  Body Text: "A weathered split-rail oak gate stands latched between low fieldstone walls."
+  Artwork: Rustic weathered split-rail timber pasture gate latched neatly across a dusty country dirt lane between low mossy fieldstone walls framed by warm roadside lanterns.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Brushwood Side-Trail"
+  Body Text: "A trampled footpath ducks quietly around meadow hedgerows and fence rails."
+  Artwork: Winding trampled brown-earth footpath curving neatly past split-rail wooden fences and thick twilight meadow hedgerows toward warm amber lantern glow ahead.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Log-Plank Ditch Bridge"
+  Body Text: "Heavy adzed oak planks span a muddy roadside creek ditch toward firm meadow turf."
+  Artwork: Elevated three-quarter roadside perspective showing TWO solid dry grassy earth roadbanks separated by a narrow muddy ditch stream: sturdy weathered oak planks visibly bridge from solid foreground dirt track all the way across onto wide firm grass-bordered lane on the opposite side.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Rural Crossings matching Country Roads & Waysides.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — WAYSIDE SUPPLY CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, blooming twilight hedgerows, and warm brass roadside lanterns contrasted against soft golden-indigo meadow dusk (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). All scenes take place in overland dirt roads, split-rail fences, fieldstone walls, and rural wayside clearings (NO military forts, NO palisades, NO canvas tents, NO castle masonry, NO people).
+IMPORTANT: Every cache container (crate, pack, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Caravan Crate"
+  Body Text: "Stamped with merchant brands, a nailed wooden supply crate sits near fence posts."
+  Artwork: Roadside meadow bend: centered front-facing nailed oak caravan supply crate bound with hemp ropes resting squarely beside weathered split-rail fence posts.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Courier Pack"
+  Body Text: "Tucked beneath hedgerow brush, a buckled canvas saddlebag waits undisturbed."
+  Artwork: Twilight roadside grass bank: centered front-facing weathered heavy canvas courier pack with strapped leather flaps and brass buckles resting beside wooden fence rails.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Roadside Lockbox"
+  Body Text: "Set beside a mossy fieldstone wall, a riveted iron lockbox sits untouched."
+  Artwork: Lantern-lit rural pasture corner: centered front-facing heavy riveted iron traveler lockbox resting solidly on packed earth flush against a low mossy fieldstone wall.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Traveler's Strongbox"
+  Body Text: "Settled firmly beside split-rail fences, a bound oak strongbox waits closed."
+  Artwork: Warm lantern-lit roadside bend: centered front-facing dark iron-reinforced oak strongbox with brass lockplate resting cleanly against dry-stacked fieldstones and tall meadow grass.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches matching Country Roads & Waysides.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — WAYSIDE SPRINGS & SHRINES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, blooming twilight hedgerows, and warm brass roadside lanterns contrasted against soft golden-indigo meadow dusk (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). All scenes take place in overland dirt roads, split-rail fences, fieldstone walls, and rural wayside clearings (NO military forts, NO palisades, NO canvas tents, NO castle masonry, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Pilgrim's Oak Cistern"
+  Body Text: "Cool rain-filtered water drips from a shaded timber trough, restoring the party's HP."
+  Artwork: Peaceful shaded roadside clearing: a handcrafted iron-banded oak water trough fed by a carved wooden spout pours bright clear water into a clean stoneware pitcher resting on a split-rail bench bathed in warm dusk meadow sunlight.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Traveler's Moon-Lantern"
+  Body Text: "A suspended blue-glass lamp glows beside a crossroads post, restoring the party's MP."
+  Artwork: Quiet dirt crossroads beneath twilight meadow clouds: a tall notched peeled-oak post with directional wooden slats suspends an ornate wrought-iron filigree lantern housing glowing sapphire flame spilling luminous azure light across dry grasses.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Wayside Smithy Brazier"
+  Body Text: "Coals glowing beside a road-anvil temper steel fast, guarding one hero against blows."
+  Artwork: Unattended rural smithing nook beside a low fieldstone wall: a stout stump-mounted forged iron anvil and blacksmith hammer flank a low brick-ringed charcoal brazier glowing fierce forge-orange.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Woven Bramble Archway"
+  Body Text: "Dried sage and silver bells dangle above a fence stile, shielding one hero from spells."
+  Artwork: Dusk rural lane between weathered split-rail pasture fences: tied bundles of dried sage, lavender, and gleaming small silver bells hang across a rustic peeled-oak crossbar arch catching cool violet-white twilight shimmer in the breeze.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Pilgrim Cisterns, Moon-Lanterns, Smithy Braziers & Archways matching Country Roads & Waysides.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — WAYSIDE TRAIL HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, blooming twilight hedgerows, and warm brass roadside lanterns contrasted against soft golden-indigo meadow dusk (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). All scenes take place in overland dirt roads, split-rail fences, fieldstone walls, and rural wayside clearings (NO military forts, NO palisades, NO canvas tents, NO castle masonry, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Oil & Fire Pot"
+  Body Text: "Hidden ceramic oil flasks shatter beside embers on the track, erupting in bright flame."
+  Artwork: Packed dirt road and camp turf the exact instant terracotta oil flasks shatter against glowing campfire embers, splashing roaring orange flame upward in twilight.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Weighted Rope Net"
+  Body Text: "Anchored to roadside posts, an iron-weighted hemp net snaps shut across the lane."
+  Artwork: Dirt country lane between split-rail wooden fence posts at the exact instant heavy forged-iron weights whip a taut diamond-mesh hemp snare net wildly mid-air above kicking brown dust.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Spring-Log Whip"
+  Body Text: "Concealed beside wagon ruts, a tensioned oak timber bar whips violently across ground."
+  Artwork: Packed dirt road and camp clearing the exact instant a buried spring-tensioned oak timber log snaps sideways across flat dirt in kicking roadside dust.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Scattered Caltrops"
+  Body Text: "Star-shaped forged iron spikes lie dusted lightly beneath loose dirt wheel ruts."
+  Artwork: Dusty packed brown earth wagon wheel-rut at ground level dotted sharply with gleaming dark forged-iron four-pointed highwayman caltrops dusted lightly in straw.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Country Roads & Waysides.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — WAYSIDE TRAIL AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, blooming twilight hedgerows, and warm brass roadside lanterns contrasted against soft golden-indigo meadow dusk (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). All scenes take place in overland dirt roads, split-rail fences, fieldstone walls, and rural wayside clearings (NO military forts, NO palisades, NO canvas tents, NO castle masonry, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes rise from behind a mossy fieldstone pasture wall to force a fight."
+  Artwork: Shadowed country meadow bend torn by warm trail-lantern glow: two ink-black faceless shrouded silhouettes crouch motionless behind a crumbling mossy fieldstone wall.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes crouch behind weathered split-rail fences and cordwood ahead."
+  Artwork: Dim twilight dirt lane lit by roadside lantern glow: crouched quietly behind weathered split-rail wooden fence rails and stacked firewood, two pitch-black silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the wagon track from roadside brush—stand ready!"
+  Artwork: Moody dirt caravan road lit down the center by warm torchlight: coiled pitch-black shadowy silhouettes wait tucked inside left and right dark brush fences.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of thick meadow evening mist, forcing battle."
+  Artwork: Dramatic country crossroads softened by drifting evening meadow mist and warm lantern backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Country Roads & Waysides.
+--- COPY-PASTE PROMPT END ---
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 ROADS & WAYSIDES SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — ROADS & WAYSIDES SCENE 1 (Split-Rail Meadow Bend)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Weathered oak split-rail fences curving along a calm packed-earth country road at midday.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — ROADS & WAYSIDES SCENE 2 (Crossroad Milestone Turn)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dusty dirt crossroads bordered by low mossy fieldstone walls, an aged boundary milestone, and leafy roadside trees at midday above calm dirt front.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — ROADS & WAYSIDES SCENE 3 (Hollow-Oak Orchard Trail)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Gnarled moss-barked roadside oaks and orchard trees arching in midday light above a calm brown-earth lane foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — ROADS & WAYSIDES SCENE 4 (Low Fieldstone Pasture Wall)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dry-stacked rural fieldstone wall draped in creeping meadow briars and wild grass at midday above flat packed dirt ground.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — ROADS & WAYSIDES SCENE 5 (Hedgerow Timber Bend)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Thick flowering meadow hawthorn hedgerows and weathered fence posts enclosing a sheltered dirt curve at midday.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — ROADS & WAYSIDES SCENE 6 (Cobble-Ford Meadow Bank)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Shallow dry cobble lane ford rimmed along the back edge by low wooden rail posts and meadow grass at midday above quiet earth foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — ROADS & WAYSIDES SCENE 7 (Splitting Fork Waypost)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Tall weathered wooden crossroads fingerpost beside blooming meadow brush and tall grass in natural midday light.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — ROADS & WAYSIDES SCENE 8 (Timber Stack Clearing)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring packed brown-earth country wagon lanes, weathered split-rail oak fences, dry-stacked mossy meadow fieldstone walls, and blooming meadow hedgerows at midday (strictly rural open-air country roads & waysides, NO military palisade forts, NO garrison banners, NO weapon racks, NO parked caravan wagons, NO underground dungeon doors, NO people, NO monsters). Strictly uninhabited wide enclosed midday scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Neatly stacked cut firewood lengths and mossy oak stumps along a calm meadow treeline at midday above open packed earth.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_17_road_caravan_arena (Battleground 1 · Wide Dirt Lane & Top-15% Fence Rim)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte painterly brushwork matching packed countryside earth, fine road dust, and short meadow grass in natural midday light (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level rural Crownlands wayside ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin all the way across left, center, and right sides lies ONE continuous, flat, unobstructed packed brown-earth dirt ground lightly dusted with fine gravel and faint horizontal west-to-east cart tracks running purely left-to-right—completely open underfoot across left enemy zone, center, and right hero zone with STRICTLY ZERO fences, ZERO stone walls, ZERO wooden posts, ZERO grass islands, and ZERO intersecting side lanes inside the bottom 85% combat area.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top edge runs ONE straight continuous horizontal west-to-east wooden split-rail pasture fence line with leafy meadow oak canopies behind it under a midday sky—running 100% straight horizontally left-to-right across the upper border without ever angling downward along left or right sides.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_18_camp_palisade_arena (Battleground 2 · Flat Wayside & Top-15% Fieldstone Rim)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte painterly brushwork matching packed countryside earth, fine road dust, and short meadow grass in natural midday light (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level rural Crownlands wayside ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top rim lies a wide, level, unobstructed combat ground of compacted warm earth blended cleanly with fine crushed wayside gravel in natural midday light—completely bare, level, and open across left, center, and right with STRICTLY ZERO stone walls, ZERO fences, ZERO posts, and ZERO bushes entering the bottom 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top margin runs ONE straight horizontal west-to-east low dry-stacked mossy fieldstone pasture wall backed closely by blooming meadow hedgerows and leafy meadow trees at midday—strictly straight left-to-right across the top 15% rim.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_19_road_meadow_arena (Battleground 3 · Flat Meadow Turf & Top-15% Trail Rim)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte painterly brushwork matching packed countryside earth, fine road dust, and short meadow grass in natural midday light (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level rural Crownlands wayside ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge almost to the top strip lies an expansive, completely flat clipped olive-and-emerald meadow grass clearing seamlessly worn smooth with warm earth patches across both left enemy side and right hero side—STRICTLY ZERO fences, ZERO stone walls, ZERO tall bushes, and ZERO wooden posts anywhere inside the lower 85% battle floor.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top margin runs ONE straight horizontal west-to-east country lane border lined by low split wooden rail posts, thick hawthorn hedgerows, and leafy midday oak canopies—never curving or angling forward down either edge.
+--- COPY-PASTE PROMPT END ---

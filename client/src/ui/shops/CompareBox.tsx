@@ -1,5 +1,6 @@
 import React from "react";
 import { assetUrl } from "../api";
+import { resolveDamageTypeIcons } from "../battle/battleLogic";
 import { getHeroById } from "../heroes";
 import type { EquippedGearMap, GearSlot, HeroId, ItemEntry, SpellEntry } from "../types";
 import { itemTooltipHandlers } from "./itemTooltip";
@@ -172,7 +173,13 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
           return (
           <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
             <div
-              {...itemTooltipHandlers(leftSlotDisplay, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+              {...itemTooltipHandlers(leftSlotDisplay, {
+                activeHeroId,
+                equippedByHero,
+                itemsById,
+                learnedSpellIds,
+                preferredSlot: delta.leftHandBlockedBy2H ? "right_hand" : activePreferredSlot,
+              })}
               className="flex items-center gap-2.5 p-1.5 px-2 rounded border border-[#2b3448] bg-[#121723]/92 min-w-0"
             >
               {leftSlotDisplay ? (
@@ -198,7 +205,13 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
               {delta.leftHandBlockedBy2H ? "✕" : "→"}
             </span>
             <div
-              {...itemTooltipHandlers(item, { activeHeroId, equippedByHero, itemsById, learnedSpellIds })}
+              {...itemTooltipHandlers(item, {
+                activeHeroId,
+                equippedByHero,
+                itemsById,
+                learnedSpellIds,
+                preferredSlot: activePreferredSlot,
+              })}
               className={`flex items-center gap-2.5 p-1.5 px-2 rounded border min-w-0 ${sameEquipped ? "border-[#5b6985] bg-[#141925]/92" : "border-[#9e7f47] bg-gradient-to-br from-[#2c2211]/90 to-[#141926]/95"}`}
             >
               <img src={assetUrl(item.iconPath)} alt="" className="w-11 h-11 sm:w-12 sm:h-12 p-0.5 rounded object-contain border border-[#8c703b] bg-[#141822] shrink-0" />
@@ -260,7 +273,18 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
               </div>
               <div className="p-1.5 px-2.5 rounded border border-[#283144] bg-[#121824]/95">
                 <div className="text-[11.5px] text-[#9eb2cf] font-semibold uppercase tracking-wider">Element / Type</div>
-                <div className="text-[15px] font-extrabold text-[#f7ebd2] truncate">{spell.damageType}</div>
+                <div className="text-[15px] font-extrabold text-[#f7ebd2] truncate flex items-center gap-1.5">
+                  {resolveDamageTypeIcons(spell.damageType).map((dt) => (
+                    <img
+                      key={dt.id}
+                      src={assetUrl(dt.iconPath)}
+                      alt=""
+                      className="w-4 h-4 rounded-[2px] border border-white/20 object-cover shrink-0"
+                      draggable={false}
+                    />
+                  ))}
+                  <span className="truncate">{spell.damageType}</span>
+                </div>
               </div>
               <div className="p-1.5 px-2.5 rounded border border-[#283144] bg-[#121824]/95">
                 <div className="text-[11.5px] text-[#9eb2cf] font-semibold uppercase tracking-wider">Target</div>
@@ -326,7 +350,20 @@ export const CompareBox: React.FC<CompareBoxProps> = ({
         <div className="mt-auto rounded border border-[#293142] bg-[#0f131d]/90 p-1.5 px-2 flex flex-col gap-0.5">
           {gearItem && (
             <div className="flex flex-wrap gap-1">
-              {gearItem.damageType && <span className="px-1.5 py-0.5 rounded border border-[#7e663b] bg-[#261f13] text-[#f7dea4] text-[11.5px] font-semibold">{cleanDamageTypeLabel(gearItem.damageType)}</span>}
+              {gearItem.damageType && (
+                <span className="px-1.5 py-0.5 rounded border border-[#7e663b] bg-[#261f13] text-[#f7dea4] text-[11.5px] font-semibold inline-flex items-center gap-1">
+                  {resolveDamageTypeIcons(gearItem.damageType).map((dt) => (
+                    <img
+                      key={dt.id}
+                      src={assetUrl(dt.iconPath)}
+                      alt=""
+                      className="w-3.5 h-3.5 rounded-[2px] border border-white/20 object-cover shrink-0"
+                      draggable={false}
+                    />
+                  ))}
+                  {cleanDamageTypeLabel(gearItem.damageType)}
+                </span>
+              )}
               {gearItem.handed && (
                 <span className="px-1.5 py-0.5 rounded border border-[#354057] bg-[#171d2b] text-[#cbd7eb] text-[11.5px] font-semibold">
                   {gearItem.handed === "2H"

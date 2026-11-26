@@ -1,0 +1,285 @@
+# ROD — Hold-the-Line Oasis & Dune Defense Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_desert_hold_line_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Hold-the-Line · Oasis & Dune Defense Base Deck):
+# - low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards in natural midday light (strictly uninhabited desert oasis & sand-dune outpost defense settings matching Map 3, NO red terracotta sandstone canyons, NO towering canyon mesas, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters)
+# - SIEGE MECHANIC RULE: Majority Assault Waves (Sheet 5 x3 = 12 cards), minimal lateral Sector Rotations (2–3 rolled per deck, ZERO upward stairs/ladders), Oasis & Caravan Resupplies & Arrivals, and Boss shuffled into bottom half of deck.
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — OASIS & DUNE SECTOR ROTATIONS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards in natural midday light (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place around a fortified desert palm oasis and sandbagged dune caravan outpost under siege at midday (NO red canyons, NO gray castles, NO people, NO monsters).
+IMPORTANT: Horizontal lateral rotations around a fortified oasis & dune perimeter (Shade Pavilion, Sandbag Berm, Caravan Gatehouse, Oasis Spring Wall—NEVER climbing endless stairs/ladders). Every card shows uninhabited oasis & dune defense structures.
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Canvas Shade Pavilion"
+  Body Text: "Falling back across packed desert clay, defenders regroup beneath braced awnings."
+  Artwork: Level horizontal ground view across wind-packed golden desert clay pavers toward a wide braced cedar-beam and woven desert canvas shade gateway framing an open sandbagged oasis courtyard beyond at midday (strictly flat horizontal transition—zero climbing stairs or ladders).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Sandbagged Dune Berm"
+  Body Text: "Pivoting laterally along stacked sandbags, defenders reinforce the threatened dune crest."
+  Artwork: Level horizontal walkway view looking straight ahead down a flat cedar-planked firing walk bordered by waist-high stacked canvas sandbags and sharpened cedar stakes overlooking midday golden sand dunes beyond (lateral horizontal movement—no ladders or vertical stairs).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Caravan Gatehouse Bay"
+  Body Text: "Shifting across braced hardpan, defenders anchor the iron-bound cedar caravan gate."
+  Artwork: Level horizontal outpost yard perspective looking straight across braced golden clay hardpan into a fortified cedar-and-limestone caravan gatehouse barred by heavy iron-strapped double gates at midday (zero stairs).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Oasis Spring Wall"
+  Body Text: "Moving sideways along limestone spring walls, defenders shield the palm feeder basin."
+  Artwork: Level horizontal ground perspective looking sideways along a low dry-stacked pale limestone oasis feeder wall shaded by date-palm fronds and clear turquoise spring water in natural midday light (strictly level ground).
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Oasis & Dune Sector Rotations matching Hold-the-Line Oasis & Dune Defense.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — OASIS & CARAVAN RESUPPLIES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards in natural midday light (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place around a fortified desert palm oasis and sandbagged dune caravan outpost under siege at midday (NO red canyons, NO gray castles, NO people, NO monsters).
+IMPORTANT: Every supply container sits centered facing straight forward toward the viewer flush against a solid pale limestone oasis wall or cedar caravan barrier filling the gothic window cleanly (bare cedar, iron & brass only—no loose cloth; parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Quartermaster Spice Crate"
+  Body Text: "Banded tightly with hammered copper straps, dried rations and oil wait stacked."
+  Artwork: Shaded oasis outpost supply nook in midday light filling the arch cleanly: centered front-facing sturdy copper-strapped cedar garrison ration crate with brass lockplate resting squarely flush against pale limestone wall.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Iron-Hooped Water Cask"
+  Body Text: "Cool fresh well-water fills a heavy iron-hooped cedar garrison barrel."
+  Artwork: Shaded palm courtyard bay in midday light filling the arch cleanly: centered front-facing heavy iron-hooped cedar desert water barrel sealed tightly with wooden bung resting firmly against dry-stacked limestone masonry.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Scorpion-Bolt Coffer"
+  Body Text: "Sealed inside hammered desert brass, steel crossbow bolts and whetstones wait stocked."
+  Artwork: Shaded caravan gatehouse bay at midday: centered front-facing closed riveted dark-steel and hammered-brass garrison munitions chest sitting solidly flush against braced cedar wall timbers above golden clay.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Caravan Medic Strongbox"
+  Body Text: "Resting under woven shade cover, a brass-clasped surgeon box waits ready."
+  Artwork: Cool shaded oasis awning bay at midday: centered front-facing dark lacquered cedar and tarnished-brass desert surgeon strongbox fitted with a clean brass front keyhole plate resting undisturbed against pale limestone masonry.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Front-Facing Oasis & Caravan Resupplies matching Hold-the-Line Oasis & Dune Defense.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — OASIS SIEGE ARRIVALS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards in natural midday light (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place around a fortified desert palm oasis and sandbagged dune caravan outpost under siege at midday (NO red canyons, NO gray castles, NO people, NO monsters).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Fresh Water-Skin Cart"
+  Body Text: "A rider slips unseen across the dunes with full water skins, restoring the party's HP."
+  Artwork: Shaded oasis yard behind a sandbag berm at midday: an unattended weathered cedar hand-cart heaped cleanly with plump stitched leather water skins, flat baked desert bread loaves, and clay jugs just wheeled inside the wall (zero people).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Oasis Alchemist Satchel"
+  Body Text: "An oasis runner leaves cobalt mana flasks beside the shade wall, restoring the party's MP."
+  Artwork: Cool shaded limestone wall ledge beneath palm fronds at midday: an unbuckled camel-leather runner saddlebag flung open displaying corked luminescent cobalt-blue mana vials, dried desert herbs, and rolled wax dispatch seals catching clear azure shimmer (zero people).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Copper-Bound Shield Rack"
+  Body Text: "Caravan guards haul fresh riveted shields to the berm, bracing one hero against blows."
+  Artwork: Sunlit oasis caravan yard at midday: a freshly delivered cedar rack bristling tightly with riveted copper-and-steel round desert shields, leather straps, and heavy greaves gleaming cleanly against pale limestone and sandbags (zero people).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Sun-Chime Banner Post"
+  Body Text: "An oasis priest plants silver wind-chimes by the spring, shielding one hero from magic."
+  Artwork: Shaded oasis spring edge beneath a woven sun-awning at midday: tall copper-capped cedar standard hung with delicate gleaming silver wind-chimes, turquoise beads, and consecrated pale-gold cloth fluttering gently beside sealed ward scrolls (zero people).
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Fresh Water-Skin Cart, Oasis Satchel, Shield Rack & Sun-Chime Post matching Hold-the-Line Oasis & Dune Defense.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — OASIS SIEGE HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards in natural midday light (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place around a fortified desert palm oasis and sandbagged dune caravan outpost under siege at midday (NO red canyons, NO gray castles, NO people, NO monsters).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Blistering Arrow Volley"
+  Body Text: "Feathered enemy war arrows hiss steeply downward across sandbagged dune planks."
+  Artwork: Cedar firing-walk planks and stacked canvas sandbags at midday at the exact split-second dozens of heavy feathered iron-tipped desert war arrows slam steeply downward diagonally into wood splinters and bursting sandbags (zero people).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Hurled Siege Boulder"
+  Body Text: "A hurled stone smashes the limestone spring wall, spraying razor rock chips."
+  Artwork: Low pale limestone oasis wall mid-impact at midday: a massive fractured desert boulder crashes against dry-stacked limestone blocks and sandbags, blasting razor rock chips and swirling golden sand dust outward across the yard.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Shattered Fire-Oil Urn"
+  Body Text: "A hurled clay fire-oil jar bursts underfoot, splashing roaring flame across packed clay."
+  Artwork: Packed golden desert clay yard the instant a hurled hammered-clay desert oil urn shatters on impact, erupting swirling leaping orange-and-gold burning oil flames and dark smoke across packed clay and cedar planks.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Caravan Gate Ram Shock"
+  Body Text: "A heavy ram slams the barred cedar gates, shaking defenders violently off-footing."
+  Artwork: Inside oasis caravan gatehouse view at midday the exact instant heavy iron-braced cedar desert gates bow violently inward from an unseen battering impact, blasting loose sand dust, popped iron bolts, and flying wood splinters across packed hardpan.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Incoming Arrow Volleys, Hurled Boulder, Fire-Oil Urn & Gate Ram matching Hold-the-Line Oasis & Dune Defense.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — OASIS & DUNE ASSAULT WAVES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards in natural midday light (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place around a fortified desert palm oasis and sandbagged dune caravan outpost under siege at midday (NO red canyons, NO gray castles, NO people, NO monsters).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless shadowy attackers poised on sandbag berms, breached oasis walls, grappling ropes, and dust-veiled caravan gates at midday (calm menacing siege poise, zero recognizable faces; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Raiders crest the sandbagged dune berm above the oasis—hold the line!"
+  Artwork: Sunlit stacked sandbag dune berm at midday dusted with blowing golden sand: wooden scaling-ladder tips hook over cedar parapet stakes as pitch-black faceless shadowy silhouettes crest and crouch poised along the berm rim.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Attackers surge through a breached limestone spring wall straight toward the pool!"
+  Artwork: Midday oasis courtyard torn by blowing golden dust: coiled pitch-black faceless shadowy silhouettes crouch poised inside a broken pale limestone oasis wall gap beside stacked sandbags and palm trunks.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Grappling hooks bite cedar rampart timbers as flankers drop inside the yard!"
+  Artwork: Braced cedar-and-limestone corner watch platform in crisp midday shade: forged iron grappling hooks grip notched cedar timbers while taut pitch-black shadowy silhouettes crouch poised inside dark awning shadows.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Foes push through thick blowing golden sand-haze at the gate, forcing close quarters!"
+  Artwork: Dramatic desert caravan yard choked with swirling golden sand haze in midday backlight: stark pitch-black faceless shadowy silhouettes crouch poised forward through the dust ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Oasis Assault Waves titled "Assault" matching Hold-the-Line Oasis & Dune Defense.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 OASIS & DUNE DEFENSE SECTORS (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — OASIS DEFENSE SCENE 1 (Oasis Perimeter Yard)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Expansive packed golden desert clay outpost yard backed along the rear rim by low pale limestone perimeter walls, woven canvas shade awnings, date palms, and sealed clay water jars at midday above calm shadowed ground.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — OASIS DEFENSE SCENE 2 (Barred Caravan Gate)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Heavy iron-braced cedar double caravan gates sealed tight inside stacked sandbag and pale limestone gate piers overlooking golden dunes at midday above quiet packed clay foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — OASIS DEFENSE SCENE 3 (Sandbagged Dune Berm)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Broad level cedar-planked perimeter firing-walk behind waist-high stacked canvas sandbags and sharpened cedar stakes overlooking distant midday golden sand dunes above calm ground.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — OASIS DEFENSE SCENE 4 (Palm-Shaded Oasis Wall)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Low dry-stacked pale limestone oasis feeder spring wall shaded by tall desert date palms and gleaming turquoise spring pool along the back edge at midday above calm sandy ground foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — OASIS DEFENSE SCENE 5 (Breached Stake Barricade)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Splintered sandbag and limestone perimeter gap reinforced tightly from behind with stacked fresh canvas sandbags, water casks, and angled sharpened cedar defense stakes at midday above flat shadowed earth.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — OASIS DEFENSE SCENE 6 (Woven Shade Cistern Bay)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Open cedar-timber shade awning shelter along the back limestone wall lined neatly with sealed clay water amphorae and shield brackets in natural midday shade above calm packed sand foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — OASIS DEFENSE SCENE 7 (Bronze Warning Gong Post)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Raised packed-earth oasis lookout corner holding a cedar-hung hammered bronze warning gong overlooking date palms, sandbag berms, and golden dunes under clear midday sky.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — OASIS DEFENSE SCENE 8 (Limestone Spring Corner)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring low dry-stacked pale limestone oasis spring walls, stacked canvas sandbag dune berms, braced cedar caravan stockade gates, sun-bleached woven canvas shade awnings, date-palm oasis foliage, and packed golden desert clay yards at midday (strictly uninhabited desert oasis & sand-dune outpost defense settings, NO red terracotta sandstone canyons, NO gray European medieval castle stone, NO forest pine-log stockades, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert oasis defense sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Weathered pale limestone oasis retaining wall corner braced with stacked canvas sandbags and neat repair blocks in midday sun above calm shadowed clay ground.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_38_deserthold_courtyard_arena (Battleground 1 · Sun-Baked Caravan Yard)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching packed golden desert clay hardpan, wind-blown golden sand, and weathered limestone curbs in natural midday light (strictly NO red sandstone canyons, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open desert oasis caravan courtyard floor—push the entire horizontal west-to-east perimeter wall/berm/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top strip lies ONE wide, flat, completely unobstructed packed golden clay and firm sand caravan yard floor smooth underfoot across both left defender and right attacker sides—STRICTLY ZERO side walls, ZERO foreground parapets, ZERO crates, and ZERO stakes anywhere inside the lower 85% battle floor.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top margin runs ONE straight continuous horizontal west-to-east sandbagged limestone defense wall with woven sun-awnings and date-palm canopies behind it beneath midday sky—strictly straight left-to-right across the upper border.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_39_deserthold_parapet_arena (Battleground 2 · Sandbagged Dune Line)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching packed golden desert clay hardpan, wind-blown golden sand, and weathered cedar boards in natural midday light (strictly NO red sandstone canyons, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open golden sand desert defense floor—push the entire horizontal west-to-east perimeter berm/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies an expansive, completely level firm wind-packed golden desert sand floor spanning left to right across both sides—strictly flat and obstacle-free with zero bottom-edge sandbags, zero crates, and zero stakes in the bottom 85%.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top edge runs ONE straight west-to-east waist-high stacked canvas sandbag and cedar stake defense line backed by distant golden dunes at midday.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_40_deserthold_oasis_arena (Battleground 3 · Walled Oasis Terrace)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching packed golden desert clay hardpan, wind-blown golden sand, and clipped oasis edge turf in natural midday light (strictly NO red sandstone canyons, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open desert oasis defense terrace—push the entire horizontal west-to-east perimeter wall/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top strip lies a broad, flat, dry packed golden-sand and clipped oasis grass terrace floor across both combat sides—strictly open underfoot with zero water pools, zero foreground walls, zero crates, and zero palm trunks entering the lower 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top margin runs ONE straight horizontal east-to-west low pale limestone oasis feeder spring wall backed closely by date-palm fronds, turquoise spring water, and barred cedar caravan gates at midday.
+--- COPY-PASTE PROMPT END ---

@@ -1,0 +1,305 @@
+# ROD — Stone-Brick Base Deck Pack Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (Stone-Brick Base Deck v8)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK:
+# - Matches the moody, high-contrast Runeterra / Summoner's Rift / Ruined King hand-painted splash style
+#   of the approved Pro 3 keep interiors (chiseled cut-stone & weathered dark-slate stone-brick masonry,
+#   velvety dark espresso-indigo shadow recesses, warm amber torch/brazier rim lighting, dark pewter/bronze).
+# - Strictly cut stone-brick masonry only (ZERO red clay brick, ZERO hallways/corridors, ZERO people/monsters).
+# - Strictly NO hover/cost numbers, NO mana circles, NO pixel art, NO 3D plastic CGI.
+# - UNIVERSAL BASALT CARD RULE: All Base Pack cards AND all Quest-specific cards across ALL quests
+#   use this exact Dark Basalt-Gray stone frame & the 4 Abstract Circular Sigil backs so players cannot distinguish quest cards visually.
+#
+# PACK CONTENTS (ALL PURE TEXT-ONLY, ZERO REFERENCE IMAGES):
+#   - [00] Card Backs 2x2 Sheet (9:16 4K -> GENERATED & EXPORTED)
+#   - [01] Sheet 1: Doors & Stairs 2x2 Sheet (9:16 4K -> GENERATED & EXPORTED)
+#   - [02] Sheet 2: Closed Treasure Chests (Iron, Bronze, Crimson, Gold -> GENERATED & EXPORTED)
+#   - [03] Sheet 3: Springs & Shrines (Healing Spring, Mana Shrine, Ironward Shrine, Spellward Shrine -> GENERATED & EXPORTED)
+#   - [04] Sheet 4: Concealed Traps (Choking Mire Fumes, Falling Stone, Floor Spikes, Frost Vents -> GENERATED & EXPORTED)
+#   - [R1..R8] 8 Generic Keep Undercroft / Stone-Brick 16:9 Rooms (16:9 4K -> GENERATED & EXPORTED)
+#   - [05] Sheet 5: 4x Generic Ambush Cards (9:16 4K -> GENERATED & EXPORTED)
+
+================================================================================
+STAGE 1 [00] — CARVED BASALT 4 ABSTRACT CIRCULAR SIGIL CARD BACKS (9:16, 2x2)
+================================================================================
+# Output Master: assets/ui/dungeons/base_cards_00_backs_9x16.png (9:16 4K -> 4 slices)
+# Client Target: client/assets/ui/dungeons/backs/ (back_sigil_01.webp .. back_sigil_04.webp)
+# IMPORTANT: Pure text prompt ONLY (NO reference image attached).
+
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular text-free fantasy delve card backs in 4k quality (strictly 2 columns wide by 2 rows tall meeting cleanly at exact 90-degree center intersections with NO gaps, NO gutters, NO nameplate ribbons, NO scrolls, and ZERO letters, runes-that-look-like-English, or numbers anywhere). Edge to edge bleed with sharp 90-degree outer and inner intersections.
+
+ART STYLE & COHESIVE BASALT STONE FRAME:
+Crisp moody League of Legends (Legends of Runeterra / Ruined King) hand-painted fantasy craft. Every one of the four rectangular cards shares ONE unified chiseled dark charcoal-basalt stone outer border carved with subtle weathered mineral fractures, beveled slate-pewter trim grooves, and a deep unbroken recessed dark basalt slab filling the center of the card.
+
+FOUR DEAD-CENTERED ABSTRACT MAGICAL CIRCULAR SIGILS (BLENDING MUTED COLOR WITH BASALT):
+Centered dead-middle both horizontally and vertically inside each card's unbroken dark basalt center slab glows ONE distinct circular engraved magical seal inlaid directly into the dark stone. Keep all four circular sigils completely abstract and non-representational—pure flowing enchanted curves, interlocking concentric rings, beveled arcs, and mysterious orbital geometry (strictly abstract magical seals that do not look like shields, swords, mazes, stars, eyes, moons, keys, skulls, leaves, or earthly objects):
+
+- Panel 1 (Top-Left — Slate-Sapphire Ward Circle): Dead-centered abstract circular magical seal of delicately interlocking sweeping curved bands, hollow arc segments, and broken orbital rings inlaid in dark basalt stone softly infused with muted deep sapphire-slate luminescence and tarnished silver trim.
+- Panel 2 (Top-Right — Verdigris-Jade Mystic Circle): Dead-centered abstract circular magical seal of flowing asymmetric ring loops, offset circular beads, and fine geometric curved filigree inlaid in dark basalt stone softly infused with muted verdigris-jade teal glow and dark weathered bronze.
+- Panel 3 (Bottom-Left — Dusk-Amber Enchantment Circle): Dead-centered abstract circular magical seal of layered rotating split circles, crisp curved notches, and radial non-letter tick arcs inlaid in dark basalt stone softly infused with muted warm dusk-amber glow and dark bronze.
+- Panel 4 (Bottom-Right — Twilight-Amethyst Arcane Circle): Dead-centered abstract circular magical seal of interlaced elliptical orbits inside nested fine circular rings and crescent-free geometric arcs inlaid in dark basalt stone softly infused with deep smoky twilight-amethyst glow and brushed pewter.
+
+FINAL CHECK: 2x2 flush grid on 9:16 canvas, dead-centered circular abstract magical sigils with subtle color blending cleanly into dark basalt stone, zero ribbons, zero stars/mazes/shields/eyes/keys, zero readable letters or numbers anywhere.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 1 [01] — ANCHOR CARD SHEET 1: DOORS & STAIRS (9:16 Canvas, 2x2 Seamless — RUN FIRST!)
+================================================================================
+# Output Master: assets/ui/dungeons/base_cards_01_doors_stairs_9x16.png (9:16 4K -> 2x2 slices)
+# Client Target: client/assets/ui/dungeons/cards/ (compressed .webp)
+
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, zero white margins, and zero cost numbers or circular cost badges). Edge to edge bleed.
+
+ART STYLE & UNIFIED DARK BASALT CARD FRAME (LOCK THIS EXACT DESIGN FOR ALL FOLLOW-UP SHEETS):
+Dense, razor-sharp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) illustration brimming with deep espresso-indigo shadows, chiseled dark stonework, and warm amber torchlight contrast. Each of the 4 rectangular cards shares ONE identical architectural dark-fantasy frame layout:
+- OUTER FRAME: Weathered chiseled dark basalt-slate bezel with dark pewter-iron corner rivets and a crisp continuous **Dark Basalt-Gray carved stone inlay trim line** running cleanly inside all four sides of every card (uniform charcoal-basalt stone trim—zero bright colored trim stripes).
+- ART WINDOW (UPPER HALF): Pointed dark gothic stone-arch window framing a richly lit miniature 3D room vignette.
+- NAMEPLATE BANNER (CENTER): Sculpted curved dark basalt-and-pewter notched ribbon banner bearing crisp high-contrast ivory-gold serif title text.
+- TEXT PLATE (LOWER THIRD): Soft weathered muted warm parchment panel (aged dim cream-tan with subtle dark vignette edges—never glaring bright white) printed cleanly with legible dark ink serif text, centered neatly beneath the nameplate.
+
+Render these exact 4 cards strictly in this 2x2 grid:
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Descending Stairs"
+  Body Text: "Chiseled stone steps wind steeply downward into darkness."
+  Artwork: High bird's-eye angle standing at a stone-brick landing lip looking unmistakably DOWNWARD as narrow worn limestone steps plunge steeply into lower glowing amber lantern light amid deep subterranean shadows (clearly going DOWN).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ascending Stairs"
+  Body Text: "Worn stone stairs climb steeply upward beneath arched stonework."
+  Artwork: Low angle from the base of a dusty stone-brick stairwell looking unmistakably UPWARD as worn cut-stone steps rise beneath arched masonry and wispy cobwebs toward warm golden torchlight spilling down from an upper floor (clearly going UP).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Iron Door"
+  Body Text: "A heavy dark-iron door stands latched between carved stone jambs."
+  Artwork: Across cracked stone-brick flagstones toward a recessed stone archway housing a tall clean forged dark-iron riveted door latched shut, flanked by burning iron wall sconces and scattered floor grit (clean dark iron—zero rust, zero chains).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Stone Door"
+  Body Text: "A thick carved limestone door rests flush inside worn stonework."
+  Artwork: Inside a weathered stone-brick chamber featuring a heavy hand-chiselled limestone slab door set flush inside cracked stone-brick framing, flanked by a flickering iron wall sconce, creeping floor moss, and scattered stone chips.
+
+FINAL CHECK: Exact 2x2 flush grid on 9:16 canvas with uniform Basalt-Gray card trim, exact spelled titles & body text, zero cost numbers, zero red clay brick, zero gaps or rounded outer card corners.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 2 [02] — SHEET 2: CLOSED TREASURE CHESTS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+# Output Master: assets/ui/dungeons/base_cards_02_chests_9x16.png (9:16 4K -> 2x2 slices)
+# Pure text-only prompt (NO reference image attached unless requested).
+
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+IMPORTANT: Every chest sits centered facing straight forward toward the viewer with its back flush against a continuous solid illuminated stone-brick back wall framed by sturdy flanking stone pilasters and twin burning wall torches filling the entire gothic window (bare metal and hardwood chests locked solely with metal front keyhole lockplates; parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Iron Treasure Chest"
+  Body Text: "Set against damp stonework, a heavy closed iron chest rests untouched beneath flickering torchlight."
+  Artwork: Warm torchlit stone-brick dungeon alcove filling the arch cleanly: centered facing straight forward toward the viewer, a heavy closed forged-iron treasure chest with riveted steel bands and a thick iron front padlock rests flush against a solid continuous lit stone-brick rear wall flanked by twin burning iron wall torches above damp mossy flagstones.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Bronze Treasure Chest"
+  Body Text: "Resting beside broken stonework, a locked bronze chest gleams dully in amber wall torchlight."
+  Artwork: Warm torchlit stone-brick dungeon chamber filling the arch cleanly: centered facing straight forward toward the viewer, a closed tarnished-bronze and dark oak chest with cast bronze edge trim and heavy brass front keyhole lockplate rests flush against a solid continuous lit stone-brick rear wall flanked by stone pilasters and glowing amber wall sconces above dusty flagstones.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Crimson Treasure Chest"
+  Body Text: "Built with lacquered crimson plate and dark iron trim, a locked garrison chest sits guarded in shadow."
+  Artwork: Stone-brick garrison alcove bathed in warm sconce light filling the arch cleanly: centered facing straight forward toward the viewer, a closed crimson-lacquered wood-and-iron chest with riveted dark-iron plates and forged front keyhole lockplate rests flush against a solid continuous lit stone-brick rear wall flanked by carved stone columns and twin wall torches above cracked flagstones.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Gold Treasure Chest"
+  Body Text: "Gleaming softly through settling dust, an ornate locked gold chest rests untouched along deep stonework."
+  Artwork: Luminous warm-lit stone-brick vault filling the arch cleanly: centered facing straight forward toward the viewer, an ornate closed burnished-gold and brass treasure chest with carved metal trim and gold front keyhole lockplate rests flush against a solid continuous lit stone-brick rear wall bathed in twin golden wall-torches above clean flagstones.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas filling all four edges seamlessly, uniform Dark Basalt-Gray inlay trim, all 4 chests front-facing and flush against solid warmly lit stone walls filling every arch, verbatim spelled titles & single-sentence Body Text only, zero red brick.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 2 [03] — SHEET 3: SPRINGS & SHRINES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+# Output Master: assets/ui/dungeons/base_cards_03_springs_shrines_9x16.png (9:16 4K -> 2x2 slices)
+# Pure text-only prompt (NO reference image attached unless requested).
+
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter nameplate ribbon bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+IMPORTANT: All four scenes are strictly enclosed underground inside sealed stone-brick dungeon rooms (NO sky, NO outdoors, NO people, NO turn-duration numbers).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Healing Spring"
+  Body Text: "Clear spring water wells quietly from weathered stone, restoring the party's HP."
+  Artwork: Calm underground stone-brick alcove bathed in soft warm light: crystal-clear water trickles steadily out of mossy carved masonry into an overflowing carved stone basin beside damp ferns, wet flagstones, and warm wall-torch reflections.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Mana Shrine"
+  Body Text: "Faint sapphire runes breathe cool light across an ancient stone shrine, restoring the party's MP."
+  Artwork: Hushed underground stone-brick chamber washed in cool sapphire luminescence: a weathered carved stone shrine pedestal pulsing with clean non-letter geometric blue light rises from cracked dusty flagstones beneath dim distant sconces.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ironward Shrine"
+  Body Text: "Warm bronze runes glow across an ancient stone shrine, guarding one hero against steel in the next fight."
+  Artwork: Quiet stone-brick dungeon room bathed in warm amber glow: a sturdy carved stone altar-pedestal engraved with glowing bronze shield emblem relief stands over cracked flagstones beside settling stone dust and warm wall torchlight.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Spellward Shrine"
+  Body Text: "Soft violet runes shimmer across an ancient stone shrine, shielding one hero from magic in the next fight."
+  Artwork: Shadowed stone-brick chamber washed in soft mystic violet light: an etched stone pedestal pulsing with luminous violet ward-circle geometry rises from dusty cobbles beside faint distant wall sconces.
+
+FINAL CHECK: Exact 2x2 flush grid on 9:16 canvas with uniform Dark Basalt-Gray inlay trim, verbatim spelled titles & body text, zero extra text, zero outdoors, zero red brick.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 2 [04] — SHEET 4: CONCEALED TRAPS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+# Output Master: assets/ui/dungeons/base_cards_04_traps_9x16.png (9:16 4K -> 2x2 slices)
+# Pure text-only prompt (NO reference image attached unless requested).
+
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter nameplate ribbon bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Choking Mire Fumes"
+  Body Text: "Concealed at first glance, narrow vents in the floor release acidic green fumes."
+  Artwork: Shadowed stone-brick dungeon room the moment trap vents trigger: tiny hidden slits between dusty flagstones hiss open, jetting thick glowing chartreuse-green acidic fumes upward past rubble and flickering amber wall-torch shadows.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Falling Stone"
+  Body Text: "Triggered by a shifting flagstone underfoot, brittle blocks tear free overhead and crash down."
+  Artwork: Worn stone-brick room mid-collapse: a disturbed slightly sunken flagstone sits in settling dust below while fractured heavy stone ceiling blocks break apart above and plunge mid-air through rising dust shafts.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Floor Spikes"
+  Body Text: "Hidden flush beneath grime and grit, sharp iron spikes suddenly snap straight through the floor."
+  Artwork: Weathered stone-brick walls and torchlit flagstones as concealed floor seams snap open: rows of razor-sharp gleaming cold forged-iron spikes burst cleanly straight upward out of dark stone dust (strictly cold steel and stone dust—ZERO sparks, ZERO fire, ZERO smoke).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Frost Vents"
+  Body Text: "Concealed at first glance, tiny floor vents billow icy chill across the room."
+  Artwork: Dark stone-brick dungeon room turning freezing cold: tiny hidden slits between dusty flagstones hiss open, filling the air with swirling pale-blue frost vapor and crystalline hoarfrost creeping across nearby floor stones.
+
+FINAL CHECK: Exact 2x2 flush grid on 9:16 canvas with uniform Dark Basalt-Gray inlay trim, exact spelled titles & body text, zero fire/sparks on Floor Spikes, zero red brick.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 SEALED STONE-BRICK DUNGEON ROOMS (Pro 3 / 16:9 4K)
+================================================================================
+# Output Masters: assets/maps/dungeons/base_stone_brick/room_01.png .. room_08.png
+# Client Export: client/assets/maps/dungeons/base_stone_brick/room_01.webp .. room_08.webp
+# Pure text-only prompts (NO reference image attached unless requested).
+#
+# ARCHITECTURAL & MOOD RULES:
+# - Matches the monumental painterly splash craft, high-contrast dual lighting, towering masonry scale,
+#   and velvety espresso-indigo crevices of Highcrown Keep / Hollowstone Keep / Garrick's Black Keep.
+# - Strictly enclosed rooms facing a SOLID CONTINUOUS REAR WALL across the back—zero corridors, zero long
+#   receding halls, zero doors/archways/stairwells leading away, uniform cut stone-brick masonry only.
+# - Center-lower foreground keeps dark shadowed flagstones clear for the centered cards & blurb.
+
+# R1 — STONE-BRICK ROOM 1 (Carved Hearth & Amber Clerestory Great Hall)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), teeming with crisp chiseled limestone-brick textures, deep velvety espresso-indigo crevice shadows, and dramatic golden-amber rim lighting. Strictly uninhabited wide enclosed dungeon chamber facing a completely solid, continuous cut stone-brick rear wall stretching corner to corner and sealing the entire room cleanly.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+Dominating the solid rear stone-brick wall stands an imposing cold unlit sculpted dragonstone hearth flanked by towering fluted limestone columns and tall tattered wine-crimson & gold heraldic banners hung inside shadow. High along the upper right masonry wall, narrow iron-barred stained-amber clerestory windows pour crisp golden sunset beams diagonally through quiet air across blazing standing wrought-iron fire braziers and dark shadowed flagstones across the center-lower floor.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — STONE-BRICK ROOM 2 (Subterranean Carved Wheel & Iron Chandelier Chamber)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), teeming with crisp cut stone-brick brushwork, deep subterranean indigo-violet shadow, and warm golden candlelight highlights. Strictly uninhabited wide enclosed deep underground dungeon chamber capped overhead by a heavy cut stone-brick vault ceiling and facing a completely solid, continuous unbroken cut stone-brick back wall enclosing all four sides completely.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+Carved in raised relief straight onto the solid stone-brick back wall rests a colossal weathered ancient stone wheel medallion framed by heavy fluted stone pilasters and burning iron wall-torches. Overhead hangs a massive wrought-iron wheel chandelier blazing warmly with golden wax tapers, while mounted silver-blue glowing alchemical wall sconces along the upper left and right stonework cast cool silver-violet light cleanly across a solid, unbroken, seamlessly laid level cut-stone flagstone floor spanning wall to wall across a dark shadowed foreground, with an upright carved stone pedestal tucked quietly left.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — STONE-BRICK ROOM 3 (Sunlit Breached-Ceiling Vine Sanctuary)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), bursting with intricate chipped stone-brick relief, gnarled climbing vine trunks, and luminous golden shafts against indigo shadow. Strictly uninhabited wide enclosed stone-brick room facing a completely solid continuous rear wall from left corner to right corner enclosing the space completely.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+Golden daylight streams steeply downward from a ragged collapsed ceiling breach far above the rear corner, cascading cleanly over thick gnarled creeping ivy vines gripping the solid dressed limestone-brick back wall and mossy corner columns. Against the far right wall rests a weathered carved stone lion-spout basin catching shimmering clear water above wet flagstones while burning bronze wall torches warm deep shadowed center-lower flagstones.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — STONE-BRICK ROOM 4 (Ember-Lit Citadel Armory Chamber)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), rendered with sharp fractured dark charcoal stone-brick craft, molten orange ember glow, and deep espresso-indigo shadows. Strictly uninhabited wide enclosed fortress chamber facing a completely solid unbroken stone-brick back wall corner to corner enclosing the chamber cleanly.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+The solid dark slate-and-limestone stone-brick back wall displays wrought-iron wall weapon racks holding notched dull broadswords, heavy mounted round bucklers, and tattered black-slate garrison banners lit sharply by twin roaring standing iron fire-braziers flanking the left and right walls. On the far right sits a scarred heavy oak bench piled with cracked shields while dark unbroken flagstones anchor the center-lower floor.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — STONE-BRICK ROOM 5 (Cathedral Masonry & Blind Statue Niches)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), rich in carved ashlar stonework, dramatic violet-blue dusk contrast, and warm hanging lantern light. Strictly uninhabited wide enclosed stone-brick chamber facing a completely solid continuous masonry back wall from corner to corner enclosing all sides completely.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+Three shallow sealed blind stone wall-recesses carved cleanly into the solid rear wall house weathered hooded knight statues framed by hanging iron ceiling lanterns burning warm amber light. High narrow violet-tinted leaded glass slits upper-left pour dramatic dusk shafts across carved stone benches tucked against the left wall, faint bronze floor inlay trim around broad shadowed flagstones center-front, and tall cracked stone piers.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — STONE-BRICK ROOM 6 (Storm-Dusk Cistern Alcove & Hanging Chains)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), filled with dense wet-stone painterly brushwork, emerald moss tufts, cool storm-indigo light, and blazing orange torchlight. Strictly uninhabited wide enclosed subterranean chamber facing a completely solid mortared stone-brick back wall corner to corner enclosing the room cleanly.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+The solid wet-seamed gray stone-brick rear wall glints dimly behind blazing iron wall sconces casting intense orange flame reflections over damp moss seams and an inset carved stone water cistern along the left wall base. Along the right masonry wall hang heavy rusted iron wall-chains and cracked cask staves beneath soaring ribbed stone ceiling vaults and flat darkly shadowed flagstones front-center.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — STONE-BRICK ROOM 7 (Ancient Lore Guardroom & Cracked Archive Alcove)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), teeming with crisp chiselled limestone-brick relief, deep midnight shadows, and warm hearth-amber light. Strictly uninhabited wide enclosed stone-brick room facing a completely solid continuous corner and rear masonry wall enclosing the chamber completely.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+Deep recessed carved stone wall-shelves built straight into the solid stone-brick back wall hold ancient crumbling leather tomes, cracked ceramic urns, and tall carved coat-of-arms stone reliefs illuminated starkly by tall burning floor-candelabras left and right. Heavy oak furniture remnants and scattered scroll cases sit tucked along the far right wall base, leaving dark shadowed flagstones across center-front.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — STONE-BRICK ROOM 8 (Deep Subterranean Scorched Basalt Chamber)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG interior key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), painted with chiseled dark charcoal basalt stone-brick masonry, deep subterranean vault shadows, eerie violet-crimson torchlight, and fierce golden brazier flames. Strictly uninhabited deep underground enclosed dungeon chamber buried far beneath earth and bedrock beneath a heavy solid dark basalt ceiling vault, facing a completely solid, continuous unbroken rear stone-brick wall corner to corner enclosing all four sides completely.
+
+EPIC ROOM FOCAL ART & LIGHTING:
+Across the broad, plain solid dark charcoal stone-brick rear wall rise tall stepped basalt pilasters and blind geometric masonry stonework lit dramatically from high wrought-iron wall-sconces burning with crimson-violet flame casting deep amethyst light across the upper stonework. Along the lower left and right walls blaze twin heavy wrought-iron floor-braziers bursting with molten amber fire, illuminating scattered chipped stone blocks and weathered steel blades resting quietly beside the far right wall base above a solid, unbroken, level dark shadowed stone flagstone floor across the calm foreground.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 2 [05] — SHEET 5: SHADOW AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+# Output Master: assets/ui/dungeons/base_cards_05_ambushes_9x16.png (9:16 4K -> 2x2 slices)
+# Client Target: client/assets/ui/dungeons/cards/ (compressed .webp)
+# Pure text-only prompt (NO reference image attached unless requested).
+
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside torchlit stone-brick dungeon shadows, traced softly by warm amber rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes emerge from the shadows to force a fight."
+  Artwork: Shadowed cut stone-brick dungeon chamber torn by flickering amber torchlight and cold indigo gloom: two ink-black shrouded shadowy silhouettes crouch motionless behind thick carved stone pillars, poised low and watchful in quiet ambush as warm rim-light traces their cloaked outlines.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes reveal themselves nearby, barring the path ahead."
+  Artwork: Dim stone-brick dungeon vault lit upward by warm wall sconces: perched quietly along a dark elevated carved stone ledge high above empty flagstones, two poised pitch-black shadowy figures crouch still overlooking the torchlit room below.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the way forward—stand ready to fight!"
+  Artwork: Moody cut stone-brick dungeon chamber lit down the center by glowing orange wall sconces: coiled pitch-black shadowy figures wait tucked still inside the left and right shadowed stone wall corners, hunched quietly as they watch the lit flagstones between them.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward from cover, forcing battle."
+  Artwork: Dramatic cut stone-brick room softened by drifting gray torch-smoke and warm amber backlight: three stark pitch-black shadowy figures stand crouched and still ahead in the deep smoky gloom, silhouetted calmly with subtle golden rim-light along their cloaked forms.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas filling all four edges seamlessly, uniform Dark Basalt-Gray inlay trim, all 4 scenes showing calm poised pitch-black shadowy ambush silhouettes waiting inside stone-brick chambers with zero attacking poses, centered ribbon banners reading "Ambush" verbatim beneath every arch, verbatim spelled Body Text only, zero red brick.
+--- COPY-PASTE PROMPT END ---

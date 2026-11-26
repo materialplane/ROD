@@ -1,0 +1,275 @@
+# ROD — Highland Crags & Passes Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_highland_crag_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Highland Crags & Passes Base Deck):
+# - sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — RIDGE PATHS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). All scenes take place in sheer windswept mountain granite crags, passes, and slate ledges (NO timber fort watchposts, NO snow/frost, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Mountain Switchback"
+  Body Text: "A wind-scoured granite path zigzags steeply upward along the cliff face."
+  Artwork: High mountain angle looking straight up a narrow stepped gray granite cliffside trail hugging sheer alpine rock as it climbs cleanly into golden cloudbreak light.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Stone-Arch Pass"
+  Body Text: "Natural weathered granite ribs arch over a high windswept mountain gap."
+  Artwork: Dramatic weathered natural granite stone arch spanning cleanly across an exposed high mountain ridge pass opening directly onto pale cloud-lit granite peaks ahead.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Boulder Gap"
+  Body Text: "Broad flat slate slabs wind cleanly between towering gray granite spires."
+  Artwork: Clear walkable trail of broad flat slate stepping slabs winding forward straight between towering pale-gray granite monoliths under crisp alpine dusk.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Fallen Slab Chasm Bridge"
+  Body Text: "A massive wedged slab of fallen granite spans a misty mountain cleft."
+  Artwork: Elevated three-quarter crag perspective showing TWO distinct solid dark granite cliff landmasses separated by a deep misty mountain cleft: a broad flat-topped slab of fallen ridge granite visibly begins on solid foreground cliff rock and spans ALL THE WAY across onto a wide solid heather-and-slate trail on the far cliff side.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Paths & Crossings matching Windswept Mountain Crag.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — CRAG CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). All scenes take place in sheer windswept mountain granite crags, passes, and slate ledges (NO timber fort watchposts, NO snow/frost, NO people).
+IMPORTANT: Every cache container (pack, stash, crate, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Climber's Pack"
+  Body Text: "Anchored behind weathered slate, a strapped climber pack waits untouched in wind."
+  Artwork: Wind-sheltered mountain granite alcove: centered front-facing rugged canvas-and-leather climber backpack with iron piton coils strapped cleanly against gray cliff rock.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Iron Crag Lockbox"
+  Body Text: "Wedged against sheer rock, a heavy iron box rests untouched under storm sky."
+  Artwork: Highland slate overhang: centered front-facing heavy riveted dark-iron supply box set solidly on flat slate against layered mountain granite.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Highland Strongbox"
+  Body Text: "Tucked deep in a dry rock fissure, an iron-trimmed strongbox rests closed."
+  Artwork: Sheltered raw granite rock niche: centered front-facing weathered gray oak-and-iron strongbox with forged keyhole plate pressed squarely against dark slate cliff rock.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Signalman's Crate"
+  Body Text: "Lashed beside stone cairns, a rugged highland supply crate awaits opening."
+  Artwork: Sun-rimmed granite cliff shelf: centered front-facing stout alpine pinewood supply crate bound with iron bands and rope resting firmly on level rock.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Windswept Mountain Crag.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — HIGHLAND SPRINGS & CAIRNS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). All scenes take place in sheer windswept mountain granite crags, passes, and slate ledges (NO timber fort watchposts, NO snow/frost, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Glacial Tarn Seep"
+  Body Text: "Crisp snowmelt pools inside a wind-scoured granite hollow, restoring the party's HP."
+  Artwork: High mountain slate terrace under golden cloudbreak light: crystalline cold snowmelt spills from a fissure in sheer gray cliff face into a smooth natural granite basin lined with bright alpine lichen and clean mountain pebbles.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Cloud-Spire Brazier"
+  Body Text: "Lightning-kissed blue embers crackle in a bronze bowl, restoring the party's MP."
+  Artwork: Dramatic windswept crag overlook: a wide three-legged hammered bronze bowl chained to solid gray slate holds snapping cerulean lightning-embers and swirling sky-blue wisps beneath towering storm-indigo mountain clouds.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Stacked Slate Inukshuk"
+  Body Text: "Wind-balanced slabs of heavy ridge slate anchor one hero against physical strikes."
+  Artwork: Exposed granite saddle ridge caught in crisp amber sunbeams: a rugged waist-to-shoulder tall humanless landmark of broad balanced dark slate slabs wedged firmly with rusted iron shims stands tall amid gusting mist and heather scrub.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Storm-Bronze Gong"
+  Body Text: "A suspended mountain gong hums clearly in thin alpine air, shielding one hero from magic."
+  Artwork: High granite ledge overlooking misty valleys: a circular verdigris-rimmed bronze mountain gong hung by braided leather thongs inside a heavy stone-and-iron A-frame gleams with soft silver-violet acoustic ripples in crisp dusk air.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Meltwater Hollows, Summit Braziers & Mountain Relics matching Windswept Mountain Crag.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — HIGHLAND HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). All scenes take place in sheer windswept mountain granite crags, passes, and slate ledges (NO timber fort watchposts, NO snow/frost, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Howling Ridge Gale"
+  Body Text: "Fierce howling mountain wind blasts blinding slate grit and sharp gravel across stone."
+  Artwork: Open windswept gray mountain granite plateau engulfed by violent streaking gusts of swirling dark alpine slate dust, sharp pebble grit, and whipped dry heather tufts blasting horizontally across bare rock (strictly dry wind and dust—ZERO snow or white ice).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Falling Rockslide"
+  Body Text: "Dislodged from steep slate slopes behind, heavy granite boulders thunder down."
+  Artwork: Steep gray granite mountain slope backing flat slate ground: fractured heavy slate boulders break loose above and thunder down across rocky stone floor.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Crackling Ridge Bolt"
+  Body Text: "A jagged blue lightning bolt arcs cleanly down onto iron-veined ridge rock."
+  Artwork: Dark windswept granite mountain shelf during a breaking alpine storm: a dazzling jagged electric-blue sky lightning bolt strikes iron-veined gray ridge stone, bursting bright sparks across flat rock.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Jagged Quartz Spires"
+  Body Text: "Under loose gravel, razor-sharp quartz spires thrust up from a seam."
+  Artwork: Windswept dark granite mountain ledge cracking open under parted alpine gravel: razor-sharp jagged pale-gray and obsidian quartz crystal spires thrust fiercely upward out of a tight rocky seam framed against sparse heather tufts.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Windswept Mountain Crag.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — HIGHLAND AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). All scenes take place in sheer windswept mountain granite crags, passes, and slate ledges (NO timber fort watchposts, NO snow/frost, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes step out from behind granite spires to force a fight."
+  Artwork: Shadowed high mountain ridge torn by warm golden alpine sunset rays: two ink-black faceless shrouded silhouettes crouch motionless behind jagged gray granite boulders.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from high slate cliff ledges, barring the pass ahead."
+  Artwork: Dim alpine pass lit upward by golden mountain sunset glow: perched quietly along a dark elevated slate ledge overhead, two poised pitch-black shadowy silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the mountain notch from rock niches—stand ready!"
+  Artwork: Moody granite cliff notch lit down the center trail by sunset light: coiled pitch-black shadowy silhouettes wait tucked inside left and right rock shadows.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of rolling mountain cloud mist, forcing battle."
+  Artwork: Dramatic highland pass softened by drifting gray mountain mist and warm sunset backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Windswept Mountain Crag.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 HIGHLAND CRAGS & PASSES SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — HIGHLAND CRAGS & PASSES SCENE 1 (Wind-Swept Slate Ridge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Towering layered gray granite cliff wall striated with flat wind-carved rock shelves above a calm dark slate terrace foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — HIGHLAND CRAGS & PASSES SCENE 2 (Storm-Lit Crag Overlook)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dramatic storm-indigo mountain peaks rolling far beyond a low natural broken granite rim while solid flat slate fills the foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — HIGHLAND CRAGS & PASSES SCENE 3 (Twin Granite Spire Saddle)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Tall jagged twin pale-gray mountain granite monoliths framing a clean windswept ridge saddle backlit by golden cloudbreak sky.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — HIGHLAND CRAGS & PASSES SCENE 4 (Stepped Shale Terrace)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Tiered natural horizontal gray-slate mountain strata stepping up the cliff face in dramatic alpine sunset shadow above flat rock.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — HIGHLAND CRAGS & PASSES SCENE 5 (Natural Granite Overhang)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Deep curved wave-like natural mountain granite rock shelter curving overhead across dry weathered mountain stone and tough scrub.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — HIGHLAND CRAGS & PASSES SCENE 6 (Eagle-Shadow Ridge Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+High-altitude flat granite ledge rimmed cleanly behind by wind-bent dwarf heather scrub and cool drifting mountain cloud wisps.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — HIGHLAND CRAGS & PASSES SCENE 7 (Cloud-Kissed Cliff Wall)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Broad fractured pale-gray mountain cliff wall sliced cleanly by low golden sun shafts cutting beneath high silver mountain clouds.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — HIGHLAND CRAGS & PASSES SCENE 8 (Wind-Carved Saddle Gorge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sheer towering dark slate crag walls pinching steeply along both left and right sides beneath brooding storm sky above level stone.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_20_highland_ridge_arena (Battleground 1 · Broad Flat Granite Ridge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level highland crags & passes combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Expansive flat level gray-slate mountain granite shelf dusted thinly with flush fine alpine gravel across both combat sides—strictly flat with zero protruding rocks or posts in the arena; top 15% rim only shows jagged low ridge granite and distant cloud-washed peaks.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_21_highland_terrace_arena (Battleground 2 · Storm-Swept Slate Terrace)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level highland crags & passes combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Broad level smooth dark storm-slate mountain terrace across both enemy and hero sides—strictly flat and obstacle-free underfoot; top 15% rim only shows layered natural mountain rockface and tough dry alpine heather scrub.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_22_highland_pass_arena (Battleground 3 · Weathered Pass Stone Floor)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring sheer chiseled gray mountain granite cliffs, layered slate rock ledges, sparse dry alpine heather tufts, high-altitude cloud light contrasted against storm-indigo crag shadows (strictly wild high-mountain rock passes & granite ridges, NO timber watchposts or fort breastworks, NO snow or frost magic, NO lush lowland forests, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level highland crags & passes combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Wide level solid mountain bedrock pass floor traced cleanly with faint flush slate cracks bathed in warm low dusk light across both sides—strictly clear underfoot; top 15% rim only shows natural weathered mountain boulders and indigo mountain twilight.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---

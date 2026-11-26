@@ -2,10 +2,18 @@ import React, { useEffect, useMemo, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById } from "../heroes";
+import { getGlobalActiveQuestLimit } from "../quests/outpostHunts";
+import {
+  getHubQuestStage,
+  getQuestStoryChainInfo,
+  makeQuestTrackKey,
+  resolveQuestNpcStatusDialogue,
+  resolveQuestObjectiveMeta,
+} from "../quests/questUtils";
 import type { TavernTrackInfo } from "../tavernLore";
-import type { HeroId, NpcLocationGroup, QuestEntry, WorldLocation } from "../types";
-import { CornerFiligree, HIGHCROWN_ID, formatRewardLine, sanitizeRoleTitle } from "./LocationInteriorModal";
-import { QuestCardThumb } from "./QuestCardThumb";
+import type { ActiveQuestProgress, HeroId, NpcLocationGroup, QuestEntry, TravelCatalog, WorldLocation } from "../types";
+import { CornerFiligree, HIGHCROWN_ID, sanitizeRoleTitle } from "./LocationInteriorModal";
+import { NpcQuestOfferBar } from "./QuestCardThumb";
 
 interface TavernPerson {
   id: string;
@@ -20,27 +28,34 @@ interface TavernPerson {
 interface TavernViewProps {
   tavern: WorldLocation;
   parentTown: WorldLocation;
+  worldLocations?: WorldLocation[];
+  travelCatalog?: TravelCatalog | null;
   npcsByLocation: Record<string, NpcLocationGroup>;
   questsByKey: Record<string, QuestEntry>;
   partyOrder: HeroId[];
   partyLevel: number;
   acceptedQuestIds: string[];
   completedQuestIds?: string[];
+  questProgressById?: Record<string, ActiveQuestProgress>;
+  trackedQuestKeys?: string[];
+  activeOutpostHuntCount?: number;
   onAcceptQuest: (quest: QuestEntry) => void;
+  onToggleTrackQuest?: (trackKey: string) => void;
+  onOpenJournal?: (focusTrackKey?: string) => void;
   onOpenParty: () => void;
   onReturnToTown: () => void;
   onClose: () => void;
 }
 
 function buildPartyTavernLine(heroId: HeroId, tavernName: string, townName: string, songTitle?: string | null): string {
-  const songNote = songTitle ? ` Listening to "${songTitle}" echoing off the rafters puts a strange weight on the whole road ahead.` : "";
+  const songNote = songTitle ? ` Listening to "${songTitle}" echoing off the rafters puts a heavy weight on every step ahead.` : "";
   switch (heroId) {
     case "valen":
-      return `Hard to sit beside strangers drinking ale inside ${tavernName} when half these ballads sing about what happened in Highcrown's sands.${songNote} Still—better shoulder-to-shoulder here with good blades than rotting under that arena stone.`;
+      return `Hear how quiet the room gets when "${songTitle ?? "those Highcrown ballads"}" plays in ${tavernName}? My own pride tore up Koren's freedom scroll and unknowingly forced my own father into a fight to the death on those sands—and he lowered his shield rather than harm me. I carry that grief and mourning into every swing of my steel, fighting only to save my mother Ellowyn and honor the father I lost.`;
     case "ellowyn":
-      return `Notice how freely ordinary townsfolk gather in ${tavernName} when there are no wardens counting heads by the door.${songNote} Keep your cloak dry by the fire; once we step back past ${townName}'s gates, the wilds won't show this mercy.`;
+      return `Notice how ordinary townsfolk gather in ${tavernName} without wardens counting heads by the door.${songNote} Wait until we return to Highcrown's gates—whatever happens ahead, I bear Valen's burden alongside him, and Koren's sacrifice will not be in vain.`;
     case "orin":
-      return `Twenty years of campaigns taught me never to pass up an honest roof and warm timber in ${townName}. Eyes stay sharpest when your boots are dry and the company has a steady mug.${songNote}`;
+      return `Twenty years watching Highcrown's ramparts taught me never to pass up an honest roof in ${townName}.${songNote} I stood above those training sands when Valen and Koren crossed steel—keeping this boy alive and clear-eyed now is a debt I mean to pay in full.`;
     case "rowan":
       return `I already spotted both exits from the rafters when we stepped into ${tavernName}. Still, even a lookout knows when to loosen his bowstring, warm his hands, and hear the room out.`;
     case "mera":
@@ -71,6 +86,19 @@ function buildPatronTavernLine(role: string, townName: string, tavernName: strin
   return `Evening, travelers. Quiet corners are scarce in ${tavernName} once the minstrel tunes up, so pull a chair closer to the hearth while the ember glow lasts.`;
 }
 
+const MAX_TAVERN_PATRONS = 5;
+
+function pickRandomSubset<T>(items: T[], limit: number): T[] {
+  const pool = [...items];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = pool[i];
+    pool[i] = pool[j];
+    pool[j] = tmp;
+  }
+  return pool.slice(0, Math.max(0, limit));
+}
+
 function isInnkeeperNpc(roleTitle: string): boolean {
   const r = roleTitle.toLowerCase();
   return r.includes("innkeeper") || r.includes("inn keeper") || r.includes("royal innkeeper");
@@ -79,13 +107,20 @@ function isInnkeeperNpc(roleTitle: string): boolean {
 export const TavernView: React.FC<TavernViewProps> = ({
   tavern,
   parentTown,
+  worldLocations = [],
+  travelCatalog = null,
   npcsByLocation,
   questsByKey,
   partyOrder,
   partyLevel,
   acceptedQuestIds,
   completedQuestIds = [],
+  questProgressById = {},
+  trackedQuestKeys = [],
+  activeOutpostHuntCount = 0,
   onAcceptQuest,
+  onToggleTrackQuest,
+  onOpenJournal,
   onOpenParty,
   onReturnToTown,
   onClose,
@@ -112,21 +147,8 @@ export const TavernView: React.FC<TavernViewProps> = ({
     }
   }, [currentBallad?.relPath]);
 
-  const people = useMemo<{ party: TavernPerson[]; patrons: TavernPerson[] }>(() => {
-    const party: TavernPerson[] = partyOrder.map((hid) => {
-      const hero = getHeroById(hid);
-      return {
-        id: `party_${hid}`,
-        group: "party",
-        displayName: hero.name,
-        displayRole: `Your Party · ${hero.className}`,
-        portraitPath: hero.avatarPath,
-        quest: null,
-        dialogue: buildPartyTavernLine(hid, tavern.name, parentTown.name, currentBallad?.title),
-      };
-    });
-
-    const patrons: TavernPerson[] = [];
+  const sampledPatrons = useMemo<TavernPerson[]>(() => {
+    const eligible: TavernPerson[] = [];
     const group = npcsByLocation[parentTown.id];
     const hasOrin = partyOrder.includes("orin");
 
@@ -155,7 +177,7 @@ export const TavernView: React.FC<TavernViewProps> = ({
         ? questsByKey[`${parentTown.id}::${firstQuestTitle}`] ?? questsByKey[firstQuestTitle] ?? null
         : null;
 
-      patrons.push({
+      eligible.push({
         id: npc.id,
         group: "patron",
         displayName,
@@ -166,8 +188,9 @@ export const TavernView: React.FC<TavernViewProps> = ({
       });
     }
 
+    let residentBard: TavernPerson | null = null;
     if (parentTown.id === HIGHCROWN_ID) {
-      patrons.unshift({
+      residentBard = {
         id: "tavern_bard_corinne_bellamy",
         group: "patron",
         displayName: "Corinne Bellamy",
@@ -176,9 +199,9 @@ export const TavernView: React.FC<TavernViewProps> = ({
         quest: null,
         dialogue:
           "Pull up a chair near the rafters! Every tavern across Ethoria remembers the old ballads differently—stay awhile by the fire, or ask for another song whenever your mug runs dry.",
-      });
+      };
     } else if (parentTown.id === "loc_31_rimeport") {
-      patrons.unshift({
+      residentBard = {
         id: "tavern_skald_torvald_frost_voice",
         group: "patron",
         displayName: "Torvald Frost-Voice",
@@ -187,11 +210,30 @@ export const TavernView: React.FC<TavernViewProps> = ({
         quest: null,
         dialogue:
           "Even out here where sea-spray freezes on the seawalls, singers still remember the bitter chapters of Highcrown's fall. Warm your hands while the hearth coals burn bright.",
-      });
+      };
     }
 
-    return { party, patrons };
-  }, [partyOrder, npcsByLocation, questsByKey, parentTown.id, parentTown.name, tavern.name, currentBallad?.title]);
+    const townSlots = Math.max(0, MAX_TAVERN_PATRONS - (residentBard ? 1 : 0));
+    const randomTownsfolk = pickRandomSubset(eligible, townSlots);
+    return residentBard ? [residentBard, ...randomTownsfolk] : randomTownsfolk;
+  }, [tavern.id, parentTown.id, parentTown.name, tavern.name, npcsByLocation, questsByKey, partyOrder]);
+
+  const people = useMemo<{ party: TavernPerson[]; patrons: TavernPerson[] }>(() => {
+    const party: TavernPerson[] = partyOrder.map((hid) => {
+      const hero = getHeroById(hid);
+      return {
+        id: `party_${hid}`,
+        group: "party",
+        displayName: hero.name,
+        displayRole: `Your Party · ${hero.className}`,
+        portraitPath: hero.avatarPath,
+        quest: null,
+        dialogue: buildPartyTavernLine(hid, tavern.name, parentTown.name, currentBallad?.title),
+      };
+    });
+
+    return { party, patrons: sampledPatrons };
+  }, [partyOrder, sampledPatrons, tavern.name, parentTown.name, currentBallad?.title]);
 
   const allPeople = useMemo(() => [...people.party, ...people.patrons], [people]);
   const selectedPerson = useMemo(
@@ -201,14 +243,42 @@ export const TavernView: React.FC<TavernViewProps> = ({
 
   const acceptedSet = new Set(acceptedQuestIds);
   const completedSet = new Set(completedQuestIds);
+  const journalLimit = getGlobalActiveQuestLimit();
+  const journalCount = acceptedQuestIds.length + activeOutpostHuntCount;
   const questCompleted = Boolean(selectedPerson?.quest && completedSet.has(selectedPerson.quest.questId));
   const questAccepted = Boolean(selectedPerson?.quest && acceptedSet.has(selectedPerson.quest.questId));
+  const selectedQuestStage = selectedPerson?.quest
+    ? getHubQuestStage(selectedPerson.quest.questId, questProgressById, completedSet)
+    : "active";
+  const selectedQuestChain = selectedPerson?.quest
+    ? getQuestStoryChainInfo(selectedPerson.quest.questId, travelCatalog, questsByKey, completedSet)
+    : null;
+  const selectedQuestObjective = selectedPerson?.quest
+    ? resolveQuestObjectiveMeta(selectedPerson.quest, selectedQuestStage, worldLocations)
+    : null;
+  const displayedDialogue = resolveQuestNpcStatusDialogue(
+    selectedPerson?.dialogue ?? "",
+    selectedPerson?.quest ?? null,
+    questAccepted,
+    questCompleted,
+    selectedQuestStage,
+    selectedQuestChain,
+    selectedQuestObjective
+  );
 
   const renderPersonButton = (person: TavernPerson) => {
     const isSelected = selectedPersonId === person.id;
     const hasQuest = Boolean(person.quest);
     const qCompleted = Boolean(person.quest && completedSet.has(person.quest.questId));
     const qAccepted = Boolean(person.quest && acceptedSet.has(person.quest.questId));
+    const qStage = person.quest ? getHubQuestStage(person.quest.questId, questProgressById, completedSet) : "active";
+    const qReady = qAccepted && qStage === "ready_to_turn_in";
+    const qChainLocked = Boolean(
+      person.quest &&
+        !qAccepted &&
+        !qCompleted &&
+        getQuestStoryChainInfo(person.quest.questId, travelCatalog, questsByKey, completedSet)?.isLockedByChain
+    );
     const done = qCompleted || qAccepted;
     return (
       <button
@@ -220,7 +290,8 @@ export const TavernView: React.FC<TavernViewProps> = ({
           setSelectedPersonId((cur) => (cur === person.id ? null : person.id));
         }}
         className={[
-          "w-full rounded border px-2 py-1.5 flex items-center gap-2.5 text-left cursor-pointer transition-all shrink-0 backdrop-blur-sm",
+          "w-full rounded border flex items-center text-left cursor-pointer transition-all shrink-0 backdrop-blur-sm",
+          person.group === "party" ? "px-2 py-1 gap-2.5" : "px-2.5 py-1.5 gap-2",
           isSelected
             ? "bg-[#251d11]/94 border-[#ebca7e] shadow-[0_0_16px_rgba(226,190,115,0.28)]"
             : person.group === "party"
@@ -228,16 +299,17 @@ export const TavernView: React.FC<TavernViewProps> = ({
               : "bg-[#0d111a]/82 border-[#2a3142]/90 hover:border-[#947945] hover:bg-[#161c2a]/90",
         ].join(" ")}
       >
-        <img
-          src={assetUrl(person.portraitPath)}
-          alt={person.displayName}
-          draggable={false}
-          className={[
-            "w-[42px] h-[42px] object-cover shrink-0 border",
-            person.group === "party" ? "rounded-full" : "rounded-sm",
-            isSelected ? "border-[#f3d489]" : "border-[#4b566d]",
-          ].join(" ")}
-        />
+        {person.group === "party" && (
+          <img
+            src={assetUrl(person.portraitPath)}
+            alt={person.displayName}
+            draggable={false}
+            className={[
+              "w-[34px] h-[34px] rounded-full object-cover shrink-0 border",
+              isSelected ? "border-[#f3d489]" : "border-[#4b566d]",
+            ].join(" ")}
+          />
+        )}
         <div className="min-w-0 flex-1">
           <div className="flex items-center justify-between gap-1.5">
             <span className={["font-display text-[13.5px] font-bold leading-tight truncate", isSelected ? "text-[#fff2cc]" : "text-[#ede3cf]"].join(" ")}>
@@ -247,20 +319,24 @@ export const TavernView: React.FC<TavernViewProps> = ({
               <span
                 className={[
                   "px-1.5 py-0.5 rounded-sm border text-[10px] font-bold uppercase shrink-0",
-                  qCompleted
-                    ? "bg-[#2a2214] border-[#96783b] text-[#f5d88f]"
+                  qCompleted || qReady
+                    ? "bg-[#2a2214] border-[#e6c170] text-[#ffeaa8]"
                     : done
                       ? "bg-[#162a21] border-[#3c7358] text-[#8be0b2]"
-                      : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
+                      : qChainLocked
+                        ? "bg-[#1a1822] border-[#61564a] text-[#cbb692]"
+                        : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
                 ].join(" ")}
               >
-                {qCompleted ? "★" : done ? "✓" : "!"}
+                {qCompleted || qReady ? "★" : done ? "✓" : qChainLocked ? "Locked" : "!"}
               </span>
             )}
           </div>
-          <div className={["text-[11px] leading-snug truncate", hasQuest ? "text-[#edd08b]" : "text-[#9caac0]"].join(" ")}>
-            {person.quest ? person.quest.title : person.displayRole}
-          </div>
+          {person.group === "party" && (
+            <div className="text-[11px] leading-snug truncate text-[#9caac0]">
+              {person.displayRole}
+            </div>
+          )}
         </div>
       </button>
     );
@@ -365,6 +441,23 @@ export const TavernView: React.FC<TavernViewProps> = ({
               <div className="text-[10px] text-[#9aa8be] leading-tight">Open (P)</div>
             </div>
           </button>
+
+          {onOpenJournal && (
+            <button
+              type="button"
+              onClick={() => {
+                audioEngine.playUiClick();
+                onOpenJournal();
+              }}
+              className="hidden sm:flex flex-col items-start rounded border border-[#4a5266]/90 hover:border-[#c8a35a] bg-[#0e121b]/88 hover:bg-[#171d2b]/95 backdrop-blur-sm px-3 py-1.5 cursor-pointer transition-colors shadow-lg"
+              title="Open Quest Journal (J)"
+            >
+              <span className="text-[11px] font-bold text-[#f2dba6] leading-tight">
+                Journal · {journalCount}/{journalLimit}
+              </span>
+              <span className="text-[10px] text-[#9aa8be] leading-tight">Open (J)</span>
+            </button>
+          )}
 
           <div className="hidden md:flex items-center rounded border border-[#b89146]/90 bg-[#1a150e]/92 text-[#fae4b0] text-[11.5px] font-semibold shadow-lg overflow-hidden">
             <button
@@ -538,43 +631,25 @@ export const TavernView: React.FC<TavernViewProps> = ({
                   </div>
 
                   <p className="m-0 text-[14px] md:text-[15px] leading-[1.58] text-[#eff3fa] border-l-2 border-[#c8a256] pl-3.5">
-                    “{selectedPerson.dialogue}”
+                    “{displayedDialogue}”
                   </p>
 
-                  {selectedPerson.quest && (
-                    <div className="border-t border-[#2c3446] pt-2.5 mt-1 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-                      <div className="min-w-0 flex items-center gap-2.5">
-                        <QuestCardThumb
-                          cardId={selectedPerson.quest.questId}
-                          fallbackPath={selectedPerson.quest.assetPath}
-                          badgeCardId={questCompleted ? "quest_complete_royal_seal" : undefined}
-                          className="w-[54px] h-[54px] rounded border border-[#967741] bg-[#090c12] shrink-0"
-                        />
-                        <div className="min-w-0">
-                          <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#d9b468]">
-                            {selectedPerson.quest.title}
-                          </div>
-                          <div className="text-[12px] text-[#b8c8df] mt-0.5">
-                            Reward: {formatRewardLine(selectedPerson.quest.reward)}
-                          </div>
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        disabled={questAccepted || questCompleted}
-                        onClick={() => onAcceptQuest(selectedPerson.quest!)}
-                        className={[
-                          "px-4 py-2 rounded border text-[12px] font-bold uppercase tracking-wider shrink-0 transition-colors",
-                          questCompleted
-                            ? "border-[#96783b] bg-[#261f12] text-[#f5d88f] cursor-default"
-                            : questAccepted
-                              ? "border-[#3c785b] bg-[#142920] text-[#91e3b8] cursor-default"
-                              : "border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] cursor-pointer",
-                        ].join(" ")}
-                      >
-                        {questCompleted ? "★ Completed" : questAccepted ? "✓ Quest Accepted" : "Accept Quest"}
-                      </button>
-                    </div>
+                  {selectedPerson.quest && selectedQuestObjective && (
+                    <NpcQuestOfferBar
+                      quest={selectedPerson.quest}
+                      stage={selectedQuestStage}
+                      isAccepted={questAccepted}
+                      isCompleted={questCompleted}
+                      isPinned={trackedQuestKeys.includes(makeQuestTrackKey(selectedPerson.quest.questId))}
+                      journalCount={journalCount}
+                      journalLimit={journalLimit}
+                      chainInfo={selectedQuestChain}
+                      objectiveMeta={selectedQuestObjective}
+                      onAcceptQuest={onAcceptQuest}
+                      onToggleTrackQuest={onToggleTrackQuest}
+                      onOpenJournal={onOpenJournal}
+                      compact={true}
+                    />
                   )}
                 </div>
               </div>

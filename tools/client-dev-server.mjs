@@ -22,6 +22,11 @@ const DISCIPLINES_DATA_PATH = path.join(DATA_DIR, "disciplines-catalog.json");
 const CLIENT_DISCIPLINES_DATA_PATH = path.join(CLIENT_ASSETS_DIR, "data", "disciplines-catalog.json");
 const BATTLE_CONFIG_PATH = path.join(DATA_DIR, "battle-config.json");
 const CLIENT_BATTLE_CONFIG_PATH = path.join(CLIENT_ASSETS_DIR, "data", "battle-config.json");
+const PROPOSED_DECKS_PATH = path.join(DATA_DIR, "proposed-decks.json");
+const BASE_DECK_PROMPTS_PATH = path.join(ROOT, "imageprompts", "base-stone-brick-deck.txt");
+const DECK_PROMPTS_DIR = path.join(ROOT, "imageprompts", "decks");
+const DUNGEON_BATTLE_PROMPTS_PATH = path.join(ROOT, "imageprompts", "dungeon-battle-scenes.txt");
+const DELVE_LAYOUT_PATH = path.join(DATA_DIR, "delve-board-layout.json");
 
 const SAVES_DIR = path.join(
   process.env.APPDATA || path.join(os.homedir(), "AppData", "Roaming"),
@@ -433,6 +438,207 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // --- Proposed Card Decks Reviewer API for Admin Studio (Local Admin Only) ---
+  if (urlPath === "/api/proposed-decks" && req.method === "GET") {
+    if (!fs.existsSync(PROPOSED_DECKS_PATH)) {
+      return sendJson(res, 404, { error: "proposed-decks.json not found" });
+    }
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+    res.end(fs.readFileSync(PROPOSED_DECKS_PATH, "utf-8"));
+    return;
+  }
+  if (urlPath === "/api/proposed-decks" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 5_000_000) req.destroy();
+    });
+    req.on("end", () => {
+      try {
+        const parsed = JSON.parse(body);
+        if (!parsed || !Array.isArray(parsed.decks)) {
+          return sendJson(res, 400, { error: "Invalid proposed decks payload" });
+        }
+        let nextPayload = {
+          ...parsed,
+          updatedAt: new Date().toISOString(),
+        };
+        if (fs.existsSync(PROPOSED_DECKS_PATH)) {
+          try {
+            const disk = JSON.parse(fs.readFileSync(PROPOSED_DECKS_PATH, "utf-8"));
+            const staleTab =
+              (disk.version || 0) > (parsed.version || 0) ||
+              (typeof disk.updatedAt === "string" && disk.updatedAt !== parsed.updatedAt);
+            const mergeItems = (diskList, incList) => {
+              const incById = new Map((incList || []).map((x) => [x.id, x]));
+              return (diskList || []).map((item) => {
+                const inc = incById.get(item.id);
+                if (!inc) return item;
+                if (!staleTab) {
+                  return {
+                    ...item,
+                    approved: Boolean(inc.approved),
+                    comments: Array.isArray(inc.comments) ? inc.comments : item.comments || [],
+                  };
+                }
+                const seenIds = new Set((item.comments || []).map((c) => c.id));
+                const extraComments = (inc.comments || []).filter((c) => c && !seenIds.has(c.id));
+                return {
+                  ...item,
+                  approved: Boolean(inc.approved || item.approved),
+                  comments: [...(item.comments || []), ...extraComments],
+                };
+              });
+            };
+            const incDeckById = new Map((parsed.decks || []).map((d) => [d.id, d]));
+            nextPayload = {
+              ...disk,
+              updatedAt: new Date().toISOString(),
+              decks: (disk.decks || []).map((d) => {
+                const incD = incDeckById.get(d.id);
+                if (!incD) return d;
+                return {
+                  ...d,
+                  cards: mergeItems(d.cards, incD.cards),
+                  roomPool16x9: mergeItems(d.roomPool16x9, incD.roomPool16x9),
+                  cardBacks: mergeItems(d.cardBacks, incD.cardBacks),
+                  battlegrounds: mergeItems(d.battlegrounds, incD.battlegrounds),
+                };
+              }),
+            };
+          } catch {
+            // Fall through if existing file unreadable
+          }
+        }
+        const formatted = JSON.stringify(nextPayload, null, 2) + "\n";
+        fs.mkdirSync(path.dirname(PROPOSED_DECKS_PATH), { recursive: true });
+        fs.writeFileSync(PROPOSED_DECKS_PATH, formatted, "utf-8");
+        return sendJson(res, 200, { ok: true, savedAt: nextPayload.updatedAt, catalog: nextPayload });
+      } catch (err) {
+        return sendJson(res, 400, { error: String(err) });
+      }
+    });
+    return;
+  }
+
+  // --- Exact Live Prompt Text API for Admin Copy Buttons ---
+  if (urlPath === "/api/base-deck-prompts" && req.method === "GET") {
+    if (!fs.existsSync(BASE_DECK_PROMPTS_PATH)) {
+      return sendJson(res, 404, { error: "base-stone-brick-deck.txt not found" });
+    }
+    const promptRx = /---\s*COPY-PASTE PROMPT START\s*---\s*\r?\n([\s\S]*?)\r?\n---\s*COPY-PASTE PROMPT END\s*---/g;
+    const raw = fs.readFileSync(BASE_DECK_PROMPTS_PATH, "utf-8");
+    const blocks = [...raw.matchAll(promptRx)].map((m) => m[1].trim());
+    const rooms = {};
+    for (let i = 1; i <= 8; i++) {
+      rooms[`base_room_${String(i).padStart(2, "0")}`] = blocks[4 + i] || "";
+    }
+    const sheets = [
+      { id: "base_backs", label: "Copy Backs (2x2)", prompt: blocks[0] || "" },
+      { id: "sheet_1", label: "Copy Doors/Stairs", prompt: blocks[1] || "" },
+      { id: "sheet_2", label: "Copy Chests", prompt: blocks[2] || "" },
+      { id: "sheet_3", label: "Copy Springs/Shrines", prompt: blocks[3] || "" },
+      { id: "sheet_4", label: "Copy Traps", prompt: blocks[4] || "" },
+      { id: "sheet_5", label: "Copy Ambushes", prompt: blocks[13] || "" },
+    ];
+    const battlegrounds = {};
+    if (fs.existsSync(DUNGEON_BATTLE_PROMPTS_PATH)) {
+      const bgRaw = fs.readFileSync(DUNGEON_BATTLE_PROMPTS_PATH, "utf-8");
+      const bgBlocks = [...bgRaw.matchAll(/---\s*COPY PROMPT START[^\n]*---\s*\r?\n([\s\S]*?)\r?\n---\s*COPY PROMPT END[^\n]*---/g)].map((m) => m[1].trim());
+      battlegrounds.dungeon_02_stone_hearth_arena = bgBlocks[1] || "";
+      battlegrounds.dungeon_03_basalt_vault_arena = bgBlocks[2] || "";
+      battlegrounds.dungeon_04_moss_cistern_arena = bgBlocks[3] || "";
+    }
+    const byDeck = { base_stone_dungeon: { sheets, rooms, battlegrounds } };
+    if (fs.existsSync(PROPOSED_DECKS_PATH)) {
+      try {
+        const decksDoc = JSON.parse(fs.readFileSync(PROPOSED_DECKS_PATH, "utf-8"));
+        const toTitle = (s) => s.trim().toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
+        for (const deck of decksDoc.decks || []) {
+          if (!deck?.id || deck.id === "base_stone_dungeon") continue;
+          const pFile = path.join(DECK_PROMPTS_DIR, `${deck.id}.txt`);
+          if (!fs.existsSync(pFile)) continue;
+          const dRaw = fs.readFileSync(pFile, "utf-8");
+          const dBlocks = [...dRaw.matchAll(promptRx)].map((m) => m[1].trim());
+          const sheetTitles = new Map();
+          for (const sm of dRaw.matchAll(/SHEET\s+(\d+)\s+[—-]\s+([^\(\r\n]+)/g)) {
+            sheetTitles.set(Number(sm[1]), toTitle(sm[2]));
+          }
+          const dSheets = [
+            { id: "base_backs", label: "Copy Backs (2x2)", prompt: blocks[0] || "" },
+            ...[1, 2, 3, 4, 5].map((n) => ({
+              id: `sheet_${n}`,
+              label: `Copy ${sheetTitles.get(n) || `Sheet ${n}`}`,
+              prompt: dBlocks[n - 1] || "",
+            })),
+          ];
+          const dRooms = {};
+          (deck.roomPool16x9 || []).forEach((r, idx) => {
+            if (r?.id) dRooms[r.id] = dBlocks[5 + idx] || "";
+          });
+          const dBgs = {};
+          (deck.battlegrounds || []).forEach((bg, idx) => {
+            if (bg?.id) dBgs[bg.id] = dBlocks[13 + idx] || "";
+          });
+          byDeck[deck.id] = { sheets: dSheets, rooms: dRooms, battlegrounds: dBgs };
+        }
+      } catch {}
+    }
+    return sendJson(res, 200, { ok: true, rooms, sheets, battlegrounds, byDeck });
+  }
+
+  // --- Delve Stage Container Layout Save/Load API ---
+  if (urlPath === "/api/delve-layout" && req.method === "GET") {
+    if (!fs.existsSync(DELVE_LAYOUT_PATH)) {
+      return sendJson(res, 200, {
+        version: 1,
+        blurbBottomPct: 74.5,
+        cardsBottomPct: 20.5,
+        chooseBottomPct: 11.0,
+        cardScalePct: 44,
+        cardGapPx: 32,
+      });
+    }
+    res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" });
+    res.end(fs.readFileSync(DELVE_LAYOUT_PATH, "utf-8"));
+    return;
+  }
+  if (urlPath === "/api/delve-layout" && req.method === "POST") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+      if (body.length > 200_000) req.destroy();
+    });
+    req.on("end", () => {
+      try {
+        const parsed = JSON.parse(body);
+        if (!parsed || typeof parsed.blurbBottomPct !== "number" || typeof parsed.cardsBottomPct !== "number") {
+          return sendJson(res, 400, { error: "Invalid layout payload" });
+        }
+        const nextLayout = {
+          version: 1,
+          updatedAt: new Date().toISOString(),
+          blurbBottomPct: parsed.blurbBottomPct,
+          cardsBottomPct: parsed.cardsBottomPct,
+          chooseBottomPct: parsed.chooseBottomPct ?? 11.0,
+          partyLeftPct: parsed.partyLeftPct ?? 2.0,
+          partyCenterYPct: parsed.partyCenterYPct ?? 50.0,
+          cardScalePct: parsed.cardScalePct ?? 44,
+          cardGapPx: parsed.cardGapPx ?? 32,
+          roomKey: parsed.roomKey ?? "hollowstone",
+          backPath: parsed.backPath ?? "mock_dark_stone",
+          showHud: parsed.showHud !== false,
+        };
+        fs.mkdirSync(path.dirname(DELVE_LAYOUT_PATH), { recursive: true });
+        fs.writeFileSync(DELVE_LAYOUT_PATH, JSON.stringify(nextLayout, null, 2) + "\n", "utf-8");
+        return sendJson(res, 200, { ok: true, savedAt: nextLayout.updatedAt, layout: nextLayout });
+      } catch (err) {
+        return sendJson(res, 400, { error: String(err) });
+      }
+    });
+    return;
+  }
+
   // --- Battle Encounters & Stage Layout API for Admin Studio ---
   if (urlPath === "/api/battles" && req.method === "GET") {
     if (!fs.existsSync(BATTLE_CONFIG_PATH)) {
@@ -561,7 +767,9 @@ const server = http.createServer((req, res) => {
     urlPath === "/admin/disciplines" ||
     urlPath === "/admin/battles" ||
     urlPath === "/admin/combat-test" ||
-    urlPath === "/admin/simulator"
+    urlPath === "/admin/simulator" ||
+    urlPath === "/admin/decks" ||
+    urlPath === "/admin/delve-preview"
   ) {
     res.writeHead(302, { Location: `${urlPath}/` });
     res.end();

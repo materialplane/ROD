@@ -38,6 +38,13 @@ export interface BattleStateIconSpec {
   desc: string;
 }
 
+export interface DamageTypeIconSpec {
+  id: string;
+  label: string;
+  iconPath: string;
+  accentColor: string;
+}
+
 export interface BattleStatusUiMeta {
   kind: StatusAilmentKind;
   glyph: string;
@@ -380,7 +387,11 @@ export interface BattleEnemyUnit {
   silverReward: number;
   weakTypes: string[];
   resistTypes: string[];
+  immuneTypes?: string[];
   revealedWeaknesses: string[];
+  revealedResistances?: string[];
+  revealedImmunities?: string[];
+  enragedPhase2?: boolean;
   guardMax: number;
   guardCur: number;
   staggeredTurns: number;
@@ -435,6 +446,7 @@ export interface BattleState {
   zoneCode: number;
   isBossBattle: boolean;
   portalLoc: WorldLocation | null;
+  dungeonContext?: { questId: string; isBoss: boolean } | null;
   heroes: BattleHeroUnit[];
   enemies: BattleEnemyUnit[];
   consumedPotions: Record<string, number>;

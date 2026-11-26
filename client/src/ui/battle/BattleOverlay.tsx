@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { applyHeroXpGain, getHeroLevel, getHeroXp } from "../party/partyLogic";
-import type { HeroId, ItemEntry, SpellEntry } from "../types";
+import type { DiscoveredMonsterTraitsMap, HeroId, ItemEntry, SpellEntry } from "../types";
 import {
   advanceToNextTurnInRound,
   appendBattleLog,
@@ -27,6 +27,7 @@ import {
   pickMultiEnemyTargets,
   pickVfxKey,
   previewRoundOrder,
+  resolveDamageTypeIcons,
   STATUS_UI_META,
   upsertStatusEffect,
   VFX_MAP,
@@ -58,7 +59,9 @@ export interface BattleOutcomeResult {
   droppedTradeGoods: Record<string, number>;
   droppedConsumables: Record<string, number>;
   defeatedMonsterIds: Record<string, number>;
+  discoveredTraits: DiscoveredMonsterTraitsMap;
   sealedPortalId: string | null;
+  dungeonContext?: { questId: string; isBoss: boolean } | null;
 }
 
 interface BattleOverlayProps {
@@ -195,7 +198,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     title: string;
     subtitle: string;
     icon: string;
-    pills: Array<{ label: string; tone?: "mp" | "qty" | "warn" }>;
+    pills: Array<{ label: string; tone?: "mp" | "qty" | "warn"; icons?: string[] }>;
     effect: string;
     hint?: string;
     leftPx: number;
@@ -312,15 +315,15 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     count?: number;
   }
 
-  const renderConditionBadges = (badges: CondBadgeEntry[], isHero = false) => {
+  const renderConditionBadges = (badges: CondBadgeEntry[], isHero = false, interactive = true) => {
     if (badges.length === 0) return null;
     return (
       <div className="battle-cond-tray">
         {badges.map((cb) => (
           <div
             key={cb.key}
-            onMouseEnter={(e) => showCondTip(e.currentTarget, cb)}
-            onMouseLeave={() => setCondTip(null)}
+            onMouseEnter={interactive ? (e) => showCondTip(e.currentTarget, cb) : undefined}
+            onMouseLeave={interactive ? () => setCondTip(null) : undefined}
             className={`battle-cond-badge ${isHero ? "is-hero" : ""} tone-${cb.tone}`}
           >
             <img src={assetUrl(cb.iconPath)} alt={cb.label} draggable={false} />
@@ -329,6 +332,50 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         ))}
       </div>
     );
+  };
+
+  const syncDiscoveredTraitsAcrossMobs = (b: BattleState, source: BattleEnemyUnit) => {
+    for (const other of b.enemies) {
+      if (other.mobId !== source.mobId || other.instanceId === source.instanceId) continue;
+      for (const w of source.revealedWeaknesses) {
+        if (!other.revealedWeaknesses.includes(w)) other.revealedWeaknesses.push(w);
+      }
+      other.revealedResistances ??= [];
+      for (const r of source.revealedResistances ?? []) {
+        if (!other.revealedResistances.includes(r)) other.revealedResistances.push(r);
+      }
+      other.revealedImmunities ??= [];
+      for (const im of source.revealedImmunities ?? []) {
+        if (!other.revealedImmunities.includes(im)) other.revealedImmunities.push(im);
+      }
+    }
+  };
+
+  const triggerBossPhase2IfReady = async (b: BattleState, enemy: BattleEnemyUnit) => {
+    if (!enemy.isBoss || enemy.curHp <= 0 || enemy.enragedPhase2) return;
+    if (enemy.mobId === "mob_king_garrick") {
+      if (enemy.curHp >= enemy.maxHp * 0.55) return;
+      enemy.enragedPhase2 = true;
+      enemy.guardMax = 6;
+      enemy.guardCur = 6;
+      enemy.staggeredTurns = 0;
+      enemy.weakTypes = ["Radiant", "Fire", "Bludgeoning"];
+      enemy.resistTypes = ["Shadow", "Frost", "Poison"];
+      enemy.revealedWeaknesses = [];
+      enemy.revealedResistances = [];
+      enemy.atk = Math.round(enemy.atk * 1.15);
+      enemy.mag = Math.round(enemy.mag * 1.15);
+      b.bannerText = "King Garrick unleashes Phase 2: Vessel of the Undead Eclipse!";
+      appendBattleLog(b, "  -> PHASE 2: King Garrick enters Vessel of the Undead Eclipse (6 Guard, shifted affinities, +15% Power)");
+      await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), "shadow", "PHASE 2!", "text-[#ffab85]", true);
+    } else if (enemy.curHp < enemy.maxHp * 0.4) {
+      enemy.enragedPhase2 = true;
+      enemy.atk = Math.round(enemy.atk * 1.15);
+      enemy.mag = Math.round(enemy.mag * 1.15);
+      b.bannerText = `${enemy.name} becomes Enraged (+15% Power)!`;
+      appendBattleLog(b, `  -> ${enemy.name} enters Enraged surge (+15% Attack & Magic Power)`);
+      await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), "fire_single", "ENRAGED!", "text-[#ffab85]", true);
+    }
   };
 
   const schedulePerkTip = (anchorEl: HTMLElement, badge: BattleHeroDisciplineBadge) => {
@@ -354,7 +401,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       title: string;
       subtitle: string;
       icon: string;
-      pills: Array<{ label: string; tone?: "mp" | "qty" | "warn" }>;
+      pills: Array<{ label: string; tone?: "mp" | "qty" | "warn"; icons?: string[] }>;
       effect: string;
       hint?: string;
     },
@@ -668,7 +715,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
               await playVfxAtElement(
                 heroElRefs.current.get(hero.heroId),
                 tick.label === "Burn" ? "fire_single" : tick.label === "Bleed" ? "slashing_bleed" : "poison_acid",
-                dotBlocked.absorbed > 0 && dotHpDmg === 0 ? `🛡 -${dotBlocked.absorbed}` : `-${tick.dotDamage}`,
+                dotBlocked.absorbed > 0 && dotHpDmg === 0 ? `SHIELD -${dotBlocked.absorbed}` : `-${tick.dotDamage}`,
                 "text-[#ff8e6e]",
                 false
               );
@@ -707,15 +754,20 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                   allHeroes: b.heroes,
                   livingEnemiesCount: stormTargets.length,
                 });
+                syncDiscoveredTraitsAcrossMobs(b, foe);
                 foe.curHp = Math.max(0, foe.curHp - res.damage);
                 appendBattleLog(
                   b,
-                  `${hero.name} Arrow Storm hits ${foe.name} for ${res.damage} Piercing${res.isCrit ? " CRIT" : ""} -> ${foe.curHp}/${foe.maxHp} HP`
+                  `${hero.name} Arrow Storm hits ${foe.name} for ${res.damage} Piercing${res.isCrit ? " CRIT" : ""}${res.isWeak ? " WEAK" : ""}${res.isResist ? " RESIST" : ""}${res.isImmune ? " IMMUNE" : ""} -> ${foe.curHp}/${foe.maxHp} HP`
                 );
-                await playVfxAtElement(enemyElRefs.current.get(foe.instanceId), "arrow_volley", `${res.damage} STORM`, "text-[#ffe066]", false);
+                const stormTxt = res.isImmune ? "IMMUNE" : res.isResist ? `${res.damage} RESIST` : res.isWeak ? `${res.damage} WEAK` : `${res.damage} STORM`;
+                const stormCls = res.isImmune ? "text-[#dce4f0]" : res.isResist ? "text-[#9cb0cc]" : "text-[#ffe066]";
+                await playVfxAtElement(enemyElRefs.current.get(foe.instanceId), "arrow_volley", stormTxt, stormCls, false);
                 if (foe.curHp <= 0) {
                   applyLootAndDropsForDefeatedEnemy(b, foe, itemsCatalog);
                   appendBattleLog(b, `  -> ${foe.name} defeated!`);
+                } else {
+                  await triggerBossPhase2IfReady(b, foe);
                 }
               })
             );
@@ -1008,7 +1060,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
               `  -> hits ${target.name} for ${targetDmg}${target.guarding ? " (Guard)" : ""}${shielded.absorbed > 0 ? ` (${shielded.absorbed} shielded)` : ""} -> ${target.curHp}/${target.maxHp} HP${target.curHp <= 0 ? " [KO]" : ""}`
             );
             const txt =
-              shielded.absorbed > 0 && hpHit === 0 ? `🛡 -${shielded.absorbed}` : `-${hpHit}`;
+              shielded.absorbed > 0 && hpHit === 0 ? `SHIELD -${shielded.absorbed}` : `-${hpHit}`;
             await playVfxAtElement(hEl, vfxKey, txt, target.guarding ? "text-[#ffd878]" : "text-[#ff8e6e]", false);
           }
 
@@ -1464,13 +1516,14 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           livingEnemiesCount: livingEnemies.length,
           isModeB,
         });
-        const totalHit = res.damage + res.detonateDotDmg;
+        syncDiscoveredTraitsAcrossMobs(b, enemy);
+        const totalHit = res.isImmune ? 0 : res.damage + res.detonateDotDmg;
         enemy.curHp = Math.max(0, enemy.curHp - totalHit);
         totalOffensiveDamage += totalHit;
         if (res.isCrit) anyLandedCrit = true;
         appendBattleLog(
           b,
-          `  -> ${isSplash ? "splash " : ""}${enemy.name}: ${totalHit} ${act.damageType}${res.isCrit ? " CRIT" : ""}${res.isWeak ? " WEAK" : ""}${res.isResist ? " RESIST" : ""}${res.triggeredStagger ? " STAGGER!" : ""}${res.detonateDotDmg > 0 ? ` (+${res.detonateDotDmg} DoT detonate)` : ""} -> ${enemy.curHp}/${enemy.maxHp} HP`
+          `  -> ${isSplash ? "splash " : ""}${enemy.name}: ${totalHit} ${act.damageType}${res.isCrit ? " CRIT" : ""}${res.isWeak ? " WEAK" : ""}${res.isResist ? " RESIST" : ""}${res.isImmune ? " IMMUNE" : ""}${res.triggeredStagger ? " STAGGER!" : ""}${res.detonateDotDmg > 0 ? ` (+${res.detonateDotDmg} DoT detonate)` : ""} -> ${enemy.curHp}/${enemy.maxHp} HP`
         );
         if (res.isCrit && hero.passives.critGainMomentum) hero.momentum = true;
 
@@ -1567,16 +1620,30 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           hero.curMp = Math.min(hero.maxMp, hero.curMp + act.restoreMp);
         }
 
-        const label = res.triggeredStagger
-          ? `${totalHit}! STAGGER`
+        const label = res.isImmune
+          ? "IMMUNE"
+          : res.triggeredStagger
+            ? `${totalHit}! STAGGER`
+            : res.isCrit
+              ? `${totalHit}!`
+              : isSplash
+                ? `${totalHit} CLEAVE`
+                : res.isWeak
+                  ? `${totalHit} WEAK`
+                  : res.isResist
+                    ? `${totalHit} RESIST`
+                    : `${totalHit}`;
+        const cls = res.isImmune
+          ? "text-[#dce4f0]"
           : res.isCrit
-            ? `${totalHit}!`
-            : isSplash
-              ? `${totalHit} CLEAVE`
-              : res.isWeak
-                ? `${totalHit} WEAK`
-                : `${totalHit}`;
-        const cls = res.isCrit ? "text-[#ffe066] text-[22px]" : res.isWeak ? "text-[#ffa65c]" : isSplash ? "text-[#ffd294]" : res.isResist ? "text-[#9cb0cc]" : "text-[#ff8e6e]";
+            ? "text-[#ffe066] text-[22px]"
+            : res.isWeak
+              ? "text-[#ffa65c]"
+              : isSplash
+                ? "text-[#ffd294]"
+                : res.isResist
+                  ? "text-[#9cb0cc]"
+                  : "text-[#ff8e6e]";
         await playVfxAtElement(enemyElRefs.current.get(enemy.instanceId), act.vfxKey, label, cls, !isSplash);
 
         // Secondary bounce / cleave / elemental splash / Radiant echo
@@ -1624,6 +1691,8 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
           applyLootAndDropsForDefeatedEnemy(b, enemy, itemsCatalog);
           appendBattleLog(b, `  -> ${enemy.name} defeated!`);
           if (hero.passives.critGainMomentum) hero.momentum = true;
+        } else {
+          await triggerBossPhase2IfReady(b, enemy);
         }
       })
     );
@@ -1739,25 +1808,42 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         } else {
           audioEngine.playSfx(hero.offhandWeaponSubType ?? hero.weaponSubType, 0.48);
           const ohRes = computeDamageOnEnemy(hero, offhandAct, offhandTarget, hero.offhandAtk);
+          syncDiscoveredTraitsAcrossMobs(b, offhandTarget);
           offhandTarget.curHp = Math.max(0, offhandTarget.curHp - ohRes.damage);
-          if (hero.mods.lifestealPct > 0 && hero.curHp > 0) {
+          if (hero.mods.lifestealPct > 0 && hero.curHp > 0 && ohRes.damage > 0) {
             const healAmt = Math.max(1, Math.round((ohRes.damage * hero.mods.lifestealPct) / 100));
             hero.curHp = Math.min(hero.maxHp, hero.curHp + healAmt);
           }
           appendBattleLog(
             b,
-            `  -> Off-hand ${offhandAct.name} hits ${offhandTarget.name} for ${ohRes.damage}${ohRes.isCrit ? " CRIT" : ""}${ohRes.triggeredStagger ? " STAGGER!" : ""} -> ${offhandTarget.curHp}/${offhandTarget.maxHp} HP`
+            `  -> Off-hand ${offhandAct.name} hits ${offhandTarget.name} for ${ohRes.damage}${ohRes.isCrit ? " CRIT" : ""}${ohRes.isWeak ? " WEAK" : ""}${ohRes.isResist ? " RESIST" : ""}${ohRes.isImmune ? " IMMUNE" : ""}${ohRes.triggeredStagger ? " STAGGER!" : ""} -> ${offhandTarget.curHp}/${offhandTarget.maxHp} HP`
           );
-          const ohLabel = ohRes.triggeredStagger
-            ? `${ohRes.damage}! STAGGER`
+          const ohLabel = ohRes.isImmune
+            ? "IMMUNE"
+            : ohRes.triggeredStagger
+              ? `${ohRes.damage}! STAGGER`
+              : ohRes.isCrit
+                ? `${ohRes.damage}! OFF-HAND`
+                : ohRes.isResist
+                  ? `${ohRes.damage} RESIST`
+                  : ohRes.isWeak
+                    ? `${ohRes.damage} WEAK`
+                    : `${ohRes.damage} OFF-HAND`;
+          const ohCls = ohRes.isImmune
+            ? "text-[#dce4f0]"
             : ohRes.isCrit
-              ? `${ohRes.damage}! OFF-HAND`
-              : `${ohRes.damage} OFF-HAND`;
-          const ohCls = ohRes.isCrit ? "text-[#ffe066] text-[20px]" : ohRes.isWeak ? "text-[#ffa65c]" : "text-[#ffd294]";
+              ? "text-[#ffe066] text-[20px]"
+              : ohRes.isWeak
+                ? "text-[#ffa65c]"
+                : ohRes.isResist
+                  ? "text-[#9cb0cc]"
+                  : "text-[#ffd294]";
           await playVfxAtElement(enemyElRefs.current.get(offhandTarget.instanceId), offhandAct.vfxKey, ohLabel, ohCls, false);
           if (offhandTarget.curHp <= 0) {
             applyLootAndDropsForDefeatedEnemy(b, offhandTarget, itemsCatalog);
             appendBattleLog(b, `  -> ${offhandTarget.name} defeated!`);
+          } else {
+            await triggerBossPhase2IfReady(b, offhandTarget);
           }
         }
       }
@@ -1821,7 +1907,9 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     categoryLabel: b.isBossBattle ? "Blocked in Boss Fight" : "Escape Encounter",
     badge: "Esc",
     badgeKind: "guard",
-    iconPath: "assets/icons/magic_tiers/tier_res_flee_retreat.webp",
+    iconPath: b.isBossBattle
+      ? (BATTLE_STATE_ICONS.flee_blocked?.iconPath ?? "assets/icons/conditions/cond_flee_blocked.webp")
+      : "assets/icons/magic_tiers/tier_res_flee_retreat.webp",
     mpCost: 0,
     targetScope: "self",
     damageType: "Physical",
@@ -1829,7 +1917,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
     critBonus: 0,
     vfxKey: "wind",
     effectText: b.isBossBattle
-      ? "Cannot retreat from a Dimensional Portal Guardian."
+      ? "Cannot retreat from a Boss battle."
       : "Attempt to withdraw back onto Ethoria's map without losing items (~67% chance + Finesse/Dodge). Failing ends your turn while foes finish attacking.",
     disabledReason: b.isBossBattle ? "Boss Battle" : undefined,
   };
@@ -1886,6 +1974,21 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         }
       }
     }
+    const discoveredTraits: DiscoveredMonsterTraitsMap = {};
+    for (const e of b.enemies) {
+      if (!e.mobId) continue;
+      if (e.mobId === "mob_king_garrick" && e.enragedPhase2) continue;
+      const w = e.revealedWeaknesses ?? [];
+      const r = e.revealedResistances ?? [];
+      const im = e.revealedImmunities ?? [];
+      if (w.length === 0 && r.length === 0 && im.length === 0) continue;
+      const cur = discoveredTraits[e.mobId] ?? {};
+      discoveredTraits[e.mobId] = {
+        weak: Array.from(new Set([...(cur.weak ?? []), ...w])),
+        resist: Array.from(new Set([...(cur.resist ?? []), ...r])),
+        immune: Array.from(new Set([...(cur.immune ?? []), ...im])),
+      };
+    }
     return {
       result,
       zoneCode: b.zoneCode,
@@ -1898,7 +2001,9 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
       droppedTradeGoods: result === "victory" ? b.droppedTradeGoods : {},
       droppedConsumables: result === "victory" ? (b.droppedConsumables ?? {}) : {},
       defeatedMonsterIds,
+      discoveredTraits,
       sealedPortalId: result === "victory" && b.isBossBattle && b.portalLoc ? b.portalLoc.id : null,
+      dungeonContext: b.dungeonContext ?? null,
     };
   };
 
@@ -1966,7 +2071,12 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
         {/* 3. Left Multi-Cell Enemy Grid (Zero Hover Tooltips in Player Battle View) */}
         <div
           className="battle-enemy-layer"
-          style={{ left: `${eg.xPct}%`, top: `${eg.yPct}%`, width: `${eg.wPct}%`, height: `${eg.hPct}%` }}
+          style={{
+            left: `${eg.xPct}%`,
+            top: `${Math.max(14, eg.yPct - 2)}%`,
+            width: `${eg.wPct}%`,
+            height: `${eg.hPct + 5}%`,
+          }}
         >
           {packedEnemies.map(({ unit, xPct, yPct, wPct, hPct, zIndex, depthScale }) => {
             const hpPct = Math.max(0, Math.min(100, (unit.curHp / Math.max(1, unit.maxHp)) * 100));
@@ -2015,6 +2125,79 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                 ].join(" ")}
               >
                 <div className="battle-enemy-shadow" />
+                {(() => {
+                  const eBadges: CondBadgeEntry[] = [];
+                  if (unit.guardCur > 0) {
+                    const g = BATTLE_STATE_ICONS.enemy_guard;
+                    eBadges.push({ key: "guard", ...g, subtitle: `${unit.guardCur} Guard`, count: unit.guardCur });
+                  }
+                  if (unit.staggeredTurns > 0) {
+                    const stg = BATTLE_STATE_ICONS.staggered;
+                    eBadges.push({ key: "stagger", ...stg, subtitle: `${unit.staggeredTurns}T`, count: unit.staggeredTurns });
+                  }
+                  if (unit.telegraphedMove) {
+                    const chg = BATTLE_STATE_ICONS.boss_charging;
+                    eBadges.push({ key: "charging", ...chg, subtitle: unit.telegraphedMove });
+                  }
+                  if (unit.enragedPhase2) {
+                    const enr = BATTLE_STATE_ICONS.boss_enraged;
+                    if (enr) eBadges.push({ key: "enraged", ...enr, subtitle: "Phase 2" });
+                  }
+                  if (unit.markedByRegalCommand) {
+                    const mk = BATTLE_STATE_ICONS.marked_target;
+                    if (mk) eBadges.push({ key: "marked", ...mk, subtitle: "+10% Phys Taken" });
+                  }
+                  if ((unit.revealedImmunities?.length ?? 0) > 0) {
+                    const im = BATTLE_STATE_ICONS.immunity_null;
+                    if (im) eBadges.push({ key: "immune_state", ...im, subtitle: "Immune" });
+                  }
+                  for (const st of unit.statuses) {
+                    const meta = STATUS_UI_META[st.kind];
+                    eBadges.push({
+                      key: st.kind,
+                      iconPath: meta.iconPath,
+                      label: meta.label,
+                      subtitle: `${st.turns} ${st.turns === 1 ? "turn" : "turns"}`,
+                      desc: meta.desc,
+                      tone: meta.isBuff ? "buff" : "debuff",
+                      count: st.turns,
+                    });
+                  }
+                  const traitBadges: Array<{ key: string; iconPath: string; alt: string; kind: "weak" | "resist" | "immune"; mult: string }> = [];
+                  for (const w of unit.revealedWeaknesses ?? []) {
+                    const dt = resolveDamageTypeIcons(w)[0];
+                    if (dt) traitBadges.push({ key: `w_${dt.id}`, iconPath: dt.iconPath, alt: `${dt.label} Weak`, kind: "weak", mult: "1.5×" });
+                  }
+                  for (const r of unit.revealedResistances ?? []) {
+                    const dt = resolveDamageTypeIcons(r)[0];
+                    if (dt) traitBadges.push({ key: `r_${dt.id}`, iconPath: dt.iconPath, alt: `${dt.label} Resist`, kind: "resist", mult: "0.5×" });
+                  }
+                  for (const im of unit.revealedImmunities ?? []) {
+                    const dt = resolveDamageTypeIcons(im)[0];
+                    if (dt) traitBadges.push({ key: `i_${dt.id}`, iconPath: dt.iconPath, alt: `${dt.label} Immune`, kind: "immune", mult: "0×" });
+                  }
+                  if (eBadges.length === 0 && traitBadges.length === 0) return null;
+                  return (
+                    <div className="battle-enemy-side-badges">
+                      {eBadges.length > 0 && (
+                        <div className="battle-enemy-cond-col">{renderConditionBadges(eBadges, false, false)}</div>
+                      )}
+                      {traitBadges.length > 0 && (
+                        <div className="battle-enemy-trait-col">
+                          {traitBadges.map((tb) => (
+                            <div
+                              key={tb.key}
+                              className={`battle-cond-badge battle-trait-badge trait-${tb.kind}`}
+                            >
+                              <img src={assetUrl(tb.iconPath)} alt={tb.alt} draggable={false} />
+                              <span className={`battle-trait-tag tag-${tb.kind}`}>{tb.mult}</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
                 <img
                   src={assetUrl(unit.iconPath)}
                   alt={unit.name}
@@ -2033,36 +2216,6 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                       style={{ width: `${hpPct}%` }}
                     />
                   </div>
-                  {(() => {
-                    const eBadges: CondBadgeEntry[] = [];
-                    if (unit.guardCur > 0) {
-                      const g = BATTLE_STATE_ICONS.enemy_guard;
-                      eBadges.push({ key: "guard", ...g, subtitle: `${unit.guardCur} Guard`, count: unit.guardCur });
-                    }
-                    if (unit.staggeredTurns > 0) {
-                      const stg = BATTLE_STATE_ICONS.staggered;
-                      eBadges.push({ key: "stagger", ...stg, subtitle: `${unit.staggeredTurns}T`, count: unit.staggeredTurns });
-                    }
-                    if (unit.telegraphedMove) {
-                      const chg = BATTLE_STATE_ICONS.boss_charging;
-                      eBadges.push({ key: "charging", ...chg, subtitle: unit.telegraphedMove });
-                    }
-                    for (const st of unit.statuses) {
-                      const meta = STATUS_UI_META[st.kind];
-                      eBadges.push({
-                        key: st.kind,
-                        iconPath: meta.iconPath,
-                        label: meta.label,
-                        subtitle: `${st.turns} ${st.turns === 1 ? "turn" : "turns"}`,
-                        desc: meta.desc,
-                        tone: meta.isBuff ? "buff" : "debuff",
-                        count: st.turns,
-                      });
-                    }
-                    return eBadges.length > 0 ? (
-                      <div className="battle-enemy-cond-float">{renderConditionBadges(eBadges, false)}</div>
-                    ) : null;
-                  })()}
                 </div>
               </div>
             );
@@ -2155,9 +2308,19 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                     <div className="battle-hero-gauge">
                       <div className="battle-hero-gauge-fill" style={{ width: `${hpPct}%` }} />
                       <span className="relative z-[1] text-[clamp(8.5px,2.4cqw,10.5px)] font-extrabold text-white drop-shadow">HP</span>
-                      <span className="relative z-[1] ml-auto text-[clamp(9px,2.6cqw,11px)] font-extrabold text-[#f3f7ff] tabular-nums drop-shadow">
+                      <span className="relative z-[1] ml-auto text-[clamp(9px,2.6cqw,11px)] font-extrabold text-[#f3f7ff] tabular-nums drop-shadow inline-flex items-center gap-1">
                         {hero.curHp}/{hero.maxHp}
-                        {hero.shieldHp > 0 && <span className="text-[#9de6ff] ml-1">(+{hero.shieldHp}🛡)</span>}
+                        {hero.shieldHp > 0 && (
+                          <span className="text-[#9de6ff] inline-flex items-center gap-0.5">
+                            <img
+                              src={assetUrl(BATTLE_STATE_ICONS.ward_shield?.iconPath ?? "assets/icons/conditions/cond_ward_shield.webp")}
+                              alt="Ward Shield"
+                              className="w-3.5 h-3.5 rounded-[2px] border border-[#4dc488]/80 object-cover"
+                              draggable={false}
+                            />
+                            +{hero.shieldHp}
+                          </span>
+                        )}
                       </span>
                     </div>
 
@@ -2176,11 +2339,52 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                       if (isKo) {
                         hBadges.push({ key: "ko", ...BATTLE_STATE_ICONS.ko_fallen, subtitle: "0 HP" });
                       } else {
+                        if (hero.shieldHp > 0) {
+                          const ws = BATTLE_STATE_ICONS.ward_shield;
+                          if (ws) {
+                            hBadges.push({
+                              key: "ward_shield",
+                              ...ws,
+                              subtitle: `+${hero.shieldHp} Barrier`,
+                              desc: `Absorbs up to ${hero.shieldHp} incoming damage before HP is lost.`,
+                              count: hero.shieldHp,
+                            });
+                          }
+                        }
                         if (hero.guarding) {
                           hBadges.push({ key: "guarding", ...BATTLE_STATE_ICONS.hero_guard, subtitle: "Active" });
                         }
+                        const hasTaunt =
+                          (b.turnCounter === 1 && hero.passives.royalChallengeR1 && !hero.actedThisRound) ||
+                          (hero.guarding && hero.passives.guardTauntBarricade);
+                        if (hasTaunt) {
+                          const tn = BATTLE_STATE_ICONS.taunt;
+                          if (tn) hBadges.push({ key: "taunt", ...tn, subtitle: "Drawing Attacks" });
+                        }
                         if (hero.momentum) {
                           hBadges.push({ key: "momentum", ...BATTLE_STATE_ICONS.momentum, subtitle: "Next Hit +25%" });
+                        }
+                        const hasSpellEmpower =
+                          Boolean(hero.nextSpellEmpower) ||
+                          Boolean(hero.guardNatureEmpower && hero.passives.guardNatureSpellPct > 0);
+                        if (hasSpellEmpower) {
+                          const se = BATTLE_STATE_ICONS.spell_empowered;
+                          if (se) {
+                            const bonusTxt = hero.nextSpellEmpower ? "+35% Spell DMG & +1 Guard Break" : `+${hero.passives.guardNatureSpellPct}% Nature Spell DMG`;
+                            hBadges.push({ key: "spell_empowered", ...se, subtitle: "Next Spell", desc: bonusTxt });
+                          }
+                        }
+                        if ((hero.adaptiveTurns ?? 0) > 0 && hero.adaptiveElement) {
+                          const ag = BATTLE_STATE_ICONS.adaptive_guard;
+                          if (ag) {
+                            hBadges.push({
+                              key: "adaptive_guard",
+                              ...ag,
+                              subtitle: `${hero.adaptiveElement} -${hero.adaptiveReductionPct ?? 0}%`,
+                              desc: `Reduces ${hero.adaptiveElement} damage by ${hero.adaptiveReductionPct ?? 0}% for ${hero.adaptiveTurns} turn(s).`,
+                              count: hero.adaptiveTurns,
+                            });
+                          }
                         }
                         if (resolve.tier === 1) {
                           hBadges.push({ key: "resolve1", ...BATTLE_STATE_ICONS.resolve_battered, subtitle: "<50% HP" });
@@ -2289,7 +2493,10 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                         icon: spAct.iconPath,
                         pills: [
                           { label: `${spAct.mpCost} MP`, tone: "mp" },
-                          { label: spAct.damageType },
+                          {
+                            label: spAct.damageType,
+                            icons: resolveDamageTypeIcons(spAct.damageType).map((d) => d.iconPath),
+                          },
                           ...(noMp ? [{ label: "Not Enough MP", tone: "warn" as const }] : []),
                         ],
                         effect: spAct.effectText,
@@ -2334,7 +2541,7 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
               {hoverTip.pills.map((p, idx) => (
                 <span
                   key={idx}
-                  className={`text-[9.5px] font-bold px-1.5 py-0.5 rounded border ${
+                  className={`inline-flex items-center gap-1 text-[9.5px] font-bold px-1.5 py-0.5 rounded border ${
                     p.tone === "mp"
                       ? "border-[#3a6ca3] bg-[#132236] text-[#92cbff]"
                       : p.tone === "qty"
@@ -2344,6 +2551,15 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                           : "border-[#354159] bg-[#141a27] text-[#d5e1f5]"
                   }`}
                 >
+                  {p.icons?.map((ic, icIdx) => (
+                    <img
+                      key={icIdx}
+                      src={assetUrl(ic)}
+                      alt=""
+                      className="w-3.5 h-3.5 rounded-[2px] object-cover shrink-0"
+                      draggable={false}
+                    />
+                  ))}
                   {p.label}
                 </span>
               ))}
@@ -2401,7 +2617,14 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                       title: act.name,
                       subtitle: act.disabledReason ?? act.categoryLabel,
                       icon: act.iconPath,
-                      pills: [{ label: activeHero.weaponSubType }, { label: act.damageType }, { label: act.badge }],
+                      pills: [
+                        { label: activeHero.weaponSubType },
+                        {
+                          label: act.damageType,
+                          icons: resolveDamageTypeIcons(act.damageType).map((d) => d.iconPath),
+                        },
+                        { label: act.badge },
+                      ],
                       effect: act.effectText,
                       hint: act.disabledReason ?? "Click an enemy on the left to strike",
                     })
@@ -2556,7 +2779,11 @@ export const BattleOverlay: React.FC<BattleOverlayProps> = ({
                     draggable={false}
                   />
                   <h2 className="font-display m-0 text-[24px] font-bold text-[#fae2aa]">
-                    {b.isBossBattle ? "Portal Sealed!" : "Victory!"}
+                    {b.isBossBattle && b.portalLoc
+                      ? "Portal Sealed!"
+                      : b.isBossBattle
+                        ? "Guardian Defeated!"
+                        : "Victory!"}
                   </h2>
                   <p className="m-0 text-[13px] text-[#cfd8e8]">
                     {b.isBossBattle && b.portalLoc

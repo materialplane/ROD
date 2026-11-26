@@ -687,18 +687,21 @@
 .battle-enemy-hud {
   position: relative;
   z-index: 6;
-  width: 78%;
-  max-width: 122px;
+  width: 92%;
+  max-width: 148px;
   margin-top: 3px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3px;
+  pointer-events: none;
 }
 .battle-enemy-hpbar {
   position: relative;
   z-index: 4;
-  width: 100%;
+  width: 86%;
+  max-width: 122px;
   height: 7px;
   flex-shrink: 0;
   border-radius: 3px;
@@ -706,21 +709,74 @@
   border: 1px solid #6b3030;
   overflow: hidden;
 }
-.battle-enemy-cond-float {
+.battle-enemy-side-badges {
   position: absolute;
-  top: calc(100% + 3px);
-  left: 50%;
-  transform: translateX(-50%);
+  left: 8px;
+  bottom: 20px;
   z-index: 8;
   display: flex;
-  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  gap: 4px;
+  pointer-events: none;
 }
-.battle-enemy-cond-float .battle-cond-tray {
-  flex-wrap: nowrap;
+.battle-enemy-cond-col .battle-cond-tray,
+.battle-enemy-trait-col {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  max-height: 140px;
+  gap: 4px;
+  pointer-events: none;
 }
-.battle-enemy-cond-float .battle-cond-badge {
-  width: 20px;
-  height: 20px;
+.battle-enemy-cond-col .battle-cond-badge,
+.battle-enemy-trait-col .battle-trait-badge {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.battle-enemy-side-badges .battle-cond-count,
+.battle-enemy-side-badges .battle-trait-tag {
+  font-size: 11px;
+  line-height: 13px;
+  padding: 0 3px;
+}
+.battle-trait-badge.trait-weak {
+  border-color: #ff9c42;
+  box-shadow: 0 0 6px rgba(255, 156, 66, 0.52), 0 2px 5px rgba(0, 0, 0, 0.85);
+}
+.battle-trait-badge.trait-resist {
+  border-color: #63aee8;
+  box-shadow: 0 0 6px rgba(99, 174, 232, 0.45), 0 2px 5px rgba(0, 0, 0, 0.85);
+}
+.battle-trait-badge.trait-immune {
+  border-color: #e4ebf5;
+  box-shadow: 0 0 6px rgba(228, 235, 245, 0.55), 0 2px 5px rgba(0, 0, 0, 0.85);
+}
+.battle-trait-tag {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 2px;
+  border-top-left-radius: 3px;
+  font-size: 8.5px;
+  font-weight: 900;
+  line-height: 10px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 2px #000;
+}
+.battle-trait-tag.tag-weak {
+  background: rgba(66, 26, 6, 0.94);
+  color: #ffe08a;
+}
+.battle-trait-tag.tag-resist {
+  background: rgba(11, 28, 48, 0.94);
+  color: #b8e1ff;
+}
+.battle-trait-tag.tag-immune {
+  background: rgba(24, 28, 36, 0.95);
+  color: #ffffff;
 }
 
 .battle-hotbar {

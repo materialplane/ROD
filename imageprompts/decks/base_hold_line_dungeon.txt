@@ -1,0 +1,285 @@
+# ROD — Hold-the-Line Siege Defense Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_hold_line_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Hold-the-Line · Stone Castle Siege Base Deck):
+# - weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters)
+# - SIEGE MECHANIC RULE: Majority Assault Waves (Sheet 5 x3 = 12 cards), minimal lateral Sector Rotations (2–3 rolled per deck, ZERO upward stairs/ladders), Resupplies & Siege Arrivals, and Boss shuffled into bottom half of deck.
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — FORT SECTOR ROTATIONS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place in a fortified medieval keep courtyard, parapet wall-walk, and gatehouse under siege (NO empty caves, NO red clay brick, NO people, NO monsters).
+IMPORTANT: Horizontal lateral rotations around a fortified perimeter (Courtyard, Rampart, Gatehouse, Bailey—NEVER climbing endless stairs/ladders). Every card shows uninhabited fort architecture.
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Courtyard Archway"
+  Body Text: "Falling back across intact flagstones, defenders regroup behind an open courtyard arch."
+  Artwork: Level horizontal ground view across gray cobble bailey flagstones toward a wide open arched inner stone gateway framing warm lantern glow inside the fortified courtyard beyond (strictly flat horizontal transition—zero climbing stairs or ladders).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Battlement Wall-Walk"
+  Body Text: "Pivoting laterally along notched merlons, defenders reinforce the threatened parapet line."
+  Artwork: Level horizontal parapet walkway view looking straight ahead down flat cut-stone battlements bordered by waist-high notched limestone merlons and glowing iron wall braziers into smoky dusk beyond (lateral horizontal movement—no ladders or vertical stairs).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Gatehouse Threshold"
+  Body Text: "Shifting across braced cobbles, defenders anchor the heavy iron-bound gatehouse bay."
+  Artwork: Level horizontal bailey perspective looking straight across worn cobbles into a fortified limestone gatehouse arch braced with dark-iron portcullis ribs and hanging brass gate lanterns (zero stairs).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Bailey Flank Passage"
+  Body Text: "Cutting across a sheltered stone flank walk, defenders plug the exposed outer wing."
+  Artwork: Level horizontal ground perspective looking straight through a sheltered stone curtain-wall flank passage lit warmly by wall sconces opening onto a cobbled defense wing beyond (strictly level ground).
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Sector Rotations matching Hold-the-Line Fort Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — SIEGE RESUPPLIES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place in a fortified medieval keep courtyard, parapet wall-walk, and gatehouse under siege (NO empty caves, NO red clay brick, NO people, NO monsters).
+IMPORTANT: Every supply container sits centered facing straight forward toward the viewer flush against a solid lit stone-brick fortress wall filling the gothic window cleanly (bare wood & iron/brass only—no ropes, no cloth; parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Quartermaster Crate"
+  Body Text: "Banded tightly with forged iron straps, fresh garrison rations and lamp oil wait stacked."
+  Artwork: Torchlit inner keep supply alcove filling the arch cleanly: centered front-facing sturdy iron-strapped dark oak garrison supply crate with brass lockplate resting squarely flush against solid stone masonry (zero ropes or cloth).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Arrow & Bolt Barrel"
+  Body Text: "Fletched war-arrows and greased crossbow bolts fill an iron-hooped garrison barrel."
+  Artwork: Warm wall-torch fort bay filling the arch cleanly: centered front-facing heavy iron-hooped dark oak military cask filled neatly upright with feathered steel war arrows set firmly against weathered stone wall.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Munitions Lockbox"
+  Body Text: "Sealed cleanly with riveted steel plate, fresh flask stores and whetstones wait inside."
+  Artwork: Shadowed gatehouse armor bay: centered front-facing closed riveted dark-steel garrison munitions chest with heavy bronze front lockplate sitting solidly flush against solid lit limestone wall above cobbles.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Surgeon's Strongbox"
+  Body Text: "Tucked inside a sheltered wall bay, a brass-clasped field surgeon box waits stocked."
+  Artwork: Amber-lit fort infirmary alcove: centered front-facing dark lacquered hardwood and tarnished-brass field surgeon strongbox fitted with a clean brass front keyhole plate resting undisturbed against solid cut stone wall.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Front-Facing Siege Resupplies matching Hold-the-Line Fort Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — SIEGE ARRIVALS & DISCOVERIES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place in a fortified medieval keep courtyard, parapet wall-walk, and gatehouse under siege (NO empty caves, NO red clay brick, NO people, NO monsters).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Smuggled Bread Cart"
+  Body Text: "A scout slips unseen past enemy lines with a fresh cart of bread, restoring the party's HP."
+  Artwork: Sheltered dusk postern archway washed in warm lantern light: an unattended weathered wooden hand-cart heaped cleanly with warm golden crusted bread loaves, bound cheese wheels, and full leather water skins just wheeled behind the stone wall (zero people).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Courier's Mana Satchel"
+  Body Text: "An alchemist runner reaches the wall with sapphire flasks, restoring the party's MP."
+  Artwork: Quiet stone embrasure ledge beside a glowing wall sconce: an unbuckled leather courier saddlebag flung open displaying corked luminescent cobalt-blue mana vials, dried sage bundles, and rolled wax dispatch seals catching cool azure shimmer (zero people).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Reinforcement Shield Stack"
+  Body Text: "Reserve guards push fresh tower shields to the line, bracing one hero against blows."
+  Artwork: Torchlit inner gate yard: a freshly delivered heavy oak rack and low equipment cart bristling tightly with clean riveted forged-steel tower shields, oiled leather straps, and heavy iron greaves gleaming sharp warm bronze light (zero people).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Chapel Ward-Censer"
+  Body Text: "A keep priest sends silver warding censers to the parapet, shielding one hero from magic."
+  Artwork: Sheltered stone battlement niche bathed in soft amethyst candle glow: an ornate swinging silver incense censer suspended cleanly beside white prayer tapers, trailing pale-lavender consecrated smoke above sealed ward scrolls (zero people).
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Fresh Bread Cart, Courier Flasks, Shield Stack & Ward-Censer matching Hold-the-Line Fort Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — ENEMY SIEGE FIRE (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place in a fortified medieval keep courtyard, parapet wall-walk, and gatehouse under siege (NO empty caves, NO red clay brick, NO people, NO monsters).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Sky-Darkening Arrow Volley"
+  Body Text: "Iron-tipped enemy war arrows hiss steeply downward across the stone wall-walk."
+  Artwork: Stone battlement flagstones and parapet planks at the exact split-second dozens of heavy feathered iron-tipped war arrows slam steeply downward diagonally into cracked stone and wood splinters (zero people).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Catapult Boulder & Shrapnel"
+  Body Text: "A hurled siege boulder smashes the stone merlon, spraying razor shrapnel."
+  Artwork: Crenellated fort parapet mid-impact: a massive fractured catapult boulder crashes against notched limestone merlons, blasting razor stone shrapnel chunks and fierce ember dust outward across cobbles.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Flaming Pitch Pot"
+  Body Text: "A hurled clay siege jar bursts underfoot, splashing roaring tar flames across stone."
+  Artwork: Scorched fort battlement flagstones the instant a hurled clay siege jar shatters on impact, erupting fierce swirling bright orange-and-gold burning tar flames and dark smoke across stone and timber planks.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Battering Ram Shock"
+  Body Text: "A heavy ram slams the barred gate timbers, shaking defenders violently off-footing."
+  Artwork: Inside gatehouse view at the exact instant heavy iron-braced oak fortress gates bow violently inward from a massive unseen battering impact, blasting loose stone mortar dust, popped iron bolts, and flying wood splinters across cobbles.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Incoming Arrow Volleys, Catapult Shrapnel, Flaming Pitch & Ram Impact matching Hold-the-Line Fort Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — SIEGE ASSAULT WAVES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). All scenes take place in a fortified medieval keep courtyard, parapet wall-walk, and gatehouse under siege (NO empty caves, NO red clay brick, NO people, NO monsters).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless shadowy siege raiders poised on scaling ladders, breaches, grappling lines, and smoky fort thresholds traced softly by warm fire rim-light (calm menacing siege poise, zero recognizable human faces; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Enemy raiders crest scaling ladders onto the battlements—hold the wall!"
+  Artwork: Smoky dusk stone parapet lit fiercely by orange braziers: wooden scaling-ladder tips hook tightly over notched battlements as pitch-black faceless shadowy silhouettes crest and crouch poised along the wall rim.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Raiders pour across a splintered outer wall breach straight into the yard!"
+  Artwork: Torchlit outer stone bailey torn by amber brazier glow: coiled pitch-black faceless shadowy silhouettes crouch poised inside a fractured wall gap beside angled oak defense stakes.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Hooked grappling lines snap over darkened merlons as flankers close in!"
+  Artwork: High stone parapet corner washed in indigo night and fiery embers: heavy forged iron grappling hooks grip notched stone merlons while taut pitch-black shadowy silhouettes crouch poised in dark flank corners.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Assault"
+  Body Text: "Shock-troops push forward through thick gate smoke, forcing close quarters!"
+  Artwork: Dramatic fort courtyard choked with swirling gray siege smoke and fiery amber backlight: stark pitch-black faceless shadowy silhouettes crouch poised forward through the smoke ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Siege Assault Waves titled "Assault" matching Hold-the-Line Fort Siege.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 FORT DEFENSE SECTOR SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — HOLD-THE-LINE SCENE 1 (Main Fort Courtyard)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Expansive dressed cobble fort yard backed by tall fortified limestone curtain walls, crimson garrison banners, and blazing standing braziers above calm shadowed cobbles.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — HOLD-THE-LINE SCENE 2 (Barred Gatehouse Landing)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Heavy iron-braced oak double gatehouse portcullis sealed tight inside towering limestone gate piers lit by glowing wall sconces above quiet stone pavers.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — HOLD-THE-LINE SCENE 3 (North Parapet Wall-Walk)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Broad flat stone battlement walkway behind notched crenellated merlons backlit by distant twilight siege smoke and iron braziers above clear stone floor.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — HOLD-THE-LINE SCENE 4 (Watchtower Bastion Deck)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sheltered heavy timber-and-stone bastion watch platform enclosed along the back by arrow-slit stone walls and warm hanging iron lanterns above dark planks.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — HOLD-THE-LINE SCENE 5 (Braced Breach Barricade)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Partially cracked outer stone wall gap reinforced tightly from behind with angled sharpened oak defense stakes and packed earthbags above flat shadowed cobbles.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — HOLD-THE-LINE SCENE 6 (Quartermaster Wall Arch)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Covered limestone perimeter wall archway lined neatly along the back wall with empty timber shield brackets and glowing sconces above calm flagstones.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — HOLD-THE-LINE SCENE 7 (Rally Bell Platform)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Raised corner fort stone terrace holding an iron-hung tarnished bronze warning bell beside roaring signal braziers overlooking shadowed keep walls.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — HOLD-THE-LINE SCENE 8 (Battered Merlon Bastion)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring weathered chiseled gray-slate fortress battlements, notched stone merlons, braced iron-bound oak gate timbers, cobbled keep courtyards, drifting gray siege smoke contrasted sharply against roaring orange iron braziers and twilight dusk clouds (strictly uninhabited fortified stone keep & siege-wall settings, NO red clay brick, NO empty endless staircases climbing upward, NO people, NO monsters). Strictly uninhabited wide enclosed defensive fort sector with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Smoke-drifted fortified corner stone bastion dusted lightly with stone chips and neatly stacked repair blocks beside orange torches above flat pavers.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_32_holdline_courtyard_arena (Battleground 1 · Braced Fort Courtyard)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted brushwork matching chiseled dark gray-slate fortress masonry and worn keep flagstones illuminated by warm iron-brazier glow against deep twilight indigo shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open stone fortress defense floor—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top strip lies ONE wide, flat, completely unobstructed fortified limestone cobble-and-earth courtyard floor smooth underfoot across both left defender and right attacker sides—STRICTLY ZERO side walls, ZERO foreground parapets, ZERO crates, and ZERO stakes anywhere inside the lower 85% battle floor.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top margin runs ONE straight continuous horizontal west-to-east fortified limestone curtain wall dressed with cropped crimson garrison banners and burning wall torches—strictly straight left-to-right across the upper border.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_33_holdline_rampart_arena (Battleground 2 · Wide Parapet Wall-Walk)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted brushwork matching chiseled dark gray-slate fortress masonry and worn keep flagstones illuminated by warm iron-brazier glow against deep twilight indigo shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open stone fortress defense floor—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies an expansive, completely level wide dressed slate-limestone wall-walk deck spanning left to right across both sides—strictly flat and obstacle-free with zero bottom-edge parapets, zero crates, and zero pillars in the bottom 85%.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top edge runs ONE straight west-to-east waist-high notched limestone merlon battlement line silhouetted against distant smoky dusk glow.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_34_holdline_gateyard_arena (Battleground 3 · Inner Gatehouse Bailey)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted brushwork matching chiseled dark gray-slate fortress masonry and worn keep flagstones illuminated by warm iron-brazier glow against deep twilight indigo shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open stone fortress defense floor—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top strip lies a broad, flat, continuous chiseled dark-slate flagstone bailey floor across both combat sides—strictly open underfoot with zero foreground walls, zero crates, and zero side pillars entering the lower 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top margin runs ONE straight horizontal east-to-west solid cut-limestone gatehouse wall centered by a closed barred oak-and-iron portcullis and flanking wall sconces.
+--- COPY-PASTE PROMPT END ---

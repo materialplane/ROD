@@ -273,9 +273,9 @@
       "chapterLabel": "Chapter I",
       "title": "The Gladiator (Yearning)",
       "shortTitle": "Ballad I · The Gladiator's Yearning",
-      "speaker": "Arena Ballad",
-      "overview": "Under the merciless glare of Highcrown's coliseum sun, a battered gladiator drags himself across crimson sand after bringing down another rival condemned for the King's sport. Exhausted and choking on arena dust, his eyes lift toward the high royal balcony—where a quiet, sorrowful gaze waits far above his iron cage.",
-      "worldHistory": "Common folk across the Crownlands still remember how King Garrick filled the arena sands with blood while starving his own court of mercy—making every verse of this ballad ring with sympathy for those trapped beneath his rule."
+      "speaker": "Act I · Koren (Valen's Father)",
+      "overview": "Under the merciless glare of Highcrown's coliseum sun, the scarred gladiator Koren—Valen's true father long before the prince ever knew his bloodline—drags himself across crimson sand after shattering another rival's helm for King Garrick's sport. Choking on yellow arena dust, Koren lifts his bruised eyes to the high royal balcony where Queen Ellowyn watches in silent anguish, two prisoners yearning across stone and iron.",
+      "worldHistory": "Every verse of this opening ballad belongs to the secret tragedy behind your campaign: before Valen was born, his father Koren fought in chains under Highcrown's arena while Queen Ellowyn endured King Garrick's loveless throne."
     },
     "assets/audio/music/taverns/chapter_02_the_queen_the_plan.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_02_the_queen_the_plan.ogg",
@@ -283,9 +283,9 @@
       "chapterLabel": "Chapter II",
       "title": "The Queen (The Plan)",
       "shortTitle": "Ballad II · The Queen's Plan",
-      "speaker": "High Tower Ballad",
-      "overview": "High in her cold stone gallery overlooking the empty, bloodstained arena below, Queen Ellowyn paces alone in heavy velvet—a weary captive bound by crown and duty to King Garrick's cold heart. When war horns summon the King out toward distant borders, a fleeting stillness settles over the keep for the first time in years.",
-      "worldHistory": "Crownlands singers tell how Garrick's cruelty and endless border wars pushed even his own quiet court toward desperate hope—leaving Highcrown's stone halls empty of warmth long before the kingdom fractured."
+      "speaker": "Act I · Queen Ellowyn (Valen's Mother)",
+      "overview": "High in her cold stone gallery overlooking the empty, bloodstained coliseum, Queen Ellowyn—Valen's mother—paces behind gilded doors, bound in a bitter marriage to King Garrick while her heart belongs to the gladiator Koren below. When border war horns force Garrick out of Highcrown with his host, Ellowyn's loyal handmaid secretly weaves a forged chisel key and letter inside Koren's bandages so the two may meet.",
+      "worldHistory": "Crownlands singers recall how King Garrick's endless border wars finally pulled his iron guard out of the capital, giving Ellowyn and Koren one fleeting chance to escape their cages together."
     },
     "assets/audio/music/taverns/chapter_03_the_gladiator_the_affair.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_03_the_gladiator_the_affair.ogg",
@@ -293,9 +293,9 @@
       "chapterLabel": "Chapter III",
       "title": "The Gladiator (The Affair)",
       "shortTitle": "Ballad III · The Affair",
-      "speaker": "Midnight Aqueduct Ballad",
-      "overview": "Beneath a starlit sky while the fortress sleeps, a lone prisoner climbs upward through forgotten stone aqueducts where water long ceased to flow. Emerging out of the centuries-old ash and dust into midnight air, he steps toward the hushed, overgrown sanctuary gardens behind Highcrown's walls.",
-      "worldHistory": "To this day, travelers walking Highcrown's ruined gardens speak softly of the dark dry passages beneath the city—reminders of how human kindness once sought shelter far from King Garrick's harsh gaze."
+      "speaker": "Act I · Koren & Queen Ellowyn",
+      "overview": "At midnight while the castle sleeps, Koren—Valen's father—pries loose his cell's drainage grate and crawls upward through dust-choked dry aqueducts beneath Highcrown's walls. Stepping out into the moonlit overgrown garden ruins, Koren meets Queen Ellowyn in secret, sharing brief sanctuary together and splitting an interlocking silver wolf pendant between them.",
+      "worldHistory": "To this day, travelers passing Highcrown's ruined gardens walk above those very dry aqueduct tunnels where Koren crawled to reach Ellowyn—the origin of the divided silver wolf pendant hanging at the heart of Valen's past."
     },
     "assets/audio/music/taverns/chapter_04_the_queen_the_seduction.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_04_the_queen_the_seduction.ogg",
@@ -303,9 +303,9 @@
       "chapterLabel": "Chapter IV",
       "title": "The Queen (The Seduction)",
       "shortTitle": "Ballad IV · The Seduction",
-      "speaker": "Dawn Tower Ballad",
-      "overview": "Standing in graying dawn mist among the garden ruins as distant war horns signal the King's returning army, Queen Ellowyn faces an agonizing choice to shield the people she loves. Before iron boots thunder across the courtyard, she must step back into silk and silver inside a palace ruled by fear.",
-      "worldHistory": "Along Thornwall and Weald hearths, folk honor the quiet endurance it took to survive under Garrick's cold roof—remembering that calm court bearing often hid immense courage and sacrifice."
+      "speaker": "Act I · Queen Ellowyn's Secret",
+      "overview": "Frozen under graying dawn mist in the garden ruins as King Garrick's returning war horns blow across the ridge, Queen Ellowyn tells Koren the devastating truth: she carries his unborn child—Valen. To keep their child and Koren alive, Koren drops back down the aqueduct grate while Ellowyn scrubs garden soil from her skin, dons her silver crown, and deceives Garrick into raising Koren's son as his royal heir.",
+      "worldHistory": "Only Ellowyn and her handmaid knew the truth kept hidden behind Highcrown's dawn gates: that the heir raised beneath King Garrick's wolf banner was born of Koren's blood and Ellowyn's quiet sacrifice."
     },
     "assets/audio/music/taverns/chapter_05_the_king_the_iron_heir.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_05_the_king_the_iron_heir.ogg",
@@ -313,9 +313,9 @@
       "chapterLabel": "Chapter V",
       "title": "The King (The Iron Heir)",
       "shortTitle": "Ballad V · The Iron Heir",
-      "speaker": "Iron Throne Ballad",
-      "overview": "Twelve grim winters into his unchallenged reign, King Garrick looks down from his stone tower onto a sunlit courtyard filled with wooden training blades. Convinced mercy makes rulers weak, the tyrant decides soft-spoken court captains can never harden the twelve-year-old boy expected to bear his wolf banner.",
-      "worldHistory": "Border garrisons still repeat Garrick's cold creed—that iron is only forged through fear—explaining why every stronghold he raised across Ethoria grew darker and harsher under his command."
+      "speaker": "Act II · King Garrick, Koren & Young Valen",
+      "overview": "Twelve winters into his reign, King Garrick watches twelve-year-old Prince Valen in the training yard—oblivious that the boy is Koren's biological son—and decides military captains are too soft to forge a ruthless ruler. Garrick summons Koren, still the deadliest gladiator in the pit, and offers him his freedom in exchange for personally training Valen to fight and kill.",
+      "worldHistory": "Veteran soldiers still recount the bitter irony of Garrick's decree: forcing an enslaved father to hammer lethal steel discipline into his own unsuspecting son in the open yard."
     },
     "assets/audio/music/taverns/chapter_06_the_prince_the_arrogant_pupil.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_06_the_prince_the_arrogant_pupil.ogg",
@@ -323,9 +323,9 @@
       "chapterLabel": "Chapter VI",
       "title": "The Prince (The Arrogant Pupil)",
       "shortTitle": "Ballad VI · The Arrogant Pupil",
-      "speaker": "Courtyard Ballad",
-      "overview": "Under a scorching midday sun on the gravel training yard, young Prince Valen crashes hard into the dust beneath his instructor's wooden practice sword. Bruised and fiercely proud inside a court where rank dictates everything, the boy refuses to break beneath a strict mentor who answers only to steel.",
-      "worldHistory": "Minstrels in the Weald sing this verse with compassion for a youth raised in Garrick's harsh shadow—taught from boyhood that strength meant never yielding, before hard years on the road reshaped his heart."
+      "speaker": "Act II · Young Prince Valen & Koren",
+      "overview": "Under scorching midday sun, arrogant twelve-year-old Prince Valen crashes repeatedly into the gravel beneath Koren's wooden sword, seething with hatred at being ordered around by a lowborn gladiator—never knowing his harsh teacher is his real father. Clenching the secret half of the silver wolf pendant his mother pressed into his hand, Valen vows to master every strike Koren teaches until he can crush him.",
+      "worldHistory": "Weald minstrels sing this verse with aching pity: the very silver half-pendant giving young Valen strength in the courtyard matched the hidden chain worn by the father drilling him through the dirt."
     },
     "assets/audio/music/taverns/chapter_07_the_lead_commander_whispers_and_the_scar.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_07_the_lead_commander_whispers_and_the_scar.ogg",
@@ -333,9 +333,9 @@
       "chapterLabel": "Chapter VII",
       "title": "The Lead Commander (Whispers & The Scar)",
       "shortTitle": "Ballad VII · Whispers & the Scar",
-      "speaker": "Rampart Ballad",
-      "overview": "High atop the shadowed battlements, veteran Commander Orin keeps silent watch over the training yard as five more winters harden the young prince below into a cold, razor-sharp swordsman. Standing sentinel over stone walls soaked in palace whispers, Orin senses a storm gathering inside the fortress.",
-      "worldHistory": "Throughout southern watchtowers and highland camps, soldiers respect Orin's steady vigilance from the walls—the loyal veteran who watched shadows tighten around Highcrown long before the realm broke apart."
+      "speaker": "Act II · Commander Orin Sees the Truth",
+      "overview": "Five years later as seventeen-year-old Valen strikes targets with cruel precision, Commander Orin catches sight of the jagged half-pendant on the prince's chest from the ramparts—instantly recognizing its matching half hidden in Koren's cell and realizing Queen Ellowyn's secret. Moments later in the yard below, humiliating himself in a reckless lunge before King Garrick, Valen takes Koren's counter-slash across his cheek, carving a lifelong scar and vow of vengeance.",
+      "worldHistory": "Across Crownlands ramparts, soldiers remember Orin's quiet vigilance—and know the horizontal scar across Valen's face came from his own father's reluctant blade during a reckless sparring bout."
     },
     "assets/audio/music/taverns/chapter_08_the_prince_the_humiliation.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_08_the_prince_the_humiliation.ogg",
@@ -343,9 +343,9 @@
       "chapterLabel": "Chapter VIII",
       "title": "The Prince (The Humiliation)",
       "shortTitle": "Ballad VIII · The Humiliation",
-      "speaker": "Coliseum Gate Ballad",
-      "overview": "Standing silent before his father's iron throne as King Garrick delivers cold orders for the celebratory coliseum games, an older scarred Prince Valen bows his head in obedience. Beneath gleaming plate armor and crimson banners, years of pride and resentment stir quietly as arena trumpets begin to blow.",
-      "worldHistory": "Merchants across the southern harbors recall how unspoken bitterness inside Highcrown's throne room finally spilled onto sunlit cobblestones—marking the day royal pageantry turned to grief."
+      "speaker": "Act II · Valen's Fatal Challenge",
+      "overview": "Ordered by King Garrick to publicly read Koren's decree of freedom at the packed coliseum games, an older scarred Valen marches onto the sands while Queen Ellowyn fights back silent relief—caught sharply by Commander Orin. Standing face-to-face with the veteran gladiator who scarred his face, Valen lets pride ignite: he rips his father's freedom scroll in two and demands a duel to the death.",
+      "worldHistory": "Highcrown merchants and guards still remember the stunned silence over the coliseum the day Prince Valen shredded Koren's freedom parchment—condemning his own unknowing father before a roaring crowd."
     },
     "assets/audio/music/taverns/chapter_09_the_gladiator_the_sacrifice.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_09_the_gladiator_the_sacrifice.ogg",
@@ -353,9 +353,9 @@
       "chapterLabel": "Chapter IX",
       "title": "The Gladiator (The Sacrifice)",
       "shortTitle": "Ballad IX · The Sacrifice",
-      "speaker": "Arena Sands Ballad",
-      "overview": "Standing alone upon bloodstained coliseum dust awaiting the decree of freedom he earned across long years of servitude, an aging veteran lifts his eyes toward the royal box. Beneath glaring midday sun and roaring stands, he prepares for what should be his final hour inside the pit.",
-      "worldHistory": "Even rough harbor sailors go quiet when these opening strings sound—honoring a warrior who endured years under Garrick's chain and still met his darkest hour with unbroken honor."
+      "speaker": "Act III · Koren's Fatherly Sacrifice",
+      "overview": "Horrified as Valen tears up his freedom and unleashes a furious storm of lethal strikes, Koren swears inwardly never to harm his own flesh and blood. Fighting purely on defense through blinding dust until no escape remains, Koren drops his shield on purpose, bares his unguarded side, and lets his own son drive steel straight through his heart—leaving his hidden silver half-pendant to spill onto the sand.",
+      "worldHistory": "Even rough harbor sailors lower their mugs when these chords begin—honoring Koren, the father who laid down his shield and gave his life rather than spill his own son's blood."
     },
     "assets/audio/music/taverns/chapter_10_the_prince_the_awakening.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_10_the_prince_the_awakening.ogg",
@@ -363,9 +363,9 @@
       "chapterLabel": "Chapter X",
       "title": "The Prince (The Awakening)",
       "shortTitle": "Ballad X · The Awakening",
-      "speaker": "Reckoning Ballad",
-      "overview": "Stepping onto blinding coliseum sands beneath hot noon light as heavy iron gates slam shut behind him, Prince Valen draws polished steel before the watching realm. Believing victory in the pit will erase old court scars, he marches forward into a clash that will haunt his memory forever.",
-      "worldHistory": "Beside northern winter hearths, listeners hear this verse with heavy silence—remembering the afternoon Highcrown's proud illusion shattered and forced a humbled prince onto a path of atonement."
+      "speaker": "Act III · Valen Learns He Slew His Father",
+      "overview": "Believing he has finally proved his honor as Koren's guard falls low, Valen plunges his sword deep into his teacher's chest—only to spot a familiar flash of silver beneath Koren's shifted armor. Dropping to his knees in panic, Valen presses his own hidden chain against Koren's in the dust; the two halves snap seamlessly into one wolf pendant as Queen Ellowyn's weeping horror confirms the truth—Valen just killed his own biological father.",
+      "worldHistory": "Beside winter hearths throughout Ethoria, this ballad falls to a solemn whisper: the shattering moment Prince Valen's arrogance died in the arena sand, beginning the grief and mourning he carries for the father he unwittingly forced to the death."
     },
     "assets/audio/music/taverns/chapter_11_the_king_the_wrath_of_the_crown.ogg": {
       "relPath": "assets/audio/music/taverns/chapter_11_the_king_the_wrath_of_the_crown.ogg",
@@ -373,9 +373,9 @@
       "chapterLabel": "Chapter XI",
       "title": "The King (The Wrath of the Crown)",
       "shortTitle": "Ballad XI · Wrath of the Crown",
-      "speaker": "Final Dusk Ballad",
-      "overview": "Dead, frozen silence hangs like winter ice over Highcrown's crowded arena as King Garrick stares rigidly down from his high seat. Watching truth unravel across the yellow sand below, the tyrant's cold wrath rises like dark stormclouds over court and sand alike.",
-      "worldHistory": "Here the old ballads stop just before your journey begins: soon after that bitter afternoon, Garrick abandoned the divided capital to raise dark legions in the north—unleashing the Portals that heroes now stand together to seal."
+      "speaker": "Act III · King Garrick's Wrath & Your Beginning",
+      "overview": "Frozen silence turns to tempest as King Garrick gazes down at the joined silver pendant in the sand and Ellowyn's terrified tears, realizing his prized heir carries Koren's blood. Roaring in fury, Garrick tears the crown from Queen Ellowyn's head, locks her away in the deepest castle vault, strips Valen of honor and title, and throws his mourning stepson into Koren's own pitch-black cell before marching north to unleash dark war.",
+      "worldHistory": "Here the taverns' ballads end right where your journey opens: thrown into his dead father's dark cell, broken and grieving, Valen forged the oath to rescue his mother Queen Ellowyn, seal Garrick's Portals, and redeem his father's name."
     }
   }
 }

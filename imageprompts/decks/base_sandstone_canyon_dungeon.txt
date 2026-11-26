@@ -1,0 +1,284 @@
+# ROD — Sandstone Canyons & Mesas Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_sandstone_canyon_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Sandstone Canyons & Mesas Base Deck):
+# - sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos in natural midday light (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — CANYON & MESA PASSAGES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos in natural midday light (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place in arid red-gold sandstone canyons, mesas, and dry rocky washes at midday (NO golden sand dune seas, NO oasis lakes, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Canyon Trail"
+  Body Text: "A wind-swept red gravel path winds deeper between towering sandstone walls."
+  Artwork: High canyon view looking straight ahead down a dry red-gravel canyon trail winding cleanly between towering wind-sculpted terracotta and ochre sandstone walls in natural midday light.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Sun-Carved Rock Arch"
+  Body Text: "A wind-eroded red sandstone arch frames a shadowed desert canyon pass."
+  Artwork: Dramatic natural wind-eroded terracotta sandstone canyon arch spanning a shadowed rocky ravine path opening cleanly into sunlit midday canyon walls beyond (pure natural rock—no carved temple doors).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Dry Ravine Path"
+  Body Text: "Packed red gravel descends smoothly through a carved desert sandstone gully."
+  Artwork: Narrow wind-carved red sandstone gully path stepping steadily downward between rough ochre rock ribs toward a midday red-rock canyon floor below.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Mesa Rim Notch"
+  Body Text: "A sharp wind-cut gap between stratified terracotta cliffs leads across the mesa."
+  Artwork: Elevated mesa rim view looking straight ahead down a packed red-stone path slicing cleanly between jagged stratified terracotta sandstone spires and flat-topped mesas at midday.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Canyon & Mesa Passages matching Sandstone Canyons & Mesas.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — CANYON CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos in natural midday light (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place in arid red-gold sandstone canyons, mesas, and dry rocky washes at midday (NO golden sand dune seas, NO oasis lakes, NO people).
+IMPORTANT: Every cache container (pack, coffer, crate, or strongbox) sits centered facing straight forward toward the viewer flush against a solid red sandstone canyon wall filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Prospector's Pack"
+  Body Text: "Left inside cool canyon shade, a leather-and-canvas prospector pack rests buckled."
+  Artwork: Shaded red canyon recess at midday: centered front-facing weathered canvas and camel-leather canyon prospector pack strapped cleanly with brass buckles against terracotta sandstone.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Copper-Clad Coffer"
+  Body Text: "Resting in sandstone shadow, a hammered copper coffer gleams against red rock."
+  Artwork: Terracotta sandstone alcove at midday: centered front-facing hammered copper and dark cedar chest with ornate sun keyhole plate resting firmly against layered red sandstone wall.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Surveyor Crate"
+  Body Text: "Bound in hemp cord and dry cedar, a canyon surveyor crate sits untouched."
+  Artwork: Shaded red-stone canyon nook at midday: centered front-facing wax-sealed cedar canyon supply crate wrapped in hemp cord set squarely on flat red sandstone ledge.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Mesa Strongbox"
+  Body Text: "Tucked beneath a stratified overhang, a riveted iron strongbox waits closed."
+  Artwork: Cool shaded red sandstone shelf at midday: centered front-facing riveted iron-and-cedar strongbox with forged padlock resting squarely against striated ochre sandstone.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Canyon Supply Caches matching Sandstone Canyons & Mesas.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — CANYON SEEPS & SUN SHRINES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos in natural midday light (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place in arid red-gold sandstone canyons, mesas, and dry rocky washes at midday (NO golden sand dune seas, NO oasis lakes, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Sandstone Seep Basin"
+  Body Text: "Cool clear cliff-seep water fills a natural terracotta hollow, restoring the party's HP."
+  Artwork: Shaded red sandstone cliff alcove at midday: a smooth natural hollow carved into terracotta bedrock catches clear pale-aqua rock-seep water rimmed by tiny canyon ferns and dry clay jars.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Mesa Star-Lens Sundial"
+  Body Text: "Polished brass rings focus midday sun into a blue prism, restoring the party's MP."
+  Artwork: Wind-swept red sandstone mesa terrace at midday: a multi-ringed hammered brass armillary sundial mounted on a stepped terracotta stone plinth cradles a glowing cobalt star-glass lens casting crisp azure light reflections across red stone.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Copper-Bound Monolith"
+  Body Text: "Red sandstone banded with hammered copper braces one hero against blows."
+  Artwork: Terracotta canyon mouth at midday: a square wind-fluted red sandstone monolith tightly clasped by three heavy riveted bands of burnished hammered copper with ornate ring bosses gleaming against red rock.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Turquoise Canyon Cairn"
+  Body Text: "Carved terracotta stones inlaid with turquoise ring chimes, shielding one hero from magic."
+  Artwork: Shaded red sandstone arch threshold at midday: balanced stacked terracotta mesa stones inlaid with gleaming turquoise discs and tiny suspended silver wind-chimes trembling quietly in dry canyon air.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Sandstone Seep, Star-Lens Sundial, Copper Monolith & Turquoise Cairn matching Sandstone Canyons & Mesas.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — CANYON & MESA HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos in natural midday light (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place in arid red-gold sandstone canyons, mesas, and dry rocky washes at midday (NO golden sand dune seas, NO oasis lakes, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Red-Dust Canyon Gale"
+  Body Text: "A scorching canyon downdraft whips stinging red grit wildly between cliff walls."
+  Artwork: Sun-baked terracotta sandstone canyon floor at midday swept violently by a roaring horizontal funnel of red canyon dust and sharp gravel grit between towering red cliffs.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Loose Scree Slide"
+  Body Text: "Brittle shale and red sandstone gravel give way underfoot down a steep dry wash."
+  Artwork: Steep red sandstone canyon gravel bank at midday the exact instant dry terracotta scree and shale pebbles slip downward in a sliding rock pocket underfoot.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Falling Sandstone"
+  Body Text: "Fractured high along surrounding canyon walls, heavy red blocks tumble down."
+  Artwork: Towering stratified terracotta canyon wall backing dry red gravel ground at midday: heavy fractured red sandstone blocks tear loose above and crash down across rocky canyon earth.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Flash-Seep Mud Rush"
+  Body Text: "Trapped red-clay grit cracks open beneath sudden canyon runoff, jolting footing."
+  Artwork: Sun-baked red sandstone arroyo floor at midday as sudden foaming muddy terracotta runoff bursts out through fractured canyon rock fissures across dry gravel.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Sandstone Canyons & Mesas.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — CANYON AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos in natural midday light (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place in arid red-gold sandstone canyons, mesas, and dry rocky washes at midday (NO golden sand dune seas, NO oasis lakes, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows at midday (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes step out from behind sandstone outcrops to force a fight."
+  Artwork: Shaded red-gold sandstone canyon pass in natural midday light: two ink-black faceless shrouded silhouettes crouch motionless behind carved terracotta rock outcrops.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from high canyon ledges above, barring the desert pass."
+  Artwork: Sunlit red-gold canyon gorge at midday: perched quietly along an elevated stratified sandstone shelf overhead, two poised pitch-black silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the dry wash from shadowed arches—stand ready!"
+  Artwork: Stratified sandstone rock-arch pass lit down the center by midday sunbeams: coiled pitch-black shadowy silhouettes wait tucked inside left and right shadowed overhang corners.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of blowing red canyon dust, forcing battle."
+  Artwork: Narrow terracotta canyon floor softened by blowing pale red canyon dust in midday backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Sandstone Canyons & Mesas.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 SANDSTONE CANYON & MESA SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — SANDSTONE CANYONS SCENE 1 (Sun-Arch Canyon Floor)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Towering wind-sculpted terracotta sandstone canyon cliffs and a natural red-rock arch rising in natural midday light behind a calm shadowed red-stone gravel floor.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — SANDSTONE CANYONS SCENE 2 (Layered Red-Gold Cliff Wall)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sheer horizontal striated terracotta-and-ochre sandstone cliff wall gleaming in midday sun above level packed red gravel.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — SANDSTONE CANYONS SCENE 3 (Dry Arroyo Scrub Bank)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sun-bleached arid canyon bank bordered along the back gully rim by tough dry desert sage and tumbled red sandstone boulders at midday over level stone.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — SANDSTONE CANYONS SCENE 4 (Hoodoo Spire Amphitheater)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Natural wind-whittled red-gold mushroom sandstone hoodoo spires standing along the far rim casting crisp canyon shadows at midday over flat red earth.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — SANDSTONE CANYONS SCENE 5 (Wind-Scooped Bluff Overhang)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Curved natural desert wind-eroded red sandstone cliff overhang shading ochre canyon gravel and dry desert cobbles foreground at midday.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — SANDSTONE CANYONS SCENE 6 (Slot Gorge Narrows)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dramatic fluted red-gold sandstone slot canyon bends closing cleanly behind a quiet sheltered red gravel wash under clear midday sky.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — SANDSTONE CANYONS SCENE 7 (Cracked Red Mesa Terrace)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Elevated flat terracotta sandstone plateau edged along the back by fractured red desert boulders overlooking distant flat-topped midday mesa ridges.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — SANDSTONE CANYONS SCENE 8 (Shadowed Sandstone Gorge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sun-baked terracotta and burnt-ochre stratified sandstone canyon walls, wind-sculpted desert rock arches, flat-topped red sandstone mesas, mushroom hoodoo spires, and packed red-gravel dry arroyos at midday (strictly red-rock sandstone canyon & mesa terrain, NO rolling golden sand-erg dune seas, NO palm oasis lakes, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday canyon scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sheer narrow dark red-gold canyon cliff walls rising close on left and right framing a deep shaded dry gravel canyon pass below at midday.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_41_canyon_gravel_arena (Battleground 1 · Sun-Baked Canyon Gravel)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching sun-baked terracotta gravel, red sandstone bedrock, and sparse canyon sage in natural midday light (strictly NO rolling golden dune seas, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open red sandstone canyon floor—push the entire horizontal west-to-east perimeter canyon cliff/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies a wide, completely flat level sun-baked terracotta gravel and smooth weathered red sandstone bedrock ground across both combat sides—strictly clear with zero protruding boulders, zero ruins, zero cracks, and zero side cliff walls.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top margin runs ONE straight east-to-west stratified terracotta canyon cliff wall base with low weathered red boulders beneath a slim midday sky.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_42_canyon_mesa_arena (Battleground 2 · Flat Red Mesa Plateau)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching sun-baked terracotta gravel, flat red sandstone shelf, and sparse dry scrub in natural midday light (strictly NO rolling golden dune seas, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open red sandstone mesa plateau—push the entire horizontal west-to-east perimeter mesa/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin up to the top strip lies a broad, level, smooth matte red-ochre sandstone mesa plateau firm underfoot across both left and right sides—strictly flat and bare with zero pits, zero boulders, and zero shrubs anywhere inside the bottom 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top edge run flat-topped red-orange sandstone mesa rims and distant hoodoo tips under midday sky.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_43_canyon_arroyo_arena (Battleground 3 · Dry Sandstone Arroyo Floor)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching sun-baked terracotta gravel, red sandstone bedrock, and sparse canyon sage in natural midday light (strictly NO rolling golden dune seas, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open sandstone arroyo floor—push the entire horizontal west-to-east perimeter cliff/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top rim lies a wide, flat, dry red sandstone arroyo floor in natural midday light across both sides—completely open underfoot with zero pillars, zero water pools, and zero boulders in the lower 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top edge runs ONE straight west-to-east layered red canyon sandstone lip lined with dry weathered boulders.
+--- COPY-PASTE PROMPT END ---

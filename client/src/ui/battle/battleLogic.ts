@@ -7,6 +7,7 @@ import type {
   BattleEnemyDef,
   BattleStageConfig,
   ChosenDisciplinesMap,
+  DiscoveredMonsterTraitsMap,
   EquippedGearMap,
   HeroAttrMap,
   HeroDisciplinesEntry,
@@ -25,6 +26,7 @@ import type {
   BattleState,
   BattleStateIconSpec,
   BattleStatusUiMeta,
+  DamageTypeIconSpec,
   HeroDisciplineModifiers,
   MagicThemeSpec,
   PackedEnemyPlacement,
@@ -37,16 +39,79 @@ import type {
 import { buildFullDisciplineProfile, getPartyCombatAuras, grantWardShield } from "./combatEffects";
 
 export const BATTLE_STATE_ICONS: Record<string, BattleStateIconSpec> = {};
+export const DAMAGE_TYPE_ICONS: Record<string, DamageTypeIconSpec> = {};
 export const STATUS_UI_META = {} as Record<StatusAilmentKind, BattleStatusUiMeta>;
 export const VFX_MAP: Record<string, VfxSpec> = {};
 export const HERO_MAGIC_THEMES: Record<string, MagicThemeSpec> = {};
 
-/** Populate battle state badges, ailment UI metadata, VFX row mappings, and caster themes from data/vfx-effects.json. */
+const CANONICAL_DAMAGE_TYPES: ReadonlyArray<{ key: string; matchers: string[]; fallbackPath: string; accentColor: string }> = [
+  { key: "Slashing", matchers: ["slashing", "slash"], fallbackPath: "assets/icons/conditions/dmg_slashing.webp", accentColor: "#e8b468" },
+  { key: "Piercing", matchers: ["piercing", "pierce"], fallbackPath: "assets/icons/conditions/dmg_piercing.webp", accentColor: "#c7d8eb" },
+  { key: "Bludgeoning", matchers: ["bludgeoning", "bludgeon"], fallbackPath: "assets/icons/conditions/dmg_bludgeoning.webp", accentColor: "#d98b52" },
+  { key: "Fire", matchers: ["fire"], fallbackPath: "assets/icons/conditions/dmg_fire.webp", accentColor: "#ff874f" },
+  { key: "Frost", matchers: ["frost"], fallbackPath: "assets/icons/conditions/dmg_frost.webp", accentColor: "#72d0ff" },
+  { key: "Lightning", matchers: ["lightning"], fallbackPath: "assets/icons/conditions/dmg_lightning.webp", accentColor: "#ffe066" },
+  { key: "Poison", matchers: ["poison"], fallbackPath: "assets/icons/conditions/dmg_poison.webp", accentColor: "#94e85c" },
+  { key: "Shadow", matchers: ["shadow"], fallbackPath: "assets/icons/conditions/dmg_shadow.webp", accentColor: "#b88cff" },
+  { key: "Radiant", matchers: ["radiant"], fallbackPath: "assets/icons/conditions/dmg_radiant.webp", accentColor: "#fff0a8" },
+];
+
+/** Resolve canonical damage-type icon metadata for any raw weapon/spell/monster damage-type string (including composites like "Fire + Radiant" or "Poison + Bludgeon"). */
+export function resolveDamageTypeIcons(raw?: string): DamageTypeIconSpec[] {
+  if (!raw || /^none$/i.test(raw.trim())) return [];
+  const parts = raw
+    .split(/[,+/]/)
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean);
+  const found: DamageTypeIconSpec[] = [];
+  const seen = new Set<string>();
+  for (const part of parts) {
+    for (const entry of CANONICAL_DAMAGE_TYPES) {
+      if (entry.matchers.some((m) => part.includes(m)) && !seen.has(entry.key)) {
+        seen.add(entry.key);
+        const catalogSpec = DAMAGE_TYPE_ICONS[entry.key];
+        found.push(
+          catalogSpec ?? {
+            id: `dmg_${entry.key.toLowerCase()}`,
+            label: entry.key,
+            iconPath: entry.fallbackPath,
+            accentColor: entry.accentColor,
+          }
+        );
+      }
+    }
+  }
+  return found;
+}
+
+/** Merge newly discovered monster weaknesses, resistances, and immunities into persistent bestiary trait records. */
+export function mergeDiscoveredMonsterTraits(
+  prev: DiscoveredMonsterTraitsMap,
+  incoming?: DiscoveredMonsterTraitsMap
+): DiscoveredMonsterTraitsMap {
+  if (!incoming || Object.keys(incoming).length === 0) return prev;
+  const next: DiscoveredMonsterTraitsMap = { ...prev };
+  for (const [mobId, traits] of Object.entries(incoming)) {
+    const cur = next[mobId] ?? {};
+    next[mobId] = {
+      weak: Array.from(new Set([...(cur.weak ?? []), ...(traits.weak ?? [])])),
+      resist: Array.from(new Set([...(cur.resist ?? []), ...(traits.resist ?? [])])),
+      immune: Array.from(new Set([...(cur.immune ?? []), ...(traits.immune ?? [])])),
+    };
+  }
+  return next;
+}
+
+/** Populate battle state badges, damage type icons, ailment UI metadata, VFX row mappings, and caster themes from data/vfx-effects.json. */
 export function applyVfxEffectsCatalog(catalog: VfxEffectsCatalog | null | undefined): void {
   if (!catalog) return;
   if (catalog.battleStateIcons) {
     for (const k of Object.keys(BATTLE_STATE_ICONS)) delete BATTLE_STATE_ICONS[k];
     Object.assign(BATTLE_STATE_ICONS, catalog.battleStateIcons);
+  }
+  if (catalog.damageTypeIcons) {
+    for (const k of Object.keys(DAMAGE_TYPE_ICONS)) delete DAMAGE_TYPE_ICONS[k];
+    Object.assign(DAMAGE_TYPE_ICONS, catalog.damageTypeIcons);
   }
   if (catalog.statusUiMeta) {
     for (const k of Object.keys(STATUS_UI_META)) {
@@ -441,7 +506,12 @@ function instantiateEnemyUnit(
   def: BattleEnemyDef,
   zoneMin: number,
   zoneMax: number,
-  packOpts?: { packCount: number; isBossFight: boolean; combatConfig?: BattleCombatConfig }
+  packOpts?: {
+    packCount: number;
+    isBossFight: boolean;
+    combatConfig?: BattleCombatConfig;
+    discoveredTraits?: DiscoveredMonsterTraitsMap;
+  }
 ): BattleEnemyUnit {
   const cc = packOpts?.combatConfig;
   const zoneMid = Math.round((zoneMin + zoneMax) / 2);
@@ -538,6 +608,20 @@ function instantiateEnemyUnit(
   const pDef = scaledPDef;
   const mDef = scaledMDef;
 
+  const weakTypes = parseDamageTypeList(def.weak);
+  const resistTypes = parseDamageTypeList(def.resist);
+  const immuneTypes = parseDamageTypeList(def.immune);
+  const known = packOpts?.discoveredTraits?.[def.id];
+  const revealedWeaknesses = known?.weak
+    ? weakTypes.filter((w) => known.weak!.some((kw) => kw.toLowerCase() === w.toLowerCase()))
+    : [];
+  const revealedResistances = known?.resist
+    ? resistTypes.filter((r) => known.resist!.some((kr) => kr.toLowerCase() === r.toLowerCase()))
+    : [];
+  const revealedImmunities = known?.immune
+    ? immuneTypes.filter((im) => known.immune!.some((ki) => ki.toLowerCase() === im.toLowerCase()))
+    : [];
+
   return {
     instanceId: `foe_${seqCounter++}_${def.id}`,
     mobId: def.id,
@@ -552,9 +636,12 @@ function instantiateEnemyUnit(
     mDef,
     xpReward: rawXp,
     silverReward: rawSilver,
-    weakTypes: parseDamageTypeList(def.weak),
-    resistTypes: parseDamageTypeList(def.resist),
-    revealedWeaknesses: [],
+    weakTypes,
+    resistTypes,
+    immuneTypes,
+    revealedWeaknesses,
+    revealedResistances,
+    revealedImmunities,
     guardMax: scaledGuard,
     guardCur: scaledGuard,
     staggeredTurns: 0,
@@ -749,13 +836,23 @@ export function createBattleState(params: {
   zoneMax: number;
   nearWaterKind: "ocean" | "inland_water" | null;
   portalLoc?: WorldLocation | null;
+  discoveredMonsterTraits?: DiscoveredMonsterTraitsMap;
+  overrideStageId?: string;
+  overrideEnemyIds?: string[];
+  isDungeonBoss?: boolean;
+  dungeonBossLeadName?: string;
+  dungeonContext?: { questId: string; isBoss: boolean } | null;
 }): BattleState {
-  const { stage, portalNum, portalBossId } = resolveBattleStage(params.config, {
+  const resolved = resolveBattleStage(params.config, {
     mapId: params.mapId,
     biomeName: params.biomeName,
     nearWaterKind: params.nearWaterKind,
     portalLoc: params.portalLoc,
   });
+  const stage =
+    (params.overrideStageId ? params.config.stages.find((s) => s.id === params.overrideStageId) : undefined) ??
+    resolved.stage;
+  const { portalNum, portalBossId } = resolved;
 
   // Build Hero combat units using each Hero's individual Level
   const heroes: BattleHeroUnit[] = params.partyOrder.map((hid, slotIdx) => {
@@ -849,26 +946,43 @@ export function createBattleState(params: {
     return unit;
   });
 
-  // Pick enemies matched cleanly to Portal Boss or procedural biome/zone encounter
+  // Pick enemies matched cleanly to Dungeon Override, Portal Boss, or procedural biome/zone encounter
   let chosenDefs: BattleEnemyDef[] = [];
 
-  if (portalNum !== null) {
+  if (params.overrideEnemyIds && params.overrideEnemyIds.length > 0) {
+    const byId = new Map(params.config.monsters.map((m) => [m.id, m]));
+    for (const mid of params.overrideEnemyIds) {
+      const found = byId.get(mid);
+      if (found) chosenDefs.push(found);
+    }
+  }
+  if (chosenDefs.length === 0 && portalNum !== null) {
     const boss =
       (portalBossId ? params.config.monsters.find((m) => m.id === portalBossId) : undefined) ??
       params.config.monsters.find((m) => m.isBoss && m.portalNum === portalNum) ??
       params.config.monsters.find((m) => m.isBoss);
     if (boss) chosenDefs = [boss];
-  } else {
+  } else if (chosenDefs.length === 0) {
     chosenDefs = pickProceduralEncounterDefs(params.config, stage, params.zoneCode, params.zoneMin, params.zoneMax);
   }
 
-  const enemies = chosenDefs.map((d) =>
-    instantiateEnemyUnit(d, params.zoneMin, params.zoneMax, {
+  const isEffectiveBoss = portalNum !== null || Boolean(params.isDungeonBoss);
+  const enemies = chosenDefs.map((d, idx) => {
+    const unit = instantiateEnemyUnit(d, params.zoneMin, params.zoneMax, {
       packCount: chosenDefs.length,
-      isBossFight: portalNum !== null,
+      isBossFight: isEffectiveBoss && idx === 0,
       combatConfig: params.config.combatConfig,
-    })
-  );
+      discoveredTraits: params.discoveredMonsterTraits,
+    });
+    if (params.isDungeonBoss && idx === 0 && params.dungeonBossLeadName) {
+      unit.name = params.dungeonBossLeadName;
+      unit.isBoss = true;
+      unit.maxHp = Math.round(unit.maxHp * 1.45);
+      unit.curHp = unit.maxHp;
+      unit.atk = Math.round(unit.atk * 1.15);
+    }
+    return unit;
+  });
   packEncounterIntoGrid(enemies, stage);
 
   // Orin Lv10 Rallying Horn: opening party Empowered buff at start of battle
@@ -888,8 +1002,9 @@ export function createBattleState(params: {
     biomeName: params.biomeName,
     zoneName: params.zoneName,
     zoneCode: params.zoneCode,
-    isBossBattle: portalNum !== null,
+    isBossBattle: isEffectiveBoss,
     portalLoc: params.portalLoc ?? null,
+    dungeonContext: params.dungeonContext ?? null,
     heroes,
     enemies,
     consumedPotions: {},
@@ -1642,7 +1757,16 @@ export function computeDamageOnEnemy(
   enemy: BattleEnemyUnit,
   atkOverride?: number,
   battleCtx?: { allHeroes?: BattleHeroUnit[]; livingEnemiesCount?: number; isModeB?: boolean }
-): { damage: number; isCrit: boolean; isWeak: boolean; isResist: boolean; brokeGuard: boolean; triggeredStagger: boolean; detonateDotDmg: number } {
+): {
+  damage: number;
+  isCrit: boolean;
+  isWeak: boolean;
+  isResist: boolean;
+  isImmune: boolean;
+  brokeGuard: boolean;
+  triggeredStagger: boolean;
+  detonateDotDmg: number;
+} {
   const p = hero.passives;
   const auras = battleCtx?.allHeroes ? getPartyCombatAuras(battleCtx.allHeroes) : null;
   const isMagic = action.kind === "spell";
@@ -1745,9 +1869,30 @@ export function computeDamageOnEnemy(
   );
   const isCrit = Math.random() < critChance;
 
-  const dtCombined = `${action.damageType} ${!isMagic && p?.runestoneBonusElemType ? p.runestoneBonusElemType : ""}`.toLowerCase();
+  const dtRaw = `${action.damageType} ${!isMagic && p?.runestoneBonusElemType ? p.runestoneBonusElemType : ""}`.toLowerCase();
+  const dtCombined = dtRaw.replace(/\bbludgeon\b/g, "bludgeoning");
+  const actionDtNorm = action.damageType.toLowerCase().replace(/\bbludgeon\b/g, "bludgeoning");
+
+  const matchedImmune = (enemy.immuneTypes ?? []).find((im) => actionDtNorm.includes(im.toLowerCase()));
+  if (matchedImmune) {
+    enemy.revealedImmunities ??= [];
+    if (!enemy.revealedImmunities.includes(matchedImmune)) {
+      enemy.revealedImmunities.push(matchedImmune);
+    }
+    return {
+      damage: 0,
+      isCrit: false,
+      isWeak: false,
+      isResist: false,
+      isImmune: true,
+      brokeGuard: false,
+      triggeredStagger: false,
+      detonateDotDmg: 0,
+    };
+  }
+
   const isWeak = enemy.weakTypes.some((w) => dtCombined.includes(w.toLowerCase()));
-  const rawResist = !isWeak && enemy.resistTypes.some((r) => action.damageType.toLowerCase().includes(r.toLowerCase()));
+  const rawResist = !isWeak && enemy.resistTypes.some((r) => actionDtNorm.includes(r.toLowerCase()));
   const poisonBypass = dtCombined.includes("poison") && (p?.universalPoisonPenPct ?? 0) > 0;
   const isResist = rawResist && !poisonBypass;
 
@@ -1807,8 +1952,15 @@ export function computeDamageOnEnemy(
       enemy.revealedWeaknesses.push(matchedWeak);
     }
   }
+  if (rawResist) {
+    const matchedResist = enemy.resistTypes.find((r) => actionDtNorm.includes(r.toLowerCase()));
+    enemy.revealedResistances ??= [];
+    if (matchedResist && !enemy.revealedResistances.includes(matchedResist)) {
+      enemy.revealedResistances.push(matchedResist);
+    }
+  }
 
-  return { damage, isCrit, isWeak, isResist, brokeGuard, triggeredStagger, detonateDotDmg };
+  return { damage, isCrit, isWeak, isResist, isImmune: false, brokeGuard, triggeredStagger, detonateDotDmg };
 }
 
 export function levelToRegionNum(level: number, cc?: BattleCombatConfig): number {

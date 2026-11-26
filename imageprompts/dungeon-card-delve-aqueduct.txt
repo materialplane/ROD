@@ -1,0 +1,193 @@
+# ROD — Illustrated 9:16 Card System & 16:9 Dry Aqueducts Delve Kit (Canon q001: Seal the Aqueduct Grate)
+# Target Model (Test Deck — ALL 11 images via 50% Off Gemini Batch API AFTER Creative Director approval):
+#   - Card Holder Board [01] + Chamber Backdrops [04-07] (16:9 4K): models/gemini-3.1-flash-image
+#   - Card Sheets [02], [03], & Stage 2A-2D (9:16 4K): models/gemini-3.1-flash-image
+# Browser Aspect Ratio Note: When previewing 2x2 Card Sheets in browser UI, set canvas Aspect Ratio to 9:16 (not 16:9).
+# Canon Lore Source (q001: Seal the Aqueduct Grate):
+#   "Rogue kennel trackers pried open the neglected dry aqueduct grate behind Highcrown's overgrown palace gardens,
+#    letting war-hounds prowl beneath the Coliseum undercroft. Descend through the garden grate and defeat
+#    Garrick's rogue houndmaster, Houndmaster Marek, and his war-hounds guarding the culvert control chamber to reseal the breach."
+#
+# HOW CARDS WORK:
+#   - ROOM CARDS depict an open Doorway or Stairs Going Down. Turning over a Room card moves the party into that Room (changing the 16:9 backdrop).
+#   - ENCOUNTER / LOOT / TRAP / MECHANISM CARDS trigger dramatic battles, Treasure Loot screens, or self-contained choices inside the current Room.
+#   - CLASSIC FINAL FANTASY STAKES (NO MID-RUN EXIT CARDS): Once you enter, you fight through the deck until you defeat the Boss—or fall and wake up at the nearest Town Inn.
+#   - DEFEATING THE BOSS (Houndmaster Marek) automatically triggers the dramatic "Iron Grate Resealed" victory screen, then lets you leave triumphant or finish remaining cards in the deck.
+#
+# TWO-STAGE GENERATION WORKFLOW:
+#   STAGE 1: Anchor Card Sheet [02] (9:16, 2x2) + Card Holder [01] (16:9) + Card Backs [03] (9:16) + 4 Canon Backdrops [04-07] (16:9).
+#   STAGE 2: Attach approved Anchor Card Sheet [02] as reference_path for Stage 2A-2D follow-up 2x2 card sheets.
+
+================================================================================
+STAGE 1 [01] — 3-SLOT DECORATIVE WOOD, LIMESTONE & GOLD CARD HOLDER BOARD (16:9 on #FF00FF)
+================================================================================
+# Output Master: assets/ui/dungeons/board_3slot_stone_bronze.png (16:9 4K)
+# Chroma-Key Export: client/assets/ui/dungeons/board_3slot_stone_bronze.webp
+
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy tabletop UI prop illustration of ONE centered ornamental 3-Slot Expedition Card Tray Board floating cleanly inside generous solid flat chroma margins. Vibrant, luminous League of Legends (Legends of Runeterra / Ruined King) hand-painted craft style matching golden honey-oak woodwork, warm chiseled pale limestone, bright burnished antique gold-bronze bevel trim, brushed steel corner rivets, crisp clean dark outer ink silhouette separating the outer board frame from the pink background, zero grimy soot or dull gray mud, zero pixel art, zero plastic 3D CGI, zero pink/magenta gems or lighting spills, and ZERO text, letters, or numbers anywhere.
+
+STRICT CHROMA BACKGROUND RULE:
+The entire outer surrounding area outside the sculpted straight-framed board on all four sides (leaving at least ~18% clean open margin along top, bottom, left, and right edges) MUST be pure, flat, unshaded solid neon magenta (#FF00FF) with ZERO drop shadows, ZERO floor shadows, ZERO outer glow, and ZERO dungeon room walls behind it.
+
+BOARD LAYOUT & EMPTY CARD BED SLOTS (FROM LEFT TO RIGHT — ZERO CARDS INSIDE):
+1. LEFT DRAW DECK CRADLE (~18% width): One carved recessed warm walnut-and-gold tall portrait card deck well edged with bright riveted brass clasps, completely EMPTY inside with calm clean cobalt-slate recessed bed.
+2. CENTER THREE RECESSED CARD BEDS (~78% width): Exactly THREE evenly spaced portrait rectangular card beds placed side by side cleanly in a horizontal row across the main board body. Each of the 3 slots is trimmed with a gleaming burnished gold-bronze beveled inlay border and crisp corner brackets—while the interior bed of all three slots is clean, calm, smoothly shaded deep cobalt-charcoal slate (NO baked cards, NO painted figures, and NO text inside any of the 3 beds).
+3. OUTER BOARD FRAME: Rich warm oiled chestnut-oak & chiseled pale sandstone tray frame wrapped in bright gleaming antique gold corner armor plates and iron strap hinges catching crisp golden sunlight highlight along upper bevels cleanly against #FF00FF.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 1 [02] — ANCHOR CARD SHEET: CORE BASE STARTER (9:16 Canvas, 2x2 Seamless Complete Cards — RUN FIRST!)
+================================================================================
+# Output Master: assets/ui/dungeons/cards_base_01_anchor_9x16.png (9:16 4K -> 2x2 slices)
+# Browser Preview Setting: Canvas = 9:16 Vertical
+
+--- COPY-PASTE PROMPT START ---
+Art Style: 4k stylized hand-painted League of Legends fantasy
+
+Instructions: A seamless 2x2 grid of four perfectly rectangular image panels in 4k quality (two panels on top row, two panels on bottom row—strictly 2 columns wide by 2 rows tall, never 4 in a single row) matching the EXACT stone frame proportions, continuous 4-sided colored inlay trim around ALL four outer sides, gothic upper arch window, curved notched ribbon nameplate banner, and warm weathered parchment box of the attached reference sheet (no cost numbers, no circular cost badges). This is a strict geometric layout where four flat, rectangular tiles meet exactly at the center lines with NO gaps and NO gutters. All outer edges and internal intersections must form strict, sharp 90-degree right angles. Edge to edge bleed.
+
+Panel 1 (Top-Left — Gold Inlay Trim): Banded Strongbox - "Heavy iron clasps guard untouched Silver and field potions." Illustration: A battered iron-strapped honey-oak strongbox half-open atop dry torchlit stone flagstones, gleaming warmly with silver coins and crimson glass vials.
+
+Panel 2 (Top-Right — Crimson Inlay Trim): Sudden Ambush - "Two outlaws and a timber wolf strike from the torchlit shadows!" Illustration: Two hooded outlaw cutthroats and a snarling lean ash-gray timber wolf lunging out of fiery orange wall torchlight and cobalt stone shadows with steel drawn.
+
+Panel 3 (Bottom-Left — Cobalt-Blue Inlay Trim): Descending Stairs - "Worn stone steps descending into a deeper chamber." Illustration: High bird's-eye angle looking straight DOWN from a top landing lip as narrow carved limestone steps plunge steeply downward below you into glowing lower amber torchlight (unmistakably going DOWN).
+
+Panel 4 (Bottom-Right — Emerald Inlay Trim): Smoldering Brazier - "Warm embers in an iron brazier restore a portion of the party's HP and MP." Illustration: Close-up inside a sealed dark underground stone dungeon corner with solid mortared brick-and-stone walls behind it (strictly NO doorway, NO archway, NO window, NO sky, and NO outdoors): crackling golden fire and glowing embers burning warmly inside a heavy wrought-iron bowl brazier beside a rolled wool bedroll on dry flagstones.
+
+--no rounded corners, playing card borders, curves, gaps, spacing, rounded edges, blank margins, white space, cost numbers, mana circles --ar 9:16
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 1 [03] — UNIFIED DUNGEON CARD BACKS SHEET (9:16 Canvas, 2x2 Seamless Cards)
+================================================================================
+# Output Master: assets/ui/dungeons/cards_backs_9x16.png (9:16 4K -> 2x2 slices)
+# Browser Preview Setting: Canvas = 9:16 Vertical
+
+--- COPY-PASTE PROMPT START ---
+Art Style: 4k stylized hand-painted League of Legends fantasy
+
+Instructions: A seamless 2x2 grid of four perfectly rectangular image panels in 4k quality (strictly 2 columns wide by 2 rows tall meeting cleanly at the exact center lines with NO gaps, NO gutters, and zero text or numbers anywhere). All outer edges and internal intersections must form strict, sharp 90-degree right angles. All four card backs share one unified bright royal deck style: rich royal cobalt-navy embossed leather centers wrapped evenly in straight chestnut-oak and burnished antique gold borders with bronze corner clasps, differing ONLY in the bold symmetrical sculpted gold-and-steel emblem centered neatly in the middle. Edge to edge bleed.
+
+Panel 1 (Top-Left — Universal Card Back): Centered sculpted antique gold and brushed steel 8-point Runeterra diamond compass emblem surrounded by engraved golden compass rays.
+
+Panel 2 (Top-Right — Aqueduct Theme Back): Centered gleaming antique gold and sea-teal circular aqueduct flood-wheel and crossed arch keystone emblem.
+
+Panel 3 (Bottom-Left — Cavern Theme Back): Centered gleaming gold and sapphire-amethyst crystal pickaxe and faceted gem emblem.
+
+Panel 4 (Bottom-Right — Citadel Theme Back): Centered gleaming royal gold and brushed steel crown-and-kite-shield crest emblem.
+
+--no rounded corners, playing card borders, curves, gaps, spacing, rounded edges, blank margins, white space, text, letters, numbers --ar 9:16
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 1 [04 TO 07] — 4 EYE-LEVEL 16:9 CANON DRY AQUEDUCTS CHAMBER BACKDROPS
+================================================================================
+
+# 04 — PALACE GARDEN DRAIN DESCENT -> client/assets/maps/dungeons/aqueduct_cards/aqueduct_01_entry_stairs.webp
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact vibrant, luminous hand-painted art style of League of Legends (Legends of Runeterra / Ruined King) key art. Clean pale sandy-limestone cut blocks, warm golden-amber sunlight shafts and orange iron wall torches contrasted against clean cool cobalt-blue shadow crevices, cascading emerald palace garden vines, crisp opaque brushwork, zero grimy soot, zero pixel art, zero 3D CGI, zero text, and strictly uninhabited (no people, wolves, cards, or chests).
+
+COMPOSITION (GARDEN GRATE DESCENT + CALM CENTER DECK SPACE):
+Eye-level scenic splash illustration standing just inside the neglected aqueduct grate beneath Highcrown's overgrown palace gardens. Thick emerald ivy roots and warm golden afternoon sunbeams pour through a pried-ajar overhead iron garden grate above wide worn limestone steps sweeping down into a calm, sunlit-and-cobalt flagstone vestibule across the center-lower foreground (leaving calm space for an overlaid card tray). Burning wall sconces light the dry vaulted drainage archway leading forward beneath the city.
+--- COPY-PASTE PROMPT END ---
+
+# 05 — SUBTERRANEAN STORM CISTERN GALLERY -> client/assets/maps/dungeons/aqueduct_cards/aqueduct_02_cistern_halls.webp
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact vibrant, luminous hand-painted art style of League of Legends (Legends of Runeterra / Ruined King) key art. Clean pale limestone piers, warm golden honey-lit flagstones, vibrant cobalt-indigo architectural shadow depths, bright emerald moss clusters along stone mortar seams, and blazing warm orange iron torch braziers—strictly clean high-clarity fantasy colors, zero dark grime, zero pixel art, zero 3D CGI, zero text, and strictly uninhabited.
+
+COMPOSITION (VAULTED DRY AQUEDUCT CISTERN + CALM CENTER DECK):
+Eye-level scenic splash illustration standing deep inside Highcrown's vaulted underground storm-drainage cistern gallery. Broad, crisp cut-stone promenade deck fills the center foreground cleanly, flanked left and right by monumental arched stone water piers framing deep dry storm-runoff conduits bathed in fiery amber iron braziers and cool royal-blue subterranean depth.
+--- COPY-PASTE PROMPT END ---
+
+# 06 — DRY AQUEDUCT WATERWORKS & SLUICE CHANNELS -> client/assets/maps/dungeons/aqueduct_cards/aqueduct_03_waterworks_sluice.webp
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact vibrant, luminous hand-painted art style of League of Legends (Legends of Runeterra / Ruined King) key art. Clean warm limestone walls, gleaming verdigris-turquoise & polished gold-bronze waterworks cogwheels, wrought-iron sluice grates, fiery orange torchlight, and crisp cobalt shadow separation—zero soot/grime, zero pixel art, zero 3D CGI, zero text, and strictly uninhabited.
+
+COMPOSITION (ANCIENT AQUEDUCT SLUICE GEARS & DRY CHANNELS):
+Eye-level scenic splash illustration deep inside an ancient subterranean aqueduct waterworks junction. Clean pale flagstones anchor the center foreground. Along the left wall gleam giant tarnished-turquoise bronze floodgate gears, spillways, and brass sluice chains, while the right wall holds deep stone drainage culverts barred by heavy iron sluice grates and lit warmly by burning sconce torches.
+--- COPY-PASTE PROMPT END ---
+
+# 07 — CULVERT CONTROL CHAMBER: GRATE SEALED -> client/assets/maps/dungeons/aqueduct_cards/aqueduct_04_grate_sealed.webp
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash painting in the exact vibrant, luminous hand-painted art style of League of Legends (Legends of Runeterra / Ruined King) key art. Clean pale sandy-limestone arches, radiant warm golden victory sconce light, crisp cobalt shadow contrast, sparkling deep azure storm water held cleanly behind barred steel, zero grime, zero pixel art, zero 3D CGI, zero text, and strictly uninhabited.
+
+COMPOSITION (CULVERT CONTROL LEVER & SEALED AQUEDUCT GRATE):
+Eye-level scenic splash illustration inside the monumental Culvert Control Chamber immediately after winning and sealing the city breach. Broad warm flagstones sweep across the lower foreground beside a heavy forged-iron gate lever locked firmly down in its floor ratchet beside stone chains. Dominating the center limestone culvert arch stands the massive, newly CLOSED AND BOLTED wrought-iron aqueduct grate holding sparkling cerulean water safely behind carved stone in celebratory golden torchlight.
+--- COPY-PASTE PROMPT END ---
+
+
+================================================================================
+STAGE 2 [FOLLOW-UP SHEETS — ATTACH APPROVED STAGE 1 ANCHOR SHEET [02] AS REFERENCE]
+================================================================================
+
+# --- STAGE 2A: BASE DECK PART 2 (LOOT, TRAPS & RESPITE — 9:16, 2x2) ---
+--- COPY-PASTE PROMPT START ---
+Art Style: 4k stylized hand-painted League of Legends fantasy (matching the exact 4-sided continuous colored inlay trim borders, gothic arch window, curved notched ribbon nameplate typography, and warm weathered parchment box of the attached reference sheet)
+
+Instructions: A seamless 2x2 grid of four perfectly rectangular image panels in 4k quality (two on top, two on bottom) meeting at exact 90-degree center intersections with NO gaps and NO gutters (no cost numbers, no mana circles). Edge to edge bleed.
+
+Panel 1 (Top-Left — Gold Inlay Trim): Warder's Coffer - "A bolted brass lockbox brimming with Silver and potions." Illustration: Ornate polished gold and cobalt-blue steel coffer cracked open in warm torchlight overflowing with bright silver coins and emerald vials.
+
+Panel 2 (Top-Right — Gold Inlay Trim): Smuggler's Lockbox - "A copper-banded chest hiding stashed Silver and spare potions." Illustration: Heavy weathered pine and copper-banded treasure lockbox resting beside dusty stone blocks with its lid cracked ajar spilling silver coins and red potion vials.
+
+Panel 3 (Bottom-Left — Emerald/Gold Trim): Clear Wellspring - "Cool spring water restores a portion of the party's HP and MP." Illustration: Mossy carved lion stone fountain splashing bright crystal-clear blue spring water cleanly into an illuminated stone basin amid green ferns.
+
+Panel 4 (Bottom-Right — Crimson/Amber Trim): Hair-Trigger Snare - "A hidden iron snare snaps shut, wounding the party!" Illustration: Simple forged iron toothed bear-jaw steel trap resting across clean dusty flagstones beside a taut thin iron tripwire under warm wall-torch light (strictly plain forged iron and dry stone—ZERO sparks, ZERO fire, ZERO smoke, and ZERO explosions).
+
+--no rounded corners, playing card borders, curves, gaps, spacing, rounded edges, blank margins, white space, cost numbers --ar 9:16
+--- COPY-PASTE PROMPT END ---
+
+# --- STAGE 2B: BASE ROOMS & ESCAPE CARDS (ROOMS: DOORS / STAIRS — 9:16, 2x2) ---
+--- COPY-PASTE PROMPT START ---
+Art Style: 4k stylized hand-painted League of Legends fantasy (matching the exact 4-sided continuous colored inlay trim borders, gothic arch window, curved notched ribbon nameplate typography, and warm weathered parchment box of the attached reference sheet)
+
+Instructions: A seamless 2x2 grid of four perfectly rectangular image panels in 4k quality (two on top, two on bottom) meeting at exact 90-degree center intersections with NO gaps and NO gutters (no cost numbers, no mana circles). Edge to edge bleed.
+
+Panel 1 (Top-Left — Cobalt-Slate Trim): Iron-Bound Doorway - "An iron-bound oak doorway leading into the next stone chamber." Illustration: Heavy oak and riveted-iron arched dungeon door swung open wide, revealing a level warm torchlit stone chamber directly ahead.
+
+Panel 2 (Top-Right — Cobalt-Slate Trim): Deep Vault Steps - "Spiral stone steps descending into deeper subterranean halls." Illustration: High downward view looking straight DOWN worn limestone spiral stairwell steps dropping cleanly beneath you into glowing lower amber sconce light.
+
+Panel 3 (Bottom-Left — Crimson Inlay Trim): Armed Watch - "Armed outlaw guards patrol the torchlit corridor!" Illustration: Flickering wall lanterns backlighting armed outlaw guards turning a vaulted sunlit-and-cobalt limestone corridor with spears raised.
+
+Panel 4 (Bottom-Right — Crimson/Amber Trim): Choking Mire Fumes - "Noxious green vapor seeps from wall vents, wounding the party!" Illustration: Carved bronze wall grille venting bright glowing emerald-lime venom vapor tendrils across warmly lit dungeon cobbles.
+
+--no rounded corners, playing card borders, curves, gaps, spacing, rounded edges, blank margins, white space, cost numbers --ar 9:16
+--- COPY-PASTE PROMPT END ---
+
+# --- STAGE 2C: DRY AQUEDUCTS ROOMS & ENCOUNTERS (CANON q001 — 9:16, 2x2) ---
+--- COPY-PASTE PROMPT START ---
+Art Style: 4k stylized hand-painted League of Legends fantasy (matching the exact 4-sided continuous colored inlay trim borders, gothic arch window, curved notched ribbon nameplate typography, and warm weathered parchment box of the attached reference sheet)
+
+Instructions: A seamless 2x2 grid of four perfectly rectangular image panels in 4k quality (two on top, two on bottom) meeting at exact 90-degree center intersections with NO gaps and NO gutters (no cost numbers, no mana circles). Edge to edge bleed.
+
+Panel 1 (Top-Left — Cobalt-Slate Trim): Vaulted Archway - "A weathered stone archway leading into the next chamber." Illustration: Tall open vaulted pale-limestone archway opening directly into towering carved stone piers bathed in fiery wall braziers and cobalt subterranean depth.
+
+Panel 2 (Top-Right — Cobalt-Slate Trim): Rusted Iron Door - "A corroded iron doorway leading into a deeper stone hall." Illustration: Heavy rusted wrought-iron dungeon doorway swung open wide into a vaulted brick-and-stone corridor warmed by wall sconce glow.
+
+Panel 3 (Bottom-Left — Crimson Trim): Kennel Tracker - "One of Garrick's rogue trackers blocks the passage with drawn steel!" Illustration: Mud-booted outlaw hunter lifting a crooked hunting horn and drawn blade beneath orange torch fire inside an arched stone passage.
+
+Panel 4 (Bottom-Right — Crimson Trim): Timber Wolf Pack - "Feral gray timber wolves burst snarling out of the shadows!" Illustration: Three lean, long-snouted wild ash-gray and timber-brown forest wolves with pointed upright ears, narrow wolf muzzles, shaggy bristling neck ruffs, and bushy tails baring sharp white fangs beneath bright orange sconce fire against vaulted limestone arches (strictly wild forest wolves—never bulky mastiff dogs, never short bulldog snouts, and never dog collars).
+
+--no rounded corners, playing card borders, curves, gaps, spacing, rounded edges, blank margins, white space, cost numbers --ar 9:16
+--- COPY-PASTE PROMPT END ---
+
+# --- STAGE 2D: DRY AQUEDUCTS CONTROL ROOM & BOSS (CANON q001 — 9:16, 2x2) ---
+--- COPY-PASTE PROMPT START ---
+Art Style: 4k stylized hand-painted League of Legends fantasy (matching the exact 4-sided continuous colored inlay trim borders, gothic arch window, curved notched ribbon nameplate typography, and warm weathered parchment box of the attached reference sheet)
+
+Instructions: A seamless 2x2 grid of four perfectly rectangular image panels in 4k quality (two on top, two on bottom) meeting at exact 90-degree center intersections with NO gaps and NO gutters (no cost numbers, no mana circles). Edge to edge bleed.
+
+Panel 1 (Top-Left — Cobalt-Slate Trim): Bronze-Bound Door - "A bronze-riveted doorway leading into the next chamber." Illustration: Broad open arched bronze-bound oak-and-stone doorway leading into a grand vaulted dungeon hall illuminated by warm wall torches.
+
+Panel 2 (Top-Right — Emerald/Gold Trim): Iron Valve Wheel - "A heavy iron valve wheel unsealing a hidden wall stash of Silver and potions." Illustration: Monumental weathered forged-iron & bronze valve cogwheel bolted cleanly into warm limestone masonry.
+
+Panel 3 (Bottom-Left — Gold Trim): Royal Guard Chest - "A forgotten garrison chest packed with Silver and potions!" Illustration: Wide-open royal honey-oak and brass guardhouse chest resting intact in a stone niche spilling gleaming silver coins and red potions.
+
+Panel 4 (Bottom-Right — Imperial Crimson-Gold Crown Trim): Houndmaster Marek - "Auto-Revealed! Defeat Garrick's rogue houndmaster to reseal the grate." Illustration: Bold stylized Runeterra outlaw hunter wearing russet wolf-fur mantle and brass buckles raising a blazing lantern beside a fierce lean ash-gray timber wolf.
+
+--no rounded corners, playing card borders, curves, gaps, spacing, rounded edges, blank margins, white space, cost numbers --ar 9:16
+--- COPY-PASTE PROMPT END ---

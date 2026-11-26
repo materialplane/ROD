@@ -1,0 +1,284 @@
+# ROD — Sand Dunes & Oasis Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_desert_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Sand Dunes & Oasis Base Deck):
+# - sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges in natural midday light (strictly rolling golden sand dunes & desert oasis terrain matching Map 3, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — DUNE & OASIS PASSAGES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges in natural midday light (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place across open golden sand dunes, hardpan flats, and desert oasis verges at midday (NO red canyons, NO frost, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Dune-Crest Trail"
+  Body Text: "A wind-swept golden sand trail crests between rolling sunlit dunes."
+  Artwork: High desert dune view looking straight ahead down a firm packed golden sand trail winding cleanly between sweeping wind-rippled golden sand dunes in natural midday light.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Palm-Bordered Causeway"
+  Body Text: "Firm wind-packed clay crosses beside a clear palm-shaded oasis inlet."
+  Artwork: Elevated three-quarter oasis perspective showing two dry sandy oasis banks separated by a shallow turquoise palm-spring channel: a solid packed golden-clay and cedar-edged causeway crosses cleanly from the foreground bank onto wide dry sand beneath date palms at midday.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Dry Wash Crossing"
+  Body Text: "Packed golden gravel descends smoothly across a shallow dry sand-wash."
+  Artwork: Broad shallow dry desert wash descending gently between wind-packed tan clay banks and dry tamarisk scrub toward open golden dunes in natural midday light.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Wind-Carved Dune Saddle"
+  Body Text: "A sweeping notch between tall golden sand dunes leads deeper across the wastes."
+  Artwork: Elevated desert ridge view looking straight ahead through a firm wind-packed sand saddle slicing cleanly between tall sweeping golden sand dunes into open midday desert flats beyond.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Paths & Crossings matching Sand Dunes & Oasis.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — DUNE & OASIS CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges in natural midday light (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place across open golden sand dunes, hardpan flats, and desert oasis verges at midday (NO red canyons, NO frost, NO people).
+IMPORTANT: Every cache container (pack, coffer, crate, or strongbox) sits centered facing straight forward toward the viewer resting cleanly on golden desert sand or oasis clay filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Caravan Pack"
+  Body Text: "Left beside shaded palm roots, a woven desert merchant pack rests buckled."
+  Artwork: Oasis palm root shade at midday: centered front-facing patterned woven desert cloth and camel-leather caravan saddlebag pack strapped cleanly with brass buckles resting on dry golden sand.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Brass Coffer"
+  Body Text: "Resting on packed golden sand, a hammered brass coffer gleams in midday shade."
+  Artwork: Wind-carved golden dune hollow at midday: centered front-facing hammered desert brass and dark cedar coffer with ornate sun keyhole plate resting firmly on packed golden desert sand.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Spice Crate"
+  Body Text: "Bound in rough hemp cord and dry cedar, a merchant spice crate sits untouched."
+  Artwork: Shaded oasis caravan bank at midday: centered front-facing wax-sealed cedar spice supply crate wrapped in hemp cord set squarely on flat desert hardpan beside dry reeds.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Desert Strongbox"
+  Body Text: "Half-sheltered beside dune-scrub roots, a riveted strongbox waits closed."
+  Artwork: Sun-dappled dune hollow at midday: centered front-facing sun-bleached cedar-and-iron strongbox with forged padlock resting against wind-packed golden sand and gnarled desert scrub.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Sand Dunes & Oasis.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — OASIS SPRINGS & SUN RELICS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges in natural midday light (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place across open golden sand dunes, hardpan flats, and desert oasis verges at midday (NO red canyons, NO frost, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Palm Spring Basin"
+  Body Text: "Cool clear groundwater pools beside date-palm roots, restoring the party's HP."
+  Artwork: Oasis palm grove at midday: clean pale-turquoise spring water fills a shallow mossy limestone-rimmed desert oasis basin beneath arching date-palm fronds and warm golden sand dunes beyond.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Star-Lens Sundial"
+  Body Text: "Polished brass rings focus midday sun into a blue prism, restoring the party's MP."
+  Artwork: Wind-swept golden dune crest at midday: a multi-ringed hammered brass armillary sundial mounted on a weathered pale limestone plinth cradles a glowing cobalt star-glass lens casting crisp azure light reflections across golden sand.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Copper-Bound Cedar Post"
+  Body Text: "Weathered desert cedar banded with hammered copper braces one hero against blows."
+  Artwork: Sunlit oasis dune verge at midday: a square sun-bleached desert cedar trail post tightly clasped by three heavy riveted bands of burnished hammered copper with ornate ring bosses gleaming against golden sand.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Sun-Woven Ward Banner"
+  Body Text: "Silver wind-chimes and desert silk hang beneath a cedar crossbeam, shielding from magic."
+  Artwork: Shaded oasis palm edge at midday: two lashed cedar posts support a tall pale-gold desert silk ward banner hung with gleaming silver wind-chimes and turquoise beads swaying gently above dry sand and oasis reeds.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Palm Spring Basin, Star-Lens Sundial, Cedar Post & Ward Banner matching Sand Dunes & Oasis.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — DUNE & OASIS HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges in natural midday light (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place across open golden sand dunes, hardpan flats, and desert oasis verges at midday (NO red canyons, NO frost, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Whirling Sand Squall"
+  Body Text: "A sudden scorching desert wind whips stinging golden sand wildly across hardpan."
+  Artwork: Open golden desert hardpan floor at midday swept violently by a roaring horizontal vortex of blowing golden sand and choking dust haze across dry scrub.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Swirling Sand Funnel"
+  Body Text: "Dry crusted desert sand collapses underfoot into a churning funneling grit pit."
+  Artwork: Golden desert sand and hardpan clay floor at midday the exact instant surface sand swirls cleanly downward into a funneling dry sink-pocket underfoot.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Collapsing Dune Slip"
+  Body Text: "A steep overhanging sand-crest breaks loose above, burying footing in heavy golden sand."
+  Artwork: Towering wind-sculpted golden sand dune slope at midday: an overhanging dry sand cornice shears loose cleanly above and cascades in a heavy golden sand avalanche down across the lower path.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Blistering Oil Urn"
+  Body Text: "Cracked hammered brass oil pots spill blazing amber flame across dry clay hardpan."
+  Artwork: Sun-baked desert clay caravan track at midday the instant a tipped hammered brass desert oil urn shatters, spreading fierce leaping amber flame pools across packed golden dirt.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Sand Dunes & Oasis.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — DUNE & OASIS AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges in natural midday light (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). All scenes take place across open golden sand dunes, hardpan flats, and desert oasis verges at midday (NO red canyons, NO frost, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows at midday (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes rise quietly from behind windswept dune crests to force a fight."
+  Artwork: Rolling golden sand dunes in natural midday light: two ink-black faceless shrouded silhouettes crouch motionless just behind a sharp wind-carved dune ridge.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from shaded palm trunks beside the water, barring the crossing."
+  Artwork: Sunlit oasis palm grove in midday shade: tucked quietly behind thick crooked date-palm trunks and tall reeds, two poised pitch-black shadowy silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the dry wash from dense desert brush—stand ready!"
+  Artwork: Shallow golden sand-wash bank in midday light: coiled pitch-black shadowy silhouettes wait tucked still inside left and right clumps of tall dry desert tamarisk brush.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of blowing golden sand-haze, forcing battle."
+  Artwork: Open golden desert dunes softened by blowing pale-gold sand-haze in midday backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Sand Dunes & Oasis.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 SAND DUNES & OASIS SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — SAND DUNES & OASIS SCENE 1 (Golden Erg Dune Bowl)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Tall sweeping wind-rippled golden desert sand dunes enclosing a wide calm packed-sand desert basin in natural midday light above shadowed sand foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — SAND DUNES & OASIS SCENE 2 (Wind-Packed Hardpan Basin)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sun-baked cracked golden-tan clay desert hardpan bordered along the distant horizon by low rolling sand dunes and hardy scrub under clear midday sky.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — SAND DUNES & OASIS SCENE 3 (Dry Sand-Wash Bank)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Shallow dry golden gravel wash bordered along the rear sand bank by gnarled sun-bleached desert roots and tough desert sage at midday over calm flat ground.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — SAND DUNES & OASIS SCENE 4 (Date-Palm Oasis Verge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Graceful cluster of desert date palms and pale oasis reeds shading a calm turquoise spring pool along the far edge in midday light above dry shadowed golden sand foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — SAND DUNES & OASIS SCENE 5 (Barchan Dune Ridge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Smooth crescent-shaped golden barchan sand dunes curving cleanly across the far skyline under clear midday sun above calm shadowed sand foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — SAND DUNES & OASIS SCENE 6 (Desert Tamarisk Hollow)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sheltered golden sand hollow anchored along the rear ridge by twisted desert tamarisk bushes and dry grass tufts at midday above smooth packed sand front.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — SAND DUNES & OASIS SCENE 7 (Sun-Bleached Caravan Track)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Faint weathered caravan wheel tracks pressed across firm wind-swept golden desert clay rimmed behind by sweeping sunlit dunes at midday.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — SAND DUNES & OASIS SCENE 8 (Haze-Veiled Dune Pass)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sweeping golden desert sand dunes, wind-packed golden-tan desert hardpan flats, shallow dry sand washes, hardy desert scrub, and palm-shaded desert oasis edges at midday (strictly rolling golden sand dunes & desert oasis terrain, NO red terracotta sandstone canyons, NO towering canyon mesas, NO carved palace pillar halls, NO snow, NO people, NO monsters). Strictly uninhabited wide enclosed midday desert scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Steep golden sand dune slopes rising left and right framing a sheltered level desert pass softened by pale midday sand-haze above calm shadowed sand foreground.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_23_desert_plaza_arena (Battleground 1 · Sun-Baked Desert Hardpan)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching sun-baked golden-tan desert clay hardpan, wind-packed golden sand, and sparse dry desert scrub in natural midday light (strictly NO red sandstone canyons, NO towering canyon mesas, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open golden desert hardpan ground—push the entire horizontal west-to-east perimeter dune/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies a wide, completely flat level sun-baked golden-tan desert clay hardpan ground lightly dusted with windblown sand across both combat sides—strictly clear with zero protruding rocks, zero bushes, zero water pools, and zero dune ridges.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top margin runs ONE straight east-to-west line of low golden sand dunes and sparse dry desert scrub beneath a slim midday sky.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_24_desert_canyon_arena (Battleground 2 · Packed Golden Dune Flat)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching sun-baked golden-tan desert clay hardpan, wind-packed golden sand, and sparse dry desert scrub in natural midday light (strictly NO red sandstone canyons, NO towering canyon mesas, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open desert dune flat—push the entire horizontal west-to-east perimeter dune/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin up to the top strip lies a broad, level, smooth matte wind-packed golden desert sand ground firm underfoot across both left and right sides—strictly flat and bare with zero sand pits, zero boulders, and zero shrubs anywhere inside the bottom 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top edge run smooth horizontal east-to-west golden dune crests dotted sparsely with dry desert scrub under midday sky.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_25_desert_oasis_arena (Battleground 3 · Firm Oasis Sand Verge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching sun-baked golden-tan desert clay hardpan, wind-packed golden sand, and clipped oasis edge grass in natural midday light (strictly NO red sandstone canyons, NO towering canyon mesas, no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open desert oasis shore clearing—push the entire horizontal west-to-east perimeter palm/oasis/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top rim lies a wide, flat, dry packed golden desert sand and clipped oasis turf floor in natural midday light across both sides—completely open underfoot with zero water pools, zero palm trunks, and zero boulders in the lower 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top edge run graceful date-palm trunks, oasis reeds, and shallow turquoise oasis water backed by golden sand dunes under midday sky.
+--- COPY-PASTE PROMPT END ---

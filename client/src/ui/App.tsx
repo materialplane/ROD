@@ -15,10 +15,14 @@ import { ConfirmNewCampaignModal, LoadCampaignModal, PauseMenuModal, SettingsMod
 import { OpeningCutsceneModal } from "./components/OpeningCutsceneModal";
 import { OverworldCanvas, type OverworldEncounterTrigger, type PlayerRuntimeRef } from "./components/OverworldCanvas";
 import { CharacterSelectModal, PartyMenuModal } from "./components/PartyModals";
+import { QuestCardThumb } from "./components/QuestCardThumb";
 import { TitleScreen } from "./components/TitleScreen";
 import { BattleOverlay, type BattleOutcomeResult } from "./battle/BattleOverlay";
-import { createBattleState } from "./battle/battleLogic";
+import { createBattleState, mergeDiscoveredMonsterTraits } from "./battle/battleLogic";
 import type { BattleState } from "./battle/battleTypes";
+import { DungeonDelveModal } from "./dungeons/DungeonDelveModal";
+import { createAqueductDelveRun, type DelveNode, type DelveRunState } from "./dungeons/delveEngine";
+import type { DungeonCatalogData } from "./dungeons/dungeonTypes";
 import { ensureCoreCatalogsLoaded, fetchRequiredJson } from "./coreCatalogs";
 import { DEFAULT_PARTY_ORDER, getHeroById, getHeroProgression, normalizePartyOrder } from "./heroes";
 import {
@@ -38,12 +42,23 @@ import {
 import type { BuyConfirmChoice } from "./shops/ShopCounterPanel";
 import { countRegionSpellsForHero, itemSlotForHero, MAX_SPELLS_PER_REGION } from "./shops/shopLogic";
 import { getGlobalActiveQuestLimit, normalizeOutpostOfferScale, pluralizeMonsterName, rollOutpostHuntOffer, setOutpostHuntsCatalog } from "./quests/outpostHunts";
+import { resolveOutpostHuntLore } from "./quests/outpostHuntLore";
+import {
+  getQuestStoryChainInfo,
+  makeHuntTrackKey,
+  makeQuestTrackKey,
+  MAX_TRACKED_QUESTS,
+  normalizeQuestProgressMap,
+  normalizeTrackedQuestKeys,
+} from "./quests/questUtils";
 import type {
   ActiveOutpostHunt,
+  ActiveQuestProgress,
   AudioSettings,
   BattleConfigData,
   ChosenDisciplinesMap,
   DisciplineOption,
+  DiscoveredMonsterTraitsMap,
   EquippedGearMap,
   GearSlot,
   HeroAttrKey,
@@ -133,6 +148,7 @@ export const App: React.FC = () => {
   const [openingCutsceneOpen, setOpeningCutsceneOpen] = useState(false);
   const [partyOpen, setPartyOpen] = useState(false);
   const [partyInitialTab, setPartyInitialTab] = useState<LedgerTabId>("party");
+  const [journalFocusRequest, setJournalFocusRequest] = useState<{ key: string; seq: number } | null>(null);
   const [loadOpen, setLoadOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [paused, setPaused] = useState(false);
@@ -145,7 +161,13 @@ export const App: React.FC = () => {
   const leaderXp = getHeroXp(heroXp, partyOrder[0] ?? "valen");
 
   const [audio, setAudio] = useState<AudioSettings>(() => loadAudioSettings());
-  const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const [toastMsg, setToastMsg] = useState<{
+    text: string;
+    cardId?: string;
+    fallbackPath?: string;
+    badgeCardId?: string;
+  } | null>(null);
+  const toastSeqRef = useRef(0);
   const [loadErrorMsg, setLoadErrorMsg] = useState<string | null>(null);
 
   const [mapMeta, setMapMeta] = useState<MapMeta | null>(null);
@@ -158,6 +180,8 @@ export const App: React.FC = () => {
   const [spellsCatalog, setSpellsCatalog] = useState<SpellEntry[]>([]);
   const [disciplinesByHero, setDisciplinesByHero] = useState<Partial<Record<HeroId, HeroDisciplinesEntry>>>({});
   const [battleConfig, setBattleConfig] = useState<BattleConfigData | null>(null);
+  const [dungeonCatalog, setDungeonCatalog] = useState<DungeonCatalogData | null>(null);
+  const [activeDelve, setActiveDelve] = useState<DelveRunState | null>(null);
   const [travelCatalog, setTravelCatalog] = useState<TravelCatalog | null>(null);
   const [silver, setSilver] = useState<number>(() => getStartingCampaignSilver());
   const [equippedByHero, setEquippedByHero] = useState<EquippedGearMap>({});
@@ -178,10 +202,13 @@ export const App: React.FC = () => {
   const [innResting, setInnResting] = useState(false);
   const [acceptedQuestIds, setAcceptedQuestIds] = useState<string[]>([]);
   const [completedQuestIds, setCompletedQuestIds] = useState<string[]>([]);
+  const [questProgressById, setQuestProgressById] = useState<Record<string, ActiveQuestProgress>>({});
+  const [trackedQuestKeys, setTrackedQuestKeys] = useState<string[]>([]);
   const [activeOutpostHunts, setActiveOutpostHunts] = useState<ActiveOutpostHunt[]>([]);
   const [outpostOffers, setOutpostOffers] = useState<Record<string, ActiveOutpostHunt>>({});
   const [completedOutpostHunts, setCompletedOutpostHunts] = useState<number>(0);
   const [initialDiscovered, setInitialDiscovered] = useState<string[]>([]);
+  const [discoveredMonsterTraits, setDiscoveredMonsterTraits] = useState<DiscoveredMonsterTraitsMap>({});
   const [spawnState, setSpawnState] = useState<{ x: number; y: number; playtime: number }>({
     x: 5429,
     y: 5730,
@@ -217,12 +244,18 @@ export const App: React.FC = () => {
     return latest;
   }, []);
 
-  const showToast = useCallback((msg: string) => {
-    setToastMsg(msg);
-    window.setTimeout(() => {
-      setToastMsg((cur) => (cur === msg ? null : cur));
-    }, 2000);
-  }, []);
+  const showToast = useCallback(
+    (msg: string, card?: { cardId: string; fallbackPath?: string; badgeCardId?: string }) => {
+      const seq = ++toastSeqRef.current;
+      setToastMsg(card ? { text: msg, ...card } : { text: msg });
+      window.setTimeout(() => {
+        if (toastSeqRef.current === seq) {
+          setToastMsg(null);
+        }
+      }, card ? 2600 : 2000);
+    },
+    []
+  );
 
   const reportFatalLoadError = useCallback((err: unknown) => {
     const msg = err instanceof Error ? err.message : String(err);
@@ -250,7 +283,7 @@ export const App: React.FC = () => {
           setMapMeta(meta);
         }
 
-        const [, wParsed, nParsed, qParsed, iParsed, sParsed, pParsed, dParsed, bParsed, ohParsed, trParsed] =
+        const [, wParsed, nParsed, qParsed, iParsed, sParsed, pParsed, dParsed, bParsed, ohParsed, trParsed, dgParsed] =
           await Promise.all([
             ensureCoreCatalogsLoaded(),
             fetchRequiredJson<{ locations?: WorldLocation[] }>("assets/data/world-locations.json", bust),
@@ -263,10 +296,12 @@ export const App: React.FC = () => {
             fetchRequiredJson<BattleConfigData>("assets/data/battle-config.json", bust),
             fetchRequiredJson<OutpostHuntsCatalog>("assets/data/outpost-hunts-catalog.json", bust),
             fetchRequiredJson<TravelCatalog>("assets/data/travel-catalog.json", bust),
+            fetchRequiredJson<DungeonCatalogData>("assets/data/dungeon-catalog.json", bust),
           ]);
 
         setOutpostHuntsCatalog(ohParsed);
         setTravelCatalog(trParsed);
+        setDungeonCatalog(dgParsed);
 
         const dMap: Partial<Record<HeroId, HeroDisciplinesEntry>> = {};
         for (const hEntry of dParsed.heroes ?? []) {
@@ -289,6 +324,7 @@ export const App: React.FC = () => {
         setQuestsCatalog(loadedQuests);
         const qMap: Record<string, QuestEntry> = {};
         for (const q of loadedQuests) {
+          qMap[q.questId] = q;
           qMap[`${q.hubId}::${q.title}`] = q;
           if (!qMap[q.title]) qMap[q.title] = q;
         }
@@ -335,9 +371,12 @@ export const App: React.FC = () => {
     partyXp: save.partyXp,
     sealedPortalIds: save.sealedPortalIds,
     completedQuestIds: save.completedQuestIds,
+    questProgressById: save.questProgressById,
+    trackedQuestKeys: save.trackedQuestKeys,
     activeOutpostHunts: save.activeOutpostHunts,
     outpostOffers: save.outpostOffers,
     completedOutpostHunts: save.completedOutpostHunts,
+    discoveredMonsterTraits: save.discoveredMonsterTraits,
     mapId: save.mapId,
     activeBattle: save.activeBattle ?? null,
   });
@@ -356,6 +395,8 @@ export const App: React.FC = () => {
         discovered?: string[];
         acceptedQuests?: string[];
         completedQuestIds?: string[];
+        questProgressById?: Record<string, ActiveQuestProgress>;
+        trackedQuestKeys?: string[];
         activeOutpostHunts?: ActiveOutpostHunt[];
         outpostOffers?: Record<string, ActiveOutpostHunt>;
         completedOutpostHunts?: number;
@@ -374,6 +415,7 @@ export const App: React.FC = () => {
         heroLevels?: Partial<Record<HeroId, number>>;
         heroXp?: Partial<Record<HeroId, number>>;
         partyXp?: number;
+        discoveredMonsterTraits?: DiscoveredMonsterTraitsMap;
         activeBattle?: BattleState | null;
       }
     ): SaveSlotData | null => {
@@ -404,8 +446,11 @@ export const App: React.FC = () => {
         heroName: leader.name,
         partyOrder: order,
         discoveredLocations: discovered,
+        discoveredMonsterTraits: override?.discoveredMonsterTraits ?? discoveredMonsterTraits,
         acceptedQuestIds: quests,
         completedQuestIds: override?.completedQuestIds ?? completedQuestIds,
+        questProgressById: override?.questProgressById ?? questProgressById,
+        trackedQuestKeys: override?.trackedQuestKeys ?? trackedQuestKeys,
         activeOutpostHunts: override?.activeOutpostHunts ?? activeOutpostHunts,
         outpostOffers: override?.outpostOffers ?? outpostOffers,
         completedOutpostHunts: override?.completedOutpostHunts ?? completedOutpostHunts,
@@ -440,6 +485,8 @@ export const App: React.FC = () => {
       heroXp,
       acceptedQuestIds,
       completedQuestIds,
+      questProgressById,
+      trackedQuestKeys,
       activeOutpostHunts,
       outpostOffers,
       completedOutpostHunts,
@@ -455,6 +502,7 @@ export const App: React.FC = () => {
       runestonesBag,
       heroHpPct,
       heroMpPct,
+      discoveredMonsterTraits,
     ]
   );
 
@@ -472,6 +520,8 @@ export const App: React.FC = () => {
         discovered?: string[];
         acceptedQuests?: string[];
         completedQuestIds?: string[];
+        questProgressById?: Record<string, ActiveQuestProgress>;
+        trackedQuestKeys?: string[];
         activeOutpostHunts?: ActiveOutpostHunt[];
         outpostOffers?: Record<string, ActiveOutpostHunt>;
         completedOutpostHunts?: number;
@@ -490,6 +540,7 @@ export const App: React.FC = () => {
         runestonesBag?: RunestoneItem[];
         heroHpPct?: Partial<Record<HeroId, number>>;
         heroMpPct?: Partial<Record<HeroId, number>>;
+        discoveredMonsterTraits?: DiscoveredMonsterTraitsMap;
         activeBattle?: BattleState | null;
       }
     ) => {
@@ -529,9 +580,12 @@ export const App: React.FC = () => {
         partyXp?: number;
         sealedPortalIds?: string[];
         completedQuestIds?: string[];
+        questProgressById?: Record<string, ActiveQuestProgress>;
+        trackedQuestKeys?: string[];
         activeOutpostHunts?: ActiveOutpostHunt[];
         outpostOffers?: Record<string, ActiveOutpostHunt>;
         completedOutpostHunts?: number;
+        discoveredMonsterTraits?: DiscoveredMonsterTraitsMap;
         mapId?: string;
         activeBattle?: BattleState | null;
       }
@@ -557,6 +611,18 @@ export const App: React.FC = () => {
         const initOutpostHuntsList = (inventoryOverride?.activeOutpostHunts ?? []).map((h) =>
           normalizeOutpostOfferScale(h, loadedBattleConfig)
         );
+        const initQuestProgress = normalizeQuestProgressMap(
+          inventoryOverride?.questProgressById,
+          acceptedQuestsOverride
+        );
+        const defaultAutoPins = [
+          ...initOutpostHuntsList.map((h) => makeHuntTrackKey(h.outpostId)),
+          ...acceptedQuestsOverride.map((qid) => makeQuestTrackKey(qid)),
+        ].slice(0, MAX_TRACKED_QUESTS);
+        const initTrackedKeys =
+          inventoryOverride?.trackedQuestKeys !== undefined
+            ? normalizeTrackedQuestKeys(inventoryOverride.trackedQuestKeys, acceptedQuestsOverride, initOutpostHuntsList)
+            : defaultAutoPins;
         const initOutpostOffers = Object.fromEntries(
           Object.entries(inventoryOverride?.outpostOffers ?? {}).map(([k, v]) => [
             k,
@@ -564,13 +630,17 @@ export const App: React.FC = () => {
           ])
         );
         const initOutpostHunts = inventoryOverride?.completedOutpostHunts ?? 0;
+        const initDiscoveredTraits = inventoryOverride?.discoveredMonsterTraits ?? {};
 
         setPartyOrder(nextOrder);
         setHeroLevels(initLevels);
         setHeroXp(initXpMap);
         setInitialDiscovered(discoveredOverride);
+        setDiscoveredMonsterTraits(initDiscoveredTraits);
         setAcceptedQuestIds(acceptedQuestsOverride);
         setCompletedQuestIds(initCompletedQuests);
+        setQuestProgressById(initQuestProgress);
+        setTrackedQuestKeys(initTrackedKeys);
         setActiveOutpostHunts(initOutpostHuntsList);
         setOutpostOffers(initOutpostOffers);
         setCompletedOutpostHunts(initOutpostHunts);
@@ -589,6 +659,7 @@ export const App: React.FC = () => {
         const nextBattle = inventoryOverride?.activeBattle ?? null;
         liveBattleRef.current = nextBattle;
         setActiveBattle(nextBattle);
+        setActiveDelve(null);
         setActiveLocationId(null);
         setInnResting(false);
         setSpawnState({ x, y, playtime });
@@ -617,6 +688,8 @@ export const App: React.FC = () => {
             discovered: discoveredOverride,
             acceptedQuests: acceptedQuestsOverride,
             completedQuestIds: initCompletedQuests,
+            questProgressById: initQuestProgress,
+            trackedQuestKeys: initTrackedKeys,
             activeOutpostHunts: initOutpostHuntsList,
             outpostOffers: initOutpostOffers,
             completedOutpostHunts: initOutpostHunts,
@@ -632,6 +705,7 @@ export const App: React.FC = () => {
             runestonesBag: initRunestonesBag,
             heroHpPct: initHpPct,
             heroMpPct: initMpPct,
+            discoveredMonsterTraits: initDiscoveredTraits,
           });
         }
       };
@@ -962,6 +1036,7 @@ export const App: React.FC = () => {
           if (partyOpen && partyInitialTab === "journal") {
             setPartyOpen(false);
           } else {
+            setJournalFocusRequest(null);
             setPartyInitialTab("journal");
             setPartyOpen(true);
           }
@@ -994,13 +1069,19 @@ export const App: React.FC = () => {
         handleLeaveLocation();
         return;
       }
+      if (screen === "game" && activeDelve) {
+        audioEngine.playSfx("ui_close", 0.28);
+        setActiveDelve(null);
+        setActiveLocationId(HIGHCROWN_ID);
+        return;
+      }
       if (screen === "game") {
         setPaused((p) => !p);
       }
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [confirmNewOpen, charSelectOpen, openingCutsceneOpen, partyOpen, partyInitialTab, loadOpen, settingsOpen, screen, activeLocationId, activeBattle, handleLeaveLocation]);
+  }, [confirmNewOpen, charSelectOpen, openingCutsceneOpen, partyOpen, partyInitialTab, loadOpen, settingsOpen, screen, activeLocationId, activeDelve, activeBattle, handleLeaveLocation]);
 
   useEffect(() => {
     audioEngine.applySettings(audio);
@@ -1089,10 +1170,10 @@ export const App: React.FC = () => {
       audioEngine.setMusicContext("exploration");
     }
 
-    if (screen !== "game" || paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId || activeBattle) {
+    if (screen !== "game" || paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId || activeBattle || activeDelve) {
       audioEngine.setMovementLoop("none");
     }
-  }, [restoringSession, charSelectOpen, openingCutsceneOpen, screen, partyOpen, paused, loadOpen, settingsOpen, activeLocationId, activeLocation?.mapId, innResting, activeBattle]);
+  }, [restoringSession, charSelectOpen, openingCutsceneOpen, screen, partyOpen, paused, loadOpen, settingsOpen, activeLocationId, activeLocation?.mapId, innResting, activeBattle, activeDelve]);
 
   const handleAudioChange = useCallback(<K extends keyof AudioSettings>(key: K, val: AudioSettings[K]) => {
     setAudio((prev) => ({ ...prev, [key]: val }));
@@ -1125,6 +1206,7 @@ export const App: React.FC = () => {
     setLatestSave(null);
     setSavesList([]);
     setInitialDiscovered([]);
+    setDiscoveredMonsterTraits({});
     setAcceptedQuestIds([]);
     setActiveLocationId(null);
     setConfirmNewOpen(false);
@@ -1162,45 +1244,116 @@ export const App: React.FC = () => {
   const handleAcceptQuest = useCallback(
     (quest: QuestEntry) => {
       if (completedQuestIds.includes(quest.questId)) {
-        showToast("Quest already completed");
+        showToast(`Quest already completed: ${quest.title}`, {
+          cardId: quest.questId,
+          fallbackPath: quest.assetPath,
+          badgeCardId: "quest_complete_royal_seal",
+        });
         return;
       }
       if (acceptedQuestIds.includes(quest.questId)) return;
-      const activeLimit = getGlobalActiveQuestLimit();
-      if (acceptedQuestIds.length + activeOutpostHunts.length >= activeLimit) {
-        showToast(`Journal full (${activeLimit}/${activeLimit} active quests)`);
+
+      const chainInfo = getQuestStoryChainInfo(quest.questId, travelCatalog, questsByKey, new Set(completedQuestIds));
+      if (chainInfo?.isLockedByChain && chainInfo.prerequisiteQuest) {
+        showToast(
+          `Story prerequisite: Complete "${chainInfo.prerequisiteQuest.title}" (${chainInfo.prerequisiteQuest.hubName}) first`,
+          {
+            cardId: chainInfo.prerequisiteQuest.questId,
+            fallbackPath: chainInfo.prerequisiteQuest.assetPath,
+          }
+        );
         return;
       }
-      const next = [...acceptedQuestIds, quest.questId];
-      setAcceptedQuestIds(next);
+
+      const activeLimit = getGlobalActiveQuestLimit();
+      if (acceptedQuestIds.length + activeOutpostHunts.length >= activeLimit) {
+        showToast(`Journal full (${activeLimit}/${activeLimit}) — abandon a quest or hunt first`, {
+          cardId: quest.questId,
+          fallbackPath: quest.assetPath,
+        });
+        return;
+      }
+
+      const nextAccepted = [...acceptedQuestIds, quest.questId];
+      const nextProgress: Record<string, ActiveQuestProgress> = {
+        ...questProgressById,
+        [quest.questId]: {
+          questId: quest.questId,
+          stage: "active",
+          acceptedAtPlaytime: runtimeRef.current.playtime,
+        },
+      };
+      const trackKey = makeQuestTrackKey(quest.questId);
+      const nextTracked =
+        !trackedQuestKeys.includes(trackKey) && trackedQuestKeys.length < MAX_TRACKED_QUESTS
+          ? [...trackedQuestKeys, trackKey]
+          : trackedQuestKeys;
+
+      setAcceptedQuestIds(nextAccepted);
+      setQuestProgressById(nextProgress);
+      if (nextTracked !== trackedQuestKeys) setTrackedQuestKeys(nextTracked);
+
       if (mapMeta) {
         void persistSave("autosave", "Auto-Save", {
           x: runtimeRef.current.x,
           y: runtimeRef.current.y,
           playtime: runtimeRef.current.playtime,
           meta: mapMeta,
-          acceptedQuests: next,
+          acceptedQuests: nextAccepted,
+          questProgressById: nextProgress,
+          trackedQuestKeys: nextTracked,
         });
       }
       audioEngine.playSave();
-      showToast(`Quest Accepted: ${quest.title}`);
+      showToast(`Quest Accepted: ${quest.title}`, {
+        cardId: quest.questId,
+        fallbackPath: quest.assetPath,
+      });
     },
-    [acceptedQuestIds, activeOutpostHunts.length, completedQuestIds, mapMeta, persistSave, showToast]
+    [
+      acceptedQuestIds,
+      activeOutpostHunts.length,
+      completedQuestIds,
+      mapMeta,
+      persistSave,
+      questProgressById,
+      questsByKey,
+      showToast,
+      trackedQuestKeys,
+      travelCatalog,
+    ]
   );
 
   const handleAcceptOutpostHunt = useCallback(
     (hunt: ActiveOutpostHunt) => {
-      if (activeOutpostHunts.some((h) => h.outpostId === hunt.outpostId)) {
-        showToast("Finish or abandon your active hunt at this Outpost first");
+      const existing = activeOutpostHunts.find((h) => h.outpostId === hunt.outpostId);
+      if (existing) {
+        const existingLore = resolveOutpostHuntLore(existing.mobId, existing.mobName, existing.outpostName, existing.zoneNum, existing.biomeHints);
+        showToast(`Finish or abandon "${existingLore.contractTitle}" first`, {
+          cardId: existing.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board",
+          fallbackPath: existing.mobIconPath,
+        });
         return;
       }
+      const huntCardId = hunt.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board";
       const activeLimit = getGlobalActiveQuestLimit();
       if (acceptedQuestIds.length + activeOutpostHunts.length >= activeLimit) {
-        showToast(`Journal full (${activeLimit}/${activeLimit} active quests)`);
+        showToast(`Journal full (${activeLimit}/${activeLimit}) — finish a quest before taking this hunt`, {
+          cardId: huntCardId,
+          fallbackPath: hunt.mobIconPath,
+        });
         return;
       }
       const nextHunts = [...activeOutpostHunts, { ...hunt, killsProgress: 0 }];
+      const trackKey = makeHuntTrackKey(hunt.outpostId);
+      const nextTracked =
+        !trackedQuestKeys.includes(trackKey) && trackedQuestKeys.length < MAX_TRACKED_QUESTS
+          ? [...trackedQuestKeys, trackKey]
+          : trackedQuestKeys;
+
       setActiveOutpostHunts(nextHunts);
+      if (nextTracked !== trackedQuestKeys) setTrackedQuestKeys(nextTracked);
+
       if (mapMeta) {
         void persistSave("autosave", "Auto-Save", {
           x: runtimeRef.current.x,
@@ -1208,19 +1361,35 @@ export const App: React.FC = () => {
           playtime: runtimeRef.current.playtime,
           meta: mapMeta,
           activeOutpostHunts: nextHunts,
+          trackedQuestKeys: nextTracked,
         });
       }
       audioEngine.playSave();
-      showToast(`Hunt Accepted: Slay ${hunt.killsRequired} ${pluralizeMonsterName(hunt.mobName, hunt.killsRequired)}`);
+      showToast(`Hunt Accepted: Slay ${hunt.killsRequired} ${pluralizeMonsterName(hunt.mobName, hunt.killsRequired)}`, {
+        cardId: huntCardId,
+        fallbackPath: hunt.mobIconPath,
+      });
     },
-    [acceptedQuestIds.length, activeOutpostHunts, mapMeta, persistSave, showToast]
+    [acceptedQuestIds.length, activeOutpostHunts, mapMeta, persistSave, showToast, trackedQuestKeys]
   );
 
   const handleAbandonOutpostHunt = useCallback(
     (outpostId: string) => {
+      const removed = activeOutpostHunts.find((h) => h.outpostId === outpostId);
       const nextHunts = activeOutpostHunts.filter((h) => h.outpostId !== outpostId);
+      const huntKey = makeHuntTrackKey(outpostId);
+      const nextTracked = trackedQuestKeys.filter((k) => k !== huntKey);
       setActiveOutpostHunts(nextHunts);
-      showToast("Outpost hunt abandoned");
+      if (nextTracked.length !== trackedQuestKeys.length) setTrackedQuestKeys(nextTracked);
+      if (removed) {
+        const lore = resolveOutpostHuntLore(removed.mobId, removed.mobName, removed.outpostName, removed.zoneNum, removed.biomeHints);
+        showToast(`Hunt abandoned: ${lore.contractTitle}`, {
+          cardId: removed.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board",
+          fallbackPath: removed.mobIconPath,
+        });
+      } else {
+        showToast("Outpost hunt abandoned", { cardId: "quest_outpost_hunt_board" });
+      }
       if (mapMeta) {
         void persistSave("autosave", "Auto-Save", {
           x: runtimeRef.current.x,
@@ -1228,10 +1397,11 @@ export const App: React.FC = () => {
           playtime: runtimeRef.current.playtime,
           meta: mapMeta,
           activeOutpostHunts: nextHunts,
+          trackedQuestKeys: nextTracked,
         });
       }
     },
-    [activeOutpostHunts, mapMeta, persistSave, showToast]
+    [activeOutpostHunts, mapMeta, persistSave, showToast, trackedQuestKeys]
   );
 
   const handleCompleteOutpostHunt = useCallback(
@@ -1240,6 +1410,8 @@ export const App: React.FC = () => {
       if (!hunt || hunt.killsProgress < hunt.killsRequired) return;
 
       const nextHunts = activeOutpostHunts.filter((h) => h.outpostId !== outpostId);
+      const huntKey = makeHuntTrackKey(outpostId);
+      const nextTracked = trackedQuestKeys.filter((k) => k !== huntKey);
       const nextCompleted = completedOutpostHunts + 1;
       const nextSilver = silver + hunt.rewardSilver;
 
@@ -1257,6 +1429,7 @@ export const App: React.FC = () => {
       const nextAvgLv = getAveragePartyLevel(nextLevels, partyOrder, 1);
 
       setActiveOutpostHunts(nextHunts);
+      if (nextTracked.length !== trackedQuestKeys.length) setTrackedQuestKeys(nextTracked);
       setCompletedOutpostHunts(nextCompleted);
       setSilver(nextSilver);
       setHeroLevels(nextLevels);
@@ -1277,7 +1450,12 @@ export const App: React.FC = () => {
       showToast(
         leveledNames.length > 0
           ? `Hunt Complete! ${leveledNames.join(", ")} (+${hunt.rewardSilver.toLocaleString()}s · +${hunt.rewardXp.toLocaleString()} XP per hero)`
-          : `Hunt Complete: +${hunt.rewardSilver.toLocaleString()}s · +${hunt.rewardXp.toLocaleString()} XP per hero`
+          : `Hunt Complete: +${hunt.rewardSilver.toLocaleString()}s · +${hunt.rewardXp.toLocaleString()} XP per hero`,
+        {
+          cardId: hunt.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board",
+          fallbackPath: hunt.mobIconPath,
+          badgeCardId: "quest_complete_royal_seal",
+        }
       );
 
       if (mapMeta) {
@@ -1291,6 +1469,7 @@ export const App: React.FC = () => {
           heroXp: nextXpMap,
           silver: nextSilver,
           activeOutpostHunts: nextHunts,
+          trackedQuestKeys: nextTracked,
           outpostOffers: nextOffers,
           completedOutpostHunts: nextCompleted,
         });
@@ -1308,6 +1487,7 @@ export const App: React.FC = () => {
       persistSave,
       showToast,
       silver,
+      trackedQuestKeys,
       worldLocations,
     ]
   );
@@ -1704,9 +1884,9 @@ export const App: React.FC = () => {
     ]
   );
 
-  const handleTriggerEncounter = useCallback(
+  const launchBattleFromTrigger = useCallback(
     (trigger: OverworldEncounterTrigger) => {
-      if (!battleConfig || activeBattle || activeLocationId) return;
+      if (!battleConfig || activeBattle) return;
       const bState = createBattleState({
         config: battleConfig,
         partyOrder,
@@ -1728,6 +1908,7 @@ export const App: React.FC = () => {
         zoneMax: trigger.zoneMax,
         nearWaterKind: trigger.nearWaterKind,
         portalLoc: trigger.portalLoc,
+        discoveredMonsterTraits,
       });
       liveBattleRef.current = bState;
       setActiveBattle(bState);
@@ -1743,10 +1924,10 @@ export const App: React.FC = () => {
     },
     [
       activeBattle,
-      activeLocationId,
       battleConfig,
       chosenDisciplinesByHero,
       disciplinesByHero,
+      discoveredMonsterTraits,
       equippedByHero,
       heroHpPct,
       heroLevels,
@@ -1759,6 +1940,38 @@ export const App: React.FC = () => {
       persistSave,
       socketsByHero,
     ]
+  );
+
+  const handleTriggerEncounter = useCallback(
+    (trigger: OverworldEncounterTrigger) => {
+      if (activeLocationId) return;
+      launchBattleFromTrigger(trigger);
+    },
+    [activeLocationId, launchBattleFromTrigger]
+  );
+
+  const handleEnterPortalBattle = useCallback(
+    (portalLoc: WorldLocation) => {
+      setActiveLocationId(null);
+      setInteriorTrail([]);
+      const zCode = portalLoc.zoneNum ?? 1;
+      const zMax = zCode >= 20 ? 99 : zCode * 5;
+      const zMin = Math.max(1, zCode * 5 - 4);
+      launchBattleFromTrigger({
+        mapId: portalLoc.mapId,
+        x: portalLoc.x ?? runtimeRef.current.x,
+        y: portalLoc.y ?? runtimeRef.current.y,
+        biomeName: portalLoc.playerRegion ?? portalLoc.name,
+        zoneName: `Zone ${zCode}`,
+        zoneCode: zCode,
+        zoneMin: zMin,
+        zoneMax: zMax,
+        nearWaterKind: null,
+        nearWaterBiomeName: null,
+        portalLoc,
+      });
+    },
+    [launchBattleFromTrigger]
   );
 
   const handleBattleSnapshot = useCallback(
@@ -1792,6 +2005,9 @@ export const App: React.FC = () => {
         else nextBag[pid] = rem;
       }
 
+      const nextTraits = mergeDiscoveredMonsterTraits(discoveredMonsterTraits, outcome.discoveredTraits);
+      if (nextTraits !== discoveredMonsterTraits) setDiscoveredMonsterTraits(nextTraits);
+
       if (outcome.result === "fled") {
         setBagCounts(nextBag);
         setHeroHpPct(outcome.heroHpPct);
@@ -1805,14 +2021,16 @@ export const App: React.FC = () => {
             bagCounts: nextBag,
             heroHpPct: outcome.heroHpPct,
             heroMpPct: outcome.heroMpPct,
+            discoveredMonsterTraits: nextTraits,
             activeBattle: null,
           });
         }
-        showToast("Escaped back to Ethoria");
+        showToast(outcome.dungeonContext ? "Retreated down the passage" : "Escaped back to Ethoria");
         return;
       }
 
       if (outcome.result === "defeat") {
+        setActiveDelve(null);
         const fullPct: Partial<Record<HeroId, number>> = {};
         setBagCounts(nextBag);
         setHeroHpPct(fullPct);
@@ -1820,7 +2038,7 @@ export const App: React.FC = () => {
         if (mapMeta) {
           const fallbackHub =
             worldLocations.find(
-              (l) => l.placed && l.mapId === mapMeta.id && l.x !== null && l.y !== null && l.category !== "portal" && l.category !== "quest_field" && l.interiorAssetPath
+              (l) => l.placed && l.mapId === mapMeta.id && l.x !== null && l.y !== null && !l.isPortal && l.category !== "portal" && l.category !== "quest_field" && l.interiorAssetPath
             ) ?? null;
           if (fallbackHub && fallbackHub.x !== null && fallbackHub.y !== null) {
             runtimeRef.current.x = fallbackHub.x;
@@ -1835,6 +2053,7 @@ export const App: React.FC = () => {
             bagCounts: nextBag,
             heroHpPct: fullPct,
             heroMpPct: fullPct,
+            discoveredMonsterTraits: nextTraits,
             activeBattle: null,
           });
         }
@@ -1871,16 +2090,20 @@ export const App: React.FC = () => {
 
       let huntsChanged = false;
       let completedHuntToast: string | null = null;
+      let completedHuntCard: { cardId: string; fallbackPath?: string; badgeCardId?: string } | undefined;
       const nextHunts = activeOutpostHunts.map((h) => {
         if (h.zoneNum !== outcome.zoneCode || h.killsProgress >= h.killsRequired) return h;
         const slain = outcome.defeatedMonsterIds[h.mobId] ?? 0;
         if (slain <= 0) return h;
         huntsChanged = true;
         const nextKills = Math.min(h.killsRequired, h.killsProgress + slain);
+        const cardId = h.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board";
         if (nextKills >= h.killsRequired) {
           completedHuntToast = `Outpost Hunt Complete: ${h.mobName} (${nextKills}/${h.killsRequired}) — Return to ${h.outpostName}!`;
+          completedHuntCard = { cardId, fallbackPath: h.mobIconPath, badgeCardId: "quest_complete_royal_seal" };
         } else {
           completedHuntToast = `Outpost Hunt: ${h.mobName} (${nextKills}/${h.killsRequired})`;
+          completedHuntCard = { cardId, fallbackPath: h.mobIconPath };
         }
         return { ...h, killsProgress: nextKills };
       });
@@ -1894,13 +2117,49 @@ export const App: React.FC = () => {
       setTradeGoodCounts(nextTrade);
       setSealedPortalIds(nextSealed);
       if (huntsChanged) setActiveOutpostHunts(nextHunts);
+
+      // Update delve chamber combat clear & boss quest progress if inside an illustrated delve
+      let nextQuestProgress = questProgressById;
+      let dungeonBossMsg: string | null = null;
+      if (outcome.dungeonContext) {
+        const qid = outcome.dungeonContext.questId;
+        const isBoss = outcome.dungeonContext.isBoss;
+        setActiveDelve((prev) => {
+          if (!prev || prev.questId !== qid) return prev;
+          const node = prev.nodesById[prev.currentNodeId];
+          return {
+            ...prev,
+            bossDefeated: isBoss ? true : prev.bossDefeated,
+            nodesById: node
+              ? { ...prev.nodesById, [node.nodeId]: { ...node, combatCleared: true } }
+              : prev.nodesById,
+          };
+        });
+        if (isBoss) {
+          nextQuestProgress = {
+            ...questProgressById,
+            [qid]: {
+              ...(questProgressById[qid] ?? { questId: qid, stage: "active" }),
+              questId: qid,
+              stage: "objective_cleared",
+              clearedBoss: true,
+            },
+          };
+          setQuestProgressById(nextQuestProgress);
+          dungeonBossMsg = "Garrick Houndmaster Defeated! Slam & bolt the Aqueduct Grate.";
+        }
+      }
+
       audioEngine.playSave();
       showToast(
-        completedHuntToast
-          ? completedHuntToast
-          : leveledNames.length > 0
-            ? `Level Up: ${leveledNames.join(", ")}! (+${outcome.silverEarned}s)`
-            : `Victory! +${outcome.xpEarned} XP · +${outcome.silverEarned}s`
+        dungeonBossMsg
+          ? dungeonBossMsg
+          : completedHuntToast
+            ? completedHuntToast
+            : leveledNames.length > 0
+              ? `Level Up: ${leveledNames.join(", ")}! (+${outcome.silverEarned}s)`
+              : `Victory! +${outcome.xpEarned} XP · +${outcome.silverEarned}s`,
+        completedHuntToast ? completedHuntCard : undefined
       );
       if (mapMeta) {
         void persistSave("autosave", "Auto-Save", {
@@ -1915,9 +2174,11 @@ export const App: React.FC = () => {
           bagCounts: nextBag,
           tradeGoodCounts: nextTrade,
           sealedPortalIds: nextSealed,
+          questProgressById: nextQuestProgress,
           activeOutpostHunts: huntsChanged ? nextHunts : activeOutpostHunts,
           heroHpPct: outcome.heroHpPct,
           heroMpPct: outcome.heroMpPct,
+          discoveredMonsterTraits: nextTraits,
           activeBattle: null,
         });
       }
@@ -1925,11 +2186,13 @@ export const App: React.FC = () => {
     [
       activeOutpostHunts,
       bagCounts,
+      discoveredMonsterTraits,
       heroLevels,
       heroXp,
       mapMeta,
       partyOrder,
       persistSave,
+      questProgressById,
       sealedPortalIds,
       showToast,
       silver,
@@ -1956,9 +2219,20 @@ export const App: React.FC = () => {
 
   const handleAbandonQuest = useCallback(
     (questId: string) => {
+      const removed = questsCatalog.find((entry) => entry.questId === questId);
       const nextQuests = acceptedQuestIds.filter((q) => q !== questId);
+      const nextProgress = { ...questProgressById };
+      delete nextProgress[questId];
+      const nextTracked = trackedQuestKeys.filter((k) => k !== makeQuestTrackKey(questId));
+
       setAcceptedQuestIds(nextQuests);
-      showToast("Quest removed from journal");
+      setQuestProgressById(nextProgress);
+      if (nextTracked.length !== trackedQuestKeys.length) setTrackedQuestKeys(nextTracked);
+
+      showToast(removed ? `Quest abandoned: ${removed.title}` : "Quest removed from journal", {
+        cardId: questId,
+        fallbackPath: removed?.assetPath,
+      });
       if (mapMeta) {
         void persistSave("autosave", "Auto-Save", {
           x: runtimeRef.current.x,
@@ -1966,11 +2240,298 @@ export const App: React.FC = () => {
           playtime: runtimeRef.current.playtime,
           meta: mapMeta,
           acceptedQuests: nextQuests,
+          questProgressById: nextProgress,
+          trackedQuestKeys: nextTracked,
         });
       }
     },
-    [acceptedQuestIds, mapMeta, persistSave, showToast]
+    [acceptedQuestIds, mapMeta, persistSave, questProgressById, questsCatalog, showToast, trackedQuestKeys]
   );
+
+  const handleToggleTrackQuest = useCallback(
+    (trackKey: string) => {
+      const isQuest = trackKey.startsWith("quest:");
+      const isHunt = trackKey.startsWith("hunt:");
+      const qid = isQuest ? trackKey.slice(6) : "";
+      const oid = isHunt ? trackKey.slice(5) : "";
+      const qEntry = qid ? questsByKey[qid] : undefined;
+      const hEntry = oid ? activeOutpostHunts.find((h) => h.outpostId === oid) : undefined;
+      const toastMeta = qEntry
+        ? { cardId: qEntry.questId, fallbackPath: qEntry.assetPath }
+        : hEntry
+          ? {
+              cardId: hEntry.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board",
+              fallbackPath: hEntry.mobIconPath,
+            }
+          : undefined;
+      const label = qEntry
+        ? qEntry.title
+        : hEntry
+          ? resolveOutpostHuntLore(hEntry.mobId, hEntry.mobName, hEntry.outpostName, hEntry.zoneNum, hEntry.biomeHints).contractTitle
+          : "Contract";
+
+      const alreadyPinned = trackedQuestKeys.includes(trackKey);
+      let nextTracked: string[];
+      if (alreadyPinned) {
+        nextTracked = trackedQuestKeys.filter((k) => k !== trackKey);
+        showToast(`Unpinned from HUD: ${label}`, toastMeta);
+      } else if (trackedQuestKeys.length >= MAX_TRACKED_QUESTS) {
+        nextTracked = [...trackedQuestKeys.slice(1), trackKey];
+        showToast(`Pinned to HUD (${MAX_TRACKED_QUESTS}/${MAX_TRACKED_QUESTS}): ${label}`, toastMeta);
+      } else {
+        nextTracked = [...trackedQuestKeys, trackKey];
+        showToast(`Pinned to HUD (${nextTracked.length}/${MAX_TRACKED_QUESTS}): ${label}`, toastMeta);
+      }
+
+      audioEngine.playUiClick(0.32);
+      setTrackedQuestKeys(nextTracked);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          trackedQuestKeys: nextTracked,
+        });
+      }
+    },
+    [activeOutpostHunts, mapMeta, persistSave, questsByKey, showToast, trackedQuestKeys]
+  );
+
+  const handleEnterDungeon = useCallback(
+    (quest: QuestEntry) => {
+      void (async () => {
+        let activeCatalog = dungeonCatalog;
+        try {
+          activeCatalog = await fetchRequiredJson<DungeonCatalogData>("assets/data/dungeon-catalog.json", Date.now());
+          setDungeonCatalog(activeCatalog);
+        } catch {
+          // Fall back cleanly to preloaded catalog
+        }
+        const cfg = activeCatalog?.questDungeons?.[quest.questId] ?? null;
+        const theme = cfg ? activeCatalog?.themes?.find((t) => t.id === cfg.themeId) : null;
+        const delveRun = createAqueductDelveRun(
+          cfg,
+          quest.questId,
+          quest.title,
+          theme?.battleStageId ?? "dungeon_01_stone_aqueduct"
+        );
+        setActiveLocationId(null);
+        setInteriorTrail([]);
+        setActiveDelve(delveRun);
+        audioEngine.playDoorOpen();
+      })();
+    },
+    [dungeonCatalog]
+  );
+
+  const handleGrantDelveRewards = useCallback(
+    (rewards: { silver?: number; potionId?: string; tradeGoodId?: string; quietToast?: boolean }) => {
+      const addSilver = rewards.silver ?? 0;
+      const nextSilver = silver + addSilver;
+      const potId = rewards.potionId;
+      const tgId = rewards.tradeGoodId;
+      const potItem = potId ? itemsById[potId] : undefined;
+      const nextBag = potId ? { ...bagCounts, [potId]: (bagCounts[potId] ?? 0) + 1 } : bagCounts;
+      const nextTrade = tgId
+        ? { ...tradeGoodCounts, [tgId]: (tradeGoodCounts[tgId] ?? 0) + 1 }
+        : tradeGoodCounts;
+
+      if (addSilver > 0) setSilver(nextSilver);
+      if (potId) setBagCounts(nextBag);
+      if (tgId) setTradeGoodCounts(nextTrade);
+      if (!rewards.quietToast) {
+        showToast(potItem ? `Loot Claimed · +1 ${potItem.name}` : "Loot Claimed");
+      }
+
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          silver: nextSilver,
+          bagCounts: nextBag,
+          tradeGoodCounts: nextTrade,
+        });
+      }
+    },
+    [bagCounts, itemsById, mapMeta, persistSave, showToast, silver, tradeGoodCounts]
+  );
+
+  const handleCompleteDelveBossObjective = useCallback(
+    (questId: string) => {
+      const nextProg: Record<string, ActiveQuestProgress> = {
+        ...questProgressById,
+        [questId]: {
+          ...(questProgressById[questId] ?? { questId, stage: "active" }),
+          questId,
+          stage: "ready_to_turn_in",
+          clearedSite: true,
+          clearedBoss: true,
+        },
+      };
+      setQuestProgressById(nextProg);
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          questProgressById: nextProg,
+        });
+      }
+    },
+    [mapMeta, persistSave, questProgressById]
+  );
+
+  const handleTriggerDelveBattle = useCallback(
+    (opts: { node: DelveNode; stageId: string; enemies: string[]; isBoss: boolean; bossLeadName?: string }) => {
+      if (!battleConfig || activeBattle || !activeDelve) return;
+      const bState = createBattleState({
+        config: battleConfig,
+        partyOrder,
+        level: partyLevel,
+        heroLevels,
+        heroSpentAttrs,
+        equippedByHero,
+        itemsById,
+        socketsByHero,
+        heroHpPct,
+        heroMpPct,
+        disciplinesByHero,
+        chosenDisciplinesByHero,
+        mapId: mapMeta?.id ?? "map_01",
+        biomeName: activeDelve.questTitle,
+        zoneName: opts.node.title,
+        zoneCode: 1,
+        zoneMin: opts.isBoss ? 2 : 1,
+        zoneMax: 4,
+        nearWaterKind: null,
+        discoveredMonsterTraits,
+        overrideStageId: opts.stageId,
+        overrideEnemyIds: opts.enemies,
+        isDungeonBoss: opts.isBoss,
+        dungeonBossLeadName: opts.bossLeadName,
+        dungeonContext: { questId: activeDelve.questId, isBoss: opts.isBoss },
+      });
+      liveBattleRef.current = bState;
+      setActiveBattle(bState);
+    },
+    [
+      activeBattle,
+      activeDelve,
+      battleConfig,
+      chosenDisciplinesByHero,
+      disciplinesByHero,
+      discoveredMonsterTraits,
+      equippedByHero,
+      heroHpPct,
+      heroLevels,
+      heroMpPct,
+      heroSpentAttrs,
+      itemsById,
+      mapMeta?.id,
+      partyLevel,
+      partyOrder,
+      socketsByHero,
+    ]
+  );
+
+  const handleCompleteQuest = useCallback(
+    (quest: QuestEntry) => {
+      if (completedQuestIds.includes(quest.questId)) return;
+      const stage = questProgressById[quest.questId]?.stage;
+      if (stage !== "ready_to_turn_in") return;
+
+      const rewardSilverMatch = quest.reward.match(/(\d+)\s*s\b/i);
+      const rewardXpMatch = quest.reward.match(/(\d+)\s*XP\b/i);
+      const rewardSilver = rewardSilverMatch ? Number(rewardSilverMatch[1]) : 85;
+      const rewardXp = rewardXpMatch ? Number(rewardXpMatch[1]) : 80;
+
+      const nextSilver = silver + rewardSilver;
+      const nextLevels: Partial<Record<HeroId, number>> = { ...heroLevels };
+      const nextXpMap: Partial<Record<HeroId, number>> = { ...heroXp };
+      for (const hid of partyOrder) {
+        const res = applyHeroXpGain(getHeroLevel(heroLevels, hid, 1), getHeroXp(heroXp, hid), rewardXp);
+        nextLevels[hid] = res.level;
+        nextXpMap[hid] = res.xp;
+      }
+
+      const nextCompleted = [...completedQuestIds, quest.questId];
+      const nextAccepted = acceptedQuestIds.filter((q) => q !== quest.questId);
+      const nextProgress = { ...questProgressById };
+      delete nextProgress[quest.questId];
+      const nextTracked = trackedQuestKeys.filter((k) => k !== makeQuestTrackKey(quest.questId));
+
+      const nextRunestones = [...runestonesBag];
+      if (/draft/i.test(quest.reward)) {
+        nextRunestones.push({
+          id: `rs_${quest.questId}_${Date.now().toString(36)}`,
+          name: "Lesser Runestone of Vigor",
+          tier: "Lesser",
+          target: "weapon",
+          affix: "+4 Attack Power · +12 Max HP",
+          iconPath: "assets/icons/ui/ui_17_runestone_glyph.webp",
+          sellSilver: 45,
+        });
+      }
+
+      setSilver(nextSilver);
+      setHeroLevels(nextLevels);
+      setHeroXp(nextXpMap);
+      setCompletedQuestIds(nextCompleted);
+      setAcceptedQuestIds(nextAccepted);
+      setQuestProgressById(nextProgress);
+      setTrackedQuestKeys(nextTracked);
+      setRunestonesBag(nextRunestones);
+      audioEngine.playDiscovery();
+      showToast(`Quest Complete: ${quest.title}! (+${rewardSilver}s · +${rewardXp} XP)`, {
+        cardId: quest.questId,
+        fallbackPath: quest.assetPath,
+        badgeCardId: "quest_complete_royal_seal",
+      });
+
+      if (mapMeta) {
+        void persistSave("autosave", "Auto-Save", {
+          x: runtimeRef.current.x,
+          y: runtimeRef.current.y,
+          playtime: runtimeRef.current.playtime,
+          meta: mapMeta,
+          silver: nextSilver,
+          lvl: getAveragePartyLevel(nextLevels, partyOrder, 1),
+          heroLevels: nextLevels,
+          heroXp: nextXpMap,
+          completedQuestIds: nextCompleted,
+          acceptedQuests: nextAccepted,
+          questProgressById: nextProgress,
+          trackedQuestKeys: nextTracked,
+          runestonesBag: nextRunestones,
+        });
+      }
+    },
+    [
+      acceptedQuestIds,
+      completedQuestIds,
+      heroLevels,
+      heroXp,
+      mapMeta,
+      partyOrder,
+      persistSave,
+      questProgressById,
+      runestonesBag,
+      showToast,
+      silver,
+      trackedQuestKeys,
+    ]
+  );
+
+  const handleOpenJournal = useCallback((focusTrackKey?: string) => {
+    setPaused(false);
+    setPartyInitialTab("journal");
+    setJournalFocusRequest(focusTrackKey ? { key: focusTrackKey, seq: Date.now() } : null);
+    setPartyOpen(true);
+  }, []);
 
   if (isCombatSandbox) {
     return (
@@ -2063,7 +2624,7 @@ export const App: React.FC = () => {
       {mapMeta && (
         <OverworldCanvas
           active={screen === "game"}
-          paused={paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId !== null || activeBattle !== null}
+          paused={paused || partyOpen || loadOpen || settingsOpen || openingCutsceneOpen || activeLocationId !== null || activeBattle !== null || activeDelve !== null}
           insideLocationId={overworldRootLocationId}
           mapMeta={mapMeta}
           worldLocations={worldLocations}
@@ -2078,6 +2639,8 @@ export const App: React.FC = () => {
           activeQuestZones={activeQuestZones}
           acceptedQuestIds={acceptedQuestIds}
           completedQuestIds={completedQuestIds}
+          questProgressById={questProgressById}
+          trackedQuestKeys={trackedQuestKeys}
           activeOutpostHunts={activeOutpostHunts}
           questsCatalog={questsCatalog}
           startX={spawnState.x}
@@ -2093,11 +2656,7 @@ export const App: React.FC = () => {
             setPartyInitialTab("party");
             setPartyOpen(true);
           }}
-          onOpenJournal={() => {
-            setPaused(false);
-            setPartyInitialTab("journal");
-            setPartyOpen(true);
-          }}
+          onOpenJournal={handleOpenJournal}
           onOpenPause={() => setPaused(true)}
           onToast={showToast}
         />
@@ -2117,6 +2676,8 @@ export const App: React.FC = () => {
           heroLevels={heroLevels}
           acceptedQuestIds={acceptedQuestIds}
           completedQuestIds={completedQuestIds}
+          questProgressById={questProgressById}
+          trackedQuestKeys={trackedQuestKeys}
           activeOutpostHunts={activeOutpostHunts}
           outpostOffer={activeLocation ? outpostOffers[activeLocation.id] ?? null : null}
           battleConfig={battleConfig}
@@ -2127,17 +2688,23 @@ export const App: React.FC = () => {
           equippedByHero={equippedByHero}
           learnedSpellIds={learnedSpellIds}
           tradeGoodCounts={tradeGoodCounts}
+          bagCounts={bagCounts}
           disciplinesByHero={disciplinesByHero}
           chosenDisciplinesByHero={chosenDisciplinesByHero}
           onSelectDiscipline={handleSelectDiscipline}
           onBuyShopEntry={handleBuyShopEntry}
           onSellAllTradeGoods={handleSellAllTradeGoods}
           onAcceptQuest={handleAcceptQuest}
+          onCompleteQuest={handleCompleteQuest}
+          onEnterDungeon={handleEnterDungeon}
+          onToggleTrackQuest={handleToggleTrackQuest}
+          onOpenJournal={handleOpenJournal}
           onAcceptOutpostHunt={handleAcceptOutpostHunt}
           onCompleteOutpostHunt={handleCompleteOutpostHunt}
           onAbandonOutpostHunt={handleAbandonOutpostHunt}
           onFreeRest={handleFreeRest}
           onSailToPort={(dest) => void handleSailToPort(dest)}
+          onEnterPortal={handleEnterPortalBattle}
           onOpenParty={() => {
             setPaused(false);
             setPartyInitialTab("party");
@@ -2146,6 +2713,32 @@ export const App: React.FC = () => {
           onEnterLocationById={(locId) => handleEnterLocationById(locId, false)}
           onReturnToParent={handleReturnToParentLocation}
           onClose={handleLeaveLocation}
+        />
+      )}
+
+      {screen === "game" && activeDelve && (
+        <DungeonDelveModal
+          open={true}
+          run={activeDelve}
+          silver={silver}
+          partyLevel={partyLevel}
+          partyOrder={partyOrder}
+          heroHpPct={heroHpPct}
+          heroLevels={heroLevels}
+          itemsById={itemsById}
+          onUpdateRun={setActiveDelve}
+          onOpenParty={() => {
+            setPaused(false);
+            setPartyInitialTab("party");
+            setPartyOpen(true);
+          }}
+          onGrantDelveRewards={handleGrantDelveRewards}
+          onCompleteBossObjective={handleCompleteDelveBossObjective}
+          onTriggerDelveBattle={handleTriggerDelveBattle}
+          onExitDungeon={() => {
+            setActiveDelve(null);
+            setActiveLocationId(HIGHCROWN_ID);
+          }}
         />
       )}
 
@@ -2210,12 +2803,20 @@ export const App: React.FC = () => {
         chosenDisciplinesByHero={chosenDisciplinesByHero}
         acceptedQuestIds={acceptedQuestIds}
         completedQuestIds={completedQuestIds}
+        questProgressById={questProgressById}
+        trackedQuestKeys={trackedQuestKeys}
+        travelCatalog={travelCatalog}
+        journalFocusRequest={journalFocusRequest}
         activeOutpostHunts={activeOutpostHunts}
         completedOutpostHunts={completedOutpostHunts}
         questsCatalog={questsCatalog}
         worldLocations={worldLocations}
         discoveredLocations={Array.from(new Set([...initialDiscovered, ...runtimeRef.current.discoveredLocations]))}
         sealedPortalIds={sealedPortalIds}
+        discoveredMonsterTraits={discoveredMonsterTraits}
+        battleMonsters={battleConfig?.monsters}
+        onToggleTrackQuest={handleToggleTrackQuest}
+        onToast={showToast}
         onEquipFromBag={handleEquipFromBag}
         onUnequipSlot={handleUnequipSlot}
         onSwapHands={(heroId) => {
@@ -2342,11 +2943,20 @@ export const App: React.FC = () => {
       {toastMsg && (
         <div
           className={[
-            "fixed left-1/2 -translate-x-1/2 z-40 px-4 py-2 rounded bg-[#141720]/95 border border-[#a88950] text-[#f4d799] text-[13px] font-semibold tracking-wider uppercase shadow-2xl",
+            "fixed left-1/2 -translate-x-1/2 z-40 rounded bg-[#141720]/95 border border-[#a88950] text-[#f4d799] text-[13px] font-semibold tracking-wider uppercase shadow-2xl flex items-center gap-3 max-w-[92vw]",
+            toastMsg.cardId ? "px-3 py-2" : "px-4 py-2",
             activeLocationId ? "top-5" : "bottom-7",
           ].join(" ")}
         >
-          {toastMsg}
+          {toastMsg.cardId && (
+            <QuestCardThumb
+              cardId={toastMsg.cardId}
+              fallbackPath={toastMsg.fallbackPath}
+              badgeCardId={toastMsg.badgeCardId}
+              className="w-[38px] h-[38px] rounded border border-[#967741] bg-[#090c12] shrink-0"
+            />
+          )}
+          <span className="truncate">{toastMsg.text}</span>
         </div>
       )}
 

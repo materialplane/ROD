@@ -317,21 +317,30 @@ export function getStockForHero(
   townShopTypes?: ShopType[]
 ): ShopCatalogEntry[] {
   const { region, zoneNum, steps } = parseHubSteps(hub);
-  const stepSet = new Set(steps);
+  const maxStep = steps.length > 0 ? Math.max(...steps) : 1;
   const canHero = (entry: { usableBy?: HeroId[] }) => !heroId || !entry.usableBy || entry.usableBy.includes(heroId);
 
   if (shopType === "magic") {
     return spells
-      .filter((sp) => sp.region === region && canHero(sp))
+      .filter((sp) => sp.region <= region && canHero(sp))
+      .sort((a, b) => b.region - a.region || a.step - b.step || a.priceSilver - b.priceSilver)
       .map((sp) => ({ ...sp, isSpell: true }));
   }
 
-  const pool = items.filter((it) => {
-    if (!itemBelongsToShop(it, shopType, townShopTypes)) return false;
-    if (!canHero(it)) return false;
-    if (it.category === "consumable") return potionAvailableInZone(it, zoneNum);
-    return it.step !== undefined && stepSet.has(it.step);
-  });
+  const pool = items
+    .filter((it) => {
+      if (!itemBelongsToShop(it, shopType, townShopTypes)) return false;
+      if (!canHero(it)) return false;
+      if (it.category === "consumable") return potionAvailableInZone(it, zoneNum);
+      return it.step !== undefined && it.step <= maxStep;
+    })
+    .sort((a, b) => {
+      const aCons = a.category === "consumable" ? 0 : 1;
+      const bCons = b.category === "consumable" ? 0 : 1;
+      if (aCons !== bCons) return aCons - bCons;
+      if (aCons === 0) return a.priceSilver - b.priceSilver || a.name.localeCompare(b.name);
+      return (b.step ?? 1) - (a.step ?? 1) || a.priceSilver - b.priceSilver || a.name.localeCompare(b.name);
+    });
 
   if (catFilter === "all") return pool;
   if (shopType === "weapon") return pool.filter((x) => (catFilter === "1h" ? x.handed === "1H" : x.handed === "2H"));
@@ -363,6 +372,23 @@ export function canDualWieldItem(
       entry.handed === "1H" &&
       (!entry.usableBy || entry.usableBy.includes(heroId))
   );
+}
+
+export function getPreferredDualWieldSlot(
+  entry: ShopCatalogEntry | ItemEntry | null | undefined,
+  heroId: HeroId,
+  equippedByHero: EquippedGearMap,
+  itemsById: Record<string, ItemEntry>
+): GearSlot {
+  if (!canDualWieldItem(heroId, entry)) return "right_hand";
+  const heroGear = equippedByHero[heroId] ?? {};
+  const rightItem = heroGear.right_hand ? itemsById[heroGear.right_hand] : undefined;
+  const leftItem = heroGear.left_hand ? itemsById[heroGear.left_hand] : undefined;
+  // Auto-target empty Left Hand when Right Hand already holds a 1H weapon.
+  if (rightItem && rightItem.handed !== "2H" && !leftItem) {
+    return "left_hand";
+  }
+  return "right_hand";
 }
 
 export function itemSlotForHero(

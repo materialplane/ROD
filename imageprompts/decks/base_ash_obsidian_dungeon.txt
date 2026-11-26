@@ -1,0 +1,284 @@
+# ROD — Ash & Obsidian Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_ash_obsidian_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Ash & Obsidian Base Deck):
+# - fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — DREADWASTE PASSAGES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). All scenes take place in scorched volcanic basalt wastes, obsidian ridges, and ash-choked wasteland rock (NO castle battlements, NO ice, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ashen Steps"
+  Body Text: "Natural stepped black basalt shelves descend into drifting gray ash haze."
+  Artwork: High bird's-eye angle looking unmistakably DOWNWARD along natural fractured stepped charcoal basalt rock shelves descending into drifting gray ash and glowing molten ember cracks below.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Obsidian Archway"
+  Body Text: "Jagged volcanic glass arches frame a shadowed ash ridge pass beyond."
+  Artwork: Dramatic natural jagged black volcanic obsidian arch spanning across a dark basalt pass opening onto misty gray ash slopes lit softly by distant orange ember twilight.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Scorched Stone Ramp"
+  Body Text: "A sloped ridge of cracked charcoal basalt climbs past cooling cinder vents."
+  Artwork: Low upward-looking volcanic ridge path climbing steadily up a fractured black basalt incline past faint glowing orange cinder vents toward towering obsidian silhouettes above.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Basalt Rift Slab"
+  Body Text: "A wedged slab of black basalt bridges an open glowing cinder fissure."
+  Artwork: Elevated three-quarter volcanic ridge perspective showing TWO solid ash-dusted black basalt cliff landmasses separated by a fierce glowing molten orange fissure chasm: a broad sturdy slab of fractured black basalt spans visibly from solid foreground volcanic ground all the way across onto wide ash-strewn rock on the opposite side.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Paths & Crossings matching Scorched Ash & Obsidian.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — OBSIDIAN CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). All scenes take place in scorched volcanic basalt wastes, obsidian ridges, and ash-choked wasteland rock (NO castle battlements, NO ice, NO people).
+IMPORTANT: Every cache container (pack, stash, crate, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Scout Satchel"
+  Body Text: "Wedge-tucked behind cooling basalt glass, a flame-scarred courier satchel waits."
+  Artwork: Ember-lit obsidian rock crevice: centered front-facing blackened flame-resistant scout satchel pack with iron buckles tucked behind volcanic glass.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Black-Steel Lockbox"
+  Body Text: "Set squarely on scorched basalt, a heavy blackened-steel lockbox rests in ash."
+  Artwork: Ember-lit basalt alcove: centered front-facing heavy blackened-steel war lockbox with riveted iron bands resting solidly against dark obsidian wall.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Garrison Crate"
+  Body Text: "Reinforced with blackened iron straps, a stout siege crate waits undisturbed."
+  Artwork: Ash-drifted obsidian wall nook: centered front-facing charred iron-bound dark timber garrison supply crate set firmly against fractured black basalt.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Obsidian Strongbox"
+  Body Text: "Edged with razor volcanic glass, an armored strongbox sits untouched in dark glow."
+  Artwork: Ward-lit obsidian sanctuary niche: centered front-facing dark obsidian-trimmed black-steel strongbox with cyan keyhole lock resting squarely on basalt.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Scorched Ash & Obsidian.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — ASHEN SPRINGS & ECLIPSE SHRINES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). All scenes take place in scorched volcanic basalt wastes, obsidian ridges, and ash-choked wasteland rock (NO castle battlements, NO ice, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Filtered Basalt Basin"
+  Body Text: "Steam-purified water pools clear inside black slate, restoring the party's HP."
+  Artwork: Quiet obsidian shelf away from molten magma cracks: clean crystal-clear spring water collects inside a smoothly hollowed bowl of matte pitch-black volcanic basalt lit softly by cool pale silver mist rising above drifting gray ash.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Soul-Glass Chalice Altar"
+  Body Text: "An obsidian goblet brims with luminous arcana mist, restoring the party's MP."
+  Artwork: Scorched volcanic ridge bathed in eerie cyan-violet dusk: a tall carved black obsidian chalice pedestal brims with swirling luminescent sky-cyan vapor drifting gently above fractured charcoal stone and faint orange ember veins below.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ember-Forged Iron Anvil"
+  Body Text: "Volcanic heat radiates from a chained black anvil, hardening one hero's guard."
+  Artwork: Ash-dusted basalt terrace beside an open glowing orange magma seam: a massive cracked black-iron war anvil draped in thick glowing chain links radiates intense amber heat lines along its broad forged horn and hammer block.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Obsidian Mirror Arch"
+  Body Text: "A volcanic glass disk framed in black iron guards one hero against spells."
+  Artwork: Grim Shadowfell ash ridge: a tall standing oval mirror crafted of gleaming mirror-black volcanic obsidian glass gripped inside jagged black-iron claws reflects pale drifting ash and crisp turquoise-violet warding arcs across its glossy face.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Basalt Basins, Soul-Glass Chalices & Obsidian Relics matching Scorched Ash & Obsidian.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — DREADWASTE HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). All scenes take place in scorched volcanic basalt wastes, obsidian ridges, and ash-choked wasteland rock (NO castle battlements, NO ice, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Erupting Magma Seam"
+  Body Text: "Cracked black basalt splits open underfoot, jetting fierce molten orange lava spray."
+  Artwork: Fractured charcoal-black volcanic basalt floor splitting brightly open along jagged cracks, erupting fierce incandescent orange molten lava fountains upward.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Shadowfell Ward Blast"
+  Body Text: "Dormant violet Shadowfell sigils along blackened basalt detonate in dark cold fire."
+  Artwork: Dark scorched obsidian courtyard floor igniting sharply along etched violet geometric ward-lines into a crackling dark purple arcane shockwave burst.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Scorching Ash Billow"
+  Body Text: "A suffocating wave of glowing ember-hot gray ash rolls violently across the floor."
+  Artwork: Black basalt terrace swept completely low by churning thick gray volcanic ash billows thick with fierce floating bright-orange cinders and sparks.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Razor Obsidian Cluster"
+  Body Text: "Shattered black volcanic glass shears cleanly upward in gleaming razor ridges underfoot."
+  Artwork: Ash-dusted dark basalt rock floor splitting open as glossy pitch-black razor-edged obsidian volcanic glass shards thrust cleanly upward through gray ash.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Scorched Ash & Obsidian.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — DREADWASTE AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). All scenes take place in scorched volcanic basalt wastes, obsidian ridges, and ash-choked wasteland rock (NO castle battlements, NO ice, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes step out from behind jagged obsidian spires to force a fight."
+  Artwork: Shadowed black obsidian terrace torn by fiery orange ember glow: two ink-black faceless shrouded silhouettes crouch motionless behind jagged obsidian spires.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from scorched basalt parapets above, barring the advance."
+  Artwork: Dim blackened basalt trench lit upward by ember glow: perched quietly along an elevated jagged obsidian ledge overhead, two pitch-black silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the ash trench from basalt corners—stand ready!"
+  Artwork: Moody basalt war-yard lit down the center by cold cyan ward glow: coiled pitch-black shadowy silhouettes wait tucked inside left and right dark rock corners.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of thick gray ash-smoke, forcing battle."
+  Artwork: Dramatic volcanic ash terrace softened by drifting gray ash-smoke and fiery orange backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Scorched Ash & Obsidian.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 ASH & OBSIDIAN SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — ASH & OBSIDIAN SCENE 1 (Ash-Swept Basalt Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Towering fractured columnar charcoal basalt cliffs dusted with drifting pale ash above a calm dark volcanic stone terrace.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — ASH & OBSIDIAN SCENE 2 (Jagged Obsidian Ridge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sharp towering spires of gleaming black volcanic obsidian jutting cleanly along the rear ridge amid fine swirling ash above level dark rock.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — ASH & OBSIDIAN SCENE 3 (Ember Fissure Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Broken volcanic charcoal ridge threaded along the distant wall by narrow glowing orange magma seams above clean dark basalt.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — ASH & OBSIDIAN SCENE 4 (Volcanic Overhang Hollow)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Monolithic curved natural black basalt cliff overhang arching darkly overhead above ash-dusted flat volcanic slate and smoky gloom.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — ASH & OBSIDIAN SCENE 5 (Basalt Column Amphitheater)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Natural clustered hexagonal charcoal-basalt rock columns stepping up cleanly behind flat shadowed ash-veined rock foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — ASH & OBSIDIAN SCENE 6 (Wind-Carved Cinder Bowl)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Steep scorched black cinder cliffs enclosing a quiet volcanic ash basin backlit softly by fiery distant orange horizon haze.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — ASH & OBSIDIAN SCENE 7 (Ash-Drifted Quarry Ledge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Stepped fractured black volcanic quarry shelves dusted softly with pale ash along the upper ledge rim above calm dark basalt stone.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — ASH & OBSIDIAN SCENE 8 (Twilight Dreadwaste Cliff)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring fractured pitch-black obsidian glass and charcoal volcanic basalt cliffs, drifting pale-gray ash, fierce glowing ember-orange rock crevices contrasted against eerie smoky twilight haze (strictly natural volcanic wasteland & obsidian ridge terrain, NO keep fortress battlements, NO crimson garrison banners, NO iron portcullis gates, NO green foliage, NO snow or frost, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Looming pitch-black jagged basalt bluffs silhouetted sharply beneath heavy smoky dusk clouds with faint amber rim light above dark stone.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_29_ash_basalt_arena (Battleground 1 · Fractured Black Basalt Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching fractured pitch-black volcanic basalt, pale drifting ash, and faint warm distant ember bounce against brooding smoky twilight shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open volcanic basalt & ash ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies an expansive, completely flat matte black volcanic basalt bedrock floor lightly dusted with fine pale gray ash across both combat sides—strictly solid and obstacle-free with zero jagged crystals, walls, or open lava cracks below.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top edge runs ONE straight west-to-east low volcanic basalt cliff base traced faintly with glowing orange ember fissures.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_30_ash_obsidian_arena (Battleground 2 · Ash-Veiled Obsidian Flat)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching fractured pitch-black volcanic basalt, pale drifting ash, and faint warm distant ember bounce against brooding smoky twilight shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open volcanic basalt & ash ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top rim lies a broad, level, smooth matte charcoal-slate volcanic shelf dusted evenly with soft gray ash across both enemy and hero sides—strictly clear with zero crystals, zero spires, and zero walls entering the bottom 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top edge stands ONE straight horizontal east-to-west jagged obsidian rock crest beneath smoky ash-violet sky.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_31_ash_dreadwaste_arena (Battleground 3 · Cinder-Strewn Ash Terrace)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching fractured pitch-black volcanic basalt, pale drifting ash, and faint warm distant ember bounce against brooding smoky twilight shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open volcanic basalt & ash ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies a wide, completely flat packed dark charcoal volcanic cinder ground smooth underfoot across both combat sides—strictly obstacle-free with zero boulders, zero braziers, and zero walls anywhere inside the lower 85% area.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top margin runs ONE straight west-to-east ridge of scorched volcanic boulders and drifting gray ash.
+--- COPY-PASTE PROMPT END ---

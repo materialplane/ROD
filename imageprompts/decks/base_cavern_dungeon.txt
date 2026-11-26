@@ -1,0 +1,275 @@
+# ROD — Natural Caverns Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_cavern_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Natural Caverns Base Deck):
+# - jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — CAVERN PASSAGES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). All scenes take place strictly underground inside pure natural jagged rock caverns (NO sky, NO mine rails, NO wooden beams, NO cut bricks, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Descending Fissure"
+  Body Text: "Jagged natural stone ledges step steeply downward into subterranean darkness."
+  Artwork: High bird's-eye angle looking unmistakably DOWNWARD from a natural limestone shelf as rough rocky ledges step steeply into warm amber cavern glow below amid deep subterranean darkness.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Rising Rock Chimney"
+  Body Text: "Rough terraced rock shelves climb steadily upward toward higher cavern air."
+  Artwork: Low upward angle from a cavern floor looking unmistakably UPWARD as jagged terraced limestone ledges climb toward warm lantern light spilling down from an upper rock gallery.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Split Boulder Gap"
+  Body Text: "A narrow cleft between massive fallen cave boulders opens into darkness beyond."
+  Artwork: Low view across rough cavern stone toward two towering jagged cave boulders framing a narrow shadowed rock passage ahead lit subtly by distant amber glow.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Stalagmite Passage"
+  Body Text: "A low curving cavern throat winds quietly past damp limestone columns."
+  Artwork: Shadowed natural rock archway framed by fused limestone stalactites and stalagmites opening onto a dark curving stone tunnel lit softly by wall-mounted oil lanterns.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Paths & Crossings matching Natural Rock Cavern.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — CAVERN STASHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). All scenes take place strictly underground inside pure natural jagged rock caverns (NO sky, NO mine rails, NO wooden beams, NO cut bricks, NO people).
+IMPORTANT: Every cache container (pack, stash, crate, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Traveler's Pack"
+  Body Text: "Wedged behind fallen scree, a buckled leather pack waits untouched in cave gloom."
+  Artwork: Dim natural limestone nook: centered front-facing weathered dark-leather traveler backpack with brass buckles and rolled oilcloth tucked cleanly against raw gray cavern rock.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Iron Lockbox"
+  Body Text: "Set inside a dry rock hollow, a riveted iron lockbox sits in warm lantern light."
+  Artwork: Torchlit natural cavern alcove: centered front-facing heavy riveted iron lockbox with forged padlock resting solidly on rough cavern floor against jagged limestone wall.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Weathered Strongbox"
+  Body Text: "Pressed neatly against bedrock, a dark strongbox rests untouched beside quartz veins."
+  Artwork: Shadowed mineral cavern recess: centered front-facing weathered iron-and-oak strongbox with heavy keyhole clasp resting firmly against solid raw dark-slate rock.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Supply Crate"
+  Body Text: "Braced tight with iron bands and hemp rope, a rough supply crate waits in shadow."
+  Artwork: Natural cave pocket lit by warm lantern rays: centered front-facing stout iron-banded dark timber supply crate tied with rope set cleanly against raw limestone rock wall.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Natural Rock Cavern.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — CAVERN SPRINGS & STONES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). All scenes take place strictly underground inside pure natural jagged rock caverns (NO sky, NO mine rails, NO wooden beams, NO cut bricks, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Underground Spring"
+  Body Text: "Clear mineral spring water wells quietly from jagged rock, restoring the party's HP."
+  Artwork: Calm underground rock grotto bathed in warm light: crystal-clear water trickles steadily out of natural moss-streaked limestone rock into a shallow natural rock pool.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Sapphire Crystal Vein"
+  Body Text: "Faint sapphire crystal veins glow softly inside raw stone, restoring the party's MP."
+  Artwork: Quiet cavern chamber washed in cool sapphire luminescence: clusters of natural faceted blue crystal veins glow softly inside an unbroken natural dark slate rock formation.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Iron Standing Stone"
+  Body Text: "Warm bronze seams pulse inside a raw stone pillar, guarding one hero against steel."
+  Artwork: Natural limestone grotto lit in warm amber glow: a rough-hewn upright iron-ore stone pillar inlaid with a glowing bronze shield emblem.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Amethyst Geode"
+  Body Text: "Soft violet crystal seams shimmer inside split rock, shielding one hero from magic."
+  Artwork: Shadowed cavern niche washed in mystic violet light: a split natural dark-slate geode rock formation pulsing softly with glowing violet crystals.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Springs & Wayshrines matching Natural Rock Cavern.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — CAVERN HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). All scenes take place strictly underground inside pure natural jagged rock caverns (NO sky, NO mine rails, NO wooden beams, NO cut bricks, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Shallow Rock Pitfall"
+  Body Text: "Thin stone crust over a shallow jagged floor hollow snaps abruptly underfoot."
+  Artwork: Flat packed natural limestone cavern floor the exact instant brittle thin rock crust cracks inward into a shallow ankle-deep rocky hollow kicking up cave dust.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Falling Stalactite"
+  Body Text: "Shaken free by footsteps below, heavy pointed stalactites shear loose overhead."
+  Artwork: Jagged natural limestone cavern mid-collapse: fractured heavy pointed rock stalactites tear free from the ceiling above and plunge down onto rough flat cavern floor.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Toxic Gas Vent"
+  Body Text: "Concealed inside floor cracks, subterranean vents hiss open with choking green fumes."
+  Artwork: Dim rocky cavern floor the moment gas vents trigger: thin jagged cracks between raw limestone slabs split open, jetting thick glowing chartreuse-green fumes upward.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Stone Floor Spikes"
+  Body Text: "Hidden beneath loose cave gravel, razor-sharp rock spikes jut suddenly underfoot."
+  Artwork: Dark subterranean cavern floor as loose gravel shifts: rows of razor-sharp natural obsidian-and-slate rock spikes thrust cleanly upward out of rock fissures.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Natural Rock Cavern.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — CAVERN AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). All scenes take place strictly underground inside pure natural jagged rock caverns (NO sky, NO mine rails, NO wooden beams, NO cut bricks, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes emerge from behind jagged rock columns to force a fight."
+  Artwork: Shadowed natural limestone cavern torn by warm amber lantern glow: two ink-black faceless shrouded silhouettes crouch motionless behind thick jagged stalagmites, poised calmly in ambush.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from high cavern recesses along the back wall."
+  Artwork: Dim cavern vault lit upward by warm oil-lamp glow: crouched quietly inside a shadowed dark limestone rock niche above the far cavern wall, two poised pitch-black silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the cavern from shadowed niches—stand ready!"
+  Artwork: Moody natural rock cavern lit down the center by glowing lantern pools: coiled pitch-black shadowy silhouettes wait tucked inside left and right dark rock corners watching the stone floor.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of cave mist, forcing battle."
+  Artwork: Dramatic slate cavern softened by drifting cool subterranean mist and warm amber backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead in smoky gloom.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Natural Rock Cavern.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 NATURAL ROCK CAVERN SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — NATURAL ROCK CAVERN SCENE 1 (Stalactite Dome)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+High-vaulted jagged limestone cavern ceiling bristling with pointed stalactites above glowing amber wall-lanterns and dark flat cavern stone floor.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — NATURAL ROCK CAVERN SCENE 2 (Cavern Pool Grotto)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Quiet subterranean rock wall enclosing a glassy black cave spring along the far edge, catching turquoise-and-amber reflections above dry dark rock foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — NATURAL ROCK CAVERN SCENE 3 (Quartz-Vein Cavern)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Fractured dark slate cavern wall threaded with faint pale-gold and icy quartz seams glowing under warm iron lantern brackets.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — NATURAL ROCK CAVERN SCENE 4 (Sinkhole Chamber)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+High daylight shaft pouring through a distant jagged rock sinkhole overhead onto mossy fallen boulders along the far wall and dark flat stone front.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — NATURAL ROCK CAVERN SCENE 5 (Mossy Limestone Cave)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Damp cavern wall thick with pale lichen and emerald cave moss catching cool cyan glow and warm ember lantern pools.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — NATURAL ROCK CAVERN SCENE 6 (Crystal Alcove)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Deep indigo rock grotto framed by raw clustered pale-sapphire crystal spires embedded along the solid back wall above dark dry cavern floor.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — NATURAL ROCK CAVERN SCENE 7 (Dripstone Cavern)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Towering ochre-and-gray flowstone draperies formed down a solid continuous limestone back wall in warm torch-amber and twilight shadow.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — NATURAL ROCK CAVERN SCENE 8 (Obsidian Grotto)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Subterranean black-slate rock wall with dramatic volcanic glass facets catching fierce orange ember reflections over quiet dark stone.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_05_cavern_slate_arena (Battleground 1 · Level Slate Cavern Arena)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level natural rock cavern combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Broad level slate-gray natural cavern rock floor chipped with flush natural stone cracks, fine gravel grit, and warm amber lantern glow pools across both sides—strictly flat with zero protruding boulders or stalagmites anywhere on the combat floor; top 15% rim only shows jagged limestone cavern wall base with hanging iron lanterns.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_06_cavern_quartz_arena (Battleground 2 · Mineral-Vein Limestone Floor)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level natural rock cavern combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Wide flat worn buff-limestone natural cavern floor veined cleanly with flush pale-gold and slate mineral streaks and subtle cool sapphire rim light—completely level and obstacle-free across the entire battleground; top 15% rim only shows solid textured cavern rockface with small glowing blue quartz seams.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_07_cavern_dripstone_arena (Battleground 3 · Damp Dripstone Hollow Arena)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring jagged gray-slate and weathered limestone cavern walls, natural stalactites and mineral fissures, rough packed stone floors, warm amber lantern pools contrasted against deep subterranean cavern indigo shadows (strictly NO mine rails, NO timber support beams, NO cut stone-brick masonry, NO human furniture, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level natural rock cavern combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Expansive level damp dark-slate cavern rock floor touched with flush dark-emerald moss fissures and warm orange torch reflections across solid rock (no water puddles, no protruding rocks anywhere across the arena); top 15% rim only shows wet ribbed limestone flowstone wall lit by mounted iron torches.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---

@@ -37,13 +37,19 @@ def generate_image_16x9_pro(
     client = genai.Client(api_key=api_key)
     contents = [prompt]
 
-    if reference_path:
-        if os.path.exists(reference_path):
-            print(f"Using reference image: {reference_path}")
-            ref_img = Image.open(reference_path)
-            contents.append(ref_img)
+    ref_paths = [reference_path] if isinstance(reference_path, str) else list(reference_path or [])
+    for ref_p in ref_paths:
+        if os.path.exists(ref_p):
+            print(f"Using reference image: {ref_p}")
+            with Image.open(ref_p) as raw_ref:
+                if raw_ref.mode in ("RGBA", "LA"):
+                    bg = Image.new("RGB", raw_ref.size, (8, 10, 14))
+                    bg.paste(raw_ref, mask=raw_ref.getchannel("A"))
+                    contents.append(bg)
+                else:
+                    contents.append(raw_ref.convert("RGB"))
         else:
-            print(f"Warning: Reference image not found at {reference_path}. Proceeding text-only.")
+            print(f"Warning: Reference image not found at {ref_p}. Skipping reference.")
 
     print(f"Requesting 16:9 image from {model_id} (Resolution: {image_size}, Aspect Ratio: {aspect_ratio}, Seed: {seed})...")
     print(f"Target Output: {output_path}")
@@ -102,7 +108,7 @@ if __name__ == "__main__":
     parser.add_argument("prompt", nargs="?", default="", help="Prompt text")
     parser.add_argument("--prompt_file", "-f", help="Path to prompt text file")
     parser.add_argument("--output", "-o", default="assets/generated_scene_16x9_4k_pro.png", help="Output path")
-    parser.add_argument("--reference", "-r", help="Optional reference image path")
+    parser.add_argument("--reference", "-r", nargs="+", help="Optional reference image path(s)")
     parser.add_argument("--aspect_ratio", default="16:9", help="Aspect ratio (default: 16:9)")
     parser.add_argument("--image_size", default="4K", help="Image resolution size (default: 4K)")
     parser.add_argument("--seed", type=int, default=None, help="Optional seed")

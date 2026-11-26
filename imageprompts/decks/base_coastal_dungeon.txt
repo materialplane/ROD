@@ -1,0 +1,274 @@
+# ROD — Shores & Coastlines Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_coastal_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Shores & Coastlines Base Deck):
+# - barnacled coastal granite boulders, wave-carved slate sea cliffs, firm golden-gray tidal sandbars, bleached driftwood logs, shallow glistening tide-pools, iron storm-lantern beacons contrasted against deep slate-teal ocean dusk (strictly natural rocky/sandy coastline scenes with NO wooden piers or docks, NO full ships or shipwrecks baked in, NO indoor castles, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — COASTAL CROSSINGS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses barnacled coastal granite boulders, wave-carved slate sea cliffs, firm golden-gray tidal sandbars, bleached driftwood logs, shallow glistening tide-pools, iron storm-lantern beacons contrasted against deep slate-teal ocean dusk (strictly natural rocky/sandy coastline scenes with NO wooden piers or docks, NO full ships or shipwrecks baked in, NO indoor castles, NO people, NO monsters). All scenes take place along natural rocky ocean shores, wet sandbars, and wind-scoured sea cliffs (NO wooden piers except when explicitly bridged in Sheet 1, NO full shipwrecks or sailing boats baked in, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Cove Timber Causeway"
+  Body Text: "Tarred pier planks bridge a foaming tide channel between rocky shores."
+  Artwork: Elevated three-quarter coastal shore perspective showing TWO distinct solid dry rocky sea-cliff landmasses separated by a narrow foaming tidewater channel: a weathered salt-bleached timber plank causeway bridge with rope-wrapped pilings and warm swinging brass lanterns begins clearly on solid dry foreground cobblestone beach earth and spans ALL THE WAY across dark ocean surf to land squarely onto a wide solid grassy-and-rocky coastal headland trail on the opposite shoreline landmass (not a dead-end jetty).
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Tide-Cut Sandbar"
+  Body Text: "A firm golden sandbar links the near beach to a rocky sea headland."
+  Artwork: Elevated three-quarter coastal bluff perspective showing TWO distinct solid coastal landmasses separated by foaming surf channels: a broad dry-topped golden sandbar tide-causeway begins solidly on the foreground rock-and-sand beach and stretches uninterrupted ALL THE WAY across gleaming tide surf to connect cleanly onto a wide solid rocky coastal cliff-and-grass headland trail ahead (never tapering off into empty open sea).
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Wave-Carved Sea Arch"
+  Body Text: "A tide-worn granite arch opens onto a broad sandy cove trail beyond."
+  Artwork: Eye-level ground shoreline perspective looking straight forward across dry golden sand and dark beach cobbles passing horizontally through a wide natural wave-carved coastal granite rock archway directly onto a curved sandy beach and grassy sandstone bluff shoreline trail ahead (strictly ground sea-level elevation—not climbing a tall cliff, calm side surf along one edge, zero dead-end ocean).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Rope & Plank Gangway"
+  Body Text: "Lashed timber planks and hemp railings bridge a deep churning sea chasm."
+  Artwork: Elevated three-quarter coastal rock-lip perspective standing right before a sturdy tarred timber plank bridge with hemp rope railings stretching straight forward from solid foreground coastal granite across a deep foaming churning sea-cleft to connect visibly onto a wide solid rocky sea headland trail beyond.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shoreline-Level Sea Arch, Causeways & Crossings matching Rocky Shores & Coastlines.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — TIDEWATER CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses barnacled coastal granite boulders, wave-carved slate sea cliffs, firm golden-gray tidal sandbars, bleached driftwood logs, shallow glistening tide-pools, iron storm-lantern beacons contrasted against deep slate-teal ocean dusk (strictly natural rocky/sandy coastline scenes with NO wooden piers or docks, NO full ships or shipwrecks baked in, NO indoor castles, NO people, NO monsters). All scenes take place along natural rocky ocean shores, wet sandbars, and wind-scoured sea cliffs (NO wooden piers except when explicitly bridged in Sheet 1, NO full shipwrecks or sailing boats baked in, NO people).
+IMPORTANT: Every cache container (pack, stash, crate, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Weathered Crate"
+  Body Text: "Wedged against wave-worn rock and driftwood, a salt-bleached wooden crate waits."
+  Artwork: Lantern-lit coastal shore shelf: centered front-facing weathered gray salt-bleached pinewood crate strapped with hemp rope resting firmly on coastal stone.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Canvas Sea-Pack"
+  Body Text: "Tucked behind tide boulders, an oiled canvas sea-pack stays tightly buckled."
+  Artwork: Rocky tidewater shelf: centered front-facing tarred waterproof canvas sailor backpack with brass buckle set against dry barnacled stone.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Tarred Sea-Chest"
+  Body Text: "Bound in black iron straps, a weathered timber sea-chest sits above high tide."
+  Artwork: Salt-worn rock ledge above spray: centered front-facing heavy tar-darkened oak sea-chest bound with black iron bands and forged padlock.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Harbor Lockbox"
+  Body Text: "Set solidly beside wet shore rocks and rope, a riveted iron strongbox rests closed."
+  Artwork: Warm brass-lantern coastal rock nook: centered front-facing riveted iron strongbox set solidly on dry coastal stone beside coiled mooring rope.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Rocky Shores & Coastlines.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — COASTAL SPRINGS & BEACONS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses barnacled coastal granite boulders, wave-carved slate sea cliffs, firm golden-gray tidal sandbars, bleached driftwood logs, shallow glistening tide-pools, iron storm-lantern beacons contrasted against deep slate-teal ocean dusk (strictly natural rocky/sandy coastline scenes with NO wooden piers or docks, NO full ships or shipwrecks baked in, NO indoor castles, NO people, NO monsters). All scenes take place along natural rocky ocean shores, wet sandbars, and wind-scoured sea cliffs (NO wooden piers except when explicitly bridged in Sheet 1, NO full shipwrecks or sailing boats baked in, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Freshwater Sea-Seep"
+  Body Text: "Sweet spring water trickles from a cliff cleft into a shell basin, restoring the party's HP."
+  Artwork: Sun-warmed rocky sea cove above the tide line: pure sparkling freshwater pours down a pale moss-streaked granite fissure into a wide carved abalone-and-granite basin resting cleanly on dry coastal stone above dark wet tide rocks.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Sea-Glass Beacon"
+  Body Text: "A bronze lantern filled with glowing sea-glass casts blue light, restoring the party's MP."
+  Artwork: Quiet rocky sea headland at indigo dusk: a tall weathered coastal granite boundary bollard topped with an ornate brass storm lantern packed with luminous tumbled cyan and cobalt sea-glass casting bright sapphire glow across damp cliff stone.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Barnacled Anchor Totem"
+  Body Text: "An immense iron sea-anchor chained to coastal boulders braces one hero against blows."
+  Artwork: Rugged coastal granite shelf washed by golden lantern light: a massive salt-crusted wrought-iron fluke anchor stands upright wedged into cleft harbor boulders, wrapped tightly in heavy rusted iron chain links along its hammered shank.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Tide-Chime Arch"
+  Body Text: "Strung conch shells and bronze bells chime in the sea breeze, shielding one hero from magic."
+  Artwork: Twilight driftwood tide-archway along a sandy cove: a curved sun-bleached timber arch draped with knotted fisherman's netting, spiral sea shells, and oxidized bronze wind bells glimmering with soft lavender sparks over wet sand.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Cliff Seeps, Sea-Glass Beacons & Coastal Relics matching Rocky Shores & Coastlines.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — COASTAL HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses barnacled coastal granite boulders, wave-carved slate sea cliffs, firm golden-gray tidal sandbars, bleached driftwood logs, shallow glistening tide-pools, iron storm-lantern beacons contrasted against deep slate-teal ocean dusk (strictly natural rocky/sandy coastline scenes with NO wooden piers or docks, NO full ships or shipwrecks baked in, NO indoor castles, NO people, NO monsters). All scenes take place along natural rocky ocean shores, wet sandbars, and wind-scoured sea cliffs (NO wooden piers except when explicitly bridged in Sheet 1, NO full shipwrecks or sailing boats baked in, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Rogue Wave"
+  Body Text: "A towering storm-wave crests violently over the bank, slamming down hard."
+  Artwork: Dramatic coastal shoreline at the exact instant a towering slate-blue sea breaker curls over dark wet rocks and crashes down in white foam across the ground.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Slick Sea-Moss Slip"
+  Body Text: "Wet neon-green algae and barnacles along dark rock send boots skidding violently."
+  Artwork: Wave-slick coastal granite stones and planks coated in bright wet emerald sea-moss gleaming under storm light as churning spray splashes sideways across them.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Whiplashing Tow-Line"
+  Body Text: "Coiled salt-soaked hemp mooring rope whips taut across rocks in a sudden surge."
+  Artwork: Wet coastal rock and bleached timber ground the moment a thick tarred hemp mooring cable snaps taut across wet sand and stone, throwing spray mist upward.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Spined Sea-Urchins"
+  Body Text: "Hidden beneath washed-up dark kelp, clusters of long purple sea-urchin spines bristle."
+  Artwork: Shallow tidal rock-and-sand seam beneath parted dark brown kelp revealing bristling needle-sharp violet-black coastal sea-urchins gleaming in wet surf light.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Rocky Shores & Coastlines.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — COASTAL AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses barnacled coastal granite boulders, wave-carved slate sea cliffs, firm golden-gray tidal sandbars, bleached driftwood logs, shallow glistening tide-pools, iron storm-lantern beacons contrasted against deep slate-teal ocean dusk (strictly natural rocky/sandy coastline scenes with NO wooden piers or docks, NO full ships or shipwrecks baked in, NO indoor castles, NO people, NO monsters). All scenes take place along natural rocky ocean shores, wet sandbars, and wind-scoured sea cliffs (NO wooden piers except when explicitly bridged in Sheet 1, NO full shipwrecks or sailing boats baked in, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes step out from behind barnacled sea-boulders and driftwood to fight."
+  Artwork: Shadowed coastal cove torn by swinging brass storm-lantern light: two ink-black faceless shrouded silhouettes crouch motionless behind tall barnacled shoreline boulders and stacked driftwood.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes crouch behind stacked driftwood and tide rocks ahead."
+  Artwork: Dim coastal shore lit upward by warm harbor lanterns: perched low atop weathered bleached driftwood logs and tide rocks, two pitch-black silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the sandbar from coastal boulders—stand ready!"
+  Artwork: Moody coastal rock shelf lit down the center by golden sunset light: coiled pitch-black shadowy silhouettes wait tucked inside left and right dark sea-boulders.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of rolling sea fog, forcing battle."
+  Artwork: Dramatic rocky sea cove softened by thick rolling sea fog and warm brass beacon backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead along misty boulders.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Rocky Shores & Coastlines.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 COASTAL SHORELINE SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — COASTAL SCENE 1 (Sandy Cove Beach Trail)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Elevated trail view looking LENGTHWISE along a wide curving dry golden-tan coastal beach framed on the landward side by rugged grassy sandstone dunes with foaming midday surf tucked gently off along one distant side edge above calm shadowed beach sand foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — COASTAL SCENE 2 (Dune-Grass & Scrub Pass)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sheltered back-shore trail framed tightly by tall wind-sculpted coastal sand dunes crowned in wind-bent sea oats and dark scrub bushes at midday across a calm packed sand foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — COASTAL SCENE 3 (Driftwood & Cobble Strand)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Wide level dark slate-shingle coastal strand viewed LENGTHWISE along the shoreline berm, where massive salt-bleached driftwood logs lie banked beneath low sandy dune grass above a broad flat shadowed pebble foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — COASTAL SCENE 4 (Coastal Cliff-Face Ledge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Towering wind-carved layered gray coastal granite cliffs rising sharply along the rear and side backdrop at midday over a wide flat dry slate ledge foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — COASTAL SCENE 5 (Wave-Carved Sandstone Overhang)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Natural shallow wave-sculpted coastal sandstone bluff overhang curving across the far cliff wall in natural midday light above dry shadowed cove sand speckled thinly with scattered sea shells.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — COASTAL SCENE 6 (Jagged Sea-Bluff Gorge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dramatic enclosed coastal gorge where steep weather-fluted golden-gray sea bluffs pinch cleanly along both left and right sides around a flat calm shadowed sandy shore pass beneath natural midday coastal sky.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — COASTAL SCENE 7 (Low-Tide Boulder Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Enclosing crescent shelf of massive dark barnacled coastal boulders piling tightly across the back perimeter beside small gleaming rock tide-basins above a wide calm dry dark slate rock foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — COASTAL SCENE 8 (Wind-Scoured Headland Bluff)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring barnacled coastal granite boulders, wind-carved coastal sandstone cliffs, dry golden cove sand, wind-bent dune sea-grass, and bleached driftwood logs at midday (strictly natural walkable coastline terrain seen looking ALONG the shore, cliffs, and dunes—never staring dead-on out into empty open sea, zero wooden piers or docks, zero full ships or shipwrecks baked in, zero quest buildings/lighthouses/chapels, NO indoor stone vaults, NO people, NO monsters). Strictly uninhabited wide enclosed midday coastal scene looking along the coastline/bluffs/dunes (NOT facing dead-on into empty sea) with NO wooden piers or docks, NO ships, NO buildings/towers, NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+High wind-scoured coastal headland plateau lined along the upper rear ridge with gnarled salt-bent scrub bushes and low weathered coastal granite stones at midday above flat calm dark earth foreground.
+--- COPY-PASTE PROMPT END ---
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_14_coastal_wharf_arena (Battleground 1 · Wide Pebble & Shingle Beach)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring firm coastal rock and dry packed beach sand under a midday coastal sky with slate-teal ocean kept strictly along the distant top 15% horizon (strictly NO wooden piers or docks anywhere, NO full ships or shipwrecks, NO tide-pools or ocean water on the bottom 85% battleground floor, NO indoor castles, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP COASTLINE SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, solid level beach/stone combat ground—push the ocean coastline, foaming surf, and shoreline rim HIGH up into the top ~15% strip so the bottom ~85% of the entire frame is completely solid, open, dry walkable battleground floor.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% COASTLINE RIM:
+Expansive flat dry wave-smoothed dark gray shingle pebbles and firm coastal gravel in natural midday light across both combat sides—strictly level, dry underfoot, and obstacle-free with zero piers, zero wooden docks, zero water pools, and zero boulders anywhere in the bottom 85% battleground; ALL ocean water, foaming surf, low sea boulders, and midday sea horizon remain pushed strictly into the top 15% edge.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches (and NO wooden piers or water pools) to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_15_coastal_sandbar_arena (Battleground 2 · Firm Coastal Sand Beach)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring firm coastal rock and dry packed beach sand under a midday coastal sky with slate-teal ocean kept strictly along the distant top 15% horizon (strictly NO wooden piers or docks anywhere, NO full ships or shipwrecks, NO tide-pools or ocean water on the bottom 85% battleground floor, NO indoor castles, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP COASTLINE SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, solid level beach/stone combat ground—push the ocean coastline, foaming surf, and shoreline rim HIGH up into the top ~15% strip so the bottom ~85% of the entire frame is completely solid, open, dry walkable battleground floor.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% COASTLINE RIM:
+Broad level firm-packed matte golden-beige coastal beach sand smooth and solid underfoot across both left enemy and right hero sides—strictly dry underfoot and obstacle-free with zero piers, zero water puddles, zero surf waves, and zero boulders in the bottom 85% arena; ALL foaming ocean waves, wet coastline, and low barnacled sea-rocks sit pushed high strictly inside the top 15% strip.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches (and NO wooden piers or water pools) to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_16_coastal_quay_arena (Battleground 3 · Coastal Slate Shore Arena)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring firm coastal rock and dry packed beach sand under a midday coastal sky with slate-teal ocean kept strictly along the distant top 15% horizon (strictly NO wooden piers or docks anywhere, NO full ships or shipwrecks, NO tide-pools or ocean water on the bottom 85% battleground floor, NO indoor castles, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP COASTLINE SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, solid level beach/stone combat ground—push the ocean coastline, foaming surf, and shoreline rim HIGH up into the top ~15% strip so the bottom ~85% of the entire frame is completely solid, open, dry walkable battleground floor.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% COASTLINE RIM:
+Wide level dry storm-slate coastal rock plateau in natural midday light—strictly flat, dry underfoot, and obstacle-free across the entire bottom 85% battleground with zero piers, zero wooden planks, zero tide pools; ALL crashing surf, weathered coastal rocks, and midday ocean horizon stay tucked high inside the top 15% strip.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches (and NO wooden piers or water pools) to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---

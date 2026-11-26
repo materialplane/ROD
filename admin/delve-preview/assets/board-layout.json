@@ -1,0 +1,40 @@
+{
+  "width": 1920,
+  "height": 980,
+  "origWidth": 4980,
+  "origHeight": 2542,
+  "slots": [
+    {
+      "id": "deck_cradle",
+      "leftPct": 9.74,
+      "topPct": 25.918,
+      "widthPct": 16.302,
+      "heightPct": 47.857,
+      "aspect": 0.6674
+    },
+    {
+      "id": "slot_1",
+      "leftPct": 30.885,
+      "topPct": 25.204,
+      "widthPct": 15.521,
+      "heightPct": 49.49,
+      "aspect": 0.6144
+    },
+    {
+      "id": "slot_2",
+      "leftPct": 52.292,
+      "topPct": 25.204,
+      "widthPct": 15.625,
+      "heightPct": 49.49,
+      "aspect": 0.6186
+    },
+    {
+      "id": "slot_3",
+      "leftPct": 73.75,
+      "topPct": 25.306,
+      "widthPct": 15.573,
+      "heightPct": 49.388,
+      "aspect": 0.6178
+    }
+  ]
+}

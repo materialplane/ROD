@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Proposed Decks Studio</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav">
+        <a class="nav-pill" href="/admin/">World Builder</a>
+        <a class="nav-pill" href="/admin/catalog.html">Markers &amp; Assets</a>
+        <a class="nav-pill" href="/admin/vfx-test/">VFX Tester</a>
+        <a class="nav-pill" href="/admin/shops/">Shops Mockup</a>
+        <a class="nav-pill" href="/admin/party/">Party Menu</a>
+        <a class="nav-pill" href="/admin/disciplines/">Disciplines</a>
+        <a class="nav-pill active" href="/admin/decks/">Proposed Decks</a>
+        <a class="nav-pill" href="/admin/battles/">Battle Encounters</a>
+        <a class="nav-pill client-link" href="/client/">Play Client &rarr;</a>
+      </nav>
+    </div>
+    <div class="studio-stats" id="studioStats">Loading proposed decks...</div>
+  </header>
+
+  <section class="studio-toolbar">
+    <div class="ctrl-group">
+      <label for="inpSearch">Search</label>
+      <input type="text" id="inpSearch" class="ctrl-input" placeholder="Search card name, text, or 16:9 room..." />
+    </div>
+
+    <div class="ctrl-group">
+      <label>Organize</label>
+      <div class="seg-group" id="segGroupBy">
+        <button type="button" class="seg-btn active" data-val="category">By Category</button>
+        <button type="button" class="seg-btn" data-val="sheet">By 2&times;2 Sheets</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label>Filter</label>
+      <div class="seg-group" id="segFilter">
+        <button type="button" class="seg-btn active" data-val="all">All</button>
+        <button type="button" class="seg-btn" data-val="room">Doors &amp; Stairs</button>
+        <button type="button" class="seg-btn" data-val="loot">Treasures</button>
+        <button type="button" class="seg-btn" data-val="combat">Combat</button>
+        <button type="button" class="seg-btn" data-val="trap">Traps</button>
+        <button type="button" class="seg-btn" data-val="respite">Springs &amp; Shrines</button>
+        <button type="button" class="seg-btn" data-val="pool_rooms">16:9 Room Pool</button>
+        <button type="button" class="seg-btn" data-val="battlegrounds">Battlegrounds</button>
+        <button type="button" class="seg-btn" data-val="commented">Has Comments</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group" style="margin-left:auto;">
+      <button type="button" class="rpg-btn secondary" id="btnToggleAllRooms">Flip All 16:9 Rooms</button>
+      <button type="button" class="rpg-btn primary" id="btnSaveDecks">Save Review Status</button>
+    </div>
+  </section>
+
+  <main class="deck-workspace">
+    <aside class="deck-sidebar" id="deckSidebar"></aside>
+    <section class="deck-gallery-pane" id="deckGallery"></section>
+  </main>
+
+  <div class="ref-modal hidden" id="refModal" role="dialog" aria-modal="true" aria-labelledby="refModalTitle">
+    <div class="ref-modal-backdrop" id="refModalBackdrop"></div>
+    <div class="ref-modal-panel">
+      <div class="ref-modal-head">
+        <div>
+          <div class="ref-modal-eyebrow" id="refModalEyebrow">Image Preview</div>
+          <h3 class="ref-modal-title" id="refModalTitle">Preview</h3>
+        </div>
+        <div class="ref-modal-actions">
+          <button type="button" class="rpg-btn secondary hidden" id="btnPrevRefModal">&larr; Prev</button>
+          <button type="button" class="rpg-btn secondary hidden" id="btnNextRefModal">Next &rarr;</button>
+          <button type="button" class="rpg-btn secondary" id="btnCloseRefModal">Close (Esc)</button>
+        </div>
+      </div>
+      <div class="ref-modal-body">
+        <img id="refModalImg" src="" alt="" />
+        <p class="ref-modal-note" id="refModalNote"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-banner hidden" id="toastBanner">Saved</div>
+  <script src="/admin/nav.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

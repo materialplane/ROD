@@ -2,25 +2,54 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { formatRewardLine } from "../components/LocationInteriorModal";
-import { QuestCardThumb } from "../components/QuestCardThumb";
+import { QuestCardThumb, QuestReferenceCard, type QuestReferenceStatus } from "../components/QuestCardThumb";
+import { resolveDamageTypeIcons } from "../battle/battleLogic";
 import { GLOBAL_ACTIVE_QUEST_LIMIT, formatOutpostRewardLine, pluralizeMonsterName } from "../quests/outpostHunts";
 import { resolveOutpostHuntLore } from "../quests/outpostHuntLore";
-import type { ActiveOutpostHunt, ItemEntry, QuestEntry, TravelCatalog, TravelStoryChainEntry, WorldLocation } from "../types";
+import {
+  getHubQuestStage,
+  getQuestStoryChainInfo,
+  makeHuntTrackKey,
+  makeQuestTrackKey,
+  MAX_TRACKED_QUESTS,
+  resolveQuestObjectiveMeta,
+} from "../quests/questUtils";
+import type {
+  ActiveOutpostHunt,
+  ActiveQuestProgress,
+  BattleEnemyDef,
+  DiscoveredMonsterTraitsMap,
+  ItemEntry,
+  QuestEntry,
+  TravelCatalog,
+  TravelStoryChainEntry,
+  WorldLocation,
+} from "../types";
 
 interface QuestJournalTabProps {
   acceptedQuestIds: string[];
   completedQuestIds?: string[];
+  questProgressById?: Record<string, ActiveQuestProgress>;
+  trackedQuestKeys?: string[];
+  travelCatalog?: TravelCatalog | null;
+  initialFocusRequest?: { key: string; seq: number } | null;
   activeOutpostHunts?: ActiveOutpostHunt[];
   completedOutpostHunts?: number;
   questsCatalog: QuestEntry[];
   worldLocations: WorldLocation[];
+  discoveredLocations?: string[];
   sealedPortalIds: string[];
   itemsById?: Record<string, ItemEntry>;
+  discoveredMonsterTraits?: DiscoveredMonsterTraitsMap;
+  battleMonsters?: BattleEnemyDef[];
   onAbandonQuest: (questId: string) => void;
   onAbandonOutpostHunt?: (outpostId: string) => void;
+  onToggleTrackQuest?: (trackKey: string) => void;
+  onLocateInAtlas?: (locationId: string, mapId: string) => void;
 }
 
 type JournalSubTab = "active" | "completed" | "chains" | "portals" | "hunts" | "bestiary";
+type ActiveFilterMode = "all" | "ready" | "quests" | "hunts";
 
 const REGION_NAMES: Record<number, string> = {};
 const STORY_CHAINS: TravelStoryChainEntry[] = [];
@@ -51,23 +80,55 @@ export function applyAtlasTravelCatalog(catalog: TravelCatalog | null | undefine
 export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
   acceptedQuestIds,
   completedQuestIds = [],
+  questProgressById = {},
+  trackedQuestKeys = [],
+  travelCatalog = null,
+  initialFocusRequest = null,
   activeOutpostHunts = [],
   completedOutpostHunts = 0,
   questsCatalog,
   worldLocations,
+  discoveredLocations = [],
   sealedPortalIds,
+  discoveredMonsterTraits = {},
+  battleMonsters = [],
   onAbandonQuest,
   onAbandonOutpostHunt,
+  onToggleTrackQuest,
+  onLocateInAtlas,
 }) => {
   const [subTab, setSubTab] = useState<JournalSubTab>("active");
+  const [activeFilter, setActiveFilter] = useState<ActiveFilterMode>("all");
   const [regionFilter, setRegionFilter] = useState<number | "all">("all");
+  const [confirmAbandonKey, setConfirmAbandonKey] = useState<string | null>(null);
+  const [highlightedKey, setHighlightedKey] = useState<string | null>(null);
+  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   const portals = useMemo(() => worldLocations.filter((l) => Boolean(l.isPortal)), [worldLocations]);
   const bossLocations = useMemo(() => worldLocations.filter((l) => Boolean(l.bossInfo)), [worldLocations]);
   const outposts = useMemo(() => worldLocations.filter((l) => l.id.startsWith("outpost_")), [worldLocations]);
+  const locById = useMemo(() => new Map(worldLocations.map((l) => [l.id, l])), [worldLocations]);
+  const discoveredSet = useMemo(() => new Set(discoveredLocations), [discoveredLocations]);
   const sealedSet = useMemo(() => new Set(sealedPortalIds), [sealedPortalIds]);
   const acceptedSet = useMemo(() => new Set(acceptedQuestIds), [acceptedQuestIds]);
   const completedSet = useMemo(() => new Set(completedQuestIds), [completedQuestIds]);
+  const pinnedSet = useMemo(() => new Set(trackedQuestKeys), [trackedQuestKeys]);
+  const effectiveTravelCatalog = useMemo<TravelCatalog | null>(
+    () => travelCatalog ?? (STORY_CHAINS.length > 0 ? { version: 1, seaPortRoutes: [], outboundSeaPortalGates: {}, storyChains: STORY_CHAINS } : null),
+    [travelCatalog]
+  );
+
+  useEffect(() => {
+    if (!initialFocusRequest?.key) return;
+    setSubTab("active");
+    setActiveFilter("all");
+    setConfirmAbandonKey(null);
+    setHighlightedKey(initialFocusRequest.key);
+    const timer = window.setTimeout(() => {
+      cardRefs.current[initialFocusRequest.key]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 60);
+    return () => window.clearTimeout(timer);
+  }, [initialFocusRequest]);
 
   const questsById = useMemo(
     () => new Map(questsCatalog.map((q) => [q.questId, q])),
@@ -92,6 +153,30 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
     () => (regionFilter === "all" ? completedQuests : completedQuests.filter((q) => q.region === regionFilter)),
     [completedQuests, regionFilter]
   );
+
+  const readyQuestCount = useMemo(
+    () => activeQuests.filter((q) => getHubQuestStage(q.questId, questProgressById, completedSet) === "ready_to_turn_in").length,
+    [activeQuests, questProgressById, completedSet]
+  );
+  const readyHuntCount = useMemo(
+    () => activeOutpostHunts.filter((h) => h.killsProgress >= h.killsRequired).length,
+    [activeOutpostHunts]
+  );
+  const totalReadyCount = readyQuestCount + readyHuntCount;
+
+  const filteredActiveHunts = useMemo(() => {
+    if (activeFilter === "quests") return [];
+    if (activeFilter === "ready") return activeOutpostHunts.filter((h) => h.killsProgress >= h.killsRequired);
+    return activeOutpostHunts;
+  }, [activeOutpostHunts, activeFilter]);
+
+  const filteredActiveQuests = useMemo(() => {
+    if (activeFilter === "hunts") return [];
+    if (activeFilter === "ready") {
+      return activeQuests.filter((q) => getHubQuestStage(q.questId, questProgressById, completedSet) === "ready_to_turn_in");
+    }
+    return activeQuests;
+  }, [activeQuests, activeFilter, questProgressById, completedSet]);
 
   const totalActiveCount = acceptedQuestIds.length + activeOutpostHunts.length;
   const activeHuntByOutpost = useMemo(
@@ -131,6 +216,53 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
         ))}
       </div>
 
+      {subTab === "active" && (
+        <div className="shrink-0 flex flex-wrap items-center justify-between gap-2 rounded border border-[#2f3647] bg-[#121621]/95 px-3 py-2">
+          <div className="flex flex-wrap items-center gap-3 text-[12px]">
+            <span className="font-semibold text-[#e7cf96]">
+              Journal Slots:{" "}
+              <strong className={totalActiveCount >= GLOBAL_ACTIVE_QUEST_LIMIT ? "text-[#ff9da6]" : "text-[#fff0c2]"}>
+                {totalActiveCount} / {GLOBAL_ACTIVE_QUEST_LIMIT}
+              </strong>
+            </span>
+            <span className="text-[#9fb2cb]">
+              HUD Pinned:{" "}
+              <strong className="text-[#f5d88f]">
+                {trackedQuestKeys.length} / {MAX_TRACKED_QUESTS}
+              </strong>
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-1">
+            {(
+              [
+                { id: "all", label: `All (${totalActiveCount})` },
+                { id: "ready", label: `Ready (${totalReadyCount})` },
+                { id: "quests", label: `Town Quests (${activeQuests.length})` },
+                { id: "hunts", label: `Outpost Hunts (${activeOutpostHunts.length})` },
+              ] as Array<{ id: ActiveFilterMode; label: string }>
+            ).map((f) => (
+              <button
+                key={f.id}
+                type="button"
+                onClick={() => {
+                  audioEngine.playUiClick(0.25);
+                  setConfirmAbandonKey(null);
+                  setActiveFilter(f.id);
+                }}
+                className={[
+                  "px-2.5 py-0.5 rounded border text-[10.5px] font-semibold cursor-pointer",
+                  activeFilter === f.id
+                    ? "border-[#d7b267] bg-[#2a2214] text-[#fae2aa]"
+                    : "border-[#2f3648] bg-[#161b26] text-[#9eb0c8] hover:border-[#6a5b3e]",
+                ].join(" ")}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
       {subTab === "completed" && (
         <div className="shrink-0 flex flex-wrap items-center justify-between gap-2 rounded border border-[#2f3647] bg-[#121621]/95 px-3 py-2">
           <div className="flex items-center gap-2.5">
@@ -139,7 +271,7 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
               className="w-[34px] h-[34px] rounded border border-[#96783b] bg-[#0b0e14] shrink-0"
             />
             <div className="text-[12px] text-[#e7cf96] font-semibold">
-              Completed Hub Quests:{" "}
+              Completed Quests:{" "}
               <span className="text-[#fff0c2]">
                 {completedQuests.length} / {questsCatalog.length || 178}
               </span>
@@ -190,22 +322,33 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
 
       <div className="flex-1 min-h-0 overflow-y-auto grid grid-cols-1 md:grid-cols-2 gap-2.5 content-start pr-1">
         {subTab === "active" &&
-          (activeQuests.length === 0 && activeOutpostHunts.length === 0 ? (
+          (filteredActiveQuests.length === 0 && filteredActiveHunts.length === 0 ? (
             <div className="col-span-full py-8 text-center text-[12.5px] text-[#8d99b0]">
-              No active quests or hunts yet. Speak with townsfolk in settlements or Hunt Quartermasters at Zone Outposts.
+              {activeQuests.length === 0 && activeOutpostHunts.length === 0
+                ? "No active quests or hunts yet. Speak with townsfolk in settlements or Hunt Quartermasters at Zone Outposts."
+                : "No active quests match this filter."}
             </div>
           ) : (
             <>
-              {activeOutpostHunts.map((h) => {
+              {filteredActiveHunts.map((h) => {
                 const ready = h.killsProgress >= h.killsRequired;
                 const pct = Math.min(100, Math.round((h.killsProgress / Math.max(1, h.killsRequired)) * 100));
                 const lore = resolveOutpostHuntLore(h.mobId, h.mobName, h.outpostName, h.zoneNum, h.biomeHints);
+                const trackKey = makeHuntTrackKey(h.outpostId);
+                const isPinned = pinnedSet.has(trackKey);
+                const isFocused = highlightedKey === trackKey;
+                const isConfirming = confirmAbandonKey === trackKey;
+                const outpostLoc = locById.get(h.outpostId);
                 return (
                   <div
                     key={h.huntId}
+                    ref={(el) => {
+                      cardRefs.current[trackKey] = el;
+                    }}
                     className={[
-                      "rounded border bg-[#121621]/95 p-3 flex gap-3 items-start",
-                      ready ? "border-[#c49c48]" : "border-[#2f3647]",
+                      "rounded border bg-[#121621]/95 p-3 flex gap-3 items-start transition-shadow",
+                      ready ? "border-[#c49c48]" : isPinned ? "border-[#7c6438]" : "border-[#2f3647]",
+                      isFocused ? "ring-2 ring-[#f0c76e]/70 shadow-[0_0_20px_rgba(240,199,110,0.22)]" : "",
                     ].join(" ")}
                   >
                     <div className="flex flex-col gap-1 shrink-0">
@@ -243,75 +386,224 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                           className="w-[22px] h-[22px] rounded border border-[#404b62] bg-[#0b0e15] object-contain shrink-0"
                         />
                         <div className="text-[11px] text-[#9db0c8] truncate">
-                          {h.outpostName} · Zone {h.zoneNum} Wilds
+                          Outpost Hunt · {h.outpostName} · Zone {h.zoneNum} Wilds
                         </div>
                       </div>
                       <div className="mt-1.5 h-[6px] w-full rounded-full bg-[#1a202d] overflow-hidden border border-[#2d3648]">
                         <div
-                          className={[
-                            "h-full transition-all",
-                            ready ? "bg-[#f0c76e]" : "bg-[#4ebd8c]",
-                          ].join(" ")}
+                          className={["h-full transition-all", ready ? "bg-[#f0c76e]" : "bg-[#4ebd8c]"].join(" ")}
                           style={{ width: `${pct}%` }}
                         />
                       </div>
                       <p className="m-0 mt-1.5 text-[11.5px] text-[#cfd8e8] leading-snug">{lore.threatSummary}</p>
-                      <div className="mt-2 flex items-center justify-between gap-2">
+                      <div className="mt-1.5 text-[11px] text-[#a7e6c3]">
+                        <strong className="text-[#d9f7e7]">Next Step:</strong>{" "}
+                        {ready
+                          ? `Return to Quartermaster at ${h.outpostName} to claim reward`
+                          : h.biomeHints.length > 0
+                            ? `Hunt in ${h.biomeHints.slice(0, 3).join(", ")} inside Zone ${h.zoneNum}`
+                            : `Hunt in Zone ${h.zoneNum} Wilds`}
+                      </div>
+                      <div className="mt-2 pt-2 border-t border-[#232a3a] flex flex-wrap items-center justify-between gap-2">
                         <span className="text-[11px] font-bold text-[#f4cf80] truncate">
                           {formatOutpostRewardLine(h)}
                         </span>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            audioEngine.playUiClick(0.35);
-                            onAbandonOutpostHunt?.(h.outpostId);
-                          }}
-                          className="px-2.5 py-0.5 rounded border border-[#4f566a] hover:border-[#d46974] bg-[#1b202d] text-[10.5px] font-semibold text-[#d7dfee] hover:text-[#ffb4bc] cursor-pointer shrink-0"
-                        >
-                          Abandon
-                        </button>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          {onToggleTrackQuest && (
+                            <button
+                              type="button"
+                              onClick={() => onToggleTrackQuest(trackKey)}
+                              className={[
+                                "px-2 py-0.5 rounded border text-[10.5px] font-semibold cursor-pointer transition-colors",
+                                isPinned
+                                  ? "border-[#e6c170] bg-[#2e2412] text-[#ffe9a8]"
+                                  : "border-[#3f495e] bg-[#171d2a] hover:border-[#b99653] text-[#c7d4e8]",
+                              ].join(" ")}
+                              title={isPinned ? "Unpin from HUD Tracker" : "Pin to HUD Tracker"}
+                            >
+                              {isPinned ? "◆ Pinned" : "Pin"}
+                            </button>
+                          )}
+                          {onLocateInAtlas && outpostLoc && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                audioEngine.playUiClick(0.3);
+                                onLocateInAtlas(outpostLoc.id, outpostLoc.mapId);
+                              }}
+                              className="px-2 py-0.5 rounded border border-[#3d526e] hover:border-[#78aee8] bg-[#141d2b] text-[10.5px] font-semibold text-[#b9d9ff] cursor-pointer"
+                            >
+                              Locate
+                            </button>
+                          )}
+                          {isConfirming ? (
+                            <>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  audioEngine.playUiClick(0.35);
+                                  setConfirmAbandonKey(null);
+                                  onAbandonOutpostHunt?.(h.outpostId);
+                                }}
+                                className="px-2 py-0.5 rounded border border-[#d46974] bg-[#5c1e26] hover:bg-[#762630] text-[10.5px] font-bold text-[#ffe6e9] cursor-pointer"
+                              >
+                                Confirm
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  audioEngine.playUiClick(0.25);
+                                  setConfirmAbandonKey(null);
+                                }}
+                                className="px-2 py-0.5 rounded border border-[#454d60] bg-[#1a202d] text-[10.5px] font-semibold text-[#cfd7e6] cursor-pointer"
+                              >
+                                Keep
+                              </button>
+                            </>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                audioEngine.playUiClick(0.28);
+                                setConfirmAbandonKey(trackKey);
+                              }}
+                              className="px-2.5 py-0.5 rounded border border-[#4f566a] hover:border-[#d46974] bg-[#1b202d] text-[10.5px] font-semibold text-[#d7dfee] hover:text-[#ffb4bc] cursor-pointer"
+                            >
+                              Abandon
+                            </button>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
                 );
               })}
-              {activeQuests.map((q) => (
-              <div key={q.questId} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-start">
-                <QuestCardThumb
-                  cardId={q.questId}
-                  fallbackPath={q.assetPath}
-                  alt={q.title}
-                  className="w-[74px] h-[74px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0 shadow"
-                />
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">{q.title}</div>
-                    <span className="px-1.5 py-0.5 rounded border border-[#454f63] bg-[#171d2a] text-[10px] font-semibold text-[#bfd0e8] shrink-0">
-                      {q.category}
-                    </span>
+              {filteredActiveQuests.map((q) => {
+                const trackKey = makeQuestTrackKey(q.questId);
+                const isPinned = pinnedSet.has(trackKey);
+                const isFocused = highlightedKey === trackKey;
+                const isConfirming = confirmAbandonKey === trackKey;
+                const stage = getHubQuestStage(q.questId, questProgressById, completedSet);
+                const objMeta = resolveQuestObjectiveMeta(q, stage, worldLocations);
+                const chainInfo = getQuestStoryChainInfo(q.questId, effectiveTravelCatalog, questsById, completedSet);
+                return (
+                  <div
+                    key={q.questId}
+                    ref={(el) => {
+                      cardRefs.current[trackKey] = el;
+                    }}
+                    className={[
+                      "rounded border bg-[#121621]/95 p-3 flex gap-3 items-start transition-shadow",
+                      objMeta.readyToTurnIn
+                        ? "border-[#c49c48]"
+                        : isPinned
+                          ? "border-[#7c6438]"
+                          : "border-[#2f3647]",
+                      isFocused ? "ring-2 ring-[#f0c76e]/70 shadow-[0_0_20px_rgba(240,199,110,0.22)]" : "",
+                    ].join(" ")}
+                  >
+                    <QuestCardThumb
+                      cardId={q.questId}
+                      fallbackPath={q.assetPath}
+                      badgeCardId={objMeta.readyToTurnIn ? "quest_complete_royal_seal" : undefined}
+                      alt={q.title}
+                      className="w-[74px] h-[74px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0 shadow"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">{q.title}</div>
+                        <div className="flex items-center gap-1 shrink-0">
+                          {objMeta.readyToTurnIn && (
+                            <span className="px-1.5 py-0.5 rounded border border-[#e6c170] bg-[#2d2311] text-[10px] font-bold text-[#ffe9ad]">
+                              ★ Turn In
+                            </span>
+                          )}
+                          <span className="px-1.5 py-0.5 rounded border border-[#454f63] bg-[#171d2a] text-[10px] font-semibold text-[#bfd0e8]">
+                            {objMeta.kindLabel}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="text-[11px] text-[#9db0c8] mt-0.5">
+                        {REGION_NAMES[q.region] ? `${REGION_NAMES[q.region]} · ` : ""}
+                        {q.hubName} · {q.giver}
+                        {chainInfo ? ` · Story Part ${chainInfo.stepIndex + 1}/${chainInfo.totalSteps}` : ""}
+                      </div>
+                      <p className="m-0 mt-1.5 text-[11.5px] text-[#cfd8e8] leading-snug">{q.description}</p>
+                      <div className="mt-1.5 text-[11px] text-[#a7e6c3]">
+                        <strong className="text-[#d9f7e7]">Next Step:</strong> {objMeta.nextStepText}
+                      </div>
+                      <div className="mt-2 pt-2 border-t border-[#232a3a] flex flex-wrap items-center justify-between gap-2">
+                        <span className="text-[11px] font-bold text-[#f4cf80] truncate">{formatRewardLine(q.reward)}</span>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          {onToggleTrackQuest && (
+                            <button
+                              type="button"
+                              onClick={() => onToggleTrackQuest(trackKey)}
+                              className={[
+                                "px-2 py-0.5 rounded border text-[10.5px] font-semibold cursor-pointer transition-colors",
+                                isPinned
+                                  ? "border-[#e6c170] bg-[#2e2412] text-[#ffe9a8]"
+                                  : "border-[#3f495e] bg-[#171d2a] hover:border-[#b99653] text-[#c7d4e8]",
+                              ].join(" ")}
+                              title={isPinned ? "Unpin from HUD Tracker" : "Pin to HUD Tracker"}
+                            >
+                              {isPinned ? "◆ Pinned" : "Pin"}
+                            </button>
+                          )}
+                          {onLocateInAtlas && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                audioEngine.playUiClick(0.3);
+                                onLocateInAtlas(objMeta.locateLocId, objMeta.locateMapId);
+                              }}
+                              className="px-2 py-0.5 rounded border border-[#3d526e] hover:border-[#78aee8] bg-[#141d2b] text-[10.5px] font-semibold text-[#b9d9ff] cursor-pointer"
+                            >
+                              Locate
+                            </button>
+                          )}
+                          {isConfirming ? (
+                            <>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  audioEngine.playUiClick(0.35);
+                                  setConfirmAbandonKey(null);
+                                  onAbandonQuest(q.questId);
+                                }}
+                                className="px-2 py-0.5 rounded border border-[#d46974] bg-[#5c1e26] hover:bg-[#762630] text-[10.5px] font-bold text-[#ffe6e9] cursor-pointer"
+                              >
+                                Confirm
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  audioEngine.playUiClick(0.25);
+                                  setConfirmAbandonKey(null);
+                                }}
+                                className="px-2 py-0.5 rounded border border-[#454d60] bg-[#1a202d] text-[10.5px] font-semibold text-[#cfd7e6] cursor-pointer"
+                              >
+                                Keep
+                              </button>
+                            </>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                audioEngine.playUiClick(0.28);
+                                setConfirmAbandonKey(trackKey);
+                              }}
+                              className="px-2.5 py-0.5 rounded border border-[#4f566a] hover:border-[#d46974] bg-[#1b202d] text-[10.5px] font-semibold text-[#d7dfee] hover:text-[#ffb4bc] cursor-pointer"
+                            >
+                              Abandon
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-[11px] text-[#9db0c8] mt-0.5">
-                    {REGION_NAMES[q.region] ? `${REGION_NAMES[q.region]} · ` : ""}
-                    {q.hubName} · {q.giver}
-                    {q.miniBoss ? ` · Threat: ${q.miniBoss}` : ""}
-                  </div>
-                  <p className="m-0 mt-1.5 text-[11.5px] text-[#cfd8e8] leading-snug">{q.description}</p>
-                  <div className="mt-2 flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-bold text-[#f4cf80] truncate">{formatRewardLine(q.reward)}</span>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        audioEngine.playUiClick(0.35);
-                        onAbandonQuest(q.questId);
-                      }}
-                      className="px-2.5 py-0.5 rounded border border-[#4f566a] hover:border-[#d46974] bg-[#1b202d] text-[10.5px] font-semibold text-[#d7dfee] hover:text-[#ffb4bc] cursor-pointer shrink-0"
-                    >
-                      Abandon
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+                );
+              })}
             </>
           ))}
 
@@ -353,35 +645,69 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
         {subTab === "portals" &&
           portals.map((p, i) => {
             const sealed = sealedSet.has(p.id);
+            const catQuestId = p.catalyst?.questId;
+            const catQuest = catQuestId ? questsById.get(catQuestId) : undefined;
+            const catDone = Boolean(catQuestId && completedSet.has(catQuestId));
+            const catActive = Boolean(catQuestId && acceptedSet.has(catQuestId));
+            const catStatus: QuestReferenceStatus = sealed || catDone ? "completed" : catActive ? "active" : "required";
             return (
-              <div key={p.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-start">
-                <img
-                  src={assetUrl(p.assetPath)}
-                  alt={p.name}
-                  className="w-[54px] h-[54px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
-                  draggable={false}
-                />
-                <div className="min-w-0 flex-1">
-                  <div className="text-[13.5px] font-bold text-[#fae2aa]">
-                    Portal #{i + 1}: {p.name} ·{" "}
-                    <span className={sealed ? "text-[#72e3a8]" : "text-[#f28b95]"}>
-                      {sealed ? "DESTROYED" : "OPEN"}
-                    </span>
+              <div key={p.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex flex-col gap-2.5">
+                <div className="flex gap-3 items-start">
+                  <img
+                    src={assetUrl(sealed ? p.assetPath.replace(/\.webp$/, "_closed.webp") : p.assetPath)}
+                    alt={p.name}
+                    className="w-[54px] h-[54px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
+                    draggable={false}
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="text-[13.5px] font-bold text-[#fae2aa] truncate">
+                        Portal #{i + 1}: {p.name} ·{" "}
+                        <span className={sealed ? "text-[#72e3a8]" : "text-[#f28b95]"}>
+                          {sealed ? "DESTROYED" : "OPEN"}
+                        </span>
+                      </div>
+                      {onLocateInAtlas && discoveredSet.has(p.id) && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            audioEngine.playUiClick(0.3);
+                            onLocateInAtlas(p.id, p.mapId);
+                          }}
+                          className="px-2 py-0.5 rounded border border-[#3d526e] hover:border-[#78aee8] bg-[#141d2b] text-[10px] font-semibold text-[#b9d9ff] cursor-pointer shrink-0"
+                        >
+                          Locate
+                        </button>
+                      )}
+                    </div>
+                    <div className="text-[11.5px] text-[#b4c2d7] mt-0.5">
+                      Boss: {p.bossInfo?.boss} ({p.bossInfo?.plane})
+                    </div>
+                    <div className="text-[11px] font-semibold text-[#e6c278] mt-0.5 truncate">
+                      Weaknesses: {p.bossInfo?.weaknesses}
+                    </div>
                   </div>
-                  <div className="text-[11.5px] text-[#b4c2d7] mt-0.5">
-                    Boss: {p.bossInfo?.boss} ({p.bossInfo?.plane})
-                  </div>
-                  <div className="mt-1 flex items-center gap-1.5 text-[11px] text-[#95a6be]">
+                </div>
+                {catQuestId && p.catalyst?.questTitle ? (
+                  <QuestReferenceCard
+                    variant="compact"
+                    cardId={catQuestId}
+                    fallbackPath={catQuest?.assetPath}
+                    eyebrow={`Catalyst Quest · ${p.catalyst.hubName}`}
+                    title={p.catalyst.questTitle}
+                    subtitle={`Reward: ${p.catalyst.name}`}
+                    status={catStatus}
+                  />
+                ) : (
+                  <div className="flex items-center gap-2 text-[11px] text-[#95a6be]">
                     <QuestCardThumb
                       cardId="quest_portal_catalyst_seal"
                       fallbackPath="assets/icons/ui/ui_18_key_glyph.webp"
-                      className="w-[20px] h-[20px] rounded border border-[#4a5770] bg-[#0b0e14] shrink-0"
+                      className="w-[24px] h-[24px] rounded border border-[#4a5770] bg-[#0b0e14] shrink-0"
                     />
-                    <span className="truncate">
-                      Catalyst: {p.catalyst?.name || "Regional Key"} · Weaknesses: {p.bossInfo?.weaknesses}
-                    </span>
+                    <span className="truncate">Catalyst: {p.catalyst?.name || "Regional Key"}</span>
                   </div>
-                </div>
+                )}
               </div>
             );
           })}
@@ -390,44 +716,49 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
           STORY_CHAINS.map((c) => {
             const doneCount = c.questIds.filter((qid) => completedSet.has(qid)).length;
             return (
-              <div key={c.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-start">
-                <QuestCardThumb
-                  cardId={c.cardId}
-                  alt={c.title}
-                  className="w-[68px] h-[68px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0 shadow"
-                />
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">{c.title}</div>
-                    <span className="px-1.5 py-0.5 rounded border border-[#4b566c] bg-[#182030] text-[10px] font-semibold text-[#dce5f5] shrink-0">
-                      {doneCount}/{c.questIds.length}
-                    </span>
+              <div key={c.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex flex-col gap-2.5">
+                <div className="flex gap-3 items-start">
+                  <QuestCardThumb
+                    cardId={c.cardId}
+                    alt={c.title}
+                    className="w-[62px] h-[62px] rounded border border-[#7c6438] bg-[#0b0e14] shrink-0 shadow"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="text-[13.5px] font-bold text-[#fae2aa] leading-snug">{c.title}</div>
+                      <span className="px-1.5 py-0.5 rounded border border-[#4b566c] bg-[#182030] text-[10px] font-semibold text-[#dce5f5] shrink-0">
+                        {doneCount}/{c.questIds.length}
+                      </span>
+                    </div>
+                    <div className="text-[11.5px] text-[#cfd8e8] mt-1 leading-snug">{c.route}</div>
                   </div>
-                  <div className="text-[11.5px] text-[#cfd8e8] mt-1 leading-snug">{c.route}</div>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {c.questIds.map((qid, idx) => {
-                      const entry = questsById.get(qid);
-                      const isDone = completedSet.has(qid);
-                      const isActive = acceptedSet.has(qid);
-                      return (
-                        <span
-                          key={qid}
-                          className={[
-                            "px-2 py-0.5 rounded border text-[10.5px] font-semibold",
-                            isDone
-                              ? "border-[#96783b] bg-[#2a2214] text-[#f5d88f]"
-                              : isActive
-                                ? "border-[#3c785b] bg-[#142920] text-[#91e3b8]"
-                                : "border-[#31384a] bg-[#171c28] text-[#96a6be]",
-                          ].join(" ")}
-                        >
-                          {isDone ? "★ " : isActive ? "• " : ""}
-                          Part {idx + 1}
-                          {entry ? `: ${entry.title}` : ""}
-                        </span>
-                      );
-                    })}
-                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  {c.questIds.map((qid, idx) => {
+                    const entry = questsById.get(qid);
+                    const isDone = completedSet.has(qid);
+                    const isActive = acceptedSet.has(qid);
+                    const prevDone = idx === 0 || completedSet.has(c.questIds[idx - 1]);
+                    const stepStatus: QuestReferenceStatus = isDone
+                      ? "completed"
+                      : isActive
+                        ? "active"
+                        : prevDone
+                          ? "available"
+                          : "required";
+                    return (
+                      <QuestReferenceCard
+                        key={qid}
+                        variant="compact"
+                        cardId={qid}
+                        fallbackPath={entry?.assetPath}
+                        eyebrow={`Part ${idx + 1}${entry?.hubName ? ` · ${entry.hubName}` : ""}`}
+                        title={entry?.title ?? qid}
+                        subtitle={entry ? formatRewardLine(entry.reward) : undefined}
+                        status={stepStatus}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             );
@@ -474,20 +805,34 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center justify-between gap-2">
                       <div className="text-[13.5px] font-bold text-[#fae2aa] truncate">{o.name}</div>
-                      {activeHunt && (
-                        <span
-                          className={[
-                            "px-1.5 py-0.5 rounded border text-[10px] font-semibold shrink-0",
-                            ready
-                              ? "border-[#e6c170] bg-[#2d2311] text-[#ffe9ad]"
-                              : "border-[#3c6a5c] bg-[#132620] text-[#95e2be]",
-                          ].join(" ")}
-                        >
-                          {ready
-                            ? `★ ${activeHunt.mobName} Ready`
-                            : `${activeHunt.mobName} ${activeHunt.killsProgress}/${activeHunt.killsRequired}`}
-                        </span>
-                      )}
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {activeHunt && (
+                          <span
+                            className={[
+                              "px-1.5 py-0.5 rounded border text-[10px] font-semibold",
+                              ready
+                                ? "border-[#e6c170] bg-[#2d2311] text-[#ffe9ad]"
+                                : "border-[#3c6a5c] bg-[#132620] text-[#95e2be]",
+                            ].join(" ")}
+                          >
+                            {ready
+                              ? `★ ${activeHunt.mobName} Ready`
+                              : `${activeHunt.mobName} ${activeHunt.killsProgress}/${activeHunt.killsRequired}`}
+                          </span>
+                        )}
+                        {onLocateInAtlas && (discoveredSet.has(o.id) || Boolean(activeHunt)) && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              audioEngine.playUiClick(0.3);
+                              onLocateInAtlas(o.id, o.mapId);
+                            }}
+                            className="px-2 py-0.5 rounded border border-[#3d526e] hover:border-[#78aee8] bg-[#141d2b] text-[10px] font-semibold text-[#b9d9ff] cursor-pointer"
+                          >
+                            Locate
+                          </button>
+                        )}
+                      </div>
                     </div>
                     <div className="text-[11px] text-[#9bb0c9] mt-0.5 truncate">
                       {activeHunt
@@ -501,26 +846,120 @@ export const QuestJournalTab: React.FC<QuestJournalTabProps> = ({
           </>
         )}
 
-        {subTab === "bestiary" &&
-          bossLocations.map((p) => (
-            <div key={p.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-center">
-              <img
-                src={assetUrl("assets/icons/ui/ui_24_bestiary_skull_glyph.webp")}
-                alt=""
-                className="w-[44px] h-[44px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
-                draggable={false}
-              />
-              <div className="min-w-0">
-                <div className="text-[13.5px] font-bold text-[#fae2aa]">{p.bossInfo?.boss}</div>
-                <div className="text-[11px] text-[#9eb0c9]">
-                  {p.bossInfo?.plane} · Guard Points: {p.bossInfo?.guardPips ?? 4}
+        {subTab === "bestiary" && (
+          <>
+            {bossLocations.map((p) => {
+              const bossWeakIcons = resolveDamageTypeIcons(p.bossInfo?.weaknesses);
+              return (
+                <div key={p.id} className="rounded border border-[#2f3647] bg-[#121621]/95 p-3 flex gap-3 items-center">
+                  <img
+                    src={assetUrl("assets/icons/ui/ui_24_bestiary_skull_glyph.webp")}
+                    alt=""
+                    className="w-[44px] h-[44px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain shrink-0"
+                    draggable={false}
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="text-[13.5px] font-bold text-[#fae2aa]">{p.bossInfo?.boss}</div>
+                    <div className="text-[11px] text-[#9eb0c9]">
+                      {p.bossInfo?.plane} · Guard Points: {p.bossInfo?.guardPips ?? 4}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5 mt-1">
+                      <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#f5cf80]">Weaknesses:</span>
+                      {bossWeakIcons.length > 0 ? (
+                        bossWeakIcons.map((dt) => (
+                          <span
+                            key={dt.id}
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded border border-[#ff9c42]/75 bg-[#2a170b] text-[#ffe08a] text-[10.5px] font-bold"
+                          >
+                            <img src={assetUrl(dt.iconPath)} alt="" className="w-3.5 h-3.5 rounded-[2px] object-cover" draggable={false} />
+                            {dt.label} 1.5×
+                          </span>
+                        ))
+                      ) : (
+                        <span className="text-[11px] font-semibold text-[#f5cf80]">{p.bossInfo?.weaknesses}</span>
+                      )}
+                    </div>
+                  </div>
                 </div>
-                <div className="text-[11px] font-semibold text-[#f5cf80] mt-0.5">
-                  Known Weaknesses: {p.bossInfo?.weaknesses}
-                </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+
+            {(() => {
+              const monstersById = new Map(battleMonsters.map((m) => [m.id, m]));
+              const entries = Object.entries(discoveredMonsterTraits)
+                .map(([mobId, traits]) => ({ mobId, traits, def: monstersById.get(mobId) }))
+                .filter((x): x is { mobId: string; traits: { weak?: string[]; resist?: string[]; immune?: string[] }; def: BattleEnemyDef } =>
+                  Boolean(x.def && !x.def.isBoss && ((x.traits.weak?.length ?? 0) > 0 || (x.traits.resist?.length ?? 0) > 0 || (x.traits.immune?.length ?? 0) > 0))
+                )
+                .sort((a, b) => (a.def.level ?? 1) - (b.def.level ?? 1) || a.def.name.localeCompare(b.def.name));
+              if (entries.length === 0) return null;
+              return (
+                <>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#aebcd4] pt-2 border-t border-[#262e40]">
+                    Discovered Field Monsters ({entries.length})
+                  </div>
+                  {entries.map(({ mobId, traits, def }) => (
+                    <div key={mobId} className="rounded border border-[#2c3446] bg-[#121621]/95 p-2.5 flex gap-3 items-center">
+                      <img
+                        src={assetUrl(def.iconPath)}
+                        alt={def.name}
+                        className="w-[44px] h-[44px] rounded border border-[#4a546d] bg-[#0b0e14] object-contain shrink-0"
+                        draggable={false}
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-[13px] font-bold text-[#f3e2b7] truncate">{def.name}</span>
+                          <span className="text-[10.5px] font-semibold text-[#9eb0c9] shrink-0">Lv {def.level ?? 1} · {def.role ?? "Enemy"}</span>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-1 mt-1">
+                          {(traits.weak ?? []).map((w) => {
+                            const dt = resolveDamageTypeIcons(w)[0];
+                            if (!dt) return null;
+                            return (
+                              <span
+                                key={`w_${dt.id}`}
+                                className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded border border-[#ff9c42]/75 bg-[#2a170b] text-[#ffe08a] text-[10px] font-bold"
+                              >
+                                <img src={assetUrl(dt.iconPath)} alt="" className="w-3.5 h-3.5 rounded-[2px] object-cover" draggable={false} />
+                                {dt.label} 1.5×
+                              </span>
+                            );
+                          })}
+                          {(traits.resist ?? []).map((r) => {
+                            const dt = resolveDamageTypeIcons(r)[0];
+                            if (!dt) return null;
+                            return (
+                              <span
+                                key={`r_${dt.id}`}
+                                className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded border border-[#63aee8]/75 bg-[#0e2033] text-[#b8e1ff] text-[10px] font-bold"
+                              >
+                                <img src={assetUrl(dt.iconPath)} alt="" className="w-3.5 h-3.5 rounded-[2px] object-cover" draggable={false} />
+                                {dt.label} 0.5×
+                              </span>
+                            );
+                          })}
+                          {(traits.immune ?? []).map((im) => {
+                            const dt = resolveDamageTypeIcons(im)[0];
+                            if (!dt) return null;
+                            return (
+                              <span
+                                key={`i_${dt.id}`}
+                                className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded border border-[#dce4f0]/75 bg-[#1b2029] text-[#ffffff] text-[10px] font-bold"
+                              >
+                                <img src={assetUrl(dt.iconPath)} alt="" className="w-3.5 h-3.5 rounded-[2px] object-cover" draggable={false} />
+                                {dt.label} 0×
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </>
+              );
+            })()}
+          </>
+        )}
       </div>
     </div>
   );
@@ -535,8 +974,11 @@ interface WorldAtlasTabProps {
   worldLocations: WorldLocation[];
   discoveredLocations: string[];
   acceptedQuestIds: string[];
+  questProgressById?: Record<string, ActiveQuestProgress>;
+  activeOutpostHunts?: ActiveOutpostHunt[];
   questsCatalog: QuestEntry[];
   sealedPortalIds: string[];
+  focusRequest?: { locId: string; mapId: string; seq: number } | null;
 }
 
 // Persistent image caches so switching tabs or reopening Party (P) is instant
@@ -596,8 +1038,11 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
   worldLocations,
   discoveredLocations,
   acceptedQuestIds,
+  questProgressById = {},
+  activeOutpostHunts = [],
   questsCatalog,
   sealedPortalIds,
+  focusRequest = null,
 }) => {
   const [atlasMapId, setAtlasMapId] = useState(currentMapId || "map_01");
   const [zoom, setZoom] = useState(1.45);
@@ -613,6 +1058,7 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const mistCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const skipNextRealmPanResetRef = useRef(false);
   const dragRef = useRef<{
     active: boolean;
     startX: number;
@@ -648,27 +1094,41 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
     const map = new Map<string, QuestEntry[]>();
     const activeSet = new Set(acceptedQuestIds);
     for (const q of questsCatalog) {
-      if (!activeSet.has(q.questId) || q.mapId !== atlasMapId) continue;
-      for (const targetId of [q.markerId, q.targetHubId]) {
-        if (!targetId) continue;
+      if (!activeSet.has(q.questId)) continue;
+      const stage = questProgressById[q.questId]?.stage ?? "active";
+      const objMeta = resolveQuestObjectiveMeta(q, stage, worldLocations);
+      if (objMeta.locateMapId !== atlasMapId && q.mapId !== atlasMapId) continue;
+      const targets = new Set<string>();
+      if (q.markerId && q.questFormat === "wilderness_pin") targets.add(q.markerId);
+      if (q.targetHubId) targets.add(q.targetHubId);
+      if (q.questFormat === "hub_interior" || objMeta.readyToTurnIn) targets.add(q.hubId);
+      for (const targetId of targets) {
         const arr = map.get(targetId) ?? [];
         arr.push(q);
         map.set(targetId, arr);
       }
     }
     return map;
-  }, [acceptedQuestIds, questsCatalog, atlasMapId]);
+  }, [acceptedQuestIds, questProgressById, questsCatalog, atlasMapId, worldLocations]);
 
-  // Earned pins only: discovered permanent places + active quest targets (never spoil unvisited wilds)
+  const huntTargetsByOutpost = useMemo(() => {
+    const map = new Map<string, ActiveOutpostHunt>();
+    for (const h of activeOutpostHunts) {
+      map.set(h.outpostId, h);
+    }
+    return map;
+  }, [activeOutpostHunts]);
+
+  // Earned pins only: discovered permanent places + active quest/hunt targets (never spoil unvisited wilds)
   const visibleLocations = useMemo(
     () =>
       worldLocations.filter((l) => {
         if (!l.placed || l.mapId !== atlasMapId || l.x === null || l.y === null) return false;
-        const hasQuest = questTargetsByLoc.has(l.id);
-        if (l.category === "quest_field") return hasQuest;
+        const hasQuest = questTargetsByLoc.has(l.id) || huntTargetsByOutpost.has(l.id);
+        if (l.category === "quest_field") return questTargetsByLoc.has(l.id);
         return discoveredSet.has(l.id) || hasQuest;
       }),
-    [worldLocations, atlasMapId, discoveredSet, questTargetsByLoc]
+    [worldLocations, atlasMapId, discoveredSet, questTargetsByLoc, huntTargetsByOutpost]
   );
 
   // Full-bleed math: ensures scaled map ALWAYS covers 100% of container width & height with zero black bars
@@ -731,14 +1191,34 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
     };
   }, [unlockedRealms, visibleLocations, leaderTokenPath]);
 
-  // Keep pan clamped on initial mount around player
+  // Keep pan clamped on initial mount around player unless jumping via Journal Locate
   useEffect(() => {
+    if (skipNextRealmPanResetRef.current) {
+      skipNextRealmPanResetRef.current = false;
+      return;
+    }
     if (atlasMapId === currentMapId) {
       setPan(clampPanForViewport(playerX, playerY, zoom));
     }
     // Run only when switching realm tab or first mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [atlasMapId]);
+
+  useEffect(() => {
+    if (!focusRequest) return;
+    const loc = worldLocations.find((l) => l.id === focusRequest.locId);
+    if (!loc || !loc.placed || loc.x === null || loc.y === null) return;
+    if (atlasMapId !== focusRequest.mapId) {
+      skipNextRealmPanResetRef.current = true;
+      setAtlasMapId(focusRequest.mapId);
+    }
+    setSelectedLocId(loc.id);
+    const nextZ = Math.max(zoom, 1.9);
+    setZoom(nextZ);
+    setPan(clampPanForViewport(loc.x, loc.y, nextZ));
+    // Trigger only when Locate is clicked from Journal
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusRequest]);
 
   const focusLocation = useCallback(
     (loc: WorldLocation) => {
@@ -883,7 +1363,11 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
         const sy = toScreenY(loc.y);
         if (sx < -40 || sy < -40 || sx > w + 40 || sy > h + 40) continue;
 
-        const isQuest = questTargetsByLoc.has(loc.id);
+        const activeHunt = huntTargetsByOutpost.get(loc.id);
+        const isQuest = questTargetsByLoc.has(loc.id) || Boolean(activeHunt);
+        const hasReadyTurnIn =
+          Boolean(activeHunt && activeHunt.killsProgress >= activeHunt.killsRequired) ||
+          (questTargetsByLoc.get(loc.id) ?? []).some((q) => questProgressById[q.questId]?.stage === "ready_to_turn_in");
         const isPortal = Boolean(loc.isPortal);
         const isSealed = sealedSet.has(loc.id);
         const isTravel = loc.category === "travel";
@@ -939,9 +1423,14 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
         ctx.lineWidth = isFocus ? 2.8 : 2.1;
         ctx.stroke();
 
-        // Active Quest star pill above pin
+        // Active Quest / Hunt pill above pin
         if (isQuest) {
-          drawRoundedPill(ctx, sx, sy - r - 21, "Quest!", "rgba(38, 25, 8, 0.94)", "#ffbe4f", "#ffe39f", 10);
+          const badgeText = hasReadyTurnIn
+            ? "★ Turn In"
+            : activeHunt && !questTargetsByLoc.has(loc.id)
+              ? "Hunt!"
+              : "Quest!";
+          drawRoundedPill(ctx, sx, sy - r - 21, badgeText, "rgba(38, 25, 8, 0.94)", "#ffbe4f", "#ffe39f", 10);
         }
 
         // Permanent crisp nameplate pill below earned pins
@@ -1014,6 +1503,8 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
     visibleLocations,
     discoveredSet,
     questTargetsByLoc,
+    huntTargetsByOutpost,
+    questProgressById,
     sealedSet,
     zoom,
     pan,
@@ -1225,6 +1716,7 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
             const top = flipTop ? Math.max(8, cursorPos.y - 120) : cursorPos.y + 16;
             const services = cleanServicesList(hoveredLoc);
             const activeQuests = questTargetsByLoc.get(hoveredLoc.id) ?? [];
+            const activeHunt = huntTargetsByOutpost.get(hoveredLoc.id);
             const isFound = discoveredSet.has(hoveredLoc.id);
 
             return (
@@ -1271,9 +1763,35 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
                   </div>
                 )}
 
-                {activeQuests.length > 0 && (
-                  <div className="mt-1.5 pt-1.5 border-t border-[#3b2f1c] text-[10.5px] text-[#ffdfa0] leading-snug">
-                    <strong>Active Quest:</strong> {activeQuests.map((q) => q.title).join(", ")}
+                {(activeQuests.length > 0 || activeHunt) && (
+                  <div className="mt-1.5 pt-1.5 border-t border-[#3b2f1c] flex flex-col gap-1">
+                    {activeHunt && (
+                      <div className="flex items-center gap-2 text-[10.5px] text-[#9be8be] leading-snug">
+                        <QuestCardThumb
+                          cardId={activeHunt.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board"}
+                          fallbackPath={activeHunt.mobIconPath}
+                          badgeCardId={activeHunt.killsProgress >= activeHunt.killsRequired ? "quest_complete_royal_seal" : undefined}
+                          alt={activeHunt.mobName}
+                          className="w-[24px] h-[24px] rounded border border-[#967741] bg-[#090c12] shrink-0"
+                        />
+                        <span className="truncate font-semibold">
+                          {activeHunt.killsProgress >= activeHunt.killsRequired
+                            ? `★ Hunt Ready: ${activeHunt.mobName}`
+                            : `Hunt: ${activeHunt.mobName} (${activeHunt.killsProgress}/${activeHunt.killsRequired})`}
+                        </span>
+                      </div>
+                    )}
+                    {activeQuests.map((q) => (
+                      <div key={q.questId} className="flex items-center gap-2 text-[10.5px] text-[#ffdfa0] leading-snug">
+                        <QuestCardThumb
+                          cardId={q.questId}
+                          fallbackPath={q.assetPath}
+                          alt={q.title}
+                          className="w-[24px] h-[24px] rounded border border-[#967741] bg-[#090c12] shrink-0"
+                        />
+                        <span className="truncate font-semibold">{q.title}</span>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
@@ -1298,8 +1816,20 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
             ) : (
               visibleLocations.map((l) => {
                 const found = discoveredSet.has(l.id);
-                const hasQuest = questTargetsByLoc.has(l.id);
+                const locQuests = questTargetsByLoc.get(l.id) ?? [];
+                const locHunt = huntTargetsByOutpost.get(l.id);
+                const hasQuest = locQuests.length > 0 || Boolean(locHunt);
                 const isSelected = l.id === selectedLocId || l.id === hoveredLocId;
+                const badgeCardId = locQuests[0]?.questId ?? (locHunt?.isElite ? "quest_outpost_elite_contract" : "quest_outpost_hunt_board");
+                const badgeFallback = locQuests[0]?.assetPath ?? locHunt?.mobIconPath;
+                const badgeText =
+                  locQuests.length > 1
+                    ? `Quests (${locQuests.length})`
+                    : locQuests.length === 1
+                      ? "Quest"
+                      : locHunt && locHunt.killsProgress >= locHunt.killsRequired
+                        ? "★ Hunt"
+                        : "Hunt";
                 return (
                   <button
                     key={l.id}
@@ -1329,8 +1859,13 @@ export const WorldAtlasTab: React.FC<WorldAtlasTabProps> = ({
                           {l.name}
                         </strong>
                         {hasQuest && (
-                          <span className="px-1.5 py-0.5 rounded bg-[#30220d] border border-[#a87c32] text-[#ffd98e] text-[9.5px] font-bold shrink-0">
-                            Quest
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#30220d] border border-[#a87c32] text-[#ffd98e] text-[9.5px] font-bold shrink-0">
+                            <QuestCardThumb
+                              cardId={badgeCardId}
+                              fallbackPath={badgeFallback}
+                              className="w-[14px] h-[14px] rounded-[2px] border border-[#8e6f35] bg-[#090c12] shrink-0"
+                            />
+                            {badgeText}
                           </span>
                         )}
                       </div>

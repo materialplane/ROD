@@ -1,0 +1,284 @@
+# ROD — Frost & Glacier Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_frost_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Frost & Glacier Base Deck):
+# - sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — FROZEN PASSAGES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). All scenes take place in freezing arctic glaciers, snow-drifted gorges, and frost-rimed cliffs (NO timber forts, NO desert, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ice Tunnel"
+  Body Text: "Smooth wind-honed blue glacier walls curve forward into frosty shadow."
+  Artwork: Subterranean glacier view curving cleanly along polished translucent sapphire-blue ice tunnel walls lit by distant warm iron lanterns.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Snow-Packed Gorge"
+  Body Text: "Crunch-packed snow leads through a narrow cleft of towering ice sheets."
+  Artwork: Narrow arctic snow-packed trail winding cleanly between sheer towering blue glacier ice walls beneath soft pale cyan-and-gold aurora twilight.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Frozen Log Bridge"
+  Body Text: "Rime-coated pine logs and iced rope rails bridge a deep blue glacier chasm."
+  Artwork: Elevated three-quarter glacier crevasse perspective showing TWO distinct solid snow-and-rock cliff landmasses separated by a deep vertical blue ice chasm: a sturdy frost-coated pine log bridge with iced rope railings begins cleanly on solid foreground snow-packed trail ground and spans ALL THE WAY across the chasm onto a wide solid snow-and-granite glacier trail illuminated by glowing orange lanterns beyond (never ending in midair).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ice Steps"
+  Body Text: "Chiseled blue ice steps descend carefully toward glowing amber lanterns below."
+  Artwork: High angle looking downward along rough chipped blue glacier steps descending into warm glowing orange lantern light inside deep frost shadow.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Paths & Crossings matching Glacier Ice & Snow.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — ARCTIC CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). All scenes take place in freezing arctic glaciers, snow-drifted gorges, and frost-rimed cliffs (NO timber forts, NO desert, NO people).
+IMPORTANT: Every cache container (pack, stash, crate, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Fur-Lined Pack"
+  Body Text: "Half-sheltered in crisp snowdrift, a fur-trimmed explorer pack waits untouched."
+  Artwork: Arctic ice nook: centered front-facing rugged leather-and-fur arctic explorer pack strapped cleanly with bronze buckles resting on snow beside blue ice.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Frosted Footlocker"
+  Body Text: "Encrusted in pale hoarfrost, a heavy iron footlocker sits beneath snow ledges."
+  Artwork: Frozen torchlit rock alcove: centered front-facing heavy riveted rime-dusted iron footlocker resting solidly against dark granite and glacier ice.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Provision Crate"
+  Body Text: "Banded against frost and damp, a waxed pine provision crate waits unopened."
+  Artwork: Snow-edged stone shelf: centered front-facing frost-dusted iron-banded dark timber provision crate bound cleanly in rope against frozen granite.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Steel Strongbox"
+  Body Text: "Pressed neatly against translucent ice, a dark steel strongbox rests closed."
+  Artwork: Warm lantern-lit crystal ice alcove: centered front-facing heavy frostbound dark steel strongbox with forged keyhole clasp resting on solid glacier stone.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Glacier Ice & Snow.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — THERMAL SPRINGS & FROST SHRINES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). All scenes take place in freezing arctic glaciers, snow-drifted gorges, and frost-rimed cliffs (NO timber forts, NO desert, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Steaming Vent Kettle"
+  Body Text: "Warm mineral water steams inside an iron-rimmed ice basin, restoring the party's HP."
+  Artwork: Frost-rimmed granite crevice amid sculpted blue glacier walls: a wide hammered black-iron rimmed thermal spring steams gently into crisp frigid air, holding clear sapphire-warm water bordered by clean translucent icicles.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Aurora Ice-Prism"
+  Body Text: "A faceted glacier spire focuses shimmering northern light, restoring the party's MP."
+  Artwork: Crisp snow-packed canyon clearing beneath dancing green-and-cyan aurora ribbons: a naturally faceted crystal-clear sapphire glacier spire rises from a sculpted snowdrift, refracting radiant teal and cobalt aurora beams across fresh frost.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Horned Mammoth Cairn"
+  Body Text: "Curved ivory tusks lashed to iron-bound stone armor one hero against heavy blows."
+  Artwork: Blustery frozen gorge lit by a blazing orange iron brazier: a sturdy cairn of frost-rimed black granite slabs crowned with two immense curved ivory tusks bound together by heavy forged iron straps and frozen leather wrappings.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Rime-Glass Lantern Tree"
+  Body Text: "Thick frost-glass lanterns sway from an iron rack, shielding one hero from spells."
+  Artwork: Sheltered glacier ledge bathed in cool dusk light: an arched wrought-iron rack planted firmly in crisp white snowdrifts suspends four bulbous thick-blown frost-glass lanterns flickering with steady icy-lavender and silver warding light.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Thermal Kettles, Aurora Prisms & Frost Relics matching Glacier Ice & Snow.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — GLACIER HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). All scenes take place in freezing arctic glaciers, snow-drifted gorges, and frost-rimed cliffs (NO timber forts, NO desert, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Black-Ice Slip"
+  Body Text: "Mirror-smooth clear black ice glazed beneath fresh snow sends footing skidding hard."
+  Artwork: Flat wind-swept blue glacier stone thinly glazed in mirror-glossy dark clear black ice reflecting faint orange lantern light beside kicked powder snow.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Falling Icicles"
+  Body Text: "Shaken loose along frozen cliff shelves and glacier eaves, razor icicles plunge down."
+  Artwork: Blue glacier ice wall mid-drop: massive jagged translucent sapphire icicle spears tear loose above along icy ledges and plunge toward packed snow below.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Brittle Glacier Fracture"
+  Body Text: "Spiderweb cracks split abruptly through thin frosted ice underfoot into a freezing abyss."
+  Artwork: Dark frosted blue glacier sheet floor the exact instant spiderweb fracture lines crack violently open underfoot around jagged icy chasm edges spilling frigid pale-blue mist upward (horizontally cracking floor crust—zero flying spear shards).
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Howling Whiteout Gale"
+  Body Text: "Swirling freezing arctic squalls sweep razor frost vapor straight across the ground."
+  Artwork: Arctic snow-and-granite chamber swept by a blinding icy whiteout tornado of glowing pale-blue frost mist and whirling frozen crystals.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Glacier Ice & Snow.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — FROST AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). All scenes take place in freezing arctic glaciers, snow-drifted gorges, and frost-rimed cliffs (NO timber forts, NO desert, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes emerge from behind translucent blue ice pillars to force a fight."
+  Artwork: Shadowed blue glacier hall torn by warm orange torchlight: two ink-black faceless shrouded silhouettes crouch motionless behind jagged sapphire ice pillars.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from high snowy cliff ledges, barring the frozen trail."
+  Artwork: Dim glacier canyon lit upward by lantern glow: perched quietly along an elevated snow-drifted ice shelf overhead, two pitch-black silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the ice trail from shadowed snow-banks—stand ready!"
+  Artwork: Moody snow-packed gorge lit down the center by aurora light: coiled pitch-black shadowy silhouettes wait tucked inside left and right shadowed snowdrifts.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of blowing white blizzard mist, forcing battle."
+  Artwork: Dramatic arctic pass softened by swirling pale snow mist and warm orange lantern backlight: three stark pitch-black shadowy silhouettes stand crouched still ahead.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Glacier Ice & Snow.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 FROST & GLACIER SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — FROST & GLACIER SCENE 1 (Aurora Glacier Hall)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Towering translucent sapphire glacier ice walls glowing faintly under pale-cyan aurora light behind a calm dark snow-dusted stone foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — FROST & GLACIER SCENE 2 (Frost-Rimed Brazier Hollow)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dark frost-crusted granite cliff recess lit warmly by weathered iron fire-braziers melting warm orange reflections across icy slate.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — FROST & GLACIER SCENE 3 (Snow-Burdened Boulder Rim)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Heavy snow-drifted black arctic granite boulders and hanging icicle eaves enclosing the far wall above level packed snow.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — FROST & GLACIER SCENE 4 (Snowy Ravine Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sheer icy dark mountain cliffs framing distant snow-blanketed peaks under starry winter twilight while level frozen stone fills center-front.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — FROST & GLACIER SCENE 5 (Blue Ice Vault)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Monumental fractured blue glacier cave wall striated with deep crystalline fissures catching cool cyan frost light above shadowed ice stone.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — FROST & GLACIER SCENE 6 (Rime-Hung Pine Cliff Edge)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Towering snow-bent ancient arctic frostpines and hoarfrost granite ledges enclosing a crisp twilight snowbank above dark earth.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — FROST & GLACIER SCENE 7 (Ice Crystal Cave)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Deep cobalt natural glacier alcove studded with translucent pale-aqua frost crystals illuminated softly in freezing subterranean blue light.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — FROST & GLACIER SCENE 8 (Blue Glacier Arch)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring sculpted sapphire-blue glacier ice, crisp wind-packed white snowdrifts, frost-rimed dark granite and rugged arctic pines, cool cyan aurora rim light contrasted cleanly against warm amber trail light (strictly natural arctic snow, glacier & frozen cliff terrain, NO timber fort gatehouses or stockade courtyards, NO desert sand, NO lush foliage, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Sweeping monolithic natural blue glacier ice arches curving cleanly overhead above a calm darkly shadowed flat ice shelf.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_26_frost_glacier_arena (Battleground 1 · Solid Blue Glacier Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching solid packed white snow, frost-rimed dark slate, and opaque glacial ice illuminated by cool cyan aurora rim light against deep winter indigo shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open arctic glacier & snow ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top strip lies an expansive, completely flat solid matte sapphire-slate glacier ice shelf dusted lightly with flush thin snow patches smooth underfoot across both combat sides—strictly level with zero protruding ice spires, cracks, or boulders.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top margin runs ONE straight west-to-east jagged blue glacier ice cliff base under a slim pale-cyan aurora horizon.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_27_frost_snowstone_arena (Battleground 2 · Packed Snow-Stone Terrace)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching solid packed white snow, frost-rimed dark slate, and opaque glacial ice illuminated by cool cyan aurora rim light against deep winter indigo shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open arctic glacier & snow ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom margin nearly to the top rim lies a broad, level, completely unobstructed wind-packed crisp white snow and flush frost-rimed dark granite stone floor across both sides—strictly clear with zero snowbanks, zero rocks, and zero posts inside the bottom 85% arena.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the very top edge runs ONE straight horizontal east-to-west frozen dark mountain granite cliff edge draped in crisp snow.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_28_frost_courtyard_arena (Battleground 3 · Rime-Dusted Black Slate Shelf)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art. Richly crafted matte brushwork matching solid packed white snow, frost-rimed dark slate, and opaque glacial ice illuminated by cool cyan aurora rim light against deep winter indigo shadows (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, completely level open arctic glacier & snow ground—push the entire horizontal west-to-east perimeter wall/fence/horizon rim HIGH up into ONLY the top ~15% strip so the bottom ~85% of the entire frame is completely open, unbroken walkable battleground floor from left edge to right edge.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR:
+Covering the ENTIRE lower ~85% from the bottom edge nearly to the top strip lies a wide, completely flat charcoal arctic slate shelf dusted gently in frost across both enemy and hero sides—strictly open with zero protruding rocks, stumps, or walls anywhere in the lower 85% area.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders, fences, walls, posts, or branches anywhere inside the lower 85% area to give a clear battle arena.
+
+TOP ~15% STRIP ONLY — STRAIGHT WEST-TO-EAST BORDER:
+Tucked tightly along ONLY the top ~15% horizontal strip parallel to the top margin runs ONE straight west-to-east row of low snow-weighted granite boulders and cropped arctic frostpine trunks.
+--- COPY-PASTE PROMPT END ---

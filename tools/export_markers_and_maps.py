@@ -102,6 +102,16 @@ TOKEN_DEFS: list[dict] = [
     {"sheet": 4, "r": 2, "c": 0, "id": "loc_39_the_eclipse_gate", "name": "The Eclipse Gate", "cat": "permanent", "map": "map_04", "locNum": 39, "region": 8, "kind": "Portal Dungeon #8 (King Garrick)", "ring": "obsidian", "isPortal": True, "portalNum": 8},
     {"sheet": 4, "r": 2, "c": 1, "id": "loc_40_garricks_black_keep", "name": "Garrick's Black Keep", "cat": "permanent", "map": "map_04", "locNum": 40, "region": 8, "kind": "Final Stronghold", "ring": "steel"},
 
+    # --- CLOSED PORTALS (Sheet 6 Rows 1–2 — Persistent Sealed Monument Markers) ---
+    {"sheet": 6, "r": 0, "c": 0, "id": "loc_05_the_ashen_gate_closed", "name": "The Ashen Gate (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+    {"sheet": 6, "r": 0, "c": 1, "id": "loc_10_the_sunken_maw_closed", "name": "The Sunken Maw (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+    {"sheet": 6, "r": 0, "c": 2, "id": "loc_15_the_iron_rift_closed", "name": "The Iron Rift (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+    {"sheet": 6, "r": 0, "c": 3, "id": "loc_20_the_rotspire_closed", "name": "The Rotspire (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+    {"sheet": 6, "r": 1, "c": 0, "id": "loc_25_the_scorched_chasm_closed", "name": "The Scorched Chasm (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+    {"sheet": 6, "r": 1, "c": 1, "id": "loc_30_storm_crowned_spire_closed", "name": "The Storm-Crowned Spire (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+    {"sheet": 6, "r": 1, "c": 2, "id": "loc_35_the_pale_abyss_closed", "name": "The Pale Abyss (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+    {"sheet": 6, "r": 1, "c": 3, "id": "loc_39_the_eclipse_gate_closed", "name": "The Eclipse Gate (Sealed)", "cat": "closed_portal", "kind": "Sealed Portal Monument", "ring": "obsidian"},
+
     # --- DUNGEON DOORS ---
     {"sheet": 4, "r": 3, "c": 0, "id": "door_open_archway", "name": "Open Stone Archway", "cat": "dungeon_door", "kind": "Portal Grid Door State", "ring": "iron"},
     {"sheet": 4, "r": 3, "c": 1, "id": "door_locked_iron_gate", "name": "Locked Iron Gate", "cat": "dungeon_door", "kind": "Portal Grid Door State", "ring": "iron"},
@@ -580,7 +590,7 @@ def export_markers(json_only: bool = False, only_sheets: set[str] | None = None)
 
     locations: list[dict] = []
     for idx, entry in enumerate(active_entries):
-        if entry["cat"] in ("dungeon_door", "dungeon_prop", "hub_landmark", "bounty_field", "standby"):
+        if entry["cat"] in ("dungeon_door", "dungeon_prop", "hub_landmark", "bounty_field", "standby", "closed_portal"):
             continue
         eid = entry["id"]
         prev = existing_by_id.get(eid, {})

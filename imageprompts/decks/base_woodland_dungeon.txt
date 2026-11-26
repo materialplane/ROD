@@ -1,0 +1,275 @@
+# ROD — Woodlands & Trails Base Deck Prompts (Pro 3 / 4K / 50% Batch API)
+# Source Spec: data/proposed-decks.json (base_woodland_dungeon)
+# Target Model: models/gemini-3-pro-image (Pro 3, 4K) — PURE TEXT-ONLY PROMPTS (ZERO reference images attached)
+#
+# ART DIRECTION LOCK (Woodlands & Trails Base Deck):
+# - tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters)
+# - UNIVERSAL BASALT CARD RULE: Uses the exact same Dark Basalt-Gray stone frame & 4 Abstract Circular Sigil backs as Stone-Brick.
+
+================================================================================
+SHEET 1 — PATHS & CROSSINGS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). All scenes are set outdoors beneath dry forest canopy, oaks, pines, and mossy woodland trails (NO standing swamp bog, NO indoor stone masonry walls or cellar stairs, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Winding Game Trail"
+  Body Text: "A narrow packed-earth game trail bends deeper beneath towering ancient oaks."
+  Artwork: Eye-level ground perspective standing on a mossy forest trail starting right at the bottom foreground, looking straight ahead as a winding packed-earth dirt footpath bends between towering oak trunks into golden sunbeams.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Stepping-Stone Creek"
+  Body Text: "Flat mossy river stones cross a brisk wide woodland creek toward far trees."
+  Artwork: Eye-level ground perspective from the near bank looking straight forward across broad flat mossy river stepping stones spanning a brisk, wide, rushing forest creek from the bottom foreground onto a sunlit fern-lined trail beyond.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Parted Briar Gap"
+  Body Text: "A narrow parted gap through dense thorn-briars opens into shaded woods beyond."
+  Artwork: Eye-level ground perspective standing directly on the forest footpath before a dense mossy thorn-briar thicket, looking straight forward through a narrow parted archway tunnel into a sun-dappled woodland trail beyond.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Fallen-Log Bridge"
+  Body Text: "A broad moss-covered fallen oak spans a deep rocky gorge toward far woods."
+  Artwork: Eye-level ground perspective standing at the muddy trail lip looking straight forward along the wide flat-topped mossy fallen oak trunk stretching straight from the bottom foreground across a deep sheer rocky gorge with boulder-strewn whitewater far below toward golden pines on the opposite bank.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Paths & Crossings matching Dry Woodland Clearing.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 2 — WOODLAND CACHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). All scenes are set outdoors beneath dry forest canopy, oaks, pines, and mossy woodland trails (NO standing swamp bog, NO indoor stone masonry walls or cellar stairs, NO people).
+IMPORTANT: Every cache container (pack, stash, crate, lockbox, or strongbox) sits centered facing straight forward toward the viewer flush against a solid continuous themed backdrop filling the gothic window cleanly (parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Hollow-Tree Stash"
+  Body Text: "Tucked deep inside a hollow oak base, oiled leather pouches wait untouched."
+  Artwork: Sun-dappled woodland clearing: centered front-facing knotted mossy hollow oak tree trunk opening holding bound oiled leather supply pouches and a tucked brass clasp.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Abandoned Ranger Pack"
+  Body Text: "Left beside gnarled pine roots, a buckled ranger pack sits undisturbed in moss."
+  Artwork: Mossy forest root bank: centered front-facing weathered canvas-and-leather ranger backpack with brass buckles and tied cloak roll resting cleanly against mossy roots and ferns.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Mossy Strongbox"
+  Body Text: "Settled beneath creeping ivy and fern fronds, an old iron strongbox rests closed."
+  Artwork: Shadowed pine grove nook: centered front-facing weathered dark-oak and iron strongbox draped lightly in emerald forest moss resting squarely against mossy forest stone.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Poacher's Supply Crate"
+  Body Text: "Braced with rough rope and timber slats, a poacher's crate sits hidden in brush."
+  Artwork: Forest clearing fern thicket: centered front-facing nailed pinewood supply crate bound with hemp rope and dark iron corner brackets resting cleanly on dry forest pine needles.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Supply Caches & Stashes matching Dry Woodland Clearing.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 3 — FOREST SPRINGS & WAYSHRINES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). All scenes are set outdoors beneath dry forest canopy, oaks, pines, and mossy woodland trails (NO standing swamp bog, NO indoor stone masonry walls or cellar stairs, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Clear Forest Spring"
+  Body Text: "Pure cool spring water bubbles from moss-draped stones, restoring the party's HP."
+  Artwork: Sunlit woodland glade bathed in soft emerald-gold light: crystal-clear spring water wells smoothly from mossy stones into a clean fern-ringed basin.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Mossy Wayshrine"
+  Body Text: "Faint sapphire runes glow across an old mossy forest wayshrine, restoring MP."
+  Artwork: Quiet pine grove washed in cool sapphire twilight: a weathered standing mossy stone wayshrine etched with clean geometric blue runes rests among ferns.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Oak-Bark Wardstone"
+  Body Text: "Warm bronze light pulses across a carved forest stone, guarding one hero against steel."
+  Artwork: Golden woodland clearing edge: a sturdy moss-rimmed standing granite monolith carved with a warm glowing bronze shield emblem relief beside ancient oak roots.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Dew-Mist Standing Stone"
+  Body Text: "Soft violet light shimmers around an ancient stone, shielding one hero from magic."
+  Artwork: Shadowed twilight woodland clearing: an ancient weathered monolith etched with luminous violet ward-circle geometry amidst cool forest mist and ferns.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Springs & Wayshrines matching Dry Woodland Clearing.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 4 — TRAIL HAZARDS (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). All scenes are set outdoors beneath dry forest canopy, oaks, pines, and mossy woodland trails (NO standing swamp bog, NO indoor stone masonry walls or cellar stairs, NO people).
+IMPORTANT: Parchment boxes contain ONLY the exact single quoted Body Text sentence verbatim (NO extra numbers, NO people, NO monsters).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Poacher's Bear Trap"
+  Body Text: "Hidden beneath dry pine needles, jagged rusted iron jaws snap shut to trap steps."
+  Artwork: Sun-dappled packed forest dirt trail under golden sunlight: heavy forged serrated rusted iron bear-trap jaws lie cocked wide open amid parted dry pine needles and fallen oak leaves, anchored tightly by a thick rusted iron chain bolted to a gnarled oak root.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Falling Deadwood Limb"
+  Body Text: "Cracking loudly overhead, a heavy gnarled oak limb plunges down across the trail."
+  Artwork: Forest trail mid-drop: a massive split jagged dead oak limb breaks cleanly overhead and plunges downward through swirling autumn oak leaves toward the dirt path.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Bursting Spore Pod"
+  Body Text: "Concealed among damp moss, bloated forest fungi rupture with choking green spores."
+  Artwork: Shadowed forest floor the moment a huge mossy fungal spore-pod bursts open in dry leaf litter, jetting thick glowing chartreuse-green spore clouds upward.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Leaf-Hidden Pit Stakes"
+  Body Text: "Masking a shallow pit beneath autumn leaves, sharpened wooden stakes gleam below."
+  Artwork: Leaf-strewn woodland footpath giving way: rows of sharpened forged woodland pit stakes tilt cleanly upward beneath parted dry autumn oak leaves.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Concealed Hazards matching Dry Woodland Clearing.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+SHEET 5 — FOREST SHADOW AMBUSHES (9:16 Canvas, 2x2 Seamless)
+================================================================================
+--- COPY-PASTE PROMPT START ---
+9:16 vertical seamless 2x2 grid of four perfectly rectangular complete fantasy RPG delve cards in 4k quality (strictly 2 columns wide by 2 rows tall meeting at exact 90-degree center intersections with NO gaps, NO gutters, zero rounded card corners, and zero cost numbers or circular cost badges). Render in dense, crisp stylized hand-painted League of Legends (Legends of Runeterra / Ruined King) craft with the weathered chiseled dark basalt-slate outer card frame, uniform continuous **Dark Basalt-Gray carved stone inlay trim line** around all four inner sides, pewter corner rivets, pointed gothic upper arch artwork window, curved notched dark basalt-and-pewter center nameplate ribbon positioned right below the artwork arch and above the text box bearing ivory-gold serif title text, and weathered warm muted parchment lower text box with dark ink serif copy. Edge to edge bleed.
+
+ENVIRONMENT LOCK: Every card artwork uses tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). All scenes are set outdoors beneath dry forest canopy, oaks, pines, and mossy woodland trails (NO standing swamp bog, NO indoor stone masonry walls or cellar stairs, NO people).
+IMPORTANT: Every scene shows ambiguous pitch-black, faceless cloaked shadowy figures poised quietly waiting in ambush inside themed cover shadows, traced softly by warm rim-light (calm coiled tension in silhouette, zero attacking motion, zero recognizable monster anatomy; parchment boxes contain ONLY the single quoted Body Text sentence verbatim).
+
+- Panel 1 (Top-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Waiting foes emerge from behind ancient oak trunks to force a fight."
+  Artwork: Shadowed sunlit woodland clearing: two ink-black faceless shrouded silhouettes crouch motionless behind massive mossy oak tree trunks, poised calmly in ambush.
+
+- Panel 2 (Top-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Silent shapes watch from gnarled upper oak branches, barring the trail ahead."
+  Artwork: Dim pine forest lit upward by golden twilight shafts: perched quietly along a thick shadowed oak limb high above empty footpath, two poised pitch-black shadowy silhouettes wait.
+
+- Panel 3 (Bottom-Left — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Unseen enemies close off the forest path from tall green ferns—stand ready!"
+  Artwork: Moody woodland clearing lit down the center trail by warm sunset light: coiled pitch-black shadowy silhouettes wait tucked inside left and right dense fern thickets.
+
+- Panel 4 (Bottom-Right — Basalt Trim):
+  Title: "Ambush"
+  Body Text: "Stalking foes step forward out of misty woodland brush, forcing battle."
+  Artwork: Dramatic forest trail softened by drifting golden evening mist and warm rim-light: three stark pitch-black shadowy silhouettes stand crouched still amid shadowy woodland brush.
+
+FINAL CHECK: Exact 2x2 flush edge-to-edge bleed grid on 9:16 canvas, uniform Dark Basalt-Gray inlay trim, exact spelled titles & Body Text verbatim, Shadow Ambushes matching Dry Woodland Clearing.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+STAGE 1 [R1 TO R8] — 8 EPIC 16:9 DRY WOODLAND CLEARING SCENES (Pro 3 / 16:9 4K)
+================================================================================
+
+# R1 — DRY WOODLAND CLEARING SCENE 1 (Sun-Shafted Oak Glade)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Golden late-afternoon sunbeams slicing cleanly through towering moss-draped oak trunks onto a calm shadowed packed-earth clearing foreground.
+--- COPY-PASTE PROMPT END ---
+
+# R2 — DRY WOODLAND CLEARING SCENE 2 (Mossy Boulder Hollow)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Massive emerald-mossed granite boulders framing a quiet leafy woodland backdrop beneath tall pines with clear dark dry leaf floor front.
+--- COPY-PASTE PROMPT END ---
+
+# R3 — DRY WOODLAND CLEARING SCENE 3 (Pine-Needle Timber Clearing)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dense wall of towering straight red-barked pines backlit by warm amber dusk glow above calm shadowed brown pine-needle floor.
+--- COPY-PASTE PROMPT END ---
+
+# R4 — DRY WOODLAND CLEARING SCENE 4 (Ancient Twin-Trunk Archway)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Two monumental twisted oak trunks leaning together far behind a fern-bordered woodland clearing in rich twilight indigo and sunset gold.
+--- COPY-PASTE PROMPT END ---
+
+# R5 — DRY WOODLAND CLEARING SCENE 5 (Fern-Lined Brook Bank)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Dry mossy forest bank bordered far along the rear edge by a shallow rippling crystal woodland brook catching golden forest light.
+--- COPY-PASTE PROMPT END ---
+
+# R6 — DRY WOODLAND CLEARING SCENE 6 (Old Stone Marker Clearing)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Weathered mossy boundary cairn stone tucked quietly against towering forest trees under warm amber lantern-lit twilight.
+--- COPY-PASTE PROMPT END ---
+
+# R7 — DRY WOODLAND CLEARING SCENE 7 (Twilight Birch Grove)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Silvery-barked birch and dark oak canopy washed in cool misty blue forest twilight contrasted with warm sunset glow.
+--- COPY-PASTE PROMPT END ---
+
+# R8 — DRY WOODLAND CLEARING SCENE 8 (Giant Root Hollow)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen monumental stylized high-fantasy RPG key art splash painting in the exact rich hand-painted art style of League of Legends (Legends of Runeterra / Ruined King), featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters). Strictly uninhabited wide enclosed scene with NO people, NO monsters, NO chests, NO doors/corridors leading away, and calm darkly shadowed ground across the center-lower foreground.
+
+EPIC SCENE FOCAL ART & LIGHTING:
+Cathedral-like towering gnarled forest canopy woven tightly across the background above quiet dark mossy forest earth.
+--- COPY-PASTE PROMPT END ---
+
+================================================================================
+BATTLEGROUNDS [BG1 TO BG3] — 3 16:9 COMBAT ARENAS (Pro 3 / 16:9 4K)
+================================================================================
+
+# BG1 — dungeon_08_woodland_pine_arena (Battleground 1 · Sunlit Pine-Needle Clearing)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level dry woodland clearing combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Broad level open forest clearing floor of packed brown woodland earth, scattered flush dry pine needles, sparse flat moss patches, and dappled golden sunset shafts across both sides—strictly flat with zero tree stumps, boulders, or branches anywhere across the battleground; top 15% rim only shows thick mossy oak and pine trunk bases.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG2 — dungeon_09_woodland_oak_arena (Battleground 2 · Ancient Oak Root Glade)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level dry woodland clearing combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Expansive flat packed woodland earth and low clipped emerald turf veined cleanly with flush flat root ridges and dappled warm amber light—completely level and obstacle-free across the entire combat area; top 15% rim only shows shadowy forest ferns and massive oak trunk bases.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---
+
+# BG3 — dungeon_10_woodland_dusk_arena (Battleground 3 · Dusk Woodland Trailhead)
+--- COPY-PASTE PROMPT START ---
+16:9 widescreen high-detail stylized high-fantasy RPG key art splash illustration in the exact crisp hand-painted art style of high-detail League of Legends (Legends of Runeterra / Ruined King) character splash art, featuring tall gnarled ancient oaks and evergreens, sun-dappled golden forest shafts piercing deep emerald foliage shadows, packed earth footpaths, mossy granite boulders, warm amber dusk light (strictly NO standing swamp water, NO reed bogs, NO stone dungeon walls or doors, NO people, NO monsters) (no photorealism, no heavy comic sharpie outlines, no flat vector cel-shading, no pixel art, no 3D plastic CGI gloss, no text, and no people, monsters, chests, or weapons).
+
+CAMERA & 85% GROUND / 15% TOP HORIZON SPLIT:
+Still, uninhabited high-angle elevated three-quarter RPG combat vista pitched ~45-55 degrees downward across an expansive, wide, level dry woodland clearing combat ground—push the rear background rim HIGH up near the very top edge so the bottom ~85% of the entire frame is open walkable battleground floor and ONLY the top ~15% strip holds the distant rim.
+
+LOWER ~85% — EXPANSIVE LEVEL BATTLE FLOOR & TOP ~15% RIM:
+Wide level dark woodland dirt floor dotted thinly with flat fallen autumn oak leaves and cool twilight shadows balanced by warm golden rim light across both combat zones—strictly unobstructed with zero protruding rocks or roots; top 15% rim only shows distant shadowed tree trunks and mossy stone markers.
+BATTLESCENE MANDATE: The battlescene area must not have any protruding rocks, boulders or branches to give a clear battle arena.
+--- COPY-PASTE PROMPT END ---

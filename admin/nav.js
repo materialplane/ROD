@@ -5,6 +5,8 @@
     { label: "Shops & Inns", href: "/admin/shops/", desc: "Preview town shops, inns & item pricing" },
     { label: "Party Menu", href: "/admin/party/", desc: "Inspect hero status, gear, spells & atlas" },
     { label: "Disciplines", href: "/admin/disciplines/", desc: "Review class discipline pairs & approvals" },
+    { label: "Proposed Decks", href: "/admin/decks/", desc: "Review 20-card base & quest decks + 16:9 rooms" },
+    { label: "Board & Tray Test", href: "/admin/delve-preview/", desc: "Preview deck stack & 3 face-down cards over 16:9 scenes" },
     { label: "Battle Studio", href: "/admin/battles/", desc: "Preview encounters & stage layouts" },
     { label: "Combat Tester", href: "/admin/combat-test/", desc: "Play live zone encounters & track 10-fight grind" },
     { label: "Economy Simulator", href: "/admin/simulator/", desc: "Visual 20-zone drop, attrition & quest telemetry" },

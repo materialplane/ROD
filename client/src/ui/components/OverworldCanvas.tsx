@@ -2,16 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import { assetUrl } from "../api";
 import { audioEngine } from "../audio";
 import { getHeroById, HEROES } from "../heroes";
-import type { ActiveOutpostHunt, HeroId, MapMeta, QuestEntry, TravelCatalog, WorldLocation } from "../types";
+import type { ActiveOutpostHunt, ActiveQuestProgress, HeroId, MapMeta, QuestEntry, TravelCatalog, WorldLocation } from "../types";
 import {
   findNearestClearPoint,
+  findWorldPath,
   isCircleClear,
+  isLineClear,
   resolveCircleMove,
   sampleWorldTerritory,
   type WorldCollisionIndex,
   type WorldTerritorySample,
 } from "../worldCollision";
 import { OverworldQuestTracker } from "./OverworldQuestTracker";
+import { QuestReferenceCard, type QuestReferenceStatus } from "./QuestCardThumb";
 import { ServiceChip } from "./ServiceChip";
 
 export interface PlayerRuntimeRef {
@@ -54,6 +57,8 @@ interface OverworldCanvasProps {
   activeQuestZones?: number[];
   acceptedQuestIds?: string[];
   completedQuestIds?: string[];
+  questProgressById?: Record<string, ActiveQuestProgress>;
+  trackedQuestKeys?: string[];
   activeOutpostHunts?: ActiveOutpostHunt[];
   questsCatalog?: QuestEntry[];
   startX: number;
@@ -65,7 +70,7 @@ interface OverworldCanvasProps {
   onEnterLocation: (loc: WorldLocation) => void;
   onTriggerEncounter?: (trigger: OverworldEncounterTrigger) => void;
   onOpenParty: () => void;
-  onOpenJournal?: () => void;
+  onOpenJournal?: (focusTrackKey?: string) => void;
   onOpenPause: () => void;
   onToast: (msg: string) => void;
 }
@@ -84,33 +89,6 @@ function clamp(val: number, min: number, max: number): number {
 
 type ZoneThreatTier = "normal" | "danger" | "deadly";
 
-const PARTY_THREAT_WARNINGS: Record<HeroId, { danger: string; deadly: string }> = {
-  valen: {
-    danger: "Getting rougher past the safe roads — stay sharp and keep your blade ready.",
-    deadly: "We're way out of our depth out here! Let's fall back before we get wiped out.",
-  },
-  ellowyn: {
-    danger: "Feel that shift in the air? Tougher foes patrol this ground ahead.",
-    deadly: "The threat ahead is overwhelming — we need stronger gear and training before pushing this far.",
-  },
-  orin: {
-    danger: "Eyes up. Foes in this stretch hit a lot harder than back near town.",
-    deadly: "Hold on — we're outmatched here. We should turn back and prepare first!",
-  },
-  rowan: {
-    danger: "Heavy tracks ahead. Whatever hunts these wilds won't go down easy.",
-    deadly: "Deadly ground ahead! These monsters will tear right through us right now.",
-  },
-  mera: {
-    danger: "The wilds are growing hostile ahead. Watch our footing and save our strength.",
-    deadly: "This ground is far beyond us right now — pull back before something ambushes us!",
-  },
-  harlan: {
-    danger: "Keep healing drafts handy — battles out here are going to sting.",
-    deadly: "No tonic on Ethoria will patch us up if we fight out here right now — let's turn back!",
-  },
-};
-
 function getZoneThreatTier(territory: WorldTerritorySample | null, partyLevel: number): ZoneThreatTier {
   if (!territory) return "normal";
   const gap = territory.zoneMin - partyLevel;
@@ -119,28 +97,52 @@ function getZoneThreatTier(territory: WorldTerritorySample | null, partyLevel: n
   return "normal";
 }
 
-function pickThreatWarningCallout(
-  tier: "danger" | "deadly",
-  partyOrder: HeroId[]
-): { speakerId: HeroId; speakerName: string; line: string } {
-  const companions = partyOrder.length > 1 ? partyOrder.slice(1) : partyOrder;
-  const pool = companions.length > 0 ? companions : (["valen"] as HeroId[]);
-  const speakerId = pool[Math.floor(Math.random() * pool.length)];
-  const hero = getHeroById(speakerId);
-  const line = PARTY_THREAT_WARNINGS[speakerId]?.[tier] ?? PARTY_THREAT_WARNINGS.valen[tier];
-  return { speakerId, speakerName: hero.name, line };
-}
-
 function getEntryRadius(loc: WorldLocation): number {
-  return Math.max(loc.triggerRadius ?? 104, BASE_MARKER_DISPLAY_SIZE * (loc.scale ?? 1.0) * 0.72);
+  const base = Math.max(loc.triggerRadius ?? 104, BASE_MARKER_DISPLAY_SIZE * (loc.scale ?? 1.0) * 0.72);
+  if (loc.category === "travel") {
+    return Math.max(base, 128);
+  }
+  return base;
 }
 
 function getWalkEnterRadius(loc: WorldLocation): number {
   const base = clamp(BASE_MARKER_DISPLAY_SIZE * (loc.scale ?? 1.0) * 0.36, 46, 82);
   if (loc.category === "travel") {
-    return Math.max(base, 90);
+    return Math.max(base, 114);
   }
   return base;
+}
+
+function isFerryCrossingLocation(loc: WorldLocation): boolean {
+  return loc.id.startsWith("tr_ferry_crossing");
+}
+
+function isMountainPassLocation(loc: WorldLocation): boolean {
+  return loc.id.startsWith("tr_border_mountain_pass_gate");
+}
+
+function isPortalLocation(loc: WorldLocation): boolean {
+  return Boolean(loc.isPortal || loc.category === "portal");
+}
+
+function isTravelGateLocked(
+  loc: WorldLocation,
+  mapId: string,
+  travelCatalog: TravelCatalog | null,
+  sealedPortals: Set<string>
+): { locked: boolean; portalId?: string; portalName?: string } {
+  if (isFerryCrossingLocation(loc)) {
+    const gate = travelCatalog?.ferryPortalGates?.[mapId];
+    if (gate && !sealedPortals.has(gate.portalId)) {
+      return { locked: true, portalId: gate.portalId, portalName: gate.portalName };
+    }
+  } else if (isMountainPassLocation(loc)) {
+    const gate = travelCatalog?.mountainPassPortalGates?.[mapId];
+    if (gate && !sealedPortals.has(gate.portalId)) {
+      return { locked: true, portalId: gate.portalId, portalName: gate.portalName };
+    }
+  }
+  return { locked: false };
 }
 
 function findLinkedFerryPartner(
@@ -446,7 +448,7 @@ const SAFE_GRACE_STEPS = 8;
 
 function isSafeSanctuaryLocation(loc: WorldLocation): boolean {
   if (!loc.placed || loc.x === null || loc.y === null) return false;
-  if (loc.category === "portal" || loc.category === "quest_field" || loc.visibility === "quest_active_only") {
+  if (isPortalLocation(loc) || loc.category === "quest_field" || loc.visibility === "quest_active_only") {
     return false;
   }
   return Boolean(loc.interiorAssetPath || loc.id.startsWith("tr_"));
@@ -476,6 +478,8 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   activeQuestZones = [],
   acceptedQuestIds = [],
   completedQuestIds = [],
+  questProgressById = {},
+  trackedQuestKeys = [],
   activeOutpostHunts = [],
   questsCatalog = [],
   startX,
@@ -514,6 +518,8 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       stateRef.current.pressed.clear();
       stateRef.current.targetX = null;
       stateRef.current.targetY = null;
+      stateRef.current.waypoints = [];
+      stateRef.current.pendingEnterLocId = null;
     }
   }, [paused]);
 
@@ -551,28 +557,12 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   const leaderRef = useRef<HeroId>(leaderId);
   leaderRef.current = leaderId;
 
-  const partyOrderRef = useRef<HeroId[]>(partyOrder);
-  partyOrderRef.current = partyOrder;
-
   const [hoveredLoc, setHoveredLoc] = useState<{ loc: WorldLocation; x: number; y: number } | null>(null);
   const [nearbyLoc, setNearbyLoc] = useState<WorldLocation | null>(null);
   const nearbyLocRef = useRef<WorldLocation | null>(null);
   const [territoryHud, setTerritoryHud] = useState<WorldTerritorySample | null>(null);
   const [inSafeZoneHud, setInSafeZoneHud] = useState(true);
-  const [zoneCallout, setZoneCallout] = useState<{
-    tier: "danger" | "deadly";
-    speakerName: string;
-    line: string;
-    key: number;
-  } | null>(null);
-  const zoneCalloutTimerRef = useRef<number | null>(null);
   const [encounterFlash, setEncounterFlash] = useState(false);
-
-  useEffect(() => {
-    return () => {
-      if (zoneCalloutTimerRef.current !== null) window.clearTimeout(zoneCalloutTimerRef.current);
-    };
-  }, []);
 
   // Store mutable animation/input state inside refs so the 60fps loop triggers 0 React re-renders
   const stateRef = useRef({
@@ -580,6 +570,9 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     y: startY,
     targetX: null as number | null,
     targetY: null as number | null,
+    waypoints: [] as Array<{ x: number; y: number }>,
+    pendingEnterLocId: null as string | null,
+    blockedClickPulse: null as { x: number; y: number; untilMs: number } | null,
     camX: 0,
     camY: 0,
     playtime: startPlaytime,
@@ -589,8 +582,6 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     lastHudBiome: "",
     lastHudZone: -1,
     lastHudSafe: true,
-    lastThreatZone: -1,
-    lastCalloutAt: { danger: 0, deadly: 0 },
     lastAutoSaveMs: 0,
     lastSavedX: startX,
     lastSavedY: startY,
@@ -621,6 +612,13 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     suppressedLocId: null as string | null,
   });
 
+  const clearClickNavigation = (st: typeof stateRef.current) => {
+    st.targetX = null;
+    st.targetY = null;
+    st.waypoints = [];
+    st.pendingEnterLocId = null;
+  };
+
   const buildEncounterPayload = (
     x: number,
     y: number,
@@ -645,38 +643,42 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
   const startEnterLocation = (loc: WorldLocation) => {
     const st = stateRef.current;
     if (st.entering || st.ferryTransit || insideLocRef.current) return;
-    if (loc.category === "portal" && !sealedPortalSetRef.current.has(loc.id) && triggerEncounterCbRef.current) {
+    if (isPortalLocation(loc)) {
+      if (!st.discovered.has(loc.id)) {
+        st.discovered.add(loc.id);
+        runtimeRef.current.discoveredLocations = [...st.discovered];
+      }
       st.pressed.clear();
-      st.targetX = null;
-      st.targetY = null;
+      clearClickNavigation(st);
       st.wildStepAccum = 0;
       st.wildSteps = 0;
+      st.suppressedLocId = loc.id;
+      st.entering = { loc, startX: st.x, startY: st.y, elapsed: 0 };
       audioEngine.setMovementLoop("none");
-      audioEngine.playUiClick(0.36);
       setHoveredLoc(null);
-      triggerEncounterCbRef.current(buildEncounterPayload(st.x, st.y, loc));
+      enterLocCbRef.current(loc);
       return;
     }
     const ferryPartner = findLinkedFerryPartner(loc, worldLocations, mapMeta.id);
     const isPassExit = hasMountainPassExit(loc);
-    if (ferryPartner && ferryPartner.x !== null && ferryPartner.y !== null) {
-      const ferryGate = travelCatalogRef.current?.ferryPortalGates?.[mapMeta.id];
-      if (ferryGate && !sealedPortalSetRef.current.has(ferryGate.portalId)) {
-        st.suppressedLocId = loc.id;
-        audioEngine.playUiClick(0.24);
-        toastCbRef.current?.(`Ferry Closed · Seal ${ferryGate.portalName} First`);
-        return;
+    const isFerry = isFerryCrossingLocation(loc);
+    const isPass = isMountainPassLocation(loc);
+    const gateState = isTravelGateLocked(loc, mapMeta.id, travelCatalogRef.current, sealedPortalSetRef.current);
+
+    if (gateState.locked) {
+      if (!st.discovered.has(loc.id)) {
+        st.discovered.add(loc.id);
+        runtimeRef.current.discoveredLocations = [...st.discovered];
       }
+      st.pressed.clear();
+      clearClickNavigation(st);
+      st.suppressedLocId = loc.id;
+      st.entering = { loc, startX: st.x, startY: st.y, elapsed: 0 };
+      audioEngine.setMovementLoop("none");
+      enterLocCbRef.current(loc);
+      return;
     }
-    if (isPassExit) {
-      const passGate = travelCatalogRef.current?.mountainPassPortalGates?.[mapMeta.id];
-      if (passGate && !sealedPortalSetRef.current.has(passGate.portalId)) {
-        st.suppressedLocId = loc.id;
-        audioEngine.playUiClick(0.24);
-        toastCbRef.current?.(`Pass Blocked · Defeat ${passGate.portalName} First`);
-        return;
-      }
-    }
+
     if (
       (ferryPartner && ferryPartner.x !== null && ferryPartner.y !== null) ||
       isPassExit
@@ -686,8 +688,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       const rawDestY = ferryPartner ? (ferryPartner.y as number) : (loc.passExitY as number);
       const destId = ferryPartner ? ferryPartner.id : loc.id;
       st.pressed.clear();
-      st.targetX = null;
-      st.targetY = null;
+      clearClickNavigation(st);
       st.suppressedLocId = loc.id;
       const land = findNearestClearPoint(
         collisionRef.current,
@@ -714,9 +715,14 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         disembarkDur: 0.30,
         elapsed: 0,
       };
-      audioEngine.setMovementLoop("none");
+      audioEngine.setMovementLoop(ferryPartner ? "boat" : "none");
       audioEngine.playUiClick(0.32);
       setHoveredLoc(null);
+      return;
+    }
+    if ((isFerry || isPass) && !loc.interiorAssetPath) {
+      audioEngine.playUiClick(0.24);
+      toastCbRef.current?.(isFerry ? "No paired ferry pier across this waterway yet." : "No mountain pass exit placed yet.");
       return;
     }
     if (!loc.interiorAssetPath) return;
@@ -725,8 +731,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       runtimeRef.current.discoveredLocations = [...st.discovered];
     }
     st.pressed.clear();
-    st.targetX = null;
-    st.targetY = null;
+    clearClickNavigation(st);
     st.suppressedLocId = loc.id;
     st.entering = { loc, startX: st.x, startY: st.y, elapsed: 0 };
     audioEngine.setMovementLoop("none");
@@ -750,8 +755,8 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     );
     st.x = safe.x;
     st.y = safe.y;
-    st.targetX = null;
-    st.targetY = null;
+    clearClickNavigation(st);
+    st.blockedClickPulse = null;
     st.playtime = startPlaytime;
     st.wasMoving = false;
     st.lastSavedX = st.x;
@@ -775,7 +780,12 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     const spawnedAt = worldLocations.find(
       (l) =>
         l.placed &&
-        (l.interiorAssetPath || findLinkedFerryPartner(l, worldLocations, mapMeta.id) || hasMountainPassExit(l)) &&
+        (l.interiorAssetPath ||
+          findLinkedFerryPartner(l, worldLocations, mapMeta.id) ||
+          hasMountainPassExit(l) ||
+          isFerryCrossingLocation(l) ||
+          isMountainPassLocation(l) ||
+          isPortalLocation(l)) &&
         l.mapId === mapMeta.id &&
         l.x !== null &&
         l.y !== null &&
@@ -788,13 +798,11 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     );
     st.lastHudSafe = initSafe;
     setInSafeZoneHud(initSafe);
-    setZoneCallout(null);
 
     const initSample = sampleWorldTerritory(collisionRef.current, mapMeta.id, st.x, st.y);
     if (initSample) {
       st.lastHudBiome = initSample.biomeName;
       st.lastHudZone = initSample.zoneCode;
-      st.lastThreatZone = initSample.zoneCode;
       setTerritoryHud(initSample);
     }
 
@@ -834,7 +842,6 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
     if (initSample) {
       st.lastHudBiome = initSample.biomeName;
       st.lastHudZone = initSample.zoneCode;
-      st.lastThreatZone = initSample.zoneCode;
       runtimeRef.current.regionLabel = initSample.regionName;
       setTerritoryHud(initSample);
     }
@@ -976,6 +983,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           runtimeRef.current.x = st.x;
           runtimeRef.current.y = st.y;
           autoSaveCbRef.current();
+          audioEngine.setMovementLoop("none");
           audioEngine.playUiClick(0.32);
         }
         updateCam();
@@ -993,8 +1001,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         if (st.pressed.has("KeyD") || st.pressed.has("ArrowRight")) kx += 1;
 
         if (kx !== 0 || ky !== 0) {
-          st.targetX = null;
-          st.targetY = null;
+          clearClickNavigation(st);
           const len = Math.hypot(kx, ky);
           const candX = st.x + (kx / len) * MOVE_SPEED * dt;
           const candY = st.y + (ky / len) * MOVE_SPEED * dt;
@@ -1012,6 +1019,28 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           st.x = res.x;
           st.y = res.y;
         } else if (st.targetX !== null && st.targetY !== null) {
+          // Lookahead shortcut: skip intermediate waypoint cleanly once straight line to next waypoint opens up
+          while (
+            st.waypoints.length > 1 &&
+            isLineClear(
+              collisionRef.current,
+              mapMeta.id,
+              st.x,
+              st.y,
+              st.waypoints[1].x,
+              st.waypoints[1].y,
+              TOKEN_RADIUS,
+              mapMeta.width,
+              mapMeta.height
+            )
+          ) {
+            st.waypoints.shift();
+          }
+          if (st.waypoints.length > 0) {
+            st.targetX = st.waypoints[0].x;
+            st.targetY = st.waypoints[0].y;
+          }
+
           const dx = st.targetX - st.x;
           const dy = st.targetY - st.y;
           const dist = Math.hypot(dx, dy);
@@ -1041,12 +1070,48 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           const actualMove = Math.hypot(res.x - st.x, res.y - st.y);
           st.x = res.x;
           st.y = res.y;
-          if (reachedTarget && !res.slid) {
-            st.targetX = null;
-            st.targetY = null;
-          } else if (res.slid && actualMove < step * 0.2) {
-            st.targetX = null;
-            st.targetY = null;
+          if (reachedTarget || (st.waypoints.length > 1 && Math.hypot(st.targetX - st.x, st.targetY - st.y) <= 10)) {
+            st.waypoints.shift();
+            if (st.waypoints.length > 0) {
+              st.targetX = st.waypoints[0].x;
+              st.targetY = st.waypoints[0].y;
+            } else {
+              const enterLocId = st.pendingEnterLocId;
+              clearClickNavigation(st);
+              if (enterLocId) {
+                const targetLoc = worldLocations.find((l) => l.id === enterLocId);
+                if (
+                  targetLoc &&
+                  targetLoc.x !== null &&
+                  targetLoc.y !== null &&
+                  Math.hypot(st.x - targetLoc.x, st.y - targetLoc.y) <=
+                    Math.max(getWalkEnterRadius(targetLoc), getEntryRadius(targetLoc)) + 36
+                ) {
+                  startEnterLocation(targetLoc);
+                }
+              }
+            }
+          } else if (res.slid && actualMove < step * 0.15) {
+            // Re-route around unexpected snag along last destination before cancelling
+            const finalGoal = st.waypoints[st.waypoints.length - 1] ?? { x: st.targetX, y: st.targetY };
+            const reroute = findWorldPath(
+              collisionRef.current,
+              mapMeta.id,
+              st.x,
+              st.y,
+              finalGoal.x,
+              finalGoal.y,
+              TOKEN_RADIUS,
+              mapMeta.width,
+              mapMeta.height
+            );
+            if (reroute && reroute.length > 0 && Math.hypot(reroute[0].x - st.x, reroute[0].y - st.y) > 4) {
+              st.waypoints = reroute;
+              st.targetX = reroute[0].x;
+              st.targetY = reroute[0].y;
+            } else {
+              clearClickNavigation(st);
+            }
           }
         }
 
@@ -1102,8 +1167,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
                 st.wildStepAccum = 0;
                 st.wildSteps = 0;
                 st.pressed.clear();
-                st.targetX = null;
-                st.targetY = null;
+                clearClickNavigation(st);
                 st.wasMoving = false;
                 audioEngine.setMovementLoop("none");
                 audioEngine.playSfx("sword", 0.56);
@@ -1128,38 +1192,6 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         if (prevSafe !== inSafeZone) {
           st.lastHudSafe = inSafeZone;
           setInSafeZoneHud(inSafeZone);
-        }
-
-        if (territory && zCode !== -1) {
-          const prevZone = st.lastThreatZone;
-          const zoneChanged = prevZone !== -1 && zCode !== prevZone;
-          const leftSafeTown = prevSafe && !inSafeZone;
-          st.lastThreatZone = zCode;
-          if (moved && !inSafeZone && !insideLocRef.current && (zoneChanged || leftSafeTown)) {
-            const tier = getZoneThreatTier(territory, partyLevelRef.current);
-            const nowMs = performance.now();
-            if (tier !== "normal" && nowMs - st.lastCalloutAt[tier] >= 10000) {
-              st.lastCalloutAt[tier] = nowMs;
-              const callout = pickThreatWarningCallout(tier, partyOrderRef.current);
-              setZoneCallout({
-                tier,
-                speakerName: callout.speakerName,
-                line: callout.line,
-                key: nowMs,
-              });
-              if (zoneCalloutTimerRef.current !== null) window.clearTimeout(zoneCalloutTimerRef.current);
-              zoneCalloutTimerRef.current = window.setTimeout(() => {
-                setZoneCallout(null);
-                zoneCalloutTimerRef.current = null;
-              }, 4400);
-            } else if (tier === "normal" && zoneChanged) {
-              if (zoneCalloutTimerRef.current !== null) {
-                window.clearTimeout(zoneCalloutTimerRef.current);
-                zoneCalloutTimerRef.current = null;
-              }
-              setZoneCallout(null);
-            }
-          }
         }
       } else {
         audioEngine.setMovementLoop("none");
@@ -1223,9 +1255,10 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         if (!loc.placed || loc.mapId !== mapMeta.id || loc.x === null || loc.y === null) continue;
         const dPlayer = Math.hypot(st.x - loc.x, st.y - loc.y);
         const ferryPartner = findLinkedFerryPartner(loc, worldLocations, mapMeta.id);
-        const isPortalReady = loc.category === "portal" && !sealedPortalSetRef.current.has(loc.id);
-        const isWalkEnterable = Boolean(loc.interiorAssetPath || ferryPartner || hasMountainPassExit(loc));
-        const isEnterable = isWalkEnterable || isPortalReady;
+        const isPortal = isPortalLocation(loc);
+        const isTravelBarrier = isFerryCrossingLocation(loc) || isMountainPassLocation(loc);
+        const isWalkEnterable = Boolean(loc.interiorAssetPath || ferryPartner || hasMountainPassExit(loc) || isTravelBarrier || isPortal);
+        const isEnterable = isWalkEnterable;
 
         if (!st.ferryTransit && isEnterable && dPlayer <= getEntryRadius(loc) && dPlayer < closestEnterDist) {
           closestEnterDist = dPlayer;
@@ -1274,12 +1307,14 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           continue;
         }
 
-        const mImg = getOrLoadMarker(loc.assetPath);
+        const isSealedPortal = isPortal && sealedPortalSetRef.current.has(loc.id);
+        const markerPath = isSealedPortal ? loc.assetPath.replace(/\.webp$/, "_closed.webp") : loc.assetPath;
+        const mImg = getOrLoadMarker(markerPath);
         if (mImg) {
           const targetMarkerPx = Math.round(mSize * snapScale);
           const mSrc =
             mImg.naturalWidth > targetMarkerPx * 1.15
-              ? getScaledTokenCanvas(st.scaledMarkers, `${loc.id}_${targetMarkerPx}`, mImg, targetMarkerPx)
+              ? getScaledTokenCanvas(st.scaledMarkers, `${loc.id}${isSealedPortal ? "_closed" : ""}_${targetMarkerPx}`, mImg, targetMarkerPx)
               : mImg;
           const rotDeg = loc.rotation ?? 0;
           if (rotDeg !== 0) {
@@ -1325,8 +1360,22 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       }
 
       if (st.targetX !== null && st.targetY !== null) {
-        const tx = st.targetX - camX;
-        const ty = st.targetY - camY;
+        const finalPt = st.waypoints.length > 0 ? st.waypoints[st.waypoints.length - 1] : { x: st.targetX, y: st.targetY };
+        ctx.save();
+        if (st.waypoints.length > 0) {
+          ctx.strokeStyle = "rgba(240, 203, 126, 0.42)";
+          ctx.lineWidth = 2;
+          ctx.setLineDash([7, 7]);
+          ctx.beginPath();
+          ctx.moveTo(st.x - camX, st.y - camY);
+          for (let i = 0; i < st.waypoints.length; i++) {
+            ctx.lineTo(st.waypoints[i].x - camX, st.waypoints[i].y - camY);
+          }
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+        const tx = finalPt.x - camX;
+        const ty = finalPt.y - camY;
         ctx.strokeStyle = "rgba(240, 203, 126, 0.85)";
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -1336,6 +1385,32 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         ctx.beginPath();
         ctx.arc(tx, ty, 4, 0, Math.PI * 2);
         ctx.fill();
+        ctx.restore();
+      }
+
+      if (st.blockedClickPulse) {
+        const rem = st.blockedClickPulse.untilMs - performance.now();
+        if (rem <= 0) {
+          st.blockedClickPulse = null;
+        } else {
+          const alpha = clamp(rem / 420, 0, 1);
+          const bx = st.blockedClickPulse.x - camX;
+          const by = st.blockedClickPulse.y - camY;
+          ctx.save();
+          ctx.globalAlpha = alpha * 0.85;
+          ctx.strokeStyle = "#f87171";
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(bx, by, 10 + (1 - alpha) * 8, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.moveTo(bx - 4, by - 4);
+          ctx.lineTo(bx + 4, by + 4);
+          ctx.moveTo(bx + 4, by - 4);
+          ctx.lineTo(bx - 4, by + 4);
+          ctx.stroke();
+          ctx.restore();
+        }
       }
 
       // Avatar token glides onto marker center and vanishes as the interior menu fades in (or pops in/out across ferries)
@@ -1455,16 +1530,20 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         loc.interiorAssetPath ||
         findLinkedFerryPartner(loc, worldLocations, mapMeta.id) ||
         hasMountainPassExit(loc) ||
-        (loc.category === "portal" && !sealedPortalSetRef.current.has(loc.id))
+        isFerryCrossingLocation(loc) ||
+        isMountainPassLocation(loc) ||
+        isPortalLocation(loc)
       );
       if (!loc.placed || !canEnter || loc.mapId !== mapMeta.id || loc.x === null || loc.y === null) continue;
+      if (loc.visibility === "quest_active_only") continue;
+      if (loc.visibility === "hidden_discovery" && !st.discovered.has(loc.id)) continue;
       const rad = (BASE_MARKER_DISPLAY_SIZE * (loc.scale ?? 1.0)) / 2;
       if (Math.hypot(wx - loc.x, wy - loc.y) <= rad) {
-        if (Math.hypot(st.x - loc.x, st.y - loc.y) <= getWalkEnterRadius(loc)) {
+        if (Math.hypot(st.x - loc.x, st.y - loc.y) <= Math.max(getWalkEnterRadius(loc), getEntryRadius(loc))) {
           startEnterLocation(loc);
           return;
         }
-        // Clicking any hub marker walks the party to the nearest walkable shore/approach within its entry trigger
+        // Clicking any reachable marker finds a clean overland path around water & cliffs to its dry entrance
         if (st.suppressedLocId === loc.id) st.suppressedLocId = null;
         const stand = findNearestClearPoint(
           collisionRef.current,
@@ -1472,19 +1551,62 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
           loc.x,
           loc.y,
           TOKEN_RADIUS,
-          160,
+          180,
           mapMeta.width,
           mapMeta.height
         );
-        st.targetX = stand.x;
-        st.targetY = stand.y;
+        const standDistToLoc = Math.hypot(stand.x - loc.x, stand.y - loc.y);
+        const maxEnterReach = Math.max(getWalkEnterRadius(loc), getEntryRadius(loc)) + 48;
+        const pathToLoc =
+          standDistToLoc <= maxEnterReach
+            ? findWorldPath(
+                collisionRef.current,
+                mapMeta.id,
+                st.x,
+                st.y,
+                stand.x,
+                stand.y,
+                TOKEN_RADIUS,
+                mapMeta.width,
+                mapMeta.height
+              )
+            : null;
+        if (!pathToLoc || pathToLoc.length === 0) {
+          st.blockedClickPulse = { x: loc.x, y: loc.y, untilMs: performance.now() + 420 };
+          return;
+        }
+        st.waypoints = pathToLoc;
+        st.targetX = pathToLoc[0].x;
+        st.targetY = pathToLoc[0].y;
+        st.pendingEnterLocId = loc.id;
+        st.blockedClickPulse = null;
         audioEngine.playUiClick(0.24);
         return;
       }
     }
 
-    st.targetX = clamp(wx, TOKEN_RADIUS, mapMeta.width - TOKEN_RADIUS);
-    st.targetY = clamp(wy, TOKEN_RADIUS, mapMeta.height - TOKEN_RADIUS);
+    const goalX = clamp(wx, TOKEN_RADIUS, mapMeta.width - TOKEN_RADIUS);
+    const goalY = clamp(wy, TOKEN_RADIUS, mapMeta.height - TOKEN_RADIUS);
+    const path = findWorldPath(
+      collisionRef.current,
+      mapMeta.id,
+      st.x,
+      st.y,
+      goalX,
+      goalY,
+      TOKEN_RADIUS,
+      mapMeta.width,
+      mapMeta.height
+    );
+    if (!path || path.length === 0) {
+      st.blockedClickPulse = { x: wx, y: wy, untilMs: performance.now() + 420 };
+      return;
+    }
+    st.waypoints = path;
+    st.targetX = path[0].x;
+    st.targetY = path[0].y;
+    st.pendingEnterLocId = null;
+    st.blockedClickPulse = null;
     audioEngine.playUiClick(0.24);
   };
 
@@ -1513,7 +1635,7 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       setHoveredLoc({
         loc: hit,
         x: Math.max(14, Math.min(window.innerWidth - 412, e.clientX + 18)),
-        y: Math.max(14, Math.min(window.innerHeight - 235, e.clientY + 18)),
+        y: Math.max(14, Math.min(window.innerHeight - 315, e.clientY + 18)),
       });
     } else if (hoveredLoc) {
       setHoveredLoc(null);
@@ -1547,41 +1669,6 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         ].join(" ")}
       />
 
-      {/* Party Member Border-Crossing Callout (Zero icons, zero level numbers) */}
-      {zoneCallout && !insideLocationId && (
-        <div
-          key={zoneCallout.key}
-          className="fixed top-[22px] left-1/2 -translate-x-1/2 z-[15] max-w-[520px] pointer-events-none"
-        >
-          <div
-            className={[
-              "px-6 py-2.5 rounded-md shadow-2xl border text-center backdrop-blur-sm",
-              zoneCallout.tier === "deadly"
-                ? "bg-[#1a0b0e]/94 border-[#dc2626]/90 shadow-[0_0_28px_rgba(220,38,38,0.38)]"
-                : "bg-[#19130b]/94 border-[#e08b28]/90 shadow-[0_0_24px_rgba(224,139,40,0.28)]",
-            ].join(" ")}
-          >
-            <div
-              className={[
-                "font-display text-[12px] font-bold tracking-[0.14em] uppercase leading-tight",
-                zoneCallout.tier === "deadly" ? "text-[#fca5a5]" : "text-[#fcd34d]",
-              ].join(" ")}
-            >
-              {zoneCallout.speakerName} ·{" "}
-              {zoneCallout.tier === "deadly" ? "Deadly Wilds" : "Dangerous Wilds"}
-            </div>
-            <div
-              className={[
-                "mt-1 text-[12.5px] font-medium italic tracking-[0.01em] leading-snug",
-                zoneCallout.tier === "deadly" ? "text-[#fae1e1]" : "text-[#f5e7ce]",
-              ].join(" ")}
-            >
-              “{zoneCallout.line}”
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Brief FF-Style Ambush Transition Flash */}
       <div
         className={[
@@ -1590,56 +1677,63 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
         ].join(" ")}
       />
 
-      {/* Top Right Unified Region, Live Terrain, Threat Meter & Quest Tracker Column */}
-      <div className="fixed top-[18px] right-5 z-[5] flex flex-col items-end gap-2 pointer-events-none">
+      {/* Top Right Unified Territory, Threat Meter & Quest Tracker Column */}
+      <div className="fixed top-[18px] right-5 z-[5] w-[284px] max-w-[calc(100vw-28px)] flex flex-col gap-1.5 pointer-events-none">
         <div
           className={[
-            "px-4 py-2 rounded-md shadow-xl text-right backdrop-blur-sm border transition-colors duration-300",
+            "w-full px-3.5 py-2.5 rounded-md shadow-xl backdrop-blur-sm border transition-colors duration-300 flex items-center justify-between gap-3",
             threatTier === "deadly"
               ? "bg-[#1b0c0f]/94 border-[#dc2626]/95 shadow-[0_0_22px_rgba(220,38,38,0.34)]"
               : threatTier === "danger"
                 ? "bg-[#19140c]/94 border-[#e08b28]/90 shadow-[0_0_18px_rgba(224,139,40,0.24)]"
-                : "bg-[#10141d]/92 border-[#7c653e]/85",
+                : "bg-[#10131a]/90 border-[#7c653e]/85",
           ].join(" ")}
         >
-          <div className="font-display text-[13.5px] font-bold tracking-[0.09em] uppercase text-[#f4dfae] leading-tight">
-            {territoryHud?.regionName ?? mapMeta.regionLabel}
-          </div>
-          {territoryHud?.biomeName && (
-            <div className="mt-0.5 text-[11.5px] font-medium tracking-[0.02em] text-[#b9c6da] leading-tight">
-              {territoryHud.biomeName}
+          <div className="min-w-0 flex-1 text-left">
+            <div className="font-display text-[13.5px] font-bold tracking-[0.08em] uppercase text-[#f4dfae] leading-tight truncate">
+              {territoryHud?.regionName ?? mapMeta.regionLabel}
             </div>
-          )}
-          {threatTier !== "normal" && (
-            <div
+            {territoryHud?.biomeName && (
+              <div className="mt-0.5 text-[11.5px] font-medium tracking-[0.01em] text-[#adb5c4] leading-tight truncate">
+                {territoryHud.biomeName}
+              </div>
+            )}
+          </div>
+
+          <div className="shrink-0 flex flex-col items-end justify-center gap-1">
+            <span
               className={[
-                "mt-1 text-[10px] font-bold tracking-[0.14em] uppercase leading-tight",
-                threatTier === "deadly" ? "text-[#f87171]" : "text-[#fbbf24]",
+                "text-[10px] font-bold tracking-[0.11em] uppercase leading-none",
+                threatTier === "deadly"
+                  ? "text-[#f87171]"
+                  : threatTier === "danger"
+                    ? "text-[#fbbf24]"
+                    : "text-[#cbb486]",
               ].join(" ")}
             >
-              {threatTier === "deadly" ? "Deadly Wilds" : "Dangerous Wilds"}
+              {threatTier === "deadly" ? "Deadly" : threatTier === "danger" ? "Dangerous" : "Safe"}
+            </span>
+            <div className="flex items-center gap-1 p-[2px] rounded-full bg-[#0b0e15]/90 border border-[#323a4c]/85">
+              {[0, 1, 2].map((pip) => {
+                const activeBars = threatTier === "deadly" ? 3 : threatTier === "danger" ? 2 : 1;
+                const lit = pip < activeBars;
+                return (
+                  <span
+                    key={pip}
+                    className={[
+                      "h-[4px] w-[18px] rounded-full transition-colors duration-300",
+                      lit
+                        ? threatTier === "deadly"
+                          ? "bg-[#ef4444]"
+                          : threatTier === "danger"
+                            ? "bg-[#f59e0b]"
+                            : "bg-[#d7b267]/85"
+                        : "bg-[#232938]",
+                    ].join(" ")}
+                  />
+                );
+              })}
             </div>
-          )}
-          <div className="mt-1.5 flex items-center justify-end gap-1">
-            {[0, 1, 2].map((pip) => {
-              const activeBars = threatTier === "deadly" ? 3 : threatTier === "danger" ? 2 : 1;
-              const lit = pip < activeBars;
-              return (
-                <span
-                  key={pip}
-                  className={[
-                    "h-[3px] w-7 rounded-full transition-colors duration-300",
-                    lit
-                      ? threatTier === "deadly"
-                        ? "bg-[#ef4444]"
-                        : threatTier === "danger"
-                          ? "bg-[#f59e0b]"
-                          : "bg-[#8d7449]/80"
-                      : "bg-[#222938]/90",
-                  ].join(" ")}
-                />
-              );
-            })}
           </div>
         </div>
 
@@ -1650,11 +1744,13 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
             currentZoneCode={territoryHud?.zoneCode ?? null}
             acceptedQuestIds={acceptedQuestIds}
             completedQuestIds={completedQuestIds}
+            questProgressById={questProgressById}
+            trackedQuestKeys={trackedQuestKeys}
             activeOutpostHunts={activeOutpostHunts}
             questsCatalog={questsCatalog}
             worldLocations={worldLocations}
-            onOpenJournal={() => {
-              if (onOpenJournal) onOpenJournal();
+            onOpenJournal={(focusKey) => {
+              if (onOpenJournal) onOpenJournal(focusKey);
               else onOpenParty();
             }}
           />
@@ -1730,28 +1826,38 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
       </div>
 
       {/* Nearby Enter Hub / Portal Prompt Pill */}
-      {nearbyLoc && !paused && (
-        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-10">
-          <button
-            type="button"
-            onClick={() => startEnterLocation(nearbyLoc)}
-            className="rpg-modal-panel flex items-center gap-2.5 px-5 py-2.5 rounded border border-[#d7b267] hover:border-[#f8df9c] bg-[#161a24]/95 hover:bg-[#231f16] text-[#fae3ae] hover:text-[#fff6db] shadow-[0_10px_28px_rgba(0,0,0,0.85)] cursor-pointer transition-all"
-          >
-            <span className="font-display text-[14px] font-bold tracking-wider uppercase">
-              {nearbyLoc.id.startsWith("tr_ferry_crossing")
-                ? "Cross Ferry"
-                : nearbyLoc.id.startsWith("tr_border_mountain_pass_gate")
-                  ? "Cross Mountain Pass"
-                  : nearbyLoc.category === "portal"
-                    ? `Enter Portal: ${nearbyLoc.name}`
-                    : `Enter ${nearbyLoc.name}`}
-            </span>
-            <span className="px-2 py-0.5 rounded-sm bg-[#2b2416] border border-[#b7914a] text-[11px] font-bold text-[#ffd985]">
-              E
-            </span>
-          </button>
-        </div>
-      )}
+      {nearbyLoc && !paused && (() => {
+        const nearbyGate = isTravelGateLocked(nearbyLoc, mapMeta.id, travelCatalog, sealedPortalSetRef.current);
+        const promptLabel = isFerryCrossingLocation(nearbyLoc)
+          ? nearbyGate.locked
+            ? "Inspect Ferry Pier"
+            : "Cross Ferry"
+          : isMountainPassLocation(nearbyLoc)
+            ? nearbyGate.locked
+              ? "Inspect Mountain Pass"
+              : "Cross Mountain Pass"
+            : isPortalLocation(nearbyLoc)
+              ? sealedPortalSetRef.current.has(nearbyLoc.id)
+                ? `Visit Monument: ${nearbyLoc.name}`
+                : `Enter Portal: ${nearbyLoc.name}`
+              : `Enter ${nearbyLoc.name}`;
+        return (
+          <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-10">
+            <button
+              type="button"
+              onClick={() => startEnterLocation(nearbyLoc)}
+              className="rpg-modal-panel flex items-center gap-2.5 px-5 py-2.5 rounded border border-[#d7b267] hover:border-[#f8df9c] bg-[#161a24]/95 hover:bg-[#231f16] text-[#fae3ae] hover:text-[#fff6db] shadow-[0_10px_28px_rgba(0,0,0,0.85)] cursor-pointer transition-all"
+            >
+              <span className="font-display text-[14px] font-bold tracking-wider uppercase">
+                {promptLabel}
+              </span>
+              <span className="px-2 py-0.5 rounded-sm bg-[#2b2416] border border-[#b7914a] text-[11px] font-bold text-[#ffd985]">
+                E
+              </span>
+            </button>
+          </div>
+        );
+      })()}
 
       {/* Bottom Right Quick Buttons */}
       <div className="fixed right-5 bottom-[18px] z-[5] flex items-center gap-2">
@@ -1859,6 +1965,90 @@ export const OverworldCanvas: React.FC<OverworldCanvasProps> = ({
               ))}
             </div>
           )}
+
+          {/* Contextual Quest Cards (Portal Prerequisite, Closed Crossing Prerequisite, or Active Quests Here) */}
+          {(() => {
+            const loc = hoveredLoc.loc;
+            const acceptedSet = new Set(acceptedQuestIds);
+            const completedSet = new Set(completedQuestIds);
+            const sealedSet = new Set(sealedPortalIds);
+            const cards: React.ReactNode[] = [];
+
+            const resolveQuestStatus = (qid: string): QuestReferenceStatus =>
+              completedSet.has(qid) ? "completed" : acceptedSet.has(qid) ? "active" : "required";
+
+            if (isPortalLocation(loc) && !sealedSet.has(loc.id) && loc.catalyst?.questId) {
+              const cat = loc.catalyst;
+              const qEntry = questsCatalog.find((q) => q.questId === cat.questId);
+              const qStatus = resolveQuestStatus(cat.questId);
+              cards.push(
+                <QuestReferenceCard
+                  key={`portal-req:${cat.questId}`}
+                  variant="compact"
+                  cardId={cat.questId}
+                  fallbackPath={qEntry?.assetPath}
+                  eyebrow={
+                    qStatus === "completed"
+                      ? `Catalyst Ready · ${cat.hubName}`
+                      : `Complete Quest First · ${cat.hubName}`
+                  }
+                  title={cat.questTitle}
+                  subtitle={`Catalyst: ${cat.name}`}
+                  status={qStatus}
+                />
+              );
+            }
+
+            const gateLock = isTravelGateLocked(loc, mapMeta.id, travelCatalog, sealedSet);
+            if (gateLock.locked && gateLock.portalId) {
+              const gatePortal = worldLocations.find((w) => w.id === gateLock.portalId);
+              const cat = gatePortal?.catalyst;
+              if (cat?.questId) {
+                const qEntry = questsCatalog.find((q) => q.questId === cat.questId);
+                const qStatus = resolveQuestStatus(cat.questId);
+                cards.push(
+                  <QuestReferenceCard
+                    key={`gate-req:${cat.questId}`}
+                    variant="compact"
+                    cardId={cat.questId}
+                    fallbackPath={qEntry?.assetPath}
+                    eyebrow={
+                      qStatus === "completed"
+                        ? `Defeat ${gateLock.portalName}`
+                        : `Blocked · Do Quest at ${cat.hubName}`
+                    }
+                    title={cat.questTitle}
+                    subtitle={`Grants ${cat.name} → Seal ${gateLock.portalName}`}
+                    status={qStatus}
+                  />
+                );
+              }
+            }
+
+            const activeHere = questsCatalog.filter(
+              (q) =>
+                acceptedSet.has(q.questId) &&
+                !completedSet.has(q.questId) &&
+                (q.targetHubId === loc.id || (!q.targetHubId && q.hubId === loc.id))
+            );
+            for (const q of activeHere.slice(0, 2)) {
+              cards.push(
+                <QuestReferenceCard
+                  key={`active-q:${q.questId}`}
+                  variant="compact"
+                  cardId={q.questId}
+                  fallbackPath={q.assetPath}
+                  eyebrow="Active Quest Here"
+                  title={q.title}
+                  subtitle={`${q.category} · From ${q.hubName}`}
+                  status="active"
+                />
+              );
+            }
+
+            if (cards.length === 0) return null;
+            return <div className="mt-2.5 pt-2.5 border-t border-[#2b3446] flex flex-col gap-1.5">{cards}</div>;
+          })()}
         </div>
       )}
     </main>

@@ -12,6 +12,8 @@ from PIL import Image
 ROOT = Path(r"C:\Users\drew0\Documents\ROD")
 SRC_DIR = ROOT / "assets" / "maps" / "interiors"
 DST_DIR = ROOT / "client" / "assets" / "maps" / "interiors"
+PORTALS_SRC_DIR = ROOT / "assets" / "maps" / "portals"
+PORTALS_DST_DIR = ROOT / "client" / "assets" / "maps" / "portals"
 TAVERNS_SRC_DIR = ROOT / "assets" / "maps" / "taverns"
 TAVERNS_DST_DIR = ROOT / "client" / "assets" / "maps" / "taverns"
 TAVERNS_PROMPTS_FILE = ROOT / "imageprompts" / "bard-tavern.txt"
@@ -37,7 +39,7 @@ def parse_tavern_names() -> dict[str, str]:
 
 
 def export_interior_webps() -> dict[str, str]:
-    """Convert all 4K interior masters (41 Hubs + 20 Outposts + 4 Sea-Ports = 65) in assets/maps/interiors/ to 2560x1440 WebPs."""
+    """Convert all 4K interior masters (41 Hubs + 20 Outposts + 13 Travel/Port scenes = 74) in assets/maps/interiors/ to 2560x1440 WebPs."""
     if not SRC_DIR.exists():
         raise FileNotFoundError(f"Missing interior masters directory: {SRC_DIR}")
 
@@ -49,8 +51,8 @@ def export_interior_webps() -> dict[str, str]:
         p for p in SRC_DIR.iterdir()
         if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png"} and not p.name.startswith("_rejected")
     )
-    if len(src_files) != 65:
-        raise ValueError(f"Expected 65 interior masters in {SRC_DIR}, found {len(src_files)}.")
+    if len(src_files) < 65:
+        raise ValueError(f"Expected at least 65 interior masters in {SRC_DIR}, found {len(src_files)}.")
 
     for src in src_files:
         dst = DST_DIR / f"{src.stem}.webp"
@@ -144,11 +146,46 @@ def wire_world_locations(
     return wired_interiors + wired_taverns
 
 
+def export_portal_webps() -> dict[str, str]:
+    """Convert all 16 Portal Threshold masters (8 Active + 8 Sealed) in assets/maps/portals/ to 2560x1440 WebPs."""
+    if not PORTALS_SRC_DIR.exists():
+        raise FileNotFoundError(f"Missing portal masters directory: {PORTALS_SRC_DIR}")
+
+    PORTALS_DST_DIR.mkdir(parents=True, exist_ok=True)
+    exported: dict[str, str] = {}
+    total_bytes = 0
+
+    src_files = sorted(
+        p for p in PORTALS_SRC_DIR.iterdir()
+        if p.is_file() and p.suffix.lower() in {".jpg", ".jpeg", ".png"} and not p.name.startswith("_rejected")
+    )
+    if len(src_files) < 16:
+        raise ValueError(f"Expected 16 portal threshold masters in {PORTALS_SRC_DIR}, found {len(src_files)}.")
+
+    for src in src_files:
+        dst = PORTALS_DST_DIR / f"{src.stem}.webp"
+        with Image.open(src) as im:
+            rgb = im.convert("RGB")
+            resized = rgb.resize((TARGET_WIDTH, TARGET_HEIGHT), Image.Resampling.LANCZOS)
+            resized.save(dst, "WEBP", quality=WEBP_QUALITY, method=6)
+        size = dst.stat().st_size
+        total_bytes += size
+        rel_asset = f"assets/maps/portals/{dst.name}"
+        exported[src.stem] = rel_asset
+        print(f"  Exported {dst.name:46s} ({TARGET_WIDTH}x{TARGET_HEIGHT}, {size // 1024:3d} KB)")
+
+    print(f"\nExported {len(exported)} portal WebPs -> {PORTALS_DST_DIR.relative_to(ROOT)} ({total_bytes / (1024 * 1024):.2f} MB total)")
+    return exported
+
+
 if __name__ == "__main__":
     json_only = "--json-only" in sys.argv
     taverns_only = "--taverns-only" in sys.argv
     interiors_only = "--interiors-only" in sys.argv
-    if json_only:
+    portals_only = "--portals-only" in sys.argv
+    if portals_only:
+        export_portal_webps()
+    elif json_only:
         tavern_names = parse_tavern_names()
         exported_int = {p.stem: f"assets/maps/interiors/{p.name}" for p in sorted(DST_DIR.glob("*.webp"))} if DST_DIR.exists() else {}
         exported_tav = {

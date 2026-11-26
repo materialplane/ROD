@@ -23,6 +23,8 @@ export interface SaveSlotData {
   discoveredLocations?: string[];
   acceptedQuestIds?: string[];
   completedQuestIds?: string[];
+  questProgressById?: Record<string, { questId: string; stage: string; acceptedAtPlaytime?: number; clearedSite?: boolean; clearedBoss?: boolean }>;
+  trackedQuestKeys?: string[];
   activeOutpostHunts?: unknown[];
   outpostOffers?: Record<string, unknown>;
   completedOutpostHunts?: number;

@@ -4,6 +4,7 @@ import { audioEngine } from "../audio";
 import { HEROES, getHeroById } from "../heroes";
 import type {
   ActiveOutpostHunt,
+  ActiveQuestProgress,
   BattleConfigData,
   ChosenDisciplinesMap,
   DisciplineOption,
@@ -21,9 +22,18 @@ import type {
 } from "../types";
 import { ShopCounterPanel, type BuyConfirmChoice } from "../shops/ShopCounterPanel";
 import { TradeGoodsCounter } from "../shops/TradeGoodsCounter";
-import { formatOutpostRewardLine, pluralizeMonsterName } from "../quests/outpostHunts";
+import { formatOutpostRewardLine, getGlobalActiveQuestLimit, pluralizeMonsterName } from "../quests/outpostHunts";
 import { buildQuartermasterHuntDialogue, resolveOutpostHuntLore } from "../quests/outpostHuntLore";
-import { QuestCardThumb } from "./QuestCardThumb";
+import {
+  formatQuestRewardLine,
+  getHubQuestStage,
+  getQuestStoryChainInfo,
+  makeHuntTrackKey,
+  makeQuestTrackKey,
+  resolveQuestNpcStatusDialogue,
+  resolveQuestObjectiveMeta,
+} from "../quests/questUtils";
+import { NpcQuestOfferBar, QuestCardThumb, QuestReferenceCard, type QuestReferenceStatus } from "./QuestCardThumb";
 import { TavernView } from "./TavernView";
 
 export const HIGHCROWN_ID = "loc_01_overgrown_garden_sanctuary";
@@ -56,6 +66,8 @@ interface LocationInteriorModalProps {
   heroLevels?: Partial<Record<HeroId, number>>;
   acceptedQuestIds: string[];
   completedQuestIds?: string[];
+  questProgressById?: Record<string, ActiveQuestProgress>;
+  trackedQuestKeys?: string[];
   activeOutpostHunts?: ActiveOutpostHunt[];
   outpostOffer?: ActiveOutpostHunt | null;
   battleConfig?: BattleConfigData | null;
@@ -66,17 +78,23 @@ interface LocationInteriorModalProps {
   equippedByHero: EquippedGearMap;
   learnedSpellIds: string[];
   tradeGoodCounts: Record<string, number>;
+  bagCounts?: Record<string, number>;
   disciplinesByHero?: Partial<Record<HeroId, HeroDisciplinesEntry>>;
   chosenDisciplinesByHero?: ChosenDisciplinesMap;
   onSelectDiscipline?: (heroId: HeroId, tierLevel: number, opt: DisciplineOption, silverCost: number) => void;
   onBuyShopEntry: (choice: BuyConfirmChoice) => void;
   onSellAllTradeGoods: () => void;
   onAcceptQuest: (quest: QuestEntry) => void;
+  onCompleteQuest?: (quest: QuestEntry) => void;
+  onEnterDungeon?: (quest: QuestEntry) => void;
+  onToggleTrackQuest?: (trackKey: string) => void;
+  onOpenJournal?: (focusTrackKey?: string) => void;
   onAcceptOutpostHunt?: (hunt: ActiveOutpostHunt) => void;
   onCompleteOutpostHunt?: (outpostId: string) => void;
   onAbandonOutpostHunt?: (outpostId: string) => void;
   onFreeRest: (hubName: string) => void;
   onSailToPort?: (destPort: WorldLocation) => void;
+  onEnterPortal?: (portalLoc: WorldLocation) => void;
   onOpenParty: () => void;
   onEnterLocationById: (locationId: string) => void;
   onReturnToParent?: () => void;
@@ -141,11 +159,7 @@ function sanitizeServiceLabel(raw: string): string {
 }
 
 export function formatRewardLine(raw: string): string {
-  return raw
-    .replace(/\s*\|\s*/g, " · ")
-    .replace(/\bLesser Draft\b/gi, "Carved Runestone")
-    .replace(/\bGreater Draft\b/gi, "Runestone Reward")
-    .replace(/\bMaster Draft\b/gi, "Master Runestone");
+  return formatQuestRewardLine(raw);
 }
 
 function buildDefenderDialogue(heroId: HeroId, partnerName: string, partyOrder: HeroId[]): string {
@@ -385,6 +399,8 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   heroLevels,
   acceptedQuestIds,
   completedQuestIds = [],
+  questProgressById = {},
+  trackedQuestKeys = [],
   activeOutpostHunts = [],
   outpostOffer = null,
   battleConfig = null,
@@ -395,17 +411,23 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   equippedByHero,
   learnedSpellIds,
   tradeGoodCounts,
+  bagCounts = {},
   disciplinesByHero,
   chosenDisciplinesByHero,
   onSelectDiscipline,
   onBuyShopEntry,
   onSellAllTradeGoods,
   onAcceptQuest,
+  onCompleteQuest,
+  onEnterDungeon,
+  onToggleTrackQuest,
+  onOpenJournal,
   onAcceptOutpostHunt,
   onCompleteOutpostHunt,
   onAbandonOutpostHunt,
   onFreeRest,
   onSailToPort,
+  onEnterPortal,
   onOpenParty,
   onEnterLocationById,
   onReturnToParent,
@@ -523,20 +545,596 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [location, isTavern, resolvedNpcs.length]);
 
-  if (!location || !location.interiorAssetPath) return null;
+  const isClosedFerry = Boolean(location?.id.startsWith("tr_ferry_crossing"));
+  const isClosedPass = Boolean(location?.id.startsWith("tr_border_mountain_pass_gate"));
+  const isSeaPort = Boolean(location?.id.startsWith("tr_port_map"));
+  const seaGate = isSeaPort && location ? travelCatalog?.outboundSeaPortalGates?.[location.mapId] : undefined;
+  const seaOpen = !seaGate || sealedPortalIds.includes(seaGate.portalId);
+  const isClosedSeaPort = Boolean(isSeaPort && !seaOpen);
+  const isPortalLoc = Boolean(location && (location.isPortal || location.category === "portal"));
+  const isPortalSealed = Boolean(isPortalLoc && location && sealedPortalIds.includes(location.id));
+
+  const resolvedInteriorPath = (() => {
+    if (!location) return null;
+    if (isPortalLoc) {
+      return isPortalSealed
+        ? `assets/maps/portals/${location.id}_sealed.webp`
+        : `assets/maps/portals/${location.id}.webp`;
+    }
+    if (isClosedFerry) {
+      const mapToken = /^map_0[1-4]$/.test(location.mapId) ? location.mapId.replace("_", "") : "map01";
+      return `assets/maps/interiors/tr_ferry_${mapToken}_closed.webp`;
+    }
+    if (isClosedPass) {
+      return "assets/maps/interiors/tr_pass_map04_closed.webp";
+    }
+    if (isSeaPort && location.interiorAssetPath) {
+      return seaOpen ? location.interiorAssetPath.replace(/\.webp$/, "_open.webp") : location.interiorAssetPath;
+    }
+    return location.interiorAssetPath ?? null;
+  })();
+
+  if (!location || !resolvedInteriorPath) return null;
+
+  const acceptedSet = new Set(acceptedQuestIds);
+  const completedSet = new Set(completedQuestIds);
+
+  const resolvePortalQuestMeta = (portal: WorldLocation | undefined | null) => {
+    const c = portal?.catalyst;
+    if (!c?.questId) return null;
+    const entry =
+      questsByKey[c.questId] ??
+      (c.questTitle ? questsByKey[c.questTitle] : undefined) ??
+      null;
+    const done = completedSet.has(c.questId);
+    const active = acceptedSet.has(c.questId);
+    const status: QuestReferenceStatus = done ? "completed" : active ? "active" : "required";
+    return {
+      questId: c.questId,
+      questTitle: c.questTitle || entry?.title || "Catalyst Quest",
+      hubName: c.hubName || entry?.hubName || "Ethoria",
+      catalystName: c.name,
+      giver: entry?.giver ?? null,
+      category: entry?.category ?? null,
+      reward: entry?.reward ? formatRewardLine(entry.reward) : null,
+      description: entry?.description ?? null,
+      fallbackPath: entry?.assetPath,
+      done,
+      active,
+      status,
+    };
+  };
+
+  if (isPortalLoc || isClosedFerry || isClosedPass || isClosedSeaPort) {
+    const gate = isPortalLoc
+      ? undefined
+      : isClosedFerry
+        ? travelCatalog?.ferryPortalGates?.[location.mapId]
+        : isClosedPass
+          ? travelCatalog?.mountainPassPortalGates?.[location.mapId]
+          : seaGate;
+
+    const gatePortalLoc = isPortalLoc
+      ? location
+      : gate
+        ? worldLocations.find((w) => w.id === gate.portalId)
+        : undefined;
+    const questMeta = resolvePortalQuestMeta(gatePortalLoc);
+
+    const cat = isPortalLoc ? location.catalyst : gatePortalLoc?.catalyst;
+    const catalystName = cat?.name ?? "Regional Portal Catalyst";
+    const catalystItem = items.find(
+      (it) =>
+        it.category === "key_item" &&
+        (it.name.toLowerCase() === catalystName.toLowerCase() ||
+          (cat?.keyId && it.id.toLowerCase().includes(cat.keyId.replace(/^cat_/, ""))))
+    );
+    const hasCatalystItem = Boolean(catalystItem && (bagCounts[catalystItem.id] ?? 0) > 0);
+    const hasCatalystQuest = Boolean(cat?.questId && completedSet.has(cat.questId));
+    const hasCatalyst = hasCatalystItem || hasCatalystQuest;
+
+    const portalMarkerImg = isPortalLoc
+      ? isPortalSealed
+        ? location.assetPath.replace(/\.webp$/, "_closed.webp")
+        : location.assetPath
+      : gatePortalLoc?.assetPath ?? location.assetPath;
+
+    const reopenedNotes: string[] = [];
+    if (isPortalLoc) {
+      if (travelCatalog?.ferryPortalGates?.[location.mapId]?.portalId === location.id) {
+        reopenedNotes.push("Inland Ferry Crossings reopened across this continent");
+      }
+      if (travelCatalog?.outboundSeaPortalGates?.[location.mapId]?.portalId === location.id) {
+        reopenedNotes.push("Sea-Port Harbor ships cleared for outbound voyages");
+      }
+      if (travelCatalog?.mountainPassPortalGates?.[location.mapId]?.portalId === location.id) {
+        reopenedNotes.push("Border Mountain Passes unbarred into the Dreadwaste");
+      }
+    }
+
+    const portalDisplayName = gate?.portalName ?? gatePortalLoc?.name ?? "the nearby Portal";
+    const headerBadge = isPortalLoc
+      ? {
+          label: isPortalSealed ? "Sealed Monument" : "Active Rift",
+          cls: isPortalSealed
+            ? "border-[#4aa376] bg-[#132c20]/90 text-[#97f0be]"
+            : "border-[#b84b4b] bg-[#2c1115]/90 text-[#fca5a5]",
+        }
+      : {
+          label: isClosedFerry
+            ? "Ferry Crossing Closed"
+            : isClosedPass
+              ? "Mountain Pass Barred"
+              : "Harbor Closed",
+          cls: "border-[#c48332] bg-[#2a1b0b]/90 text-[#ffd58c]",
+        };
+
+    const showCompletedSeal = isPortalLoc ? isPortalSealed || hasCatalyst : Boolean(questMeta?.done);
+    const showcaseCardId =
+      isPortalLoc && isPortalSealed
+        ? questMeta?.questId ?? "quest_complete_royal_seal"
+        : questMeta?.questId ?? "quest_portal_catalyst_seal";
+    const showcaseFallback = questMeta?.fallbackPath ?? portalMarkerImg;
+
+    const frameGradient =
+      isPortalLoc && isPortalSealed
+        ? "bg-gradient-to-b from-[#a7f3d0] via-[#4aa376] to-[#163827]"
+        : hasCatalyst && isPortalLoc
+          ? "bg-gradient-to-b from-[#fde68a] via-[#4eb987] to-[#1b4a34]"
+          : "bg-gradient-to-b from-[#ffe7ad] via-[#c79948] to-[#563d18]";
+
+    const cornerMedallionSrc = isPortalLoc
+      ? catalystItem?.iconPath ?? portalMarkerImg
+      : gatePortalLoc?.assetPath;
+
+    const panelEyebrow = isPortalLoc
+      ? isPortalSealed
+        ? `Portal Sealed · ${sealedPortalIds.length} of 8 Realms Reclaimed`
+        : hasCatalyst
+          ? `${location.bossInfo?.plane ?? "Dimensional Realm Threshold"} · Ready to Unseal`
+          : `Complete Quest First · ${questMeta?.hubName ?? "Ethoria"}`
+      : questMeta?.done
+        ? `Catalyst Earned · Portal Blocking Route`
+        : `Required Quest · ${questMeta?.hubName ?? "Ethoria"}`;
+
+    const panelTitle = isPortalLoc
+      ? isPortalSealed
+        ? `${location.bossInfo?.boss ?? "Guardian"} Defeated`
+        : hasCatalyst
+          ? `${location.name} Threshold`
+          : questMeta?.questTitle ?? `${location.name} Threshold`
+      : !questMeta?.done && questMeta?.questTitle
+        ? questMeta.questTitle
+        : isClosedFerry
+          ? `Destroy ${portalDisplayName} to Sail`
+          : isClosedPass
+            ? `Destroy ${portalDisplayName} to Unbar Gates`
+            : `Destroy ${portalDisplayName} to Reopen Harbor`;
+
+    const panelBody = isPortalLoc
+      ? location.playerDescription ?? location.description
+      : isClosedFerry
+        ? `Empty moorings creak along the timber pier—no boatman dares cross these waters while ${portalDisplayName} still threatens the realm.`
+        : isClosedPass
+          ? `Massive iron-bound fortress doors seal the mountain road while ${portalDisplayName} holds sway over the north.`
+          : `Empty timber piers stretch into quiet waters—no ocean captain dares weigh anchor while ${portalDisplayName} still churns off the coast.`;
+
+    const statusPill = isPortalLoc
+      ? isPortalSealed
+        ? { label: "★ Rift Sealed", cls: "border-[#4aa376] bg-[#132c20] text-[#97f0be]" }
+        : hasCatalyst
+          ? { label: `✓ ${catalystName} Ready`, cls: "border-[#4eb987] bg-[#143124] text-[#b4f5d2]" }
+          : questMeta?.active
+            ? { label: "In Journal", cls: "border-[#3c785b] bg-[#142920] text-[#91e3b8]" }
+            : { label: "Quest Needed First", cls: "border-[#c48332] bg-[#2c1c0b] text-[#ffd48a]" }
+      : questMeta?.done
+        ? { label: "★ Catalyst Quest Done", cls: "border-[#96783b] bg-[#2a2214] text-[#f5d88f]" }
+        : questMeta?.active
+          ? { label: "In Journal", cls: "border-[#3c785b] bg-[#142920] text-[#91e3b8]" }
+          : { label: "Quest Needed First", cls: "border-[#c48332] bg-[#2c1c0b] text-[#ffd48a]" };
+
+    const harborShopNpc = isClosedSeaPort
+      ? resolvedNpcs.find((n) => n.services.some((s) => /field supplies|trade goods/i.test(s))) ?? resolvedNpcs[0] ?? null
+      : null;
+
+    return (
+      <div
+        className="fixed inset-0 z-[25] bg-[#05060a] flex flex-col justify-between overflow-hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-label={location.name}
+      >
+        <img
+          src={assetUrl(resolvedInteriorPath)}
+          alt={location.name}
+          draggable={false}
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: [
+              "linear-gradient(180deg, rgba(5,7,12,0.74) 0%, rgba(5,7,12,0.12) 15%, rgba(5,7,12,0.04) 44%, rgba(6,8,14,0.72) 70%, rgba(4,6,10,0.95) 100%)",
+              "linear-gradient(90deg, rgba(5,7,12,0.52) 0%, rgba(5,7,12,0.14) 30%, rgba(5,7,12,0) 56%)",
+            ].join(", "),
+          }}
+        />
+
+        {/* Top Canopy Header Matching Town Interiors */}
+        <header className="relative z-[2] w-full max-w-[1680px] mx-auto px-5 md:px-8 pt-4 md:pt-5 flex flex-wrap items-center justify-between gap-4 shrink-0">
+          <div className="flex items-center gap-3.5 min-w-0 drop-shadow-[0_3px_12px_rgba(0,0,0,0.9)]">
+            {location.bannerAssetPath ? (
+              <img
+                src={assetUrl(location.bannerAssetPath)}
+                alt=""
+                className="w-[38px] h-[52px] object-contain shrink-0 drop-shadow-[0_6px_14px_rgba(0,0,0,0.9)]"
+                draggable={false}
+              />
+            ) : (
+              <img
+                src={assetUrl(isPortalLoc ? portalMarkerImg : location.assetPath)}
+                alt=""
+                className="w-[46px] h-[46px] object-contain shrink-0 drop-shadow-[0_6px_14px_rgba(0,0,0,0.9)]"
+                draggable={false}
+              />
+            )}
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <h1 className="font-display m-0 text-[22px] md:text-[28px] font-bold tracking-[0.04em] text-[#fae4b0] leading-none truncate">
+                  {location.name}
+                </h1>
+                <span
+                  className={[
+                    "px-2.5 py-0.5 rounded-sm border text-[11px] font-bold tracking-wider uppercase shrink-0",
+                    headerBadge.cls,
+                  ].join(" ")}
+                >
+                  {headerBadge.label}
+                </span>
+              </div>
+              <div className="text-[11.5px] uppercase tracking-[0.14em] text-[#c7d3e6] mt-1 truncate">
+                {location.playerKind ?? headerBadge.label}
+                {location.playerRegion ? ` · ${location.playerRegion}` : ""}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2.5 shrink-0">
+            {isClosedSeaPort && (
+              <div className="px-3 py-1.5 rounded border border-[#7d653c]/90 bg-[#0e121b]/90 text-[#ffe49e] text-[12px] font-bold shadow-lg">
+                Silver: {silver.toLocaleString()}s
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => {
+                audioEngine.playUiClick();
+                onOpenParty();
+              }}
+              className="flex items-center gap-2.5 rounded border border-[#4a5266]/90 hover:border-[#c8a35a] bg-[#0e121b]/88 hover:bg-[#171d2b]/95 backdrop-blur-sm px-3 py-1.5 cursor-pointer transition-colors shadow-lg"
+              title="Open Party & Equipment (P)"
+            >
+              <div className="flex items-center -space-x-1.5">
+                {partyOrder.map((hid) => {
+                  const hero = getHeroById(hid);
+                  return (
+                    <img
+                      key={hid}
+                      src={assetUrl(hero.avatarPath)}
+                      alt={hero.name}
+                      draggable={false}
+                      className="w-[26px] h-[26px] rounded-full object-cover border border-[#8e7445]"
+                    />
+                  );
+                })}
+              </div>
+              <div className="text-left">
+                <div className="text-[11px] font-bold text-[#f2dba6] leading-tight">Party · Lv {partyLevel}</div>
+                <div className="text-[10px] text-[#9aa8be] leading-tight">Open (P)</div>
+              </div>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                audioEngine.playSfx("ui_close", 0.28);
+                onClose();
+              }}
+              className="px-4 py-2 rounded border border-[#7c653e] hover:border-[#e5c174] bg-[#10141e]/90 hover:bg-[#1b2232] text-[#efe0bc] hover:text-[#fff4d2] text-[12px] font-semibold tracking-wider uppercase cursor-pointer transition-colors shadow-lg backdrop-blur-sm"
+            >
+              Step Back (Esc)
+            </button>
+          </div>
+        </header>
+
+        {/* Bottom Heroic Showcase Band Matching Town Interiors */}
+        <div className="relative z-[2] w-full max-w-[1260px] mx-auto px-5 md:px-8 pb-5 md:pb-6">
+          <div className="ledger-panel relative w-full rounded-[4px] flex flex-col">
+            <CornerFiligree />
+
+            {isClosedSeaPort && harborShopMode && harborShopNpc ? (
+              <div className="p-3 md:p-3.5 flex flex-col items-stretch h-[78vh] min-h-[500px] max-h-[740px]">
+                {harborShopMode === "trade_goods" ? (
+                  <TradeGoodsCounter
+                    npc={{
+                      id: harborShopNpc.id,
+                      name: harborShopNpc.displayName,
+                      roleTitle: harborShopNpc.displayRole,
+                      category: harborShopNpc.category,
+                      portraitPath: harborShopNpc.portraitPath,
+                    }}
+                    tradeGoodCounts={tradeGoodCounts}
+                    itemsById={itemsById}
+                    onSellAll={onSellAllTradeGoods}
+                    onReturnDialogue={() => setHarborShopMode(null)}
+                  />
+                ) : (
+                  <ShopCounterPanel
+                    hub={
+                      location.region == null && location.zoneNum == null
+                        ? {
+                            ...location,
+                            zoneNum: location.mapId === "map_02" ? 6 : location.mapId === "map_03" ? 11 : location.mapId === "map_04" ? 16 : 3,
+                            spellTier: location.mapId === "map_02" ? 3 : location.mapId === "map_03" ? 5 : location.mapId === "map_04" ? 7 : 1,
+                            region: location.mapId === "map_02" ? 3 : location.mapId === "map_03" ? 5 : location.mapId === "map_04" ? 7 : 1,
+                          }
+                        : location
+                    }
+                    npc={{
+                      id: harborShopNpc.id,
+                      name: harborShopNpc.displayName,
+                      roleTitle: harborShopNpc.displayRole,
+                      category: harborShopNpc.category,
+                      portraitPath: harborShopNpc.portraitPath,
+                      shopType: "arcanist",
+                      shopLabel: "Harbor Field Supplies",
+                    }}
+                    shopType="arcanist"
+                    townShopTypes={["arcanist", "trade_goods"]}
+                    partyOrder={partyOrder}
+                    partyLevel={partyLevel}
+                    heroLevels={heroLevels}
+                    silver={silver}
+                    items={items}
+                    itemsById={itemsById}
+                    spells={spells}
+                    equippedByHero={equippedByHero}
+                    learnedSpellIds={learnedSpellIds}
+                    disciplinesByHero={disciplinesByHero}
+                    chosenDisciplinesByHero={chosenDisciplinesByHero}
+                    onSelectDiscipline={onSelectDiscipline}
+                    onBuy={onBuyShopEntry}
+                    onReturnDialogue={() => setHarborShopMode(null)}
+                  />
+                )}
+              </div>
+            ) : (
+              <div className="px-5 pt-4 pb-3.5 md:px-6 md:pt-4 md:pb-4 xl:px-7 xl:pt-5 xl:pb-4 flex flex-col md:flex-row items-center md:items-end gap-5 md:gap-7">
+                {/* Heroic Rising Quest Card Monument Matching Town NPC Portrait Frame */}
+                <div className="relative shrink-0 md:-mt-16 xl:-mt-20">
+                  <div className={["rounded-[4px] p-[3px] shadow-[0_24px_60px_rgba(0,0,0,0.92)]", frameGradient].join(" ")}>
+                    <div className="w-[180px] h-[180px] md:w-[224px] md:h-[224px] lg:w-[252px] lg:h-[252px] xl:w-[280px] xl:h-[280px] 2xl:w-[300px] 2xl:h-[300px] rounded-sm overflow-hidden bg-[#0b0e14] relative">
+                      <QuestCardThumb
+                        cardId={showcaseCardId}
+                        fallbackPath={showcaseFallback}
+                        badgeCardId={showCompletedSeal ? "quest_complete_royal_seal" : undefined}
+                        badgeClassName="w-[44px] h-[44px] bottom-2.5 right-2.5 border-2"
+                        alt={panelTitle}
+                        className="w-full h-full border-0 bg-[#0b0e14]"
+                        imgClassName="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  {cornerMedallionSrc && !(isPortalLoc && isPortalSealed) && (
+                    <div
+                      className="absolute -bottom-2.5 -left-2.5 w-[54px] h-[54px] rounded-md border-2 border-[#d7b267] bg-[#0b0f17]/95 p-1 shadow-[0_8px_20px_rgba(0,0,0,0.9)] flex items-center justify-center"
+                      title={isPortalLoc ? catalystName : portalDisplayName}
+                    >
+                      <img
+                        src={assetUrl(cornerMedallionSrc)}
+                        alt=""
+                        draggable={false}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* Quest & Unlock Details Showcase (Compact Editorial Height So Quest Card Towers Above Rim) */}
+                <div className="min-w-0 flex-1 flex flex-col justify-between gap-3 w-full">
+                  <div>
+                    <div className="border-b border-[#2c3446] pb-2 mb-2 flex flex-wrap items-start justify-between gap-3">
+                      <div className="min-w-0 flex-1">
+                        <div
+                          className={[
+                            "text-[11.5px] md:text-[12px] uppercase tracking-[0.16em] font-semibold",
+                            isPortalSealed ? "text-[#84f2b8]" : "text-[#d9b468]",
+                          ].join(" ")}
+                        >
+                          {panelEyebrow}
+                        </div>
+                        <h2 className="font-display m-0 text-[24px] md:text-[27px] lg:text-[31px] font-bold text-[#fae2aa] leading-tight mt-0.5">
+                          {panelTitle}
+                        </h2>
+                      </div>
+                      <span
+                        className={[
+                          "px-2.5 py-1 rounded border text-[11px] font-bold uppercase tracking-wider shrink-0 mt-0.5",
+                          statusPill.cls,
+                        ].join(" ")}
+                      >
+                        {statusPill.label}
+                      </span>
+                    </div>
+
+                    <p className="m-0 text-[14.5px] md:text-[15px] lg:text-[16px] leading-[1.58] text-[#eff3fa] border-l-2 border-[#c8a256] pl-4">
+                      {panelBody}
+                      {questMeta && !isPortalSealed && (!isPortalLoc || !hasCatalyst)
+                        ? ` Speak with ${questMeta.giver ?? "town scouts"} at ${questMeta.hubName} to earn the ${questMeta.catalystName}${questMeta.reward ? ` (${questMeta.reward})` : ""}.`
+                        : isPortalLoc && hasCatalyst && !isPortalSealed && location.bossInfo
+                          ? ` Guardian: ${location.bossInfo.boss} · Weaknesses: ${location.bossInfo.weaknesses}.`
+                          : ""}
+                    </p>
+
+                    {isPortalLoc && isPortalSealed && reopenedNotes.length > 0 && (
+                      <div className="mt-2 flex flex-wrap gap-2 pl-4">
+                        {reopenedNotes.map((note) => (
+                          <span
+                            key={note}
+                            className="px-2.5 py-1 rounded border border-[#6e5a35] bg-[#1e180f] text-[11.5px] font-semibold text-[#f3dfb1]"
+                          >
+                            ★ {note}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Bottom Step Strip & Action Buttons */}
+                  <div className="border-t border-[#2c3446] pt-2.5 flex flex-wrap items-center justify-between gap-3">
+                    {isPortalLoc ? (
+                      <div className="min-w-0 flex items-center gap-3">
+                        <img
+                          src={assetUrl(
+                            isPortalSealed
+                              ? "assets/icons/quests/quest_complete_royal_seal.webp"
+                              : catalystItem?.iconPath ?? "assets/icons/quests/quest_portal_catalyst_seal.webp"
+                          )}
+                          alt=""
+                          draggable={false}
+                          className="w-[38px] h-[38px] rounded border border-[#5a492e] bg-[#0b0e14] object-contain p-0.5 shrink-0"
+                        />
+                        <div className="min-w-0">
+                          <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#d9b468]">
+                            {isPortalSealed ? "Rift Permanently Closed" : `Required Catalyst · ${catalystName}`}
+                          </div>
+                          <div className="text-[12.5px] text-[#cbd7ea]">
+                            {isPortalSealed
+                              ? "This Dimensional Rift will trouble Ethoria no longer."
+                              : hasCatalyst
+                                ? `Catalyst forged — ready to unseal ${location.name}`
+                                : `Complete “${questMeta?.questTitle ?? "Catalyst Quest"}” at ${questMeta?.hubName ?? "town"} to unseal`}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="min-w-0 flex flex-wrap items-center gap-2.5">
+                        {questMeta && (
+                          <div className="px-3 py-1.5 rounded border border-[#4f422b] bg-[#131722]/90 text-[12px] text-[#e7edf7]">
+                            <strong className={questMeta.done ? "text-[#9ef0c1]" : "text-[#ffd48a]"}>
+                              {questMeta.done ? "✓ Quest Done:" : "Quest:"}
+                            </strong>{" "}
+                            {questMeta.questTitle} <span className="text-[#9cb0cb]">({questMeta.hubName})</span>
+                          </div>
+                        )}
+                        <span className="text-[#8a9ab5] font-bold">→</span>
+                        <div className="px-3 py-1.5 rounded border border-[#5d472c] bg-[#16110c]/92 flex items-center gap-2 text-[12px] text-[#fae2aa]">
+                          {gatePortalLoc && (
+                            <img
+                              src={assetUrl(gatePortalLoc.assetPath)}
+                              alt={portalDisplayName}
+                              draggable={false}
+                              className="w-[22px] h-[22px] object-contain shrink-0"
+                            />
+                          )}
+                          <span>
+                            <strong className="text-[#f0b45a]">Portal:</strong> Destroy {portalDisplayName}
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex flex-wrap items-center justify-end gap-2.5 shrink-0">
+                      {isClosedSeaPort && (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() => onFreeRest(location.name)}
+                            className="px-4 py-2.5 rounded border border-[#4eb987] bg-[#153526] hover:bg-[#1e4b36] text-[#b4f5d2] text-[12.5px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
+                          >
+                            Rest at Harbor (0s)
+                          </button>
+                          {harborShopNpc && (
+                            <>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  audioEngine.playUiClick();
+                                  setHarborShopMode("arcanist");
+                                }}
+                                className="px-4 py-2.5 rounded border border-[#d7b267] bg-[#2a2112] hover:bg-[#3c2f18] text-[#fae4b0] text-[12.5px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
+                              >
+                                Field Supplies
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  audioEngine.playUiClick();
+                                  setHarborShopMode("trade_goods");
+                                }}
+                                className="px-4 py-2.5 rounded border border-[#b89248] bg-[#211a0f] hover:bg-[#332716] text-[#f4d799] text-[12.5px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
+                              >
+                                Sell Trade Goods
+                              </button>
+                            </>
+                          )}
+                        </>
+                      )}
+
+                      {isPortalLoc && !isPortalSealed && (
+                        <button
+                          type="button"
+                          disabled={!hasCatalyst || !onEnterPortal}
+                          onClick={() => {
+                            if (!hasCatalyst || !onEnterPortal) return;
+                            audioEngine.playDoorOpen();
+                            onEnterPortal(location);
+                          }}
+                          className="px-5 py-2.5 rounded border border-[#e6c170] bg-[#a37625] hover:bg-[#be8c30] disabled:opacity-45 disabled:bg-[#231e15] disabled:border-[#554730] disabled:cursor-not-allowed text-[#fff6dc] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-lg"
+                        >
+                          {hasCatalyst ? "Unseal & Enter" : "Catalyst Required"}
+                        </button>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          audioEngine.playSfx("ui_close", 0.28);
+                          onClose();
+                        }}
+                        className="px-5 py-2.5 rounded border border-[#e6c170] bg-[#c99b44]/30 hover:bg-[#c99b44]/50 text-[#fff4d4] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
+                      >
+                        {isPortalSealed ? "Return to Map" : "Step Back"}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (isTavern && parentLocation) {
     return (
       <TavernView
         tavern={location}
         parentTown={parentLocation}
+        worldLocations={worldLocations}
+        travelCatalog={travelCatalog}
         npcsByLocation={npcsByLocation}
         questsByKey={questsByKey}
         partyOrder={partyOrder}
         partyLevel={partyLevel}
         acceptedQuestIds={acceptedQuestIds}
         completedQuestIds={completedQuestIds}
+        questProgressById={questProgressById}
+        trackedQuestKeys={trackedQuestKeys}
+        activeOutpostHuntCount={activeOutpostHunts.length}
         onAcceptQuest={onAcceptQuest}
+        onToggleTrackQuest={onToggleTrackQuest}
+        onOpenJournal={onOpenJournal}
         onOpenParty={onOpenParty}
         onReturnToTown={() => {
           if (onReturnToParent) {
@@ -552,10 +1150,20 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
 
   const safeIdx = Math.min(selectedIdx, Math.max(0, resolvedNpcs.length - 1));
   const selectedNpc = resolvedNpcs[safeIdx] ?? null;
-  const acceptedSet = new Set(acceptedQuestIds);
-  const completedSet = new Set(completedQuestIds);
   const questCompleted = Boolean(selectedNpc?.quest && completedSet.has(selectedNpc.quest.questId));
   const questAccepted = Boolean(selectedNpc?.quest && acceptedSet.has(selectedNpc.quest.questId));
+  const journalLimit = getGlobalActiveQuestLimit();
+  const journalCount = acceptedQuestIds.length + activeOutpostHunts.length;
+  const selectedQuestStage = selectedNpc?.quest
+    ? getHubQuestStage(selectedNpc.quest.questId, questProgressById, completedSet)
+    : "active";
+  const selectedQuestChain = selectedNpc?.quest
+    ? getQuestStoryChainInfo(selectedNpc.quest.questId, travelCatalog, questsByKey, completedSet)
+    : null;
+  const selectedQuestObjective = selectedNpc?.quest
+    ? resolveQuestObjectiveMeta(selectedNpc.quest, selectedQuestStage, worldLocations)
+    : null;
+
   const activeOutpostHunt = isOutpostLocation
     ? activeOutpostHunts.find((h) => h.outpostId === location.id) ?? null
     : null;
@@ -578,7 +1186,15 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
   const displayedNpcDialogue =
     isQuartermasterSelected && displayedOutpostHunt
       ? buildQuartermasterHuntDialogue(displayedOutpostHunt, Boolean(activeOutpostHunt), huntReadyToClaim)
-      : selectedNpc?.dialogue ?? "";
+      : resolveQuestNpcStatusDialogue(
+          selectedNpc?.dialogue ?? "",
+          selectedNpc?.quest ?? null,
+          questAccepted,
+          questCompleted,
+          selectedQuestStage,
+          selectedQuestChain,
+          selectedQuestObjective
+        );
   void battleConfig;
 
   const stewardSvcId = selectedNpc && !selectedNpc.quest ? inferNpcServiceId(selectedNpc.displayRole) : null;
@@ -636,7 +1252,7 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
     >
       {/* Full-Screen Tack-Sharp 16:9 Painted Room Scene */}
       <img
-        src={assetUrl(location.interiorAssetPath)}
+        src={assetUrl(resolvedInteriorPath)}
         alt={location.name}
         draggable={false}
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
@@ -729,6 +1345,23 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
             </div>
           </button>
 
+          {onOpenJournal && (
+            <button
+              type="button"
+              onClick={() => {
+                audioEngine.playUiClick();
+                onOpenJournal();
+              }}
+              className="hidden sm:flex flex-col items-start rounded border border-[#4a5266]/90 hover:border-[#c8a35a] bg-[#0e121b]/88 hover:bg-[#171d2b]/95 backdrop-blur-sm px-3 py-1.5 cursor-pointer transition-colors shadow-lg"
+              title="Open Quest Journal (J)"
+            >
+              <span className="text-[11px] font-bold text-[#f2dba6] leading-tight">
+                Journal · {journalCount}/{journalLimit}
+              </span>
+              <span className="text-[10px] text-[#9aa8be] leading-tight">Open (J)</span>
+            </button>
+          )}
+
           <button
             type="button"
             onClick={() => {
@@ -809,6 +1442,14 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
               const hasQuest = Boolean(npc.quest);
               const qCompleted = Boolean(npc.quest && completedSet.has(npc.quest.questId));
               const qAccepted = Boolean(npc.quest && acceptedSet.has(npc.quest.questId));
+              const qStage = npc.quest ? getHubQuestStage(npc.quest.questId, questProgressById, completedSet) : "active";
+              const qReady = qAccepted && qStage === "ready_to_turn_in";
+              const qChainLocked = Boolean(
+                npc.quest &&
+                  !qAccepted &&
+                  !qCompleted &&
+                  getQuestStoryChainInfo(npc.quest.questId, travelCatalog, questsByKey, completedSet)?.isLockedByChain
+              );
               const done = qCompleted || qAccepted;
               return (
                 <button
@@ -852,14 +1493,27 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                         <span
                           className={[
                             "px-1.5 py-0.5 rounded-sm border text-[10px] font-bold uppercase shrink-0",
-                            qCompleted
-                              ? "bg-[#2a2214] border-[#96783b] text-[#f5d88f]"
+                            qCompleted || qReady
+                              ? "bg-[#2a2214] border-[#e6c170] text-[#ffeaa8]"
                               : done
                                 ? "bg-[#162a21] border-[#3c7358] text-[#8be0b2]"
-                                : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
+                                : qChainLocked
+                                  ? "bg-[#1a1822] border-[#61564a] text-[#cbb692]"
+                                  : "bg-[#8c6422]/45 border-[#e3b963] text-[#ffe29e]",
                           ].join(" ")}
+                          title={
+                            qCompleted
+                              ? "Completed"
+                              : qReady
+                                ? "Ready to Turn In"
+                                : done
+                                  ? "In Journal"
+                                  : qChainLocked
+                                    ? "Story Chain Prerequisite Required"
+                                    : "Quest Available"
+                          }
                         >
-                          {qCompleted ? "★" : done ? "✓" : "!"}
+                          {qCompleted || qReady ? "★" : done ? "✓" : qChainLocked ? "Locked" : "!"}
                         </span>
                       )}
                       {!hasQuest && isOutpostLocation && npc.id.endsWith("_quartermaster") && (
@@ -1091,8 +1745,18 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                                   worldLocations.find((w) => w.id === `${route.id}_south` && w.placed && w.x !== null && w.y !== null);
                                 const curOrder = routes.find((x) => x.mapId === location.mapId)?.order ?? 1;
                                 const isOutbound = route.order > curOrder;
-                                const gate = isOutbound ? travelCatalog?.outboundSeaPortalGates?.[location.mapId] : undefined;
-                                const portalSealed = gate ? sealedPortalIds.includes(gate.portalId) : true;
+                                const gate = isOutbound
+                                  ? routes
+                                      .filter((r) => r.order >= curOrder && r.order < route.order)
+                                      .sort((a, b) => a.order - b.order)
+                                      .map((r) => travelCatalog?.outboundSeaPortalGates?.[r.mapId])
+                                      .find((g) => g && !sealedPortalIds.includes(g.portalId))
+                                  : undefined;
+                                const gatePortalLoc = gate
+                                  ? worldLocations.find((w) => w.id === gate.portalId)
+                                  : undefined;
+                                const gateQuestMeta = resolvePortalQuestMeta(gatePortalLoc);
+                                const portalSealed = !gate;
                                 const canSail = Boolean(destLoc && portalSealed && onSailToPort);
 
                               return (
@@ -1119,6 +1783,24 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                                     >
                                       Set Sail (Free)
                                     </button>
+                                  ) : !portalSealed && gate && gateQuestMeta ? (
+                                    <QuestReferenceCard
+                                      variant="compact"
+                                      cardId={gateQuestMeta.questId}
+                                      fallbackPath={gateQuestMeta.fallbackPath}
+                                      eyebrow={
+                                        gateQuestMeta.done
+                                          ? `Catalyst Ready · Defeat ${gate.portalName}`
+                                          : `Complete Quest · ${gateQuestMeta.hubName}`
+                                      }
+                                      title={gateQuestMeta.questTitle}
+                                      subtitle={
+                                        gateQuestMeta.done
+                                          ? `Defeat ${gate.portalName} to open this voyage`
+                                          : `Grants ${gateQuestMeta.catalystName} → ${gate.portalName}`
+                                      }
+                                      status={gateQuestMeta.status}
+                                    />
                                   ) : (
                                     <div className="text-[11px] font-semibold text-[#9aa8be]">
                                       {!portalSealed && gate
@@ -1215,13 +1897,33 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                             </div>
                             <div className="flex flex-wrap items-center gap-2 shrink-0">
                               {!activeOutpostHunt ? (
-                                <button
-                                  type="button"
-                                  onClick={() => onAcceptOutpostHunt?.(displayedOutpostHunt)}
-                                  className="px-5 py-2.5 rounded border border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_20px_rgba(226,190,115,0.22)]"
-                                >
-                                  Accept Hunt
-                                </button>
+                                <>
+                                  {journalCount >= journalLimit && onOpenJournal && (
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        audioEngine.playUiClick(0.32);
+                                        onOpenJournal();
+                                      }}
+                                      className="px-3.5 py-2.5 rounded border border-[#c88c42] bg-[#281b0e] hover:bg-[#382612] text-[#ffd996] text-[12px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
+                                    >
+                                      Open Journal
+                                    </button>
+                                  )}
+                                  <button
+                                    type="button"
+                                    disabled={journalCount >= journalLimit}
+                                    onClick={() => onAcceptOutpostHunt?.(displayedOutpostHunt)}
+                                    className={[
+                                      "px-5 py-2.5 rounded border text-[13px] font-bold uppercase tracking-wider transition-colors",
+                                      journalCount >= journalLimit
+                                        ? "border-[#4c4640] bg-[#18181f] text-[#8d96a8] cursor-not-allowed opacity-75"
+                                        : "border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] cursor-pointer shadow-[0_0_20px_rgba(226,190,115,0.22)]",
+                                    ].join(" ")}
+                                  >
+                                    {journalCount >= journalLimit ? `Journal Full (${journalCount}/${journalLimit})` : "Accept Hunt"}
+                                  </button>
+                                </>
                               ) : huntReadyToClaim ? (
                                 <button
                                   type="button"
@@ -1235,6 +1937,20 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                                   <div className="px-3.5 py-2 rounded border border-[#3c785b] bg-[#142920] text-[#91e3b8] text-[12.5px] font-bold">
                                     {activeOutpostHunt.killsProgress} / {activeOutpostHunt.killsRequired} Slain
                                   </div>
+                                  {onToggleTrackQuest && (
+                                    <button
+                                      type="button"
+                                      onClick={() => onToggleTrackQuest(makeHuntTrackKey(location.id))}
+                                      className={[
+                                        "px-3.5 py-2 rounded border text-[12px] font-bold uppercase tracking-wider cursor-pointer transition-colors",
+                                        trackedQuestKeys.includes(makeHuntTrackKey(location.id))
+                                          ? "border-[#e6c170] bg-[#2e2412] text-[#ffe9a8] hover:bg-[#3d3017]"
+                                          : "border-[#465169] bg-[#161c28] hover:border-[#b99653] text-[#ccd7ea] hover:text-[#fff2cc]",
+                                      ].join(" ")}
+                                    >
+                                      {trackedQuestKeys.includes(makeHuntTrackKey(location.id)) ? "◆ Pinned" : "Pin to HUD"}
+                                    </button>
+                                  )}
                                   <button
                                     type="button"
                                     onClick={() => onAbandonOutpostHunt?.(location.id)}
@@ -1246,61 +1962,62 @@ export const LocationInteriorModal: React.FC<LocationInteriorModalProps> = ({
                               )}
                             </div>
                           </div>
-                        ) : selectedNpc.quest ? (
-                          <div className="border-t border-[#2c3446] pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div className="min-w-0 flex items-center gap-3">
-                              <QuestCardThumb
-                                cardId={selectedNpc.quest.questId}
-                                fallbackPath={selectedNpc.quest.assetPath}
-                                badgeCardId={questCompleted ? "quest_complete_royal_seal" : undefined}
-                                className="w-[62px] h-[62px] rounded border border-[#967741] bg-[#090c12] shrink-0 shadow-[0_0_16px_rgba(226,184,96,0.2)]"
-                              />
-                              <div className="min-w-0">
-                                <div className="flex items-center gap-2">
-                                  <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#d9b468]">
-                                    Contract Offer
-                                  </span>
-                                  <span className="text-[11.5px] text-[#8f9eb5]">· {selectedNpc.quest.category}</span>
-                                </div>
-                                <div className="text-[16px] lg:text-[18px] font-bold text-[#fbe3a6] mt-0.5 leading-snug">
-                                  {selectedNpc.quest.title}
-                                </div>
-                                <div className="text-[12.5px] text-[#b8c8df] mt-0.5">
-                                  <span className="text-[#e3c27a] font-semibold">Reward:</span>{" "}
-                                  {formatRewardLine(selectedNpc.quest.reward)}
-                                </div>
+                        ) : selectedNpc.quest && selectedQuestObjective ? (
+                          <NpcQuestOfferBar
+                            quest={selectedNpc.quest}
+                            stage={selectedQuestStage}
+                            isAccepted={questAccepted}
+                            isCompleted={questCompleted}
+                            isPinned={trackedQuestKeys.includes(makeQuestTrackKey(selectedNpc.quest.questId))}
+                            journalCount={journalCount}
+                            journalLimit={journalLimit}
+                            chainInfo={selectedQuestChain}
+                            objectiveMeta={selectedQuestObjective}
+                            onAcceptQuest={onAcceptQuest}
+                            onToggleTrackQuest={onToggleTrackQuest}
+                            onOpenJournal={onOpenJournal}
+                            extraAction={
+                              <div className="flex flex-wrap items-center gap-2">
+                                {questAccepted && !questCompleted && selectedNpc.quest.questId === "q001" && (
+                                  selectedQuestStage === "ready_to_turn_in" && onCompleteQuest ? (
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        audioEngine.playUiClick();
+                                        onCompleteQuest(selectedNpc.quest!);
+                                      }}
+                                      className="px-4 py-2 rounded border border-[#f2cf7c] bg-[#4a3813] hover:bg-[#5f491a] text-[#fff4d4] text-[12.5px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_18px_rgba(242,207,124,0.28)]"
+                                    >
+                                      Complete &amp; Claim Reward
+                                    </button>
+                                  ) : onEnterDungeon ? (
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        audioEngine.playDoorOpen();
+                                        onEnterDungeon(selectedNpc.quest!);
+                                      }}
+                                      className="px-4 py-2 rounded border border-[#72e3a8] bg-[#143325] hover:bg-[#1c4633] text-[#d5fce7] text-[12.5px] font-bold uppercase tracking-wider cursor-pointer transition-colors shadow-[0_0_18px_rgba(114,227,168,0.22)]"
+                                    >
+                                      Enter Dry Aqueduct
+                                    </button>
+                                  ) : null
+                                )}
+                                {selectedNpc.shopType && (
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      audioEngine.playUiClick();
+                                      setOpenShopNpcId(selectedNpc.id);
+                                    }}
+                                    className="px-4 py-2 rounded border border-[#d7b267] bg-[#2a2112] hover:bg-[#3c2f18] text-[#fae4b0] text-[12.5px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
+                                  >
+                                    Open {selectedNpc.shopLabel ?? "Shop"}
+                                  </button>
+                                )}
                               </div>
-                            </div>
-                            <div className="flex flex-wrap items-center gap-2 shrink-0">
-                              {selectedNpc.shopType && (
-                                <button
-                                  type="button"
-                                  onClick={() => {
-                                    audioEngine.playUiClick();
-                                    setOpenShopNpcId(selectedNpc.id);
-                                  }}
-                                  className="px-4 py-2.5 rounded border border-[#d7b267] bg-[#2a2112] hover:bg-[#3c2f18] text-[#fae4b0] text-[13px] font-bold uppercase tracking-wider cursor-pointer transition-colors"
-                                >
-                                  Open {selectedNpc.shopLabel ?? "Shop"}
-                                </button>
-                              )}
-                              <button
-                                type="button"
-                                disabled={questAccepted || questCompleted}
-                                onClick={() => onAcceptQuest(selectedNpc.quest!)}
-                                className={[
-                                  "px-5 py-2.5 rounded border text-[13px] font-bold uppercase tracking-wider shrink-0 transition-colors",
-                                  questCompleted
-                                    ? "border-[#96783b] bg-[#261f12] text-[#f5d88f] cursor-default"
-                                    : questAccepted
-                                      ? "border-[#3c785b] bg-[#142920] text-[#91e3b8] cursor-default"
-                                      : "border-[#e6c170] bg-[#c99b44]/35 hover:bg-[#c99b44]/55 text-[#fff4d4] cursor-pointer shadow-[0_0_20px_rgba(226,190,115,0.22)]",
-                                ].join(" ")}
-                              >
-                                {questCompleted ? "★ Completed" : questAccepted ? "✓ Quest Accepted" : "Accept Quest"}
-                              </button>
-                            </div>
-                          </div>
+                            }
+                          />
                         ) : selectedNpc.shopType ? (
                           <div className="border-t border-[#2c3446] pt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <div className="min-w-0">

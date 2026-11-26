@@ -1,0 +1,41 @@
+# ROD — Universal Top-Down Dungeon Props (Keep 8 Chests + Clean 2x2 Stairs Up & 2x2 Stairs Down)
+# NOTE: All 8 Chests (4 Closed + 4 Matching Open) from dungeon_props_4x4_v2.jpg sliced cleanly and are kept in client/assets/tokens/dungeon_props/.
+# These two dedicated 2x2 sheets generate 4 crisp Stairs Up + 4 crisp Stairs Down with wide #FF00FF margins & strict 90° flat overhead stair cutouts.
+# Target Model: models/gemini-3-pro-image (1:1 Aspect Ratio, 4K) via Gemini Batch API (50% off) after Creative Director approval.
+# Browser / Batch Mode: 100% Text-Only (NO reference images, ZERO lore names inside prompts).
+
+--- STAIRS UP 2x2 SHEET START ---
+1:1 square sprite sheet showing a STRICT 2x2 grid (EXACTLY 2 columns across by 2 rows down — 4 evenly spaced compact isolated top-down fantasy RPG dungeon staircase props floating completely separate inside HUGE generous pure solid #FF00FF magenta margins on every side, NEVER 3x3 or 4x4, NO surrounding room walls, NO floor tiles around the staircase, NO grid divider lines, NO drop shadows onto the pink, NO outer glow into the pink, NO numbers, NO captions, and NO text labels anywhere — STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY STAIRCASE SILHOUETTE).
+
+CRITICAL 90-DEGREE TOP-DOWN ARCHITECTURAL RULE:
+Direct 90-degree flat straight-down bird's-eye overhead perspective looking strictly vertically down onto 4 freestanding self-contained staircase flights (ZERO 3/4 side angle, ZERO arched tunnel ceilings, ZERO surrounding dungeon walls). Each staircase sits cleanly inside ONLY 55% to 65% of its quadrant cell so thick solid #FF00FF bands separate top, bottom, left, and right cleanly.
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA):
+Clean stylized hand-painted League of Legends (Legends of Runeterra / Summoner's Rift) fantasy digital painting with chiseled stone planes, dark crisp perimeter contours cleanly separating each prop from #FF00FF, weathered iron, carved limestone, timber beams (NO pink/magenta gems or glows, NO pixel art, NO 3D plastic gloss, ZERO text).
+
+VISUAL "STAIRS UP" CUE:
+Steps run straight North-to-South looking straight down from above: bottom southern step is cooler shadowed stone at ground level, climbing step-by-step northward up to a raised pale-cream golden sunlit top landing bathed in warm bright daylight so every tile reads unmistakably as climbing UP toward daylight:
+
+- Row 1, Col 1 (Aqueduct Limestone Stairs Up): Compact carved pale slate-limestone staircase with slim carved stone side curbs, 6 parallel stone steps climbing northward from shaded lower step into a warm golden-sunlit upper stone landing with a small swung-open dark iron grate hinged along the top edge.
+- Row 1, Col 2 (Mine Timber Stairs Up): Compact rough-hewn granite steps braced between sturdy dark timber side stringers rising northward toward warm golden-sunlit stone plank top step.
+- Row 2, Col 1 (Mossy Shrine Marble Stairs Up): Compact weathered pale marble & olive-moss temple flight with neat low stone balustrades rising northward into bright warm sunlit sandstone landing.
+- Row 2, Col 2 (Oak Garrison Stairs Up): Compact heavy dark-oak wooden plank flight with iron corner brackets and slim timber side rails rising northward into a sunlit open wooden upper floor landing.
+--- STAIRS UP 2x2 SHEET END ---
+
+--- STAIRS DOWN 2x2 SHEET START ---
+1:1 square sprite sheet showing a STRICT 2x2 grid (EXACTLY 2 columns across by 2 rows down — 4 evenly spaced compact isolated top-down fantasy RPG descending dungeon staircase props floating completely separate inside HUGE generous pure solid #FF00FF magenta margins on every side, NEVER 3x3 or 4x4, NO surrounding room walls, NO grid divider lines, NO drop shadows onto the pink, NO outer glow into the pink, NO numbers, NO captions, and NO text labels anywhere — STRICTLY PURE SOLID #FF00FF MAGENTA OUTSIDE EVERY STAIRCASE SILHOUETTE).
+
+CRITICAL 90-DEGREE TOP-DOWN ARCHITECTURAL RULE:
+Direct 90-degree flat straight-down bird's-eye overhead perspective looking strictly vertically down onto 4 freestanding rectangular stairwell openings (ZERO 3/4 wall perspective, ZERO surrounding dungeon rooms). Each stairwell cutout fills ONLY 55% to 65% of its quadrant cell with wide pure solid #FF00FF around all 4 sides.
+
+ART STYLE MANDATE (LEAGUE OF LEGENDS / RUNETERRA):
+Clean stylized hand-painted League of Legends (Legends of Runeterra / Summoner's Rift) fantasy digital painting with chiseled edges, dark crisp perimeter outlines cleanly separating every stairwell frame from #FF00FF (NO pink/magenta colors inside sprites, NO pixel art, NO 3D plastic gloss, ZERO text).
+
+VISUAL "STAIRS DOWN" CUE:
+Top rim sits cleanly at bright dungeon stone/wood floor level while the steps descend deeper step-by-step into pitch-dark black shadow at the far deep end:
+
+- Row 1, Col 1 (Limestone Sunken Stairwell Down): Compact rectangular carved limestone stairwell frame at floor level with 6 narrow parallel stone steps descending downward into deep pitch-black basement shadow.
+- Row 1, Col 2 (Cave Shaft Timber Stairs Down): Compact irregular rough-rock shaft rim braced by stout dark mine timbers with narrow uneven rock steps & wooden rungs descending downward into pitch-dark cavern abyss.
+- Row 2, Col 1 (Crypt Granite Steps Down): Compact weathered mossy granite & bronze-trimmed stairwell cutout descending downward into pitch-black shadowed tomb depths.
+- Row 2, Col 2 (Cellar Trapdoor Stairs Down): Compact heavy iron-hinged dark-oak square cellar trapdoor frame swung wide open revealing narrow shadowed wooden steps descending downward into pitch-black cellar void.
+--- STAIRS DOWN 2x2 SHEET END ---

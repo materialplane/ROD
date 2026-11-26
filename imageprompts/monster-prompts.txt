@@ -522,3 +522,268 @@ ROW 4:
 - Row 4 Col 3 (Pit Fiend — Infernal Mace & Hellfire Execution): PORTAL BOSS 7: Centered towering gargoyle-winged blood-red Pit Fiend clad in jagged black-iron Plate armor facing left scaled down inside central zone; spiked wings folded tightly down close behind shoulders and heavy iron Mace angled diagonally across torso rather than extending outward. Wide empty #FF00FF moat surrounds wings, horns, mace head, and boots.
 - Row 4 Col 4 (King Garrick — Tyrant Sovereign Greatsword Rend): FINAL BOSS 8 (STORY CLIMAX): Centered scarred tyrannical human King Garrick in his late 50s with iron-gray hair and beard, jagged blackened-iron royal crown, heavy blackened-steel Plate armor draped in shaggy wolf-fur cloak and compact crimson velvet cape facing left scaled down cleanly; braced inside center holding massive dark steel two-handed Greatsword angled diagonally close across chest. Wide empty #FF00FF moat around sword tip, crown, cape, and boots.
 --- COPY PROMPT END (SHEET 08 OF 8) ---
+
+
+================================================================================
+QUEST BESTIARY & NAMED BOSS EXPANSION — SHEETS 09 TO 12 (64 NEW ENEMIES)
+# Covers all 45 missing quest monsters + all 19 unique named bosses & distinct human foes
+================================================================================
+
+================================================================================
+SHEET 09 OF 12 (1:1 4K 4x4) — ENEMIES 129 TO 144 (CONSTRUCTS, BEASTS & SKY PREDATORS)
+================================================================================
+# SLOT MANIFEST:
+#   R1C1 -> Animated Armor (Hollow Steel Guard)
+#   R1C2 -> Animated Flying Sword (Hovering Rune Blade)
+#   R1C3 -> Dust Mephit (Crouched Sand-Imp Swipe)
+#   R1C4 -> Ankheg (Burrowing Chitin Mandible Strike)
+#   R2C1 -> Rust Monster (Antennae & Iron-Snapping Prowl)
+#   R2C2 -> Grick (Coiled Tentacle-Beak Strike)
+#   R2C3 -> Giant Boar (Bristled Tusk Charge)
+#   R2C4 -> Cockatrice (Winged Beak-Jab)
+#   R3C1 -> Gorgon (Iron-Plated Bull Stomp)
+#   R3C2 -> Hippogriff (Folded-Wing Talon Strike)
+#   R3C3 -> Griffon (Lion-Rump Eagle Dive)
+#   R3C4 -> Steam Mephit (Scalding Vapor Wing-Crouch)
+#   R4C1 -> Blood Hawk (Crimson Raptor Dive)
+#   R4C2 -> Giant Eagle (Golden Highland Talon Poise)
+#   R4C3 -> Polar Bear (Glacier Heavy Maul)
+#   R4C4 -> Saber-Toothed Tiger (Coiled Fang Pounce)
+
+--- COPY PROMPT START (SHEET 09 OF 12) ---
+A 1:1 4K quality 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 isolated full-body fantasy character and creature splash portraits in dynamic compact combat attack poses total, NEVER 5x5, NEVER duplicate any enemy). The entire canvas has a solid, flat, shadowless pure neon magenta (#FF00FF) background for chroma-key extraction with NO divider lines, NO boxes, NO borders, NO frames, NO tile grids, NO drop shadows onto the pink, and NO text or labels anywhere.
+
+ART STYLE (LEAGUE OF LEGENDS / RUNETERRA BENCHMARK — NO INK OUTLINES):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital splash-portrait illustration — bold sculpted silhouettes, chiseled stylized facial planes matching League of Legends champion splash portraits, clean smooth volumetric shading on skin, worn leather armor, coarse woven robes, stitched hide, forged steel, scales, chitin, and painterly fur tufts, rich handcrafted color clarity, painted dark-edge value separation without outline strokes, and crisp moody directional rim lighting.
+
+STRICT NEGATIVES (NO LINEWORK / NO INK / NO PAPER):
+Strictly ZERO black ink outlines, ZERO comic-book pen linework, ZERO interior black crease lines on fabric or faces, ZERO scratchy ink hatching or cross-hatching, ZERO colored-pencil or crayon sketchiness, ZERO watercolor bleed, ZERO paper or canvas grain, ZERO pixel art, ZERO glossy plastic 3D CGI toy finish, ZERO magenta color spill onto figures, and ZERO letters, numbers, or watermarks.
+
+CRITICAL PADDING & COMPACT POSE MANDATES (STRICT ZERO-CLIPPING):
+1. MANDATORY 20% MAGENTA SAFETY BUFFER: Scale every creature down to occupy ONLY the central 75% to 80% of its quadrant. A wide moat of empty, solid #FF00FF magenta background must completely surround every creature on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO wingtips, weapon blades, bows, spears, horns, claws, tails, or feet may touch or cross any quadrant boundary or image edge. Draw large monsters, giants, dragons, and fiends slightly smaller in scale so every extremity sits comfortably inside generous magenta margins.
+3. COMPACT COMBAT POSES (ALL FACING RIGHT): All 16 enemies face RIGHT in aggressive compact combat stances centered inside their space—fold and arch large wings compactly inward close over the back/shoulders (never spreading wide toward corners); coil long tails close around the body; angle swords, spears, staves, bows, and halberds closely across the silhouette rather than thrusting outward into edges.
+4. ZERO MOUTH BREATH / NO BREATH BEAMS: NEVER draw fire, ice, acid, venom, smoke, steam, or lightning spraying from any mouth (keep jaws cleanly empty inside).
+5. ZERO MAGENTA ON CREATURES: Never put magenta/pink colors on skin, armor, scales, clothing, or weapons.
+
+ROW & COLUMN BREAKDOWN (16 CENTERED FULL-BODY CREATURES WITH 20% #FF00FF MOAT — NO BOXES, NO GRIDS — SHEET 09 OF 12):
+
+ROW 1:
+- Row 1 Col 1 (Animated Armor — Hollow Steel Guard): Centered empty hollow Animated Armor knight made of scarred dark steel Plate armor with a completely empty dark shadowed visor (strictly no head or flesh inside) and glowing amber chest-rune seam facing right; braced compactly inside center holding a notched steel Longsword angled diagonally across chest and Heater Shield tucked close. Wide empty #FF00FF moat around sword tip, helm, shield, and greaves.
+- Row 1 Col 2 (Animated Flying Sword — Hovering Rune Blade): Centered single standalone enchanted Animated Flying Sword (ornate steel Longsword with bronze wing-guard and glowing cyan pommel rune, strictly no hand or human holder) tilted diagonally inside center facing right with subtle painted blue-gold motion edge (zero fuzzy haze onto pink). Generous #FF00FF moat surrounds hilt, crossguard, and blade tip on all four sides.
+- Row 1 Col 3 (Dust Mephit — Swooping Sand-Imp Dive): Centered scrawny ochre-tan rocky-skinned Dust Mephit winged imp with hooked nose and jagged ears facing right scaled down cleanly inside center; dry bat wings arched compactly high over shoulders in a swift low swoop reaching clawed left hand forward-downward near knees (zero sand spray from mouth). Wide #FF00FF padding surrounds ears, wings, claws, and feet.
+- Row 1 Col 4 (Ankheg — Burrowing Chitin Mandible Strike): Centered amber-brown chitin-plated six-legged Ankheg insectoid monster facing right scaled down cleanly inside center; segmented armored abdomen curled snugly downward and serrated curved mandibles tucked inside center (clean empty jaws, zero acid spit). Wide empty #FF00FF moat surrounds antennae, legs, and carapace.
+
+ROW 2:
+- Row 2 Col 1 (Rust Monster — Antennae & Iron-Snapping Prowl): Centered rusted burnt-orange armored quadruped Rust Monster with long feathery sensory antennae and flat paddle tail facing right scaled cleanly inside center; four clawed legs tucked compactly beneath arched chitin shell and twin curved antennae swept neatly inward above head rather than hitting top border. Generous #FF00FF moat surrounds antennae, paddle tail, and claws.
+- Row 2 Col 2 (Grick — Coiled Tentacle-Beak Strike): Centered slate-olive rubbery worm-bodied Grick ambush predator facing right coiled tightly into a compact vertical S-spiral inside center; four curled barbed tentacles tucked closely around its hooked snapping parrot-like beak (zero soft fade). Wide empty #FF00FF padding surrounds coiled tail, ridge, and tentacles.
+- Row 2 Col 3 (Giant Boar — Bristled Tusk Charge): Centered hulking dark-umber bristled Giant Boar covered in rugged hide scars and massive curved ivory tusks facing right scaled cleanly inside center; head lowered aggressively with short sturdy legs planted compactly beneath barrel torso. Wide #FF00FF moat surrounds tusks, spine bristles, hooves, and tail.
+- Row 2 Col 4 (Cockatrice — Winged Beak-Jab): Centered fierce scaly rooster-headed, leather-winged, lizard-tailed Cockatrice monster facing right scaled down inside center; crimson comb, dark bat wings arched compactly close over shoulders, and scaly tail coiled snugly under clawed bird feet. Generous #FF00FF padding surrounds comb, wingtips, beak, and tail.
+
+ROW 3:
+- Row 3 Col 1 (Gorgon — Iron-Plated Bull Stomp): Centered heavy iron-plated mechanical-looking armored bull Gorgon forged from dark riveted steel plates with glowing furnace-amber eye slits facing right scaled comfortably smaller; compact bull horns tucked inward inside padding and iron hooves planted tightly underneath (zero gas or smoke spraying from nostrils). Wide #FF00FF moat around horns, tail, and hooves.
+- Row 3 Col 2 (Hippogriff — Folded-Wing Talon Strike): Centered swift chestnut-coated eagle-headed Hippogriff facing right scaled cleanly down inside center; bronze eagle wings folded compactly upright flush against shoulders, fore-talons tucked sharply inward, and feathered horse hindquarters gathered tightly. Generous #FF00FF moat surrounds wingtips, beak, talons, and hooves.
+- Row 3 Col 3 (Griffon — Lion-Rump Eagle Dive): Centered regal golden-feathered eagle-headed, tawny-lion bodied Griffon facing right scaled comfortably smaller; powerful golden wings arched compactly inward tight over back and tufted lion tail wrapped snugly beside hind paws while fore-talons swipe close to chest. Wide empty #FF00FF padding around beak, wings, paws, and tail.
+- Row 3 Col 4 (Steam Mephit — Coiled Vapor Imp Perch): Centered sleek pale-slate and copper-veined Steam Mephit imp with crisp solid-painted finned ridges and warm glowing amber chest vents facing right scaled cleanly inside center; crouched perched on bent talons twisting shoulders sideways with leathery wings tucked flush behind back and right claw cocked low at hip (crisp edges, zero hazy steam cloud onto pink). Wide #FF00FF moat on all four sides.
+
+ROW 4:
+- Row 4 Col 1 (Blood Hawk — Crimson Raptor Dive): Centered fierce crimson-and-obsidian plumaged Blood Hawk raptor facing right scaled cleanly inside center; dark-red wings folded compactly high over shoulders in a tight striking dive with hooked iron-gray talons drawn inward beneath chest. Wide #FF00FF margin around wingtips, beak, tail feathers, and talons.
+- Row 4 Col 2 (Giant Eagle — Golden Highland Talon Poise): Centered majestic giant amber-gold and chestnut highland Giant Eagle facing right scaled comfortably smaller; broad golden wings arched tightly inward close over shoulders rather than spreading toward borders, hooked beak poised and heavy yellow talons curled neatly beneath body. Generous #FF00FF padding surrounds wings, tail fan, and talons.
+- Row 4 Col 3 (Polar Bear — Glacier Heavy Maul): Centered massive thick-furred snow-white and pale-ice Polar Bear facing right scaled down comfortably smaller inside center; hunched low on crouched legs with heavy clawed forepaws pulled closely inward across chest rather than extending toward borders. Wide empty #FF00FF moat surrounds ears, snout, claws, and paws.
+- Row 4 Col 4 (Saber-Toothed Tiger — Coiled Fang Pounce): Centered muscular tawny-ochre striped Saber-Toothed Tiger with thick ruff and twin curved huge ivory saber fangs facing right scaled cleanly down; crouched compactly mid-spring with heavy clawed paws tucked closely under body and tail curled tight behind haunches. Wide #FF00FF moat surrounds ears, saber fangs, paws, and tail.
+--- COPY PROMPT END (SHEET 09 OF 12) ---
+
+
+================================================================================
+SHEET 10 OF 12 (1:1 4K 4x4) — ENEMIES 145 TO 160 (SEA HORRORS, FEY BLIGHTS & OOZES)
+================================================================================
+# SLOT MANIFEST:
+#   R1C1 -> Water Weird (Coiled Living Tide Serpent)
+#   R1C2 -> Sea Hag (Barnacle-Draped Reef Crone)
+#   R1C3 -> Giant Octopus (Coiled Sucker Tentacle Surge)
+#   R1C4 -> Gibbering Mouther (Writhing Eye-and-Maw Mass)
+#   R2C1 -> Violet Fungus (Bioluminescent Spore Stalk)
+#   R2C2 -> Black Pudding (Caustic Tar-Slime Surge)
+#   R2C3 -> Blink Dog (Brindled Fey Leap)
+#   R2C4 -> Awakened Tree (Gnarled Deadwood Titan)
+#   R3C1 -> Ettercap (Chitinous Web-Spinner Ambush)
+#   R3C2 -> Phase Spider (Azure-Striped Blink Pounce)
+#   R3C3 -> Corrupted Dryad (Blight-Thorned Forest Witch)
+#   R3C4 -> Awakened Blight (Twisted Vine-Thorn Stalker)
+#   R4C1 -> Gelatinous Cube (Suspended-Relic Emerald Cube)
+#   R4C2 -> Gray Ooze (Liquid Stone-Slime Surge)
+#   R4C3 -> Ochre Jelly (Split-Surge Amber Slime)
+#   R4C4 -> Shambling Mound (Root-and-Mire Titan)
+
+--- COPY PROMPT START (SHEET 10 OF 12) ---
+A 1:1 4K quality 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 isolated full-body fantasy character and creature splash portraits in dynamic compact combat attack poses total, NEVER 5x5, NEVER duplicate any enemy). The entire canvas has a solid, flat, shadowless pure neon magenta (#FF00FF) background for chroma-key extraction with NO divider lines, NO boxes, NO borders, NO frames, NO tile grids, NO drop shadows onto the pink, and NO text or labels anywhere.
+
+ART STYLE (LEAGUE OF LEGENDS / RUNETERRA BENCHMARK — NO INK OUTLINES):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital splash-portrait illustration — bold sculpted silhouettes, chiseled stylized facial planes matching League of Legends champion splash portraits, clean smooth volumetric shading on skin, worn leather armor, coarse woven robes, stitched hide, forged steel, scales, chitin, and painterly fur tufts, rich handcrafted color clarity, painted dark-edge value separation without outline strokes, and crisp moody directional rim lighting.
+
+STRICT NEGATIVES (NO LINEWORK / NO INK / NO PAPER):
+Strictly ZERO black ink outlines, ZERO comic-book pen linework, ZERO interior black crease lines on fabric or faces, ZERO scratchy ink hatching or cross-hatching, ZERO colored-pencil or crayon sketchiness, ZERO watercolor bleed, ZERO paper or canvas grain, ZERO pixel art, ZERO glossy plastic 3D CGI toy finish, ZERO magenta color spill onto figures, and ZERO letters, numbers, or watermarks.
+
+CRITICAL PADDING & COMPACT POSE MANDATES (STRICT ZERO-CLIPPING):
+1. MANDATORY 20% MAGENTA SAFETY BUFFER: Scale every creature down to occupy ONLY the central 75% to 80% of its quadrant. A wide moat of empty, solid #FF00FF magenta background must completely surround every creature on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO wingtips, weapon blades, bows, spears, horns, claws, tails, or feet may touch or cross any quadrant boundary or image edge. Draw large monsters, giants, dragons, and fiends slightly smaller in scale so every extremity sits comfortably inside generous magenta margins.
+3. COMPACT COMBAT POSES (ALL FACING RIGHT): All 16 enemies face RIGHT in aggressive compact combat stances centered inside their space—fold and arch large wings compactly inward close over the back/shoulders (never spreading wide toward corners); coil long tails close around the body; angle swords, spears, staves, bows, and halberds closely across the silhouette rather than thrusting outward into edges.
+4. ZERO MOUTH BREATH / NO BREATH BEAMS: NEVER draw fire, ice, acid, venom, smoke, steam, or lightning spraying from any mouth (keep jaws cleanly empty inside).
+5. ZERO MAGENTA ON CREATURES: Never put magenta/pink colors on skin, armor, scales, clothing, or weapons.
+
+ROW & COLUMN BREAKDOWN (16 CENTERED FULL-BODY CREATURES WITH 20% #FF00FF MOAT — NO BOXES, NO GRIDS — SHEET 10 OF 12):
+
+ROW 1:
+- Row 1 Col 1 (Water Weird — Coiled Living Tide Serpent): Centered completely standalone sculpted deep-cobalt and sea-foam serpentine Water Weird water elemental coiled tightly inside center facing right (strictly crisp solid painted silhouette with zero ocean floor, zero puddle, and zero fuzzy fade onto pink); horned crest and coiled liquid tail tucked cleanly inward. Wide #FF00FF moat on all four sides.
+- Row 1 Col 2 (Sea Hag — Barnacle-Draped Reef Crone): Centered gaunt sea-green scaly Sea Hag crone tangled in wet kelp rags and barnacle-studded Widowsilk shreds facing right; hunched compactly inside center pulling gnarled hooked claws inward near chest rather than extending toward borders. Wide empty #FF00FF padding around wild sea-weed hair, claws, and feet.
+- Row 1 Col 3 (Giant Octopus — Coiled Sucker Tentacle Surge): Centered mottled rust-amber and slate-blue Giant Octopus monster facing right scaled down cleanly inside center; bulbous mantle dome tucked cleanly inside padding and all eight sucker-lined tentacles curled tightly inward in compact spirals rather than reaching into edges (zero water puddle). Wide #FF00FF moat around all curled tentacles.
+- Row 1 Col 4 (Gibbering Mouther — Writhing Eye-and-Maw Mass): Centered horrific ochre-and-obsidian amoeboid Gibbering Mouther flesh-mass covered in glistening golden eyes and tooth-lined fanged mouths facing right (strictly crisp painted solid contour, zero pink/magenta flesh tones); compact rounded creeping mass pulling short pseudopods snugly inward. Wide empty #FF00FF moat on all four sides.
+
+ROW 2:
+- Row 2 Col 1 (Violet Fungus — Bioluminescent Spore Stalk): Centered eerie deep indigo-plum and midnight-cobalt mushroom monster Violet Fungus facing right scaled down cleanly inside center (strictly zero magenta or pink tones—rich indigo-slate cap with crisp glowing cyan-amber gill spots); gnarled root-legs planted tightly underneath and four spiny fungal lash-tendrils curled compactly inward. Wide #FF00FF moat around cap, tendrils, and roots.
+- Row 2 Col 2 (Black Pudding — Caustic Tar-Slime Surge): Centered glossy jet-black tar-slime Black Pudding ooze mound facing right (strictly crisp solid painted dark obsidian silhouette with subtle acid-lime highlight edges and zero puddle sprawl onto borders); surging compactly upward in a thick hooked wave inside central space. Wide empty #FF00FF moat completely surrounds base and crest.
+- Row 2 Col 3 (Blink Dog — Brindled Fey Leap): Centered lean golden-tan and silver-brindled fey hound Blink Dog with tufted lynx-like ears and glowing sky-blue eyes facing right scaled cleanly inside center; poised tightly mid-stride with paws tucked neatly inward and bushy tail curled close (crisp solid edge, zero pink fade). Generous #FF00FF padding around ears, paws, and tail.
+- Row 2 Col 4 (Awakened Tree — Heavy Root-Bough Smash): Centered twisted ash-bark Awakened Tree treant monster with glowing moss-amber hollow eyes and cracked ironwood trunk facing right scaled comfortably smaller; leaning forward over planted root-legs sweeping one heavy knotted branch-fist low toward knees while anchoring the other bough behind shoulder. Wide #FF00FF moat around crown, branches, and roots.
+
+ROW 3:
+- Row 3 Col 1 (Ettercap — Chitinous Web-Spinner Ambush): Centered hunched slate-blue and pale-ochre humanoid spider-monster Ettercap with segmented chitin plates and six glowing eyes facing right scaled cleanly inside center; crouched tightly keeping clawed fore-arms and spinneret abdomen tucked compactly inside margins. Wide empty #FF00FF moat around head, claws, and legs.
+- Row 3 Col 2 (Phase Spider — Azure-Striped Blink Pounce): Centered glossy cobalt-blue and ivory-striped eight-legged Phase Spider facing right scaled cleanly down inside center; all eight sharp segmented legs arched compactly close around its striped abdomen and curved venom mandibles tucked cleanly inward (zero hazy blink glow onto pink). Wide #FF00FF moat surrounds every leg tip.
+- Row 3 Col 3 (Corrupted Dryad — Twisted Forest Hex-Stance): Centered sinister bark-skinned Corrupted Dryad draped in withered moss-darkened Widowsilk tatters and knotted antler-branch crown facing right scaled cleanly down inside center; twisting sideways mid-step raising one thorny claw near cheek to weave a tiny crisp emerald blight spark while trailing the other arm low behind hip. Wide empty #FF00FF padding around antlers, moss hair, and root-clad feet.
+- Row 3 Col 4 (Awakened Blight — Stalking Briar Scramble): Centered humanoid tangle of blackened thorny briar vines and dead autumn leaves Awakened Blight monster with glowing amber eye-slits facing right scaled down inside center; scrambling low on bent root-legs in a feral sideways prowl with hooked thorn-claws poised low near knees. Wide #FF00FF moat surrounds thorn crest, claws, and root-feet.
+
+ROW 4:
+- Row 4 Col 1 (Gelatinous Cube — Suspended-Relic Emerald Cube): Centered crisp sculpted translucent emerald-jade Gelatinous Cube angled cleanly in compact 3/4 perspective facing right (strictly sharp glass-like painted cube edges against #FF00FF, zero fuzzy fade or floor puddle); showing an old tarnished bronze skull, iron Dagger, and rusted Buckler suspended inside its core. Wide #FF00FF moat around all cube corners.
+- Row 4 Col 2 (Gray Ooze — Liquid Stone-Slime Surge): Centered rippling wet slate-gray stone-slime Gray Ooze creature sculpted like living mercury-mud facing right (crisp solid painted contour, zero floor splash toward borders); rearing compactly inside central space with two thick pseudopod slams curled tightly inward. Wide #FF00FF padding around base and crest.
+- Row 4 Col 3 (Ochre Jelly — Split-Surge Amber Slime): Centered translucent golden-amber acidic Ochre Jelly ooze monster facing right (crisp solid painted amber-gold contour, zero fuzzy spill onto pink); surging tightly upward inside center with twin thick bubbling slime pseudopods pulled closely inward. Generous #FF00FF moat surrounds base and top ridges.
+- Row 4 Col 4 (Shambling Mound — Lumbering Bog Lurch): Centered hulking tangled Shambling Mound bog monster built of rotting swamp vines, mossy mud, and glowing fungus veins facing right scaled comfortably smaller; lurching forward heavily on thick root-stumps swinging its heavy left vine-fist downward across knees while bracing its massive mossy shoulder. Wide empty #FF00FF moat around mossy shoulders, fists, and root base.
+--- COPY PROMPT END (SHEET 10 OF 12) ---
+
+
+================================================================================
+SHEET 11 OF 12 (1:1 4K 4x4) — ENEMIES 161 TO 176 (FIRE, AIR, DEVILS & SHADOWFELL BOSSES)
+================================================================================
+# SLOT MANIFEST:
+#   R1C1 -> Magma Mephit (Molten-Crusted Imp Swipe)
+#   R1C2 -> Giant Scorpion (Twin-Pincer & Tail-Stinger Poise)
+#   R1C3 -> Fire Snake (Coiled Flame-Scale Fang Strike)
+#   R1C4 -> Magmin (Blazing Crag-Rock Imp Surge)
+#   R2C1 -> Azer (Brass-Bearded Forge Hammer Guard)
+#   R2C2 -> Storm Mephit (Crackling Gale-Imp Crouch)
+#   R2C3 -> Air Elemental (Sculpted Cyclone Vortex Slam)
+#   R2C4 -> Blue Dragon Wyrmling (Cobalt Wing-Fold Dive)
+#   R3C1 -> Spined Devil (Barbed-Tail Fork Swoop)
+#   R3C2 -> Nightmare (Blazing-Hoof Hellsteed Rear)
+#   R3C3 -> Ice Mephit (Jagged Frost-Shard Imp)
+#   R3C4 -> Will-o'-Wisp (Floating Lantern-Skull Core)
+#   R4C1 -> Specter (Gliding Phantom Claw Surge)
+#   R4C2 -> Crimson Vampire Spawn Captain (Blade & Dirk Blood-Pit Champion)
+#   R4C3 -> Arena Lich (Bone-Crowned Gladiator Archlich)
+#   R4C4 -> Elder Vampire Lord (Sovereign Crimson Night-Lord)
+
+--- COPY PROMPT START (SHEET 11 OF 12) ---
+A 1:1 4K quality 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 isolated full-body fantasy character and creature splash portraits in dynamic compact combat attack poses total, NEVER 5x5, NEVER duplicate any enemy). The entire canvas has a solid, flat, shadowless pure neon magenta (#FF00FF) background for chroma-key extraction with NO divider lines, NO boxes, NO borders, NO frames, NO tile grids, NO drop shadows onto the pink, and NO text or labels anywhere.
+
+ART STYLE (LEAGUE OF LEGENDS / RUNETERRA BENCHMARK — NO INK OUTLINES):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital splash-portrait illustration — bold sculpted silhouettes, chiseled stylized facial planes matching League of Legends champion splash portraits, clean smooth volumetric shading on skin, worn leather armor, coarse woven robes, stitched hide, forged steel, scales, chitin, and painterly fur tufts, rich handcrafted color clarity, painted dark-edge value separation without outline strokes, and crisp moody directional rim lighting.
+
+STRICT NEGATIVES (NO LINEWORK / NO INK / NO PAPER):
+Strictly ZERO black ink outlines, ZERO comic-book pen linework, ZERO interior black crease lines on fabric or faces, ZERO scratchy ink hatching or cross-hatching, ZERO colored-pencil or crayon sketchiness, ZERO watercolor bleed, ZERO paper or canvas grain, ZERO pixel art, ZERO glossy plastic 3D CGI toy finish, ZERO magenta color spill onto figures, and ZERO letters, numbers, or watermarks.
+
+CRITICAL PADDING & COMPACT POSE MANDATES (STRICT ZERO-CLIPPING):
+1. MANDATORY 20% MAGENTA SAFETY BUFFER: Scale every creature down to occupy ONLY the central 75% to 80% of its quadrant. A wide moat of empty, solid #FF00FF magenta background must completely surround every creature on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO wingtips, weapon blades, bows, spears, horns, claws, tails, or feet may touch or cross any quadrant boundary or image edge. Draw large monsters, giants, dragons, and fiends slightly smaller in scale so every extremity sits comfortably inside generous magenta margins.
+3. COMPACT COMBAT POSES (ALL FACING RIGHT): All 16 enemies face RIGHT in aggressive compact combat stances centered inside their space—fold and arch large wings compactly inward close over the back/shoulders (never spreading wide toward corners); coil long tails close around the body; angle swords, spears, staves, bows, and halberds closely across the silhouette rather than thrusting outward into edges.
+4. ZERO MOUTH BREATH / NO BREATH BEAMS: NEVER draw fire, ice, acid, venom, smoke, steam, or lightning spraying from any mouth (keep jaws cleanly empty inside).
+5. ZERO MAGENTA ON CREATURES: Never put magenta/pink colors on skin, armor, scales, clothing, or weapons.
+
+ROW & COLUMN BREAKDOWN (16 CENTERED FULL-BODY CREATURES WITH 20% #FF00FF MOAT — NO BOXES, NO GRIDS — SHEET 11 OF 12):
+
+ROW 1:
+- Row 1 Col 1 (Magma Mephit — Overhead Cinder Slam): Centered cracked charcoal-basalt Magma Mephit imp veined with bright orange magma fissures facing right scaled down cleanly inside center; mid-hop with stony wings folded down tight behind waist and molten fists raised compactly near shoulder level ready to slam (clean empty mouth, zero fire jet). Wide #FF00FF moat surrounds horns, wings, and feet.
+- Row 1 Col 2 (Giant Scorpion — Twin-Pincer & Tail-Stinger Poise): Centered desert amber-and-obsidian armored Giant Scorpion facing right scaled cleanly down into center; segmented legs tucked closely beneath chitin torso, twin heavy serrated pincers pulled compactly inward before chest, and venomous stinger tail curled forward closely over carapace without touching top margin. Wide #FF00FF moat on all four sides.
+- Row 1 Col 3 (Fire Snake — Coiled Flame-Scale Fang Strike): Centered glowing crimson-orange and gold-bellied Fire Snake serpent facing right coiled tightly into a compact vertical S-spiral entirely inside center (crisp solid painted scales, zero fuzzy ember halo onto pink); flared hood crest and empty fanged jaws poised inside center. Generous #FF00FF padding surrounds all coils and tail tip.
+- Row 1 Col 4 (Magmin — Blazing Crag-Rock Imp Surge): Centered squat cracked obsidian-and-molten-gold Magmin elemental imp facing right (crisp solid painted lava flames edging shoulders with zero hazy bloom onto pink); crouched tightly inside center pulling glowing molten fists closely inward. Wide empty #FF00FF moat surrounds flame crest, elbows, and stubby feet.
+
+ROW 2:
+- Row 2 Col 1 (Azer — Brass-Bearded Forge Hammer Guard): Centered athletic metallic dark-bronze skinned Azer fire-elemental sentinel (non-human living brass elemental with glowing molten-orange skin cracks and blazing sculpted flame hair and braided fire beard—NOT a short stocky human dwarf) clad in riveted brass Scale Mail kilt and bronze bracers facing right scaled down cleanly inside center (crisp solid painted edges, zero fuzzy pink haze); braced tightly gripping a heavy forged iron Mace angled diagonally across torso and Round Shield facing outward tucked close. Wide #FF00FF moat around flame crest, shield, and boots.
+- Row 2 Col 2 (Storm Mephit — Banked Gale Twist): Centered slate-blue storm-scaled Storm Mephit winged imp laced with crisp painted sky-cyan lightning veins facing right scaled down cleanly inside center; banking sideways mid-air with storm-feather wings swept neatly upward-inward over spine and clawed hands splayed tightly at opposite sides of torso (zero breath spray, zero fuzzy glow). Wide #FF00FF padding around ears, wings, and claws.
+- Row 2 Col 3 (Air Elemental — Sculpted Cyclone Vortex Slam): Centered completely standalone sculpted pale-cyan and silver-slate swirling Air Elemental tempest monster facing right (crisp solid painted wind-spiral contour cleanly separated from #FF00FF, zero hazy blur or floor cloud); tapering tornado base centered cleanly with sculpted wind-fists pulled close to chest. Wide #FF00FF moat on all four sides.
+- Row 2 Col 4 (Blue Dragon Wyrmling — Cobalt Wing-Fold Dive): Centered sharp-horned cobalt-blue scaled Blue Dragon Wyrmling with single nasal horn facing right scaled comfortably smaller; sapphire wings folded tightly down flush against flanks and tail curled snugly under hind legs while fore-claws slash cleanly inside center (empty roaring jaws, zero lightning spray). Wide #FF00FF moat on all sides.
+
+ROW 3:
+- Row 3 Col 1 (Spined Devil — Barbed-Tail Fork Swoop): Centered crimson-bronze scaled Spined Devil fiend covered in short back quills facing right scaled cleanly down inside center; spiked wings folded tightly close behind shoulders and short forked tail curled closely downward while gripping a compact two-tined devil Spear angled diagonally across chest. Wide #FF00FF moat around wings, horns, spear, and talons.
+- Row 3 Col 2 (Nightmare — Blazing-Hoof Hellsteed Rear): Centered pitch-black armored Nightmare warhorse with fiery ember-orange mane, glowing hooves, and fiery tail facing right scaled comfortably smaller (crisp solid painted flame edges, zero hazy pink bleed); reared compactly inside center tucking blazing fore-hooves inward and keeping fiery tail curled close to hindquarters. Wide #FF00FF moat on all four sides.
+- Row 3 Col 3 (Ice Mephit — Low Frost-Claw Sweep): Centered crystalline pale-ice and cobalt-faceted Ice Mephit winged imp facing right scaled down cleanly inside center; hovering low with icy bat wings angled compactly back behind shoulders while swiping one frost-claw low near knees and curling the other behind hip (clean empty jaws, zero frost cloud). Generous #FF00FF padding around horns, wings, and claws.
+- Row 3 Col 4 (Will-o'-Wisp — Floating Lantern-Skull Core): Centered eerie hovering Will-o'-Wisp monster painted as a crisp translucent skull-faced pale-cyan soul-lantern wrapped in sharp solid-painted sea-teal flame tongues facing right (strictly crisp boundary edge, zero fuzzy halo onto pink); compact rounded silhouette floating cleanly inside center. Wide #FF00FF moat on all four sides.
+
+ROW 4:
+- Row 4 Col 1 (Specter — Gliding Phantom Claw Surge): Centered hollow-eyed shadowy teal-and-obsidian Specter phantom wrapped in jagged solid-painted tattered grave-shroud ribbons facing right (crisp solid contour, zero soft fade onto pink); curled tightly inside center pulling gaunt spectral claws inward across chest. Wide empty #FF00FF moat surrounds hood, claws, and floating tail.
+- Row 4 Col 2 (Crimson Vampire Spawn Captain — Low Blood-Pit Lunge): Centered ferocious pale-fanged Crimson Vampire Spawn Captain wearing scarred crimson-and-black Spiked Leather gladiator harness, iron bracers, and tattered blood-red cape tucked tight facing right scaled down cleanly inside center; lunging low on bent knee sweeping notched steel Scimitar down near boot while raising curved Dagger reverse-grip beside shoulder. Wide #FF00FF moat around blades, cape, and boots.
+- Row 4 Col 3 (Arena Lich — Floating Spell-Staff Stance): Centered grim skeletal Arena Lich wearing cracked bronze-and-ivory Reinforced Bone gladiator pauldrons and compact iron spike-crown facing right scaled down cleanly inside center; hovering compactly off the ground holding rune-carved Quarterstaff tucked diagonally behind back shoulder while conjuring a tiny crisp cyan soul-orb in outstretched palm inside center. Wide #FF00FF moat around crown, staff tips, and vestments.
+- Row 4 Col 4 (Elder Vampire Lord — Aristocratic Riposte Guard): Centered ancient aristocratic pale-skinned Elder Vampire Lord clad in ornate obsidian-and-crimson Half Plate armor and high-collared raven-black velvet war cloak wrapped tightly around back arm facing right scaled comfortably smaller; poised compactly with runed steel Longsword drawn low at back hip ready to thrust and pale clawed hand raised near chin. Wide #FF00FF moat around sword tip, collar, and boots.
+--- COPY PROMPT END (SHEET 11 OF 12) ---
+
+
+================================================================================
+SHEET 12 OF 12 (1:1 4K 4x4) — ENEMIES 177 TO 192 (ETHORIAN BOSSES, OUTLAWS & CAPTAINS)
+================================================================================
+# SLOT MANIFEST:
+#   R1C1 -> Garrick Houndmaster (Stalking Kennel-Chain Stride)
+#   R1C2 -> Crossbow Poacher (Kneeling Sniper Aim)
+#   R1C3 -> Garrick Deserter Sergeant (Shield-Wall Mace Guard)
+#   R1C4 -> Arena Bounty-Captain (Mid-Twist Hip-Draw)
+#   R2C1 -> Bramblewatch Ringleader (Reverse-Grip Rogue Twist)
+#   R2C2 -> Hollowstone Pikeman Commander (Braced Two-Handed Pike Line)
+#   R2C3 -> Rival House Deserter Captain (Over-Shoulder Axe Wind-Up)
+#   R2C4 -> Rival House Knight-Captain (Shoulder-Rested Greatsword)
+#   R3C1 -> Lord Hollowstone (Aristocratic Noble Riposte)
+#   R3C2 -> Gilded Slaver Quartermaster (Low Fencing Lunge)
+#   R3C3 -> Gilded Corsair Commodore (High-Low Broadside Sweep)
+#   R3C4 -> Gilded Slaver Enforcers (Low Ambush Slash)
+#   R4C1 -> Slaver Baron (Spiked-Shield Mace Cockback)
+#   R4C2 -> Slaver Captain (Kite-Shield Downward Chop)
+#   R4C3 -> Marshal Bleakwatch (Low Sweeping Greatsword Guard)
+#   R4C4 -> Abyssal Eclipse Guard (Planted Tower-Shield Bastion)
+
+--- COPY PROMPT START (SHEET 12 OF 12) ---
+A 1:1 4K quality 4x4 grid (EXACTLY 4 columns across by 4 rows down — 16 isolated full-body fantasy character and creature splash portraits in dynamic compact combat attack poses total, NEVER 5x5, NEVER duplicate any enemy). The entire canvas has a solid, flat, shadowless pure neon magenta (#FF00FF) background for chroma-key extraction with NO divider lines, NO boxes, NO borders, NO frames, NO tile grids, NO drop shadows onto the pink, and NO text or labels anywhere.
+
+ART STYLE (LEAGUE OF LEGENDS / RUNETERRA BENCHMARK — NO INK OUTLINES):
+Stylized League of Legends (Legends of Runeterra / Arcane) hand-painted fantasy digital splash-portrait illustration — bold sculpted silhouettes, chiseled stylized facial planes matching League of Legends champion splash portraits, clean smooth volumetric shading on skin, worn leather armor, coarse woven robes, stitched hide, forged steel, scales, chitin, and painterly fur tufts, rich handcrafted color clarity, painted dark-edge value separation without outline strokes, and crisp moody directional rim lighting.
+
+STRICT NEGATIVES (NO LINEWORK / NO INK / NO PAPER):
+Strictly ZERO black ink outlines, ZERO comic-book pen linework, ZERO interior black crease lines on fabric or faces, ZERO scratchy ink hatching or cross-hatching, ZERO colored-pencil or crayon sketchiness, ZERO watercolor bleed, ZERO paper or canvas grain, ZERO pixel art, ZERO glossy plastic 3D CGI toy finish, ZERO magenta color spill onto figures, and ZERO letters, numbers, or watermarks.
+
+CRITICAL PADDING & COMPACT POSE MANDATES (STRICT ZERO-CLIPPING):
+1. MANDATORY 20% MAGENTA SAFETY BUFFER: Scale every creature down to occupy ONLY the central 75% to 80% of its quadrant. A wide moat of empty, solid #FF00FF magenta background must completely surround every creature on all four sides (top, bottom, left, right).
+2. ABSOLUTELY ZERO BOUNDARY CLIPPING: Absolutely NO wingtips, weapon blades, bows, spears, horns, claws, tails, or feet may touch or cross any quadrant boundary or image edge. Draw large monsters, giants, dragons, and fiends slightly smaller in scale so every extremity sits comfortably inside generous magenta margins.
+3. COMPACT COMBAT POSES (ALL FACING RIGHT): All 16 enemies face RIGHT in aggressive compact combat stances centered inside their space—fold and arch large wings compactly inward close over the back/shoulders (never spreading wide toward corners); coil long tails close around the body; angle swords, spears, staves, bows, and halberds closely across the silhouette rather than thrusting outward into edges.
+4. ZERO MOUTH BREATH / NO BREATH BEAMS: NEVER draw fire, ice, acid, venom, smoke, steam, or lightning spraying from any mouth (keep jaws cleanly empty inside).
+5. ZERO MAGENTA ON CREATURES: Never put magenta/pink colors on skin, armor, scales, clothing, or weapons.
+
+ROW & COLUMN BREAKDOWN (16 CENTERED FULL-BODY CREATURES WITH 20% #FF00FF MOAT — NO BOXES, NO GRIDS — SHEET 12 OF 12):
+
+ROW 1:
+- Row 1 Col 1 (Garrick Houndmaster — Stalking Kennel-Chain Stride): Centered scarred veteran human kennel tracker in charcoal-gray cloak over stitched brown Padded Leather armor and cuffed boots facing right scaled down cleanly inside center; striding low mid-step leaning forward over bent front knee, gripping a tightly coiled iron dog-chain near front hip while drawing notched iron Longsword back low at rear hip. Wide empty #FF00FF moat around head, sword tip, and boots.
+- Row 1 Col 2 (Crossbow Poacher — Kneeling Sniper Aim): Centered woodland human poacher in moss-brown Leather armor, wolf-fur shoulder mantle, and forest hood facing right scaled down cleanly inside center; dropped low onto one knee in a tight sniper crouch aiming compact cranked wooden Light Crossbow horizontally right inside padding (quiver strapped tight at hip). Generous #FF00FF padding around hood, bow limbs, and boots.
+- Row 1 Col 3 (Garrick Deserter Sergeant — Shield-Wall Mace Guard): Centered grizzled human deserter sergeant in dented iron Scale Mail, low steel nasal helm, and tattered gray garrison cloak facing right scaled down cleanly inside center; planted sideways behind a tilted iron-rimmed Heater Shield held forward before shoulder with flanged steel Mace cocked tightly beside helm. Wide #FF00FF moat around helm, mace, shield, and boots.
+- Row 1 Col 4 (Arena Bounty-Captain — Mid-Twist Hip-Draw): Centered scarred human bounty hunter in bronze-riveted Studded Leather coat, dark hood, and open steel barbute helm facing right scaled down cleanly inside center; twisting shoulders mid-turn sweeping curved steel Scimitar low behind knee while cranking compact Light Crossbow tucked close at waist. Wide empty #FF00FF moat around hood, blades, and boots.
+
+ROW 2:
+- Row 2 Col 1 (Bramblewatch Ringleader — Reverse-Grip Rogue Twist): Centered scarred human highwayman captain in dark olive-and-crimson Padded Leather brigandine, dark hood, and cuffed boots facing right scaled down cleanly inside center; coiled low in an agile rogue twist trailing steel Rapier down near knee while holding reverse-grip notched Dagger poised beside cheek. Wide #FF00FF moat around hood, blades, and boots.
+- Row 2 Col 2 (Hollowstone Pikeman Commander — Braced Two-Handed Pike Line): Centered rival-house human officer in slate-blue-and-brass Ring Mail hauberk and compact steel kettle helm facing right scaled down cleanly inside center; planted wide in a braced knee-bent stance holding two-handed steel Spear slanted cleanly down-to-up across hip and shoulder (butt tucked by back boot, point strictly inside margin, no shield). Wide #FF00FF moat on all four sides.
+- Row 2 Col 3 (Rival House Deserter Captain — Over-Shoulder Axe Wind-Up): Centered rugged turncoat human soldier in scarred iron Chain Mail tunic, leather straps, and low sallet helm facing right scaled down cleanly inside center; twisting torso mid-step hoisting notched iron Battleaxe tightly over rear shoulder ready to chop while steel Buckler guards front ribs. Generous #FF00FF padding around helm, axe, and boots.
+- Row 2 Col 4 (Rival House Knight-Captain — Shoulder-Rested Greatsword): Centered armored human rival knight clad in dark slate-and-crimson Splint armor and compact closed greathelm facing right drawn slightly smaller in scale; compact armored stance leaning slightly forward resting heavy two-handed steel Greatsword across right shoulder-plate with both gauntlets gripping hilt and guard (no shield). Wide empty #FF00FF moat around helm, sword tip, and greaves.
+
+ROW 3:
+- Row 3 Col 1 (Lord Hollowstone — Aristocratic Noble Riposte): Centered gray-bearded traitor noble lord in ornate crimson-and-blackened-silver Half Plate armor and compact wolf-fur collar cloak facing right drawn slightly smaller in scale; poised compactly with cape tucked behind back shoulder, Heater Shield angled low at hip, and gilded steel Longsword drawn tightly across waist in a crisp riposte guard. Wide #FF00FF moat around head, sword tip, cloak, and boots.
+- Row 3 Col 2 (Gilded Slaver Quartermaster — Low Fencing Lunge): Centered sun-bronzed human smuggler officer in brass-trimmed ochre Spiked Leather coat, crimson sash, and compact dark head-wrap facing right scaled down cleanly inside center; leaning forward on bent front knee in an agile fencing stance extending brass-hilted Rapier low at waist level while off-hand Dagger guards behind shoulder. Wide empty #FF00FF padding around head-wrap, blades, and boots.
+- Row 3 Col 3 (Gilded Corsair Commodore — High-Low Broadside Sweep): Centered black-bearded human pirate commander in gilded navy-and-brass Breastplate sea-coat, compact dark tricorne hat, and crimson sash facing right scaled down cleanly inside center; swaggering mid-stride twisting shoulders with curved Scimitar tucked tightly above tricorne shoulder and gleaming steel Rapier swept low near opposite hip. Wide #FF00FF moat around tricorne, blades, and sea-boots.
+- Row 3 Col 4 (Gilded Slaver Enforcers — Low Ambush Slash): Centered single standalone hooded human desert outrider in sun-bleached ochre-and-bronze Spiked Leather cuirass and face-wrap (short coiled leather whip clipped neatly at belt) facing right scaled down cleanly inside center; lunging low sideways on bent knees leading with curved steel Scimitar swept low near knees while hooked Dagger snaps up near shoulder. Wide #FF00FF moat around hood, blades, and boots.
+
+ROW 4:
+- Row 4 Col 1 (Slaver Baron — Spiked-Shield Mace Cockback): Centered cruel human desert overlord clad in gold-inlaid crimson Half Plate armor and compact bronze turban-helm facing right drawn slightly smaller in scale; broad planted stance thrusting Spiked Shield compactly forward before chest while cocking gilded iron Mace tightly back behind rear shoulder. Wide #FF00FF moat around turban, mace, shield, and boots.
+- Row 4 Col 2 (Slaver Captain — Kite-Shield Downward Chop): Centered burly scarred human guard captain wearing desert bronze Chain Mail, crimson waist sash, and low nasal helm facing right scaled down cleanly inside center; anchored tightly behind a steel Kite Shield tucked upright along front flank while chopping heavy steel Battleaxe diagonally downward across shield rim. Generous #FF00FF padding around helm, axe, and boots.
+- Row 4 Col 3 (Marshal Bleakwatch — Low Sweeping Greatsword Guard): Centered grim iron-bearded northern human marshal clad in frost-rimmed dark steel Plate armor and compact frost-white wolf-fur mantle facing right drawn slightly smaller in scale; crouched mid-step sweeping two-handed steel Greatsword low across knees from back to front (no shield, keeping blade safely below shoulders). Wide #FF00FF moat around head, sword tip, and greaves.
+- Row 4 Col 4 (Abyssal Eclipse Guard — Planted Tower-Shield Bastion): Centered single dark-armored human dread sentinel clad in jagged blackened-steel Plate armor with crimson pauldrons, compact closed visor helm with glowing cyan eye slits, and silver wolf-pendant medallion chained across chestplate facing right drawn slightly smaller in scale; anchored solidly behind tall black-iron Tower Shield planted beside front shin while holding dark runed one-handed Longsword pointed down-and-inward beside shoulder. Wide empty #FF00FF moat on all four sides.
+--- COPY PROMPT END (SHEET 12 OF 12) ---

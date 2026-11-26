@@ -1,6 +1,8 @@
 # ROD — Project To-Do List
 
 - [ ] Sort through NPC sheets and determine which ones need to be mirror flipped so they are all facing right
+- [ ] **Revisit Base Attributes (`Force, Finesse, Grit, Arcana, Presence`):** Review whether base attribute point allocation genuinely creates diverse, viable character builds across heroes or just pushes each hero into one obvious stat
+- [ ] **Attribute Points Spend Notification:** Add clear HUD / Party button / Hero card notifications when any hero has unspent attribute points to spend
 
 ## Tavern System Overhaul (Empty Stages, Dynamic Bards & Vocal-Matched Lore Blurbs)
 - [ ] **Confirm final Bard count (`32` = `16` male + `16` female across `2` `4×4` sheets vs `36` = `18` male + `18` female, `1` male + `1` female per settlement tavern)** before generating prompts/batches
