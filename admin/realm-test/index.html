@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROD Admin — Micro Sector Scale &amp; Walk Test</title>
+  <link rel="stylesheet" href="../shops/styles/tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="brand-group">
+      <a href="/" class="hub-link">&larr; Hub</a>
+      <span class="brand-badge">ADMIN SUITE</span>
+      <nav class="admin-nav"></nav>
+    </div>
+    <div class="studio-stats" id="studioStats">Loading sector test...</div>
+  </header>
+
+  <section class="studio-toolbar" id="toolbar">
+    <div class="ctrl-group seg-group">
+      <label>Image Source</label>
+      <div class="seg-btns">
+        <button type="button" class="rpg-btn active" id="btnMode2x">2× Doubled (11008×6144)</button>
+        <button type="button" class="rpg-btn" id="btnMode1x">1× Native (5504×3072)</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group seg-group">
+      <label>Presets</label>
+      <div class="seg-btns">
+        <button type="button" class="rpg-btn preset-btn" data-preset="fit">Fit Sector</button>
+        <button type="button" class="rpg-btn preset-btn" data-preset="3screens">~3 Screens Wide</button>
+        <button type="button" class="rpg-btn preset-btn" data-preset="2.5screens">~2.5 Screens Wide</button>
+        <button type="button" class="rpg-btn preset-btn" data-preset="0.75">Client Zoom (0.75×)</button>
+        <button type="button" class="rpg-btn preset-btn" data-preset="1.0">1:1 Doubled (1.00×)</button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="rngZoom">Zoom</label>
+      <input type="range" id="rngZoom" min="0.08" max="1.60" step="0.01" value="0.60" />
+      <span class="val-readout" id="lblZoom">0.60×</span>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="selHero">Hero</label>
+      <select id="selHero" class="ctrl-select">
+        <option value="rowan">Rowan</option>
+        <option value="harlan">Harlan</option>
+        <option value="ellowyn">Ellowyn</option>
+        <option value="valen">Valen</option>
+        <option value="mera">Mera</option>
+        <option value="orin">Orin</option>
+      </select>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="rngToken">Token</label>
+      <input type="range" id="rngToken" min="72" max="512" step="2" value="142" />
+      <span class="val-readout" id="lblToken">142px</span>
+    </div>
+
+    <div class="ctrl-group">
+      <label for="rngSpeed">Speed</label>
+      <input type="range" id="rngSpeed" min="160" max="760" step="20" value="360" />
+      <span class="val-readout" id="lblSpeed">360</span>
+    </div>
+
+    <label class="chk-pill" title="Crossing map border triggers classic Zelda screen pan">
+      <input type="checkbox" id="chkZeldaPan" checked />
+      <span>Zelda Border Slide</span>
+    </label>
+
+    <label class="chk-pill" title="Show 1920x1080 viewport box outline around hero">
+      <input type="checkbox" id="chkFrame1080" />
+      <span>Show 1080p Box</span>
+    </label>
+
+    <div class="ctrl-group" style="margin-left:auto;">
+      <button type="button" class="rpg-btn" id="btnResetPos">Center Hero</button>
+      <button type="button" class="rpg-btn primary" id="btnFullscreen">&#x26F6; Fullscreen</button>
+    </div>
+  </section>
+
+  <main class="stage-wrap" id="stageWrap">
+    <canvas id="stageCanvas"></canvas>
+
+    <div class="hud-pill hud-top-left" id="hudMetrics">
+      Loading 11008×6144 map...
+    </div>
+
+    <div class="hud-pill hud-bottom-left">
+      <strong>Move:</strong> WASD / Arrows / Click &amp; Hold &middot; <strong>Sprint:</strong> Shift &middot; <strong>Zoom:</strong> Scroll Wheel &middot; <strong>Exit Edges:</strong> Walk past border
+    </div>
+
+    <button type="button" class="rpg-btn primary fs-exit-btn hidden" id="btnExitFullscreen">Exit Fullscreen (Esc)</button>
+  </main>
+
+  <script src="/admin/nav.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -63,7 +63,23 @@
   </section>
 
   <main class="deck-workspace">
-    <aside class="deck-sidebar" id="deckSidebar"></aside>
+    <aside class="deck-sidebar" id="deckSidebar">
+      <div class="deck-selector-card">
+        <div class="side-section-title">Deck Selection</div>
+        <div class="deck-select-group">
+          <label for="selBaseDeck">Base Decks</label>
+          <select id="selBaseDeck" class="deck-select"></select>
+        </div>
+        <div class="deck-select-group">
+          <label for="selQuestDeck">Specific Quests</label>
+          <select id="selQuestDeck" class="deck-select">
+            <option value="">Loading quests...</option>
+          </select>
+        </div>
+        <div class="selector-mode-pill" id="selectorModeHint">Viewing Base Deck</div>
+      </div>
+      <div id="deckSidebarBody" class="deck-sidebar-body"></div>
+    </aside>
     <section class="deck-gallery-pane" id="deckGallery"></section>
   </main>
 

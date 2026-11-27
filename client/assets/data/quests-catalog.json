@@ -19,7 +19,7 @@
       "giver": "Orin / Capital Guard",
       "miniBoss": "Garrick Houndmaster & Wolves",
       "reward": "85s | 80 XP | Lesser Draft",
-      "description": "During the months of unrest after Garrick abandoned Highcrown, rogue kennel trackers pried open the neglected dry aqueduct grate behind Highcrown's overgrown palace gardens, letting war-hounds prowl beneath the Coliseum undercroft. Descend through the garden grate, defeat the Garrick Houndmaster and his wolves guarding the culvert control chamber, and pull the gate lever to seal the breach shut.",
+      "description": "Scouts spotted King Garrick's rogue houndmaster Marek moving supplies and war-hounds beneath the abandoned Coliseum kennels, staging a strike timed for when the heroes march out of the capital. Having found the broken floor grate inside Koren and Valen's old coliseum cell, Marek plans to loose trained war-hounds up through the dry aqueduct tunnels straight into the Overgrown Palace Gardens to hit Highcrown Keep from behind its walls. Descend through the garden outlet grate, push through the undercroft to the breached coliseum cell wing, and defeat Houndmaster Marek and his pack so the old escape grate can be sealed shut for good.",
       "markerId": "qf_r1_q001_aqueduct_grate",
       "markerName": "Dry Aqueduct Drainage Gate",
       "assetPath": "assets/tokens/markers/qf_r1_q001_aqueduct_grate.webp",

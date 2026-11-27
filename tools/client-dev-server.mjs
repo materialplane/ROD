@@ -761,6 +761,7 @@ const server = http.createServer((req, res) => {
   if (
     urlPath === "/client" ||
     urlPath === "/admin" ||
+    urlPath === "/admin/realm-test" ||
     urlPath === "/admin/vfx-test" ||
     urlPath === "/admin/shops" ||
     urlPath === "/admin/party" ||

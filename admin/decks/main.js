@@ -30,10 +30,25 @@ const CATEGORY_META = {
   },
 };
 
+const REGION_LABELS = {
+  1: "Region 1 · The Crownlands",
+  2: "Region 2 · Saltmarsh Coast",
+  3: "Region 3 · Thornwall Highlands",
+  4: "Region 4 · Mosswood Weald",
+  5: "Region 5 · Amber Wastes",
+  6: "Region 6 · Ironcrest Mountains",
+  7: "Region 7 · Frostbound Reach",
+  8: "Region 8 · The Dreadwaste",
+};
+
 const state = {
   catalog: null,
   promptsCatalog: null,
+  quests: [],
+  dungeonCatalog: null,
+  selectionMode: "base", // "base" | "quest"
   selectedDeckId: "",
+  selectedQuestId: "",
   groupBy: "category", // "category" | "sheet"
   filter: "all",       // "all" | "room" | "loot" | "combat" | "trap" | "respite" | "pool_rooms" | "commented"
   search: "",
@@ -48,6 +63,10 @@ const state = {
 
 const elStats = document.getElementById("studioStats");
 const elSidebar = document.getElementById("deckSidebar");
+const elSidebarBody = document.getElementById("deckSidebarBody");
+const elSelBase = document.getElementById("selBaseDeck");
+const elSelQuest = document.getElementById("selQuestDeck");
+const elSelectorModeHint = document.getElementById("selectorModeHint");
 const elGallery = document.getElementById("deckGallery");
 const elSearch = document.getElementById("inpSearch");
 const elSegGroupBy = document.getElementById("segGroupBy");
@@ -149,13 +168,150 @@ function ensureComments(item) {
   return item.comments;
 }
 
-function getActiveDeck() {
+function getBaseDecks() {
+  return (state.catalog?.decks || []).filter((d) => d.deckKind !== "quest");
+}
+
+function getQuestDeckForId(questId) {
+  if (!questId) return null;
   const decks = state.catalog?.decks || [];
-  return decks.find((d) => d.id === state.selectedDeckId) || decks[0] || null;
+  return decks.find((d) => d.deckKind === "quest" && (d.questId === questId || d.id === `quest_${questId}`)) || null;
+}
+
+function getActiveQuest() {
+  if (!state.selectedQuestId) return null;
+  return state.quests.find((q) => q.questId === state.selectedQuestId) || null;
+}
+
+function getActiveDeck() {
+  if (state.selectionMode === "quest") {
+    return getQuestDeckForId(state.selectedQuestId);
+  }
+  const baseDecks = getBaseDecks();
+  return baseDecks.find((d) => d.id === state.selectedDeckId) || baseDecks[0] || null;
+}
+
+function inferRecommendedBaseDeckId(quest) {
+  if (!quest) return "base_stone_dungeon";
+  const cfg = state.dungeonCatalog?.questDungeons?.[quest.questId];
+  const themeId = cfg?.themeId || "";
+  if (themeId === "aqueduct_sewer_crypt") return "base_stone_dungeon";
+  if (themeId === "cave_mine_tunnel") return "base_cavern_dungeon";
+  if (themeId === "forest_marsh_wilds") return "base_woodland_dungeon";
+  if (themeId === "coast_pier_wreck") return "base_coastal_dungeon";
+  if (themeId === "camp_fort_keep_barricade") return "base_road_camp_dungeon";
+
+  const txt = `${quest.title || ""} ${quest.description || ""} ${quest.hubName || ""} ${quest.category || ""}`.toLowerCase();
+  if (Number(quest.region) === 8 || /dreadwaste|cinder|ash|basalt|scorch|black keep/.test(txt)) return "base_ash_obsidian_dungeon";
+  if (Number(quest.region) === 7 || /frost|glacier|ice|snow|rime|bleakwatch/.test(txt)) return "base_frost_dungeon";
+  if (Number(quest.region) === 5) {
+    return /canyon|mesa|crag|gorge|sandstone/.test(txt) ? "base_sandstone_canyon_dungeon" : "base_desert_dungeon";
+  }
+  if (/aqueduct|sewer|crypt|vault|cellar|undercroft|keep|citadel|bastion/.test(txt)) return "base_stone_dungeon";
+  if (/mine|cavern|cave|tunnel|quarry|barrow/.test(txt)) return "base_cavern_dungeon";
+  if (/marsh|bog|mire|fen|swamp|reed/.test(txt)) return "base_marsh_dungeon";
+  if (/harbor|port|cove|pier|shipwreck|wreck|sea|tide|brine|coast/.test(txt)) return "base_coastal_dungeon";
+  if (/palisade|defend|hold/.test(txt) && Number(quest.region) <= 4) return "base_timber_hold_line_dungeon";
+  if (/wood|forest|grove|timber|orchard|briar|wolf|poacher/.test(txt)) return "base_woodland_dungeon";
+  if (/crag|ridge|highland|peak|pass|slate/.test(txt)) return "base_highland_crag_dungeon";
+  if (/caravan|road|wagon|dispatch|courier|grain|camp|bandit/.test(txt)) return "base_road_camp_dungeon";
+  return "base_stone_dungeon";
+}
+
+function findDeckName(deckId) {
+  return (state.catalog?.decks || []).find((d) => d.id === deckId)?.name || deckId;
+}
+
+function selectBaseDeck(deckId) {
+  const baseDecks = getBaseDecks();
+  const next = baseDecks.find((d) => d.id === deckId) || baseDecks[0];
+  if (!next) return;
+  state.selectionMode = "base";
+  state.selectedDeckId = next.id;
+  state.selectedQuestId = "";
+  state.flippedIds.clear();
+  state.commentTabIds.clear();
+  renderAll();
+}
+
+function selectQuestDeck(questId) {
+  if (!questId) {
+    selectBaseDeck(state.selectedDeckId);
+    return;
+  }
+  state.selectionMode = "quest";
+  state.selectedQuestId = questId;
+  state.flippedIds.clear();
+  state.commentTabIds.clear();
+  renderAll();
+}
+
+function syncDropdownSelectors() {
+  if (!elSelBase || !elSelQuest || !elSelectorModeHint) return;
+  if (state.selectionMode === "quest") {
+    elSelBase.value = "";
+    elSelQuest.value = state.selectedQuestId || "";
+    elSelBase.classList.remove("active-select");
+    elSelQuest.classList.add("active-select");
+    const q = getActiveQuest();
+    const authored = getQuestDeckForId(state.selectedQuestId);
+    elSelectorModeHint.textContent = authored
+      ? `Active Quest Deck · ${q?.title || authored.name}`
+      : `Quest Blueprint · Paired w/ ${findDeckName(inferRecommendedBaseDeckId(q))}`;
+  } else {
+    elSelBase.value = state.selectedDeckId || "";
+    elSelQuest.value = "";
+    elSelBase.classList.add("active-select");
+    elSelQuest.classList.remove("active-select");
+    const d = getActiveDeck();
+    elSelectorModeHint.textContent = d ? `Viewing Base Deck · ${d.name}` : "Viewing Base Deck";
+  }
+}
+
+function populateDeckDropdowns() {
+  if (elSelBase) {
+    const baseDecks = getBaseDecks();
+    elSelBase.innerHTML = [
+      `<option value="">— Switch to Base Deck —</option>`,
+      ...baseDecks.map((d) => {
+        const cards = (d.cards || []).length;
+        const rooms = (d.roomPool16x9 || []).length;
+        return `<option value="${esc(d.id)}">${esc(d.name)} (${cards} Cards · ${rooms} Rooms)</option>`;
+      }),
+    ].join("");
+  }
+
+  if (elSelQuest) {
+    const sortedQuests = [...state.quests].sort((a, b) => (a.questNum || 999) - (b.questNum || 999));
+    const byRegion = new Map();
+    for (const q of sortedQuests) {
+      const r = Number(q.region) || 1;
+      if (!byRegion.has(r)) byRegion.set(r, []);
+      byRegion.get(r).push(q);
+    }
+
+    const groupsHtml = [...byRegion.entries()]
+      .sort((a, b) => a[0] - b[0])
+      .map(([regionNum, list]) => {
+        const label = REGION_LABELS[regionNum] || `Region ${regionNum}`;
+        const opts = list
+          .map((q) => {
+            const code = String(q.questId || "").toUpperCase();
+            const builtTag = getQuestDeckForId(q.questId) ? "★ " : "";
+            return `<option value="${esc(q.questId)}">${builtTag}${esc(code)} · ${esc(q.title)} (${esc(q.hubName)} · ${esc(q.levelRange || "")})</option>`;
+          })
+          .join("");
+        return `<optgroup label="${esc(label)}">${opts}</optgroup>`;
+      })
+      .join("");
+
+    elSelQuest.innerHTML = `<option value="">— Select Specific Quest (${sortedQuests.length}) —</option>${groupsHtml}`;
+  }
+  syncDropdownSelectors();
 }
 
 function cardHasRoomLink(card) {
-  return card.roomLinkMode === "fixed" && Boolean(card.fixedRoomId);
+  return (card.roomLinkMode === "fixed" && Boolean(card.fixedRoomId)) || card.roomLinkMode === "quest_pool";
 }
 
 function markDirty() {
@@ -179,6 +335,15 @@ function cardCopies(card) {
 }
 
 function updateStats() {
+  if (state.selectionMode === "quest") {
+    const q = getActiveQuest();
+    const qDeck = getActiveDeck();
+    if (!qDeck && q) {
+      const recId = inferRecommendedBaseDeckId(q);
+      elStats.textContent = `${q.questId.toUpperCase()} · ${q.title} | Quest Blueprint (Not Yet Authored) | Paired Base: ${findDeckName(recId)}`;
+      return;
+    }
+  }
   const deck = getActiveDeck();
   if (!deck) return;
   const cards = deck.cards || [];
@@ -195,10 +360,49 @@ function updateStats() {
 }
 
 function renderSidebar() {
-  const decks = state.catalog?.decks || [];
+  syncDropdownSelectors();
+  if (!elSidebarBody) return;
+
   const activeDeck = getActiveDeck();
+  if (!activeDeck && state.selectionMode === "quest") {
+    const q = getActiveQuest();
+    if (!q) {
+      elSidebarBody.innerHTML = "";
+      return;
+    }
+    const recBaseId = inferRecommendedBaseDeckId(q);
+    elSidebarBody.innerHTML = `
+      <div>
+        <div class="side-section-title">Quest Summary</div>
+        <div class="breakdown-card">
+          <div class="breakdown-rows">
+            <div class="breakdown-row"><span>Quest ID</span><strong>${esc(q.questId.toUpperCase())}</strong></div>
+            <div class="breakdown-row"><span>Hub</span><strong>${esc(q.hubName)}</strong></div>
+            <div class="breakdown-row"><span>Level</span><strong>${esc(q.levelRange || "—")}</strong></div>
+            <div class="breakdown-row"><span>Category</span><strong>${esc(q.category || "—")}</strong></div>
+            <div class="breakdown-row"><span>Quest Giver</span><strong>${esc(q.giver || "—")}</strong></div>
+            ${q.miniBoss ? `<div class="breakdown-row"><span>Boss / Threat</span><strong>${esc(q.miniBoss)}</strong></div>` : ""}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="side-section-title">Paired Base Deck</div>
+        <div class="breakdown-card">
+          <div class="deck-nav-sub" style="margin-bottom:8px;">
+            Quest cards shuffle invisibly into <strong>${esc(findDeckName(recBaseId))}</strong> using identical Dark Basalt card frames &amp; sigil backs.
+          </div>
+          <button type="button" class="rpg-btn secondary" style="width:100%;" data-jump-base-deck="${esc(recBaseId)}">
+            Open ${esc(findDeckName(recBaseId))} &rarr;
+          </button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
   if (!activeDeck) {
-    elSidebar.innerHTML = "";
+    elSidebarBody.innerHTML = "";
     return;
   }
 
@@ -213,23 +417,6 @@ function renderSidebar() {
   }
   const commentTotal = countCommentsAll(activeDeck);
 
-  const deckButtons = decks
-    .map((deck) => {
-      const app = (deck.cards || []).filter((c) => c.approved).length;
-      const deckTotal = (deck.cards || []).reduce((s, c) => s + cardCopies(c), 0);
-      const isActive = deck.id === activeDeck.id;
-      return `
-        <button type="button" class="deck-nav-item ${isActive ? "active" : ""}" data-deck-id="${esc(deck.id)}">
-          <div class="deck-nav-top">
-            <span class="deck-nav-name">${esc(deck.name)}</span>
-            <span class="count-pill">${deckTotal} in Deck</span>
-          </div>
-          <div class="deck-nav-sub">${(deck.cards || []).length} Unique Designs · ${app}/${(deck.cards || []).length} Approved</div>
-        </button>
-      `;
-    })
-    .join("");
-
   const compSegments = CATEGORY_ORDER.map((cat) => {
     const pct = ((counts[cat] || 0) / totalCopies) * 100;
     return `<div class="comp-seg ${cat}" style="width:${pct.toFixed(2)}%" title="${esc(CATEGORY_META[cat].label)}: ${counts[cat]}"></div>`;
@@ -237,12 +424,14 @@ function renderSidebar() {
 
   const breakdownRows = CATEGORY_ORDER.filter((cat) => (counts[cat] || 0) > 0)
     .map((cat) => {
-      const meta = CATEGORY_META[cat];
+      const baseMeta = CATEGORY_META[cat];
+      const deckCatMeta = activeDeck.uiMeta?.categories?.[cat];
+      const displayLabel = (deckCatMeta?.label || baseMeta.label).split(" (")[0];
       return `
       <button type="button" class="breakdown-row" data-filter-jump="${cat}">
         <span class="breakdown-left">
-          <span class="dot ${meta.dot}"></span>
-          <span>${esc(meta.label.split(" (")[0])}</span>
+          <span class="dot ${baseMeta.dot}"></span>
+          <span>${esc(displayLabel)}</span>
         </span>
         <strong>${counts[cat] || 0}</strong>
       </button>
@@ -265,17 +454,27 @@ function renderSidebar() {
     )
     .join("");
 
-  elSidebar.innerHTML = `
+  const poolFilterLabel = activeDeck.uiMeta?.filterLabels?.pool_rooms || "16:9 Pool Rooms";
+  const pairedBaseId = activeDeck.pairedBaseDeckId || "";
+  const pairedBaseHtml = pairedBaseId
+    ? `
     <div>
-      <div class="side-section-title">Proposed Decks</div>
-      ${deckButtons}
-      <div class="future-note">
-        Any Base Door/Stair card pulls interchangeably from this deck's <strong>${poolRooms.length}-Room 16:9 Pool</strong>. Only Quest-specific cards lock to one fixed room.
+      <div class="side-section-title">Paired Base Deck</div>
+      <div class="breakdown-card">
+        <div class="deck-nav-sub" style="margin-bottom:8px;">
+          These quest cards shuffle invisibly into <strong>${esc(findDeckName(pairedBaseId))}</strong> using the exact same Dark Basalt frame &amp; sigil backs.
+        </div>
+        <button type="button" class="rpg-btn secondary" style="width:100%;" data-jump-base-deck="${esc(pairedBaseId)}">
+          Open ${esc(findDeckName(pairedBaseId))} &rarr;
+        </button>
       </div>
     </div>
+  `
+    : "";
 
+  elSidebarBody.innerHTML = `
     <div>
-      <div class="side-section-title">Deck Balance &amp; Rooms</div>
+      <div class="side-section-title">Deck Balance &amp; Scenes</div>
       <div class="breakdown-card">
         <div class="comp-bar">${compSegments}</div>
         <div class="breakdown-rows">
@@ -283,7 +482,7 @@ function renderSidebar() {
           <button type="button" class="breakdown-row" data-filter-jump="pool_rooms">
             <span class="breakdown-left">
               <span class="dot cobalt"></span>
-              <span>16:9 Pool Rooms</span>
+              <span>${esc(poolFilterLabel)}</span>
             </span>
             <strong>${poolRooms.length}</strong>
           </button>
@@ -303,7 +502,16 @@ function renderSidebar() {
           </button>
         </div>
       </div>
+      <div class="future-note">
+        ${
+          activeDeck.deckKind === "quest"
+            ? `Base Doors &amp; Stairs pull strictly from <strong>${esc(findDeckName(pairedBaseId || "base_stone_dungeon"))}</strong> scenes; these Quest entries roll randomly from this quest's bespoke rooms.`
+            : `Any Base Door/Stair card pulls interchangeably from this deck's <strong>${poolRooms.length}-Room 16:9 Pool</strong>. Quest cards mix invisibly using identical Dark Basalt frames.`
+        }
+      </div>
     </div>
+
+    ${pairedBaseHtml}
 
     ${
       refs.length
@@ -315,16 +523,7 @@ function renderSidebar() {
     }
   `;
 
-  for (const btn of elSidebar.querySelectorAll("[data-deck-id]")) {
-    btn.addEventListener("click", () => {
-      state.selectedDeckId = btn.dataset.deckId || "";
-      state.flippedIds.clear();
-      state.commentTabIds.clear();
-      renderAll();
-    });
-  }
-
-  for (const row of elSidebar.querySelectorAll("[data-filter-jump]")) {
+  for (const row of elSidebarBody.querySelectorAll("[data-filter-jump]")) {
     row.addEventListener("click", () => {
       const cat = row.dataset.filterJump || "all";
       state.filter = state.filter === cat ? "all" : cat;
@@ -333,7 +532,7 @@ function renderSidebar() {
     });
   }
 
-  for (const btn of elSidebar.querySelectorAll("[data-ref-idx]")) {
+  for (const btn of elSidebarBody.querySelectorAll("[data-ref-idx]")) {
     btn.addEventListener("click", () => {
       const idx = Number(btn.dataset.refIdx);
       const item = refs[idx];
@@ -809,6 +1008,7 @@ function renderMockupArtwork(card) {
 
 function renderCardFront(card, deck) {
   const isPool = card.roomLinkMode === "pool";
+  const isQuestPool = card.roomLinkMode === "quest_pool";
   const isFixed = card.roomLinkMode === "fixed" && card.fixedRoomId;
   const sheetShort = (card.sheetGroup || "").split(" — ")[0] || "Sheet";
   const qty = cardCopies(card);
@@ -817,6 +1017,7 @@ function renderCardFront(card, deck) {
 
   let badgeHtml = `<span class="instant-badge">Instant Card</span>`;
   if (isPool) badgeHtml = `<span class="instant-badge">${esc(poolBadge)}</span>`;
+  else if (isQuestPool) badgeHtml = `<span class="bg-link-badge">Quest ${esc(sceneWord)} Pool &middot; Click</span>`;
   else if (isFixed) badgeHtml = `<span class="bg-link-badge">Fixed 16:9 ${esc(sceneWord)} &middot; Click</span>`;
 
   if (card.renderedCardPath) {
@@ -857,7 +1058,12 @@ function renderCardFront(card, deck) {
 function renderCard16x9PoolFace(card, deck) {
   const poolRooms = deck.roomPool16x9 || [];
   const isFixed = card.roomLinkMode === "fixed" && card.fixedRoomId;
-  const matchingRooms = isFixed ? poolRooms.filter((r) => r.id === card.fixedRoomId) : poolRooms;
+  const isQuestPool = card.roomLinkMode === "quest_pool";
+  const matchingRooms = isFixed
+    ? poolRooms.filter((r) => r.id === card.fixedRoomId)
+    : isQuestPool
+      ? poolRooms.filter((r) => !r.sceneRole || r.sceneRole === "quest_room")
+      : poolRooms;
   const sceneWord = deck?.uiMeta?.sceneWord || "Room";
 
   const entriesHtml = matchingRooms
@@ -868,6 +1074,7 @@ function renderCard16x9PoolFace(card, deck) {
           <span class="bg-pool-entry-title">${esc(room.roomTitle)}</span>
           <span class="bg-pool-entry-num">${esc(sceneWord)} ${idx + 1}/${matchingRooms.length}</span>
         </div>
+        ${room.sampleRefPath ? `<img src="${esc(room.sampleRefPath)}" alt="${esc(room.roomTitle)}" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;margin:4px 0 6px;border:1px solid #303a50;" loading="lazy" />` : ""}
         <p class="bg-pool-entry-copy">${esc(room.sceneSummary)}</p>
         <div class="bg-elements">
           ${(room.sceneElements || []).map((el) => `<span class="bg-chip">${esc(el)}</span>`).join("")}
@@ -879,12 +1086,14 @@ function renderCard16x9PoolFace(card, deck) {
 
   const ruleText = isFixed
     ? `Quest-locked card: always leads into this specific 16:9 ${sceneWord.toLowerCase()}.`
-    : `Interchangeable Base card: picks from all ${matchingRooms.length} 16:9 ${sceneWord} scenes in this Base Deck.`;
+    : isQuestPool
+      ? `Quest Passage entry: randomly opens any unseen 16:9 Quest Room (${matchingRooms.length} chambers) while Base Doors pull strictly from Stone-Brick's 8 Base Rooms.`
+      : `Interchangeable Base card: picks from all ${matchingRooms.length} 16:9 ${sceneWord} scenes in this Base Deck.`;
 
   return `
     <div class="card-inlay bg-face">
       <div class="card-top-meta">
-        <span class="bg-link-badge">${isFixed ? `Fixed Quest ${esc(sceneWord)}` : `16:9 ${esc(sceneWord)} Pool (${matchingRooms.length})`}</span>
+        <span class="bg-link-badge">${isFixed ? `Fixed Quest ${esc(sceneWord)}` : isQuestPool ? `Quest Room Pool (${matchingRooms.length})` : `16:9 ${esc(sceneWord)} Pool (${matchingRooms.length})`}</span>
         <span class="slot-tag">${esc(card.title)}</span>
       </div>
 
@@ -960,6 +1169,8 @@ function renderCardUnit(card, deck) {
   const comments = ensureComments(card);
   const sheetId = sheetIdForCard(card);
 
+  const hasSheetPrompt = Boolean(sheetId && getDeckPrompts(deck)?.sheets?.some((s) => s.id === sheetId && s.prompt));
+
   const tabBar = `
     <div class="unit-tabs" role="tablist" aria-label="View switch for ${esc(card.title)}">
       <button type="button" role="tab" aria-selected="${!isCommentTab}" class="unit-tab-btn ${!isCommentTab ? "active" : ""}" data-tab="card">${isCommentTab ? "&larr; Card View" : "Card"}</button>
@@ -971,7 +1182,7 @@ function renderCardUnit(card, deck) {
   `;
 
   const cardTabBody = `
-    <div class="card-frame ${hasRoomLink && !isFlipped ? "has-bg" : ""}" ${hasRoomLink && !isFlipped ? 'role="button" tabindex="0" title="Click to inspect all 16:9 rooms in this Base Deck pool"' : ""}>
+    <div class="card-frame ${hasRoomLink && !isFlipped ? "has-bg" : ""}" ${hasRoomLink && !isFlipped ? 'role="button" tabindex="0" title="Click to inspect the linked 16:9 room scene"' : ""}>
       ${isFlipped ? renderCard16x9PoolFace(card, deck) : renderCardFront(card, deck)}
     </div>
 
@@ -983,7 +1194,7 @@ function renderCardUnit(card, deck) {
           <input type="checkbox" class="chk-approve" ${card.approved ? "checked" : ""} />
           <span>${card.approved ? "Approved" : "Approve"}</span>
         </label>
-        ${sheetId ? `<button type="button" class="copy-prompt-btn" data-copy-sheet="${esc(sheetId)}" title="Copy full 2x2 sheet prompt for testing">Copy Sheet Prompt</button>` : ""}
+        ${hasSheetPrompt ? `<button type="button" class="copy-prompt-btn" data-copy-sheet="${esc(sheetId)}" title="Copy full 2x2 sheet prompt for testing">Copy Sheet Prompt</button>` : ""}
         <button type="button" class="comment-jump-hint">${comments.length ? `Read Comments (${comments.length})` : "+ Add Comment"}</button>
       </div>
     </div>
@@ -1050,6 +1261,8 @@ function renderBattlegroundUnit(bg, idx, total, deck) {
   const elements = (bg.sceneElements || []).map((el) => `<span class="bg-chip">${esc(el)}</span>`).join("");
   const bgTheme = bg.biomeTheme || deck?.roomPool16x9?.[0]?.biomeTheme || "cavern";
 
+  const hasBgPrompt = Boolean(getDeckPrompts(deck)?.battlegrounds?.some((b) => b.id === bg.id));
+
   const tabBar = `
     <div class="unit-tabs" role="tablist" aria-label="View switch for ${esc(bg.roomTitle)}">
       <button type="button" role="tab" aria-selected="${!isCommentTab}" class="unit-tab-btn ${!isCommentTab ? "active" : ""}" data-tab="card">${isCommentTab ? "&larr; Battleground" : "Battleground"}</button>
@@ -1077,7 +1290,7 @@ function renderBattlegroundUnit(bg, idx, total, deck) {
         <input type="checkbox" class="chk-approve" ${bg.approved ? "checked" : ""} />
         <span>${bg.approved ? "Approved" : "Approve Stage"}</span>
       </label>
-      <button type="button" class="copy-prompt-btn" data-copy-bg="${esc(bg.id)}" title="Copy full 16:9 Pro 3 Battleground AI prompt for ${esc(bg.roomTitle)}">Copy Prompt</button>
+      ${hasBgPrompt ? `<button type="button" class="copy-prompt-btn" data-copy-bg="${esc(bg.id)}" title="Copy full 16:9 Pro 3 Battleground AI prompt for ${esc(bg.roomTitle)}">Copy Prompt</button>` : ""}
       <button type="button" class="comment-jump-hint">${comments.length ? `Read Comments (${comments.length})` : "+ Add Comment"}</button>
     </div>
   `;
@@ -1097,9 +1310,20 @@ function renderPoolRoomUnit(room, idx, total, deck) {
   const sceneWord = deck?.uiMeta?.sceneWord || "Room";
   const rTheme = room.biomeTheme || deck?.roomPool16x9?.[0]?.biomeTheme || "cavern";
 
+  const isQuestScene = Boolean(room.sceneRole);
+  const roleTitle =
+    room.sceneRole === "start"
+      ? "Starting Room"
+      : room.sceneRole === "end"
+        ? "Ending Room"
+        : isQuestScene
+          ? "Quest Room"
+          : `${esc(sceneWord)} Pool`;
+  const hasRoomPrompt = Boolean(getDeckPrompts(deck)?.rooms?.some((r) => r.id === room.id));
+
   const tabBar = `
     <div class="unit-tabs" role="tablist" aria-label="View switch for ${esc(room.roomTitle)}">
-      <button type="button" role="tab" aria-selected="${!isCommentTab}" class="unit-tab-btn ${!isCommentTab ? "active" : ""}" data-tab="card">${isCommentTab ? `&larr; 16:9 ${esc(sceneWord)}` : `16:9 ${esc(sceneWord)}`}</button>
+      <button type="button" role="tab" aria-selected="${!isCommentTab}" class="unit-tab-btn ${!isCommentTab ? "active" : ""}" data-tab="card">${isCommentTab ? `&larr; 16:9 ${esc(roleTitle)}` : `16:9 ${esc(roleTitle)}`}</button>
       <button type="button" role="tab" aria-selected="${isCommentTab}" class="unit-tab-btn ${isCommentTab ? "active" : ""}" data-tab="comments">
         <span>Comments</span>
         <span class="comment-count-badge ${comments.length > 0 ? "has-items" : ""}">${comments.length}</span>
@@ -1108,13 +1332,13 @@ function renderPoolRoomUnit(room, idx, total, deck) {
   `;
 
   const roomTabBody = `
-    <div class="bg-plate-16x9${room.sampleRefPath ? " has-real-img" : ""}" ${room.sampleRefPath ? `data-zoom-src="${esc(room.sampleRefPath)}" data-zoom-title="${esc(room.roomTitle)}" data-zoom-eyebrow="16:9 ${esc(sceneWord)} (${idx + 1} of ${total})" data-zoom-note="${esc(room.sceneSummary || "")}" title="Click to expand scene full screen"` : ""}>
-      ${room.sampleRefPath ? `<img src="${esc(room.sampleRefPath)}" alt="${esc(room.roomTitle)}" loading="lazy" />` : `${room.biomeTheme ? renderBiomePlateSvg(rTheme, false) : ""}<div class="bg-plate-overlay"><div class="bg-plate-kicker">Base Deck ${esc(sceneWord)} Pool · ${idx + 1} of ${total}</div><div class="bg-plate-title">${esc(room.roomTitle)}</div></div>`}
+    <div class="bg-plate-16x9${room.sampleRefPath ? " has-real-img" : ""}" ${room.sampleRefPath ? `data-zoom-src="${esc(room.sampleRefPath)}" data-zoom-title="${esc(room.roomTitle)}" data-zoom-eyebrow="16:9 ${esc(roleTitle)} (${idx + 1} of ${total})" data-zoom-note="${esc(room.sceneSummary || "")}" title="Click to expand scene full screen"` : ""}>
+      ${room.sampleRefPath ? `<img src="${esc(room.sampleRefPath)}" alt="${esc(room.roomTitle)}" loading="lazy" />` : `${room.biomeTheme ? renderBiomePlateSvg(rTheme, false) : ""}<div class="bg-plate-overlay"><div class="bg-plate-kicker">${esc(roleTitle)} · ${idx + 1} of ${total}</div><div class="bg-plate-title">${esc(room.roomTitle)}</div></div>`}
     </div>
 
     <div class="bg-desc-panel">
       ${room.sampleRefPath ? `<div class="bg-desc-title">${esc(room.roomTitle)}</div>` : ""}
-      <div class="bg-desc-label">${room.sampleRefPath ? `${esc(sceneWord)} ${idx + 1} of ${total} · ` : ""}What Appears On This 16:9 Background</div>
+      <div class="bg-desc-label">${esc(roleTitle)} ${idx + 1} of ${total} · What Appears On This 16:9 Background</div>
       <p class="bg-desc-copy">${esc(room.sceneSummary)}</p>
       <div class="bg-elements">${elements}</div>
     </div>
@@ -1124,7 +1348,7 @@ function renderPoolRoomUnit(room, idx, total, deck) {
         <input type="checkbox" class="chk-approve" ${room.approved ? "checked" : ""} />
         <span>${room.approved ? "Approved" : `Approve ${esc(sceneWord)}`}</span>
       </label>
-      <button type="button" class="copy-prompt-btn" data-copy-room="${esc(room.id)}" title="Copy full 16:9 Pro 3 AI prompt for ${esc(room.roomTitle)}">Copy Prompt</button>
+      ${hasRoomPrompt ? `<button type="button" class="copy-prompt-btn" data-copy-room="${esc(room.id)}" title="Copy full 16:9 Pro 3 AI prompt for ${esc(room.roomTitle)}">Copy Prompt</button>` : ""}
       <button type="button" class="comment-jump-hint">${comments.length ? `Read Comments (${comments.length})` : "+ Add Comment"}</button>
     </div>
   `;
@@ -1191,7 +1415,75 @@ function getDeckPrompts(deck) {
   return deck.id === "base_stone_dungeon" ? state.promptsCatalog : null;
 }
 
+function renderQuestBlueprint(quest) {
+  btnToggleAllRooms.style.display = "none";
+  const recBaseId = inferRecommendedBaseDeckId(quest);
+  const recBaseName = findDeckName(recBaseId);
+  const regionLabel = REGION_LABELS[Number(quest.region) || 1] || `Region ${quest.region || 1}`;
+  const code = String(quest.questId || "").toUpperCase();
+
+  elGallery.innerHTML = `
+    <div class="deck-hero-banner">
+      <div>
+        <div class="deck-banner-eyebrow">Quest Deck Blueprint &middot; ${esc(code)} &middot; ${esc(regionLabel)} &middot; ${esc(quest.category || "Quest")}</div>
+        <h2 class="deck-banner-title">${esc(quest.title)}</h2>
+        <p class="deck-banner-sub">${esc(quest.description || "")}</p>
+        <div class="quest-bp-meta-grid">
+          <span class="quest-bp-chip"><strong>Hub:</strong> ${esc(quest.hubName || "—")}</span>
+          <span class="quest-bp-chip"><strong>Level:</strong> ${esc(quest.levelRange || "—")}</span>
+          <span class="quest-bp-chip"><strong>Giver:</strong> ${esc(quest.giver || "—")}</span>
+          ${quest.miniBoss ? `<span class="quest-bp-chip"><strong>Boss / Threat:</strong> ${esc(quest.miniBoss)}</span>` : ""}
+          ${quest.reward ? `<span class="quest-bp-chip"><strong>Reward:</strong> ${esc(quest.reward)}</span>` : ""}
+        </div>
+      </div>
+      <div class="deck-tip-pill">
+        <strong>Paired Base Deck:</strong> Cards for this quest shuffle invisibly into <strong>${esc(recBaseName)}</strong> under the exact same Dark Basalt frame &amp; circular sigil backs.
+        <div style="margin-top:8px;">
+          <button type="button" class="rpg-btn secondary" data-jump-base-deck="${esc(recBaseId)}">Open ${esc(recBaseName)} &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="quest-blueprint-grid">
+      <div class="quest-bp-card">
+        <h4>Starting Room Scene (1)</h4>
+        <p>Opening 16:9 entry backdrop where the party begins this quest before flipping the first 3 cards.</p>
+      </div>
+      <div class="quest-bp-card">
+        <h4>Quest-Specific Rooms (4–8 Scenes)</h4>
+        <p>Signature quest rooms uncovered via matching Dark Basalt passage cards shuffled among Base Deck doors and stairs.</p>
+      </div>
+      <div class="quest-bp-card">
+        <h4>Exclusive Named Enemies &amp; Boss</h4>
+        <p>Unique quest monsters and the climactic boss fight${quest.miniBoss ? ` (${esc(quest.miniBoss)})` : ""} — distinct from generic Base Deck road mobs.</p>
+      </div>
+      <div class="quest-bp-card">
+        <h4>Quest Traps, Discoveries &amp; Treasures</h4>
+        <p>1–2 quest-only traps, 1–2 story discoveries, and 1–2 high-value quest chests disguised under universal Basalt borders.</p>
+      </div>
+      <div class="quest-bp-card">
+        <h4>Ending Victory Scene (1)</h4>
+        <p>Dramatic resolution chamber displayed immediately upon defeating the quest threat before returning to ${esc(quest.hubName || "the overworld")}.</p>
+      </div>
+      <div class="quest-bp-card">
+        <h4>Status: Ready to Author</h4>
+        <p>No card sheets are linked in proposed-decks yet. Once generated and added under <code>deckKind: "quest"</code>, this quest renders full card approvals and comments here.</p>
+      </div>
+    </div>
+  `;
+}
+
 function renderGallery() {
+  if (state.selectionMode === "quest" && !getActiveDeck()) {
+    const quest = getActiveQuest();
+    if (!quest) {
+      elGallery.innerHTML = `<div class="empty-state">Select a Base Deck or Specific Quest from the sidebar dropdowns.</div>`;
+      return;
+    }
+    renderQuestBlueprint(quest);
+    return;
+  }
+
   const deck = getActiveDeck();
   if (!deck) {
     elGallery.innerHTML = `<div class="empty-state">No proposed decks found in data/proposed-decks.json.</div>`;
@@ -1228,11 +1520,15 @@ function renderGallery() {
     ? `<strong>${esc(uiMeta.flowLabel || "Path Flow")}:</strong> ${esc(uiMeta.flowText)}`
     : `<strong>Room Flow:</strong> Generic Doors &amp; Stairs pull from the <strong>${allRooms.length} generic 16:9 rooms</strong> at the bottom. Only quest-fixed doors carry a clickable 16:9 link.`;
 
+  const pairedBtnHtml = deck.pairedBaseDeckId
+    ? `<div style="margin-top:8px;"><button type="button" class="rpg-btn secondary" data-jump-base-deck="${esc(deck.pairedBaseDeckId)}">Inspect Paired ${esc(findDeckName(deck.pairedBaseDeckId))} &rarr;</button></div>`
+    : "";
+
   const bannerHtml = `
     <div class="deck-hero-banner">
       <div>
         <div class="deck-banner-eyebrow">${esc(deck.badge || "Proposed Deck")} &middot; ${esc(deck.status || "")}</div>
-        <h2 class="deck-banner-title">${esc(deck.name)} (${allCards.length} Unique &rarr; ${totalCopiesAll} Cards + ${allRooms.length} Pool ${esc(sceneWord)}s)</h2>
+        <h2 class="deck-banner-title">${esc(deck.name)} (${allCards.length} Unique &rarr; ${totalCopiesAll} Cards + ${allRooms.length} ${esc(sceneWord)}${allRooms.length === 1 ? "" : "s"})</h2>
         <p class="deck-banner-sub">${esc(deck.themeNotes || deck.subtitle || "")}</p>
         ${
           sheetButtonsHtml
@@ -1240,12 +1536,12 @@ function renderGallery() {
             : ""
         }
       </div>
-      <div class="deck-tip-pill">${flowHtml}</div>
+      <div class="deck-tip-pill">${flowHtml}${pairedBtnHtml}</div>
     </div>
   `;
 
   if (allCards.length === 0 && allBacks.length === 0 && allRooms.length === 0 && allBattlegrounds.length === 0) {
-    elGallery.innerHTML = `${bannerHtml}<div class="empty-state">This Base Deck is prepared empty and ready to author (0 cards, backs, rooms, or battlegrounds added yet).</div>`;
+    elGallery.innerHTML = `${bannerHtml}<div class="empty-state">This Deck is prepared empty and ready to author (0 cards, backs, rooms, or battlegrounds added yet).</div>`;
     return;
   }
 
@@ -1256,10 +1552,12 @@ function renderGallery() {
 
   const groups = buildGroups(filteredCards, deck);
   const isSheetMode = state.groupBy === "sheet";
+  const hasAnySheetPrompts = Boolean(deckPrompts?.sheets?.length);
   const cardSectionsHtml = groups
     .map(
       (g) => {
         const groupTotal = g.cards.reduce((sum, c) => sum + cardCopies(c), 0);
+        const canCopyGroupSheet = hasAnySheetPrompts && g.sheetId && deckPrompts.sheets.some((s) => s.id === g.sheetId && s.prompt);
         return `
       <section class="card-group-block">
         <div class="group-header">
@@ -1267,7 +1565,7 @@ function renderGallery() {
             <span class="dot ${esc(g.dot)}"></span>
             <h3 class="group-title">${esc(g.title)}</h3>
             <span class="group-count">${g.cards.length} Design${g.cards.length === 1 ? "" : "s"} &middot; ${groupTotal} in Deck</span>
-            ${g.sheetId ? `<button type="button" class="copy-prompt-btn" data-copy-sheet="${esc(g.sheetId)}" title="Copy full 2x2 AI prompt for ${esc(g.title)}">Copy Prompt</button>` : ""}
+            ${canCopyGroupSheet ? `<button type="button" class="copy-prompt-btn" data-copy-sheet="${esc(g.sheetId)}" title="Copy full 2x2 AI prompt for ${esc(g.title)}">Copy Prompt</button>` : ""}
           </div>
           <div class="group-desc">${esc(g.desc)}</div>
         </div>
@@ -1280,6 +1578,7 @@ function renderGallery() {
     )
     .join("");
 
+  const hasBacksPrompt = Boolean(deckPrompts?.sheets?.some((s) => s.id === "base_backs" && s.prompt));
   const cardBacksSectionHtml =
     filteredBacks.length > 0
       ? `
@@ -1287,11 +1586,11 @@ function renderGallery() {
         <div class="group-header">
           <div class="group-title-row">
             <span class="dot cobalt"></span>
-            <h3 class="group-title">Card Backs — Abstract Basalt Sigils (${filteredBacks.length} Variants)</h3>
+            <h3 class="group-title">${deck.deckKind === "quest" ? "Shared Card Backs — Abstract Basalt Sigils (Matches Base Deck)" : `Card Backs — Abstract Basalt Sigils (${filteredBacks.length} Variants)`}</h3>
             <span class="group-count">${filteredBacks.length} Backs</span>
-            <button type="button" class="copy-prompt-btn" data-copy-sheet="base_backs" title="Copy full 2x2 Card Backs prompt">Copy Prompt</button>
+            ${hasBacksPrompt ? `<button type="button" class="copy-prompt-btn" data-copy-sheet="base_backs" title="Copy full 2x2 Card Backs prompt">Copy Prompt</button>` : ""}
           </div>
-          <div class="group-desc">Universal carved dark basalt card backs rotated at random across face-down stacks.</div>
+          <div class="group-desc">Universal carved dark basalt card backs shared seamlessly with the Base Deck so quest cards stay hidden face-down.</div>
         </div>
         <div class="cards-grid sheet-mode">
           ${filteredBacks.map((bk) => renderBackUnit(bk, allBacks.indexOf(bk))).join("")}
@@ -1300,11 +1599,61 @@ function renderGallery() {
     `
       : "";
 
-  const roomPoolTitle = uiMeta?.poolTitle || "Base Deck 16:9 Room Pool";
-  const roomPoolDesc = uiMeta?.poolDesc || "Interchangeable 16:9 room backdrops shared across all generic Doors, Archways, and Stairs in this deck.";
-  const roomPoolSectionHtml =
-    filteredRooms.length > 0
-      ? `
+  let roomPoolSectionHtml = "";
+  const hasRoleScenes = deck.deckKind === "quest" && filteredRooms.some((rm) => rm.sceneRole);
+  if (hasRoleScenes) {
+    const startScenes = filteredRooms.filter((rm) => rm.sceneRole === "start");
+    const midScenes = filteredRooms.filter((rm) => !rm.sceneRole || rm.sceneRole === "quest_room");
+    const endScenes = filteredRooms.filter((rm) => rm.sceneRole === "end");
+    const roleGroups = [
+      {
+        id: "questStartSceneSection",
+        dot: "emerald",
+        title: "Starting Room Scene (Entry Before Drawing Cards)",
+        desc: "Opening 16:9 backdrop displayed immediately when the party enters this quest before flipping the first 3 cards.",
+        items: startScenes,
+      },
+      {
+        id: "roomPoolSection",
+        dot: "cobalt",
+        title: uiMeta?.poolTitle || "Quest-Specific 16:9 Rooms (Uncovered Via Passages)",
+        desc: uiMeta?.poolDesc || "Unique 16:9 quest chambers uncovered by flipping Quest Passage & Door cards mixed into the Base Deck.",
+        items: midScenes,
+      },
+      {
+        id: "questEndSceneSection",
+        dot: "gold",
+        title: "Ending Victory Room Scene (Auto-Triggered Upon Boss Defeat)",
+        desc: "Celebratory closing 16:9 scene shown automatically as the quest resolves before returning the party to the hub or overworld.",
+        items: endScenes,
+      },
+    ].filter((g) => g.items.length > 0);
+
+    roomPoolSectionHtml = roleGroups
+      .map(
+        (g) => `
+      <section class="card-group-block" id="${esc(g.id)}">
+        <div class="group-header">
+          <div class="group-title-row">
+            <span class="dot ${esc(g.dot)}"></span>
+            <h3 class="group-title">${esc(g.title)}</h3>
+            <span class="group-count">${g.items.length} Scene${g.items.length === 1 ? "" : "s"}</span>
+          </div>
+          <div class="group-desc">${esc(g.desc)}</div>
+        </div>
+        <div class="rooms-grid">
+          ${g.items.map((rm) => renderPoolRoomUnit(rm, allRooms.indexOf(rm), allRooms.length, deck)).join("")}
+        </div>
+      </section>
+    `
+      )
+      .join("");
+  } else {
+    const roomPoolTitle = uiMeta?.poolTitle || "Base Deck 16:9 Room Pool";
+    const roomPoolDesc = uiMeta?.poolDesc || "Interchangeable 16:9 room backdrops shared across all generic Doors, Archways, and Stairs in this deck.";
+    roomPoolSectionHtml =
+      filteredRooms.length > 0
+        ? `
       <section class="card-group-block" id="roomPoolSection">
         <div class="group-header">
           <div class="group-title-row">
@@ -1319,7 +1668,19 @@ function renderGallery() {
         </div>
       </section>
     `
-      : "";
+        : "";
+  }
+
+  const bgTitle =
+    uiMeta?.battlegroundsTitle ||
+    (deck.deckKind === "quest"
+      ? `Quest 16:9 Combat Battlegrounds (${filteredBattlegrounds.length} Arena${filteredBattlegrounds.length === 1 ? "" : "s"})`
+      : `Base Deck 16:9 Combat Battlegrounds (${filteredBattlegrounds.length} Arenas)`);
+  const bgDesc =
+    uiMeta?.battlegroundsDesc ||
+    (deck.deckKind === "quest"
+      ? "Stages used specifically when named quest encounters or the Quest Boss fight trigger inside this quest."
+      : `Shown at random whenever an Ambush card triggers a fight inside a ${esc(deck.name)} quest pack (85% open battle floor / 15% top horizon rim).`);
 
   const battlegroundsSectionHtml =
     filteredBattlegrounds.length > 0
@@ -1328,10 +1689,10 @@ function renderGallery() {
         <div class="group-header">
           <div class="group-title-row">
             <span class="dot crimson"></span>
-            <h3 class="group-title">Base Deck 16:9 Combat Battlegrounds (${filteredBattlegrounds.length} Arenas)</h3>
-            <span class="group-count">${filteredBattlegrounds.length} Stages</span>
+            <h3 class="group-title">${esc(bgTitle)}</h3>
+            <span class="group-count">${filteredBattlegrounds.length} Stage${filteredBattlegrounds.length === 1 ? "" : "s"}</span>
           </div>
-          <div class="group-desc">Shown at random whenever an Ambush card triggers a fight inside a ${esc(deck.name)} quest pack (85% open battle floor / 15% top horizon rim).</div>
+          <div class="group-desc">${esc(bgDesc)}</div>
         </div>
         <div class="rooms-grid">
           ${filteredBattlegrounds.map((bg) => renderBattlegroundUnit(bg, allBattlegrounds.indexOf(bg), allBattlegrounds.length, deck)).join("")}
@@ -1581,6 +1942,24 @@ async function saveDecks(toastMsg = "Saved proposed deck reviews") {
 }
 
 function bindEvents() {
+  elSelBase?.addEventListener("change", () => {
+    const val = elSelBase.value;
+    if (val) selectBaseDeck(val);
+    else syncDropdownSelectors();
+  });
+
+  elSelQuest?.addEventListener("change", () => {
+    const val = elSelQuest.value;
+    selectQuestDeck(val);
+  });
+
+  elSidebarBody?.addEventListener("click", (e) => {
+    const jumpBtn = e.target.closest("[data-jump-base-deck]");
+    if (jumpBtn) {
+      selectBaseDeck(jumpBtn.dataset.jumpBaseDeck || "");
+    }
+  });
+
   elSearch.addEventListener("input", () => {
     state.search = elSearch.value;
     renderGallery();
@@ -1633,6 +2012,11 @@ function bindEvents() {
 async function init() {
   bindEvents();
   elGallery.addEventListener("click", async (e) => {
+    const jumpBtn = e.target.closest("[data-jump-base-deck]");
+    if (jumpBtn) {
+      selectBaseDeck(jumpBtn.dataset.jumpBaseDeck || "");
+      return;
+    }
     const zoomEl = e.target.closest("[data-zoom-src]");
     if (zoomEl) {
       e.stopPropagation();
@@ -1656,16 +2040,27 @@ async function init() {
   });
 
   try {
-    const [res, pRes] = await Promise.all([
+    const [res, pRes, qRes, dRes] = await Promise.all([
       fetch("/api/proposed-decks", { cache: "no-store" }),
       fetch("/api/base-deck-prompts", { cache: "no-store" }).catch(() => null),
+      fetch("/data/quests-catalog.json", { cache: "no-store" }).catch(() => null),
+      fetch("/data/dungeon-catalog.json", { cache: "no-store" }).catch(() => null),
     ]);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     state.catalog = await res.json();
     if (pRes && pRes.ok) {
       state.promptsCatalog = await pRes.json();
     }
-    state.selectedDeckId = state.catalog?.decks?.[0]?.id || "";
+    if (qRes && qRes.ok) {
+      const qJson = await qRes.json();
+      state.quests = Array.isArray(qJson) ? qJson : qJson.quests || qJson.items || [];
+    }
+    if (dRes && dRes.ok) {
+      state.dungeonCatalog = await dRes.json();
+    }
+    state.selectionMode = "base";
+    state.selectedDeckId = getBaseDecks()[0]?.id || state.catalog?.decks?.[0]?.id || "";
+    populateDeckDropdowns();
     renderAll();
   } catch (err) {
     elStats.textContent = "Failed to load proposed decks";

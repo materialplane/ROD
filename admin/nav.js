@@ -1,6 +1,7 @@
 (() => {
   const ADMIN_TOOLS = [
     { label: "World Builder", href: "/admin/", desc: "Overworld maps, hex terrain, zones & pins" },
+    { label: "Realm Scale Test", href: "/admin/realm-test/", desc: "Walk & zoom-test doubled 16:9 Zelda-grid sectors" },
     { label: "Markers & Assets", href: "/admin/catalog.html", desc: "Browse all exported tokens, portraits & sheets" },
     { label: "Shops & Inns", href: "/admin/shops/", desc: "Preview town shops, inns & item pricing" },
     { label: "Party Menu", href: "/admin/party/", desc: "Inspect hero status, gear, spells & atlas" },
